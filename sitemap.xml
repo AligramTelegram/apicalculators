@@ -7,11 +7,44 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://de.apicalculators.com/"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://fr.apicalculators.com/"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://tr.apicalculators.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/"/>
   </url>
+  <url>
+    <loc>https://apicalculators.com/de/</loc>
+    <lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/fr/</loc>
+    <lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/</loc>
+    <lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
+  </url>
+  <url><loc>https://apicalculators.com/de/blog/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apicalculators.com/de/blog/llm-kosten-leitfaden-2026.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/de/about.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://apicalculators.com/fr/blog/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apicalculators.com/fr/blog/guide-couts-llm-2026.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/fr/about.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://apicalculators.com/tr/blog/</loc><lastmod>2026-06-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://apicalculators.com/tr/blog/llm-maliyet-rehberi-2026.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/tr/about.html</loc><lastmod>2026-06-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url>
     <loc>https://apicalculators.com/blog/</loc>
     <lastmod>2026-06-02</lastmod>

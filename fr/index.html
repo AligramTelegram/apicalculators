@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0c10">
+<title>Calculatrice de Coûts LLM & Outils de Prix Infrastructure IA | APICalculators</title>
+<meta name="description" content="Calculez et optimisez vos coûts d'infrastructure IA en temps réel. Estimez les coûts de tokens LLM (GPT-4o, Claude, Gemini), comparez les bases de données vectorielles, planifiez vos budgets de génération d'images et analysez les frais Stripe vs Paddle. Gratuit, sans inscription.">
+<meta name="keywords" content="calculatrice coûts LLM, calculateur prix API, coûts base de données vectorielle, coûts génération images IA, frais passerelle paiement, coût GPT-4o, prix Claude, Stripe vs Paddle">
+<meta name="author" content="APICalculators">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta http-equiv="content-language" content="fr">
+<link rel="canonical" href="https://apicalculators.com/fr/">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="APICalculators — Calculatrices de Coûts Infrastructure IA">
+<meta property="og:description" content="Calculatrices de coûts en temps réel pour les API IA, bases de données vectorielles, génération d'images et processeurs de paiement SaaS.">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="og:url" content="https://apicalculators.com/fr/">
+<meta property="og:site_name" content="APICalculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="APICalculators — Outils Gratuits d'Optimisation des Coûts pour Développeurs">
+<meta name="twitter:description" content="Calculez vos coûts d'infrastructure IA instantanément. LLM, base vectorielle, génération d'images et frais de paiement.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<meta name="google-site-verification" content="ragcSuE5Eegby97lXvNtkZJX_OKg0fH4bXar4H5MF3I">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
+<link rel="apple-touch-icon" href="https://apicalculators.com/icon-192.png">
+<link rel="manifest" href="/manifest.json">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"APICalculators","url":"https://apicalculators.com/fr/","description":"Calculatrices de coûts pour l'infrastructure IA — tokens LLM, bases vectorielles, génération d'images et frais de paiement","inLanguage":"fr"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"},"description":"Outils d'optimisation des coûts d'infrastructure pour développeurs","areaServed":["FR","BE","CH","CA"],"sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la précision des calculs de coûts LLM ?","acceptedAnswer":{"@type":"Answer","text":"Nos calculatrices utilisent les prix officiels 2026 d'OpenAI, Anthropic, Google et autres fournisseurs. Les prix sont révisés mensuellement."}},{"@type":"Question","name":"APICalculators est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui, toutes les calculatrices sont entièrement gratuites et ne nécessitent aucune inscription."}},{"@type":"Question","name":"Stockez-vous mes données ?","acceptedAnswer":{"@type":"Answer","text":"Non. Tous les calculs s'exécutent entièrement dans votre navigateur. Rien de ce que vous saisissez n'est envoyé à un serveur."}}]}
+</script>
+<script>
+window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-CNZN4LX2GH';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-CNZN4LX2GH');});
+</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--lime-dim:#9be01f;--cyan:#4dd6ff;--amber:#ffb24d;--rose:#ff5d6c;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','SF Pro Text',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 500px at 80% -10%,rgba(184,255,46,.07),transparent 60%),radial-gradient(700px 600px at 5% 10%,rgba(77,214,255,.06),transparent 55%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.mono{font-family:'Cascadia Code','Consolas','SF Mono','Monaco',monospace;font-variant-numeric:tabular-nums}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;font-size:19px;letter-spacing:-.02em}
+.logo .glyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--lime);color:#06210a;font-size:17px;box-shadow:0 0 20px rgba(184,255,46,.4)}
+.logo b{color:var(--lime)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
+.nav-links a.nlink:hover{color:var(--text)}
+.lang{display:flex;gap:2px;border:1px solid var(--border2);border-radius:8px;padding:3px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px}
+.lang a{padding:3px 8px;border-radius:5px;color:var(--muted2);font-weight:500}
+.lang a.on{background:var(--surface2);color:var(--lime)}
+.lang a:hover{color:var(--text)}
+@media(max-width:760px){.nav-links .nlink{display:none}}
+.hero{padding:78px 0 30px;text-align:center;position:relative}
+.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
+.tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.h{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.02;font-size:clamp(32px,5.5vw,60px)}
+h1.h .em{color:var(--lime);position:relative}
+h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;background:rgba(184,255,46,.18);z-index:-1;transform:skewX(-8deg)}
+.sub{max-width:640px;margin:22px auto 0;color:var(--muted);font-size:18px}
+.hero-stats{display:flex;gap:34px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.hstat b{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:24px;display:block;color:var(--text)}
+.hstat span{font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace;text-transform:uppercase;letter-spacing:.06em}
+.adslot{margin:26px auto;max-width:760px;min-height:90px;border:1px dashed var(--border2);border-radius:10px;display:grid;place-items:center;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
+.calc{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-top:18px}
+.tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1;min-width:max-content;display:flex;align-items:center;gap:9px;padding:13px 16px;border-radius:11px;cursor:pointer;color:var(--muted);font-weight:600;font-size:14.5px;white-space:nowrap;border:1px solid transparent;transition:all .18s;background:transparent}
+.tab .ic{font-size:17px}
+.tab:hover{color:var(--text);background:var(--surface2)}
+.tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
+.tab.on .ic{filter:drop-shadow(0 0 8px rgba(184,255,46,.6))}
+.tab .num{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2);border:1px solid var(--border2);border-radius:5px;padding:1px 5px}
+.tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
+.panel{display:none;padding:28px;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel-head{margin-bottom:22px}
+.panel-head h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
+.panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
+.field{margin-bottom:18px}
+.field label{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.field label .hint{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2);font-weight:400}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s,box-shadow .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:max-content;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
+.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+.seg button:not(.on):hover{color:var(--text);border-color:var(--border2)}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.06),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.result .rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.result .big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;letter-spacing:-.03em;font-size:clamp(40px,8vw,56px);line-height:1;margin:8px 0 2px;color:var(--lime)}
+.result .per{color:var(--muted);font-size:13.5px}
+.breakdown{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:11px}
+.brow{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.brow span{color:var(--muted)}
+.brow b{font-family:'Cascadia Code','Consolas',monospace;font-weight:500;font-size:14px}
+.brow.hl b{color:var(--lime)}
+.brow.warn b{color:var(--amber)}
+.cmp{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.cmpitem{background:var(--bg);border:1px solid var(--border2);border-radius:12px;padding:14px 16px}
+.cmpitem.best{border-color:rgba(184,255,46,.4);box-shadow:0 0 0 1px rgba(184,255,46,.15)}
+.cmptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.cmptop .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em}
+.cmptop .amt{font-family:'Cascadia Code','Consolas',monospace;font-weight:700;font-size:17px}
+.bar{height:7px;background:var(--border);border-radius:100px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.cmpitem.best .bar i{background:linear-gradient(90deg,var(--lime),var(--lime-dim))}
+.cmpmeta{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2);margin-top:7px}
+.disclaimer{font-size:12px;color:var(--muted2);margin-top:16px;line-height:1.5;border-left:2px solid var(--border2);padding-left:12px}
+.partners{margin:60px 0 10px}
+.sec-label{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:22px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:14px 20px;font-weight:600;font-size:14.5px;transition:all .2s;color:var(--text)}
+.cta-button:hover{border-color:var(--lime);transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(184,255,46,.3)}
+.cta-button .arr{color:var(--lime);transition:transform .2s}
+.cta-button:hover .arr{transform:translate(3px,-3px)}
+.cta-button .em{font-size:18px}
+.section{padding:62px 0}
+.section h2.sh{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:clamp(26px,4vw,36px);letter-spacing:-.025em;text-align:center}
+.section .ssub{text-align:center;color:var(--muted);margin:10px auto 0;max-width:540px}
+.faq{max-width:760px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:border-color .2s}
+.qa.open{border-color:var(--border2)}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;font-weight:600;font-size:15.5px}
+.qa .q .plus{color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14.5px}
+.qa .a p{padding:0 20px 18px}
+.newsletter{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;padding:42px 32px;text-align:center;position:relative;overflow:hidden}
+.newsletter::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 200px at 50% 0%,rgba(184,255,46,.08),transparent)}
+.newsletter h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:26px;position:relative}
+.newsletter p{color:var(--muted);margin:8px auto 22px;max-width:440px;position:relative}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;position:relative}
+.nl-form input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:13px 15px;color:var(--text);font-size:14.5px;font-family:'Cascadia Code','Consolas',monospace}
+.nl-form input:focus{outline:none;border-color:var(--lime)}
+.nl-form button{background:var(--lime);color:#06210a;border:none;border-radius:10px;padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:transform .15s,box-shadow .2s}
+.nl-form button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(184,255,46,.5)}
+.nl-note{font-size:12px;color:var(--muted2);margin-top:12px;position:relative}
+@media(max-width:520px){.nl-form{flex-direction:column}}
+footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot-grid h4{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
+.foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
+.foot-grid a:hover{color:var(--lime)}
+.foot-about p{color:var(--muted);font-size:13.5px;margin-top:10px;max-width:260px}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:34px;padding-top:22px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/fr/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
+    <nav class="nav-links">
+      <a class="nlink" href="#calc">Calculatrices</a>
+      <a class="nlink" href="#faq">FAQ</a>
+      <a class="nlink" href="/fr/blog/">Blog</a>
+      <div class="lang">
+        <a href="/">EN</a><a href="/de/">DE</a><a class="on" href="/fr/">FR</a><a href="/tr/">TR</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<section class="hero wrap">
+  <span class="tagpill"><span class="dot"></span> Prix 2026 · 4 calculatrices · 100% dans votre navigateur</span>
+  <h1 class="h">Connaissez vos <span class="em">coûts d'infra</span><br>avant la facture.</h1>
+  <p class="sub">Calculatrices de coûts en temps réel pour les tokens LLM, bases de données vectorielles, génération d'images IA et frais de paiement SaaS. Gratuit, sans inscription, aucune donnée ne quitte votre appareil.</p>
+  <div class="hero-stats">
+    <div class="hstat"><b>12+</b><span>Fournisseurs</span></div>
+    <div class="hstat"><b>&lt;300ms</b><span>Réponse Edge</span></div>
+    <div class="hstat"><b>$0</b><span>Utilisation</span></div>
+  </div>
+</section>
+<div class="wrap"><div class="adslot">AD · TOP LEADERBOARD · 728×90 / 320×50</div></div>
+<main class="wrap" id="calc">
+<div class="calc">
+  <div class="tabs" role="tablist" aria-label="Onglets de calculatrices">
+    <button class="tab on" role="tab" aria-selected="true" aria-controls="llm" data-tab="llm"><span class="ic" aria-hidden="true">🔤</span> Tokens LLM <span class="num" aria-hidden="true">01</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="vector" data-tab="vector"><span class="ic" aria-hidden="true">🧊</span> Base Vectorielle <span class="num" aria-hidden="true">02</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="image" data-tab="image"><span class="ic" aria-hidden="true">🎨</span> Génération Images <span class="num" aria-hidden="true">03</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="pay" data-tab="pay"><span class="ic" aria-hidden="true">💳</span> Frais Paiement <span class="num" aria-hidden="true">04</span></button>
+  </div>
+  <section class="panel on" id="llm" role="tabpanel">
+    <div class="panel-head"><h2>Calculatrice de Coûts Tokens LLM & API</h2><p>Estimez vos dépenses mensuelles pour GPT-4o, Claude et Gemini selon votre débit de tokens.</p></div>
+    <div class="grid2">
+      <div>
+        <div class="field"><label for="llmModel">Modèle</label><select class="sel" id="llmModel" aria-label="Sélectionner le modèle LLM"></select></div>
+        <div class="row2">
+          <div class="field"><label for="llmIn">Tokens d'entrée / requête <span class="hint">moy.</span></label><input class="inp" id="llmIn" type="number" value="1500" min="0"></div>
+          <div class="field"><label for="llmOut">Tokens de sortie / requête <span class="hint">moy.</span></label><input class="inp" id="llmOut" type="number" value="500" min="0"></div>
+        </div>
+        <div class="field"><label for="llmReq">Requêtes <span class="hint">par période</span></label><input class="inp" id="llmReq" type="number" value="10000" min="0"></div>
+        <div class="field"><label>Période de facturation</label><div class="seg" id="llmPeriod" role="group" aria-label="Période de facturation"><button data-v="1">Par jour</button><button class="on" data-v="30">Par mois</button><button data-v="365">Par an</button></div></div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Coût estimé</div><div class="big" id="llmTotal">$0</div><div class="per" id="llmPer">— par mois</div>
+        <div class="breakdown">
+          <div class="brow"><span>Prix (entrée / sortie par 1M)</span><b id="llmPrice">—</b></div>
+          <div class="brow"><span>Coût par requête</span><b id="llmPerReq">—</b></div>
+          <div class="brow"><span>Coût tokens d'entrée</span><b id="llmInCost">—</b></div>
+          <div class="brow"><span>Coût tokens de sortie</span><b id="llmOutCost">—</b></div>
+          <div class="brow hl"><span>Tokens totaux / période</span><b id="llmTok">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Les prix reflètent les tarifs API publics publiés pour 2026 (USD, à l'usage). Les remises sur volume, entrées en cache et tarifs par lots ne sont pas appliqués. Vérifiez la page de tarification du fournisseur avant de budgétiser.</p>
+  </section>
+  <section class="panel" id="vector" role="tabpanel">
+    <div class="panel-head"><h2>Calculatrice de Coûts Cloud Base de Données Vectorielle</h2><p>Coûts mensuels approximatifs pour Pinecone, Supabase, Qdrant et Weaviate selon la taille de votre index.</p></div>
+    <div class="grid2">
+      <div>
+        <div class="field"><label for="vecProvider">Fournisseur</label><select class="sel" id="vecProvider" aria-label="Sélectionner le fournisseur"></select></div>
+        <div class="row2">
+          <div class="field"><label for="vecCount">Nombre de vecteurs</label><input class="inp" id="vecCount" type="number" value="1000000" min="0"></div>
+          <div class="field"><label for="vecDim">Dimensions</label><input class="inp" id="vecDim" type="number" value="1536" min="1"></div>
+        </div>
+        <div class="field"><label for="vecQ">Requêtes / mois</label><input class="inp" id="vecQ" type="number" value="2000000" min="0"></div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Coût mensuel estimé</div><div class="big" id="vecTotal">$0</div><div class="per" id="vecName">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Stockage vectoriel brut</span><b id="vecStore">—</b></div>
+          <div class="brow"><span>Coût de stockage</span><b id="vecStoreCost">—</b></div>
+          <div class="brow"><span>Coût requêtes / calcul</span><b id="vecQCost">—</b></div>
+          <div class="brow warn"><span>Frais de base du plan</span><b id="vecBase">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Les modèles de prix des bases vectorielles varient fortement (read units, pod-heures, niveaux de calcul). Ce sont des estimations d'ordre de grandeur pour vecteurs float32 avec ~1,5× de surcoût d'index — à utiliser pour comparaison, pas pour des contrats.</p>
+  </section>
+  <section class="panel" id="image" role="tabpanel">
+    <div class="panel-head"><h2>Planificateur de Budget Génération d'Images IA</h2><p>Comparez les coûts par image et mensuels pour DALL·E 3, Stable Diffusion et Flux.</p></div>
+    <div class="grid2">
+      <div>
+        <div class="field"><label for="imgModel">Modèle / qualité</label><select class="sel" id="imgModel" aria-label="Sélectionner le modèle d'image"></select></div>
+        <div class="field"><label for="imgCount">Images / mois</label><input class="inp" id="imgCount" type="number" value="5000" min="0"></div>
+        <div class="field"><label for="imgVar">Variations moy. par prompt <span class="hint">multiplicateur</span></label><input class="inp" id="imgVar" type="number" value="1" min="1"></div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Coût mensuel estimé</div><div class="big" id="imgTotal">$0</div><div class="per" id="imgName">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Coût par image</span><b id="imgUnit">—</b></div>
+          <div class="brow"><span>Images générées au total</span><b id="imgGen">—</b></div>
+          <div class="brow hl"><span>Coût par 1 000 images</span><b id="imgK">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Les tarifs DALL·E sont des prix API par image. Les modèles ouverts (SDXL, Flux) reflètent des prix d'API hébergée typiques ; l'auto-hébergement sur votre propre GPU peut être bien moins cher à grande échelle mais ajoute des coûts d'infra non modélisés ici.</p>
+  </section>
+  <section class="panel" id="pay" role="tabpanel">
+    <div class="panel-head"><h2>Calculatrice de Frais de Passerelle de Paiement SaaS</h2><p>Voyez exactement ce que Stripe, Paddle, Lemon Squeezy et PayPal prennent sur votre revenu mensuel.</p></div>
+    <div class="grid2">
+      <div>
+        <div class="row2">
+          <div class="field"><label for="payRev">Revenu mensuel <span class="hint">USD</span></label><input class="inp" id="payRev" type="number" value="25000" min="0"></div>
+          <div class="field"><label for="payTx">Transactions / mois</label><input class="inp" id="payTx" type="number" value="800" min="0"></div>
+        </div>
+        <div class="field"><label for="payAvg">Valeur moy. transaction</label><input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default"></div>
+        <p class="disclaimer" style="margin-top:4px">Paddle & Lemon Squeezy agissent comme Merchant of Record — leur pourcentage plus élevé inclut la gestion mondiale de la TVA/taxes et la protection contre les rétrofacturations, que Stripe facture séparément.</p>
+      </div>
+      <div>
+        <div class="rlabel" style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Frais par fournisseur</div>
+        <div class="cmp" id="payCmp"></div>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>
+<section class="partners">
+  <div class="sec-label">Construire moins cher — offres partenaires</div>
+  <div class="cta-row">
+    <a class="cta-button" rel="sponsored nofollow" target="_blank" href="https://www.digitalocean.com/?refcode=YOUR_CODE&utm_source=apicalculators&utm_medium=referral"><span class="em">🌊</span> Démarrer avec $200 de crédits DigitalOcean <span class="arr">↗</span></a>
+    <a class="cta-button" rel="sponsored nofollow" target="_blank" href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"><span class="em">⚡</span> Construire avec Supabase <span class="arr">↗</span></a>
+    <a class="cta-button" rel="sponsored nofollow" target="_blank" href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"><span class="em">▲</span> Déployer sur Vercel <span class="arr">↗</span></a>
+  </div>
+</section>
+</main>
+<section class="section" id="faq">
+  <div class="wrap">
+    <h2 class="sh">Questions fréquentes</h2>
+    <p class="ssub">Tout sur le fonctionnement de ces calculatrices et l'origine des chiffres.</p>
+    <div class="faq" id="faqList">
+      <div class="qa"><div class="q">Quelle est la précision des calculs de coûts LLM ? <span class="plus">+</span></div><div class="a"><p>Ils utilisent les tarifs API publics publiés pour 2026 d'OpenAI, Anthropic, Google et autres, révisés mensuellement. Ils n'incluent pas les remises entreprise, le cache de prompts ou les économies d'API par lots — considérez-les comme une estimation maximale pour la budgétisation.</p></div></div>
+      <div class="qa"><div class="q">APICalculators est-il gratuit ? <span class="plus">+</span></div><div class="a"><p>Oui. Chaque calculatrice est gratuite, sans inscription ni paywall. Nous finançons le site via les publicités display et les partenariats d'affiliation.</p></div></div>
+      <div class="qa"><div class="q">Stockez-vous ou envoyez-vous mes données ? <span class="plus">+</span></div><div class="a"><p>Non. Tous les calculs s'exécutent entièrement dans votre navigateur en JavaScript. Rien de ce que vous saisissez n'est transmis à un serveur ni conservé au-delà de votre session.</p></div></div>
+      <div class="qa"><div class="q">Quel processeur de paiement est le moins cher ? <span class="plus">+</span></div><div class="a"><p>Cela dépend de votre valeur de transaction moyenne et de votre besoin de gestion fiscale. Stripe gagne souvent sur le pourcentage brut pour les transactions élevées ; Paddle et Lemon Squeezy intègrent la conformité TVA mondiale dans un taux plus élevé. La calculatrice montre la différence réelle en dollars.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="section wrap" style="padding-top:0">
+  <div class="newsletter">
+    <h3>Un conseil d'économie par semaine</h3>
+    <p>Rejoignez les développeurs qui optimisent leurs dépenses IA & infra. Nouvelles calculatrices, changements de prix et analyses concrètes. Pas de spam.</p>
+    <form class="nl-form" action="https://formsubmit.co/hello@apicalculators.com" method="POST">
+      <input type="hidden" name="_subject" value="Nouvel abonné Newsletter APICalculators (FR)">
+      <input type="hidden" name="_next" value="https://apicalculators.com/fr/?subscribed=true">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" placeholder="vous@entreprise.fr" required aria-label="Votre adresse e-mail">
+      <button type="submit">S'abonner</button>
+    </form>
+    <p class="nl-note">Pas de spam. Désabonnement à tout moment. ~500 développeurs déjà inscrits.</p>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a href="/fr/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
+        <p>Outils d'optimisation des coûts d'infrastructure pour développeurs. Gratuit, rapide et privé — pour les ingénieurs qui détestent les factures surprises.</p>
+      </div>
+      <div><h4>Calculatrices</h4><a href="#llm">Coût Tokens LLM</a><a href="#vector">Coût Base Vectorielle</a><a href="#image">Génération d'Images</a><a href="#pay">Frais de Paiement</a></div>
+      <div><h4>Ressources</h4><a href="/fr/blog/">Blog</a><a href="/fr/about.html">À propos</a><a href="https://github.com/apicalculators" rel="nofollow" target="_blank">GitHub</a><a href="https://twitter.com/apicalculators" rel="nofollow" target="_blank">Twitter / X</a></div>
+      <div><h4>Légal</h4><a href="/fr/privacy.html">Confidentialité</a><a href="/fr/terms.html">Conditions</a><a href="/sitemap.xml">Sitemap</a></div>
+    </div>
+    <div class="foot-bot"><span>© 2026 APICalculators.com — construit sur l'Edge.</span><span>Les prix sont des estimations · vérifiez avant de déployer</span></div>
+  </div>
+</footer>
+<script>
+const LLM=[{id:"gpt-4o",name:"GPT-4o",in:2.50,out:10.00},{id:"gpt-4o-mini",name:"GPT-4o mini",in:0.15,out:0.60},{id:"o1",name:"OpenAI o1",in:15.00,out:60.00},{id:"claude-sonnet",name:"Claude 3.5 Sonnet",in:3.00,out:15.00},{id:"claude-haiku",name:"Claude 3.5 Haiku",in:0.80,out:4.00},{id:"claude-opus",name:"Claude 3 Opus",in:15.00,out:75.00},{id:"gemini-pro",name:"Gemini 1.5 Pro",in:1.25,out:5.00},{id:"gemini-flash",name:"Gemini 1.5 Flash",in:0.075,out:0.30}];
+const VEC=[{id:"pinecone",name:"Pinecone (Serverless)",base:0,storagePerGB:0.33,queryPerMillion:16.00},{id:"supabase",name:"Supabase (pgvector)",base:25,storagePerGB:0.125,queryPerMillion:0},{id:"qdrant",name:"Qdrant Cloud",base:0,storagePerGB:9.00,queryPerMillion:0},{id:"weaviate",name:"Weaviate Cloud",base:25,storagePerGB:0.50,queryPerMillion:10.00}];
+const IMG=[{id:"dalle3-std",name:"DALL·E 3 · 1024 standard",unit:0.040},{id:"dalle3-hd",name:"DALL·E 3 · 1024 HD",unit:0.080},{id:"dalle3-wide",name:"DALL·E 3 · 1792 HD",unit:0.120},{id:"sdxl",name:"Stable Diffusion XL (API)",unit:0.009},{id:"sd3",name:"Stable Diffusion 3",unit:0.035},{id:"flux",name:"Flux.1 Pro (API)",unit:0.050}];
+const PAY=[{id:"stripe",name:"Stripe",rate:0.029,fixed:0.30,note:"2,9% + $0,30"},{id:"paddle",name:"Paddle",rate:0.050,fixed:0.50,note:"5% + $0,50 · MoR"},{id:"lemon",name:"Lemon Squeezy",rate:0.050,fixed:0.50,note:"5% + $0,50 · MoR"},{id:"paypal",name:"PayPal",rate:0.0349,fixed:0.49,note:"3,49% + $0,49"}];
+const $=id=>document.getElementById(id);
+const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
+const fmt$=v=>{if(v===0)return"$0";if(v<0.01)return"$"+v.toFixed(5);if(v<1)return"$"+v.toFixed(3);if(v<1000)return"$"+v.toFixed(2);return"$"+Math.round(v).toLocaleString("fr-FR");};
+const big$=v=>{if(v>=1000)return"$"+Math.round(v).toLocaleString("fr-FR");if(v>=1)return"$"+v.toFixed(2);if(v>0)return"$"+v.toFixed(4);return"$0";};
+const intf=v=>Math.round(v).toLocaleString("fr-FR");
+document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));t.classList.add('on');t.setAttribute('aria-selected','true');$(t.dataset.tab).classList.add('on');});});
+LLM.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.in}/$${m.out} par 1M`;$('llmModel').appendChild(o);});
+let llmDays=30;
+$('llmPeriod').addEventListener('click',e=>{if(!e.target.dataset.v)return;[...$('llmPeriod').children].forEach(b=>b.classList.remove('on'));e.target.classList.add('on');llmDays=+e.target.dataset.v;calcLLM();});
+function calcLLM(){const m=LLM.find(x=>x.id===$('llmModel').value);const inTok=num($('llmIn').value),outTok=num($('llmOut').value),req=num($('llmReq').value);const inCostReq=inTok/1e6*m.in,outCostReq=outTok/1e6*m.out;const perReq=inCostReq+outCostReq;const reqTotal=req*llmDays;const total=perReq*reqTotal;const totalTok=(inTok+outTok)*reqTotal;$('llmTotal').textContent=big$(total);$('llmPer').textContent=llmDays===1?"— par jour":llmDays===30?"— par mois":"— par an";$('llmPrice').textContent=`$${m.in} / $${m.out}`;$('llmPerReq').textContent=fmt$(perReq);$('llmInCost').textContent=fmt$(inCostReq*reqTotal);$('llmOutCost').textContent=fmt$(outCostReq*reqTotal);$('llmTok').textContent=intf(totalTok)+" tokens";}
+['llmModel','llmIn','llmOut','llmReq'].forEach(id=>$(id).addEventListener('input',calcLLM));
+VEC.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;$('vecProvider').appendChild(o);});
+function calcVec(){const p=VEC.find(x=>x.id===$('vecProvider').value);const n=num($('vecCount').value),d=num($('vecDim').value),q=num($('vecQ').value);const bytes=n*d*4*1.5;const gb=bytes/(1024**3);const storeCost=gb*p.storagePerGB;const qCost=q/1e6*p.queryPerMillion;const total=p.base+storeCost+qCost;$('vecTotal').textContent=big$(total);$('vecName').textContent="— "+p.name;$('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+" MB":gb.toFixed(2)+" GB";$('vecStoreCost').textContent=fmt$(storeCost);$('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):"inclus";$('vecBase').textContent=p.base?fmt$(p.base)+" /mois":"sans frais de base";}
+['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>$(id).addEventListener('input',calcVec));
+IMG.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.unit}/image`;$('imgModel').appendChild(o);});
+function calcImg(){const m=IMG.find(x=>x.id===$('imgModel').value);const c=num($('imgCount').value),v=Math.max(1,num($('imgVar').value));const totalImg=c*v;const total=totalImg*m.unit;$('imgTotal').textContent=big$(total);$('imgName').textContent="— "+m.name;$('imgUnit').textContent=fmt$(m.unit);$('imgGen').textContent=intf(totalImg)+" images";$('imgK').textContent=fmt$(m.unit*1000);}
+['imgModel','imgCount','imgVar'].forEach(id=>$(id).addEventListener('input',calcImg));
+function calcPay(){const rev=num($('payRev').value),tx=num($('payTx').value);$('payAvg').value=tx>0?"$"+(rev/tx).toFixed(2):"$0.00";const rows=PAY.map(p=>{const fee=rev*p.rate+tx*p.fixed;return {...p,fee,net:rev-fee,pct:rev>0?fee/rev*100:0};}).sort((a,b)=>a.fee-b.fee);const max=Math.max(...rows.map(r=>r.fee),1);$('payCmp').innerHTML=rows.map((r,i)=>`<div class="cmpitem${i===0?' best':''}"><div class="cmptop"><span class="name">${r.name}${i===0?'<span class="badge">LE MOINS CHER</span>':''}</span><span class="amt">${fmt$(r.fee)}</span></div><div class="bar"><i style="width:${(r.fee/max*100).toFixed(1)}%"></i></div><div class="cmpmeta">${r.note} · effectif ${r.pct.toFixed(2)}% · net ${fmt$(r.net)}</div></div>`).join('');}
+['payRev','payTx'].forEach(id=>$(id).addEventListener('input',calcPay));
+document.querySelectorAll('.qa').forEach(qa=>{qa.querySelector('.q').addEventListener('click',()=>{const open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}});});
+calcLLM();calcVec();calcImg();calcPay();
+</script>
+</body>
+</html>
