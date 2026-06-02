@@ -41,7 +41,9 @@
 <!-- PRECONNECT -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"></noscript>
 
 <!-- SCHEMA: ORGANIZATION -->
 <script type="application/ld+json">
@@ -64,7 +66,7 @@
 :root{
   --bg:#0a0c10; --bg2:#0c0f15; --surface:#12161d; --surface2:#161b24;
   --border:#1d2530; --border2:#27313e;
-  --text:#e8edf1; --muted:#8b97a4; --muted2:#5e6976;
+  --text:#e8edf1; --muted:#8b97a4; --muted2:#8a96a5;
   --lime:#b8ff2e; --lime-dim:#9be01f; --cyan:#4dd6ff; --amber:#ffb24d; --rose:#ff5d6c;
   --shadow:0 24px 60px -20px rgba(0,0,0,.7);
   --r:14px;
@@ -339,15 +341,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 <!-- ===== CALCULATORS ===== -->
 <main class="wrap" id="calc">
 <div class="calc">
-  <div class="tabs" role="tablist">
-    <button class="tab on" data-tab="llm"><span class="ic">🔤</span> LLM Tokens <span class="num">01</span></button>
-    <button class="tab" data-tab="vector"><span class="ic">🧊</span> Vector DB <span class="num">02</span></button>
-    <button class="tab" data-tab="image"><span class="ic">🎨</span> Image Gen <span class="num">03</span></button>
-    <button class="tab" data-tab="pay"><span class="ic">💳</span> Payment Fees <span class="num">04</span></button>
+  <div class="tabs" role="tablist" aria-label="Calculator tabs">
+    <button class="tab on" role="tab" aria-selected="true" aria-controls="llm" data-tab="llm"><span class="ic" aria-hidden="true">🔤</span> LLM Tokens <span class="num" aria-hidden="true">01</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="vector" data-tab="vector"><span class="ic" aria-hidden="true">🧊</span> Vector DB <span class="num" aria-hidden="true">02</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="image" data-tab="image"><span class="ic" aria-hidden="true">🎨</span> Image Gen <span class="num" aria-hidden="true">03</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="pay" data-tab="pay"><span class="ic" aria-hidden="true">💳</span> Payment Fees <span class="num" aria-hidden="true">04</span></button>
   </div>
 
   <!-- ===== PANEL 1: LLM ===== -->
-  <section class="panel on" id="llm" role="tabpanel">
+  <section class="panel on" id="llm" role="tabpanel" aria-labelledby="tab-llm">
     <div class="panel-head">
       <h2>LLM Token &amp; API Cost Calculator</h2>
       <p>Estimate monthly spend across GPT-4o, Claude, and Gemini based on your token throughput.</p>
@@ -355,26 +357,26 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     <div class="grid2">
       <div>
         <div class="field">
-          <label>Model</label>
-          <select class="sel" id="llmModel"></select>
+          <label for="llmModel">Model</label>
+          <select class="sel" id="llmModel" aria-label="Select LLM model"></select>
         </div>
         <div class="row2">
           <div class="field">
-            <label>Input tokens / request <span class="hint">avg</span></label>
-            <input class="inp" id="llmIn" type="number" value="1500" min="0">
+            <label for="llmIn">Input tokens / request <span class="hint">avg</span></label>
+            <input class="inp" id="llmIn" type="number" value="1500" min="0" aria-label="Average input tokens per request">
           </div>
           <div class="field">
-            <label>Output tokens / request <span class="hint">avg</span></label>
-            <input class="inp" id="llmOut" type="number" value="500" min="0">
+            <label for="llmOut">Output tokens / request <span class="hint">avg</span></label>
+            <input class="inp" id="llmOut" type="number" value="500" min="0" aria-label="Average output tokens per request">
           </div>
         </div>
         <div class="field">
-          <label>Requests <span class="hint">per period</span></label>
-          <input class="inp" id="llmReq" type="number" value="10000" min="0">
+          <label for="llmReq">Requests <span class="hint">per period</span></label>
+          <input class="inp" id="llmReq" type="number" value="10000" min="0" aria-label="Number of requests per billing period">
         </div>
         <div class="field">
           <label>Billing period</label>
-          <div class="seg" id="llmPeriod">
+          <div class="seg" id="llmPeriod" role="group" aria-label="Billing period">
             <button data-v="1">Per day</button>
             <button class="on" data-v="30">Per month</button>
             <button data-v="365">Per year</button>
@@ -398,7 +400,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </section>
 
   <!-- ===== PANEL 2: VECTOR ===== -->
-  <section class="panel" id="vector" role="tabpanel">
+  <section class="panel" id="vector" role="tabpanel" aria-labelledby="tab-vector">
     <div class="panel-head">
       <h2>Vector Database Cloud Cost Estimator</h2>
       <p>Approximate monthly cost for Pinecone, Supabase, Qdrant, and Weaviate from your index size.</p>
@@ -406,22 +408,22 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     <div class="grid2">
       <div>
         <div class="field">
-          <label>Provider</label>
-          <select class="sel" id="vecProvider"></select>
+          <label for="vecProvider">Provider</label>
+          <select class="sel" id="vecProvider" aria-label="Select vector database provider"></select>
         </div>
         <div class="row2">
           <div class="field">
-            <label>Number of vectors</label>
-            <input class="inp" id="vecCount" type="number" value="1000000" min="0">
+            <label for="vecCount">Number of vectors</label>
+            <input class="inp" id="vecCount" type="number" value="1000000" min="0" aria-label="Number of vectors in index">
           </div>
           <div class="field">
-            <label>Dimensions</label>
-            <input class="inp" id="vecDim" type="number" value="1536" min="1">
+            <label for="vecDim">Dimensions</label>
+            <input class="inp" id="vecDim" type="number" value="1536" min="1" aria-label="Vector dimensions">
           </div>
         </div>
         <div class="field">
-          <label>Queries / month</label>
-          <input class="inp" id="vecQ" type="number" value="2000000" min="0">
+          <label for="vecQ">Queries / month</label>
+          <input class="inp" id="vecQ" type="number" value="2000000" min="0" aria-label="Monthly query count">
         </div>
       </div>
       <div class="result">
@@ -440,7 +442,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </section>
 
   <!-- ===== PANEL 3: IMAGE ===== -->
-  <section class="panel" id="image" role="tabpanel">
+  <section class="panel" id="image" role="tabpanel" aria-labelledby="tab-image">
     <div class="panel-head">
       <h2>AI Image Generation Budget Planner</h2>
       <p>Compare per-image and monthly cost across DALL·E 3, Stable Diffusion, and Flux.</p>
@@ -448,16 +450,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     <div class="grid2">
       <div>
         <div class="field">
-          <label>Model / quality</label>
-          <select class="sel" id="imgModel"></select>
+          <label for="imgModel">Model / quality</label>
+          <select class="sel" id="imgModel" aria-label="Select image generation model and quality"></select>
         </div>
         <div class="field">
-          <label>Images / month</label>
-          <input class="inp" id="imgCount" type="number" value="5000" min="0">
+          <label for="imgCount">Images / month</label>
+          <input class="inp" id="imgCount" type="number" value="5000" min="0" aria-label="Number of images per month">
         </div>
         <div class="field">
-          <label>Avg variations per prompt <span class="hint">multiplier</span></label>
-          <input class="inp" id="imgVar" type="number" value="1" min="1">
+          <label for="imgVar">Avg variations per prompt <span class="hint">multiplier</span></label>
+          <input class="inp" id="imgVar" type="number" value="1" min="1" aria-label="Average variations per prompt">
         </div>
       </div>
       <div class="result">
@@ -475,7 +477,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </section>
 
   <!-- ===== PANEL 4: PAYMENT ===== -->
-  <section class="panel" id="pay" role="tabpanel">
+  <section class="panel" id="pay" role="tabpanel" aria-labelledby="tab-pay">
     <div class="panel-head">
       <h2>SaaS Payment Gateway Fee Calculator</h2>
       <p>See exactly what Stripe, Paddle, Lemon Squeezy, and PayPal take from your monthly revenue.</p>
@@ -484,17 +486,17 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       <div>
         <div class="row2">
           <div class="field">
-            <label>Monthly revenue <span class="hint">USD</span></label>
-            <input class="inp" id="payRev" type="number" value="25000" min="0">
+            <label for="payRev">Monthly revenue <span class="hint">USD</span></label>
+            <input class="inp" id="payRev" type="number" value="25000" min="0" aria-label="Monthly revenue in USD">
           </div>
           <div class="field">
-            <label>Transactions / month</label>
-            <input class="inp" id="payTx" type="number" value="800" min="0">
+            <label for="payTx">Transactions / month</label>
+            <input class="inp" id="payTx" type="number" value="800" min="0" aria-label="Number of transactions per month">
           </div>
         </div>
         <div class="field">
-          <label>Avg transaction value</label>
-          <input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default">
+          <label for="payAvg">Avg transaction value</label>
+          <input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default" aria-label="Average transaction value (calculated automatically)">
         </div>
         <p class="disclaimer" style="margin-top:4px">Paddle &amp; Lemon Squeezy act as Merchant of Record — their higher % includes global sales-tax/VAT handling and chargeback coverage, which Stripe bills separately.</p>
       </div>
@@ -656,9 +658,10 @@ const intf=v=>Math.round(v).toLocaleString("en-US");
 /* ============ TABS ============ */
 document.querySelectorAll('.tab').forEach(t=>{
   t.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});
     document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
     t.classList.add('on');
+    t.setAttribute('aria-selected','true');
     $(t.dataset.tab).classList.add('on');
     if(window.gtag)gtag('event','calculator_view',{calculator:t.dataset.tab});
   });
