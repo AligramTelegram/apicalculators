@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>How to Reduce LLM API Costs by 60%: 7 Proven Strategies (2026)</title>
+<meta name="description" content="7 battle-tested strategies to cut your OpenAI, Anthropic, and Gemini API bills by 40–70%. Prompt caching, model routing, batch API, context compression — with real cost savings examples.">
+<link rel="canonical" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="APICalculators">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="How to Reduce LLM API Costs by 60%: 7 Strategies That Actually Work">
+<meta property="og:description" content="Prompt caching, model routing, batch API, context compression — real savings examples included.">
+<meta property="og:url" content="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="article:published_time" content="2026-06-02T00:00:00Z">
+<meta property="article:tag" content="LLM cost optimization">
+<meta property="article:tag" content="reduce OpenAI API cost">
+<meta property="article:tag" content="prompt caching">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="7 Ways to Cut Your LLM API Bill by 60% in 2026">
+<meta name="twitter:description" content="Prompt caching, model routing, batch API, context compression — real examples included.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Reduce LLM API Costs by 60%: 7 Proven Strategies for 2026","description":"Battle-tested strategies to cut OpenAI, Anthropic, and Gemini API bills by 40–70%.","author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/blog/reduce-llm-api-costs-2026.html","keywords":"reduce LLM API costs, optimize OpenAI costs, prompt caching, model routing, batch API, LLM cost optimization 2026"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Reduce LLM API Costs by 60%","description":"7 strategies to cut your LLM API bill significantly","totalTime":"PT2H","step":[{"@type":"HowToStep","name":"Enable prompt caching","text":"Use Anthropic or Google's prompt caching feature for repeated system prompts. Cache hits cost 10-25% of normal input price."},{"@type":"HowToStep","name":"Use model routing","text":"Route simple tasks to cheaper models (GPT-4o mini, Claude Haiku) and only escalate complex tasks to flagship models."},{"@type":"HowToStep","name":"Use Batch API","text":"For async workloads, use OpenAI or Anthropic Batch API for 50% cost reduction on all requests."},{"@type":"HowToStep","name":"Compress your system prompt","text":"Audit and minimize your system prompt. Every 100 tokens removed saves money on every request."},{"@type":"HowToStep","name":"Implement context truncation","text":"Cap conversation history. A sliding window or summarization strategy prevents quadratic token growth in multi-turn conversations."},{"@type":"HowToStep","name":"Cache LLM responses","text":"Cache identical or near-identical requests at the application layer. Many production queries are repeated."},{"@type":"HowToStep","name":"Set max_tokens explicitly","text":"Always set max_tokens to the realistic upper bound. This prevents runaway output costs."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much can I save with prompt caching?","acceptedAnswer":{"@type":"Answer","text":"Up to 90% on input tokens for cached content. Anthropic charges 10% of normal input price for cache hits. If your system prompt is 2,000 tokens and you make 100,000 requests/month, caching saves you 180M tokens — roughly $540/month on Claude 3.5 Sonnet."}},{"@type":"Question","name":"What is LLM model routing?","acceptedAnswer":{"@type":"Answer","text":"Model routing is sending different types of requests to different models based on complexity. Simple tasks (classification, extraction, short Q&A) go to cheap mini models. Complex reasoning, long-form generation, or code goes to flagship models. A well-tuned router can cut costs 50-80% with near-identical output quality."}},{"@type":"Question","name":"Does the OpenAI Batch API reduce costs?","acceptedAnswer":{"@type":"Answer","text":"Yes — OpenAI's Batch API (and Anthropic's equivalent) processes requests asynchronously with a 24-hour turnaround, at exactly 50% of the standard API price. For any workload that doesn't need real-time response — document processing, content generation, analytics — batch is free money."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/blog/"},{"@type":"ListItem","position":3,"name":"Reduce LLM API Costs 2026"}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:48px;padding:48px 0 80px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+aside{position:sticky;top:80px}@media(max-width:900px){aside{display:none}}
+.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:26px;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted2)}.breadcrumb span{color:var(--border2)}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted2)}
+.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
+h1.ah{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(24px,4vw,38px);letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
+.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:28px}
+.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+article h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:22px;margin:40px 0 14px}
+article h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:26px 0 10px;color:#d4dce3}
+article p{color:#cdd6dd;margin-bottom:16px}
+article ul,article ol{color:#cdd6dd;padding-left:24px;margin-bottom:16px}
+article li{margin-bottom:8px}article strong{color:var(--text);font-weight:600}
+.callout{border-radius:12px;padding:18px 20px;margin:24px 0;border-left:3px solid}.callout p{margin:0}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.strategy{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:22px 0;counter-increment:strategy}
+.strategy-num{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--lime);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.strategy h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;margin:0 0 10px;color:var(--text)}
+.strategy p{color:var(--muted);font-size:14.5px;margin-bottom:0}
+.savings-badge{display:inline-block;background:rgba(184,255,46,.12);border:1px solid rgba(184,255,46,.3);color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;padding:3px 10px;border-radius:6px;margin-bottom:10px;font-weight:700}
+.code{background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:14px 16px;font-family:'Cascadia Code','Consolas',monospace;font-size:13px;margin:14px 0;overflow-x:auto;color:#cdd6dd}
+.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:24px;margin:28px 0;position:relative;overflow:hidden}
+.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;margin-bottom:6px}
+.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.cta-btn{display:inline-flex;align-items:center;gap:9px;background:var(--lime);color:#06210a;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px;transition:transform .15s;text-decoration:none}
+.cta-btn:hover{transform:translateY(-1px);text-decoration:none}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.toc h4{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.toc ol{padding-left:18px}.toc li{margin-bottom:8px}
+.toc a{color:var(--muted);font-size:13px;font-weight:500}.toc a:hover{color:var(--lime);text-decoration:none}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:560px){.related-grid{grid-template-columns:1fr}}
+.rel-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.rel-card:hover{border-color:var(--border2);text-decoration:none}
+.rel-card .rt{font-size:10px;font-family:'Cascadia Code','Consolas',monospace;color:var(--muted2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.rel-card p{font-weight:600;font-size:14px;color:var(--text);line-height:1.3}
+footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted2)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r"><a href="/#calc">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav>
+  </div>
+</header>
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Reduce LLM Costs 2026</span>
+      </nav>
+      <div class="art-tags">
+        <span class="atag hi">COST OPTIMIZATION</span><span class="atag hi">LLM</span>
+        <span class="atag">PROMPT CACHING</span><span class="atag">MODEL ROUTING</span><span class="atag">2026</span>
+      </div>
+      <h1 class="ah">How to Reduce Your LLM API Costs by 60%: 7 Proven Strategies for 2026</h1>
+      <div class="art-meta">June 2, 2026 · 13 min read · By APICalculators</div>
+      <p class="intro">Most teams overpay for LLM APIs by 40–70% without knowing it. The waste comes from a handful of fixable patterns: oversized system prompts, wrong model selection, synchronous calls where async would work, and uncapped output tokens. This guide walks through 7 strategies — each with real dollar savings — that you can implement this week.</p>
+
+      <article>
+        <h2 id="baseline">First: Know Your Baseline</h2>
+        <p>You can't optimize what you don't measure. Before applying any strategy, calculate your current monthly cost using the formula:</p>
+        <div class="code">monthly_cost = (avg_input_tokens × input_price/1M + avg_output_tokens × output_price/1M) × monthly_requests</div>
+        <p>Log token usage per request for one week. You'll likely find 20% of requests consume 60% of your tokens — and those are the ones to optimize first.</p>
+
+        <div class="calc-cta">
+          <h3>🔤 Calculate your LLM baseline cost</h3>
+          <p>Enter your current model, token counts, and request volume to get your monthly baseline before optimizing.</p>
+          <a href="/#llm" class="cta-btn">Open LLM Cost Calculator →</a>
+        </div>
+
+        <h2 id="strategies">7 Strategies to Cut Your Bill</h2>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 01</div>
+          <div class="savings-badge">SAVINGS: 10–90% on input tokens</div>
+          <h3>Enable Prompt Caching</h3>
+          <p>Anthropic (Claude) and Google (Gemini) offer prompt caching — repeated context blocks (system prompts, RAG documents, few-shot examples) are cached server-side after the first call. Cache hits cost <strong>10–25% of normal input price</strong>.</p>
+          <p><strong>Example:</strong> 3,000-token system prompt × 200,000 requests/month = 600M tokens. At Claude 3.5 Sonnet ($3/M), that's $1,800/month uncached. With caching enabled: first call $3, repeat calls at $0.30/M = $180/month. <strong>Saves $1,620/month.</strong></p>
+          <div class="code">// Anthropic — mark cacheable blocks with cache_control
+messages: [{
+  role: "user",
+  content: [{
+    type: "text",
+    text: systemPrompt,
+    cache_control: { type: "ephemeral" }  // cached for 5 min TTL
+  }, {
+    type: "text",
+    text: userMessage
+  }]
+}]</div>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 02</div>
+          <div class="savings-badge">SAVINGS: 50–80% for mixed workloads</div>
+          <h3>Implement Model Routing</h3>
+          <p>Not every request needs a flagship model. A rule-based or ML-based router sends simple tasks to cheap models and only escalates to premium models when needed.</p>
+          <p><strong>Routing logic:</strong></p>
+          <ul>
+            <li><strong>GPT-4o mini / Claude Haiku:</strong> Classification, keyword extraction, short summaries, simple Q&A, intent detection</li>
+            <li><strong>GPT-4o / Claude Sonnet:</strong> Complex analysis, multi-step reasoning, code review, nuanced writing</li>
+            <li><strong>o1 / Claude Opus:</strong> Hard math, architectural decisions, long-chain reasoning — use sparingly</li>
+          </ul>
+          <p><strong>Example:</strong> A customer support app routes 80% of tickets to GPT-4o mini ($0.15/$0.60 per million) and 20% to GPT-4o ($2.50/$10). Blended cost drops from $10/M to $2.12/M output. <strong>Saves 79% on output tokens.</strong></p>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 03</div>
+          <div class="savings-badge">SAVINGS: 50% flat on eligible workloads</div>
+          <h3>Use Batch API for Async Workloads</h3>
+          <p>OpenAI and Anthropic both offer a Batch API that processes requests asynchronously (up to 24h turnaround) at <strong>exactly 50% of standard pricing</strong>. Zero complexity, pure savings.</p>
+          <p>Eligible workloads: document processing, content moderation, dataset labeling, overnight analytics, SEO content generation, email personalization, report generation.</p>
+          <div class="code">// OpenAI Batch API — save 50% on these requests
+const batch = await openai.batches.create({
+  input_file_id: fileId,
+  endpoint: "/v1/chat/completions",
+  completion_window: "24h"  // process overnight, pay half
+});</div>
+          <p><strong>Example:</strong> Legal-tech firm processing 10,000 contracts/month at $175 standard. Batch API: <strong>$87.50/month.</strong></p>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 04</div>
+          <div class="savings-badge">SAVINGS: $0.01–$5.00 per 1,000 requests</div>
+          <h3>Audit and Shrink Your System Prompt</h3>
+          <p>Your system prompt is charged on <em>every single request</em>. Most system prompts contain 30–50% removable content: outdated instructions, redundant examples, filler phrasing, and guidelines the model already follows by default.</p>
+          <ul>
+            <li>Remove examples if the model already performs correctly without them</li>
+            <li>Cut "Be helpful, honest, and harmless" — the model knows this</li>
+            <li>Use bullet points instead of prose (shorter, equally effective)</li>
+            <li>Move rarely-needed instructions to conditional injection</li>
+          </ul>
+          <p><strong>Example:</strong> Trimming from 2,000 to 800 tokens × 500,000 requests/month = 600M fewer tokens. At GPT-4o ($2.50/M): <strong>saves $1,500/month.</strong></p>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 05</div>
+          <div class="savings-badge">SAVINGS: 30–70% in multi-turn apps</div>
+          <h3>Implement Context Truncation</h3>
+          <p>In multi-turn conversations, input tokens grow with every exchange — turn 1 sends 500 tokens, turn 20 sends 10,000 tokens for the same conversation. Without truncation, costs scale quadratically.</p>
+          <p><strong>Three approaches:</strong></p>
+          <ul>
+            <li><strong>Sliding window:</strong> Keep only the last N turns. Simple, loses older context.</li>
+            <li><strong>Summarization:</strong> Periodically compress older turns into a summary. Preserves context, adds one cheap summary call.</li>
+            <li><strong>Selective retrieval:</strong> Store turns as embeddings, retrieve only the semantically relevant ones. Best quality, most complex.</li>
+          </ul>
+          <div class="callout warn">
+            <div class="cl">⚠ Most common mistake</div>
+            <p>Teams that launch multi-turn features without truncation often see a 10× cost increase within 30 days as conversations grow. Implement a strategy before launch, not after.</p>
+          </div>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 06</div>
+          <div class="savings-badge">SAVINGS: 20–60% depending on repeat rate</div>
+          <h3>Cache Responses at the Application Layer</h3>
+          <p>Many LLM calls in production are semantically identical. FAQ answers, static content generation, template-based outputs — these don't need a fresh API call every time.</p>
+          <ul>
+            <li><strong>Exact caching:</strong> Hash the full prompt, cache the response (Redis/Memcached). Zero cost on cache hit.</li>
+            <li><strong>Semantic caching:</strong> Embed the user query, find a cached response with cosine similarity above 0.95. Tools: GPTCache, Langchain caching, custom embedding store.</li>
+          </ul>
+          <p><strong>Example:</strong> A documentation chatbot with 40% cache hit rate on a $2,000/month API bill saves $800/month with Redis caching. Infrastructure cost: $20/month. <strong>Net saving: $780/month.</strong></p>
+        </div>
+
+        <div class="strategy">
+          <div class="strategy-num">Strategy 07</div>
+          <div class="savings-badge">SAVINGS: 10–200% of current output cost</div>
+          <h3>Set max_tokens Explicitly — Always</h3>
+          <p>Without a max_tokens limit, models will generate to their maximum context window. A response that occasionally runs to 4,000 tokens when you only need 500 quadruples your output cost on that call.</p>
+          <div class="code">// Always set this — measure your P95 output length first
+const response = await openai.chat.completions.create({
+  model: "gpt-4o",
+  messages: messages,
+  max_tokens: 800,  // your measured P95 + 20% buffer
+  temperature: 0.7
+});</div>
+          <p>Measure your actual P95 output token length in production for one week, add 20% buffer, and cap there. This alone can cut output costs 30–50% for apps where the model tends to over-generate.</p>
+        </div>
+
+        <h2 id="combined">Combined Savings Example</h2>
+        <p>A mid-size AI app spending $5,000/month on LLM APIs applies all 7 strategies:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:18px 0">
+          <thead><tr style="border-bottom:2px solid var(--border)"><th style="text-align:left;padding:10px 14px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;text-transform:uppercase;color:var(--muted2)">Strategy</th><th style="text-align:right;padding:10px 14px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;text-transform:uppercase;color:var(--muted2)">Monthly Saving</th></tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">Prompt caching (large system prompt)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$1,200</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">Model routing (80% to mini)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$1,500</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">Batch API (30% of workload async)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$450</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">System prompt trim (2,000→900 tokens)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$320</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">Context truncation (sliding window)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$280</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">Response caching (35% hit rate)</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$190</td></tr>
+            <tr style="border-bottom:1px solid var(--border)"><td style="padding:11px 14px;color:#cdd6dd">max_tokens cap</td><td style="padding:11px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right">−$110</td></tr>
+            <tr style="border-bottom:2px solid var(--border)"><td style="padding:12px 14px;color:var(--text);font-weight:700">Total savings</td><td style="padding:12px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right;font-weight:700">−$4,050 (81%)</td></tr>
+            <tr><td style="padding:12px 14px;color:var(--text);font-weight:700">New monthly bill</td><td style="padding:12px 14px;font-family:'Cascadia Code','Consolas',monospace;color:var(--lime);text-align:right;font-weight:700">$950</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="faq">FAQ</h2>
+        <h3>How much can I save with prompt caching?</h3>
+        <p>Up to <strong>90% on input tokens for cached content</strong>. Anthropic charges 10% of normal input price for cache hits. A 2,000-token system prompt on 100,000 requests/month saves 180M tokens — roughly $540/month on Claude 3.5 Sonnet.</p>
+        <h3>What is model routing?</h3>
+        <p>Sending different request types to different models based on complexity. Simple tasks go to cheap mini models (10–15× cheaper), complex tasks go to flagships. A well-tuned router cuts costs 50–80% with near-identical quality for most production workloads.</p>
+        <h3>Does the Batch API affect output quality?</h3>
+        <p>No — the Batch API uses identical models and parameters. The only difference is that responses are delivered asynchronously within 24 hours instead of in real-time. Quality is identical.</p>
+
+        <div class="calc-cta">
+          <h3>🔤 See your potential savings</h3>
+          <p>Enter your current model and usage — then compare the cost after switching models or adjusting token counts.</p>
+          <a href="/#llm" class="cta-btn">Open LLM Cost Calculator →</a>
+        </div>
+
+        <div style="margin-top:40px;padding-top:28px;border-top:1px solid var(--border)">
+          <p style="color:var(--muted);font-size:13px">Last updated: June 2, 2026. <a href="mailto:hello@apicalculators.com">Suggest an optimization we missed →</a></p>
+          <div class="related-grid" style="margin-top:20px">
+            <a href="/blog/llm-api-cost-guide-2026.html" class="rel-card"><div class="rt">LLM Pricing</div><p>How to Estimate Your LLM API Costs in 2026</p></a>
+            <a href="/blog/vector-database-cost-comparison-2026.html" class="rel-card"><div class="rt">Vector DB</div><p>Pinecone vs Supabase vs Qdrant: Cost Comparison</p></a>
+            <a href="/blog/dalle3-vs-stable-diffusion-cost-2026.html" class="rel-card"><div class="rt">Image Gen</div><p>DALL·E 3 vs Stable Diffusion: Cost at Scale</p></a>
+            <a href="/blog/stripe-vs-paddle-fees-2026.html" class="rel-card"><div class="rt">Payment</div><p>Stripe vs Paddle: True SaaS Cost 2026</p></a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <aside>
+      <div class="toc">
+        <h4>7 Strategies</h4>
+        <ol>
+          <li><a href="#baseline">Know your baseline</a></li>
+          <li><a href="#strategies">All 7 strategies</a></li>
+          <li><a href="#combined">Combined savings example</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+      <div class="calc-cta" style="margin-top:0">
+        <h3>🔤 LLM Calculator</h3>
+        <p>Model your savings before and after.</p>
+        <a href="/#llm" class="cta-btn" style="display:flex">Calculate →</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer><div class="wrap foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a></span></div></footer>
+</body>
+</html>

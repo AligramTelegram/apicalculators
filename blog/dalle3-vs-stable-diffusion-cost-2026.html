@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>DALL·E 3 vs Stable Diffusion vs Flux: AI Image Generation Cost 2026</title>
+<meta name="description" content="Exact cost comparison of DALL·E 3, Stable Diffusion XL, Flux, and Midjourney for production AI image generation. At 1K, 10K, and 100K images/month — which API is cheapest?">
+<link rel="canonical" href="https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="APICalculators">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="DALL·E 3 vs Stable Diffusion vs Flux: Image Gen Cost 2026">
+<meta property="og:description" content="True cost at 1K, 10K, 100K images/month. API vs self-hosted. Quality vs price analysis.">
+<meta property="og:url" content="https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="article:published_time" content="2026-06-02T00:00:00Z">
+<meta property="article:tag" content="DALL-E 3 pricing">
+<meta property="article:tag" content="Stable Diffusion cost">
+<meta property="article:tag" content="AI image generation cost">
+<meta property="article:tag" content="Flux API pricing">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="DALL·E 3 vs Stable Diffusion vs Flux: Cost at Scale 2026">
+<meta name="twitter:description" content="At 100K images/month the cost gap is enormous. Find the cheapest option for your use case.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DALL·E 3 vs Stable Diffusion vs Flux: AI Image Generation Cost Comparison 2026","description":"Exact cost breakdown for production AI image generation at 1K, 10K, and 100K images per month.","author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026.html","keywords":"DALL-E 3 cost, stable diffusion API price, flux API pricing, AI image generation cost 2026, cheapest image generation API"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does DALL·E 3 cost per image?","acceptedAnswer":{"@type":"Answer","text":"DALL·E 3 costs $0.040 per 1024×1024 standard image, $0.080 per HD image, and $0.120 per 1792×1024 or 1024×1792 HD image (OpenAI API, June 2026)."}},{"@type":"Question","name":"Is Stable Diffusion cheaper than DALL·E 3?","acceptedAnswer":{"@type":"Answer","text":"Yes, significantly. Via hosted APIs (Stability AI, Replicate), SDXL costs $0.006–$0.009 per image — 5–7× cheaper than DALL·E 3 standard. Self-hosted SDXL on a $0.50/hr GPU can generate 1,000+ images per hour, making per-image cost under $0.001 at scale."}},{"@type":"Question","name":"When should I use DALL·E 3 instead of Stable Diffusion?","acceptedAnswer":{"@type":"Answer","text":"Use DALL·E 3 when: prompt adherence is critical (it follows complex instructions much better), content moderation is important (OpenAI filters are robust), you're generating fewer than 5,000 images/month (cost difference is small), or when image quality for photorealistic scenes matters more than per-image cost."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/blog/"},{"@type":"ListItem","position":3,"name":"DALL·E 3 vs Stable Diffusion Cost 2026"}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:48px;padding:48px 0 80px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+aside{position:sticky;top:80px}@media(max-width:900px){aside{display:none}}
+.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:26px;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted2)}.breadcrumb span{color:var(--border2)}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted2)}
+.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
+h1.ah{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(24px,4vw,38px);letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
+.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:28px}
+.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+article h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:22px;margin:40px 0 14px}
+article h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:26px 0 10px;color:#d4dce3}
+article p{color:#cdd6dd;margin-bottom:16px}
+article ul,article ol{color:#cdd6dd;padding-left:24px;margin-bottom:16px}
+article li{margin-bottom:8px}article strong{color:var(--text);font-weight:600}
+.callout{border-radius:12px;padding:18px 20px;margin:24px 0;border-left:3px solid}.callout p{margin:0}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.ptable{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge-t{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:24px;margin:28px 0;position:relative;overflow:hidden}
+.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;margin-bottom:6px}
+.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.cta-btn{display:inline-flex;align-items:center;gap:9px;background:var(--lime);color:#06210a;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px;transition:transform .15s;text-decoration:none}
+.cta-btn:hover{transform:translateY(-1px);text-decoration:none}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px}
+.toc h4{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px}
+.toc ol{padding-left:18px}.toc li{margin-bottom:8px}
+.toc a{color:var(--muted);font-size:13px;font-weight:500}.toc a:hover{color:var(--lime);text-decoration:none}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+@media(max-width:560px){.related-grid{grid-template-columns:1fr}}
+.rel-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.rel-card:hover{border-color:var(--border2);text-decoration:none}
+.rel-card .rt{font-size:10px;font-family:'Cascadia Code','Consolas',monospace;color:var(--muted2);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.rel-card p{font-weight:600;font-size:14px;color:var(--text);line-height:1.3}
+footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}footer a{color:var(--muted2)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r"><a href="/#calc">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav>
+  </div>
+</header>
+<div class="wrap">
+  <div class="layout">
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Image Gen Cost 2026</span>
+      </nav>
+      <div class="art-tags">
+        <span class="atag hi">IMAGE GENERATION</span><span class="atag hi">COST COMPARISON</span>
+        <span class="atag">DALL·E 3</span><span class="atag">STABLE DIFFUSION</span><span class="atag">FLUX</span><span class="atag">2026</span>
+      </div>
+      <h1 class="ah">DALL·E 3 vs Stable Diffusion vs Flux: AI Image Generation Cost Comparison 2026</h1>
+      <div class="art-meta">June 2, 2026 · 9 min read · By APICalculators</div>
+      <p class="intro">At 1,000 images/month the cost difference between DALL·E 3 and SDXL is $31. At 100,000 images/month it's $3,100+. Choosing the right image generation API isn't just a quality decision — it's a business model decision. This guide breaks down exact costs, quality trade-offs, and when the premium is worth paying.</p>
+
+      <article>
+        <h2 id="pricing">2026 Per-Image Pricing</h2>
+        <table class="ptable">
+          <thead><tr><th>Model / Tier</th><th>Provider</th><th>Per Image</th><th>Per 1,000</th><th>Quality</th></tr></thead>
+          <tbody>
+            <tr><td><strong>DALL·E 3 Standard 1024px</strong></td><td>OpenAI</td><td class="mono">$0.040</td><td class="mono">$40.00</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>DALL·E 3 HD 1024px</strong></td><td>OpenAI</td><td class="mono">$0.080</td><td class="mono">$80.00</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>DALL·E 3 HD 1792px</strong></td><td>OpenAI</td><td class="mono">$0.120</td><td class="mono">$120.00</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>Flux.1 Pro</strong></td><td>BFL API</td><td class="mono">$0.050</td><td class="mono">$50.00</td><td>⭐⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>Stable Diffusion 3</strong></td><td>Stability AI</td><td class="mono">$0.035</td><td class="mono">$35.00</td><td>⭐⭐⭐⭐</td></tr>
+            <tr class="best"><td><strong>SDXL via Replicate</strong><span class="badge-t">CHEAPEST API</span></td><td>Replicate</td><td class="mono">$0.006</td><td class="mono">$6.00</td><td>⭐⭐⭐⭐</td></tr>
+            <tr><td><strong>SDXL self-hosted (A100 spot)</strong></td><td>Your GPU</td><td class="mono">~$0.0008</td><td class="mono">~$0.80</td><td>⭐⭐⭐⭐</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="scenarios">Monthly Cost at Production Scale</h2>
+        <h3>At 1,000 images/month</h3>
+        <table class="ptable">
+          <thead><tr><th>Model</th><th>Monthly Cost</th><th>vs DALL·E 3 Std</th></tr></thead>
+          <tbody>
+            <tr><td>DALL·E 3 Standard</td><td class="mono">$40</td><td class="mono">—</td></tr>
+            <tr><td>Flux.1 Pro</td><td class="mono">$50</td><td class="mono">+25%</td></tr>
+            <tr><td>Stable Diffusion 3</td><td class="mono">$35</td><td class="mono">−12%</td></tr>
+            <tr class="best"><td><strong>SDXL via Replicate</strong></td><td class="mono">$6</td><td class="mono">−85%</td></tr>
+          </tbody>
+        </table>
+        <p>At low volume, the absolute dollar difference is small. The $34 gap between DALL·E 3 and SDXL/Replicate probably isn't worth switching for a side project.</p>
+
+        <h3>At 50,000 images/month</h3>
+        <table class="ptable">
+          <thead><tr><th>Model</th><th>Monthly Cost</th><th>Annual Cost</th></tr></thead>
+          <tbody>
+            <tr><td>DALL·E 3 Standard</td><td class="mono">$2,000</td><td class="mono">$24,000</td></tr>
+            <tr><td>Flux.1 Pro</td><td class="mono">$2,500</td><td class="mono">$30,000</td></tr>
+            <tr><td>Stable Diffusion 3</td><td class="mono">$1,750</td><td class="mono">$21,000</td></tr>
+            <tr class="best"><td><strong>SDXL via Replicate</strong><span class="badge-t">CHEAPEST</span></td><td class="mono">$300</td><td class="mono">$3,600</td></tr>
+            <tr><td>SDXL self-hosted (A100 spot)</td><td class="mono">~$200</td><td class="mono">~$2,400</td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout tip">
+          <div class="cl">✦ Break-even point</div>
+          <p>At ~15,000 images/month ($600/month on DALL·E 3 Standard), it's worth evaluating SDXL on Replicate ($90/month) or self-hosting. The engineering investment to switch pays back within 2 months.</p>
+        </div>
+
+        <h3>At 100,000 images/month</h3>
+        <table class="ptable">
+          <thead><tr><th>Model</th><th>Monthly Cost</th><th>Annual Cost</th></tr></thead>
+          <tbody>
+            <tr><td>DALL·E 3 Standard</td><td class="mono">$4,000</td><td class="mono">$48,000</td></tr>
+            <tr><td>Flux.1 Pro</td><td class="mono">$5,000</td><td class="mono">$60,000</td></tr>
+            <tr class="best"><td><strong>SDXL self-hosted (A100 spot ×3)</strong><span class="badge-t">CHEAPEST</span></td><td class="mono">$450</td><td class="mono">$5,400</td></tr>
+            <tr><td>SDXL via Replicate</td><td class="mono">$600</td><td class="mono">$7,200</td></tr>
+          </tbody>
+        </table>
+
+        <div class="calc-cta">
+          <h3>🎨 Calculate your image generation costs</h3>
+          <p>Enter your monthly image count and model — get a live cost breakdown and per-1,000 comparison.</p>
+          <a href="/#image" class="cta-btn">Open Image Gen Calculator →</a>
+        </div>
+
+        <h2 id="quality">Quality vs Cost Trade-off</h2>
+        <h3>Where DALL·E 3 wins</h3>
+        <ul>
+          <li><strong>Prompt adherence:</strong> DALL·E 3 follows complex, multi-element prompts significantly better. "A red dog wearing a top hat sitting at a cafe in Paris" renders all elements accurately.</li>
+          <li><strong>Text rendering:</strong> DALL·E 3 can render legible text within images — SDXL struggles with this.</li>
+          <li><strong>Content safety:</strong> OpenAI's built-in filtering is robust — important for consumer-facing products.</li>
+          <li><strong>API simplicity:</strong> One endpoint, no VRAM management, no infrastructure.</li>
+        </ul>
+        <h3>Where Stable Diffusion / Flux wins</h3>
+        <ul>
+          <li><strong>Cost at scale:</strong> 5–50× cheaper per image depending on setup.</li>
+          <li><strong>Customization:</strong> Fine-tune on your brand's style, use LoRAs, ControlNet — not available with DALL·E 3 API.</li>
+          <li><strong>No content restrictions:</strong> Suitable for artistic/mature content with appropriate safeguards.</li>
+          <li><strong>Speed:</strong> Self-hosted SDXL on a good GPU generates in 2–4 seconds vs DALL·E 3's 5–15 seconds.</li>
+          <li><strong>Predictable output:</strong> Fixed seed + same prompt = identical image. Reproducibility for product images.</li>
+        </ul>
+        <h3>Where Flux.1 Pro fits</h3>
+        <p>Flux.1 Pro is a newer frontier model from Black Forest Labs (the SDXL creators). It rivals DALL·E 3 HD on prompt adherence and photorealism at $0.05/image — slightly more than DALL·E 3 Standard but with stronger coherence on complex scenes. Worth evaluating if you need DALL·E 3 quality but the OpenAI API's rate limits or content policies are limiting you.</p>
+
+        <h2 id="choose">When to Choose Each</h2>
+        <h3>Choose DALL·E 3 if:</h3>
+        <ul>
+          <li>Under 15,000 images/month where the cost delta is small</li>
+          <li>Prompt adherence and text-in-image are critical</li>
+          <li>Content safety filtering is a hard requirement</li>
+          <li>Your team has no GPU infrastructure experience</li>
+        </ul>
+        <h3>Choose SDXL via hosted API (Replicate, Stability AI) if:</h3>
+        <ul>
+          <li>15,000–100,000 images/month — managed, no ops overhead</li>
+          <li>You need style consistency via LoRA fine-tuning</li>
+          <li>Cost is a primary constraint but you don't want to manage GPUs</li>
+        </ul>
+        <h3>Choose self-hosted SDXL/Flux if:</h3>
+        <ul>
+          <li>100,000+ images/month — self-hosting cost dominates</li>
+          <li>You need maximum customization (ComfyUI, custom nodes, ControlNet)</li>
+          <li>You have DevOps capacity to manage GPU infrastructure</li>
+          <li>Data privacy requires on-premise processing</li>
+        </ul>
+
+        <h2 id="faq">FAQ</h2>
+        <h3>How much does DALL·E 3 cost per image?</h3>
+        <p><strong>$0.040</strong> per standard 1024×1024 image, <strong>$0.080</strong> per HD, <strong>$0.120</strong> per 1792px HD — via the OpenAI API (June 2026).</p>
+        <h3>Is Stable Diffusion cheaper than DALL·E 3?</h3>
+        <p>Yes, significantly. Via Replicate API: ~$0.006/image (7× cheaper). Self-hosted on a spot A100: ~$0.0008/image (50× cheaper). The quality gap has narrowed but DALL·E 3 still leads on prompt adherence and text rendering.</p>
+        <h3>When should I use DALL·E 3 instead of Stable Diffusion?</h3>
+        <p>When prompt adherence is critical, when you need text-in-image, when content safety filtering is required, or when you're generating under 15K images/month and the cost difference doesn't justify migration effort.</p>
+
+        <div class="calc-cta">
+          <h3>🎨 Calculate your exact monthly image budget</h3>
+          <p>Enter your volume and model to see per-image cost and monthly total for every provider.</p>
+          <a href="/#image" class="cta-btn">Open Image Gen Calculator →</a>
+        </div>
+
+        <div style="margin-top:40px;padding-top:28px;border-top:1px solid var(--border)">
+          <p style="color:var(--muted);font-size:13px">Last updated: June 2, 2026. <a href="mailto:hello@apicalculators.com">Report a discrepancy →</a></p>
+          <div class="related-grid" style="margin-top:20px">
+            <a href="/blog/llm-api-cost-guide-2026.html" class="rel-card"><div class="rt">LLM Pricing</div><p>How to Estimate Your LLM API Costs in 2026</p></a>
+            <a href="/blog/reduce-llm-api-costs-2026.html" class="rel-card"><div class="rt">Optimization</div><p>7 Ways to Cut Your AI Infrastructure Costs by 60%</p></a>
+            <a href="/blog/vector-database-cost-comparison-2026.html" class="rel-card"><div class="rt">Vector DB</div><p>Pinecone vs Supabase vs Qdrant: Cost Comparison</p></a>
+            <a href="/#image" class="rel-card" style="opacity:1"><div class="rt">Free Tool</div><p>Image Gen Cost Calculator — live comparison</p></a>
+          </div>
+        </div>
+      </article>
+    </main>
+    <aside>
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#pricing">2026 pricing table</a></li>
+          <li><a href="#scenarios">Cost at scale</a></li>
+          <li><a href="#quality">Quality vs cost</a></li>
+          <li><a href="#choose">When to choose each</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+      <div class="calc-cta" style="margin-top:0">
+        <h3>🎨 Image Calculator</h3>
+        <p>Monthly cost across all models.</p>
+        <a href="/#image" class="cta-btn" style="display:flex">Calculate →</a>
+      </div>
+    </aside>
+  </div>
+</div>
+<footer><div class="wrap foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a></span></div></footer>
+</body>
+</html>
