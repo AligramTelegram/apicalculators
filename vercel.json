@@ -49,7 +49,6 @@
     { "source": "/llm", "destination": "/#llm", "permanent": false },
     { "source": "/vector", "destination": "/#vector", "permanent": false },
     { "source": "/image", "destination": "/#image", "permanent": false },
-    { "source": "/payment", "destination": "/#pay", "permanent": false },
-    { "source": "/blog", "destination": "/blog/", "permanent": true }
+    { "source": "/payment", "destination": "/#pay", "permanent": false }
   ]
 }
