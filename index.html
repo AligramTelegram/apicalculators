@@ -52,16 +52,7 @@
 <link rel="apple-touch-icon" href="https://apicalculators.com/icon-192.png">
 <link rel="manifest" href="/manifest.json">
 
-<!-- PRECONNECT -->
-<!-- Fonts: system stack (zero network requests, instant LCP) -->
-<!-- Google Fonts loaded non-blocking after page is interactive -->
-<script>
-window.addEventListener('load',function(){
-  var l=document.createElement('link');l.rel='stylesheet';
-  l.href='https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
-  document.head.appendChild(l);
-},false);
-</script>
+<!-- No external font requests — 100% system fonts for instant LCP -->
 
 <!-- SCHEMA: WEBSITE (enables Google Sitelinks Searchbox) -->
 <script type="application/ld+json">
@@ -101,7 +92,7 @@ window.addEventListener('load',function(){
 html{scroll-behavior:smooth}
 body{
   background:var(--bg); color:var(--text);
-  font-family:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','SF Pro Text',system-ui,sans-serif;
   font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -123,13 +114,13 @@ body::after{
 }
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-.mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+.mono{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-variant-numeric:tabular-nums}
 
 /* ---------- NAV ---------- */
 header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
   background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;
+.logo{display:flex;align-items:center;gap:10px;font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;
   font-size:19px;letter-spacing:-.02em}
 .logo .glyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
   background:var(--lime);color:#06210a;font-size:17px;box-shadow:0 0 20px rgba(184,255,46,.4)}
@@ -138,7 +129,7 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
 .nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
 .nav-links a.nlink:hover{color:var(--text)}
 .lang{display:flex;gap:2px;border:1px solid var(--border2);border-radius:8px;padding:3px;
-  font-family:'JetBrains Mono';font-size:11px}
+  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px}
 .lang a{padding:3px 8px;border-radius:5px;color:var(--muted2);font-weight:500}
 .lang a.on{background:var(--surface2);color:var(--lime)}
 .lang a:hover{color:var(--text)}
@@ -146,27 +137,27 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
 
 /* ---------- HERO ---------- */
 .hero{padding:78px 0 30px;text-align:center;position:relative}
-.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';
+.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;
   font-size:12px;color:var(--muted);border:1px solid var(--border2);
   background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
 .tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);
   box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
 @keyframes pulse{50%{opacity:.4}}
-h1.h{font-family:'Archivo','Arial Black',sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.02;
+h1.h{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.02;
   font-size:clamp(38px,7vw,72px)}
 h1.h .em{color:var(--lime);position:relative}
 h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;
   background:rgba(184,255,46,.18);z-index:-1;transform:skewX(-8deg)}
 .sub{max-width:600px;margin:22px auto 0;color:var(--muted);font-size:18px}
 .hero-stats{display:flex;gap:34px;justify-content:center;margin-top:34px;flex-wrap:wrap}
-.hstat b{font-family:'Archivo';font-weight:800;font-size:24px;display:block;color:var(--text)}
-.hstat span{font-size:12.5px;color:var(--muted2);font-family:'JetBrains Mono';
+.hstat b{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:24px;display:block;color:var(--text)}
+.hstat span{font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;
   text-transform:uppercase;letter-spacing:.06em}
 
 /* ---------- AD SLOT ---------- */
 .adslot{margin:26px auto;max-width:760px;min-height:90px;border:1px dashed var(--border2);
   border-radius:10px;display:grid;place-items:center;color:var(--muted2);
-  font-family:'JetBrains Mono';font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
+  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
 
 /* ---------- CALCULATOR SHELL ---------- */
 .calc{background:linear-gradient(180deg,var(--surface),var(--bg2));
@@ -183,7 +174,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .tab:hover{color:var(--text);background:var(--surface2)}
 .tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
 .tab.on .ic{filter:drop-shadow(0 0 8px rgba(184,255,46,.6))}
-.tab .num{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);
+.tab .num{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);
   border:1px solid var(--border2);border-radius:5px;padding:1px 5px}
 .tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
 
@@ -191,7 +182,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .panel.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .panel-head{margin-bottom:22px}
-.panel-head h2{font-family:'Archivo';font-weight:800;font-size:23px;letter-spacing:-.02em}
+.panel-head h2{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
 .panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
 
 .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
@@ -201,10 +192,10 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .field{margin-bottom:18px}
 .field label{display:flex;justify-content:space-between;align-items:center;
   font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
-.field label .hint{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);font-weight:400}
+.field label .hint{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);font-weight:400}
 .inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);
   border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;
-  font-family:'JetBrains Mono';transition:border-color .18s,box-shadow .18s}
+  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;transition:border-color .18s,box-shadow .18s}
 .inp:focus,.sel:focus{outline:none;border-color:var(--lime);
   box-shadow:0 0 0 3px rgba(184,255,46,.12)}
 .sel{appearance:none;cursor:pointer;
@@ -214,7 +205,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .seg{display:flex;gap:6px;flex-wrap:wrap}
 .seg button{flex:1;min-width:max-content;background:var(--bg);border:1px solid var(--border2);
   color:var(--muted);border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;
-  cursor:pointer;font-family:'Hanken Grotesk';transition:all .15s}
+  cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;transition:all .15s}
 .seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
 .seg button:not(.on):hover{color:var(--text);border-color:var(--border2)}
 
@@ -223,9 +214,9 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
   border:1px solid var(--border2);border-radius:16px;padding:24px;position:relative;overflow:hidden}
 .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.result .rlabel{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;
+.result .rlabel{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted2)}
-.result .big{font-family:'Archivo';font-weight:900;letter-spacing:-.03em;
+.result .big{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.03em;
   font-size:clamp(40px,8vw,56px);line-height:1;margin:8px 0 2px;color:var(--lime)}
 .result .big small{font-size:24px;color:var(--muted);font-weight:700}
 .result .per{color:var(--muted);font-size:13.5px}
@@ -233,7 +224,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
   display:flex;flex-direction:column;gap:11px}
 .brow{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
 .brow span{color:var(--muted)}
-.brow b{font-family:'JetBrains Mono';font-weight:500;font-size:14px}
+.brow b{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-weight:500;font-size:14px}
 .brow.hl b{color:var(--lime)}
 .brow.warn b{color:var(--amber)}
 
@@ -243,21 +234,21 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .cmpitem.best{border-color:rgba(184,255,46,.4);box-shadow:0 0 0 1px rgba(184,255,46,.15)}
 .cmptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
 .cmptop .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
-.badge{font-family:'JetBrains Mono';font-size:10px;background:var(--lime);color:#06210a;
+.badge{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:10px;background:var(--lime);color:#06210a;
   padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em}
-.cmptop .amt{font-family:'JetBrains Mono';font-weight:700;font-size:17px}
+.cmptop .amt{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-weight:700;font-size:17px}
 .bar{height:7px;background:var(--border);border-radius:100px;overflow:hidden}
 .bar i{display:block;height:100%;border-radius:100px;
   background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .5s cubic-bezier(.2,.8,.2,1)}
 .cmpitem.best .bar i{background:linear-gradient(90deg,var(--lime),var(--lime-dim))}
-.cmpmeta{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);margin-top:7px}
+.cmpmeta{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);margin-top:7px}
 
 .disclaimer{font-size:12px;color:var(--muted2);margin-top:16px;line-height:1.5;
   border-left:2px solid var(--border2);padding-left:12px}
 
 /* ---------- AFFILIATE STRIP ---------- */
 .partners{margin:60px 0 10px}
-.sec-label{font-family:'JetBrains Mono';font-size:12px;letter-spacing:.12em;
+.sec-label{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:12px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:22px}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--surface);
@@ -271,7 +262,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 
 /* ---------- FAQ ---------- */
 .section{padding:62px 0}
-.section h2.sh{font-family:'Archivo';font-weight:800;font-size:clamp(26px,4vw,36px);
+.section h2.sh{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:clamp(26px,4vw,36px);
   letter-spacing:-.025em;text-align:center}
 .section .ssub{text-align:center;color:var(--muted);margin:10px auto 0;max-width:540px}
 .faq{max-width:760px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px}
@@ -280,7 +271,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .qa.open{border-color:var(--border2)}
 .qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;
   padding:18px 20px;cursor:pointer;font-weight:600;font-size:15.5px}
-.qa .q .plus{color:var(--lime);font-family:'JetBrains Mono';font-size:20px;
+.qa .q .plus{color:var(--lime);font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:20px;
   transition:transform .25s;flex-shrink:0}
 .qa.open .q .plus{transform:rotate(45deg)}
 .qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);
@@ -293,14 +284,14 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
   position:relative;overflow:hidden}
 .newsletter::before{content:"";position:absolute;inset:0;
   background:radial-gradient(500px 200px at 50% 0%,rgba(184,255,46,.08),transparent)}
-.newsletter h3{font-family:'Archivo';font-weight:800;font-size:26px;position:relative}
+.newsletter h3{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:26px;position:relative}
 .newsletter p{color:var(--muted);margin:8px auto 22px;max-width:440px;position:relative}
 .nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;position:relative}
 .nl-form input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:10px;
   padding:13px 15px;color:var(--text);font-size:14.5px;font-family:'JetBrains Mono'}
 .nl-form input:focus{outline:none;border-color:var(--lime)}
 .nl-form button{background:var(--lime);color:#06210a;border:none;border-radius:10px;
-  padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:'Hanken Grotesk';
+  padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
   transition:transform .15s,box-shadow .2s}
 .nl-form button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(184,255,46,.5)}
 .nl-note{font-size:12px;color:var(--muted2);margin-top:12px;position:relative}
@@ -310,7 +301,7 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
 @media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
-.foot-grid h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;
+.foot-grid h4{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
 .foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
 .foot-grid a:hover{color:var(--lime)}
@@ -533,7 +524,7 @@ window.addEventListener('load',function(){
         <p class="disclaimer" style="margin-top:4px">Paddle &amp; Lemon Squeezy act as Merchant of Record — their higher % includes global sales-tax/VAT handling and chargeback coverage, which Stripe bills separately.</p>
       </div>
       <div>
-        <div class="rlabel" style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Fees by provider</div>
+        <div class="rlabel" style="font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Fees by provider</div>
         <div class="cmp" id="payCmp"></div>
       </div>
     </div>
