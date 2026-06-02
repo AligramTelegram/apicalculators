@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinecone vs Supabase vs Qdrant : Coûts Base de Données Vectorielle 2026</title>
+<meta name="description" content="Comparaison précise des coûts de Pinecone, Supabase pgvector, Qdrant et Weaviate pour 1M, 10M et 100M de vecteurs. Trouvez la base de données vectorielle la moins chère pour votre cas d'usage en 2026.">
+<link rel="canonical" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="article"><meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Comparaison Coûts Base Vectorielle 2026 : Pinecone vs Supabase vs Qdrant">
+<meta property="og:description" content="Coûts des 4 meilleures bases vectorielles à l'échelle de production. Avec calculatrice gratuite.">
+<meta property="og:url" content="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pinecone vs Supabase vs Qdrant vs Weaviate : Comparaison Coûts Base Vectorielle 2026","inLanguage":"fr","author":{"@type":"Organization","name":"APICalculators"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la base de données vectorielle la moins chère en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"Pour les charges petites à moyennes (moins de 5M de vecteurs), Supabase pgvector au plan Pro (25 $/mois) est généralement le moins cher car les requêtes sont incluses. À très grande échelle (100M+), Qdrant auto-hébergé sur instances spot gagne."}},{"@type":"Question","name":"Combien coûte Pinecone pour 1 million de vecteurs ?","acceptedAnswer":{"@type":"Answer","text":"Pinecone Serverless facture ~0,33 $/Go de stockage et 16 $/million de read units. Pour 1M de vecteurs de 1536 dimensions (~9 Go), le stockage coûte ~3 $/mois. Avec les requêtes, cela donne environ 11–25 $/mois."}}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75}
+a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1100px;margin:0 auto;padding:0 22px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}
+main{padding:48px 0 80px}.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:24px;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted2)}.breadcrumb span{color:var(--border2)}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted2)}.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
+h1{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,4.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:28px}
+.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:23px;margin:36px 0 13px}h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:24px 0 9px;color:#d4dce3}
+p{color:#cdd6dd;margin-bottom:15px}ul,ol{color:#cdd6dd;padding-left:24px;margin-bottom:15px}li{margin-bottom:8px}strong{color:var(--text)}
+.ptable{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;text-transform:uppercase;color:var(--muted2);padding:9px 13px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:10px 13px;border-bottom:1px solid var(--border);color:#cdd6dd;white-space:nowrap}.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge-t{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 5px;border-radius:4px;margin-left:5px;font-weight:700}.mono{font-family:'Cascadia Code','Consolas',monospace}
+.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:22px;margin:26px 0;position:relative;overflow:hidden}
+.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;margin-bottom:5px;color:var(--text)}.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:12px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none}
+footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;padding:0 22px}footer a{color:var(--muted2)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="nav-in"><a href="/fr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/fr/#calc">Calculatrices</a><a href="/fr/blog/">Blog</a><a href="/fr/about.html">À propos</a></nav></div></header>
+<main class="wrap">
+  <nav class="breadcrumb"><a href="/fr/">Accueil</a><span>/</span><a href="/fr/blog/">Blog</a><span>/</span><span>Coûts Base Vectorielle 2026</span></nav>
+  <div class="art-tags"><span class="atag hi">BASE VECTORIELLE</span><span class="atag hi">COMPARAISON</span><span class="atag">PINECONE</span><span class="atag">SUPABASE</span><span class="atag">2026</span></div>
+  <h1>Pinecone vs Supabase vs Qdrant vs Weaviate : Comparaison Coûts Base Vectorielle 2026</h1>
+  <div class="art-meta">2 juin 2026 · 10 min de lecture · Par APICalculators</div>
+  <p class="intro">La tarification des bases vectorielles est notoirement opaque — chaque fournisseur utilise des unités différentes (read units, Go de stockage, pod-heures). Ce guide montre des montants réels en euros à 1M, 10M et 100M de vecteurs, pour choisir l'option la moins chère avant d'architecturer.</p>
+
+  <h2>Gagnant par échelle</h2>
+  <ul>
+    <li><strong>Moins de 5M de vecteurs :</strong> Supabase Pro (25 $/mois, requêtes incluses) gagne à volume faible à moyen.</li>
+    <li><strong>5M–50M de vecteurs :</strong> Pinecone Serverless devance à volume de requêtes modéré.</li>
+    <li><strong>50M+ de vecteurs :</strong> Qdrant auto-hébergé sur VM spot domine (150–300 $/mois au lieu de 1 500 $+).</li>
+  </ul>
+
+  <h2>Modèles de prix 2026 décodés</h2>
+  <h3>Pinecone (Serverless)</h3><ul><li>Stockage : 0,33 $/Go/mois</li><li>Lectures : 16 $/million de read units</li><li>Pas de frais de base</li></ul>
+  <h3>Supabase (pgvector)</h3><ul><li>Stockage : 0,125 $/Go/mois</li><li>Requêtes : incluses</li><li>Frais de base : 25 $/mois (Pro)</li></ul>
+  <h3>Qdrant Cloud</h3><ul><li>Stockage : ~9 $/Go/mois (index mappé en RAM)</li><li>Requêtes : incluses</li></ul>
+
+  <h2>Coûts à l'échelle de production</h2>
+  <h3>1 million de vecteurs, 500K requêtes/mois</h3>
+  <table class="ptable"><thead><tr><th>Fournisseur</th><th>Stockage</th><th>Requêtes</th><th>Base</th><th>Total/mois</th></tr></thead><tbody>
+    <tr class="best"><td><strong>Pinecone</strong><span class="badge-t">LE MOINS CHER</span></td><td class="mono">2,97 $</td><td class="mono">8,00 $</td><td class="mono">0 $</td><td class="mono">10,97 $</td></tr>
+    <tr><td>Supabase</td><td class="mono">1,13 $</td><td class="mono">0 $</td><td class="mono">25 $</td><td class="mono">26,13 $</td></tr>
+    <tr><td>Weaviate</td><td class="mono">4,50 $</td><td class="mono">5,00 $</td><td class="mono">25 $</td><td class="mono">34,50 $</td></tr>
+  </tbody></table>
+
+  <h3>10 millions de vecteurs, 5M requêtes/mois</h3>
+  <table class="ptable"><thead><tr><th>Fournisseur</th><th>Stockage</th><th>Requêtes</th><th>Base</th><th>Total/mois</th></tr></thead><tbody>
+    <tr class="best"><td><strong>Supabase</strong><span class="badge-t">LE MOINS CHER</span></td><td class="mono">11,25 $</td><td class="mono">0 $</td><td class="mono">25 $</td><td class="mono">36,25 $</td></tr>
+    <tr><td>Pinecone</td><td class="mono">29,70 $</td><td class="mono">80,00 $</td><td class="mono">0 $</td><td class="mono">109,70 $</td></tr>
+  </tbody></table>
+  <p>À fort volume de requêtes, les coûts de requêtes dominent. Supabase avec requêtes illimitées à 25 $/mois est alors 3× moins cher que Pinecone.</p>
+
+  <div class="calc-cta"><h3>🧊 Calculez vos coûts de base vectorielle</h3><p>Saisissez nombre de vecteurs, dimensions et volume de requêtes — Pinecone vs Supabase vs Qdrant côte à côte.</p><a href="/fr/#vector" class="cta-btn">Ouvrir la calculatrice →</a></div>
+
+  <h2>Quelle base vectorielle choisir ?</h2>
+  <h3>Supabase pgvector si :</h3><ul><li>Vous utilisez déjà Supabase, moins de 5M de vecteurs et voulez du filtrage SQL natif.</li></ul>
+  <h3>Pinecone si :</h3><ul><li>Vous voulez une base vectorielle entièrement gérée à volume de requêtes modéré.</li></ul>
+  <h3>Qdrant si :</h3><ul><li>Vous avez besoin de performances maximales ou auto-hébergez à 50M+ de vecteurs.</li></ul>
+
+  <h2>FAQ</h2>
+  <h3>Quelle est la base vectorielle la moins chère en 2026 ?</h3>
+  <p>Pour la plupart des charges sous 5M de vecteurs : <strong>Supabase pgvector à 25 $/mois</strong> (requêtes incluses). À 50M+ : Qdrant auto-hébergé.</p>
+  <h3>Combien coûte Pinecone pour 1 million de vecteurs ?</h3>
+  <p>Environ <strong>11–25 $/mois</strong> selon le volume de requêtes. Stockage ~3 $, requêtes 8 $ à 500K/mois.</p>
+
+  <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px"><div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px">Équipe APICalculators</div><p style="color:var(--muted);font-size:13.5px;margin:0">Nous créons des calculatrices de coûts gratuites pour développeurs. Données de prix issues de la documentation officielle, vérifiées mensuellement.</p></div></div>
+</main>
+<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/fr/">Accueil</a> · <a href="/fr/blog/">Blog</a> · <a href="/fr/privacy.html">Confidentialité</a></span></div></footer>
+</body>
+</html>
