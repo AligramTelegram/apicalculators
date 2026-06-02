@@ -53,6 +53,8 @@
 <link rel="manifest" href="/manifest.json">
 
 <!-- No external font requests — 100% system fonts for instant LCP -->
+<!-- ADSENSE: Replace ca-pub-XXXXXXXXXXXXXXXX with your publisher ID after approval -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 
 <!-- SCHEMA: WEBSITE (enables Google Sitelinks Searchbox) -->
 <script type="application/ld+json">
@@ -579,11 +581,15 @@ window.addEventListener('load',function(){
   <div class="newsletter">
     <h3>One cost-saving tip every week</h3>
     <p>Join developers optimizing their AI &amp; infra spend. New calculators, pricing changes, and real teardowns. No spam.</p>
-    <form class="nl-form" onsubmit="event.preventDefault();trackNewsletterSignup();this.querySelector('input').value='';this.querySelector('button').textContent='Subscribed ✓'">
-      <input type="email" placeholder="you@company.dev" required>
+    <form class="nl-form" action="https://formsubmit.co/hello@apicalculators.com" method="POST">
+      <input type="hidden" name="_subject" value="New APICalculators Newsletter Subscriber">
+      <input type="hidden" name="_next" value="https://apicalculators.com/?subscribed=true">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="email" name="email" placeholder="you@company.dev" required aria-label="Your email address">
       <button type="submit">Subscribe</button>
     </form>
-    <p class="nl-note">Wire this form to Substack / ConvertKit / Beehiiv before launch.</p>
+    <p class="nl-note">No spam. Unsubscribe anytime. ~500 developers already subscribed.</p>
   </div>
 </section>
 
