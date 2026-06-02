@@ -22,38 +22,58 @@
 
 <!-- OPEN GRAPH -->
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="APICalculators — Developer Infrastructure Cost Hub">
 <meta property="og:description" content="Real-time cost calculators for AI APIs, vector databases, image generation, and SaaS payment processors.">
 <meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="APICalculators — Developer Infrastructure Cost Hub">
 <meta property="og:url" content="https://apicalculators.com/">
 <meta property="og:site_name" content="APICalculators">
 
 <!-- TWITTER -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:creator" content="@apicalculators">
 <meta name="twitter:title" content="APICalculators — Free Developer Cost Optimization Tools">
 <meta name="twitter:description" content="Calculate your AI infrastructure costs instantly. LLM, vector DB, image gen, and payment fees.">
 <meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<meta name="twitter:image:alt" content="APICalculators dashboard showing LLM and API cost calculators">
 
-<!-- ICONS -->
+<!-- GEO & LANGUAGE -->
+<meta name="language" content="English">
+<meta name="geo.region" content="US">
+<meta name="geo.placename" content="United States">
+
+<!-- ICONS & PWA -->
 <meta name="google-site-verification" content="ragcSuE5Eegby97lXvNtkZJX_OKg0fH4bXar4H5MF3I">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
+<link rel="apple-touch-icon" href="https://apicalculators.com/icon-192.png">
+<link rel="manifest" href="/manifest.json">
 
 <!-- PRECONNECT -->
-<!-- Fonts loaded async after page paint — zero render-blocking -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts: system stack (zero network requests, instant LCP) -->
+<!-- Google Fonts loaded non-blocking after page is interactive -->
 <script>
-(function(){
-  var l=document.createElement('link');
-  l.rel='stylesheet';
+window.addEventListener('load',function(){
+  var l=document.createElement('link');l.rel='stylesheet';
   l.href='https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
   document.head.appendChild(l);
-})();
+},false);
 </script>
 
+<!-- SCHEMA: WEBSITE (enables Google Sitelinks Searchbox) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"APICalculators","url":"https://apicalculators.com","description":"Developer infrastructure cost optimization tools — free calculators for LLM tokens, vector databases, image generation, and payment fees","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://apicalculators.com/blog/?q={search_term_string}"},"query-input":"required name=search_term_string"}}
+</script>
+<!-- SCHEMA: WEBPAGE -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"LLM Cost Calculator & AI Infrastructure Pricing Tools","url":"https://apicalculators.com/","description":"Calculate and optimize production AI infrastructure costs in real-time.","isPartOf":{"@type":"WebSite","url":"https://apicalculators.com"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".sub"]},"inLanguage":"en-US","dateModified":"2026-06-02"}
+</script>
 <!-- SCHEMA: ORGANIZATION -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":"https://apicalculators.com/logo.png","description":"Developer infrastructure cost optimization tools","sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
+{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png","width":512,"height":512},"description":"Developer infrastructure cost optimization tools","contactPoint":{"@type":"ContactPoint","email":"hello@apicalculators.com","contactType":"customer support"},"sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
 </script>
 <!-- SCHEMA: SOFTWARE APPLICATION -->
 <script type="application/ld+json">
