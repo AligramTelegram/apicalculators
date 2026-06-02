@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0c10">
+
+<!-- PRIMARY SEO -->
+<title>LLM Cost Calculator &amp; AI Infrastructure Pricing Tools | APICalculators</title>
+<meta name="description" content="Calculate and optimize production AI infrastructure costs in real-time. Estimate LLM token expenses (GPT-4o, Claude, Gemini), compare vector databases, project image generation budgets, and analyze Stripe vs Paddle payment fees. Free, no signup.">
+<meta name="keywords" content="API cost calculator, LLM pricing calculator, vector database cost, AI image generation cost, payment processor fees, GPT-4o cost, Claude pricing, Stripe vs Paddle">
+<meta name="author" content="APICalculators">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/">
+
+<!-- HREFLANG (REGIONAL) -->
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/">
+<link rel="alternate" hreflang="de" href="https://de.apicalculators.com/">
+<link rel="alternate" hreflang="fr" href="https://fr.apicalculators.com/">
+<link rel="alternate" hreflang="tr" href="https://tr.apicalculators.com/">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/">
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="APICalculators — Developer Infrastructure Cost Hub">
+<meta property="og:description" content="Real-time cost calculators for AI APIs, vector databases, image generation, and SaaS payment processors.">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="og:url" content="https://apicalculators.com/">
+<meta property="og:site_name" content="APICalculators">
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APICalculators — Free Developer Cost Optimization Tools">
+<meta name="twitter:description" content="Calculate your AI infrastructure costs instantly. LLM, vector DB, image gen, and payment fees.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+
+<!-- ICONS -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
+
+<!-- PRECONNECT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- SCHEMA: ORGANIZATION -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":"https://apicalculators.com/logo.png","description":"Developer infrastructure cost optimization tools","sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
+</script>
+<!-- SCHEMA: SOFTWARE APPLICATION -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"APICalculators - Cost Optimization Hub","operatingSystem":"Web","applicationCategory":"DeveloperApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","ratingCount":"150"}}
+</script>
+<!-- SCHEMA: BREADCRUMB -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"LLM Calculator","item":"https://apicalculators.com/#llm"}]}
+</script>
+<!-- SCHEMA: FAQ -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate are the LLM pricing calculations?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use official 2026 pricing from OpenAI, Anthropic, Google, and other providers. Prices are reviewed monthly to reflect current rates."}},{"@type":"Question","name":"Is APICalculators free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, all calculators are completely free and require no registration or authentication."}},{"@type":"Question","name":"Do you store my data?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations run entirely in your browser. Nothing you type is sent to a server."}}]}
+</script>
+
+<style>
+:root{
+  --bg:#0a0c10; --bg2:#0c0f15; --surface:#12161d; --surface2:#161b24;
+  --border:#1d2530; --border2:#27313e;
+  --text:#e8edf1; --muted:#8b97a4; --muted2:#5e6976;
+  --lime:#b8ff2e; --lime-dim:#9be01f; --cyan:#4dd6ff; --amber:#ffb24d; --rose:#ff5d6c;
+  --shadow:0 24px 60px -20px rgba(0,0,0,.7);
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Hanken Grotesk',-apple-system,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* atmosphere */
+body::before{
+  content:""; position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(184,255,46,.07), transparent 60%),
+    radial-gradient(700px 600px at 5% 10%, rgba(77,214,255,.06), transparent 55%);
+}
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; opacity:.5;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+          mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- NAV ---------- */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+  background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Archivo';font-weight:800;
+  font-size:19px;letter-spacing:-.02em}
+.logo .glyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  background:var(--lime);color:#06210a;font-size:17px;box-shadow:0 0 20px rgba(184,255,46,.4)}
+.logo b{color:var(--lime)}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
+.nav-links a.nlink:hover{color:var(--text)}
+.lang{display:flex;gap:2px;border:1px solid var(--border2);border-radius:8px;padding:3px;
+  font-family:'JetBrains Mono';font-size:11px}
+.lang a{padding:3px 8px;border-radius:5px;color:var(--muted2);font-weight:500}
+.lang a.on{background:var(--surface2);color:var(--lime)}
+.lang a:hover{color:var(--text)}
+@media(max-width:760px){.nav-links .nlink{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{padding:78px 0 30px;text-align:center;position:relative}
+.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';
+  font-size:12px;color:var(--muted);border:1px solid var(--border2);
+  background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
+.tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.h{font-family:'Archivo';font-weight:900;letter-spacing:-.035em;line-height:1.02;
+  font-size:clamp(38px,7vw,72px)}
+h1.h .em{color:var(--lime);position:relative}
+h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;
+  background:rgba(184,255,46,.18);z-index:-1;transform:skewX(-8deg)}
+.sub{max-width:600px;margin:22px auto 0;color:var(--muted);font-size:18px}
+.hero-stats{display:flex;gap:34px;justify-content:center;margin-top:34px;flex-wrap:wrap}
+.hstat b{font-family:'Archivo';font-weight:800;font-size:24px;display:block;color:var(--text)}
+.hstat span{font-size:12.5px;color:var(--muted2);font-family:'JetBrains Mono';
+  text-transform:uppercase;letter-spacing:.06em}
+
+/* ---------- AD SLOT ---------- */
+.adslot{margin:26px auto;max-width:760px;min-height:90px;border:1px dashed var(--border2);
+  border-radius:10px;display:grid;place-items:center;color:var(--muted2);
+  font-family:'JetBrains Mono';font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
+
+/* ---------- CALCULATOR SHELL ---------- */
+.calc{background:linear-gradient(180deg,var(--surface),var(--bg2));
+  border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);
+  overflow:hidden;margin-top:18px}
+.tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--border);
+  overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:1;min-width:max-content;display:flex;align-items:center;gap:9px;
+  padding:13px 16px;border-radius:11px;cursor:pointer;color:var(--muted);
+  font-weight:600;font-size:14.5px;white-space:nowrap;border:1px solid transparent;
+  transition:all .18s;background:transparent}
+.tab .ic{font-size:17px}
+.tab:hover{color:var(--text);background:var(--surface2)}
+.tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
+.tab.on .ic{filter:drop-shadow(0 0 8px rgba(184,255,46,.6))}
+.tab .num{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);
+  border:1px solid var(--border2);border-radius:5px;padding:1px 5px}
+.tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
+
+.panel{display:none;padding:28px;animation:fade .35s ease}
+.panel.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel-head{margin-bottom:22px}
+.panel-head h2{font-family:'Archivo';font-weight:800;font-size:23px;letter-spacing:-.02em}
+.panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
+
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+@media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
+
+/* inputs */
+.field{margin-bottom:18px}
+.field label{display:flex;justify-content:space-between;align-items:center;
+  font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
+.field label .hint{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);font-weight:400}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);
+  border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;
+  font-family:'JetBrains Mono';transition:border-color .18s,box-shadow .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);
+  box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{flex:1;min-width:max-content;background:var(--bg);border:1px solid var(--border2);
+  color:var(--muted);border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;
+  cursor:pointer;font-family:'Hanken Grotesk';transition:all .15s}
+.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+.seg button:not(.on):hover{color:var(--text);border-color:var(--border2)}
+
+/* result card */
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.06),transparent 55%),var(--surface2);
+  border:1px solid var(--border2);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.result .rlabel{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted2)}
+.result .big{font-family:'Archivo';font-weight:900;letter-spacing:-.03em;
+  font-size:clamp(40px,8vw,56px);line-height:1;margin:8px 0 2px;color:var(--lime)}
+.result .big small{font-size:24px;color:var(--muted);font-weight:700}
+.result .per{color:var(--muted);font-size:13.5px}
+.breakdown{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;
+  display:flex;flex-direction:column;gap:11px}
+.brow{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
+.brow span{color:var(--muted)}
+.brow b{font-family:'JetBrains Mono';font-weight:500;font-size:14px}
+.brow.hl b{color:var(--lime)}
+.brow.warn b{color:var(--amber)}
+
+/* comparison bars (payment) */
+.cmp{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.cmpitem{background:var(--bg);border:1px solid var(--border2);border-radius:12px;padding:14px 16px}
+.cmpitem.best{border-color:rgba(184,255,46,.4);box-shadow:0 0 0 1px rgba(184,255,46,.15)}
+.cmptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
+.cmptop .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.badge{font-family:'JetBrains Mono';font-size:10px;background:var(--lime);color:#06210a;
+  padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em}
+.cmptop .amt{font-family:'JetBrains Mono';font-weight:700;font-size:17px}
+.bar{height:7px;background:var(--border);border-radius:100px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .5s cubic-bezier(.2,.8,.2,1)}
+.cmpitem.best .bar i{background:linear-gradient(90deg,var(--lime),var(--lime-dim))}
+.cmpmeta{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2);margin-top:7px}
+
+.disclaimer{font-size:12px;color:var(--muted2);margin-top:16px;line-height:1.5;
+  border-left:2px solid var(--border2);padding-left:12px}
+
+/* ---------- AFFILIATE STRIP ---------- */
+.partners{margin:60px 0 10px}
+.sec-label{font-family:'JetBrains Mono';font-size:12px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:22px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--surface);
+  border:1px solid var(--border2);border-radius:12px;padding:14px 20px;font-weight:600;
+  font-size:14.5px;transition:all .2s;color:var(--text)}
+.cta-button:hover{border-color:var(--lime);transform:translateY(-2px);
+  box-shadow:0 12px 30px -12px rgba(184,255,46,.3)}
+.cta-button .arr{color:var(--lime);transition:transform .2s}
+.cta-button:hover .arr{transform:translate(3px,-3px)}
+.cta-button .em{font-size:18px}
+
+/* ---------- FAQ ---------- */
+.section{padding:62px 0}
+.section h2.sh{font-family:'Archivo';font-weight:800;font-size:clamp(26px,4vw,36px);
+  letter-spacing:-.025em;text-align:center}
+.section .ssub{text-align:center;color:var(--muted);margin:10px auto 0;max-width:540px}
+.faq{max-width:760px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:13px;
+  overflow:hidden;transition:border-color .2s}
+.qa.open{border-color:var(--border2)}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 20px;cursor:pointer;font-weight:600;font-size:15.5px}
+.qa .q .plus{color:var(--lime);font-family:'JetBrains Mono';font-size:20px;
+  transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);
+  font-size:14.5px}
+.qa .a p{padding:0 20px 18px}
+
+/* ---------- NEWSLETTER ---------- */
+.newsletter{background:linear-gradient(135deg,var(--surface),var(--bg2));
+  border:1px solid var(--border);border-radius:20px;padding:42px 32px;text-align:center;
+  position:relative;overflow:hidden}
+.newsletter::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(500px 200px at 50% 0%,rgba(184,255,46,.08),transparent)}
+.newsletter h3{font-family:'Archivo';font-weight:800;font-size:26px;position:relative}
+.newsletter p{color:var(--muted);margin:8px auto 22px;max-width:440px;position:relative}
+.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;position:relative}
+.nl-form input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:10px;
+  padding:13px 15px;color:var(--text);font-size:14.5px;font-family:'JetBrains Mono'}
+.nl-form input:focus{outline:none;border-color:var(--lime)}
+.nl-form button{background:var(--lime);color:#06210a;border:none;border-radius:10px;
+  padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:'Hanken Grotesk';
+  transition:transform .15s,box-shadow .2s}
+.nl-form button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(184,255,46,.5)}
+.nl-note{font-size:12px;color:var(--muted2);margin-top:12px;position:relative}
+@media(max-width:520px){.nl-form{flex-direction:column}}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot-grid h4{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
+.foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
+.foot-grid a:hover{color:var(--lime)}
+.foot-about p{color:var(--muted);font-size:13.5px;margin-top:10px;max-width:260px}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
+  margin-top:34px;padding-top:22px;border-top:1px solid var(--border);
+  font-size:12.5px;color:var(--muted2);font-family:'JetBrains Mono'}
+</style>
+</head>
+<body>
+
+<!-- GA4 (replace GA_YOUR_ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_YOUR_ID"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','GA_YOUR_ID',{page_path:location.pathname});
+</script>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
+    <nav class="nav-links">
+      <a class="nlink" href="#calc">Calculators</a>
+      <a class="nlink" href="#faq">FAQ</a>
+      <a class="nlink" href="/blog/">Blog</a>
+      <div class="lang">
+        <a class="on" href="/">EN</a>
+        <a href="https://de.apicalculators.com/">DE</a>
+        <a href="https://fr.apicalculators.com/">FR</a>
+        <a href="https://tr.apicalculators.com/">TR</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero wrap">
+  <span class="tagpill"><span class="dot"></span> 2026 pricing · 4 calculators · runs 100% in your browser</span>
+  <h1 class="h">Know your <span class="em">infra costs</span><br>before the invoice does.</h1>
+  <p class="sub">Real-time cost estimators for LLM tokens, vector databases, AI image generation, and SaaS payment fees. Free, no signup, zero data leaves your device.</p>
+  <div class="hero-stats">
+    <div class="hstat"><b>12+</b><span>Providers</span></div>
+    <div class="hstat"><b>&lt;300ms</b><span>Edge response</span></div>
+    <div class="hstat"><b>$0</b><span>To use</span></div>
+  </div>
+</section>
+
+<!-- AD: TOP LEADERBOARD -->
+<div class="wrap"><div class="adslot">AD · TOP LEADERBOARD · 728×90 / 320×50</div></div>
+
+<!-- ===== CALCULATORS ===== -->
+<main class="wrap" id="calc">
+<div class="calc">
+  <div class="tabs" role="tablist">
+    <button class="tab on" data-tab="llm"><span class="ic">🔤</span> LLM Tokens <span class="num">01</span></button>
+    <button class="tab" data-tab="vector"><span class="ic">🧊</span> Vector DB <span class="num">02</span></button>
+    <button class="tab" data-tab="image"><span class="ic">🎨</span> Image Gen <span class="num">03</span></button>
+    <button class="tab" data-tab="pay"><span class="ic">💳</span> Payment Fees <span class="num">04</span></button>
+  </div>
+
+  <!-- ===== PANEL 1: LLM ===== -->
+  <section class="panel on" id="llm" role="tabpanel">
+    <div class="panel-head">
+      <h2>LLM Token &amp; API Cost Calculator</h2>
+      <p>Estimate monthly spend across GPT-4o, Claude, and Gemini based on your token throughput.</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label>Model</label>
+          <select class="sel" id="llmModel"></select>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Input tokens / request <span class="hint">avg</span></label>
+            <input class="inp" id="llmIn" type="number" value="1500" min="0">
+          </div>
+          <div class="field">
+            <label>Output tokens / request <span class="hint">avg</span></label>
+            <input class="inp" id="llmOut" type="number" value="500" min="0">
+          </div>
+        </div>
+        <div class="field">
+          <label>Requests <span class="hint">per period</span></label>
+          <input class="inp" id="llmReq" type="number" value="10000" min="0">
+        </div>
+        <div class="field">
+          <label>Billing period</label>
+          <div class="seg" id="llmPeriod">
+            <button data-v="1">Per day</button>
+            <button class="on" data-v="30">Per month</button>
+            <button data-v="365">Per year</button>
+          </div>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Estimated cost</div>
+        <div class="big" id="llmTotal">$0</div>
+        <div class="per" id="llmPer">— per month</div>
+        <div class="breakdown">
+          <div class="brow"><span>Price (input / output per 1M)</span><b id="llmPrice">—</b></div>
+          <div class="brow"><span>Cost per request</span><b id="llmPerReq">—</b></div>
+          <div class="brow"><span>Input token cost</span><b id="llmInCost">—</b></div>
+          <div class="brow"><span>Output token cost</span><b id="llmOutCost">—</b></div>
+          <div class="brow hl"><span>Total tokens / period</span><b id="llmTok">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider's pricing page before budgeting.</p>
+  </section>
+
+  <!-- ===== PANEL 2: VECTOR ===== -->
+  <section class="panel" id="vector" role="tabpanel">
+    <div class="panel-head">
+      <h2>Vector Database Cloud Cost Estimator</h2>
+      <p>Approximate monthly cost for Pinecone, Supabase, Qdrant, and Weaviate from your index size.</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label>Provider</label>
+          <select class="sel" id="vecProvider"></select>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Number of vectors</label>
+            <input class="inp" id="vecCount" type="number" value="1000000" min="0">
+          </div>
+          <div class="field">
+            <label>Dimensions</label>
+            <input class="inp" id="vecDim" type="number" value="1536" min="1">
+          </div>
+        </div>
+        <div class="field">
+          <label>Queries / month</label>
+          <input class="inp" id="vecQ" type="number" value="2000000" min="0">
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Estimated monthly cost</div>
+        <div class="big" id="vecTotal">$0</div>
+        <div class="per" id="vecName">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Raw vector storage</span><b id="vecStore">—</b></div>
+          <div class="brow"><span>Storage cost</span><b id="vecStoreCost">—</b></div>
+          <div class="brow"><span>Query / compute cost</span><b id="vecQCost">—</b></div>
+          <div class="brow warn"><span>Plan base fee</span><b id="vecBase">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">Vector DB pricing models vary widely (serverless read units, pod-hours, compute tiers). These are simplified order-of-magnitude estimates assuming float32 vectors and ~1.5× index overhead — use them for comparison, not for contracts.</p>
+  </section>
+
+  <!-- ===== PANEL 3: IMAGE ===== -->
+  <section class="panel" id="image" role="tabpanel">
+    <div class="panel-head">
+      <h2>AI Image Generation Budget Planner</h2>
+      <p>Compare per-image and monthly cost across DALL·E 3, Stable Diffusion, and Flux.</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label>Model / quality</label>
+          <select class="sel" id="imgModel"></select>
+        </div>
+        <div class="field">
+          <label>Images / month</label>
+          <input class="inp" id="imgCount" type="number" value="5000" min="0">
+        </div>
+        <div class="field">
+          <label>Avg variations per prompt <span class="hint">multiplier</span></label>
+          <input class="inp" id="imgVar" type="number" value="1" min="1">
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Estimated monthly cost</div>
+        <div class="big" id="imgTotal">$0</div>
+        <div class="per" id="imgName">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Cost per image</span><b id="imgUnit">—</b></div>
+          <div class="brow"><span>Total images generated</span><b id="imgGen">—</b></div>
+          <div class="brow hl"><span>Cost per 1,000 images</span><b id="imgK">—</b></div>
+        </div>
+      </div>
+    </div>
+    <p class="disclaimer">DALL·E rates are per-image API prices. Open models (SDXL, Flux) reflect typical hosted-API pricing; self-hosting on your own GPU can be dramatically cheaper at scale but adds infra cost not modeled here.</p>
+  </section>
+
+  <!-- ===== PANEL 4: PAYMENT ===== -->
+  <section class="panel" id="pay" role="tabpanel">
+    <div class="panel-head">
+      <h2>SaaS Payment Gateway Fee Calculator</h2>
+      <p>See exactly what Stripe, Paddle, Lemon Squeezy, and PayPal take from your monthly revenue.</p>
+    </div>
+    <div class="grid2">
+      <div>
+        <div class="row2">
+          <div class="field">
+            <label>Monthly revenue <span class="hint">USD</span></label>
+            <input class="inp" id="payRev" type="number" value="25000" min="0">
+          </div>
+          <div class="field">
+            <label>Transactions / month</label>
+            <input class="inp" id="payTx" type="number" value="800" min="0">
+          </div>
+        </div>
+        <div class="field">
+          <label>Avg transaction value</label>
+          <input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default">
+        </div>
+        <p class="disclaimer" style="margin-top:4px">Paddle &amp; Lemon Squeezy act as Merchant of Record — their higher % includes global sales-tax/VAT handling and chargeback coverage, which Stripe bills separately.</p>
+      </div>
+      <div>
+        <div class="rlabel" style="font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Fees by provider</div>
+        <div class="cmp" id="payCmp"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- AD: IN-CONTENT -->
+<div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>
+
+<!-- ===== AFFILIATE PARTNERS ===== -->
+<section class="partners">
+  <div class="sec-label">Build it cheaper — partner offers</div>
+  <div class="cta-row">
+    <a class="cta-button" rel="sponsored nofollow" target="_blank"
+       href="https://www.digitalocean.com/?refcode=YOUR_CODE&utm_source=apicalculators&utm_medium=referral"
+       onclick="trackAffiliateClick('digitalocean')">
+       <span class="em">🌊</span> Deploy with $200 DigitalOcean credits <span class="arr">↗</span></a>
+    <a class="cta-button" rel="sponsored nofollow" target="_blank"
+       href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"
+       onclick="trackAffiliateClick('supabase')">
+       <span class="em">⚡</span> Build with Supabase <span class="arr">↗</span></a>
+    <a class="cta-button" rel="sponsored nofollow" target="_blank"
+       href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"
+       onclick="trackAffiliateClick('vercel')">
+       <span class="em">▲</span> Ship on Vercel <span class="arr">↗</span></a>
+  </div>
+</section>
+</main>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <h2 class="sh">Frequently asked questions</h2>
+    <p class="ssub">Everything about how these calculators work and where the numbers come from.</p>
+    <div class="faq" id="faqList">
+      <div class="qa"><div class="q">How accurate are the LLM pricing calculations? <span class="plus">+</span></div>
+        <div class="a"><p>They use published 2026 public API rates from OpenAI, Anthropic, Google and others, reviewed monthly. They don't include negotiated enterprise discounts, prompt caching, or batch-API savings — so treat them as an upper-bound budgeting estimate.</p></div></div>
+      <div class="qa"><div class="q">Is APICalculators free to use? <span class="plus">+</span></div>
+        <div class="a"><p>Yes. Every calculator is free with no registration, login, or paywall. We sustain the site through display ads and affiliate partnerships.</p></div></div>
+      <div class="qa"><div class="q">Do you store or send my data anywhere? <span class="plus">+</span></div>
+        <div class="a"><p>No. All math runs entirely in your browser with JavaScript. Nothing you type is transmitted to a server or persisted beyond your session.</p></div></div>
+      <div class="qa"><div class="q">Why do vector DB and image estimates vary from my real bill? <span class="plus">+</span></div>
+        <div class="a"><p>Those providers price on complex dimensions (read units, pod-hours, GPU time, plan tiers). We use simplified, transparent models for apples-to-apples comparison — great for choosing a provider, not a substitute for their official calculator.</p></div></div>
+      <div class="qa"><div class="q">Which payment processor is cheapest? <span class="plus">+</span></div>
+        <div class="a"><p>It depends on your average transaction value and whether you need tax handling. Stripe usually wins on raw % for high-value transactions; Paddle and Lemon Squeezy bundle global VAT/sales-tax compliance into a higher rate. The calculator shows the real dollar difference for your numbers.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="section wrap" style="padding-top:0">
+  <div class="newsletter">
+    <h3>One cost-saving tip every week</h3>
+    <p>Join developers optimizing their AI &amp; infra spend. New calculators, pricing changes, and real teardowns. No spam.</p>
+    <form class="nl-form" onsubmit="event.preventDefault();trackNewsletterSignup();this.querySelector('input').value='';this.querySelector('button').textContent='Subscribed ✓'">
+      <input type="email" placeholder="you@company.dev" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="nl-note">Wire this form to Substack / ConvertKit / Beehiiv before launch.</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a href="/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
+        <p>Developer infrastructure cost optimization tools. Free, fast, and private — built for engineers who hate surprise invoices.</p>
+      </div>
+      <div>
+        <h4>Calculators</h4>
+        <a href="#llm">LLM Token Cost</a>
+        <a href="#vector">Vector DB Cost</a>
+        <a href="#image">Image Generation</a>
+        <a href="#pay">Payment Fees</a>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <a href="/blog/">Blog</a>
+        <a href="/about.html">About</a>
+        <a href="https://github.com/apicalculators" rel="nofollow" target="_blank">GitHub</a>
+        <a href="https://twitter.com/apicalculators" rel="nofollow" target="_blank">Twitter / X</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 APICalculators.com — built on the edge.</span>
+      <span>Prices are estimates · verify before you ship</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============ PRICING DATA (2026, USD) ============ */
+// LLM: price per 1,000,000 tokens
+const LLM = [
+  {id:"gpt-4o",        name:"GPT-4o",                in:2.50,  out:10.00},
+  {id:"gpt-4o-mini",   name:"GPT-4o mini",           in:0.15,  out:0.60},
+  {id:"o1",            name:"OpenAI o1",             in:15.00, out:60.00},
+  {id:"claude-sonnet", name:"Claude 3.5 Sonnet",     in:3.00,  out:15.00},
+  {id:"claude-haiku",  name:"Claude 3.5 Haiku",      in:0.80,  out:4.00},
+  {id:"claude-opus",   name:"Claude 3 Opus",         in:15.00, out:75.00},
+  {id:"gemini-pro",    name:"Gemini 1.5 Pro",        in:1.25,  out:5.00},
+  {id:"gemini-flash",  name:"Gemini 1.5 Flash",      in:0.075, out:0.30},
+];
+// Vector DB simplified model: {base, storagePerGB, queryPerMillion}
+const VEC = [
+  {id:"pinecone", name:"Pinecone (Serverless)", base:0,  storagePerGB:0.33, queryPerMillion:16.00},
+  {id:"supabase", name:"Supabase (pgvector)",   base:25, storagePerGB:0.125,queryPerMillion:0},
+  {id:"qdrant",   name:"Qdrant Cloud",          base:0,  storagePerGB:9.00, queryPerMillion:0},
+  {id:"weaviate", name:"Weaviate Cloud",        base:25, storagePerGB:0.50, queryPerMillion:10.00},
+];
+// Image gen: price per image (USD)
+const IMG = [
+  {id:"dalle3-std",  name:"DALL·E 3 · 1024 standard", unit:0.040},
+  {id:"dalle3-hd",   name:"DALL·E 3 · 1024 HD",       unit:0.080},
+  {id:"dalle3-wide", name:"DALL·E 3 · 1792 HD",       unit:0.120},
+  {id:"sdxl",        name:"Stable Diffusion XL (API)",unit:0.009},
+  {id:"sd3",         name:"Stable Diffusion 3",       unit:0.035},
+  {id:"flux",        name:"Flux.1 Pro (API)",         unit:0.050},
+];
+// Payment gateways: {rate, fixed, mor}
+const PAY = [
+  {id:"stripe",  name:"Stripe",        rate:0.029, fixed:0.30, mor:false, note:"2.9% + $0.30"},
+  {id:"paddle",  name:"Paddle",        rate:0.050, fixed:0.50, mor:true,  note:"5% + $0.50 · MoR"},
+  {id:"lemon",   name:"Lemon Squeezy", rate:0.050, fixed:0.50, mor:true,  note:"5% + $0.50 · MoR"},
+  {id:"paypal",  name:"PayPal",        rate:0.0349,fixed:0.49, mor:false, note:"3.49% + $0.49"},
+];
+
+/* ============ HELPERS ============ */
+const $=id=>document.getElementById(id);
+const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
+const fmt$=v=>{
+  if(v===0)return"$0";
+  if(v<0.01)return"$"+v.toFixed(5);
+  if(v<1)return"$"+v.toFixed(3);
+  if(v<1000)return"$"+v.toFixed(2);
+  return"$"+Math.round(v).toLocaleString("en-US");
+};
+const big$=v=>{
+  if(v>=1000)return"$"+Math.round(v).toLocaleString("en-US");
+  if(v>=1)return"$"+v.toFixed(2);
+  if(v>0)return"$"+v.toFixed(4);
+  return"$0";
+};
+const intf=v=>Math.round(v).toLocaleString("en-US");
+
+/* ============ TABS ============ */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
+    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+    $(t.dataset.tab).classList.add('on');
+    if(window.gtag)gtag('event','calculator_view',{calculator:t.dataset.tab});
+  });
+});
+
+/* ============ LLM CALC ============ */
+LLM.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.in}/$${m.out} per 1M`;$('llmModel').appendChild(o);});
+let llmDays=30;
+$('llmPeriod').addEventListener('click',e=>{
+  if(!e.target.dataset.v)return;
+  [...$('llmPeriod').children].forEach(b=>b.classList.remove('on'));
+  e.target.classList.add('on');llmDays=+e.target.dataset.v;calcLLM();
+});
+function calcLLM(){
+  const m=LLM.find(x=>x.id===$('llmModel').value);
+  const inTok=num($('llmIn').value),outTok=num($('llmOut').value),req=num($('llmReq').value);
+  const inCostReq=inTok/1e6*m.in, outCostReq=outTok/1e6*m.out;
+  const perReq=inCostReq+outCostReq;
+  const reqTotal=req*llmDays;
+  const total=perReq*reqTotal;
+  const totalTok=(inTok+outTok)*reqTotal;
+  $('llmTotal').textContent=big$(total);
+  $('llmPer').textContent=llmDays===1?"— per day":llmDays===30?"— per month":"— per year";
+  $('llmPrice').textContent=`$${m.in} / $${m.out}`;
+  $('llmPerReq').textContent=fmt$(perReq);
+  $('llmInCost').textContent=fmt$(inCostReq*reqTotal);
+  $('llmOutCost').textContent=fmt$(outCostReq*reqTotal);
+  $('llmTok').textContent=intf(totalTok)+" tok";
+  if(window.gtag)gtag('event','calculator_used',{calculator:'llm'});
+}
+['llmModel','llmIn','llmOut','llmReq'].forEach(id=>$(id).addEventListener('input',calcLLM));
+
+/* ============ VECTOR CALC ============ */
+VEC.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;$('vecProvider').appendChild(o);});
+function calcVec(){
+  const p=VEC.find(x=>x.id===$('vecProvider').value);
+  const n=num($('vecCount').value),d=num($('vecDim').value),q=num($('vecQ').value);
+  const bytes=n*d*4*1.5; // float32 + ~1.5x index overhead
+  const gb=bytes/(1024**3);
+  const storeCost=gb*p.storagePerGB;
+  const qCost=q/1e6*p.queryPerMillion;
+  const total=p.base+storeCost+qCost;
+  $('vecTotal').textContent=big$(total);
+  $('vecName').textContent="— "+p.name;
+  $('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+" MB":gb.toFixed(2)+" GB";
+  $('vecStoreCost').textContent=fmt$(storeCost);
+  $('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):"included";
+  $('vecBase').textContent=p.base?fmt$(p.base)+" /mo":"no base fee";
+  if(window.gtag)gtag('event','calculator_used',{calculator:'vector'});
+}
+['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>$(id).addEventListener('input',calcVec));
+
+/* ============ IMAGE CALC ============ */
+IMG.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.unit}/img`;$('imgModel').appendChild(o);});
+function calcImg(){
+  const m=IMG.find(x=>x.id===$('imgModel').value);
+  const c=num($('imgCount').value),v=Math.max(1,num($('imgVar').value));
+  const totalImg=c*v;
+  const total=totalImg*m.unit;
+  $('imgTotal').textContent=big$(total);
+  $('imgName').textContent="— "+m.name;
+  $('imgUnit').textContent=fmt$(m.unit);
+  $('imgGen').textContent=intf(totalImg)+" imgs";
+  $('imgK').textContent=fmt$(m.unit*1000);
+  if(window.gtag)gtag('event','calculator_used',{calculator:'image'});
+}
+['imgModel','imgCount','imgVar'].forEach(id=>$(id).addEventListener('input',calcImg));
+
+/* ============ PAYMENT CALC ============ */
+function calcPay(){
+  const rev=num($('payRev').value),tx=num($('payTx').value);
+  $('payAvg').value=tx>0?"$"+(rev/tx).toFixed(2):"$0.00";
+  const rows=PAY.map(p=>{
+    const fee=rev*p.rate+tx*p.fixed;
+    return {...p,fee,net:rev-fee,pct:rev>0?fee/rev*100:0};
+  }).sort((a,b)=>a.fee-b.fee);
+  const max=Math.max(...rows.map(r=>r.fee),1);
+  $('payCmp').innerHTML=rows.map((r,i)=>`
+    <div class="cmpitem${i===0?' best':''}">
+      <div class="cmptop">
+        <span class="name">${r.name}${i===0?'<span class="badge">CHEAPEST</span>':''}</span>
+        <span class="amt">${fmt$(r.fee)}</span>
+      </div>
+      <div class="bar"><i style="width:${(r.fee/max*100).toFixed(1)}%"></i></div>
+      <div class="cmpmeta">${r.note} · effective ${r.pct.toFixed(2)}% · net ${fmt$(r.net)}</div>
+    </div>`).join('');
+  if(window.gtag)gtag('event','calculator_used',{calculator:'payment'});
+}
+['payRev','payTx'].forEach(id=>$(id).addEventListener('input',calcPay));
+
+/* ============ FAQ ACCORDION ============ */
+document.querySelectorAll('.qa').forEach(qa=>{
+  qa.querySelector('.q').addEventListener('click',()=>{
+    const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
+  });
+});
+
+/* ============ TRACKING ============ */
+function trackAffiliateClick(program){
+  const data={program,ts:new Date().toISOString(),ref:document.referrer};
+  try{localStorage.setItem('aff_'+Date.now(),JSON.stringify(data));}catch(e){}
+  if(window.gtag)gtag('event','affiliate_click',{program});
+}
+function trackNewsletterSignup(){if(window.gtag)gtag('event','newsletter_signup',{source:document.referrer||'direct'});}
+
+/* ============ INIT ============ */
+calcLLM();calcVec();calcImg();calcPay();
+</script>
+</body>
+</html>

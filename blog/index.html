@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Blog — AI & API Infrastructure Cost Guides | APICalculators</title>
+<meta name="description" content="In-depth guides on LLM pricing, vector database costs, AI image generation budgeting, and SaaS payment fee optimization. Actionable breakdowns for developers.">
+<link rel="canonical" href="https://apicalculators.com/blog/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="APICalculators Blog — AI & API Cost Guides for Developers">
+<meta property="og:description" content="Practical guides on LLM pricing, vector DB costs, image gen budgets, and payment fees.">
+<meta property="og:url" content="https://apicalculators.com/blog/">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"APICalculators Blog","url":"https://apicalculators.com/blog/","description":"Developer guides on AI infrastructure cost optimization","publisher":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"}}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#5e6976;--lime:#b8ff2e;--cyan:#4dd6ff;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Hanken Grotesk',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 500px at 80% -10%,rgba(184,255,46,.06),transparent 60%),radial-gradient(700px 600px at 5% 10%,rgba(77,214,255,.05),transparent 55%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Archivo';font-weight:800;font-size:18px;letter-spacing:-.02em}
+.logo b{color:var(--lime)}
+.nav-r{display:flex;align-items:center;gap:22px}
+.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}
+.nav-r a:hover,.nav-r a.on{color:var(--text)}
+.nav-r a.on{color:var(--lime)}
+
+/* hero */
+.blog-hero{padding:60px 0 40px;border-bottom:1px solid var(--border)}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 13px;border-radius:100px;margin-bottom:20px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime)}
+h1.bh{font-family:'Archivo';font-weight:900;font-size:clamp(30px,5vw,48px);letter-spacing:-.03em}
+h1.bh span{color:var(--lime)}
+.bsub{color:var(--muted);margin-top:10px;max-width:520px}
+
+/* filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:26px 0}
+.ftag{background:var(--surface);border:1px solid var(--border2);border-radius:100px;padding:7px 16px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .18s}
+.ftag:hover{color:var(--text);border-color:var(--muted2)}
+.ftag.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+
+/* posts grid */
+.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;padding-bottom:70px}
+.post-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.post-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.post-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr}
+@media(max-width:680px){.post-card.featured{grid-template-columns:1fr}.posts{grid-template-columns:1fr}}
+.card-thumb{background:var(--bg2);min-height:180px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
+.card-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(184,255,46,.12),transparent 60%)}
+.post-card.featured .card-thumb{min-height:260px}
+.card-body{padding:22px 24px;display:flex;flex-direction:column;flex:1}
+.card-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
+.ctag{font-family:'JetBrains Mono';font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:2px 7px;color:var(--muted2);letter-spacing:.04em}
+.ctag.hi{border-color:rgba(184,255,46,.3);color:var(--lime)}
+h2.ct{font-family:'Archivo';font-weight:800;font-size:19px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2}
+.post-card.featured h2.ct{font-size:26px}
+.ce{color:var(--muted);font-size:14px;line-height:1.6;flex:1}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
+.card-meta{font-family:'JetBrains Mono';font-size:11px;color:var(--muted2)}
+.card-read{font-size:13px;font-weight:600;color:var(--lime);display:flex;align-items:center;gap:5px;transition:gap .18s}
+.post-card:hover .card-read{gap:9px}
+
+/* newsletter sidebar */
+.nl-inline{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:24px;margin:0 0 20px;position:relative;overflow:hidden}
+.nl-inline::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.nl-inline h3{font-family:'Archivo';font-weight:800;font-size:18px;margin-bottom:6px}
+.nl-inline p{color:var(--muted);font-size:13.5px;margin-bottom:16px}
+.nl-inline input{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:9px;padding:11px 13px;color:var(--text);font-family:'JetBrains Mono';font-size:13px;margin-bottom:8px}
+.nl-inline input:focus{outline:none;border-color:var(--lime)}
+.nl-inline button{width:100%;background:var(--lime);color:#06210a;border:none;border-radius:9px;padding:11px;font-weight:700;font-size:14px;cursor:pointer;font-family:'Hanken Grotesk'}
+
+footer{border-top:1px solid var(--border);padding:32px 0;font-family:'JetBrains Mono';font-size:12px;color:var(--muted2);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted2);transition:color .15s}footer a:hover{color:var(--lime)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/#calc">Calculators</a>
+      <a href="/blog/" class="on">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="blog-hero wrap">
+  <span class="chip"><span class="dot"></span> Updated June 2026</span>
+  <h1 class="bh">Infra cost guides for <span>developers</span></h1>
+  <p class="bsub">Practical breakdowns on LLM pricing, vector DB costs, image generation, and payment processor fees — with direct links to the calculators.</p>
+</section>
+
+<div class="wrap">
+  <div class="filters" role="group" aria-label="Filter posts by topic">
+    <button class="ftag on" data-tag="all">All posts</button>
+    <button class="ftag" data-tag="llm">LLM / Tokens</button>
+    <button class="ftag" data-tag="vector">Vector DB</button>
+    <button class="ftag" data-tag="image">Image Gen</button>
+    <button class="ftag" data-tag="payment">Payment</button>
+    <button class="ftag" data-tag="guide">Guides</button>
+  </div>
+
+  <div class="posts" id="postsGrid">
+
+    <!-- POST 1 — FEATURED -->
+    <a href="/blog/llm-api-cost-guide-2026.html" class="post-card featured" data-tags="llm guide">
+      <div class="card-thumb">🔤</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="ctag hi">LLM</span>
+          <span class="ctag hi">GUIDE</span>
+          <span class="ctag">2026</span>
+        </div>
+        <h2 class="ct">How to Estimate Your LLM API Costs in 2026 — GPT-4o, Claude &amp; Gemini Compared</h2>
+        <p class="ce">A complete breakdown of token pricing across every major provider. Learn how input vs. output token splits, context windows, and batching decisions compound to determine your real monthly spend — with worked examples from real applications.</p>
+        <div class="card-foot">
+          <span class="card-meta">June 2, 2026 · 12 min read</span>
+          <span class="card-read">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 2 -->
+    <a href="#" class="post-card" data-tags="llm" aria-disabled="true" style="opacity:.55;pointer-events:none">
+      <div class="card-thumb">⚡</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="ctag">LLM</span><span class="ctag">COMING SOON</span></div>
+        <h2 class="ct">GPT-4o vs Claude 3.5 Sonnet: A Real Cost Analysis for Startups</h2>
+        <p class="ce">We ran identical workloads through both APIs and calculated the true per-feature cost. The winner might surprise you.</p>
+        <div class="card-foot">
+          <span class="card-meta">Coming — Month 2</span>
+          <span class="card-read">Soon →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 3 -->
+    <a href="#" class="post-card" data-tags="vector" aria-disabled="true" style="opacity:.55;pointer-events:none">
+      <div class="card-thumb">🧊</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="ctag">VECTOR DB</span><span class="ctag">COMING SOON</span></div>
+        <h2 class="ct">Pinecone vs Supabase vs Qdrant: Vector Database Cost Showdown</h2>
+        <p class="ce">Side-by-side cost comparison for 1M, 10M, and 100M vectors at real query loads. Which one scales cheapest?</p>
+        <div class="card-foot">
+          <span class="card-meta">Coming — Month 2</span>
+          <span class="card-read">Soon →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 4 -->
+    <a href="#" class="post-card" data-tags="payment" aria-disabled="true" style="opacity:.55;pointer-events:none">
+      <div class="card-thumb">💳</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="ctag">PAYMENT</span><span class="ctag">COMING SOON</span></div>
+        <h2 class="ct">Stripe vs Paddle: Which Is Actually Cheaper for SaaS?</h2>
+        <p class="ce">Paddle's 5% looks scary next to Stripe's 2.9%, but when you factor in VAT handling and chargebacks, the math shifts. Here's the full picture.</p>
+        <div class="card-foot">
+          <span class="card-meta">Coming — Month 3</span>
+          <span class="card-read">Soon →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- POST 5 -->
+    <a href="#" class="post-card" data-tags="image" aria-disabled="true" style="opacity:.55;pointer-events:none">
+      <div class="card-thumb">🎨</div>
+      <div class="card-body">
+        <div class="card-tags"><span class="ctag">IMAGE GEN</span><span class="ctag">COMING SOON</span></div>
+        <h2 class="ct">DALL·E 3 vs Stable Diffusion XL: Cost &amp; Quality at Scale</h2>
+        <p class="ce">At 1,000 images/day the cost gap between hosted APIs and self-hosted open models is enormous. We break it down.</p>
+        <div class="card-foot">
+          <span class="card-meta">Coming — Month 3</span>
+          <span class="card-read">Soon →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer class="wrap">
+  <span>© 2026 APICalculators.com</span>
+  <span><a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/privacy.html">Privacy</a> · <a href="/sitemap.xml">Sitemap</a></span>
+</footer>
+
+<script>
+document.querySelectorAll('.ftag').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.ftag').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const tag=btn.dataset.tag;
+    document.querySelectorAll('.post-card').forEach(card=>{
+      const tags=card.dataset.tags||'';
+      card.style.display=(tag==='all'||tags.includes(tag))?'':'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
