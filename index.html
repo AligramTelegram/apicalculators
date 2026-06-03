@@ -130,12 +130,44 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
 .nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
 .nav-links a.nlink:hover{color:var(--text)}
-.lang{display:flex;gap:2px;border:1px solid var(--border2);border-radius:8px;padding:3px;
-  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px}
-.lang a{padding:3px 8px;border-radius:5px;color:var(--muted2);font-weight:500}
-.lang a.on{background:var(--surface2);color:var(--lime)}
-.lang a:hover{color:var(--text)}
-@media(max-width:760px){.nav-links .nlink{display:none}}
+.nav-right{display:flex;align-items:center;gap:14px}
+/* language dropdown (scales to 10 langs) */
+.langdd{position:relative}
+.langdd-btn{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border2);
+  border-radius:9px;padding:7px 11px;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;
+  font-family:-apple-system,system-ui,sans-serif;transition:border-color .18s}
+.langdd-btn:hover{border-color:var(--muted2)}
+.langdd-btn .chev{transition:transform .2s;color:var(--muted2)}
+.langdd.open .langdd-btn .chev{transform:rotate(180deg)}
+.langdd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:180px;background:var(--surface);
+  border:1px solid var(--border2);border-radius:12px;padding:6px;box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s;z-index:60;
+  max-height:340px;overflow-y:auto}
+.langdd.open .langdd-menu{opacity:1;visibility:visible;transform:none}
+.langdd-menu a{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:8px;
+  color:var(--muted);font-size:13.5px;font-weight:500;transition:all .14s}
+.langdd-menu a:hover{background:var(--surface2);color:var(--text)}
+.langdd-menu a.on{color:var(--lime)}
+.langdd-menu a .flag{font-size:16px}
+.langdd-menu a .code{margin-left:auto;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2)}
+.langdd-menu a.soon{opacity:.4;pointer-events:none}
+/* hamburger (mobile only) */
+.hamb{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
+.hamb span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
+.hamb.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+/* mobile slide-down menu */
+.mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--border);
+  background:rgba(10,12,16,.96);backdrop-filter:blur(14px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:15px 22px;color:var(--text);font-weight:600;font-size:16px;
+  border-bottom:1px solid var(--border);transition:background .14s}
+.mobile-menu a:hover{background:var(--surface)}
+@media(max-width:760px){
+  .nav-links .nlink{display:none}
+  .hamb{display:flex}
+}
 
 /* ---------- HERO ---------- */
 .hero{padding:78px 0 30px;text-align:center;position:relative}
@@ -338,13 +370,32 @@ window.addEventListener('load',function(){
       <a class="nlink" href="#calc">Calculators</a>
       <a class="nlink" href="#faq">FAQ</a>
       <a class="nlink" href="/blog/">Blog</a>
-      <div class="lang">
-        <a class="on" href="/">EN</a>
-        <a href="/de/">DE</a>
-        <a href="/fr/">FR</a>
-        <a href="/tr/">TR</a>
-      </div>
+      <a class="nlink" href="/about.html">About</a>
     </nav>
+    <div class="nav-right">
+      <div class="langdd" id="langDD">
+        <button class="langdd-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">🌐 <span>EN</span> <span class="chev">▾</span></button>
+        <div class="langdd-menu" role="menu">
+          <a class="on" href="/"><span class="flag">🇬🇧</span> English <span class="code">EN</span></a>
+          <a href="/de/"><span class="flag">🇩🇪</span> Deutsch <span class="code">DE</span></a>
+          <a href="/fr/"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
+          <a href="/tr/"><span class="flag">🇹🇷</span> Türkçe <span class="code">TR</span></a>
+          <a class="soon"><span class="flag">🇪🇸</span> Español <span class="code">SOON</span></a>
+          <a class="soon"><span class="flag">🇮🇹</span> Italiano <span class="code">SOON</span></a>
+          <a class="soon"><span class="flag">🇯🇵</span> 日本語 <span class="code">SOON</span></a>
+          <a class="soon"><span class="flag">🇳🇱</span> Nederlands <span class="code">SOON</span></a>
+          <a class="soon"><span class="flag">🇵🇱</span> Polski <span class="code">SOON</span></a>
+          <a class="soon"><span class="flag">🇵🇹</span> Português <span class="code">SOON</span></a>
+        </div>
+      </div>
+      <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#calc">Calculators</a>
+    <a href="#faq">FAQ</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about.html">About</a>
   </div>
 </header>
 
@@ -630,6 +681,16 @@ window.addEventListener('load',function(){
 </footer>
 
 <script>
+/* ============ NAV: lang dropdown + mobile menu ============ */
+(function(){
+  var dd=document.getElementById('langDD'),btn=document.getElementById('langBtn');
+  var hamb=document.getElementById('hamb'),mm=document.getElementById('mobileMenu');
+  btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');btn.setAttribute('aria-expanded',dd.classList.contains('open'));});
+  document.addEventListener('click',function(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');});
+  hamb.addEventListener('click',function(){var o=mm.classList.toggle('open');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});
+  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hamb.classList.remove('open');});});
+})();
+
 /* ============ PRICING DATA (2026, USD) ============ */
 // LLM: price per 1,000,000 tokens
 const LLM = [

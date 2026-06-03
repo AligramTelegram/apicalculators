@@ -81,11 +81,30 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);backgroun
 .nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
 .nav-links a.nlink:hover{color:var(--text)}
-.lang{display:flex;gap:2px;border:1px solid var(--border2);border-radius:8px;padding:3px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px}
-.lang a{padding:3px 8px;border-radius:5px;color:var(--muted2);font-weight:500}
-.lang a.on{background:var(--surface2);color:var(--lime)}
-.lang a:hover{color:var(--text)}
-@media(max-width:760px){.nav-links .nlink{display:none}}
+.nav-right{display:flex;align-items:center;gap:14px}
+.langdd{position:relative}
+.langdd-btn{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border2);border-radius:9px;padding:7px 11px;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:border-color .18s}
+.langdd-btn:hover{border-color:var(--muted2)}
+.langdd-btn .chev{transition:transform .2s;color:var(--muted2)}
+.langdd.open .langdd-btn .chev{transform:rotate(180deg)}
+.langdd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:180px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:6px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s;z-index:60;max-height:340px;overflow-y:auto}
+.langdd.open .langdd-menu{opacity:1;visibility:visible;transform:none}
+.langdd-menu a{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:8px;color:var(--muted);font-size:13.5px;font-weight:500;transition:all .14s}
+.langdd-menu a:hover{background:var(--surface2);color:var(--text)}
+.langdd-menu a.on{color:var(--lime)}
+.langdd-menu a .flag{font-size:16px}
+.langdd-menu a .code{margin-left:auto;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2)}
+.langdd-menu a.soon{opacity:.4;pointer-events:none}
+.hamb{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
+.hamb span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
+.hamb.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamb.open span:nth-child(2){opacity:0}
+.hamb.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--border);background:rgba(10,12,16,.96);backdrop-filter:blur(14px)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:15px 22px;color:var(--text);font-weight:600;font-size:16px;border-bottom:1px solid var(--border);transition:background .14s}
+.mobile-menu a:hover{background:var(--surface)}
+@media(max-width:760px){.nav-links .nlink{display:none}.hamb{display:flex}}
 .hero{padding:78px 0 30px;text-align:center;position:relative}
 .tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
 .tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
@@ -199,13 +218,32 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       <a class="nlink" href="#calc">Rechner</a>
       <a class="nlink" href="#faq">FAQ</a>
       <a class="nlink" href="/de/blog/">Blog</a>
-      <div class="lang">
-        <a href="/">EN</a>
-        <a class="on" href="/de/">DE</a>
-        <a href="/fr/">FR</a>
-        <a href="/tr/">TR</a>
-      </div>
+      <a class="nlink" href="/de/about.html">Über uns</a>
     </nav>
+    <div class="nav-right">
+      <div class="langdd" id="langDD">
+        <button class="langdd-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">🌐 <span>DE</span> <span class="chev">▾</span></button>
+        <div class="langdd-menu" role="menu">
+          <a href="/"><span class="flag">🇬🇧</span> English <span class="code">EN</span></a>
+          <a class="on" href="/de/"><span class="flag">🇩🇪</span> Deutsch <span class="code">DE</span></a>
+          <a href="/fr/"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
+          <a href="/tr/"><span class="flag">🇹🇷</span> Türkçe <span class="code">TR</span></a>
+          <a class="soon"><span class="flag">🇪🇸</span> Español <span class="code">BALD</span></a>
+          <a class="soon"><span class="flag">🇮🇹</span> Italiano <span class="code">BALD</span></a>
+          <a class="soon"><span class="flag">🇯🇵</span> 日本語 <span class="code">BALD</span></a>
+          <a class="soon"><span class="flag">🇳🇱</span> Nederlands <span class="code">BALD</span></a>
+          <a class="soon"><span class="flag">🇵🇱</span> Polski <span class="code">BALD</span></a>
+          <a class="soon"><span class="flag">🇵🇹</span> Português <span class="code">BALD</span></a>
+        </div>
+      </div>
+      <button class="hamb" id="hamb" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#calc">Rechner</a>
+    <a href="#faq">FAQ</a>
+    <a href="/de/blog/">Blog</a>
+    <a href="/de/about.html">Über uns</a>
   </div>
 </header>
 
@@ -428,6 +466,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 </footer>
 
 <script>
+(function(){var dd=document.getElementById('langDD'),btn=document.getElementById('langBtn'),hamb=document.getElementById('hamb'),mm=document.getElementById('mobileMenu');btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');btn.setAttribute('aria-expanded',dd.classList.contains('open'));});document.addEventListener('click',function(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');});hamb.addEventListener('click',function(){var o=mm.classList.toggle('open');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hamb.classList.remove('open');});});})();
 const LLM=[{id:"gpt-4o",name:"GPT-4o",in:2.50,out:10.00},{id:"gpt-4o-mini",name:"GPT-4o mini",in:0.15,out:0.60},{id:"o1",name:"OpenAI o1",in:15.00,out:60.00},{id:"claude-sonnet",name:"Claude 3.5 Sonnet",in:3.00,out:15.00},{id:"claude-haiku",name:"Claude 3.5 Haiku",in:0.80,out:4.00},{id:"claude-opus",name:"Claude 3 Opus",in:15.00,out:75.00},{id:"gemini-pro",name:"Gemini 1.5 Pro",in:1.25,out:5.00},{id:"gemini-flash",name:"Gemini 1.5 Flash",in:0.075,out:0.30}];
 const VEC=[{id:"pinecone",name:"Pinecone (Serverless)",base:0,storagePerGB:0.33,queryPerMillion:16.00},{id:"supabase",name:"Supabase (pgvector)",base:25,storagePerGB:0.125,queryPerMillion:0},{id:"qdrant",name:"Qdrant Cloud",base:0,storagePerGB:9.00,queryPerMillion:0},{id:"weaviate",name:"Weaviate Cloud",base:25,storagePerGB:0.50,queryPerMillion:10.00}];
 const IMG=[{id:"dalle3-std",name:"DALL·E 3 · 1024 Standard",unit:0.040},{id:"dalle3-hd",name:"DALL·E 3 · 1024 HD",unit:0.080},{id:"dalle3-wide",name:"DALL·E 3 · 1792 HD",unit:0.120},{id:"sdxl",name:"Stable Diffusion XL (API)",unit:0.009},{id:"sd3",name:"Stable Diffusion 3",unit:0.035},{id:"flux",name:"Flux.1 Pro (API)",unit:0.050}];
