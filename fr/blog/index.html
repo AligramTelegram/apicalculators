@@ -2,92 +2,163 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Guides de Coûts IA & API | APICalculators</title>
-<meta name="description" content="Guides détaillés sur les prix LLM, les coûts de bases vectorielles, les budgets de génération d'images IA et les frais de paiement SaaS. Analyses pratiques pour développeurs.">
+<title>Blog — Guides de coûts infra pour développeurs | APICalculators</title>
+<meta name="description" content="Analyses pratiques sur les prix LLM, les coûts des bases vectorielles, la génération d'images et les frais de paiement.">
 <link rel="canonical" href="https://apicalculators.com/fr/blog/">
 <meta name="robots" content="index, follow">
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/">
 <link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/">
+<meta property="og:title" content="Blog — Guides de coûts infra pour développeurs | APICalculators">
+<meta property="og:description" content="Analyses pratiques sur les prix LLM, les coûts des bases vectorielles, la génération d'images et les frais de paiement.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://apicalculators.com/fr/blog/">
 <style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65}
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65}
 a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
 header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
 .nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}.nav-r a.on{color:var(--lime)}
 .blog-hero{padding:60px 0 40px;border-bottom:1px solid var(--border)}
-h1.bh{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(30px,5vw,48px);letter-spacing:-.03em}h1.bh span{color:var(--lime)}
-.bsub{color:var(--muted);margin-top:10px;max-width:520px}
-.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;padding:34px 0 70px}
-.post-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
-.post-card:hover{border-color:var(--border2);transform:translateY(-3px)}
-.card-thumb{background:var(--bg2);min-height:160px;display:flex;align-items:center;justify-content:center;font-size:48px;position:relative;overflow:hidden}
-.card-thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(184,255,46,.12),transparent 60%)}
-.card-body{padding:22px 24px;display:flex;flex-direction:column;flex:1}
-.card-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}
-.ctag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:2px 7px;color:var(--muted2)}.ctag.hi{border-color:rgba(184,255,46,.3);color:var(--lime)}
-h2.ct{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2}
-.ce{color:var(--muted);font-size:14px;line-height:1.6;flex:1}
-.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
-.card-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2)}.card-read{font-size:13px;font-weight:600;color:var(--lime)}
-footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted2)}
+.hero-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--lime);text-transform:uppercase;margin-bottom:16px}
+.blog-hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.15;margin-bottom:14px;max-width:700px}
+.blog-hero p{color:var(--muted);font-size:16px;max-width:620px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding:28px 0 0}
+.filter-btn{padding:7px 16px;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.filter-btn.on,.filter-btn:hover{background:var(--surface2);color:var(--text);border-color:var(--border2)}
+.filter-btn.on{color:var(--lime)}
+.posts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;padding:40px 0 80px}
+.post-card{display:flex;flex-direction:column;gap:12px;padding:24px;border-radius:14px;border:1px solid var(--border);background:var(--surface);transition:border-color .18s,background .18s}
+.post-card:hover{border-color:var(--border2);background:var(--surface2)}
+.post-card.featured{border-color:rgba(184,255,46,.3);grid-column:span 2}
+@media(max-width:680px){.post-card.featured{grid-column:span 1}}
+.card-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--border2);color:var(--muted);text-transform:uppercase}
+.t-llm{border-color:rgba(184,255,46,.3);color:var(--lime)}
+.t-vector{border-color:rgba(77,214,255,.3);color:var(--cyan)}
+.t-image{border-color:rgba(255,180,50,.3);color:#ffb432}
+.t-payment{border-color:rgba(120,200,120,.3);color:#78c878}
+.t-cloud{border-color:rgba(100,180,255,.3);color:#64b4ff}
+.t-serverless{border-color:rgba(255,150,50,.3);color:#ff9632}
+.t-embedding{border-color:rgba(200,100,255,.3);color:#c864ff}
+.t-agent{border-color:rgba(255,100,150,.3);color:#ff6496}
+.t-stt{border-color:rgba(100,220,200,.3);color:#64dcc8}
+.t-gateway{border-color:rgba(220,180,100,.3);color:#dcb464}
+.card-title{font-size:17px;font-weight:700;line-height:1.35;color:var(--text)}
+.card-desc{font-size:14px;color:var(--muted);line-height:1.6;flex:1}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-top:auto;padding-top:8px;border-top:1px solid var(--border)}
+.read-link{color:var(--lime);font-weight:700}
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}.post-card.hidden{display:none}
 </style>
 </head>
 <body>
-<header class="nav"><div class="wrap nav-in"><a href="/fr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/fr/#calc">Calculatrices</a><a href="/fr/blog/" class="on">Blog</a><a href="/fr/about.html">À propos</a></nav></div></header>
-<section class="blog-hero wrap">
-  <h1 class="bh">Guides de coûts d'infrastructure pour <span>développeurs</span></h1>
-  <p class="bsub">Analyses pratiques sur les prix LLM, coûts de bases vectorielles, génération d'images et frais de paiement — avec liens directs vers les calculatrices.</p>
-</section>
-<div class="wrap"><div class="posts">
-  <a href="/fr/blog/guide-couts-llm-2026.html" class="post-card">
-    <div class="card-thumb">🔤</div>
-    <div class="card-body">
-      <div class="card-tags"><span class="ctag hi">LLM</span><span class="ctag hi">GUIDE</span><span class="ctag">2026</span></div>
-      <h2 class="ct">Comment estimer vos coûts d'API LLM en 2026 — GPT-4o, Claude & Gemini comparés</h2>
-      <p class="ce">Une ventilation complète des prix de tokens chez tous les grands fournisseurs. Avec la formule, un tableau de prix 2026 et trois exemples chiffrés.</p>
-      <div class="card-foot"><span class="card-meta">2 juin 2026 · 12 min</span><span class="card-read">Lire →</span></div>
-    </div>
-  </a>
-  <a href="/fr/blog/reduire-couts-llm-2026.html" class="post-card">
-    <div class="card-thumb">⚡</div>
-    <div class="card-body">
-      <div class="card-tags"><span class="ctag hi">LLM</span><span class="ctag hi">OPTIMISATION</span></div>
-      <h2 class="ct">Réduire les coûts d'API LLM : 7 stratégies pour 60% d'économies</h2>
-      <p class="ce">Cache de prompts, routage de modèles, API par lots — stratégies éprouvées avec exemples réels.</p>
-      <div class="card-foot"><span class="card-meta">2 juin 2026 · 13 min</span><span class="card-read">Lire →</span></div>
-    </div>
-  </a>
-  <a href="/fr/blog/comparaison-couts-base-vectorielle-2026.html" class="post-card">
-    <div class="card-thumb">🧊</div>
-    <div class="card-body">
-      <div class="card-tags"><span class="ctag hi">BASE VECTORIELLE</span><span class="ctag hi">COMPARAISON</span></div>
-      <h2 class="ct">Pinecone vs Supabase vs Qdrant : coûts base vectorielle 2026</h2>
-      <p class="ce">Coûts réels à 1M, 10M et 100M de vecteurs. Trouvez la base la moins chère.</p>
-      <div class="card-foot"><span class="card-meta">2 juin 2026 · 10 min</span><span class="card-read">Lire →</span></div>
-    </div>
-  </a>
-  <a href="/fr/blog/stripe-vs-paddle-frais-2026.html" class="post-card">
-    <div class="card-thumb">💳</div>
-    <div class="card-body">
-      <div class="card-tags"><span class="ctag hi">PAIEMENT</span><span class="ctag hi">SAAS</span></div>
-      <h2 class="ct">Stripe vs Paddle vs Lemon Squeezy : frais SaaS 2026</h2>
-      <p class="ce">Les vrais coûts incluant TVA, rétrofacturations et frais cachés à 5K–100K $ MRR.</p>
-      <div class="card-foot"><span class="card-meta">2 juin 2026 · 11 min</span><span class="card-read">Lire →</span></div>
-    </div>
-  </a>
-  <a href="/fr/blog/dalle-vs-stable-diffusion-cout-2026.html" class="post-card">
-    <div class="card-thumb">🎨</div>
-    <div class="card-body">
-      <div class="card-tags"><span class="ctag hi">GÉNÉRATION IMAGES</span><span class="ctag hi">COMPARAISON</span></div>
-      <h2 class="ct">DALL·E 3 vs Stable Diffusion vs Flux : coût 2026</h2>
-      <p class="ce">À 100K images/mois l'écart atteint 3 500 $+. Où chaque modèle gagne.</p>
-      <div class="card-foot"><span class="card-meta">2 juin 2026 · 9 min</span><span class="card-read">Lire →</span></div>
-    </div>
-  </a>
-</div></div>
-<footer class="wrap"><span>© 2026 APICalculators.com</span><span><a href="/fr/">Accueil</a> · <a href="/fr/about.html">À propos</a> · <a href="/fr/privacy.html">Confidentialité</a></span></footer>
+<header class="nav"><div class="nav-in wrap">
+  <a href="/fr/" class="logo">&#127381; API <b>Calculators</b></a>
+  <nav class="nav-r">
+    <a href="/fr/">Calculateurs</a>
+    <a href="/fr/blog/" class="on">Blog</a>
+    <a href="/fr/about.html">À propos</a>
+  </nav>
+</div></header>
+<div class="wrap">
+  <div class="blog-hero">
+    <span class="hero-tag">Mis à jour juin 2026</span>
+    <h1>Guides de coûts infra pour développeurs</h1>
+    <p>Analyses pratiques sur les prix LLM, les coûts des bases vectorielles, la génération d'images et les frais de paiement — avec liens directs vers les calculateurs.</p>
+    <div class="filters"><button class="filter-btn on" data-filter="all">Tous</button><button class="filter-btn" data-filter="llm">LLM / Tokens</button><button class="filter-btn" data-filter="vector">Vector DB</button><button class="filter-btn" data-filter="image">Image Gen</button><button class="filter-btn" data-filter="payment">Paiement</button><button class="filter-btn" data-filter="guide">Guides</button></div>
+  </div>
+  <div class="posts-grid" id="postsGrid">
+    <a href="/fr/blog/guide-couts-llm-2026.html" class="post-card featured" data-tags="llm guide">
+      <div class="card-tags"><span class="tag t-llm">🔤 LLM</span><span class="tag">GUIDE</span></div>
+      <h2 class="card-title">Estimer les coûts API LLM en 2026 — GPT-4o, Claude & Gemini comparés</h2>
+      <p class="card-desc">Décomposition complète des prix par token pour tous les grands fournisseurs. Tokens entrée/sortie, fenêtres contextuelles et batching expliqués.</p>
+      <div class="card-meta"><span>2 juin 2026 · 12 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/reduire-couts-llm-2026.html" class="post-card" data-tags="llm guide">
+      <div class="card-tags"><span class="tag t-llm">⚡ LLM</span><span class="tag">OPTIMISATION</span></div>
+      <h2 class="card-title">Réduire les coûts API LLM de 60% : 7 stratégies éprouvées</h2>
+      <p class="card-desc">Cache de prompts, routage de modèles, Batch API, troncature — stratégies éprouvées avec exemples d'économies réelles.</p>
+      <div class="card-meta"><span>2 juin 2026 · 13 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/comparaison-couts-base-vectorielle-2026.html" class="post-card" data-tags="vector guide">
+      <div class="card-tags"><span class="tag t-vector">🧊 VECTOR DB</span><span class="tag">COMPARAISON</span></div>
+      <h2 class="card-title">Pinecone vs Supabase vs Qdrant vs Weaviate : Coûts Vector DB 2026</h2>
+      <p class="card-desc">Coûts exacts à 1M, 10M et 100M vecteurs. Trouvez la base vectorielle la moins chère pour votre charge de production.</p>
+      <div class="card-meta"><span>2 juin 2026 · 10 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/stripe-vs-paddle-frais-2026.html" class="post-card" data-tags="payment guide">
+      <div class="card-tags"><span class="tag t-payment">💳 PAIEMENT</span><span class="tag">SAAS</span></div>
+      <h2 class="card-title">Stripe vs Paddle vs Lemon Squeezy : Coût SaaS réel 2026</h2>
+      <p class="card-desc">Le coût réel incluant la gestion TVA, les chargebacks et les frais cachés à 5K, 25K et 100K € MRR.</p>
+      <div class="card-meta"><span>2 juin 2026 · 11 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/dalle-vs-stable-diffusion-cout-2026.html" class="post-card" data-tags="image guide">
+      <div class="card-tags"><span class="tag t-image">🎨 IMAGE GEN</span><span class="tag">COMPARAISON</span></div>
+      <h2 class="card-title">DALL·E 3 vs Stable Diffusion vs Flux : Coût & Qualité 2026</h2>
+      <p class="card-desc">À 100K images/mois, l'écart de coût dépasse $3 500. Découvrez où chaque modèle gagne.</p>
+      <div class="card-meta"><span>2 juin 2026 · 9 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/lemon-squeezy-vs-stripe-frais-2026.html" class="post-card" data-tags="payment guide">
+      <div class="card-tags"><span class="tag t-payment">🍋 PAIEMENT</span><span class="tag">GUIDE</span></div>
+      <h2 class="card-title">Lemon Squeezy vs Stripe : Comparaison complète pour SaaS 2026</h2>
+      <p class="card-desc">Marchand délégué vs processeur : TVA, frais et point d'équilibre pour développeurs indépendants.</p>
+      <div class="card-meta"><span>3 juin 2026 · 9 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/cloud-vps-comparaison-prix-2026.html" class="post-card" data-tags="cloud guide">
+      <div class="card-tags"><span class="tag t-cloud">☁️ CLOUD VPS</span><span class="tag">COMPARAISON</span></div>
+      <h2 class="card-title">Vultr vs Hetzner vs DigitalOcean vs Linode : Coût VPS 2026</h2>
+      <p class="card-desc">Décomposition complète à chaque niveau. Trouvez le VPS cloud le moins cher selon CPU/RAM.</p>
+      <div class="card-meta"><span>4 juin 2026 · 11 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/cout-serverless-aws-lambda-2026.html" class="post-card" data-tags="serverless guide">
+      <div class="card-tags"><span class="tag t-serverless">⚡ SERVERLESS</span><span class="tag">GUIDE</span></div>
+      <h2 class="card-title">AWS Lambda vs Vercel Functions vs Cloudflare Workers : Coût 2026</h2>
+      <p class="card-desc">Coûts d'invocation, prix mémoire, niveaux gratuits — décomposition complète à 1M, 10M et 100M invocations.</p>
+      <div class="card-meta"><span>4 juin 2026 · 10 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/cout-api-embedding-2026.html" class="post-card" data-tags="embedding guide">
+      <div class="card-tags"><span class="tag t-embedding">🔢 EMBEDDINGS</span><span class="tag">COMPARAISON</span></div>
+      <h2 class="card-title">OpenAI vs Cohere vs Voyage AI : Coût API Embedding 2026</h2>
+      <p class="card-desc">Coût par 1M tokens, latence et compromis qualité pour tous les grands fournisseurs d'embeddings.</p>
+      <div class="card-meta"><span>4 juin 2026 · 9 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/cout-api-stt-tts-2026.html" class="post-card" data-tags="stt guide">
+      <div class="card-tags"><span class="tag t-stt">🎙️ STT / TTS</span><span class="tag">COMPARAISON</span></div>
+      <h2 class="card-title">Whisper vs ElevenLabs vs Google Speech : Coût API STT & TTS 2026</h2>
+      <p class="card-desc">Coût par minute pour STT, par 1000 caractères pour TTS. Décomposition complète avec estimations réelles.</p>
+      <div class="card-meta"><span>4 juin 2026 · 10 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/prix-api-gateway-2026.html" class="post-card" data-tags="gateway guide">
+      <div class="card-tags"><span class="tag t-gateway">🔀 API GATEWAY</span><span class="tag">GUIDE</span></div>
+      <h2 class="card-title">AWS API Gateway vs Cloudflare vs Kong : Coût 2026</h2>
+      <p class="card-desc">Coûts par million de requêtes, frais de transfert et points d'équilibre à chaque échelle de trafic.</p>
+      <div class="card-meta"><span>4 juin 2026 · 9 min</span><span class="read-link">Lire →</span></div>
+    </a>
+    <a href="/fr/blog/cout-agent-ia-2026.html" class="post-card" data-tags="agent guide">
+      <div class="card-tags"><span class="tag t-agent">🤖 AGENT IA</span><span class="tag">GUIDE</span></div>
+      <h2 class="card-title">Calculateur de coûts Agent IA 2026 : GPT-4o, Claude & Gemini</h2>
+      <p class="card-desc">Comment le raisonnement multi-étapes, les appels d'outils et la mémoire augmentent votre dépense réelle.</p>
+      <div class="card-meta"><span>4 juin 2026 · 11 min</span><span class="read-link">Lire →</span></div>
+    </a>
+  </div>
+</div>
+<footer><div class="wrap"><p>&copy; 2026 <a href="/fr/">APICalculators.com</a></p></div></footer>
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.post-card').forEach(c=>{
+      c.classList.toggle('hidden', f!=='all' && !c.dataset.tags.includes(f));
+    });
+  });
+});
+</script>
 </body>
 </html>
