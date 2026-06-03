@@ -2,16 +2,16 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Geliştiriciler için Altyapı Maliyet Rehberleri | APICalculators</title>
-<meta name="description" content="LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme işlemcisi ücretlerine dair pratik analizler.">
+<title>Blog — Altyapı Maliyet Rehberleri | APICalculators</title>
+<meta name="description" content="LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme ücretlerine dair pratik analizler.">
 <link rel="canonical" href="https://apicalculators.com/tr/blog/">
 <meta name="robots" content="index, follow">
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/">
 <link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/">
 <link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/">
 <link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/">
-<meta property="og:title" content="Blog — Geliştiriciler için Altyapı Maliyet Rehberleri | APICalculators">
-<meta property="og:description" content="LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme işlemcisi ücretlerine dair pratik analizler.">
+<meta property="og:title" content="Blog — Altyapı Maliyet Rehberleri | APICalculators">
+<meta property="og:description" content="LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme ücretlerine dair pratik analizler.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://apicalculators.com/tr/blog/">
 <style>
@@ -38,16 +38,11 @@ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);backgroun
 @media(max-width:680px){.post-card.featured{grid-column:span 1}}
 .card-tags{display:flex;gap:8px;flex-wrap:wrap}
 .tag{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--border2);color:var(--muted);text-transform:uppercase}
-.t-llm{border-color:rgba(184,255,46,.3);color:var(--lime)}
-.t-vector{border-color:rgba(77,214,255,.3);color:var(--cyan)}
-.t-image{border-color:rgba(255,180,50,.3);color:#ffb432}
-.t-payment{border-color:rgba(120,200,120,.3);color:#78c878}
-.t-cloud{border-color:rgba(100,180,255,.3);color:#64b4ff}
-.t-serverless{border-color:rgba(255,150,50,.3);color:#ff9632}
-.t-embedding{border-color:rgba(200,100,255,.3);color:#c864ff}
-.t-agent{border-color:rgba(255,100,150,.3);color:#ff6496}
-.t-stt{border-color:rgba(100,220,200,.3);color:#64dcc8}
-.t-gateway{border-color:rgba(220,180,100,.3);color:#dcb464}
+.t-llm{border-color:rgba(184,255,46,.3);color:var(--lime)}.t-vector{border-color:rgba(77,214,255,.3);color:var(--cyan)}
+.t-image{border-color:rgba(255,180,50,.3);color:#ffb432}.t-payment{border-color:rgba(120,200,120,.3);color:#78c878}
+.t-cloud{border-color:rgba(100,180,255,.3);color:#64b4ff}.t-serverless{border-color:rgba(255,150,50,.3);color:#ff9632}
+.t-embedding{border-color:rgba(200,100,255,.3);color:#c864ff}.t-agent{border-color:rgba(255,100,150,.3);color:#ff6496}
+.t-stt{border-color:rgba(100,220,200,.3);color:#64dcc8}.t-gateway{border-color:rgba(220,180,100,.3);color:#dcb464}
 .card-title{font-size:17px;font-weight:700;line-height:1.35;color:var(--text)}
 .card-desc{font-size:14px;color:var(--muted);line-height:1.6;flex:1}
 .card-meta{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-top:auto;padding-top:8px;border-top:1px solid var(--border)}
@@ -69,32 +64,32 @@ footer a{color:var(--muted)}.post-card.hidden{display:none}
   <div class="blog-hero">
     <span class="hero-tag">Haziran 2026'da güncellendi</span>
     <h1>Geliştiriciler için altyapı maliyet rehberleri</h1>
-    <p>LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme işlemcisi ücretlerine dair pratik analizler — hesaplayıcılara doğrudan bağlantılarla.</p>
+    <p>LLM fiyatlandırması, vektör DB maliyetleri, görsel üretim ve ödeme ücretlerine dair pratik analizler — hesaplayıcılara doğrudan bağlantılarla.</p>
     <div class="filters"><button class="filter-btn on" data-filter="all">Tümü</button><button class="filter-btn" data-filter="llm">LLM / Token</button><button class="filter-btn" data-filter="vector">Vector DB</button><button class="filter-btn" data-filter="image">Görsel Üretim</button><button class="filter-btn" data-filter="payment">Ödeme</button><button class="filter-btn" data-filter="guide">Rehberler</button></div>
   </div>
   <div class="posts-grid" id="postsGrid">
     <a href="/tr/blog/llm-maliyet-rehberi-2026.html" class="post-card featured" data-tags="llm guide">
       <div class="card-tags"><span class="tag t-llm">🔤 LLM</span><span class="tag">REHBER</span></div>
       <h2 class="card-title">LLM API Maliyetlerini 2026'da Tahmin Etme — GPT-4o, Claude & Gemini Karşılaştırması</h2>
-      <p class="card-desc">Tüm büyük sağlayıcıların token fiyatlandırmasının tam dökümü. Girdi/çıktı token oranları, bağlam pencereleri açıklandı.</p>
+      <p class="card-desc">Tüm büyük sağlayıcıların token fiyatlandırmasının tam dökümü. Girdi/çıktı token oranları açıklandı.</p>
       <div class="card-meta"><span>2 Haziran 2026 · 12 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/llm-maliyet-dusurme-2026.html" class="post-card" data-tags="llm guide">
       <div class="card-tags"><span class="tag t-llm">⚡ LLM</span><span class="tag">OPTİMİZASYON</span></div>
       <h2 class="card-title">LLM API Maliyetlerinizi %60 Düşürün: 7 Kanıtlanmış Strateji</h2>
-      <p class="card-desc">İstem önbellekleme, model yönlendirme, Batch API, bağlam kısaltma — gerçek tasarruf örnekleriyle savaşta test edilmiş stratejiler.</p>
+      <p class="card-desc">İstem önbellekleme, model yönlendirme, Batch API — gerçek tasarruf örnekleriyle stratejiler.</p>
       <div class="card-meta"><span>2 Haziran 2026 · 13 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html" class="post-card" data-tags="vector guide">
       <div class="card-tags"><span class="tag t-vector">🧊 VECTOR DB</span><span class="tag">KARŞILAŞTIRMA</span></div>
       <h2 class="card-title">Pinecone vs Supabase vs Qdrant vs Weaviate: Vektör DB Maliyeti 2026</h2>
-      <p class="card-desc">1M, 10M ve 100M vektörde tam maliyetler. Üretim iş yükünüz için en ucuz vektör veritabanını bulun.</p>
+      <p class="card-desc">1M, 10M ve 100M vektörde tam maliyetler. Üretim iş yükünüz için en ucuz vektör veritabanı.</p>
       <div class="card-meta"><span>2 Haziran 2026 · 10 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/stripe-vs-paddle-ucretleri-2026.html" class="post-card" data-tags="payment guide">
       <div class="card-tags"><span class="tag t-payment">💳 ÖDEME</span><span class="tag">SAAS</span></div>
       <h2 class="card-title">Stripe vs Paddle vs Lemon Squeezy: Gerçek SaaS Maliyeti 2026</h2>
-      <p class="card-desc">KDV işleme, chargeback ve gizli ücretler dahil gerçek maliyet. 5K, 25K ve 100K$ MRR'da kırılım noktası.</p>
+      <p class="card-desc">KDV işleme, chargeback ve gizli ücretler dahil gerçek maliyet. 5K, 25K ve 100K$ MRR'da.</p>
       <div class="card-meta"><span>2 Haziran 2026 · 11 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/dalle-vs-stable-diffusion-maliyet-2026.html" class="post-card" data-tags="image guide">
@@ -103,22 +98,28 @@ footer a{color:var(--muted)}.post-card.hidden{display:none}
       <p class="card-desc">Ayda 100K görüntüde maliyet farkı $3.500+. Her modelin nerede kazandığını öğrenin.</p>
       <div class="card-meta"><span>2 Haziran 2026 · 9 dk</span><span class="read-link">Oku →</span></div>
     </a>
-    <a href="/tr/blog/lemon-squeezy-vs-stripe-karsilastirma-2026.html" class="post-card" data-tags="payment guide">
-      <div class="card-tags"><span class="tag t-payment">🍋 ÖDEME</span><span class="tag">REHBER</span></div>
-      <h2 class="card-title">Lemon Squeezy vs Stripe: SaaS için Tam Maliyet Karşılaştırması 2026</h2>
-      <p class="card-desc">Ticaret temsilcisi vs ödeme işlemcisi: vergi yönetimi, ücretler ve indie geliştiriciler için başabaş noktası.</p>
-      <div class="card-meta"><span>3 Haziran 2026 · 9 dk</span><span class="read-link">Oku →</span></div>
+    <a href="/tr/blog/midjourney-vs-dalle-maliyet-2026.html" class="post-card" data-tags="image guide">
+      <div class="card-tags"><span class="tag t-image">🖼️ GÖRSEL ÜRETİM</span><span class="tag">KARŞILAŞTIRMA</span></div>
+      <h2 class="card-title">Midjourney vs DALL·E 3: Maliyet & Kalite Karşılaştırması 2026</h2>
+      <p class="card-desc">Abonelik vs kullandıkça öde. Farklı hacim seviyelerinde gerçek maliyet dökümü.</p>
+      <div class="card-meta"><span>3 Haziran 2026 · 8 dk</span><span class="read-link">Oku →</span></div>
     </a>
-    <a href="/tr/blog/bulut-vps-maliyet-karsilastirma-2026.html" class="post-card" data-tags="cloud guide">
+    <a href="/tr/blog/pinecone-fiyat-rehberi-2026.html" class="post-card" data-tags="vector guide">
+      <div class="card-tags"><span class="tag t-vector">📌 VECTOR DB</span><span class="tag">REHBER</span></div>
+      <h2 class="card-title">Pinecone Fiyat Rehberi 2026: Serverless vs Pod Maliyeti</h2>
+      <p class="card-desc">Pinecone serverless vs pod tabanlı fiyatlandırmanın tam dökümü.</p>
+      <div class="card-meta"><span>3 Haziran 2026 · 10 dk</span><span class="read-link">Oku →</span></div>
+    </a>
+    <a href="/tr/blog/bulut-vps-karsilastirma-2026.html" class="post-card" data-tags="cloud guide">
       <div class="card-tags"><span class="tag t-cloud">☁️ CLOUD VPS</span><span class="tag">KARŞILAŞTIRMA</span></div>
       <h2 class="card-title">Vultr vs Hetzner vs DigitalOcean vs Linode: VPS Maliyeti 2026</h2>
-      <p class="card-desc">Her seviyede tam fiyat dökümü. CPU/RAM gereksinimleriniz için en ucuz bulut VPS'i bulun.</p>
+      <p class="card-desc">Her seviyede tam fiyat dökümü. CPU/RAM gereksinimleriniz için en ucuz bulut VPS.</p>
       <div class="card-meta"><span>4 Haziran 2026 · 11 dk</span><span class="read-link">Oku →</span></div>
     </a>
-    <a href="/tr/blog/aws-lambda-maliyet-2026.html" class="post-card" data-tags="serverless guide">
+    <a href="/tr/blog/aws-lambda-maliyet-rehberi-2026.html" class="post-card" data-tags="serverless guide">
       <div class="card-tags"><span class="tag t-serverless">⚡ SUNUCUSUZ</span><span class="tag">REHBER</span></div>
       <h2 class="card-title">AWS Lambda vs Vercel Functions vs Cloudflare Workers: Maliyet 2026</h2>
-      <p class="card-desc">Çağrı maliyetleri, bellek fiyatlandırması, ücretsiz katmanlar — 1M, 10M ve 100M çağrıda tam döküm.</p>
+      <p class="card-desc">Çağrı maliyetleri, bellek fiyatlandırması — 1M, 10M ve 100M çağrıda tam döküm.</p>
       <div class="card-meta"><span>4 Haziran 2026 · 10 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/embedding-api-maliyet-2026.html" class="post-card" data-tags="embedding guide">
@@ -130,7 +131,7 @@ footer a{color:var(--muted)}.post-card.hidden{display:none}
     <a href="/tr/blog/stt-tts-api-maliyet-2026.html" class="post-card" data-tags="stt guide">
       <div class="card-tags"><span class="tag t-stt">🎙️ STT / TTS</span><span class="tag">KARŞILAŞTIRMA</span></div>
       <h2 class="card-title">Whisper vs ElevenLabs vs Google Speech: STT & TTS API Maliyeti 2026</h2>
-      <p class="card-desc">STT için dakika başına, TTS için 1000 karakter başına maliyet. Gerçek kullanım tahminleriyle tam döküm.</p>
+      <p class="card-desc">STT için dakika başına, TTS için 1000 karakter başına maliyet. Tam döküm.</p>
       <div class="card-meta"><span>4 Haziran 2026 · 10 dk</span><span class="read-link">Oku →</span></div>
     </a>
     <a href="/tr/blog/api-gateway-fiyat-2026.html" class="post-card" data-tags="gateway guide">
