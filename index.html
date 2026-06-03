@@ -6,9 +6,9 @@
 <meta name="theme-color" content="#0a0c10">
 
 <!-- PRIMARY SEO -->
-<title>LLM Cost Calculator &amp; AI Infrastructure Pricing Tools | APICalculators</title>
-<meta name="description" content="Calculate and optimize production AI infrastructure costs in real-time. Estimate LLM token expenses (GPT-4o, Claude, Gemini), compare vector databases, project image generation budgets, and analyze Stripe vs Paddle payment fees. Free, no signup.">
-<meta name="keywords" content="API cost calculator, LLM pricing calculator, vector database cost, AI image generation cost, payment processor fees, GPT-4o cost, Claude pricing, Stripe vs Paddle">
+<title>LLM, Cloud VPS, Serverless & Embedding Cost Calculators | APICalculators</title>
+<meta name="description" content="Free real-time cost calculators for LLM tokens, vector databases, cloud VPS, serverless (AWS Lambda), STT/TTS APIs, API gateway, embeddings, AI agents and payment fees. 10 tools, zero signup.">
+<meta name="keywords" content="LLM cost calculator, AWS Lambda cost calculator, cloud VPS comparison, embedding API cost, STT TTS API pricing, API gateway pricing, AI agent cost, vector database pricing, payment processor fees">
 <meta name="author" content="APICalculators">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://apicalculators.com/">
@@ -401,7 +401,7 @@ window.addEventListener('load',function(){
 
 <!-- ===== HERO ===== -->
 <section class="hero wrap">
-  <span class="tagpill"><span class="dot"></span> 2026 pricing · 4 calculators · runs 100% in your browser</span>
+  <span class="tagpill"><span class="dot"></span> 2026 pricing · 10 calculators · runs 100% in your browser</span>
   <h1 class="h">Know your <span class="em">infra costs</span><br>before the invoice does.</h1>
   <p class="sub">Real-time cost estimators for LLM tokens, vector databases, AI image generation, and SaaS payment fees. Free, no signup, zero data leaves your device.</p>
   <div class="hero-stats">
@@ -422,6 +422,12 @@ window.addEventListener('load',function(){
     <button class="tab" role="tab" aria-selected="false" aria-controls="vector" data-tab="vector"><span class="ic" aria-hidden="true">🧊</span> Vector DB <span class="num" aria-hidden="true">02</span></button>
     <button class="tab" role="tab" aria-selected="false" aria-controls="image" data-tab="image"><span class="ic" aria-hidden="true">🎨</span> Image Gen <span class="num" aria-hidden="true">03</span></button>
     <button class="tab" role="tab" aria-selected="false" aria-controls="pay" data-tab="pay"><span class="ic" aria-hidden="true">💳</span> Payment Fees <span class="num" aria-hidden="true">04</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="cloud" data-tab="cloud"><span class="ic">&#9729;&#65039;</span> Cloud VPS <span class="num">05</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="stt" data-tab="stt"><span class="ic">&#127897;&#65039;</span> STT / TTS <span class="num">06</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="serverless" data-tab="serverless"><span class="ic">&#9889;</span> Serverless <span class="num">07</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="gateway" data-tab="gateway"><span class="ic">&#128256;</span> API Gateway <span class="num">08</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="embedding" data-tab="embedding"><span class="ic">&#129710;</span> Embeddings <span class="num">09</span></button>
+    <button class="tab" role="tab" aria-selected="false" aria-controls="agent" data-tab="agent"><span class="ic">&#129302;</span> AI Agent <span class="num">10</span></button>
   </div>
 
   <!-- ===== PANEL 1: LLM ===== -->
@@ -583,6 +589,219 @@ window.addEventListener('load',function(){
     </div>
   </section>
 </div>
+
+
+  <!-- PANEL 5: Cloud VPS -->
+  <section class="panel" id="cloud" role="tabpanel">
+    <div class="panel-head">
+      <h2>Cloud VPS &amp; Database Cost Comparison</h2>
+      <p class="pdesc">Compare Vultr, DigitalOcean, Hetzner server costs. Keyword: <em>cloud VPS cost comparison</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl" for="cloudCpu">vCPU cores</label>
+        <select class="sel" id="cloudCpu">
+          <option value="1">1 vCPU</option><option value="2" selected>2 vCPU</option>
+          <option value="4">4 vCPU</option><option value="8">8 vCPU</option>
+        </select>
+        <label class="lbl" for="cloudRam">RAM</label>
+        <select class="sel" id="cloudRam">
+          <option value="1">1 GB</option><option value="4" selected>4 GB</option>
+          <option value="8">8 GB</option><option value="16">16 GB</option>
+        </select>
+        <label class="lbl" for="cloudCount">Servers</label>
+        <input class="inp" id="cloudCount" type="number" value="1" min="1">
+      </div>
+      <div class="result">
+        <div class="big" id="cloudTotal">$0</div>
+        <div class="per" id="cloudPer">—</div>
+        <div class="breakdown" id="cloudCmp"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 6: STT/TTS -->
+  <section class="panel" id="stt" role="tabpanel">
+    <div class="panel-head">
+      <h2>STT &amp; TTS API Cost Calculator</h2>
+      <p class="pdesc">Estimate Whisper, ElevenLabs, Google Speech costs. Keyword: <em>speech to text API cost</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl" for="sttModel">Provider</label>
+        <select class="sel" id="sttModel">
+          <optgroup label="Speech-to-Text (STT)">
+            <option value="whisper">OpenAI Whisper — $0.006/min</option>
+            <option value="google-stt">Google STT — $0.024/min</option>
+            <option value="deepgram">Deepgram Nova-2 — $0.0043/min</option>
+          </optgroup>
+          <optgroup label="Text-to-Speech (TTS)">
+            <option value="openai-tts">OpenAI TTS — $15/1M chars</option>
+            <option value="openai-tts-hd">OpenAI TTS HD — $30/1M chars</option>
+            <option value="elevenlabs">ElevenLabs — $330/1M chars</option>
+            <option value="google-tts">Google TTS — $16/1M chars</option>
+          </optgroup>
+        </select>
+        <label class="lbl" for="sttVol">Audio minutes / month</label>
+        <input class="inp" id="sttVol" type="number" value="10000" min="0">
+      </div>
+      <div class="result">
+        <div class="big" id="sttTotal">$0</div>
+        <div class="per" id="sttPer">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>
+          <div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 7: Serverless -->
+  <section class="panel" id="serverless" role="tabpanel">
+    <div class="panel-head">
+      <h2>Serverless Compute Cost Calculator</h2>
+      <p class="pdesc">AWS Lambda, Vercel, Cloudflare Workers. Keyword: <em>AWS Lambda cost calculator</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl" for="slProvider">Platform</label>
+        <select class="sel" id="slProvider">
+          <option value="lambda">AWS Lambda</option>
+          <option value="vercel">Vercel Functions</option>
+          <option value="cf">Cloudflare Workers</option>
+          <option value="gcp">GCP Cloud Functions</option>
+        </select>
+        <label class="lbl" for="slInvoke">Invocations / month</label>
+        <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
+        <label class="lbl" for="slDuration">Avg duration (ms)</label>
+        <input class="inp" id="slDuration" type="number" value="150" min="1">
+        <label class="lbl" for="slMemory">Memory</label>
+        <select class="sel" id="slMemory">
+          <option value="0.125">128 MB</option>
+          <option value="0.25" selected>256 MB</option>
+          <option value="0.5">512 MB</option>
+          <option value="1">1024 MB</option>
+        </select>
+      </div>
+      <div class="result">
+        <div class="big" id="slTotal">$0</div>
+        <div class="per" id="slPer">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>
+          <div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>
+          <div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 8: API Gateway -->
+  <section class="panel" id="gateway" role="tabpanel">
+    <div class="panel-head">
+      <h2>API Gateway Traffic Cost Calculator</h2>
+      <p class="pdesc">AWS API GW, Cloudflare, Kong costs. Keyword: <em>API gateway pricing calculator</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl" for="gwProvider">Provider</label>
+        <select class="sel" id="gwProvider">
+            <option value="aws">AWS API Gateway — $3.50/M req</option>
+            <option value="cf">Cloudflare Workers — $0.50/M req</option>
+            <option value="kong">Kong Cloud — $2.00/M req</option>
+        </select>
+        <label class="lbl" for="gwReqs">Requests (millions/month)</label>
+        <input class="inp" id="gwReqs" type="number" value="10" min="0" step="0.1">
+        <label class="lbl" for="gwTransfer">Data transfer out (GB)</label>
+        <input class="inp" id="gwTransfer" type="number" value="50" min="0">
+      </div>
+      <div class="result">
+        <div class="big" id="gwTotal">$0</div>
+        <div class="per" id="gwPer">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>
+          <div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>
+          <div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 9: Embedding -->
+  <section class="panel" id="embedding" role="tabpanel">
+    <div class="panel-head">
+      <h2>Embedding API Cost Calculator</h2>
+      <p class="pdesc">OpenAI, Cohere, Voyage AI embedding costs. Keyword: <em>embedding API cost</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl" for="embModel">Model</label>
+        <select class="sel" id="embModel">
+            <option value="text3small">OpenAI text-3-small — $0.020/1M</option>
+            <option value="text3large">OpenAI text-3-large — $0.130/1M</option>
+            <option value="ada002">OpenAI ada-002 — $0.100/1M</option>
+            <option value="cohere">Cohere embed-v3 — $0.100/1M</option>
+            <option value="voyage">Voyage AI large-2 — $0.120/1M</option>
+            <option value="jina">Jina AI v3 — $0.018/1M</option>
+        </select>
+        <label class="lbl" for="embTokens">Tokens / month (millions)</label>
+        <input class="inp" id="embTokens" type="number" value="100" min="0">
+        <label class="lbl" for="embDocs">Documents</label>
+        <input class="inp" id="embDocs" type="number" value="500000" min="0">
+      </div>
+      <div class="result">
+        <div class="big" id="embTotal">$0</div>
+        <div class="per" id="embPer">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>
+          <div class="brow"><span>Tokens / document</span><b id="embPerDoc">—</b></div>
+          <div class="brow hl"><span>Annual estimate</span><b id="embAnnual">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 10: AI Agent -->
+  <section class="panel" id="agent" role="tabpanel">
+    <div class="panel-head">
+      <h2>AI Agent Multi-Model Cost Estimator</h2>
+      <p class="pdesc">Multi-step agent pipeline cost per run. Keyword: <em>AI agent cost calculator</em>.</p>
+    </div>
+    <div class="panel-body">
+      <div class="inputs">
+        <label class="lbl">Step 1 — Planner / Router</label>
+        <select class="sel" id="agM1">
+          <option value="gpt4omini" selected>GPT-4o mini</option>
+          <option value="haiku">Claude 3.5 Haiku</option>
+          <option value="flash">Gemini Flash</option>
+        </select>
+        <label class="lbl">Step 2 — Main Worker</label>
+        <select class="sel" id="agM2">
+          <option value="gpt4o" selected>GPT-4o</option>
+          <option value="sonnet">Claude 3.5 Sonnet</option>
+          <option value="gempro">Gemini Pro</option>
+        </select>
+        <label class="lbl">Step 3 — Summariser</label>
+        <select class="sel" id="agM3">
+          <option value="gpt4omini" selected>GPT-4o mini</option>
+          <option value="flash">Gemini Flash</option>
+          <option value="haiku">Claude Haiku</option>
+        </select>
+        <label class="lbl" for="agRuns">Agent runs / month</label>
+        <input class="inp" id="agRuns" type="number" value="5000" min="1">
+      </div>
+      <div class="result">
+        <div class="big" id="agTotal">$0</div>
+        <div class="per" id="agPer">—</div>
+        <div class="breakdown">
+          <div class="brow"><span>Cost per run</span><b id="agPerRun">—</b></div>
+          <div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>
+          <div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>
+          <div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>
+          <div class="brow hl"><span>Annual estimate</span><b id="agAnnual">—</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <!-- AD: IN-CONTENT -->
 <div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>
@@ -861,6 +1080,195 @@ function trackNewsletterSignup(){if(window.gtag)gtag('event','newsletter_signup'
 
 /* ============ INIT ============ */
 calcLLM();calcVec();calcImg();calcPay();
+
+/* ===== CLOUD VPS ===== */
+const CLOUD_PRICES = {
+  vultr:        {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
+  digitalocean: {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
+  hetzner:      {2:{4:4.5},4:{8:8.5},8:{16:17}},
+  linode:       {1:{1:5},2:{4:18}},
+};
+const CLOUD_PROVIDERS = [
+  {id:'vultr',    name:'Vultr'},
+  {id:'digitalocean', name:'DigitalOcean'},
+  {id:'hetzner',  name:'Hetzner'},
+  {id:'linode',   name:'Linode'},
+];
+function calcCloud(){
+  var cpu=parseInt(document.getElementById('cloudCpu').value);
+  var ram=parseInt(document.getElementById('cloudRam').value);
+  var cnt=parseInt(document.getElementById('cloudCount').value)||1;
+  var results=[];
+  CLOUD_PROVIDERS.forEach(function(p){
+    var tier=CLOUD_PRICES[p.id]||{};
+    // find cheapest plan meeting requirements
+    var best=null;
+    Object.keys(tier).forEach(function(c){
+      if(parseInt(c)>=cpu){
+        Object.keys(tier[c]).forEach(function(r){
+          if(parseInt(r)>=ram){
+            var price=tier[c][r];
+            if(!best||price<best.price) best={price:price,cpu:c,ram:r};
+          }
+        });
+      }
+    });
+    if(best) results.push({name:p.name,price:best.price*cnt,cpu:best.cpu,ram:best.ram});
+  });
+  if(!results.length){document.getElementById('cloudTotal').textContent='N/A';return;}
+  results.sort(function(a,b){return a.price-b.price;});
+  var cheapest=results[0];
+  document.getElementById('cloudTotal').textContent='$'+cheapest.price.toFixed(2);
+  document.getElementById('cloudPer').textContent='per month (cheapest match: '+cheapest.name+')';
+  var cmp=document.getElementById('cloudCmp');
+  cmp.innerHTML='';
+  results.forEach(function(r){
+    var row=document.createElement('div');row.className='brow'+(r===cheapest?' hl':'');
+    row.innerHTML='<span>'+r.name+' ('+r.cpu+'vCPU/'+r.ram+'GB)</span><b>$'+r.price.toFixed(2)+'/mo</b>';
+    cmp.appendChild(row);
+  });
+}
+['cloudCpu','cloudRam','cloudCount'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcCloud),el.addEventListener('input',calcCloud);
+});
+
+/* ===== STT / TTS ===== */
+const STT_RATES = {
+  'whisper':     {type:'stt',rate:0.006},
+  'google-stt':  {type:'stt',rate:0.024},
+  'deepgram':    {type:'stt',rate:0.0043},
+  'openai-tts':  {type:'tts',rate:0.015},
+  'openai-tts-hd':{type:'tts',rate:0.030},
+  'elevenlabs':  {type:'tts',rate:0.330},
+  'google-tts':  {type:'tts',rate:0.016},
+};
+function calcStt(){
+  var model=document.getElementById('sttModel').value;
+  var vol=parseFloat(document.getElementById('sttVol').value)||0;
+  var p=STT_RATES[model];if(!p)return;
+  var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;
+  document.getElementById('sttTotal').textContent='$'+total.toFixed(2);
+  document.getElementById('sttPer').textContent='per month';
+  document.getElementById('sttRate').textContent=p.type==='stt'?'$'+p.rate+'/min':'$'+p.rate+'/1K chars';
+  document.getElementById('sttAnnual').textContent='$'+(total*12).toFixed(2);
+}
+['sttModel','sttVol'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcStt),el.addEventListener('input',calcStt);
+});
+
+/* ===== SERVERLESS ===== */
+const SL_PRICES = {
+  lambda:{inv:0.0000002, gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
+  vercel:{inv:0.0000004, gb_sec:0.000018,     free_inv:0,       free_gb:0},
+  cf:    {inv:0.0000003, gb_sec:0.000012,     free_inv:1000000, free_gb:0},
+  gcp:   {inv:0.0000004, gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
+};
+function calcServerless(){
+  var prov=document.getElementById('slProvider').value;
+  var inv=parseFloat(document.getElementById('slInvoke').value)||0;
+  var dur=parseFloat(document.getElementById('slDuration').value)||0;
+  var mem=parseFloat(document.getElementById('slMemory').value)||0.25;
+  var p=SL_PRICES[prov];if(!p)return;
+  var billable_inv=Math.max(0,inv-p.free_inv);
+  var gb_sec=inv*(dur/1000)*mem;
+  var billable_gb=Math.max(0,gb_sec-p.free_gb);
+  var inv_cost=billable_inv*p.inv;
+  var comp_cost=billable_gb*p.gb_sec;
+  var total=inv_cost+comp_cost;
+  document.getElementById('slTotal').textContent='$'+total.toFixed(4);
+  document.getElementById('slPer').textContent='per month';
+  document.getElementById('slInvCost').textContent='$'+inv_cost.toFixed(4);
+  document.getElementById('slCompCost').textContent='$'+comp_cost.toFixed(4);
+  document.getElementById('slAnnual').textContent='$'+(total*12).toFixed(2);
+}
+['slProvider','slInvoke','slDuration','slMemory'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcServerless),el.addEventListener('input',calcServerless);
+});
+
+/* ===== API GATEWAY ===== */
+const GW_PRICES = {
+  aws: {per_m:3.50,per_gb:0.09},
+  cf:  {per_m:0.50,per_gb:0.00},
+  kong:{per_m:2.00,per_gb:0.05},
+};
+function calcGateway(){
+  var prov=document.getElementById('gwProvider').value;
+  var reqs=parseFloat(document.getElementById('gwReqs').value)||0;
+  var xfer=parseFloat(document.getElementById('gwTransfer').value)||0;
+  var p=GW_PRICES[prov];if(!p)return;
+  var req_cost=reqs*p.per_m;
+  var xfer_cost=xfer*p.per_gb;
+  var total=req_cost+xfer_cost;
+  document.getElementById('gwTotal').textContent='$'+total.toFixed(2);
+  document.getElementById('gwPer').textContent='per month';
+  document.getElementById('gwReqCost').textContent='$'+req_cost.toFixed(2);
+  document.getElementById('gwXferCost').textContent='$'+xfer_cost.toFixed(2);
+  document.getElementById('gwAnnual').textContent='$'+(total*12).toFixed(2);
+}
+['gwProvider','gwReqs','gwTransfer'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcGateway),el.addEventListener('input',calcGateway);
+});
+
+/* ===== EMBEDDING ===== */
+const EMB_PRICES = {
+  text3small:0.020, text3large:0.130, ada002:0.100,
+  cohere:0.100, voyage:0.120, jina:0.018,
+};
+function calcEmbedding(){
+  var model=document.getElementById('embModel').value;
+  var tokM=parseFloat(document.getElementById('embTokens').value)||0;
+  var docs=parseFloat(document.getElementById('embDocs').value)||1;
+  var rate=EMB_PRICES[model];if(rate===undefined)return;
+  var total=tokM*rate;
+  var tok_per_doc=docs>0?(tokM*1e6/docs).toFixed(0):'—';
+  document.getElementById('embTotal').textContent='$'+total.toFixed(4);
+  document.getElementById('embPer').textContent='per month';
+  document.getElementById('embRate').textContent='$'+rate+'/1M';
+  document.getElementById('embPerDoc').textContent=tok_per_doc+' tokens';
+  document.getElementById('embAnnual').textContent='$'+(total*12).toFixed(2);
+}
+['embModel','embTokens','embDocs'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcEmbedding),el.addEventListener('input',calcEmbedding);
+});
+
+/* ===== AI AGENT ===== */
+const AG_LLM = {
+  gpt4o:    {in:2.50,out:10.00},
+  gpt4omini:{in:0.15,out:0.60},
+  sonnet:   {in:3.00,out:15.00},
+  haiku:    {in:0.80,out:4.00},
+  gempro:   {in:1.25,out:5.00},
+  flash:    {in:0.075,out:0.30},
+};
+var AG_STEPS=[
+  {model:'agM1',in_tok:500,out_tok:100},
+  {model:'agM2',in_tok:3000,out_tok:800},
+  {model:'agM3',in_tok:1500,out_tok:300},
+];
+function calcAgent(){
+  var runs=parseFloat(document.getElementById('agRuns').value)||0;
+  var step_costs=AG_STEPS.map(function(s){
+    var m=document.getElementById(s.model).value;
+    var p=AG_LLM[m];if(!p)return 0;
+    return (s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out;
+  });
+  var per_run=step_costs.reduce(function(a,b){return a+b;},0);
+  var total=per_run*runs;
+  document.getElementById('agTotal').textContent='$'+total.toFixed(2);
+  document.getElementById('agPer').textContent='per month';
+  document.getElementById('agPerRun').textContent='$'+per_run.toFixed(6);
+  document.getElementById('agS1').textContent='$'+(step_costs[0]*runs).toFixed(2);
+  document.getElementById('agS2').textContent='$'+(step_costs[1]*runs).toFixed(2);
+  document.getElementById('agS3').textContent='$'+(step_costs[2]*runs).toFixed(2);
+  document.getElementById('agAnnual').textContent='$'+(total*12).toFixed(2);
+}
+['agM1','agM2','agM3','agRuns'].forEach(function(id){
+  var el=document.getElementById(id);if(el)el.addEventListener('change',calcAgent),el.addEventListener('input',calcAgent);
+});
+
+/* ===== INIT ALL NEW CALCULATORS ===== */
+calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+
 </script>
 </body>
 </html>
