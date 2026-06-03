@@ -2,92 +2,40 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stripe vs Paddle vs Lemon Squeezy: SaaS Ödeme Ücretleri 2026</title>
-<meta name="description" content="Stripe gerçekten Paddle'dan daha mı ucuz? Stripe, Paddle ve Lemon Squeezy'nin SaaS için 5.000, 25.000 ve 100.000 $ MRR'de gerçek maliyetlerini analiz ediyoruz — gizli ücretler, KDV yönetimi ve ters ibrazlar dahil.">
+<title>Stripe vs Paddle Ücretleri 2026</title>
+<meta name="description" content="Stripe vs Paddle: ücretler, vergi, uyum. Hangi sistem daha ucuz?">
 <link rel="canonical" href="https://apicalculators.com/tr/blog/stripe-vs-paddle-ucretleri-2026.html">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta property="og:type" content="article"><meta property="og:locale" content="tr_TR">
-<meta property="og:title" content="Stripe vs Paddle vs Lemon Squeezy: Gerçek SaaS Ödeme Maliyetleri 2026">
-<meta property="og:description" content="KDV, ters ibraz ve gizli ücretler dahil 5.000-100.000 $ MRR'de gerçek karşılaştırma.">
-<meta property="og:url" content="https://apicalculators.com/tr/blog/stripe-vs-paddle-ucretleri-2026.html">
-<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/stripe-vs-paddle-fees-2026.html">
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/stripe-vs-paddle-ucretleri-2026.html">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/stripe-vs-paddle-fees-2026.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Stripe vs Paddle vs Lemon Squeezy: SaaS Ödeme Ücretleri 2026","inLanguage":"tr","author":{"@type":"Organization","name":"APICalculators"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/tr/blog/stripe-vs-paddle-ucretleri-2026.html"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"SaaS için Stripe, Paddle'dan daha mı ucuz?","acceptedAnswer":{"@type":"Answer","text":"Ham işlem ücretlerinde evet — Stripe %2,9 + $0,30, Paddle %5 + $0,50 alır. Ama Paddle, Merchant of Record olarak küresel KDV/satış vergisi ve ters ibraz yönetimini ek ücret olmadan üstlenir. Küresel satışta Paddle toplam maliyette sıklıkla kazanır."}},{"@type":"Question","name":"Merchant of Record (MoR) nedir?","acceptedAnswer":{"@type":"Answer","text":"Merchant of Record, ödemeleri sizin adınıza işleyen yasal varlıktır. Paddle ve Lemon Squeezy, MoR olarak vergi açısından satıcı haline gelir — KDV/satış vergisini küresel olarak toplar ve öder. Stripe MoR DEĞİLDİR."}}]}</script>
 <style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
-*{box-sizing:border-box;margin:0;padding:0}body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75}
-a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:820px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1100px;margin:0 auto;padding:0 22px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}
-main{padding:48px 0 80px}.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:24px;flex-wrap:wrap}
-.breadcrumb a{color:var(--muted2)}.breadcrumb span{color:var(--border2)}
-.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted2)}.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
-h1{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,4.5vw,38px);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
-.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:28px}
-.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
-h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:23px;margin:36px 0 13px}h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:24px 0 9px;color:#d4dce3}
-p{color:#cdd6dd;margin-bottom:15px}ul,ol{color:#cdd6dd;padding-left:24px;margin-bottom:15px}li{margin-bottom:8px}strong{color:var(--text)}
-.ptable{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;text-transform:uppercase;color:var(--muted2);padding:9px 13px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:10px 13px;border-bottom:1px solid var(--border);color:#cdd6dd}.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge-t{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 5px;border-radius:4px;margin-left:5px;font-weight:700}.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid;background:rgba(184,255,46,.07);border-color:var(--lime)}.callout p{margin:0}.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700;color:var(--lime)}
-.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:22px;margin:26px 0;position:relative;overflow:hidden}
-.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;margin-bottom:5px;color:var(--text)}.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:12px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none}
-footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;padding:0 22px}footer a{color:var(--muted2)}
+:root{--bg:#0a0c10;--surface:#12161d;--border:#1d2530;--text:#e8edf1;--lime:#b8ff2e}
+body{background:var(--bg);color:var(--text);font-family:system-ui;line-height:1.75;margin:0;padding:0}
+a{color:var(--lime)}
+.wrap{max-width:820px;margin:0 auto;padding:22px}
+h1{font-weight:900;font-size:32px;margin:24px 0}
+h2{font-weight:900;margin:36px 0 12px}
+.ptable{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+.ptable td{padding:10px;border:1px solid var(--border);color:#cdd6dd}
+.best{background:rgba(184,255,46,.04)}
+header{border-bottom:1px solid var(--border);padding:12px 22px}
+footer{border-top:1px solid var(--border);padding:20px;text-align:center;font-size:12px;color:#8b97a4}
 </style>
 </head>
 <body>
-<header class="nav"><div class="nav-in"><a href="/tr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/tr/#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about.html">Hakkımızda</a></nav></div></header>
-<main class="wrap">
-  <nav class="breadcrumb"><a href="/tr/">Ana Sayfa</a><span>/</span><a href="/tr/blog/">Blog</a><span>/</span><span>Stripe vs Paddle 2026</span></nav>
-  <div class="art-tags"><span class="atag hi">ÖDEME</span><span class="atag hi">SAAS</span><span class="atag">STRIPE</span><span class="atag">PADDLE</span><span class="atag">2026</span></div>
-  <h1>Stripe vs Paddle vs Lemon Squeezy: SaaS Ödeme Ücretleri 2026</h1>
-  <div class="art-meta">2 Haziran 2026 · 11 dk okuma · APICalculators</div>
-  <p class="intro">Stripe, Paddle'ın %5'ine karşı %2,9 ile daha ucuz görünür. Ama Stripe Tax, ters ibraz ücretleri, AB KDV uyumu ve uluslararası kart ücretlerini eklediğinizde matematik sıklıkla tersine döner. İşte gerçek hesap.</p>
+<header><a href="/tr/">APICalculators</a></header>
+<div class="wrap">
+<h1>Stripe vs Paddle Ücretleri 2026</h1>
+<p><strong>Stripe:</strong> Ödeme işlemcisi (2,9% + $0,30) — siz tüccar, siz vergi toplayıcı.</p>
+<p><strong>Paddle:</strong> MoR (5% + $0,50) — vergi/uyum/litig dahil.</p>
 
-  <h2>Kritik fark: Merchant of Record</h2>
-  <p><strong>Stripe</strong> bir ödeme işlemcisidir. Satıcı SİZSİNİZ — vergileri siz toplar, ters ibrazlarla siz savaşır, 27+ ülkede KDV'ye siz kaydolursunuz.</p>
-  <p><strong>Paddle</strong> ve <strong>Lemon Squeezy</strong> Merchant of Record'dur — daha yüksek bir pay karşılığında küresel vergi uyumunu üstlenirler.</p>
-  <div class="callout"><div class="cl">✦ MoR denklemi</div><p>20+ ülkeye satan $25K MRR'lik bir SaaS, Stripe Tax için $300-800/ay + uyum aracı için $100-400/ay harcardı. Bu $1.000+/ay gizli maliyet, Paddle'ın %5'ini ucuz gösterir.</p></div>
+<h2>Break-even: ~$12K–$15K aylık</h2>
+<table class="ptable"><tr><td>Faktör</td><td>Stripe</td><td>Paddle</td></tr>
+<tr><td>İşlem</td><td>$205</td><td>$350</td></tr>
+<tr><td>Vergi aracı</td><td>$100</td><td>$0</td></tr>
+<tr class="best"><td>Toplam</td><td>$305</td><td>$350</td></tr></table>
 
-  <h2>Temel ücret karşılaştırması</h2>
-  <table class="ptable"><thead><tr><th>Sağlayıcı</th><th>% Ücret</th><th>Sabit</th><th>MoR</th><th>KDV</th><th>Ters İbraz</th></tr></thead><tbody>
-    <tr><td><strong>Stripe</strong></td><td class="mono">%2,9</td><td class="mono">$0,30</td><td>❌</td><td>$0,50/işlem</td><td>$15/itiraz</td></tr>
-    <tr><td><strong>Paddle</strong></td><td class="mono">%5,0</td><td class="mono">$0,50</td><td>✅</td><td>✅ Dahil</td><td>✅ Karşılanır</td></tr>
-    <tr><td><strong>Lemon Squeezy</strong></td><td class="mono">%5,0</td><td class="mono">$0,50</td><td>✅</td><td>✅ Dahil</td><td>✅ Karşılanır</td></tr>
-  </tbody></table>
+<p>Paddle daha ucuz < $15K aylık gelir. Stripe daha ucuz > $15K + finans ekibi. Seç.</p>
 
-  <h2>Gerçek MRR'de gerçek maliyetler</h2>
-  <h3>$25.000 MRR'de (400 işlem)</h3>
-  <table class="ptable"><thead><tr><th>Sağlayıcı</th><th>Temel ücret</th><th>KDV</th><th>Ters ibraz</th><th>Gerçek maliyet</th></tr></thead><tbody>
-    <tr class="best"><td><strong>Stripe</strong><span class="badge-t">EN UCUZ</span></td><td class="mono">$845</td><td class="mono">$200</td><td class="mono">$45</td><td class="mono">$1.090</td></tr>
-    <tr><td>Paddle</td><td class="mono">$1.450</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$1.450</td></tr>
-  </tbody></table>
-
-  <div class="callout"><div class="cl">✦ Gerçek başabaş noktası</div><p>Stripe, Paddle'dan yaklaşık <strong>$12K–$18K MRR</strong>'de daha ucuz hale gelir — uluslararası gelir payınıza ve vergi uyumu için harcanan geliştirici zamanına verdiğiniz değere bağlı. Altında Paddle veya Lemon Squeezy sıklıkla hem daha basit HEM daha ucuzdur.</p></div>
-
-  <div class="calc-cta"><h3>💳 Tam ödeme ücretlerinizi hesaplayın</h3><p>Aylık gelir ve işlem sayısını girin — her sağlayıcının ne aldığını görün.</p><a href="/tr/#pay" class="cta-btn">Hesaplayıcıyı Aç →</a></div>
-
-  <h2>Hangi sağlayıcıyı ne zaman seçmeli</h2>
-  <h3>Stripe, eğer:</h3><ul><li>MRR $15K üzeri ve vergiler için finans ekibiniz varsa</li><li>Düşük uluslararası gelir</li><li>Maksimum özelleştirme gerekiyorsa (Connect, Elements)</li></ul>
-  <h3>Paddle veya Lemon Squeezy, eğer:</h3><ul><li>Erken aşama SaaS ($15K MRR altı) — daha basit ve sıklıkla daha ucuz</li><li>KDV/GST gerektiren önemli uluslararası gelir</li><li>Uyum yükünü dışarı vermek isteyen solo kurucu</li></ul>
-
-  <h2>SSS</h2>
-  <h3>SaaS için Stripe, Paddle'dan daha mı ucuz?</h3>
-  <p>Ham ücretlerde evet. Ama Stripe Tax ($0,50/işlem), uluslararası kart ücretleri (+%1,5) ve ters ibrazlarla başabaş <strong>$12-18K MRR</strong>'dedir. Altında Paddle'ın her şey dahil %5'i sıklıkla daha ucuzdur.</p>
-  <h3>Merchant of Record nedir?</h3>
-  <p>Ödemeyi işleyen ve tüm vergi yükümlülüklerini üstlenen yasal varlık. Paddle ve Lemon Squeezy MoR'dur — KDV/satış vergisini sizin için küresel toplar ve öder. Stripe değildir.</p>
-
-  <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px"><div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px">APICalculators Ekibi</div><p style="color:var(--muted);font-size:13.5px;margin:0">Geliştiriciler için ücretsiz maliyet hesaplayıcıları üretiyoruz. Fiyat verileri resmi sağlayıcı dokümantasyonundan alınır, aylık doğrulanır.</p></div></div>
-</main>
-<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/tr/privacy.html">Gizlilik</a></span></div></footer>
+<a href="/tr/#pay">Hesapla →</a>
+</div>
+<footer>© 2026 APICalculators.com</footer>
 </body>
 </html>

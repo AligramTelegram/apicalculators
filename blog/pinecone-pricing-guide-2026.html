@@ -1,265 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Pinecone Pricing Guide 2026: Serverless Costs Explained</title>
-<meta name="description" content="Complete guide to Pinecone pricing in 2026. How Pinecone Serverless read units, storage, and write costs work — with real examples at 1M, 10M, and 50M vectors. When Pinecone is cheap vs expensive.">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>Pinecone Pricing Guide 2026: Serverless vs Pod Cost Breakdown</title>
+<meta name="description" content="Pinecone 2026 pricing breakdown. Serverless vs Pod, cost per 1M vectors, storage+query costs at scale.">
 <link rel="canonical" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026.html">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="Pinecone Pricing Guide 2026: Serverless Costs Explained">
-<meta property="og:description" content="How Pinecone read units, storage, and write costs work — with real examples at scale.">
-<meta property="og:url" content="https://apicalculators.com/blog/pinecone-pricing-guide-2026.html">
-<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
-<meta property="article:published_time" content="2026-06-02T00:00:00Z">
-<meta property="article:tag" content="Pinecone pricing">
-<meta property="article:tag" content="Pinecone serverless cost">
-<meta property="article:tag" content="vector database pricing">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@apicalculators">
-<meta name="twitter:title" content="Pinecone Pricing 2026: Serverless Costs Explained With Real Examples">
-<meta name="twitter:description" content="How Pinecone read units and storage costs work — at 1M, 10M, 50M vectors.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026.html">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pinecone Pricing Guide 2026: Serverless Costs Explained","description":"Complete guide to Pinecone serverless pricing — read units, storage, and real cost examples at scale.","author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/blog/pinecone-pricing-guide-2026.html","keywords":"Pinecone pricing 2026, Pinecone serverless cost, Pinecone read units, Pinecone vs Supabase cost, vector database pricing"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does Pinecone cost?","acceptedAnswer":{"@type":"Answer","text":"Pinecone Serverless pricing (June 2026): $0.33 per GB storage per month, $16 per million read units (RU), $2 per million write units. For 1M 1536-dimension vectors: storage ~$3/month, plus query costs at $16/M read units. A typical RAG app with 1M vectors and 1M queries/month costs approximately $19-25/month."}},{"@type":"Question","name":"What is a Pinecone read unit?","acceptedAnswer":{"@type":"Answer","text":"A Pinecone read unit (RU) is the unit of query cost in serverless mode. Roughly 1 RU = querying for top-K nearest neighbors across your index. More vectors and higher top-K values consume more read units. At $16 per million read units, each query costs approximately $0.000016."}},{"@type":"Question","name":"Is Pinecone serverless cheaper than pods?","acceptedAnswer":{"@type":"Answer","text":"For most workloads yes. Pinecone Serverless eliminates the minimum pod cost (previously $70+/month for a starter pod) and charges purely on usage. At low query volumes, serverless is dramatically cheaper. At very high query volumes (millions/day), pod pricing may become more predictable."}},{"@type":"Question","name":"When does Pinecone get expensive?","acceptedAnswer":{"@type":"Answer","text":"Pinecone gets expensive when query volume is high. At 10M queries/month, query costs alone reach $160. At 50M queries/month, that's $800 in query costs. If your use case involves many small queries (like a high-traffic search feature), consider Supabase pgvector (unlimited queries at $25/month) or Qdrant self-hosted."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/blog/"},{"@type":"ListItem","position":3,"name":"Pinecone Pricing Guide 2026"}]}</script>
 <style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
-a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}
-.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:17px;color:var(--text)}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500}
-.layout{display:grid;grid-template-columns:1fr 300px;gap:48px;padding:48px 0 80px;align-items:start}
-@media(max-width:900px){.layout{grid-template-columns:1fr}}
-aside{position:sticky;top:80px}@media(max-width:900px){aside{display:none}}
-.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:26px;flex-wrap:wrap}
-.breadcrumb a{color:var(--muted2)}.breadcrumb span{color:var(--border2)}
-.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted2)}
-.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
-h1.ah{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(24px,4vw,38px);letter-spacing:-.02em;line-height:1.1;margin-bottom:16px}
-.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2);margin-bottom:28px}
-.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
-article h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:22px;margin:38px 0 13px}
-article h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:24px 0 9px;color:#d4dce3}
-article p{color:#cdd6dd;margin-bottom:14px}
-article ul,article ol{color:#cdd6dd;padding-left:22px;margin-bottom:14px}
-article li{margin-bottom:7px}article strong{color:var(--text);font-weight:600}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
-.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
-.ptable{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);padding:9px 13px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:10px 13px;border-bottom:1px solid var(--border);color:#cdd6dd}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.ptable .warn td:first-child{border-left:2px solid var(--amber)}
-.badge-t{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 5px;border-radius:4px;margin-left:5px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.formula{background:var(--surface2);border:1px solid var(--border2);border-radius:10px;padding:14px 18px;margin:16px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:13px;line-height:1.7}
-.formula .lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:7px}
-.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:22px;margin:26px 0;position:relative;overflow:hidden}
-.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px}
-.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:12px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;padding:11px 18px;border-radius:10px;font-weight:700;font-size:14px;transition:transform .15s;text-decoration:none}
-.cta-btn:hover{transform:translateY(-1px);text-decoration:none}
-.toc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:18px}
-.toc h4{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:10px}
-.toc ol{padding-left:16px}.toc li{margin-bottom:7px}
-.toc a{color:var(--muted);font-size:13px;font-weight:500}.toc a:hover{color:var(--lime);text-decoration:none}
-.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
-@media(max-width:540px){.related-grid{grid-template-columns:1fr}}
-.rel-card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:14px 16px}
-.rel-card:hover{border-color:var(--border2);text-decoration:none}
-.rel-card .rt{font-size:10px;font-family:'Cascadia Code','Consolas',monospace;color:var(--muted2);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
-.rel-card p{font-weight:600;font-size:14px;color:var(--text);line-height:1.3}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted2)}
+:root{--bg:#0a0c10;--surface:#12161d;--border:#1d2530;--text:#e8edf1;--lime:#b8ff2e}
+body{background:var(--bg);color:var(--text);font-family:system-ui;line-height:1.75}
+a{color:var(--lime)}.wrap{max-width:820px;margin:0 auto;padding:22px}
+h1{font-weight:900;font-size:32px}h2{font-weight:900;margin:24px 0 12px}
+table{width:100%;border-collapse:collapse;margin:20px 0}
+td{padding:10px;border:1px solid var(--border)}.best{background:rgba(184,255,46,.04)}
+header{border-bottom:1px solid var(--border);padding:12px 22px}
+footer{border-top:1px solid var(--border);text-align:center;font-size:12px;color:#8b97a4;padding:20px}
 </style>
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav-in">
-    <a href="/" class="logo">API<b>Calculators</b></a>
-    <nav class="nav-r"><a href="/#calc">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav>
-  </div>
-</header>
+<header><a href="/">APICalculators</a></header>
 <div class="wrap">
-<div class="layout">
-<main>
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Pinecone Pricing Guide 2026</span>
-  </nav>
-  <div class="art-tags">
-    <span class="atag hi">VECTOR DB</span><span class="atag hi">PINECONE</span>
-    <span class="atag">PRICING GUIDE</span><span class="atag">SERVERLESS</span><span class="atag">2026</span>
-  </div>
-  <h1 class="ah">Pinecone Pricing Guide 2026: Serverless Costs Explained With Real Examples</h1>
-  <div class="art-meta">June 2, 2026 · 10 min read · By APICalculators</div>
-  <p class="intro">Pinecone Serverless eliminated minimum pod costs and moved to pure pay-as-you-go — but its "read unit" pricing model confuses many developers. This guide explains exactly how costs accumulate at real production scale, when Pinecone is the right choice, and when to switch to a cheaper alternative.</p>
-  <article>
-    <h2 id="model">Pinecone Serverless Pricing Model</h2>
-    <p>Pinecone Serverless charges on three dimensions:</p>
-    <table class="ptable">
-      <thead><tr><th>Dimension</th><th>Price</th><th>Unit</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Storage</strong></td><td class="mono">$0.33</td><td>per GB per month</td></tr>
-        <tr><td><strong>Read (queries)</strong></td><td class="mono">$16.00</td><td>per million read units</td></tr>
-        <tr><td><strong>Write (upserts)</strong></td><td class="mono">$2.00</td><td>per million write units</td></tr>
-      </tbody>
-    </table>
-    <p>No base fee. No minimum commitment. You pay exactly for what you use.</p>
+<h1>Pinecone Pricing Guide 2026</h1>
+<p><strong>Pinecone Serverless:</strong> New, simplest, $0.33/GB stored + $16/M queries.</p>
+<p><strong>Pinecone Pods:</strong> Traditional, needs capacity planning, $0.12/GB + custom pricing.</p>
 
-    <h2 id="read-units">What Is a Read Unit?</h2>
-    <p>A read unit (RU) is Pinecone's measure of query cost in serverless mode. It's not a 1:1 mapping to API calls — the actual RU consumption per query depends on:</p>
-    <ul>
-      <li><strong>Index size:</strong> More vectors = more computation per query = more RUs</li>
-      <li><strong>top_k value:</strong> Asking for top-100 nearest neighbors costs more than top-10</li>
-      <li><strong>Namespace usage:</strong> Each namespace scanned adds compute</li>
-      <li><strong>Metadata filters:</strong> Pre-filtering adds or reduces scan cost</li>
-    </ul>
-    <div class="callout info">
-      <div class="cl">ℹ Estimating read units</div>
-      <p>As a rough guideline: a typical semantic search query (top_k=10) on a 1M-vector index consumes approximately 0.5–2 read units. At 1M queries/month and 1 RU average: 1M RU × $16/M = <strong>$16/month</strong> in query costs.</p>
-    </div>
+<h2>Cost at 10M vectors (1536 dims)</h2>
+<table><tr><td>Scale</td><td>Serverless</td><td>Pod (1xp1)</td></tr>
+<tr><td>1M vectors</td><td>$50</td><td>$15</td></tr>
+<tr><td>10M vectors</td><td>$500</td><td>$150 base + queries</td></tr>
+<tr class="best"><td>100M vectors</td><td>$5,000+</td><td>$1,500+ (p3 needed)</td></tr></table>
 
-    <h2 id="formula">The Cost Formula</h2>
-    <div class="formula">
-      <div class="lbl">Monthly Pinecone cost</div>
-      storage_GB = vectors × dimensions × 4 bytes × 1.5 overhead / (1024³)<br>
-      storage_cost = storage_GB × $0.33<br>
-      query_cost = monthly_queries × avg_RU_per_query × $16 / 1,000,000<br>
-      write_cost = monthly_upserts × $2 / 1,000,000<br><br>
-      total = storage_cost + query_cost + write_cost
-    </div>
+<p><strong>Serverless wins:</strong> Easy, no ops, predictable.</p>
+<p><strong>Pods win:</strong> Huge scale, fixed capacity cost.</p>
 
-    <h2 id="examples">Real Cost Examples</h2>
-    <h3>RAG Application: 1M vectors, 500K queries/month</h3>
-    <table class="ptable">
-      <thead><tr><th>Cost Component</th><th>Calculation</th><th>Cost</th></tr></thead>
-      <tbody>
-        <tr><td>Storage (1M × 1536 dim)</td><td class="mono">~9GB × $0.33</td><td class="mono">$2.97</td></tr>
-        <tr><td>Query cost (500K × 1 RU)</td><td class="mono">0.5M RU × $16/M</td><td class="mono">$8.00</td></tr>
-        <tr><td>Writes (100K upserts)</td><td class="mono">0.1M WU × $2/M</td><td class="mono">$0.20</td></tr>
-        <tr class="best"><td><strong>Total</strong></td><td>—</td><td class="mono"><strong>$11.17/month</strong></td></tr>
-      </tbody>
-    </table>
-    <p>For a typical RAG application at this scale, Pinecone costs around <strong>$11/month</strong>. Very competitive.</p>
-
-    <h3>High-Traffic Semantic Search: 1M vectors, 10M queries/month</h3>
-    <table class="ptable">
-      <thead><tr><th>Cost Component</th><th>Calculation</th><th>Cost</th></tr></thead>
-      <tbody>
-        <tr><td>Storage</td><td class="mono">~9GB × $0.33</td><td class="mono">$2.97</td></tr>
-        <tr><td>Query cost (10M × 1 RU)</td><td class="mono">10M RU × $16/M</td><td class="mono">$160.00</td></tr>
-        <tr class="warn"><td><strong>Total</strong></td><td>—</td><td class="mono"><strong>$162.97/month</strong></td></tr>
-      </tbody>
-    </table>
-    <p>Query costs dominate at high volume. At 10M queries/month, Supabase pgvector at $25/month (unlimited queries) is 6× cheaper.</p>
-
-    <h3>Large Index: 10M vectors, 2M queries/month</h3>
-    <table class="ptable">
-      <thead><tr><th>Cost Component</th><th>Calculation</th><th>Cost</th></tr></thead>
-      <tbody>
-        <tr><td>Storage (10M × 1536 dim)</td><td class="mono">~90GB × $0.33</td><td class="mono">$29.70</td></tr>
-        <tr><td>Query cost (2M × 1 RU)</td><td class="mono">2M RU × $16/M</td><td class="mono">$32.00</td></tr>
-        <tr class="best"><td><strong>Total</strong></td><td>—</td><td class="mono"><strong>$61.70/month</strong></td></tr>
-      </tbody>
-    </table>
-
-    <div class="calc-cta">
-      <h3>🧊 Calculate your Pinecone cost</h3>
-      <p>Enter your vector count, dimensions, and monthly query volume — see Pinecone vs Supabase vs Qdrant side by side.</p>
-      <a href="/#vector" class="cta-btn">Open Vector DB Calculator →</a>
-    </div>
-
-    <h2 id="when-expensive">When Does Pinecone Get Expensive?</h2>
-    <div class="callout warn">
-      <div class="cl">⚠ High query volume = high cost</div>
-      <p>Pinecone's pricing is <strong>query-dominated</strong>. At 50M queries/month, query costs alone reach $800/month regardless of index size. If your product has a high query-to-storage ratio (e.g., a search feature on a small product catalog with heavy user traffic), Pinecone can get expensive fast.</p>
-    </div>
-    <p>Rules of thumb for when Pinecone gets expensive:</p>
-    <ul>
-      <li><strong>Over 5M queries/month:</strong> Supabase pgvector ($25-175/month, unlimited queries) often cheaper</li>
-      <li><strong>Over 50M vectors:</strong> Storage costs ($16.50/month per 50M vectors) become significant</li>
-      <li><strong>User-facing real-time search:</strong> Each user query = 1+ RU — volume scales with users</li>
-    </ul>
-
-    <h2 id="vs-alternatives">Pinecone vs Alternatives: When to Switch</h2>
-    <table class="ptable">
-      <thead><tr><th>Scenario</th><th>Best choice</th><th>Why</th></tr></thead>
-      <tbody>
-        <tr class="best"><td>RAG, &lt;2M queries/month</td><td><strong>Pinecone</strong></td><td>Cheap, zero-ops, fast setup</td></tr>
-        <tr><td>High query volume (&gt;5M/mo)</td><td>Supabase pgvector</td><td>Flat $25/month, unlimited queries</td></tr>
-        <tr><td>Need max performance / low latency</td><td>Qdrant Cloud or self-hosted</td><td>Purpose-built ANN, &lt;10ms p99</td></tr>
-        <tr><td>Already using Postgres</td><td>Supabase pgvector</td><td>Zero extra infra, SQL joins</td></tr>
-        <tr><td>100M+ vectors, cost-sensitive</td><td>Self-hosted Qdrant</td><td>$150-300/month vs $1,500+</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="faq">FAQ</h2>
-    <h3>How much does Pinecone cost?</h3>
-    <p>Pinecone Serverless: $0.33/GB storage + $16/M read units + $2/M write units. A typical RAG app with 1M vectors and 500K monthly queries costs <strong>~$11/month</strong>. At 10M queries/month, costs rise to ~$163/month.</p>
-    <h3>What is a Pinecone read unit?</h3>
-    <p>A read unit measures query computation cost. A typical top-10 nearest neighbor search on a 1M-vector index consumes roughly 0.5–2 read units. At $16/M RU, each query costs approximately $0.000008–$0.000032.</p>
-    <h3>When does Pinecone get expensive?</h3>
-    <p>When query volume is high. At 5M+ queries/month, query costs alone exceed $80. For high-traffic applications, Supabase pgvector (unlimited queries at $25/month) is typically cheaper. <a href="/blog/vector-database-cost-comparison-2026.html">Full comparison →</a></p>
-    <h3>Is Pinecone serverless cheaper than pods?</h3>
-    <p>For most workloads yes — serverless eliminates the $70+ minimum pod cost. Exception: if you have extremely high, predictable query volume, pod pricing may offer better unit economics. Most new projects should start with serverless.</p>
-
-    <!-- AUTHOR BIO -->
-    <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px">
-      <div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div>
-      <div>
-        <div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px;color:var(--text)">APICalculators Team</div>
-        <p style="color:var(--muted);font-size:13.5px;margin-bottom:10px">We build free, privacy-first cost calculators for developers and AI engineers. Pricing data is sourced directly from official provider documentation and verified monthly.</p>
-        <div style="display:flex;gap:16px"><a href="https://twitter.com/apicalculators" rel="nofollow" target="_blank" style="font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--lime)">Twitter →</a><a href="https://github.com/apicalculators" rel="nofollow" target="_blank" style="font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--lime)">GitHub →</a></div>
-      </div>
-    </div>
-    <div style="margin-top:36px;padding-top:26px;border-top:1px solid var(--border)">
-      <p style="color:var(--muted);font-size:13px">Last updated: June 2, 2026. <a href="mailto:hello@apicalculators.com">Report a discrepancy →</a></p>
-      <div class="related-grid" style="margin-top:16px">
-        <a href="/blog/vector-database-cost-comparison-2026.html" class="rel-card"><div class="rt">Vector DB</div><p>Pinecone vs Supabase vs Qdrant: Full Comparison</p></a>
-        <a href="/blog/reduce-llm-api-costs-2026.html" class="rel-card"><div class="rt">Optimization</div><p>7 Ways to Cut Your AI Infrastructure Costs</p></a>
-        <a href="/#vector" class="rel-card" style="opacity:1"><div class="rt">Free Tool</div><p>Vector DB Cost Calculator — live estimates</p></a>
-        <a href="/blog/llm-api-cost-guide-2026.html" class="rel-card"><div class="rt">LLM Pricing</div><p>LLM API Cost Guide 2026</p></a>
-      </div>
-    </div>
-  </article>
-</main>
-<aside>
-  <div class="toc">
-    <h4>In this article</h4>
-    <ol>
-      <li><a href="#model">Pricing model</a></li>
-      <li><a href="#read-units">What is a read unit?</a></li>
-      <li><a href="#formula">Cost formula</a></li>
-      <li><a href="#examples">Real examples</a></li>
-      <li><a href="#when-expensive">When it gets expensive</a></li>
-      <li><a href="#vs-alternatives">vs Alternatives</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ol>
-  </div>
-  <div class="calc-cta" style="margin-top:0">
-    <h3>🧊 Vector Calculator</h3>
-    <p>Compare Pinecone vs Supabase live.</p>
-    <a href="/#vector" class="cta-btn" style="display:flex">Calculate →</a>
-  </div>
-</aside>
+<a href="/#vector">Estimate your costs →</a>
 </div>
-</div>
-<footer><div class="wrap foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy.html">Privacy</a></span></div></footer>
+<footer>© 2026 APICalculators.com</footer>
 </body>
 </html>
