@@ -460,6 +460,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 <!-- PANEL 5: Cloud VPS -->
+<!-- PANEL 5: Cloud VPS -->
   <section class="panel" id="cloud" role="tabpanel">
     <div class="panel-head">
       <h2>Cloud VPS &amp; Database Cost Comparison</h2>
@@ -672,6 +673,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </section>
 
 
+
 <footer>
   <div class="wrap">
     <div class="foot-grid">
@@ -783,16 +785,16 @@ function calcCloud(){
     ctaBox.style.display = 'block';
     ctaBox.innerHTML = isVultr
       ? '<div class="vcta vcta-win"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Auf Vultr deployen — günstigstes Angebot</div>'
-        + '<div class="vcta-sub">Vultr bietet die günstigste Konfiguration für Ihre Anforderungen.</div>'
+        + '<div class="vcta-title">Deploy on Vultr — cheapest for your spec</div>'
+        + '<div class="vcta-sub">Vultr matches your spec at the lowest price. Start with free credits.</div>'
         + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow" target="_blank" '
-        + 'class="vcta-btn" onclick="trackAffiliateClick(\'vultr_calc\')">Auf Vultr deployen →</a>'
-        + '<span class="vcta-note">Affiliate-Link · Sie erhalten $300 Startguthaben</span></div></div>'
+        + 'class="vcta-btn" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
+        + '<span class="vcta-note">Affiliate link · You get $300 free credits</span></div></div>'
       : '<div class="vcta vcta-near"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Auf Vultr vergleichen</div>'
-        + '<div class="vcta-sub">Vultr liegt nah dran — Pläne vor der Entscheidung vergleichen.</div>'
+        + '<div class="vcta-title">Compare on Vultr</div>'
+        + '<div class="vcta-sub">Vultr is close — compare plans before deciding.</div>'
         + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow" target="_blank" '
-        + 'class="vcta-btn vcta-btn-sm" onclick="trackAffiliateClick(\'vultr_calc\')">Auf Vultr deployen →</a>'
+        + 'class="vcta-btn vcta-btn-sm" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
         + '</div></div>';
   }
   var cmp=document.getElementById('cloudCmp');
