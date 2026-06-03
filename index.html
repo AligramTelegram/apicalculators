@@ -197,19 +197,22 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .calc{background:linear-gradient(180deg,var(--surface),var(--bg2));
   border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);
   overflow:hidden;margin-top:18px}
-.tabs{display:flex;gap:4px;padding:8px;border-bottom:1px solid var(--border);
-  overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{flex:1;min-width:max-content;display:flex;align-items:center;gap:9px;
-  padding:13px 16px;border-radius:11px;cursor:pointer;color:var(--muted);
-  font-weight:600;font-size:14.5px;white-space:nowrap;border:1px solid transparent;
-  transition:all .18s;background:transparent}
-.tab .ic{font-size:17px}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
+  padding:12px;border-bottom:1px solid var(--border)}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;padding:12px 8px;border-radius:12px;cursor:pointer;color:var(--muted);
+  font-weight:600;font-size:12px;text-align:center;border:1px solid transparent;
+  transition:all .18s;background:transparent;line-height:1.2;min-height:64px}
+.tab .ic{font-size:22px;line-height:1}
 .tab:hover{color:var(--text);background:var(--surface2)}
 .tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
-.tab.on .ic{filter:drop-shadow(0 0 8px rgba(184,255,46,.6))}
-.tab .num{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);
-  border:1px solid var(--border2);border-radius:5px;padding:1px 5px}
+.tab.on .ic{filter:drop-shadow(0 0 10px rgba(184,255,46,.7))}
+.tab.on .num{color:var(--lime)}
+@media(max-width:900px){.tabs{grid-template-columns:repeat(5,1fr)}}
+@media(max-width:640px){.tabs{grid-template-columns:repeat(3,1fr);gap:5px}
+  .tab{padding:10px 6px;font-size:11px;min-height:58px}.tab .ic{font-size:20px}}
+@media(max-width:420px){.tabs{grid-template-columns:repeat(2,1fr)}
+  .tab{min-height:54px}}
 .tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
 
 .panel{display:none;padding:28px;animation:fade .35s ease}
