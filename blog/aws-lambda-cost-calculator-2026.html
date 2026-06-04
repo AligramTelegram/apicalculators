@@ -77,7 +77,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
     <span class="atag">2026</span>
   </div>
   <h1>AWS Lambda Cost Calculator 2026: Serverless Pricing Compared</h1>
-  <div class="art-meta">2026-06-03 · 8 min read · APICalculators</div>
+  <div class="art-meta">2026-06-03 · 12 min read · APICalculators</div>
   <p class="intro">Serverless billing is notoriously hard to predict. This guide breaks down AWS Lambda, Vercel Functions, Cloudflare Workers and GCP Cloud Functions pricing with real cost tables so you can budget before you deploy.</p>
 <div class="ad-unit ad-top-content" style="margin:2rem 0;text-align:center;min-height:90px;">
   <ins class="adsbygoogle"
@@ -134,6 +134,60 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
     <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
   </div>
 </div>
+
+<h2>Real-World Cost Examples</h2>
+<p>Abstract pricing tables only go so far. Here are three realistic workloads with exact numbers.</p>
+
+<h3>Example 1: REST API — 10M requests/month, 256 MB, 200 ms avg</h3>
+<table class="ptable"><thead><tr><th>Cost component</th><th>Calculation</th><th>Monthly cost</th></tr></thead><tbody>
+<tr><td>Invocations (after 1M free)</td><td class="mono">9M × $0.20/M</td><td class="mono">$1.80</td></tr>
+<tr><td>Compute GB-sec (after 400K free)</td><td class="mono">10M × 0.2s × 0.25 GB × $0.0000166</td><td class="mono">$0.83</td></tr>
+<tr class="best"><td><strong>Lambda total</strong></td><td></td><td class="mono"><strong>$2.63</strong></td></tr>
+<tr><td>Cloudflare Workers (Paid)</td><td class="mono">$5 flat covers 10M req</td><td class="mono">$5.00</td></tr>
+</tbody></table>
+<p><strong>Winner: Lambda</strong> — REST APIs at this scale land well under $5/mo thanks to the free tier.</p>
+
+<h3>Example 2: Image Processing — 1M requests/month, 1024 MB, 2000 ms avg</h3>
+<table class="ptable"><thead><tr><th>Cost component</th><th>Calculation</th><th>Monthly cost</th></tr></thead><tbody>
+<tr><td>Invocations (within free tier)</td><td class="mono">1M — 1M free = 0</td><td class="mono">$0.00</td></tr>
+<tr><td>Compute GB-sec</td><td class="mono">1M × 2s × 1 GB × $0.0000166</td><td class="mono">$33.20</td></tr>
+<tr class="best"><td><strong>Lambda total</strong></td><td></td><td class="mono"><strong>$33.20</strong></td></tr>
+<tr><td>Cloudflare Workers</td><td colspan="2">Not suitable — 50 ms CPU cap on free, 30 s on paid but no GPU</td></tr>
+</tbody></table>
+<p><strong>Winner: Lambda</strong> — the only sensible choice for compute-heavy workloads. Workers' CPU wall clock limit disqualifies it here.</p>
+
+<h3>Example 3: High-Frequency Edge API — 100M requests/month, 30 ms avg</h3>
+<table class="ptable"><thead><tr><th>Platform</th><th>Cost breakdown</th><th>Monthly total</th></tr></thead><tbody>
+<tr><td>Lambda + API Gateway</td><td class="mono">$18 Lambda + $35 API GW</td><td class="mono">$53.00</td></tr>
+<tr class="best"><td><strong>Cloudflare Workers</strong></td><td class="mono">$5 base + 90M × $0.50/M</td><td class="mono"><strong>$50.00</strong></td></tr>
+<tr><td>Vercel Functions</td><td class="mono">$40 + egress</td><td class="mono">~$45–60</td></tr>
+</tbody></table>
+<p><strong>Winner: Cloudflare Workers</strong> — at 100M short requests the Workers flat pricing wins, especially once you factor in API Gateway costs Lambda accrues.</p>
+
+<h2>Hidden Costs Most Tutorials Skip</h2>
+<p>The Lambda pricing page shows two numbers: invocations and GB-seconds. Your actual invoice will include several more line items that tutorials rarely mention.</p>
+<ul>
+  <li><strong>API Gateway: $3.50 per million requests</strong> — if your Lambda is HTTP-facing, API Gateway typically doubles the bill. At 10M req/mo that's an extra $35 you won't see coming until the invoice arrives.</li>
+  <li><strong>CloudWatch Logs: $0.50 per GB ingested</strong> — a verbose logger writing 5 KB per invocation at 10M calls generates 50 GB of logs = $25/mo. Set log retention to 7 days and log only errors in production.</li>
+  <li><strong>NAT Gateway: $0.045 per GB of data processed</strong> — Lambda inside a VPC (required for RDS access) must route outbound traffic through NAT Gateway. At 100 GB/mo that's $4.50 in NAT alone, plus $0.045/GB of data. Heavy S3 or DynamoDB access amplifies this fast.</li>
+  <li><strong>Cold start duration charges</strong> — cold starts themselves aren't billed separately, but the added 50–500 ms initialization time <em>is</em> billed as GB-seconds. A 512 MB function with 300 ms cold starts at 1% cold-start rate across 10M invocations adds ~$1.27/mo in invisible compute.</li>
+  <li><strong>Provisioned Concurrency: $0.0000097222 per GB-second</strong> — keeping functions warm costs ~$14/mo per always-warm 512 MB instance. Often worth it for latency-sensitive endpoints but plan for it.</li>
+</ul>
+<div class="callout"><p><strong>Rule of thumb:</strong> multiply your raw Lambda estimate by 1.5–2× to account for API Gateway and logging before presenting it to stakeholders.</p></div>
+
+<h2>When to Choose Lambda vs Alternative</h2>
+<p>No single serverless platform wins every workload. Use this decision table to match your use case to the right tool.</p>
+<table class="ptable"><thead><tr><th>Use case</th><th>Best pick</th><th>Why</th><th>Monthly cost (10M req)</th></tr></thead><tbody>
+<tr class="best"><td>Short API (&lt;50 ms)</td><td><strong>Cloudflare Workers</strong></td><td>No cold starts, edge PoPs, flat pricing</td><td class="mono">$5</td></tr>
+<tr><td>AWS-integrated backend</td><td><strong>Lambda</strong></td><td>Native S3/DDB/SQS triggers, IAM</td><td class="mono">$3–6</td></tr>
+<tr><td>Next.js / React SSR</td><td><strong>Vercel Functions</strong></td><td>Zero-config deploy, built-in CDN</td><td class="mono">$20+ (Pro)</td></tr>
+<tr><td>Image / video processing</td><td><strong>Lambda (1–10 GB)</strong></td><td>High memory, long timeout (15 min)</td><td class="mono">$30–150</td></tr>
+<tr><td>Global low-latency API</td><td><strong>Workers or GCP</strong></td><td>200+ PoPs, sub-ms routing</td><td class="mono">$5–15</td></tr>
+<tr><td>Scheduled jobs / cron</td><td><strong>Lambda + EventBridge</strong></td><td>Native cron, pay-per-execution</td><td class="mono">&lt;$1</td></tr>
+<tr><td>ML inference (&gt;3 GB)</td><td><strong>VPS or Lambda SnapStart</strong></td><td>Lambda max 10 GB RAM; VPS cheaper at scale</td><td class="mono">$10–80</td></tr>
+</tbody></table>
+<p>If your function duration consistently exceeds 500 ms and you run more than 5M invocations per month, <a href="/blog/cloud-vps-cost-comparison-2026.html">a $6 VPS may undercut Lambda on total cost</a> once you factor in API Gateway.</p>
+
 <h2>FAQ</h2>
   <h3>How much does AWS Lambda cost per million requests?</h3>
   <p>AWS Lambda costs $0.20 per million invocations after the free tier (1M/month). Compute costs add $0.0000166725 per GB-second. A 256MB function running 150ms costs ~$0.000000634 per invocation.</p>
