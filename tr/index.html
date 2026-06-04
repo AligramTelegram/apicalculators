@@ -450,7 +450,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     </div>
     <div class="panel-body">
       <div class="inputs">
-        <label class="lbl" for="sttModel">Provider</label>
+        <label class="lbl" for="sttModel">Saglayici</label>
         <select class="sel" id="sttModel">
           <optgroup label="Speech-to-Text (STT)">
             <option value="whisper">OpenAI Whisper — $0.006/min</option>
@@ -464,15 +464,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
             <option value="google-tts">Google TTS — $16/1M chars</option>
           </optgroup>
         </select>
-        <label class="lbl" for="sttVol">Audio minutes / month</label>
+        <label class="lbl" for="sttVol">Ses dakikasi / ay</label>
         <input class="inp" id="sttVol" type="number" value="10000" min="0">
       </div>
       <div class="result">
         <div class="big" id="sttTotal">$0</div>
         <div class="per" id="sttPer">—</div>
         <div class="breakdown">
-          <div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>
+          <div class="brow"><span>Oran / 1M token</span><b id="sttRate">—</b></div>
+          <div class="brow hl"><span>Yillik tahmin</span><b id="sttAnnual">—</b></div>
         </div>
       </div>
     </div>
@@ -489,7 +489,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   <section class="panel" id="serverless" role="tabpanel">
     <div class="panel-head">
       <h2>Sunucusuz Hesaplama Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">AWS Lambda, Vercel, Cloudflare Workers. Keyword: <em>AWS Lambda cost calculator</em>.</p>
+      <p class="pdesc">AWS Lambda, Vercel, Cloudflare Workers. Keyword: <em>AWS Lambda maliyet hesaplayici</em>.</p>
     </div>
     <div class="panel-body">
       <div class="inputs">
@@ -500,11 +500,11 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
           <option value="cf">Cloudflare Workers</option>
           <option value="gcp">GCP Cloud Functions</option>
         </select>
-        <label class="lbl" for="slInvoke">Invocations / month</label>
+        <label class="lbl" for="slInvoke">Cagri / ay</label>
         <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
-        <label class="lbl" for="slDuration">Avg duration (ms)</label>
+        <label class="lbl" for="slDuration">Ort. sure (ms)</label>
         <input class="inp" id="slDuration" type="number" value="150" min="1">
-        <label class="lbl" for="slMemory">Memory</label>
+        <label class="lbl" for="slMemory">Bellek</label>
         <select class="sel" id="slMemory">
           <option value="0.125">128 MB</option>
           <option value="0.25" selected>256 MB</option>
@@ -516,9 +516,9 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="big" id="slTotal">$0</div>
         <div class="per" id="slPer">—</div>
         <div class="breakdown">
-          <div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>
-          <div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>
+          <div class="brow"><span>Cagri maliyeti</span><b id="slInvCost">—</b></div>
+          <div class="brow"><span>Hesaplama maliyeti (GB-sn)</span><b id="slCompCost">—</b></div>
+          <div class="brow hl"><span>Yillik tahmin</span><b id="slAnnual">—</b></div>
         </div>
       </div>
     </div>
@@ -536,28 +536,28 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   <section class="panel" id="gateway" role="tabpanel">
     <div class="panel-head">
       <h2>API Gateway Trafik Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">AWS API GW, Cloudflare, Kong costs. Keyword: <em>API gateway pricing calculator</em>.</p>
+      <p class="pdesc">AWS API GW, Cloudflare, Kong costs. Keyword: <em>API gateway maliyet hesaplayici</em>.</p>
     </div>
     <div class="panel-body">
       <div class="inputs">
-        <label class="lbl" for="gwProvider">Provider</label>
+        <label class="lbl" for="gwProvider">Saglayici</label>
         <select class="sel" id="gwProvider">
             <option value="aws">AWS API Gateway — $3.50/M req</option>
             <option value="cf">Cloudflare Workers — $0.50/M req</option>
             <option value="kong">Kong Cloud — $2.00/M req</option>
         </select>
-        <label class="lbl" for="gwReqs">Requests (millions/month)</label>
+        <label class="lbl" for="gwReqs">Istek (milyon/ay)</label>
         <input class="inp" id="gwReqs" type="number" value="10" min="0" step="0.1">
-        <label class="lbl" for="gwTransfer">Data transfer out (GB)</label>
+        <label class="lbl" for="gwTransfer">Veri transferi (GB)</label>
         <input class="inp" id="gwTransfer" type="number" value="50" min="0">
       </div>
       <div class="result">
         <div class="big" id="gwTotal">$0</div>
         <div class="per" id="gwPer">—</div>
         <div class="breakdown">
-          <div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>
-          <div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>
+          <div class="brow"><span>Istek maliyeti</span><b id="gwReqCost">—</b></div>
+          <div class="brow"><span>Transfer maliyeti</span><b id="gwXferCost">—</b></div>
+          <div class="brow hl"><span>Yillik tahmin</span><b id="gwAnnual">—</b></div>
         </div>
       </div>
     </div>
@@ -574,7 +574,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   <section class="panel" id="embedding" role="tabpanel">
     <div class="panel-head">
       <h2>Embedding API Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">OpenAI, Cohere, Voyage AI embedding costs. Keyword: <em>embedding API cost</em>.</p>
+      <p class="pdesc">OpenAI, Cohere, Voyage AI embedding costs. Keyword: <em>embedding API maliyeti</em>.</p>
     </div>
     <div class="panel-body">
       <div class="inputs">
@@ -587,16 +587,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
             <option value="voyage">Voyage AI large-2 — $0.120/1M</option>
             <option value="jina">Jina AI v3 — $0.018/1M</option>
         </select>
-        <label class="lbl" for="embTokens">Tokens / month (millions)</label>
+        <label class="lbl" for="embTokens">Token / ay (milyon)</label>
         <input class="inp" id="embTokens" type="number" value="100" min="0">
-        <label class="lbl" for="embDocs">Documents</label>
+        <label class="lbl" for="embDocs">Belgeler</label>
         <input class="inp" id="embDocs" type="number" value="500000" min="0">
       </div>
       <div class="result">
         <div class="big" id="embTotal">$0</div>
         <div class="per" id="embPer">—</div>
         <div class="breakdown">
-          <div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>
+          <div class="brow"><span>Oran / 1M token</span><b id="embRate">—</b></div>
           <div class="brow"><span>Tokens / document</span><b id="embPerDoc">—</b></div>
           <div class="brow hl"><span>Annual estimate</span><b id="embAnnual">—</b></div>
         </div>
@@ -615,23 +615,23 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   <section class="panel" id="agent" role="tabpanel">
     <div class="panel-head">
       <h2>YZ Ajan Çok-Model Maliyet Tahmincisi</h2>
-      <p class="pdesc">Multi-step agent pipeline cost per run. Keyword: <em>AI agent cost calculator</em>.</p>
+      <p class="pdesc">Multi-step agent pipeline cost per run. Keyword: <em>YZ ajan maliyet hesaplayici</em>.</p>
     </div>
     <div class="panel-body">
       <div class="inputs">
-        <label class="lbl">Step 1 — Planner / Router</label>
+        <label class="lbl">Adim 1 — Planlayici / Yonlendirici</label>
         <select class="sel" id="agM1">
           <option value="gpt4omini" selected>GPT-4o mini</option>
           <option value="haiku">Claude 3.5 Haiku</option>
           <option value="flash">Gemini Flash</option>
         </select>
-        <label class="lbl">Step 2 — Main Worker</label>
+        <label class="lbl">Adim 2 — Ana Iscisi</label>
         <select class="sel" id="agM2">
           <option value="gpt4o" selected>GPT-4o</option>
           <option value="sonnet">Claude 3.5 Sonnet</option>
           <option value="gempro">Gemini Pro</option>
         </select>
-        <label class="lbl">Step 3 — Summariser</label>
+        <label class="lbl">Adim 3 — Ozetleyici</label>
         <select class="sel" id="agM3">
           <option value="gpt4omini" selected>GPT-4o mini</option>
           <option value="flash">Gemini Flash</option>
@@ -645,9 +645,9 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="per" id="agPer">—</div>
         <div class="breakdown">
           <div class="brow"><span>Cost per run</span><b id="agPerRun">—</b></div>
-          <div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>
-          <div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>
-          <div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>
+          <div class="brow"><span>Adim 1 — Planlayici</span><b id="agS1">—</b></div>
+          <div class="brow"><span>Adim 2 — Isci</span><b id="agS2">—</b></div>
+          <div class="brow"><span>Adim 3 — Ozetleyici</span><b id="agS3">—</b></div>
           <div class="brow hl"><span>Annual estimate</span><b id="agAnnual">—</b></div>
         </div>
       </div>
