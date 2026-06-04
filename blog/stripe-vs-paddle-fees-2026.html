@@ -89,6 +89,14 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
 footer a{color:var(--muted2)}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<style>
+.ilink-box{background:#12161d;border:1px solid #27313e;border-radius:12px;padding:18px;margin:28px 0}
+.ilink-box .il-title{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#8a96a5;margin-bottom:12px;font-weight:700}
+.ilink-box .il-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.ilink-box a{display:flex;align-items:center;gap:8px;background:#161b24;border:1px solid #1d2530;border-radius:8px;padding:9px 12px;color:#8b97a4;font-size:13px;font-weight:500;text-decoration:none;transition:all .15s}
+.ilink-box a:hover{border-color:#b8ff2e;color:#e8edf1}
+.ilink-box a::before{content:"→";color:#b8ff2e;font-weight:700}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -218,7 +226,7 @@ footer a{color:var(--muted2)}
           <li>US-only or very low international revenue (&lt;10%)</li>
           <li>You need maximum customization (Stripe Elements, Checkout, Billing)</li>
           <li>You're building a marketplace or platform (Stripe Connect)</li>
-          <li>You already have tax compliance infrastructure</li>
+          <li>You already have tax compliance infrastructure — and want to calculate your <a href="/blog/cloud-vps-cost-comparison-2026.html">full SaaS infrastructure cost</a></li>
         </ul>
         <h3>Choose Paddle or Lemon Squeezy if:</h3>
         <ul>
@@ -273,7 +281,8 @@ footer a{color:var(--muted2)}
           </div>
         </div>
       </article>
-    </main>
+    <div class="ilink-box"><div class="il-title">Related Tools &amp; Guides</div><div class="il-grid"><a href="/blog/cloud-vps-cost-comparison-2026.html">Full SaaS infrastructure cost</a><a href="/blog/llm-api-cost-guide-2026.html">LLM API cost guide</a><a href="/blog/">Blog index</a></div></div>
+</main>
     <aside>
       <div class="toc">
         <h4>In this article</h4>
