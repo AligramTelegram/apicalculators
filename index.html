@@ -363,6 +363,13 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .vcta-btn-sm{background:var(--surface2);color:var(--text);border:1px solid var(--border2)}
 .vcta-note{display:block;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2);margin-top:7px}
 </style>
+<style>
+.affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
+.aff-headline{margin:0 0 .6rem;font-size:.85rem;color:#b8ff2e;font-weight:600;letter-spacing:.02em;}
+.aff-links{display:flex;flex-wrap:wrap;gap:.5rem;}
+.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s,border-color .15s;}
+.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:#b8ff2e;}
+</style>
 </head>
 <body>
 
@@ -498,7 +505,15 @@ window.addEventListener('load',function(){
       </div>
     </div>
     <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider's pricing page before budgeting.</p>
-  </section>
+  
+<div class="affiliate-cta" id="llm-affiliate">
+  <p class="aff-headline">Ready to build? Start with free credits:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
   <!-- ===== PANEL 2: VECTOR ===== -->
   <section class="panel" id="vector" role="tabpanel" aria-labelledby="tab-vector">
@@ -540,7 +555,15 @@ window.addEventListener('load',function(){
       </div>
     </div>
     <p class="disclaimer">Vector DB pricing models vary widely (serverless read units, pod-hours, compute tiers). These are simplified order-of-magnitude estimates assuming float32 vectors and ~1.5× index overhead — use them for comparison, not for contracts.</p>
-  </section>
+  
+<div class="affiliate-cta" id="vectordb-affiliate">
+  <p class="aff-headline">Start building your vector search:</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Build on Supabase</a>
+    <a href="[PINECONE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌲 Try Pinecone free</a>
+  </div>
+</div>
+</section>
 
   <!-- ===== PANEL 3: IMAGE ===== -->
   <section class="panel" id="image" role="tabpanel" aria-labelledby="tab-image">
@@ -637,7 +660,16 @@ window.addEventListener('load',function(){
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="vps-affiliate">
+  <p class="aff-headline">Deploy your server today:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">🖥️ $300 Vultr credit</a>
+    <a href="[HETZNER_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🇩🇪 Hetzner — cheapest EU</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 6: STT/TTS -->
   <section class="panel" id="stt" role="tabpanel">
@@ -673,7 +705,14 @@ window.addEventListener('load',function(){
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="tts-affiliate">
+  <p class="aff-headline">Try the best TTS API:</p>
+  <div class="aff-links">
+    <a href="[ELEVENLABS_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🎙️ Try ElevenLabs free</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 7: Serverless -->
   <section class="panel" id="serverless" role="tabpanel">
@@ -712,7 +751,15 @@ window.addEventListener('load',function(){
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="serverless-affiliate">
+  <p class="aff-headline">Ship serverless today:</p>
+  <div class="aff-links">
+    <a href="[VERCEL_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">▲ Deploy on Vercel</a>
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 8: API Gateway -->
   <section class="panel" id="gateway" role="tabpanel">
@@ -743,7 +790,14 @@ window.addEventListener('load',function(){
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="gateway-affiliate">
+  <p class="aff-headline">Deploy your API Gateway:</p>
+  <div class="aff-links">
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 9: Embedding -->
   <section class="panel" id="embedding" role="tabpanel">
@@ -777,7 +831,14 @@ window.addEventListener('load',function(){
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="embedding-affiliate">
+  <p class="aff-headline">Store your embeddings:</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Build on Supabase</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 10: AI Agent -->
   <section class="panel" id="agent" role="tabpanel">
@@ -820,7 +881,15 @@ window.addEventListener('load',function(){
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="agent-affiliate">
+  <p class="aff-headline">Deploy your AI Agent infrastructure:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
 <!-- AD: IN-CONTENT -->
 <div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>

@@ -213,6 +213,13 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 </style>
 <meta name="geo.region" content="FR" />
 <meta name="geo.placename" content="France" />
+<style>
+.affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
+.aff-headline{margin:0 0 .6rem;font-size:.85rem;color:#b8ff2e;font-weight:600;letter-spacing:.02em;}
+.aff-links{display:flex;flex-wrap:wrap;gap:.5rem;}
+.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s,border-color .15s;}
+.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:#b8ff2e;}
+</style>
 </head>
 <body>
 <header class="nav">
@@ -299,7 +306,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Les prix reflètent les tarifs API publics publiés pour 2026 (USD, à l'usage). Les remises sur volume, entrées en cache et tarifs par lots ne sont pas appliqués. Vérifiez la page de tarification du fournisseur avant de budgétiser.</p>
-  </section>
+  
+<div class="affiliate-cta" id="llm-affiliate">
+  <p class="aff-headline">Déployez maintenant — crédits offerts :</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 crédit Vultr</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
   <section class="panel" id="vector" role="tabpanel">
     <div class="panel-head"><h2>Calculatrice de Coûts Cloud Base de Données Vectorielle</h2><p>Coûts mensuels approximatifs pour Pinecone, Supabase, Qdrant et Weaviate selon la taille de votre index.</p></div>
     <div class="grid2">
@@ -322,7 +337,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Les modèles de prix des bases vectorielles varient fortement (read units, pod-heures, niveaux de calcul). Ce sont des estimations d'ordre de grandeur pour vecteurs float32 avec ~1,5× de surcoût d'index — à utiliser pour comparaison, pas pour des contrats.</p>
-  </section>
+  
+<div class="affiliate-cta" id="vectordb-affiliate">
+  <p class="aff-headline">Lancez votre recherche vectorielle :</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Démarrer sur Supabase</a>
+    <a href="[PINECONE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌲 Essayer Pinecone gratuitement</a>
+  </div>
+</div>
+</section>
   <section class="panel" id="image" role="tabpanel">
     <div class="panel-head"><h2>Planificateur de Budget Génération d'Images IA</h2><p>Comparez les coûts par image et mensuels pour DALL·E 3, Stable Diffusion et Flux.</p></div>
     <div class="grid2">
@@ -388,7 +411,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="vps-affiliate">
+  <p class="aff-headline">Déployez votre serveur aujourd'hui :</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">🖥️ $300 crédit Vultr</a>
+    <a href="[HETZNER_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🇩🇪 Hetzner — moins cher EU</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 6: STT/TTS -->
   <section class="panel" id="stt" role="tabpanel">
@@ -424,7 +456,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="tts-affiliate">
+  <p class="aff-headline">Testez l'API Text-to-Speech :</p>
+  <div class="aff-links">
+    <a href="[ELEVENLABS_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🎙️ Essayer ElevenLabs gratuitement</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 7: Serverless -->
   <section class="panel" id="serverless" role="tabpanel">
@@ -463,7 +502,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="serverless-affiliate">
+  <p class="aff-headline">Déployez en serverless :</p>
+  <div class="aff-links">
+    <a href="[VERCEL_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">▲ Déployer sur Vercel</a>
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 8: API Gateway -->
   <section class="panel" id="gateway" role="tabpanel">
@@ -494,7 +541,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="gateway-affiliate">
+  <p class="aff-headline">Déployez votre API Gateway :</p>
+  <div class="aff-links">
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 9: Embedding -->
   <section class="panel" id="embedding" role="tabpanel">
@@ -528,7 +582,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="embedding-affiliate">
+  <p class="aff-headline">Stockez vos embeddings :</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Construire sur Supabase</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 10: AI Agent -->
   <section class="panel" id="agent" role="tabpanel">
@@ -571,7 +632,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="agent-affiliate">
+  <p class="aff-headline">Déployez votre infrastructure AI Agent :</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 crédit Vultr</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
 </div>
 <div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>

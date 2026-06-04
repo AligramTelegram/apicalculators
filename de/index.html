@@ -234,6 +234,13 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 </style>
 <meta name="geo.region" content="DE" />
 <meta name="geo.placename" content="Germany" />
+<style>
+.affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
+.aff-headline{margin:0 0 .6rem;font-size:.85rem;color:#b8ff2e;font-weight:600;letter-spacing:.02em;}
+.aff-links{display:flex;flex-wrap:wrap;gap:.5rem;}
+.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s,border-color .15s;}
+.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:#b8ff2e;}
+</style>
 </head>
 <body>
 
@@ -334,7 +341,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Die Preise entsprechen den veröffentlichten öffentlichen API-Tarifen für 2026 (USD, Pay-as-you-go). Mengenrabatte, zwischengespeicherte Eingaben und Batch-Preise werden nicht berücksichtigt. Prüfen Sie vor der Budgetierung die Preisseite des Anbieters.</p>
-  </section>
+  
+<div class="affiliate-cta" id="llm-affiliate">
+  <p class="aff-headline">Jetzt deployen — kostenlose Credits:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 Vultr-Guthaben</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
   <!-- VECTOR -->
   <section class="panel" id="vector" role="tabpanel">
@@ -364,7 +379,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Die Preismodelle für Vektordatenbanken variieren stark (Read Units, Pod-Stunden, Compute-Stufen). Dies sind vereinfachte Größenordnungsschätzungen für float32-Vektoren mit ~1,5× Index-Overhead — nutzen Sie sie zum Vergleich, nicht für Verträge.</p>
-  </section>
+  
+<div class="affiliate-cta" id="vectordb-affiliate">
+  <p class="aff-headline">Vector-Suche aufbauen:</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Supabase starten</a>
+    <a href="[PINECONE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌲 Pinecone kostenlos testen</a>
+  </div>
+</div>
+</section>
 
   <!-- IMAGE -->
   <section class="panel" id="image" role="tabpanel">
@@ -442,7 +465,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="vps-affiliate">
+  <p class="aff-headline">Server heute deployen:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">🖥️ $300 Vultr-Guthaben</a>
+    <a href="[HETZNER_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🇩🇪 Hetzner — günstigstes EU</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 6: STT/TTS -->
   <section class="panel" id="stt" role="tabpanel">
@@ -478,7 +510,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="tts-affiliate">
+  <p class="aff-headline">Text-to-Speech API testen:</p>
+  <div class="aff-links">
+    <a href="[ELEVENLABS_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🎙️ ElevenLabs kostenlos testen</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 7: Serverless -->
   <section class="panel" id="serverless" role="tabpanel">
@@ -517,7 +556,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="serverless-affiliate">
+  <p class="aff-headline">Serverless deployen:</p>
+  <div class="aff-links">
+    <a href="[VERCEL_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">▲ Auf Vercel starten</a>
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 8: API Gateway -->
   <section class="panel" id="gateway" role="tabpanel">
@@ -548,7 +595,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="gateway-affiliate">
+  <p class="aff-headline">API Gateway deployen:</p>
+  <div class="aff-links">
+    <a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 9: Embedding -->
   <section class="panel" id="embedding" role="tabpanel">
@@ -582,7 +636,14 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="embedding-affiliate">
+  <p class="aff-headline">Embeddings speichern:</p>
+  <div class="aff-links">
+    <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">⚡ Auf Supabase aufbauen</a>
+  </div>
+</div>
+</section>
 
   <!-- PANEL 10: AI Agent -->
   <section class="panel" id="agent" role="tabpanel">
@@ -625,7 +686,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  </section>
+  
+<div class="affiliate-cta" id="agent-affiliate">
+  <p class="aff-headline">AI Agent infrastruktur deployen:</p>
+  <div class="aff-links">
+    <a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored" target="_blank" class="aff-btn">☁️ $300 Vultr-Guthaben</a>
+    <a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a>
+  </div>
+</div>
+</section>
 
 </div>
 
