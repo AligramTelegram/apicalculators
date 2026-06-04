@@ -424,4 +424,117 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://apicalculators.com/llm-cost-calculator.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/llm-cost-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/llm-kostenrechner.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/calculateur-cout-llm.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/llm-maliyet-hesaplayici.html"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/aws-lambda-calculator.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/aws-lambda-calculator.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/aws-lambda-rechner.html"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/aws-lambda-maliyet.html"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/vector-db-cost.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/cloud-vps-comparison.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/cloud-vps-comparison.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/cloud-vps-kostenvergleich.html"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/comparateur-vps-cloud.html"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/embedding-api-cost.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/ai-agent-cost-calculator.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/api-gateway-cost.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/stt-tts-api-cost.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/stripe-vs-paddle-calculator.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/ai-image-cost-calculator.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/de/llm-kostenrechner.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/de/cloud-vps-kostenvergleich.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/de/aws-lambda-rechner.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/fr/calculateur-cout-llm.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/fr/comparateur-vps-cloud.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/llm-maliyet-hesaplayici.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/aws-lambda-maliyet.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
