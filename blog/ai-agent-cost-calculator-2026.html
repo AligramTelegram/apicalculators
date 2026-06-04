@@ -56,6 +56,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
 .foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;max-width:1100px;margin:0 auto;padding:0 22px}footer a{color:var(--muted2)}
 @media(max-width:600px){.il-grid{grid-template-columns:1fr}}
 </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="nav"><div class="nav-in"><a href="/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/#calc">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
@@ -67,6 +68,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
   <h1>AI Agent Cost Calculator 2026: Multi-Model Pipeline Pricing</h1>
   <div class="art-meta">2026-06-04 · 8 min · APICalculators</div>
   <p class="intro">AI agents don't run a single LLM call — they chain planner, worker and summariser models across multiple steps. A 3-step pipeline with GPT-4o as the worker can cost $0.034 per run. At 100K runs/month that's $3,400. Picking the right model mix cuts this by 60-80%.</p>
+<div class="ad-unit ad-top-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
   
   
   <h2>How AI Agent Costs Accumulate</h2>
@@ -76,6 +87,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
   <p><table class="ptable"><thead><tr><th>Step</th><th>Role</th><th>Model</th><th>Tokens (in/out)</th><th>$/run</th></tr></thead><tbody><tr><td>1</td><td>Planner</td><td>GPT-4o mini</td><td>500 / 100</td><td class="mono">$0.000135</td></tr><tr><td>2</td><td>Worker</td><td>GPT-4o</td><td>3000 / 800</td><td class="mono">$0.015500</td></tr><tr><td>3</td><td>Summariser</td><td>GPT-4o mini</td><td>1500 / 300</td><td class="mono">$0.000405</td></tr><tr class="best"><td colspan="4"><strong>Total per run</strong></td><td class="mono"><strong>$0.016040</strong></td></tr></tbody></table></p>
 
   <h2>Optimised Pipeline: Switch Worker to Claude Haiku</h2>
+<div class="ad-unit ad-mid-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="YYYYYYYYYY"
+       data-ad-format="rectangle"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
   <p><table class="ptable"><thead><tr><th>Step</th><th>Model</th><th>$/run</th><th>vs GPT-4o</th></tr></thead><tbody><tr><td>Planner</td><td>Gemini Flash</td><td class="mono">$0.000056</td><td>-59%</td></tr><tr><td>Worker</td><td>Claude 3.5 Haiku</td><td class="mono">$0.002720</td><td>-82%</td></tr><tr><td>Summariser</td><td>Gemini Flash</td><td class="mono">$0.000169</td><td>-58%</td></tr><tr class="best"><td colspan="2"><strong>Optimised total</strong></td><td class="mono"><strong>$0.002945</strong></td><td><strong>-82%</strong></td></tr></tbody></table></p>
 <div class="calc-cta"><h3>🧮 Try the calculator</h3><p>Enter your numbers for instant cost estimate.</p><a href="/#agent" class="cta-btn">Open Calculator →</a></div>
 
@@ -85,7 +106,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
   <h2>3 Strategies to Cut Agent Costs by 80%</h2>
   <p><ul><li><strong>Model routing:</strong> Use Gemini Flash or Claude Haiku for planner and summariser steps — reserve GPT-4o/Claude Sonnet for the worker step only.</li><li><strong>Context compression:</strong> Trim conversation history before each step. 500 fewer input tokens × 100K runs = $1.25/mo saved (GPT-4o mini) or $125/mo (GPT-4o).</li><li><strong>Caching:</strong> Cache planner outputs for identical task types. If 30% of tasks are repeated, cache alone cuts 30% of planner costs.</li></ul></p>
 
-  <h2>FAQ</h2>
+  <div class="ad-unit ad-bottom-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="ZZZZZZZZZZ"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<h2>FAQ</h2>
   <h3>How much does a GPT-4o agent run cost?</h3>
   <p>A 3-step agent pipeline with GPT-4o as the worker (3000 input / 800 output tokens) costs approximately $0.016 per run. At 100K runs/month: $1,604. Switching to Claude Haiku as worker cuts this to $295/month.</p>
   <h3>What is the cheapest model for AI agents?</h3>

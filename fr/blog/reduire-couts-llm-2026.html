@@ -71,6 +71,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
   ]
 }
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="nav"><div class="nav-in"><a href="/fr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/fr/#calc">Calculatrices</a><a href="/fr/blog/">Blog</a><a href="/fr/about.html">À propos</a></nav></div></header>
@@ -80,6 +81,16 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
   <h1>Réduire les Coûts d'API LLM : 7 Stratégies pour 60% d'Économies (2026)</h1>
   <div class="art-meta">2 juin 2026 · 13 min de lecture · Par APICalculators</div>
   <p class="intro">La plupart des équipes paient 40 à 70% de trop pour les API LLM sans le savoir. Le gaspillage vient de quelques schémas corrigeables : prompts système surdimensionnés, mauvais choix de modèle et tokens de sortie illimités. Ce guide présente 7 stratégies — chacune avec des économies réelles.</p>
+<div class="ad-unit ad-top-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="XXXXXXXXXX"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 
   <h2>D'abord : connaissez votre baseline</h2>
   <p>On ne peut optimiser que ce qu'on mesure. Enregistrez l'usage de tokens par requête pendant une semaine. Vous découvrirez probablement que 20% des requêtes consomment 60% de vos tokens — optimisez-les en premier.</p>
@@ -94,7 +105,26 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
   <div class="strategy"><div class="snum">Stratégie 06</div><div class="savings">ÉCONOMIE : 20–60% selon le taux de répétition</div><h3>Mettre en cache les réponses au niveau applicatif</h3><p>Beaucoup d'appels LLM en production sont sémantiquement identiques. Le cache exact (Redis) ou sémantique (similarité > 0,95) élimine les coûts sur les accès au cache. 40% de taux de hit sur 2 000 $/mois économise 800 $.</p></div>
   <div class="strategy"><div class="snum">Stratégie 07</div><div class="savings">ÉCONOMIE : 10–200% des coûts de sortie</div><h3>Toujours définir max_tokens explicitement</h3><p>Sans limite, les modèles génèrent jusqu'à la fenêtre de contexte. Mesurez votre longueur de sortie P95 et plafonnez juste au-dessus. Cela seul réduit souvent les coûts de sortie de 30–50%.</p></div>
 
-  <h2>Questions fréquentes</h2>
+  <div class="ad-unit ad-bottom-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="ZZZZZZZZZZ"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+<h2>Questions fréquentes</h2>
+<div class="ad-unit ad-mid-content" style="margin:2rem 0;text-align:center;min-height:90px;">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+       data-ad-slot="YYYYYYYYYY"
+       data-ad-format="rectangle"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
   <h3>Combien puis-je économiser avec le cache de prompts ?</h3>
   <p>Jusqu'à <strong>90% sur les tokens d'entrée</strong> pour le contenu mis en cache. Un prompt système de 2 000 tokens sur 100 000 requêtes/mois économise environ 540 $/mois sur Claude 3.5 Sonnet.</p>
   <h3>Qu'est-ce que le routage de modèles ?</h3>
