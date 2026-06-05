@@ -122,6 +122,13 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .panel-head h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
 .panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
 .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
+.panel-body .inputs{display:flex;flex-direction:column;gap:0}
+.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
+.lbl:first-child{margin-top:0}
+.panel-body .result{position:relative}
+.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
+@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
 @media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
 .field{margin-bottom:18px}
 .field label{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
@@ -675,28 +682,91 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 
-  <!-- PANEL 11: Outils IA Coding -->
+  <!-- PANEL 11: AI Coding Tool -->
   <section class="panel" id="coding" role="tabpanel">
     <div class="panel-head">
       <h2>Calculateur Cout Outils IA Coding</h2>
-      <p class="pdesc">Cursor vs Copilot vs Claude Code: calculez votre vrai cout mensuel. Keyword: <em>calculateur cout outil IA coding</em>.</p>
+      <p class="pdesc">Cursor vs Copilot vs Claude Code couts reels. Keyword: <em>calculateur cout outil IA coding</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Cursor annonce 20$/mois. Votre facture affiche 180$. Trouvez votre vrai cout selon votre usage.</p>
-      <a href="/fr/cout-outil-ia-coding.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">💻 Ouvrir le calculateur →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="frCodingUsage">Intensite d'utilisation quotidienne</label>
+          <select class="sel" id="frCodingUsage">
+          <option value="light">Legere (1-2h/jour)</option>
+          <option value="medium" selected>Moderee (2-4h/jour)</option>
+          <option value="heavy">Intensive (4h+/jour)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="frCodingType">Cas d'usage principal</label>
+          <select class="sel" id="frCodingType">
+          <option value="complete">Completion uniquement</option>
+          <option value="chat" selected>Completion + chat</option>
+          <option value="agent">Taches agentiques</option>
+          <option value="all">Tout combine</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="frCodingTeam">Taille de l'equipe</label>
+          <select class="sel" id="frCodingTeam">
+          <option value="1" selected>Individuel (1)</option>
+          <option value="3">Petite equipe (3)</option>
+          <option value="5">Petite equipe (5)</option>
+          <option value="10">Equipe moyenne (10)</option>
+          <option value="20">Equipe moyenne (20)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Option la moins chere</div>
+        <div class="big" id="frCodingBest">$10</div>
+        <div class="per" id="frCodingPer">— par mois</div>
+        <div class="breakdown" id="frCodingBreakdown">
+          <div class="brow"><span>Tous les outils (tries)</span><b>—</b></div>
+        </div>
+        <a href="/fr/cout-outil-ia-coding.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Calculateur complet →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="fr-coding-affiliate">
+  <p class="aff-headline">Meilleure option:</p><div class="aff-links"><a href="[GITHUB_COPILOT_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">GitHub Copilot — 10$/mois</a><a href="[WINDSURF_REFERRAL]" rel="sponsored noopener" target="_blank" class="aff-btn">Windsurf gratuit</a></div>
+  </div>
   </section>
 
-  <!-- PANEL 12: Fournisseur Auth -->
+  <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
       <h2>Calculateur Cout Fournisseur Auth</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase — 73x d'ecart de prix a 100K utilisateurs. Keyword: <em>calculateur cout fournisseur auth</em>.</p>
+      <p class="pdesc">Clerk vs Auth0 vs Supabase — 73x d'ecart a 100K MAU. Keyword: <em>calculateur cout fournisseur auth</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Calculez votre cout d'authentification par MAU. Supabase Auth est 73x moins cher que Clerk a 100K MAU.</p>
-      <a href="/fr/cout-fournisseur-auth.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">🔑 Ouvrir le calculateur →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="frAuthMau">Utilisateurs actifs mensuels (MAU)</label>
+          <input class="inp" id="frAuthMau" type="number" value="10000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label for="frAuthTier">Niveau de fonctionnalites</label>
+          <select class="sel" id="frAuthTier">
+          <option value="basic">Basique (email + social)</option>
+          <option value="mid" selected>Standard (MFA + orgs)</option>
+          <option value="enterprise">Entreprise (SSO + SAML)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Option la moins chere</div>
+        <div class="big" id="frAuthBest">$0</div>
+        <div class="per" id="frAuthPer">— par mois</div>
+        <div class="breakdown" id="frAuthBreakdown">
+          <div class="brow"><span>Tous les fournisseurs (tries)</span><b>—</b></div>
+        </div>
+        <a href="/fr/cout-fournisseur-auth.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Calculateur complet →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="fr-auth-affiliate">
+  <p class="aff-headline">Commencer avec auth incluse:</p><div class="aff-links"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">Supabase — 50K MAU gratuits</a><a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">Clerk — 10K MAU gratuits</a></div>
+  </div>
   </section>
 
 </main>
@@ -981,6 +1051,76 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+
+
+/* ===== FR AI CODING CALC ===== */
+(function(){
+  var TOOLS_fr = [
+    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
+    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
+    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
+    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
+    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+  ];
+  function calcCoding_fr(){
+    var usage=document.getElementById('frCodingUsage').value;
+    var type=document.getElementById('frCodingType').value;
+    var team=parseInt(document.getElementById('frCodingTeam').value)||1;
+    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
+    var rows=TOOLS_fr.map(function(t){
+      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
+      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
+      return {name:t.name,note:t.note,per:base,total:base*team};
+    }).sort(function(a,b){return a.total-b.total;});
+    document.getElementById('frCodingBest').textContent='$'+rows[0].total.toLocaleString();
+    var bd=document.getElementById('frCodingBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['frCodingUsage','frCodingType','frCodingTeam'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('change',calcCoding_fr);
+  });
+  calcCoding_fr();
+})();
+
+/* ===== FR AUTH CALC ===== */
+(function(){
+  var PROVIDERS_fr=[
+    {name:'Supabase Auth', free:50000, rate:0.00325},
+    {name:'WorkOS',        free:1000000,rate:0.001},
+    {name:'Firebase Auth', free:50000, rate:0.0055},
+    {name:'Better Auth',   free:10000, rate:0.01},
+    {name:'Clerk',         free:10000, rate:0.02},
+    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
+  ];
+  function calcAuth_fr(){
+    var mau=parseInt(document.getElementById('frAuthMau').value)||0;
+    var tier=document.getElementById('frAuthTier').value;
+    var sso=tier==='enterprise'?130:0;
+    var rows=PROVIDERS_fr.map(function(p){
+      var cost=Math.max(0,mau-p.free)*p.rate+sso;
+      return {name:p.name,cost:Math.round(cost*100)/100};
+    }).sort(function(a,b){return a.cost-b.cost;});
+    document.getElementById('frAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
+    var bd=document.getElementById('frAuthBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['frAuthMau','frAuthTier'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){el.addEventListener('input',calcAuth_fr);el.addEventListener('change',calcAuth_fr);}
+  });
+  calcAuth_fr();
+})();
 
 </script>
 </body>

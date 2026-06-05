@@ -122,6 +122,13 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .panel-head h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
 .panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
 .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
+.panel-body .inputs{display:flex;flex-direction:column;gap:0}
+.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
+.lbl:first-child{margin-top:0}
+.panel-body .result{position:relative}
+.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
+@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
 @media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
 .field{margin-bottom:18px}
 .field label{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
@@ -675,28 +682,91 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 
-  <!-- PANEL 11: YZ Kodlama Araci -->
+  <!-- PANEL 11: AI Coding Tool -->
   <section class="panel" id="coding" role="tabpanel">
     <div class="panel-head">
       <h2>YZ Kodlama Araci Maliyet Hesaplayici</h2>
-      <p class="pdesc">Cursor vs Copilot vs Claude Code: gercek aylik maliyetinizi hesaplayin. Keyword: <em>YZ kodlama araci maliyet hesaplayici</em>.</p>
+      <p class="pdesc">Cursor vs Copilot vs Claude Code gercek maliyet. Keyword: <em>YZ kodlama araci maliyet hesaplayici</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Cursor $20/ay diyor. Faturaniz $180 gosteriyor. Kullanim yogunlugunuza gore gercek maliyetinizi bulun.</p>
-      <a href="/tr/yapay-zeka-kodlama-arac-maliyeti.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">💻 Hesaplayiciyi Ac →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="trCodingUsage">Gunluk kullanim yogunlugu</label>
+          <select class="sel" id="trCodingUsage">
+          <option value="light">Hafif (1-2 saat/gun)</option>
+          <option value="medium" selected>Orta (2-4 saat/gun)</option>
+          <option value="heavy">Yogun (4+ saat/gun)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="trCodingType">Kullanim tipi</label>
+          <select class="sel" id="trCodingType">
+          <option value="complete">Sadece tamamlama</option>
+          <option value="chat" selected>Tamamlama + chat</option>
+          <option value="agent">Ajan gorevleri</option>
+          <option value="all">Hepsi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="trCodingTeam">Ekip buyuklugu</label>
+          <select class="sel" id="trCodingTeam">
+          <option value="1" selected>Bireysel (1)</option>
+          <option value="3">Kucuk ekip (3)</option>
+          <option value="5">Kucuk ekip (5)</option>
+          <option value="10">Orta ekip (10)</option>
+          <option value="20">Orta ekip (20)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">En ucuz secenek</div>
+        <div class="big" id="trCodingBest">$10</div>
+        <div class="per" id="trCodingPer">— aylik</div>
+        <div class="breakdown" id="trCodingBreakdown">
+          <div class="brow"><span>Tum araclar (sirali)</span><b>—</b></div>
+        </div>
+        <a href="/tr/yapay-zeka-kodlama-arac-maliyeti.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="tr-coding-affiliate">
+  <p class="aff-headline">En iyi baslangiç:</p><div class="aff-links"><a href="[GITHUB_COPILOT_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">GitHub Copilot — $10/ay</a><a href="[WINDSURF_REFERRAL]" rel="sponsored noopener" target="_blank" class="aff-btn">Windsurf ucretsiz</a></div>
+  </div>
   </section>
 
-  <!-- PANEL 12: Kimlik Dogrulama -->
+  <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
       <h2>Kimlik Dogrulama Maliyet Hesaplayici</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase — 100K kullanicida $1.800 vs $25/ay farki. Keyword: <em>kimlik dogrulama maliyet hesaplayici</em>.</p>
+      <p class="pdesc">Clerk vs Auth0 vs Supabase — 100K MAU'da 73x fiyat farki. Keyword: <em>kimlik dogrulama maliyet hesaplayici</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">MAU bazli kimlik dogrulama maliyetinizi hesaplayin. Supabase Auth, 100K MAU'da Clerk'ten 73 kat ucuz.</p>
-      <a href="/tr/kimlik-dogrulama-maliyet.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">🔑 Hesaplayiciyi Ac →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="trAuthMau">Aylik Aktif Kullanici (MAU)</label>
+          <input class="inp" id="trAuthMau" type="number" value="10000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label for="trAuthTier">Ozellik gereksinimleri</label>
+          <select class="sel" id="trAuthTier">
+          <option value="basic">Temel (e-posta + sosyal)</option>
+          <option value="mid" selected>Standart (MFA + org)</option>
+          <option value="enterprise">Kurumsal (SSO + SAML)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">En ucuz secenek</div>
+        <div class="big" id="trAuthBest">$0</div>
+        <div class="per" id="trAuthPer">— aylik</div>
+        <div class="breakdown" id="trAuthBreakdown">
+          <div class="brow"><span>Tum saglayicilar (sirali)</span><b>—</b></div>
+        </div>
+        <a href="/tr/kimlik-dogrulama-maliyet.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="tr-auth-affiliate">
+  <p class="aff-headline">Auth dahil baslayın:</p><div class="aff-links"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">Supabase — 50K MAU ucretsiz</a><a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">Clerk — 10K MAU ucretsiz</a></div>
+  </div>
   </section>
 
 </main>
@@ -981,6 +1051,76 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+
+
+/* ===== TR AI CODING CALC ===== */
+(function(){
+  var TOOLS_tr = [
+    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
+    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
+    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
+    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
+    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+  ];
+  function calcCoding_tr(){
+    var usage=document.getElementById('trCodingUsage').value;
+    var type=document.getElementById('trCodingType').value;
+    var team=parseInt(document.getElementById('trCodingTeam').value)||1;
+    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
+    var rows=TOOLS_tr.map(function(t){
+      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
+      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
+      return {name:t.name,note:t.note,per:base,total:base*team};
+    }).sort(function(a,b){return a.total-b.total;});
+    document.getElementById('trCodingBest').textContent='$'+rows[0].total.toLocaleString();
+    var bd=document.getElementById('trCodingBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['trCodingUsage','trCodingType','trCodingTeam'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('change',calcCoding_tr);
+  });
+  calcCoding_tr();
+})();
+
+/* ===== TR AUTH CALC ===== */
+(function(){
+  var PROVIDERS_tr=[
+    {name:'Supabase Auth', free:50000, rate:0.00325},
+    {name:'WorkOS',        free:1000000,rate:0.001},
+    {name:'Firebase Auth', free:50000, rate:0.0055},
+    {name:'Better Auth',   free:10000, rate:0.01},
+    {name:'Clerk',         free:10000, rate:0.02},
+    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
+  ];
+  function calcAuth_tr(){
+    var mau=parseInt(document.getElementById('trAuthMau').value)||0;
+    var tier=document.getElementById('trAuthTier').value;
+    var sso=tier==='enterprise'?130:0;
+    var rows=PROVIDERS_tr.map(function(p){
+      var cost=Math.max(0,mau-p.free)*p.rate+sso;
+      return {name:p.name,cost:Math.round(cost*100)/100};
+    }).sort(function(a,b){return a.cost-b.cost;});
+    document.getElementById('trAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
+    var bd=document.getElementById('trAuthBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['trAuthMau','trAuthTier'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){el.addEventListener('input',calcAuth_tr);el.addEventListener('change',calcAuth_tr);}
+  });
+  calcAuth_tr();
+})();
 
 </script>
 </body>

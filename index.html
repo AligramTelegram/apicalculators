@@ -223,6 +223,13 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
 
 .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
+.panel-body .inputs{display:flex;flex-direction:column;gap:0}
+.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
+.lbl:first-child{margin-top:0}
+.panel-body .result{position:relative}
+.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
+@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
 @media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
 
 /* inputs */
@@ -921,22 +928,85 @@ window.addEventListener('load',function(){
       <h2>AI Coding Tool Cost Calculator</h2>
       <p class="pdesc">Compare real monthly costs for Cursor, Copilot, Claude Code &amp; Windsurf. Keyword: <em>ai coding tool cost calculator</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Cursor says $20/month. Your bill says $180. Find your true monthly cost based on usage intensity and team size.</p>
-      <a href="/ai-coding-tool-cost.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">💻 Open Calculator →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="enCodingUsage">Daily usage intensity</label>
+          <select class="sel" id="enCodingUsage">
+          <option value="light">Light (1-2h/day)</option>
+          <option value="medium" selected>Medium (2-4h/day) ← selected</option>
+          <option value="heavy">Heavy (4h+/day, agents)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="enCodingType">Primary use case</label>
+          <select class="sel" id="enCodingType">
+          <option value="complete">Code completion only</option>
+          <option value="chat" selected>Completion + chat</option>
+          <option value="agent">Agentic tasks</option>
+          <option value="all">All combined</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="enCodingTeam">Team size</label>
+          <select class="sel" id="enCodingTeam">
+          <option value="1" selected>Individual (1)</option>
+          <option value="3">Small team (3)</option>
+          <option value="5">Small team (5)</option>
+          <option value="10">Medium (10)</option>
+          <option value="20">Medium (20)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Cheapest option</div>
+        <div class="big" id="enCodingBest">$10</div>
+        <div class="per" id="enCodingPer">— per month</div>
+        <div class="breakdown" id="enCodingBreakdown">
+          <div class="brow"><span>All tools (sorted)</span><b>—</b></div>
+        </div>
+        <a href="/ai-coding-tool-cost.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full calculator &amp; comparison →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="en-coding-affiliate">
+  <p class="aff-headline">Best value AI coding tools:</p><div class="aff-links"><a href="[GITHUB_COPILOT_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">🐙 GitHub Copilot — $10/mo</a><a href="[WINDSURF_REFERRAL]" rel="sponsored noopener" target="_blank" class="aff-btn">🌊 Windsurf — Try free</a></div>
+  </div>
   </section>
 
   <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
-      <h2>Auth Provider Cost Calculator</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase Auth — at 100K users the difference is $1,800 vs $25/month. Keyword: <em>auth provider cost calculator</em>.</p>
+      <h2>Authentication Provider Cost Calculator</h2>
+      <p class="pdesc">Clerk vs Auth0 vs Supabase Auth — 73x price difference at 100K MAU. Keyword: <em>auth provider cost calculator</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Calculate your authentication cost by monthly active users. Supabase Auth is 73x cheaper than Clerk at 100K MAU.</p>
-      <a href="/auth-provider-cost.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">🔑 Open Calculator →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="enAuthMau">Monthly Active Users (MAU)</label>
+          <input class="inp" id="enAuthMau" type="number" value="10000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label for="enAuthTier">Feature requirements</label>
+          <select class="sel" id="enAuthTier">
+          <option value="basic">Basic (email + social login)</option>
+          <option value="mid" selected>Standard (MFA + orgs)</option>
+          <option value="enterprise">Enterprise (SSO + SAML)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Cheapest option</div>
+        <div class="big" id="enAuthBest">$0</div>
+        <div class="per" id="enAuthPer">— per month</div>
+        <div class="breakdown" id="enAuthBreakdown">
+          <div class="brow"><span>All providers (sorted)</span><b>—</b></div>
+        </div>
+        <a href="/auth-provider-cost.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full calculator &amp; comparison →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="en-auth-affiliate">
+  <p class="aff-headline">Start with auth included:</p><div class="aff-links"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">⚡ Supabase — 50K MAU free</a><a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">🔐 Clerk — 10K MAU free</a></div>
+  </div>
   </section>
 
 </main>
@@ -1404,6 +1474,76 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+
+
+/* ===== EN AI CODING CALC ===== */
+(function(){
+  var TOOLS_en = [
+    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
+    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
+    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
+    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
+    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+  ];
+  function calcCoding_en(){
+    var usage=document.getElementById('enCodingUsage').value;
+    var type=document.getElementById('enCodingType').value;
+    var team=parseInt(document.getElementById('enCodingTeam').value)||1;
+    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
+    var rows=TOOLS_en.map(function(t){
+      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
+      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
+      return {name:t.name,note:t.note,per:base,total:base*team};
+    }).sort(function(a,b){return a.total-b.total;});
+    document.getElementById('enCodingBest').textContent='$'+rows[0].total.toLocaleString();
+    var bd=document.getElementById('enCodingBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['enCodingUsage','enCodingType','enCodingTeam'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('change',calcCoding_en);
+  });
+  calcCoding_en();
+})();
+
+/* ===== EN AUTH CALC ===== */
+(function(){
+  var PROVIDERS_en=[
+    {name:'Supabase Auth', free:50000, rate:0.00325},
+    {name:'WorkOS',        free:1000000,rate:0.001},
+    {name:'Firebase Auth', free:50000, rate:0.0055},
+    {name:'Better Auth',   free:10000, rate:0.01},
+    {name:'Clerk',         free:10000, rate:0.02},
+    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
+  ];
+  function calcAuth_en(){
+    var mau=parseInt(document.getElementById('enAuthMau').value)||0;
+    var tier=document.getElementById('enAuthTier').value;
+    var sso=tier==='enterprise'?130:0;
+    var rows=PROVIDERS_en.map(function(p){
+      var cost=Math.max(0,mau-p.free)*p.rate+sso;
+      return {name:p.name,cost:Math.round(cost*100)/100};
+    }).sort(function(a,b){return a.cost-b.cost;});
+    document.getElementById('enAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
+    var bd=document.getElementById('enAuthBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['enAuthMau','enAuthTier'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){el.addEventListener('input',calcAuth_en);el.addEventListener('change',calcAuth_en);}
+  });
+  calcAuth_en();
+})();
 
 </script>
 </body>

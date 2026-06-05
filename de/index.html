@@ -143,6 +143,13 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 .panel-head h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
 .panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
 .grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
+.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
+.panel-body .inputs{display:flex;flex-direction:column;gap:0}
+.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
+.lbl:first-child{margin-top:0}
+.panel-body .result{position:relative}
+.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
+@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
 @media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
 .field{margin-bottom:18px}
 .field label{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
@@ -730,28 +737,91 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 
-  <!-- PANEL 11: KI Coding Tool -->
+  <!-- PANEL 11: AI Coding Tool -->
   <section class="panel" id="coding" role="tabpanel">
     <div class="panel-head">
       <h2>KI Coding Tool Kostenrechner</h2>
-      <p class="pdesc">Cursor vs Copilot vs Claude Code echte Monatskosten berechnen. Keyword: <em>KI Coding Tool Kostenrechner</em>.</p>
+      <p class="pdesc">Cursor vs Copilot vs Claude Code echte Monatskosten. Keyword: <em>KI Coding Tool Kostenrechner</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Cursor sagt $20/Monat. Ihre Rechnung zeigt $180. Finden Sie Ihre wahren Kosten nach Nutzungsintensitaet.</p>
-      <a href="/de/ki-coding-tool-kosten.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">💻 Rechner oeffnen →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="deCodingUsage">Taegl. Nutzungsintensitaet</label>
+          <select class="sel" id="deCodingUsage">
+          <option value="light">Leicht (1-2h/Tag)</option>
+          <option value="medium" selected>Mittel (2-4h/Tag)</option>
+          <option value="heavy">Intensiv (4h+/Tag)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="deCodingType">Hauptanwendungsfall</label>
+          <select class="sel" id="deCodingType">
+          <option value="complete">Nur Vervollstaendigung</option>
+          <option value="chat" selected>Vervollstaendigung + Chat</option>
+          <option value="agent">Agentenaufgaben</option>
+          <option value="all">Alles kombiniert</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="deCodingTeam">Teamgroesse</label>
+          <select class="sel" id="deCodingTeam">
+          <option value="1" selected>Einzelperson (1)</option>
+          <option value="3">Kleines Team (3)</option>
+          <option value="5">Kleines Team (5)</option>
+          <option value="10">Mittleres Team (10)</option>
+          <option value="20">Mittleres Team (20)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Guenstigste Option</div>
+        <div class="big" id="deCodingBest">$10</div>
+        <div class="per" id="deCodingPer">— pro Monat</div>
+        <div class="breakdown" id="deCodingBreakdown">
+          <div class="brow"><span>Alle Tools (sortiert)</span><b>—</b></div>
+        </div>
+        <a href="/de/ki-coding-tool-kosten.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Vollstaendiger Rechner →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="de-coding-affiliate">
+  <p class="aff-headline">Bester Einstieg:</p><div class="aff-links"><a href="[GITHUB_COPILOT_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">GitHub Copilot — $10/Mo</a><a href="[WINDSURF_REFERRAL]" rel="sponsored noopener" target="_blank" class="aff-btn">Windsurf kostenlos</a></div>
+  </div>
   </section>
 
-  <!-- PANEL 12: Auth-Anbieter -->
+  <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
       <h2>Auth-Anbieter Kostenrechner</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase — 73-facher Preisunterschied bei 100K Nutzern. Keyword: <em>Auth Anbieter Kostenrechner</em>.</p>
+      <p class="pdesc">Clerk vs Auth0 vs Supabase — 73x Preisunterschied bei 100K MAU. Keyword: <em>Auth Anbieter Kostenrechner</em>.</p>
     </div>
-    <div class="panel-body" style="display:block;padding:20px 28px">
-      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Berechnen Sie Ihre Authentifizierungskosten nach monatlich aktiven Nutzern. Supabase Auth ist 73x guenstiger als Clerk bei 100K MAU.</p>
-      <a href="/de/auth-anbieter-kosten.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">🔑 Rechner oeffnen →</a>
+    <div class="grid2">
+      <div>
+        <div class="field">
+          <label for="deAuthMau">Monatlich aktive Nutzer (MAU)</label>
+          <input class="inp" id="deAuthMau" type="number" value="10000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label for="deAuthTier">Funktionsanforderungen</label>
+          <select class="sel" id="deAuthTier">
+          <option value="basic">Basis (E-Mail + Social)</option>
+          <option value="mid" selected>Standard (MFA + Org)</option>
+          <option value="enterprise">Enterprise (SSO + SAML)</option>
+          </select>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Guenstigste Option</div>
+        <div class="big" id="deAuthBest">$0</div>
+        <div class="per" id="deAuthPer">— pro Monat</div>
+        <div class="breakdown" id="deAuthBreakdown">
+          <div class="brow"><span>Alle Anbieter (sortiert)</span><b>—</b></div>
+        </div>
+        <a href="/de/auth-anbieter-kosten.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Vollstaendiger Rechner →</a>
+      </div>
     </div>
+  <div class="affiliate-cta" id="de-auth-affiliate">
+  <p class="aff-headline">Jetzt starten:</p><div class="aff-links"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">Supabase — 50K MAU kostenlos</a><a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">Clerk — 10K MAU kostenlos</a></div>
+  </div>
   </section>
 
 </main>
@@ -1066,6 +1136,76 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+
+
+/* ===== DE AI CODING CALC ===== */
+(function(){
+  var TOOLS_de = [
+    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
+    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
+    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
+    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
+    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+  ];
+  function calcCoding_de(){
+    var usage=document.getElementById('deCodingUsage').value;
+    var type=document.getElementById('deCodingType').value;
+    var team=parseInt(document.getElementById('deCodingTeam').value)||1;
+    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
+    var rows=TOOLS_de.map(function(t){
+      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
+      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
+      return {name:t.name,note:t.note,per:base,total:base*team};
+    }).sort(function(a,b){return a.total-b.total;});
+    document.getElementById('deCodingBest').textContent='$'+rows[0].total.toLocaleString();
+    var bd=document.getElementById('deCodingBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['deCodingUsage','deCodingType','deCodingTeam'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('change',calcCoding_de);
+  });
+  calcCoding_de();
+})();
+
+/* ===== DE AUTH CALC ===== */
+(function(){
+  var PROVIDERS_de=[
+    {name:'Supabase Auth', free:50000, rate:0.00325},
+    {name:'WorkOS',        free:1000000,rate:0.001},
+    {name:'Firebase Auth', free:50000, rate:0.0055},
+    {name:'Better Auth',   free:10000, rate:0.01},
+    {name:'Clerk',         free:10000, rate:0.02},
+    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
+  ];
+  function calcAuth_de(){
+    var mau=parseInt(document.getElementById('deAuthMau').value)||0;
+    var tier=document.getElementById('deAuthTier').value;
+    var sso=tier==='enterprise'?130:0;
+    var rows=PROVIDERS_de.map(function(p){
+      var cost=Math.max(0,mau-p.free)*p.rate+sso;
+      return {name:p.name,cost:Math.round(cost*100)/100};
+    }).sort(function(a,b){return a.cost-b.cost;});
+    document.getElementById('deAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
+    var bd=document.getElementById('deAuthBreakdown');
+    bd.innerHTML=rows.map(function(r,i){
+      return '<div class="brow'+(i===0?' hl':'')+'">'
+        +'<span>'+r.name+'</span>'
+        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
+        +'</div>';
+    }).join('');
+  }
+  ['deAuthMau','deAuthTier'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el){el.addEventListener('input',calcAuth_de);el.addEventListener('change',calcAuth_de);}
+  });
+  calcAuth_de();
+})();
 
 </script>
 </body>
