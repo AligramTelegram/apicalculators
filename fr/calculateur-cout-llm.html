@@ -98,13 +98,6 @@ footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia C
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
-.donate-box{margin:14px 0 0;padding:14px 18px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.donate-box .d-msg{font-size:13px;color:var(--muted);flex:1;min-width:180px}
-.donate-box .d-msg strong{color:#ffb24d;display:block;margin-bottom:2px;font-size:13px}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;letter-spacing:.04em}
-.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.22)}
-.copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
 </style>
 </head>
 <body>
@@ -190,10 +183,6 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 <div class="qa"><div class="q">Existe-t-il des API LLM françaises ?<span class="plus">+</span></div><div class="a"><p>Oui. Mistral AI (Paris) propose des modèles compétitifs : Mistral Small ($0,20/$0,60), Mistral Large ($2/$6), facturable en EUR. Alternative souveraine à OpenAI/Anthropic avec données traitées en UE.</p></div></div>
 </div>
 </section>
-<div class="donate-box">
-  <div class="d-msg"><strong>☕ Si cet outil vous a fait gagner du temps</strong>Offrez-moi un cafe via Binance:</div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
 <section class="sec">
   <h2>Related Calculators</h2>
@@ -217,7 +206,6 @@ document.querySelectorAll('.qa').forEach(qa=>{
     if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
   });
 });
-
 
 const LLM_PRICES = {
   gpt4o:    {name:'GPT-4o',         in:2.50,  out:10.00},

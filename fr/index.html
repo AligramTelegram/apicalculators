@@ -236,12 +236,13 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
 .ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
 
-.donate-box{margin:14px 0 0;padding:14px 18px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.donate-wrap{max-width:1140px;margin:18px auto 0;padding:0 22px}
+.donate-box{padding:14px 20px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .donate-box .d-msg{font-size:13px;color:var(--muted);flex:1;min-width:180px}
-.donate-box .d-msg strong{color:#ffb24d;display:block;margin-bottom:2px;font-size:13px}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;letter-spacing:.04em}
-.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.22)}
+.donate-box .d-msg strong{color:#ffb24d;display:block;font-size:13px;margin-bottom:2px}
+.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:6px 12px}
+.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
+.copy-btn:hover{background:rgba(255,178,77,.25)}
 .copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
 </style>
 </head>
@@ -332,14 +333,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Les prix reflètent les tarifs API publics publiés pour 2026 (USD, à l'usage). Les remises sur volume, entrées en cache et tarifs par lots ne sont pas appliqués. Vérifiez la page de tarification du fournisseur avant de budgétiser.</p>
-  
-<div class="donate-box">
-  <div class="d-msg"><strong>☕ Si cet outil vous a fait gagner du temps</strong>Offrez-moi un cafe via Binance:</div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
 </section>
   
@@ -375,12 +369,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Les modèles de prix des bases vectorielles varient fortement (read units, pod-heures, niveaux de calcul). Ce sont des estimations d'ordre de grandeur pour vecteurs float32 avec ~1,5× de surcoût d'index — à utiliser pour comparaison, pas pour des contrats.</p>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
   <section class="panel" id="image" role="tabpanel">
@@ -401,7 +391,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Les tarifs DALL·E sont des prix API par image. Les modèles ouverts (SDXL, Flux) reflètent des prix d'API hébergée typiques ; l'auto-hébergement sur votre propre GPU peut être bien moins cher à grande échelle mais ajoute des coûts d'infra non modélisés ici.</p>
-  </section>
+</div>
+</section>
   <section class="panel" id="pay" role="tabpanel">
     <div class="panel-head"><h2>Calculatrice de Frais de Passerelle de Paiement SaaS</h2><p>Voyez exactement ce que Stripe, Paddle, Lemon Squeezy et PayPal prennent sur votre revenu mensuel.</p></div>
     <div class="grid2">
@@ -418,8 +409,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="cmp" id="payCmp"></div>
       </div>
     </div>
-  </section>
-
+</div>
+</section>
 
 <!-- PANEL 5: Cloud VPS -->
   <section class="panel" id="cloud" role="tabpanel">
@@ -448,12 +439,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
 
@@ -491,12 +478,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
 
@@ -537,12 +520,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
 
@@ -575,12 +554,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
 
@@ -616,12 +591,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
 
@@ -666,12 +637,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div>
 </div>
 </section>
   <!-- PANEL 11: AI Coding Tool -->
@@ -722,7 +689,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     </div>
   
 </div>
-  </section>
+</div>
+</section>
   <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
@@ -756,7 +724,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     </div>
   
 </div>
-  </section>
+</div>
+</section>
 
 </div>
 <div class="adslot">AD · IN-CONTENT · 300×250 / 336×280</div>
@@ -767,14 +736,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"><span class="em">⚡</span> Construire avec Supabase <span class="arr">↗</span></a>
     <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"><span class="em">▲</span> Déployer sur Vercel <span class="arr">↗</span></a>
   </div>
-  <span class="donate-id" id="bnb-fr">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
 </div>
 </section>
 
-
-
 </main>
+<!-- DONATE-BOX -->
+<div class="donate-wrap"><div class="donate-box">
+  <div class="d-msg"><strong>☕ Si cet outil vous a aide</strong>Un cafe via Binance:</div>
+  <span class="donate-id">90082319</span>
+  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copie!';b.classList.add('copied');setTimeout(function(){b.textContent='Copier l'ID';b.classList.remove('copied')},2000)})(this)">Copier l'ID</button>
+</div></div>
 <section class="section" id="faq">
   <div class="wrap">
     <h2 class="sh">Questions fréquentes</h2>
@@ -803,8 +774,6 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 <!-- PANEL 5: Cloud VPS -->
-
-
 
 <footer>
   <div class="wrap">
@@ -1056,7 +1025,6 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
-
 
 /* ===== FR AI CODING CALC ===== */
 (function(){

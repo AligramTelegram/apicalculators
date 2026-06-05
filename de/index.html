@@ -256,12 +256,13 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
 .ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
 
-.donate-box{margin:14px 0 0;padding:14px 18px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.donate-wrap{max-width:1140px;margin:18px auto 0;padding:0 22px}
+.donate-box{padding:14px 20px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .donate-box .d-msg{font-size:13px;color:var(--muted);flex:1;min-width:180px}
-.donate-box .d-msg strong{color:#ffb24d;display:block;margin-bottom:2px;font-size:13px}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;letter-spacing:.04em}
-.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.22)}
+.donate-box .d-msg strong{color:#ffb24d;display:block;font-size:13px;margin-bottom:2px}
+.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:6px 12px}
+.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:6px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
+.copy-btn:hover{background:rgba(255,178,77,.25)}
 .copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
 </style>
 </head>
@@ -366,14 +367,7 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Die Preise entsprechen den veröffentlichten öffentlichen API-Tarifen für 2026 (USD, Pay-as-you-go). Mengenrabatte, zwischengespeicherte Eingaben und Batch-Preise werden nicht berücksichtigt. Prüfen Sie vor der Budgetierung die Preisseite des Anbieters.</p>
-  
-<div class="donate-box">
-  <div class="d-msg"><strong>☕ Wenn dieses Tool Zeit oder Geld gespart hat</strong>Einen Kaffee spendieren via Binance:</div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
 </section>
 
@@ -416,12 +410,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Die Preismodelle für Vektordatenbanken variieren stark (Read Units, Pod-Stunden, Compute-Stufen). Dies sind vereinfachte Größenordnungsschätzungen für float32-Vektoren mit ~1,5× Index-Overhead — nutzen Sie sie zum Vergleich, nicht für Verträge.</p>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -449,7 +439,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">DALL·E-Tarife sind API-Preise pro Bild. Offene Modelle (SDXL, Flux) spiegeln typische gehostete API-Preise wider; Self-Hosting auf eigener GPU kann bei Skalierung dramatisch günstiger sein, verursacht aber hier nicht modellierte Infrastrukturkosten.</p>
-  </section>
+</div>
+</section>
 
   <!-- PAYMENT -->
   <section class="panel" id="pay" role="tabpanel">
@@ -471,8 +462,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="cmp" id="payCmp"></div>
       </div>
     </div>
-  </section>
-
+</div>
+</section>
 
 <!-- PANEL 5: Cloud VPS -->
   <section class="panel" id="cloud" role="tabpanel">
@@ -501,12 +492,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -544,12 +531,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -590,12 +573,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -628,12 +607,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -669,12 +644,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
 
@@ -719,12 +690,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
-  
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 </section>
   <!-- PANEL 11: AI Coding Tool -->
@@ -775,7 +742,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     </div>
   
 </div>
-  </section>
+</div>
+</section>
   <!-- PANEL 12: Auth Provider -->
   <section class="panel" id="auth" role="tabpanel">
     <div class="panel-head">
@@ -809,7 +777,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     </div>
   
 </div>
-  </section>
+</div>
+</section>
 
 </div>
 
@@ -822,14 +791,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
     <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"><span class="em">⚡</span> Mit Supabase bauen <span class="arr">↗</span></a>
     <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"><span class="em">▲</span> Auf Vercel deployen <span class="arr">↗</span></a>
   </div>
-  <span class="donate-id" id="bnb-de">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
 </div>
 </section>
 
-
-
 </main>
+<!-- DONATE-BOX -->
+<div class="donate-wrap"><div class="donate-box">
+  <div class="d-msg"><strong>☕ Wenn dieses Tool geholfen hat</strong>Kaffee spendieren via Binance:</div>
+  <span class="donate-id">90082319</span>
+  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div></div>
 
 <section class="section" id="faq">
   <div class="wrap">
@@ -866,9 +837,6 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   </div>
 </section>
 <!-- PANEL 5: Cloud VPS -->
-
-
-
 
 <footer>
   <div class="wrap">
@@ -1141,7 +1109,6 @@ function calcAgent(){
 
 /* ===== INIT ALL NEW CALCULATORS ===== */
 calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
-
 
 /* ===== DE AI CODING CALC ===== */
 (function(){
