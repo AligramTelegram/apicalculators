@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Auth-Anbieter Kostenrechner 2026 — Clerk vs Auth0 vs Supabase</title>
+<meta name="description" content="Berechnen Sie Ihre Auth-Kosten nach MAU. Bei 100K Nutzern: Clerk $1.800/Monat vs Supabase $25/Monat. Kostenlos, keine Anmeldung.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="geo.region" content="DE"/>
+<meta name="geo.placename" content="Germany"/>
+<link rel="canonical" href="https://apicalculators.com/de/auth-anbieter-kosten.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/auth-provider-cost.html"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/auth-anbieter-kosten.html"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-fournisseur-auth.html"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/kimlik-dogrulama-maliyet.html"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/auth-provider-cost.html"/>
+<meta property="og:locale" content="de_DE"/>
+<meta property="og:title" content="Auth-Anbieter Kostenrechner 2026 — Clerk vs Auth0 vs Supabase">
+<meta property="og:url" content="https://apicalculators.com/de/auth-anbieter-kosten.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:creator" content="@apicalculators">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Ist Clerk kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Clerk ist bis zu 10.000 MAU kostenlos. Danach kostet es $0,02 pro MAU. Bei 100.000 Nutzern sind das $1.825/Monat."}},{"@type":"Question","name":"Welcher Auth-Anbieter ist 2026 am guenstigsten?","acceptedAnswer":{"@type":"Answer","text":"Supabase Auth ist bei Skalierung am guenstigsten: 50.000 kostenlose MAUs, dann $0,00325/MAU. Bei 100K Nutzern kostet es ca. $25/Monat."}}]}</script>
+<style>:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.result-grid{display:flex;flex-direction:column;gap:10px}
+.tool-result{background:var(--surface2);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.tool-result.best{border-color:rgba(184,255,46,.4);background:rgba(184,255,46,.05)}
+.tool-result .tname{font-weight:700;font-size:14px}
+.tool-result .tprice{font-family:'Cascadia Code','Consolas',monospace;font-size:18px;font-weight:700;color:var(--lime)}
+.tool-result .tnote{font-size:11px;color:var(--muted);margin-top:2px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+.aff-box{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px}
+.aff-box p{margin:0 0 .6rem;font-size:.85rem;color:var(--lime);font-weight:600}
+.aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
+.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in">
+  <a href="/de/" class="logo">API<b>Calculators</b></a>
+  <nav class="nav-r"><a href="/de/">Rechner</a><a href="/de/blog/">Blog</a></nav>
+</div></header>
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> Juni 2026 · Aktuelle Preise</span>
+  <h1 class="ph"><span class="em">Auth-Anbieter</span> Kostenrechner</h1>
+  <p class="intro">Bei 100K monatlich aktiven Nutzern kostet Clerk $1.825/Monat und Supabase Auth $25/Monat. Gleiche Authentifizierung. 73-facher Preisunterschied. Finden Sie Ihre Zahl.</p>
+</section>
+<div class="wrap">
+<div class="calc-shell" id="calc">
+  <div class="calc-header"><h2>🔑 Authentifizierungs-Kostenrechner</h2><p>MAU eingeben · Funktionsstufe waehlen · Alle Anbieter sofort vergleichen</p></div>
+  <div class="calc-body">
+    <div>
+      <div class="field"><label for="mau">Monatlich aktive Nutzer (MAU)</label>
+        <input class="inp" id="mau" type="number" value="10000" min="0" step="1000"></div>
+      <div class="field"><label for="tier">Funktionsanforderungen</label>
+        <select class="sel" id="tier">
+          <option value="basic">Basis (E-Mail + Social Login)</option>
+          <option value="mid" selected>Standard (MFA + Organisationen)</option>
+          <option value="enterprise">Enterprise (SSO + SAML + Compliance)</option>
+        </select></div>
+    </div>
+    <div>
+      <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Monatliche Kosten — guenstigste zuerst</div>
+      <div class="result-grid" id="results"></div>
+    </div>
+  </div>
+</div>
+<section class="sec">
+  <h2>Das $1.800 vs $25 Problem</h2>
+  <table class="ptable">
+    <thead><tr><th>Anbieter</th><th>Kostenlose MAU</th><th>Rate danach</th><th>10K MAU</th><th>50K MAU</th><th>100K MAU</th></tr></thead>
+    <tbody>
+      <tr class="best"><td><strong>Supabase Auth</strong><span class="badge">GUENSTIGSTE</span></td><td class="mono">50.000</td><td class="mono">$0,00325</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$25</td></tr>
+      <tr><td><strong>Firebase Auth</strong></td><td class="mono">50.000</td><td class="mono">$0,0055</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$275</td></tr>
+      <tr><td><strong>Clerk</strong></td><td class="mono">10.000</td><td class="mono">$0,02</td><td class="mono">$0</td><td class="mono">$800</td><td class="mono">$1.825</td></tr>
+      <tr><td><strong>Auth0 (Okta)</strong></td><td class="mono">7.500</td><td class="mono">$0,07</td><td class="mono">$175</td><td class="mono">$2.975</td><td class="mono">$5.000+</td></tr>
+    </tbody>
+  </table>
+</section>
+<div class="aff-box"><p>Jetzt starten — Auth inklusive:</p><div class="btns">
+  <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">Supabase — 50K MAU kostenlos</a>
+  <a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">Clerk — 10K MAU kostenlos</a>
+</div></div>
+<section class="sec"><h2>Haeufig gestellte Fragen</h2><div class="faq">
+  <div class="qa"><div class="q">Ist Clerk kostenlos?<span class="plus">+</span></div><div class="a"><p>Clerk ist bis zu 10.000 MAU kostenlos. Danach kostet es $0,02 pro MAU. Bei 100.000 Nutzern sind das $1.825/Monat — deutlich mehr als Supabase Auth ($25/Monat).</p></div></div>
+  <div class="qa"><div class="q">Welcher Auth-Anbieter ist am guenstigsten?<span class="plus">+</span></div><div class="a"><p>Supabase Auth: 50.000 kostenlose MAUs, dann $0,00325/MAU. Bei 100K Nutzern ca. $25/Monat.</p></div></div>
+</div></section>
+<section class="sec"><h2>Verwandte Rechner</h2><div class="tool-links">
+  <a href="/de/ki-coding-tool-kosten.html" class="tool-link"><span class="ic">💻</span><div><div class="tl-name">KI Coding Tool Kosten</div><div class="tl-desc">Cursor vs Copilot vs Claude Code</div></div></a>
+  <a href="/llm-cost-calculator.html" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Kosten</div><div class="tl-desc">GPT-4o, Claude, Gemini</div></div></a>
+  <a href="/de/" class="tool-link"><span class="ic">🧮</span><div><div class="tl-name">Alle Rechner</div><div class="tl-desc">Zurueck zur Uebersicht</div></div></a>
+</div></section>
+</div>
+<footer><div class="wrap foot-in">
+  <span>© 2026 <a href="/de/">APICalculators</a></span>
+  <span>Preise sind Schaetzungen</span>
+</div></footer>
+<script>
+const PROVIDERS = {
+  clerk:    { name:'Clerk',        free:10000, rate:0.02,    min_paid:0,    note:'Best DX, pricey at scale' },
+  auth0:    { name:'Auth0 (Okta)', free:7500,  rate:0.07,    min_paid:23,   note:'Enterprise grade, complex' },
+  supabase: { name:'Supabase Auth',free:50000, rate:0.00325, min_paid:0,    note:'Cheapest at scale' },
+  firebase: { name:'Firebase Auth',free:50000, rate:0.0055,  min_paid:0,    note:'Google ecosystem' },
+  better:   { name:'Better Auth',  free:10000, rate:0.01,    min_paid:0,    note:'Open source option' },
+  workos:   { name:'WorkOS',       free:1000000,rate:0.001,  min_paid:0,    note:'Enterprise SSO focus' }
+};
+function calc() {
+  const mau  = parseInt(document.getElementById('mau').value) || 10000;
+  const tier = document.getElementById('tier').value;
+  let sso_add = tier==='enterprise' ? 130 : 0;
+  const rows = Object.entries(PROVIDERS).map(([k,p])=>{
+    const billable = Math.max(0, mau - p.free);
+    let cost = billable * p.rate + sso_add;
+    if(p.min_paid>0 && billable>0) cost = Math.max(cost, p.min_paid);
+    return {name:p.name, cost:Math.round(cost*100)/100, note:p.note};
+  }).sort((a,b)=>a.cost-b.cost);
+  document.getElementById('results').innerHTML = rows.map((r,i)=>`
+    <div class="tool-result${i===0?' best':''}">
+      <div><div class="tname">${r.name}</div><div class="tnote">${r.note}</div></div>
+      <div style="text-align:right">
+        <div class="tprice">$${r.cost.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}/mo</div>
+      </div>
+    </div>`).join('');
+}
+document.querySelectorAll('.sel,.inp').forEach(el=>el.addEventListener('input',calc));
+calc();
+document.querySelectorAll('.qa .q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const qa=q.parentElement, open=qa.classList.toggle('open');
+    const a=qa.querySelector('.a');
+    if(a) a.style.maxHeight=open?'300px':'0';
+  });
+});
+</script>
+</body></html>

@@ -454,6 +454,8 @@ window.addEventListener('load',function(){
     <button class="tab" role="tab" aria-selected="false" aria-controls="gateway" data-tab="gateway"><span class="ic">&#128256;</span> API Gateway <span class="num">08</span></button>
     <button class="tab" role="tab" aria-selected="false" aria-controls="embedding" data-tab="embedding"><span class="ic">&#129710;</span> Embeddings <span class="num">09</span></button>
     <button class="tab" role="tab" aria-selected="false" aria-controls="agent" data-tab="agent"><span class="ic">&#129302;</span> AI Agent <span class="num">10</span></button>
+    <button class="tab" data-panel="coding" role="tab">💻 AI Coding</button>
+    <button class="tab" data-panel="auth" role="tab">🔑 Auth Cost</button>
   </div>
 
   <!-- ===== PANEL 1: LLM ===== -->
@@ -912,6 +914,31 @@ window.addEventListener('load',function(){
        <span class="em">▲</span> Ship on Vercel <span class="arr">↗</span></a>
   </div>
 </section>
+
+  <!-- PANEL 11: AI Coding Tool -->
+  <section class="panel" id="coding" role="tabpanel">
+    <div class="panel-head">
+      <h2>AI Coding Tool Cost Calculator</h2>
+      <p class="pdesc">Compare real monthly costs for Cursor, Copilot, Claude Code &amp; Windsurf. Keyword: <em>ai coding tool cost calculator</em>.</p>
+    </div>
+    <div class="panel-body" style="display:block;padding:20px 28px">
+      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Cursor says $20/month. Your bill says $180. Find your true monthly cost based on usage intensity and team size.</p>
+      <a href="/ai-coding-tool-cost.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">💻 Open Calculator →</a>
+    </div>
+  </section>
+
+  <!-- PANEL 12: Auth Provider -->
+  <section class="panel" id="auth" role="tabpanel">
+    <div class="panel-head">
+      <h2>Auth Provider Cost Calculator</h2>
+      <p class="pdesc">Clerk vs Auth0 vs Supabase Auth — at 100K users the difference is $1,800 vs $25/month. Keyword: <em>auth provider cost calculator</em>.</p>
+    </div>
+    <div class="panel-body" style="display:block;padding:20px 28px">
+      <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Calculate your authentication cost by monthly active users. Supabase Auth is 73x cheaper than Clerk at 100K MAU.</p>
+      <a href="/auth-provider-cost.html" style="display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;font-weight:700;padding:12px 20px;border-radius:10px;font-size:15px;text-decoration:none">🔑 Open Calculator →</a>
+    </div>
+  </section>
+
 </main>
 
 <!-- ===== FAQ ===== -->

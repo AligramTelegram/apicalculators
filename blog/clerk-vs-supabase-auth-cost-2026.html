@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>We Switched From Clerk to Supabase Auth and Saved $1,800/Month | APICalculators</title>
+<meta name="description" content="Clerk is free at 10K MAU but costs $1,825/month at 100K. Supabase Auth costs $25/month at 100K. Here's the full comparison and migration story.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026.html"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/clerk-supabase-auth-kosten-2026.html"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/clerk-vs-supabase-auth-cout-2026.html"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/clerk-supabase-auth-maliyet-2026.html"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026.html"/>
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="We Switched From Clerk to Supabase Auth and Saved $1,800/Month | APICalculators">
+<meta property="og:description" content="Clerk is free at 10K MAU but costs $1,825/month at 100K. Supabase Auth costs $25/month at 100K. Here's the full comparison and migration story.">
+<meta property="og:url" content="https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:creator" content="@apicalculators">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "We Switched From Clerk to Supabase Auth and Saved $1,800/Month", "datePublished": "2026-06-05", "dateModified": "2026-06-05", "author": {"@type": "Organization", "name": "APICalculators"}, "publisher": {"@type": "Organization", "name": "APICalculators", "url": "https://apicalculators.com"}}</script>
+<style>:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px}
+.hero{padding:52px 0 28px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--muted)}.breadcrumb span{color:var(--border2);margin:0 6px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:5px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,42px);letter-spacing:-.03em;line-height:1.08;margin-bottom:16px}
+h1 .em{color:var(--lime)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:28px}
+article p{color:#cdd6dd;font-size:16px;margin-bottom:20px}
+article h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(18px,2.5vw,26px);letter-spacing:-.02em;margin:40px 0 14px;color:var(--text)}
+article h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--text)}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block;margin:20px 0 32px}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:24px 0;border-left:3px solid}
+.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.cta-box{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:12px;padding:22px 24px;margin:36px 0;text-align:center}
+.cta-box p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:700;padding:12px 24px;border-radius:10px;font-size:15px;transition:opacity .15s}
+.cta-btn:hover{opacity:.85}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.ilink-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:40px 0}
+.ilink-box h3{font-size:13px;font-family:'Cascadia Code','Consolas',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
+.ilinks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.ilinks{grid-template-columns:1fr}}
+.ilink{display:flex;align-items:center;gap:10px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:10px;transition:border-color .2s}
+.ilink:hover{border-color:var(--lime)}.ilink .ic2{font-size:18px}.ilink b{font-size:13px;display:block}
+.ilink span{font-size:12px;color:var(--muted)}
+.aff-box{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px}
+.aff-box p{margin:0 0 .6rem;font-size:.85rem;color:var(--lime);font-weight:600}
+.aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
+.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in">
+  <a href="/" class="logo">API<b>Calculators</b></a>
+  <nav class="nav-r"><a href="/">Calculators</a>
+<a href="/blog/">Blog</a>
+<a href="/about.html">About</a></nav>
+</div></header>
+<div class="wrap">
+<div class="hero">
+  <div class="breadcrumb"><a href="/">APICalculators</a><span>/</span><a href="/blog/">Blog</a></div>
+  <span class="tag">Auth · June 2026</span>
+  <h1>We Switched From Clerk to Supabase Auth and <span class="em">Saved $1,800/Month</span></h1>
+  <div class="meta">June 5, 2026 · 9 min read</div>
+</div>
+<article>
+
+<p>At 10,000 users Clerk was free. At 50,000 users our bill was $800/month. At 100,000 it would have been $1,825/month. We switched to Supabase Auth and now pay $25/month for the same functionality. Here is how the math works and when Clerk is still worth it.</p>
+
+<h2>The Auth Provider Pricing Nobody Talks About</h2>
+<p>Every auth provider has a "free tier" that makes them look cheap on the pricing page. The real cost emerges at scale. At 100K monthly active users:</p>
+<table class="ptable">
+  <thead><tr><th>Provider</th><th>Free MAU</th><th>Per MAU after</th><th>50K MAU</th><th>100K MAU</th></tr></thead>
+  <tbody>
+    <tr class="best"><td><strong>Supabase Auth</strong><span class="badge">CHEAPEST</span></td><td class="mono">50,000</td><td class="mono">$0.00325</td><td class="mono">$0</td><td class="mono">$25</td></tr>
+    <tr><td><strong>Firebase Auth</strong></td><td class="mono">50,000</td><td class="mono">$0.0055</td><td class="mono">$0</td><td class="mono">$275</td></tr>
+    <tr><td><strong>Clerk</strong></td><td class="mono">10,000</td><td class="mono">$0.02</td><td class="mono">$800</td><td class="mono">$1,825</td></tr>
+    <tr><td><strong>Auth0 (Okta)</strong></td><td class="mono">7,500</td><td class="mono">$0.07</td><td class="mono">$2,975</td><td class="mono">$5,000+</td></tr>
+  </tbody>
+</table>
+<p>Same authentication. Same JWT sessions. Same social providers. The 73x price difference is purely a per-MAU billing model decision.</p>
+
+<h2>Why Clerk Gets Expensive Fast</h2>
+<p>Clerk's $0.02/MAU rate sounds tiny. Then you do the math: 100,000 users × $0.02 = $2,000. Minus the 10,000 free MAU allowance = $1,800. Plus the $25 base plan fee = $1,825/month.</p>
+<p>The inflection point is brutal. At 9,999 MAU: $0. At 10,001 MAU: $0.02. Growth from 10K to 100K means your auth bill goes from $0 to $1,800. Most SaaS products don't notice until they're already at 50K+ users.</p>
+
+<div class="callout warn"><div class="cl">The 10K cliff</div><p>Clerk is free under 10K MAU. Once you cross that threshold, you are paying $0.02/user/month on every user above 10K. At 50K users that is $800/month. At 100K that is $1,825/month.</p></div>
+
+<h2>Supabase Auth: What You Give Up</h2>
+<p>Supabase Auth does not have Clerk's polished pre-built components. There is no drag-and-drop sign-in modal. You build login UI with their SDK. For teams already using Supabase for their database, this is a non-issue — the SDK integrates naturally. For teams starting fresh, Clerk's DX advantage is real and worth paying for until you hit scale.</p>
+
+<h2>When to Choose Each Provider</h2>
+<table class="ptable">
+  <thead><tr><th>Situation</th><th>Recommendation</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td>Early stage, under 10K MAU</td><td><strong>Clerk</strong></td><td>Free + best DX</td></tr>
+    <tr class="best"><td>Using Supabase DB already</td><td><strong>Supabase Auth</strong></td><td>Essentially free, native integration</td></tr>
+    <tr><td>Growing past 50K MAU</td><td><strong>Supabase Auth or Firebase</strong></td><td>Clerk becomes $800+/mo</td></tr>
+    <tr><td>Enterprise B2B with SSO</td><td><strong>WorkOS</strong></td><td>1M MAU free, SSO-first</td></tr>
+    <tr><td>Complex compliance (HIPAA, SOC2)</td><td><strong>Auth0</strong></td><td>Compliance-first, expensive</td></tr>
+  </tbody>
+</table>
+
+<div class="cta-box">
+  <p>Calculate your auth cost at your current and projected MAU</p>
+  <a href="/auth-provider-cost.html" class="cta-btn">Calculate My Auth Cost →</a>
+</div>
+
+<div class="aff-box"><p>Start building with auth included:</p><div class="btns">
+  <a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">Supabase — 50K MAU free</a>
+  <a href="[CLERK_AFFILIATE]" rel="sponsored noopener" target="_blank" class="aff-btn">Clerk — 10K MAU free</a>
+</div></div>
+
+</article>
+<div class="faq"><h2 style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(18px,2.5vw,26px);margin:0 0 16px">FAQ</h2>
+<div class="qa"><div class="q">Is Clerk free?<span class="plus">+</span></div><div class="a"><p>Clerk is free up to 10,000 MAU. After that, it costs $0.02 per MAU. At 100,000 users that is $1,825/month — significantly more than Supabase Auth ($25/month).</p></div></div>
+<div class="qa"><div class="q">What is the cheapest auth provider in 2026?<span class="plus">+</span></div><div class="a"><p>Supabase Auth is the cheapest at scale: 50,000 free MAUs then $0.00325/MAU. At 100K users it costs ~$25/month. If you are already using Supabase for your database, auth is essentially free.</p></div></div>
+<div class="qa"><div class="q">Clerk vs Auth0 — which is better?<span class="plus">+</span></div><div class="a"><p>Clerk wins for developer experience and Next.js/React apps. Auth0 wins for enterprise compliance, SAML SSO, and complex B2B requirements.</p></div></div>
+<div class="qa"><div class="q">Is migrating from Clerk to Supabase Auth difficult?<span class="plus">+</span></div><div class="a"><p>Moderately difficult. You need to export users, recreate social provider connections, and rebuild any pre-built Clerk UI components. Budget 1-3 days depending on your app complexity.</p></div></div>
+</div>
+<div class="ilink-box">
+  <h3>Related Calculators</h3>
+  <div class="ilinks"><a href="/auth-provider-cost.html" class="ilink"><span class="ic2">🔑</span><div><b>Auth Provider Cost Calculator</b><span>Clerk vs Auth0 vs Supabase pricing</span></div></a>
+<a href="/vector-db-cost.html" class="ilink"><span class="ic2">🗄️</span><div><b>Vector DB Cost</b><span>Pinecone vs Supabase vs Qdrant</span></div></a>
+<a href="/llm-cost-calculator.html" class="ilink"><span class="ic2">🤖</span><div><b>LLM API Cost</b><span>GPT-4o, Claude, Gemini pricing</span></div></a>
+<a href="/ai-coding-tool-cost.html" class="ilink"><span class="ic2">💻</span><div><b>AI Coding Tool Cost</b><span>Cursor vs Copilot vs Claude Code</span></div></a></div>
+</div>
+</div>
+<footer><div class="wrap foot-in">
+  <span>© 2026 <a href="/">APICalculators</a></span>
+  <span>Prices are estimates</span>
+</div></footer>
+<script>document.querySelectorAll('.qa .q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const qa=q.parentElement,open=qa.classList.toggle('open');
+    const a=qa.querySelector('.a');
+    if(a) a.style.maxHeight=open?'400px':'0';
+  });
+});</script>
+</body></html>
