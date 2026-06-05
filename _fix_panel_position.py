@@ -1,73 +1,46 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Move panels 05-10 from outside .calc div to inside (before closing </div>)."""
-import os, sys
+"""Move panels 11/12 inside .calc div (right after panel 10 agent)"""
+import sys, os, re
 sys.stdout.reconfigure(encoding='utf-8')
-
 BASE = r'C:\Users\muham\Desktop\APICalculators'
 
-TARGETS = {
-    'de': os.path.join(BASE, 'de', 'index.html'),
-    'fr': os.path.join(BASE, 'fr', 'index.html'),
-    'tr': os.path.join(BASE, 'tr', 'index.html'),
-}
+def read(p): return open(p, encoding='utf-8').read()
+def write(p, c):
+    with open(p, 'w', encoding='utf-8') as f: f.write(c)
 
-for lang, path in TARGETS.items():
-    with open(path, 'r', encoding='utf-8') as f:
-        c = f.read()
+PATHS = [
+    os.path.join(BASE, 'index.html'),
+    os.path.join(BASE, 'de', 'index.html'),
+    os.path.join(BASE, 'fr', 'index.html'),
+    os.path.join(BASE, 'tr', 'index.html'),
+]
 
-    # ── Find where pay panel ends ──────────────────────────────────────────────
-    pay_pos = c.find('id="pay"')
-    pay_end = c.find('</section>', pay_pos) + len('</section>')
+for path in PATHS:
+    c = read(path)
 
-    # The NEXT </div> after pay section closes .calc div
-    calc_close_pos = c.find('</div>', pay_end)
-    print(f'{lang}: pay ends at {pay_end}, calc </div> at {calc_close_pos}')
-    print(f'  Between: {repr(c[pay_end:pay_end+80])}')
+    # Extract panels 11 and 12
+    p11 = re.search(r'\n  <!-- PANEL 11.*?</section>', c, re.DOTALL)
+    p12 = re.search(r'\n  <!-- PANEL 12.*?</section>', c, re.DOTALL)
+    if not p11 or not p12:
+        print(f'  SKIP {os.path.relpath(path, BASE)}')
+        continue
 
-    # ── Find panels 05-10 block ────────────────────────────────────────────────
-    cloud_pos = c.find('<section class="panel" id="cloud"')
-    agent_pos = c.find('id="agent"')
-    agent_end = c.find('</section>', agent_pos) + len('</section>')
+    p11_html = p11.group(0)
+    p12_html = p12.group(0)
 
-    # Start from comment if exists
-    comment_pos = c.rfind('<!-- PANEL 5', 0, cloud_pos)
-    if comment_pos != -1 and comment_pos > cloud_pos - 200:
-        block_start = comment_pos
+    # Remove from current location
+    c = c.replace(p11_html, '', 1)
+    c = c.replace(p12_html, '', 1)
+
+    # Find end of agent panel (id="agent") — insert right after its </section>
+    m = re.search(r'(id="agent"[^<]*(?:<[^>]*>)*.*?</section>)', c, re.DOTALL)
+    if m:
+        pos = m.end()
+        c = c[:pos] + p11_html + p12_html + c[pos:]
+        write(path, c)
+        print(f'✓ {os.path.relpath(path, BASE)}')
     else:
-        # Start from newline before cloud section
-        block_start = cloud_pos
-
-    panels_block = '\n\n' + c[block_start:agent_end].strip()
-    print(f'{lang}: panels block {block_start}-{agent_end} ({len(panels_block)} chars)')
-
-    # ── Remove panels block from current location ──────────────────────────────
-    # Include preceding newlines
-    pre_start = block_start
-    while pre_start > 0 and c[pre_start-1] in '\n\r ':
-        pre_start -= 1
-    c2 = c[:pre_start] + '\n' + c[agent_end:]
-
-    # ── Recalculate positions in c2 ────────────────────────────────────────────
-    pay_pos2 = c2.find('id="pay"')
-    pay_end2 = c2.find('</section>', pay_pos2) + len('</section>')
-    calc_close2 = c2.find('</div>', pay_end2)
-    print(f'{lang}: after removal, calc </div> at {calc_close2}')
-    print(f'  Between: {repr(c2[pay_end2:pay_end2+80])}')
-
-    # ── Insert panels before calc closing </div> ───────────────────────────────
-    c_fixed = c2[:calc_close2] + panels_block + '\n\n' + c2[calc_close2:]
-
-    # ── Simple verification ────────────────────────────────────────────────────
-    cloud_in = c_fixed.find('id="cloud"')
-    calc_close_in = c_fixed.find('</div>', c_fixed.find('</section>', c_fixed.find('id="agent"')) + 10)
-    # The panels should be before the adslot
-    adslot_in = c_fixed.find('class="adslot"')
-    cloud_before_ad = cloud_in < adslot_in
-    print(f'{lang}: cloud before adslot: {cloud_before_ad} (cloud={cloud_in}, adslot={adslot_in})')
-
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(c_fixed)
-    print(f'{lang}: saved ({len(c_fixed)} chars)\n')
+        print(f'  WARN: agent panel not found in {os.path.relpath(path, BASE)}')
 
 print('Done.')

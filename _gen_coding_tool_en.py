@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code</title>
-<meta name="description" content="Free calculator to compare real AI coding tool costs. Cursor vs GitHub Copilot vs Claude Code vs Windsurf. Find your true monthly bill. No signup.">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/ai-coding-tool-cost.html">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-coding-tool-cost.html"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/ki-coding-tool-kosten.html"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-outil-ia-coding.html"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/yapay-zeka-kodlama-arac-maliyeti.html"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-coding-tool-cost.html"/>
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US"/>
-<meta property="og:title" content="AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code">
-<meta property="og:description" content="Free calculator to compare real AI coding tool costs. Cursor vs GitHub Copilot vs Claude Code vs Windsurf.">
-<meta property="og:url" content="https://apicalculators.com/ai-coding-tool-cost.html">
-<meta property="og:image" content="https://apicalculators.com/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@apicalculators">
-<meta name="twitter:creator" content="@apicalculators">
-<meta name="twitter:title" content="AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code">
-<meta name="twitter:description" content="Compare real monthly costs for AI coding tools. No pricing page surprises.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-<script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type":"Question","name":"Is Cursor really $20/month?","acceptedAnswer":{"@type":"Answer","text":"Cursor Pro starts at $20/month but heavy agentic usage can push bills to $60-200/month. The Pro plan has usage limits; exceeding them triggers Pro+ ($60) or Ultra ($200) tier pricing."}},
-    {"@type":"Question","name":"Which AI coding tool is cheapest in 2026?","acceptedAnswer":{"@type":"Answer","text":"GitHub Copilot at $10/month offers the best value for light-to-medium users. For heavy agentic work, Claude Code Max 5x ($100/month) or Cursor Pro ($20/month with limits) compete."}},
-    {"@type":"Question","name":"Is Claude Code free?","acceptedAnswer":{"@type":"Answer","text":"Claude Code has a limited free tier. The Pro plan is $20/month, Max 5x is $100/month, and Max 20x is $200/month. Heavy API usage through Claude Code can exceed subscription costs significantly."}},
-    {"@type":"Question","name":"Cursor vs GitHub Copilot - which is better for teams?","acceptedAnswer":{"@type":"Answer","text":"Copilot Business ($19/seat) offers predictable team billing. Cursor Business ($40/seat) has stronger IDE integration but higher cost. For teams over 10, Copilot usually wins on total cost."}}
-  ]
-}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Coding Tool Cost Calculator 2026","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apicalculators.com/ai-coding-tool-cost.html"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"AI Coding Tool Cost Calculator 2026"}]}</script>
-<style>:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import sys, os
+sys.stdout.reconfigure(encoding='utf-8')
+BASE = r'C:\Users\muham\Desktop\APICalculators'
+
+CSS = """:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
@@ -101,15 +69,110 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
-.donate-box{margin:14px 0 0;padding:14px 18px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.donate-box .d-msg{font-size:13px;color:var(--muted);flex:1;min-width:180px}
-.donate-box .d-msg strong{color:#ffb24d;display:block;margin-bottom:2px;font-size:13px}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;letter-spacing:.04em}
-.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.22)}
-.copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
-</style>
+footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}"""
+
+SCHEMA = '''{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is Cursor really $20/month?","acceptedAnswer":{"@type":"Answer","text":"Cursor Pro starts at $20/month but heavy agentic usage can push bills to $60-200/month. The Pro plan has usage limits; exceeding them triggers Pro+ ($60) or Ultra ($200) tier pricing."}},
+    {"@type":"Question","name":"Which AI coding tool is cheapest in 2026?","acceptedAnswer":{"@type":"Answer","text":"GitHub Copilot at $10/month offers the best value for light-to-medium users. For heavy agentic work, Claude Code Max 5x ($100/month) or Cursor Pro ($20/month with limits) compete."}},
+    {"@type":"Question","name":"Is Claude Code free?","acceptedAnswer":{"@type":"Answer","text":"Claude Code has a limited free tier. The Pro plan is $20/month, Max 5x is $100/month, and Max 20x is $200/month. Heavy API usage through Claude Code can exceed subscription costs significantly."}},
+    {"@type":"Question","name":"Cursor vs GitHub Copilot - which is better for teams?","acceptedAnswer":{"@type":"Answer","text":"Copilot Business ($19/seat) offers predictable team billing. Cursor Business ($40/seat) has stronger IDE integration but higher cost. For teams over 10, Copilot usually wins on total cost."}}
+  ]
+}'''
+
+SCHEMA2 = '{"@context":"https://schema.org","@type":"SoftwareApplication","name":"AI Coding Tool Cost Calculator 2026","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apicalculators.com/ai-coding-tool-cost.html"}'
+
+SCHEMA3 = '{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"AI Coding Tool Cost Calculator 2026"}]}'
+
+JS = """
+const TOOLS = {
+  copilot:  { name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  biz:19,  note:'Predictable flat pricing' },
+  cursor:   { name:'Cursor',         light:20,  medium:20,  heavy:80,  biz:40,  note:'$20-200 depending on usage' },
+  claude:   { name:'Claude Code',    light:20,  medium:20,  heavy:120, biz:100, note:'$20-200 depending on tasks' },
+  windsurf: { name:'Windsurf',       light:15,  medium:15,  heavy:45,  biz:30,  note:'Credits deplete on heavy use' },
+  tabnine:  { name:'Tabnine',        light:12,  medium:12,  heavy:12,  biz:39,  note:'Fixed price, no overages' },
+  bolt:     { name:'Bolt.new',       light:20,  medium:20,  heavy:50,  biz:50,  note:'Token-based, can exceed plan' },
+  v0:       { name:'v0 by Vercel',   light:20,  medium:20,  heavy:50,  biz:50,  note:'Token-based credits' }
+};
+
+function calc() {
+  const usage = document.getElementById('usage').value;
+  const type  = document.getElementById('type').value;
+  const team  = parseInt(document.getElementById('team').value) || 1;
+  const res   = document.getElementById('results');
+
+  let multiplier = 1;
+  if (type === 'agent') multiplier = 2.5;
+  else if (type === 'all') multiplier = 3;
+  else if (type === 'chat') multiplier = 1.2;
+
+  const rows = Object.entries(TOOLS).map(([k,t]) => {
+    let base = usage === 'light' ? t.light : usage === 'medium' ? t.medium : t.heavy;
+    if (usage === 'heavy' && (k === 'cursor' || k === 'claude')) base = Math.min(base * multiplier, k==='cursor'?200:200);
+    const total = base * team;
+    return { key:k, name:t.name, per:base, total, note:t.note };
+  }).sort((a,b) => a.total - b.total);
+
+  const bestVal = rows[0].total;
+  res.innerHTML = rows.map((r,i) => `
+    <div class="tool-result${i===0?' best':''}">
+      <div>
+        <div class="tname">${r.name}</div>
+        <div class="tnote">${r.note}</div>
+      </div>
+      <div style="text-align:right">
+        <div class="tprice">$${r.total.toLocaleString()}/mo</div>
+        ${team>1?`<div class="tnote">$${r.per}/seat</div>`:''}
+      </div>
+    </div>`).join('');
+}
+
+document.querySelectorAll('.sel,.inp').forEach(el => el.addEventListener('change', calc));
+calc();
+
+document.querySelectorAll('.qa .q').forEach(q => {
+  q.addEventListener('click', () => {
+    const qa = q.parentElement;
+    const open = qa.classList.toggle('open');
+    q.querySelector('.a-box, .a') && (q.nextElementSibling.style.maxHeight = open ? '300px' : '0');
+    const a = qa.querySelector('.a');
+    if(a) a.style.maxHeight = open ? '300px' : '0';
+  });
+});
+"""
+
+HTML = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code</title>
+<meta name="description" content="Free calculator to compare real AI coding tool costs. Cursor vs GitHub Copilot vs Claude Code vs Windsurf. Find your true monthly bill. No signup.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/ai-coding-tool-cost.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-coding-tool-cost.html"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/ki-coding-tool-kosten.html"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-outil-ia-coding.html"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/yapay-zeka-kodlama-arac-maliyeti.html"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-coding-tool-cost.html"/>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US"/>
+<meta property="og:title" content="AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code">
+<meta property="og:description" content="Free calculator to compare real AI coding tool costs. Cursor vs GitHub Copilot vs Claude Code vs Windsurf.">
+<meta property="og:url" content="https://apicalculators.com/ai-coding-tool-cost.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:creator" content="@apicalculators">
+<meta name="twitter:title" content="AI Coding Tool Cost Calculator 2026 — Cursor vs Copilot vs Claude Code">
+<meta name="twitter:description" content="Compare real monthly costs for AI coding tools. No pricing page surprises.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+<script type="application/ld+json">{SCHEMA}</script>
+<script type="application/ld+json">{SCHEMA2}</script>
+<script type="application/ld+json">{SCHEMA3}</script>
+<style>{CSS}</style>
 </head>
 <body>
 <header class="nav">
@@ -218,11 +281,6 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </section>
 
-<div class="donate-box">
-  <div class="d-msg"><strong>☕ If this tool saved you time or money</strong>Buy me a coffee via Binance:</div>
-  <span class="donate-id" id="bnb-en">90082319</span>
-  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Copied!';b.classList.add('copied');setTimeout(function(){b.textContent='Copy ID';b.classList.remove('copied')},2000)})(this)">Copy ID</button>
-</div>
 <section class="sec">
   <h2>Related Calculators</h2>
   <div class="tool-links">
@@ -238,61 +296,11 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
   <span>Prices are estimates · verify before you ship</span>
 </div></footer>
-<script>
-const TOOLS = {
-  copilot:  { name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  biz:19,  note:'Predictable flat pricing' },
-  cursor:   { name:'Cursor',         light:20,  medium:20,  heavy:80,  biz:40,  note:'$20-200 depending on usage' },
-  claude:   { name:'Claude Code',    light:20,  medium:20,  heavy:120, biz:100, note:'$20-200 depending on tasks' },
-  windsurf: { name:'Windsurf',       light:15,  medium:15,  heavy:45,  biz:30,  note:'Credits deplete on heavy use' },
-  tabnine:  { name:'Tabnine',        light:12,  medium:12,  heavy:12,  biz:39,  note:'Fixed price, no overages' },
-  bolt:     { name:'Bolt.new',       light:20,  medium:20,  heavy:50,  biz:50,  note:'Token-based, can exceed plan' },
-  v0:       { name:'v0 by Vercel',   light:20,  medium:20,  heavy:50,  biz:50,  note:'Token-based credits' }
-};
-
-function calc() {
-  const usage = document.getElementById('usage').value;
-  const type  = document.getElementById('type').value;
-  const team  = parseInt(document.getElementById('team').value) || 1;
-  const res   = document.getElementById('results');
-
-  let multiplier = 1;
-  if (type === 'agent') multiplier = 2.5;
-  else if (type === 'all') multiplier = 3;
-  else if (type === 'chat') multiplier = 1.2;
-
-  const rows = Object.entries(TOOLS).map(([k,t]) => {
-    let base = usage === 'light' ? t.light : usage === 'medium' ? t.medium : t.heavy;
-    if (usage === 'heavy' && (k === 'cursor' || k === 'claude')) base = Math.min(base * multiplier, k==='cursor'?200:200);
-    const total = base * team;
-    return { key:k, name:t.name, per:base, total, note:t.note };
-  }).sort((a,b) => a.total - b.total);
-
-  const bestVal = rows[0].total;
-  res.innerHTML = rows.map((r,i) => `
-    <div class="tool-result${i===0?' best':''}">
-      <div>
-        <div class="tname">${r.name}</div>
-        <div class="tnote">${r.note}</div>
-      </div>
-      <div style="text-align:right">
-        <div class="tprice">$${r.total.toLocaleString()}/mo</div>
-        ${team>1?`<div class="tnote">$${r.per}/seat</div>`:''}
-      </div>
-    </div>`).join('');
-}
-
-document.querySelectorAll('.sel,.inp').forEach(el => el.addEventListener('change', calc));
-calc();
-
-document.querySelectorAll('.qa .q').forEach(q => {
-  q.addEventListener('click', () => {
-    const qa = q.parentElement;
-    const open = qa.classList.toggle('open');
-    q.querySelector('.a-box, .a') && (q.nextElementSibling.style.maxHeight = open ? '300px' : '0');
-    const a = qa.querySelector('.a');
-    if(a) a.style.maxHeight = open ? '300px' : '0';
-  });
-});
-</script>
+<script>{JS}</script>
 </body>
-</html>
+</html>"""
+
+path = os.path.join(BASE, 'ai-coding-tool-cost.html')
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(HTML)
+print(f'✓ Created: ai-coding-tool-cost.html')

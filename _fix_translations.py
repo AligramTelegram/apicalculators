@@ -1,169 +1,295 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Fix: translate new panel h2+pdesc titles in DE/FR/TR, fix partner CTA button text."""
-import os, sys
+"""
+S4a + S4b: Translate calc input labels + keyword comments in DE/FR/TR homepages.
+S5: Add Article + FAQPage JSON-LD schema to EN blog posts.
+"""
+import sys, os, json
 sys.stdout.reconfigure(encoding='utf-8')
-
 BASE = r'C:\Users\muham\Desktop\APICalculators'
 
-# ── Partner CTA button text fixes ─────────────────────────────────────────────
-PARTNER_CTA_OLD = '$200 DigitalOcean kredisiyle başla'
-PARTNER_CTA_NEW_TR = '$300 Vultr kredisiyle başla'
+def read(path): return open(path, encoding='utf-8').read()
+def write(path, c):
+    with open(path, 'w', encoding='utf-8') as f: f.write(c)
 
-PARTNER_CTA_OLD_DE = '$200 DigitalOcean-Guthaben starten'  # may vary
-PARTNER_CTA_NEW_DE = '$300 Vultr-Guthaben starten'
+def apply_replacements(c, pairs):
+    for old, new in pairs:
+        c = c.replace(old, new)
+    return c
 
-PARTNER_CTA_OLD_FR = '$200 de crédit DigitalOcean'
-PARTNER_CTA_NEW_FR = '$300 de crédit Vultr'
+# ─────────────────────────────────────────────────────────────────────────────
+# S4a + S4b DE
+# ─────────────────────────────────────────────────────────────────────────────
+DE_REPLACEMENTS = [
+    ('Keyword: <em>AWS Lambda cost calculator</em>', 'Keyword: <em>AWS Lambda Kostenrechner</em>'),
+    ('Keyword: <em>API gateway pricing calculator</em>', 'Keyword: <em>API Gateway Kostenrechner</em>'),
+    ('Keyword: <em>embedding API cost</em>', 'Keyword: <em>Embedding API Kosten</em>'),
+    ('Keyword: <em>AI agent cost calculator</em>', 'Keyword: <em>KI-Agent Kostenschätzer</em>'),
+    ('<label class="lbl" for="sttModel">Provider</label>', '<label class="lbl" for="sttModel">Anbieter</label>'),
+    ('<label class="lbl" for="sttVol">Audio minutes / month</label>', '<label class="lbl" for="sttVol">Audiominuten / Monat</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>', '<div class="brow"><span>Preis / 1M Token</span><b id="sttRate">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>', '<div class="brow hl"><span>Jahresschätzung</span><b id="sttAnnual">—</b></div>'),
+    ('<label class="lbl" for="slProvider">Platform</label>', '<label class="lbl" for="slProvider">Plattform</label>'),
+    ('<label class="lbl" for="slInvoke">Invocations / month</label>', '<label class="lbl" for="slInvoke">Aufrufe / Monat</label>'),
+    ('<label class="lbl" for="slDuration">Avg duration (ms)</label>', '<label class="lbl" for="slDuration">Ø Dauer (ms)</label>'),
+    ('<label class="lbl" for="slMemory">Memory</label>', '<label class="lbl" for="slMemory">Arbeitsspeicher</label>'),
+    ('<div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>', '<div class="brow"><span>Aufrufkosten</span><b id="slInvCost">—</b></div>'),
+    ('<div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>', '<div class="brow"><span>Rechenkosten (GB-Sek.)</span><b id="slCompCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>', '<div class="brow hl"><span>Jahresschätzung</span><b id="slAnnual">—</b></div>'),
+    ('<label class="lbl" for="gwProvider">Provider</label>', '<label class="lbl" for="gwProvider">Anbieter</label>'),
+    ('<label class="lbl" for="gwReqs">Requests (millions/month)</label>', '<label class="lbl" for="gwReqs">Anfragen (Mio./Monat)</label>'),
+    ('<label class="lbl" for="gwTransfer">Data transfer out (GB)</label>', '<label class="lbl" for="gwTransfer">Datenübertragung (GB)</label>'),
+    ('<div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>', '<div class="brow"><span>Anfragekosten</span><b id="gwReqCost">—</b></div>'),
+    ('<div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>', '<div class="brow"><span>Übertragungskosten</span><b id="gwXferCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>', '<div class="brow hl"><span>Jahresschätzung</span><b id="gwAnnual">—</b></div>'),
+    ('<label class="lbl" for="embModel">Model</label>', '<label class="lbl" for="embModel">Modell</label>'),
+    ('<label class="lbl" for="embTokens">Tokens / month (millions)</label>', '<label class="lbl" for="embTokens">Token / Monat (Mio.)</label>'),
+    ('<label class="lbl" for="embDocs">Documents</label>', '<label class="lbl" for="embDocs">Dokumente</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>', '<div class="brow"><span>Preis / 1M Token</span><b id="embRate">—</b></div>'),
+]
 
-# ── Panel h2 translations ──────────────────────────────────────────────────────
-H2_TRANSLATIONS = {
-    # EN source → {lang: translation}
-    'Cloud VPS &amp; Database Cost Comparison': {
-        'de': 'Cloud VPS &amp; Datenbank Kostenvergleich',
-        'fr': 'Comparaison des coûts Cloud VPS &amp; Base de données',
-        'tr': 'Bulut VPS &amp; Veritabanı Maliyet Karşılaştırması',
-    },
-    'STT &amp; TTS API Cost Calculator': {
-        'de': 'STT &amp; TTS API Kostenrechner',
-        'fr': 'Calculateur de coûts API STT &amp; TTS',
-        'tr': 'STT &amp; TTS API Maliyet Hesaplayıcı',
-    },
-    'Serverless Compute Cost Calculator': {
-        'de': 'Serverless Compute Kostenrechner',
-        'fr': 'Calculateur de coûts Serverless',
-        'tr': 'Sunucusuz Hesaplama Maliyet Hesaplayıcı',
-    },
-    'API Gateway Traffic Cost Calculator': {
-        'de': 'API Gateway Traffic Kostenrechner',
-        'fr': 'Calculateur de coûts trafic API Gateway',
-        'tr': 'API Gateway Trafik Maliyet Hesaplayıcı',
-    },
-    'Embedding API Cost Calculator': {
-        'de': 'Embedding API Kostenrechner',
-        'fr': 'Calculateur de coûts API Embedding',
-        'tr': 'Embedding API Maliyet Hesaplayıcı',
-    },
-    'AI Agent Multi-Model Cost Estimator': {
-        'de': 'KI-Agent Multi-Model Kostenschätzer',
-        'fr': 'Estimateur de coûts Agent IA Multi-Modèle',
-        'tr': 'YZ Ajan Çok-Model Maliyet Tahmincisi',
-    },
-}
+de_path = os.path.join(BASE, 'de', 'index.html')
+c = read(de_path)
+c2 = apply_replacements(c, DE_REPLACEMENTS)
+if c2 != c:
+    write(de_path, c2)
+    print('✓ DE: labels + keywords translated')
+else:
+    print('  SKIP DE (no changes)')
 
-# ── Panel pdesc fixes (EN text in DE/FR/TR) ────────────────────────────────────
-PDESC_FIXES = {
-    'de': {
-        'Compare Vultr, DigitalOcean, Hetzner server costs. Keyword: <em>cloud VPS cost comparison</em>.':
-            'Vultr, Hetzner, DigitalOcean und Linode VPS-Preise 2026 vergleichen. Keyword: <em>Cloud VPS Kostenvergleich</em>.',
-        'Compare Whisper, ElevenLabs, Google Speech and OpenAI TTS API costs. Cost per minute for STT, per 1000 chars for TTS. Keyword: <em>speech to text API cost</em>.':
-            'Whisper, ElevenLabs, Google Speech und OpenAI TTS API-Kosten vergleichen. Keyword: <em>Spracherkennung API Kosten</em>.',
-        'Calculate AWS Lambda, Vercel Functions, Cloudflare Workers monthly cost. Price tables at 1M, 10M, 100M invocations. Keyword: <em>AWS Lambda cost calculator</em>.':
-            'AWS Lambda, Vercel Functions und Cloudflare Workers Kosten 2026 berechnen. Keyword: <em>AWS Lambda Kosten Rechner</em>.',
-        'Calculate AWS API Gateway, Cloudflare, Kong monthly costs. Price per million requests, data transfer fees included. Keyword: <em>API gateway pricing calculator</em>.':
-            'AWS API Gateway, Cloudflare Workers und Kong Cloud Preise 2026 vergleichen. Keyword: <em>API Gateway Preisrechner</em>.',
-        'Estimate OpenAI, Cohere, Voyage AI embedding costs. Price per 1M tokens for all models. Keyword: <em>embedding API cost calculator</em>.':
-            'OpenAI, Cohere, Voyage AI und Jina AI Embedding-Kosten 2026 vergleichen. Keyword: <em>Embedding API Kosten</em>.',
-        'Calculate multi-step agent pipeline total cost per run. Choose planner, worker, summariser models. Keyword: <em>AI agent cost calculator</em>.':
-            'Gesamtkosten von KI-Agent-Pipelines pro Lauf berechnen. Planner, Worker und Summariser-Modelle wählen. Keyword: <em>KI Agent Kosten Rechner</em>.',
-    },
-    'fr': {
-        'Compare Vultr, DigitalOcean, Hetzner server costs. Keyword: <em>cloud VPS cost comparison</em>.':
-            'Comparez les prix VPS Hetzner, Vultr et DigitalOcean en 2026. Keyword: <em>comparaison cloud VPS</em>.',
-        'Compare Whisper, ElevenLabs, Google Speech and OpenAI TTS API costs. Cost per minute for STT, per 1000 chars for TTS. Keyword: <em>speech to text API cost</em>.':
-            'Comparez Whisper, ElevenLabs, Google Speech et OpenAI TTS en 2026. Keyword: <em>coût API speech to text</em>.',
-        'Calculate AWS Lambda, Vercel Functions, Cloudflare Workers monthly cost. Price tables at 1M, 10M, 100M invocations. Keyword: <em>AWS Lambda cost calculator</em>.':
-            'Calculez les coûts AWS Lambda, Vercel Functions et Cloudflare Workers en 2026. Keyword: <em>calculateur coût AWS Lambda</em>.',
-        'Calculate AWS API Gateway, Cloudflare, Kong monthly costs. Price per million requests, data transfer fees included. Keyword: <em>API gateway pricing calculator</em>.':
-            'Comparez AWS API Gateway, Cloudflare Workers et Kong Cloud en 2026. Keyword: <em>calculateur prix API gateway</em>.',
-        'Estimate OpenAI, Cohere, Voyage AI embedding costs. Price per 1M tokens for all models. Keyword: <em>embedding API cost calculator</em>.':
-            'Comparez OpenAI text-embedding-3-small, Cohere et Voyage AI en 2026. Keyword: <em>coût API embedding</em>.',
-        'Calculate multi-step agent pipeline total cost per run. Choose planner, worker, summariser models. Keyword: <em>AI agent cost calculator</em>.':
-            'Calculez le coût réel des pipelines d\'agents IA en 2026. Keyword: <em>calculateur coût agent IA</em>.',
-    },
-    'tr': {
-        'Compare Vultr, DigitalOcean, Hetzner server costs. Keyword: <em>cloud VPS cost comparison</em>.':
-            'Hetzner, Vultr ve DigitalOcean VPS fiyatlarını 2026\'da karşılaştırın. Keyword: <em>bulut VPS maliyet karşılaştırması</em>.',
-        'Compare Whisper, ElevenLabs, Google Speech and OpenAI TTS API costs. Cost per minute for STT, per 1000 chars for TTS. Keyword: <em>speech to text API cost</em>.':
-            'Whisper, ElevenLabs, Google Speech ve OpenAI TTS API maliyetleri 2026. Keyword: <em>konuşma tanıma API maliyeti</em>.',
-        'Calculate AWS Lambda, Vercel Functions, Cloudflare Workers monthly cost. Price tables at 1M, 10M, 100M invocations. Keyword: <em>AWS Lambda cost calculator</em>.':
-            'AWS Lambda, Vercel Functions ve Cloudflare Workers maliyetlerini 2026\'da hesaplayın. Keyword: <em>AWS Lambda maliyet hesaplayıcı</em>.',
-        'Calculate AWS API Gateway, Cloudflare, Kong monthly costs. Price per million requests, data transfer fees included. Keyword: <em>API gateway pricing calculator</em>.':
-            'AWS API Gateway, Cloudflare Workers ve Kong Cloud fiyatlarını 2026\'da karşılaştırın. Keyword: <em>API gateway fiyat hesaplayıcı</em>.',
-        'Estimate OpenAI, Cohere, Voyage AI embedding costs. Price per 1M tokens for all models. Keyword: <em>embedding API cost calculator</em>.':
-            'OpenAI, Cohere, Voyage AI ve Jina AI embedding maliyetleri 2026. Keyword: <em>embedding API maliyet hesaplayıcı</em>.',
-        'Calculate multi-step agent pipeline total cost per run. Choose planner, worker, summariser models. Keyword: <em>AI agent cost calculator</em>.':
-            'YZ ajan pipeline\'larının gerçek maliyetini 2026\'da hesaplayın. Keyword: <em>yapay zeka ajan maliyet hesaplayıcı</em>.',
-    },
-}
+# ─────────────────────────────────────────────────────────────────────────────
+# S4a + S4b FR
+# ─────────────────────────────────────────────────────────────────────────────
+FR_REPLACEMENTS = [
+    ('Keyword: <em>AWS Lambda cost calculator</em>', 'Keyword: <em>calculateur cout AWS Lambda</em>'),
+    ('Keyword: <em>API gateway pricing calculator</em>', 'Keyword: <em>calculateur cout API gateway</em>'),
+    ('Keyword: <em>embedding API cost</em>', 'Keyword: <em>cout API embedding</em>'),
+    ('Keyword: <em>AI agent cost calculator</em>', 'Keyword: <em>calculateur cout agent IA</em>'),
+    ('<label class="lbl" for="sttModel">Provider</label>', '<label class="lbl" for="sttModel">Fournisseur</label>'),
+    ('<label class="lbl" for="sttVol">Audio minutes / month</label>', '<label class="lbl" for="sttVol">Minutes audio / mois</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>', '<div class="brow"><span>Tarif / 1M tokens</span><b id="sttRate">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>', '<div class="brow hl"><span>Estimation annuelle</span><b id="sttAnnual">—</b></div>'),
+    ('<label class="lbl" for="slProvider">Platform</label>', '<label class="lbl" for="slProvider">Plateforme</label>'),
+    ('<label class="lbl" for="slInvoke">Invocations / month</label>', '<label class="lbl" for="slInvoke">Invocations / mois</label>'),
+    ('<label class="lbl" for="slDuration">Avg duration (ms)</label>', '<label class="lbl" for="slDuration">Duree moy. (ms)</label>'),
+    ('<label class="lbl" for="slMemory">Memory</label>', '<label class="lbl" for="slMemory">Memoire</label>'),
+    ('<div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>', '<div class="brow"><span>Cout invocation</span><b id="slInvCost">—</b></div>'),
+    ('<div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>', '<div class="brow"><span>Cout calcul (Go-sec)</span><b id="slCompCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>', '<div class="brow hl"><span>Estimation annuelle</span><b id="slAnnual">—</b></div>'),
+    ('<label class="lbl" for="gwProvider">Provider</label>', '<label class="lbl" for="gwProvider">Fournisseur</label>'),
+    ('<label class="lbl" for="gwReqs">Requests (millions/month)</label>', '<label class="lbl" for="gwReqs">Requetes (millions/mois)</label>'),
+    ('<label class="lbl" for="gwTransfer">Data transfer out (GB)</label>', '<label class="lbl" for="gwTransfer">Transfert donnees (Go)</label>'),
+    ('<div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>', '<div class="brow"><span>Cout requetes</span><b id="gwReqCost">—</b></div>'),
+    ('<div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>', '<div class="brow"><span>Cout transfert</span><b id="gwXferCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>', '<div class="brow hl"><span>Estimation annuelle</span><b id="gwAnnual">—</b></div>'),
+    ('<label class="lbl" for="embModel">Model</label>', '<label class="lbl" for="embModel">Modele</label>'),
+    ('<label class="lbl" for="embTokens">Tokens / month (millions)</label>', '<label class="lbl" for="embTokens">Tokens / mois (millions)</label>'),
+    ('<label class="lbl" for="embDocs">Documents</label>', '<label class="lbl" for="embDocs">Documents</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>', '<div class="brow"><span>Tarif / 1M tokens</span><b id="embRate">—</b></div>'),
+]
 
-# ── Partner CTA button text per lang ──────────────────────────────────────────
-# Find the Vultr partner button text (old DO text → new Vultr text)
-PARTNER_FIXES = {
-    'de': [
-        # Various possible DE strings from _vultr_cta.py
-        ('DigitalOcean', '$300 Vultr-Guthaben starten'),  # catch-all for DE CTA
-    ],
-    'fr': [
-        ('DigitalOcean', '$300 de crédit Vultr'),
-    ],
-    'tr': [
-        ('$200 DigitalOcean kredisiyle başla', '$300 Vultr kredisi ile başla'),
-    ],
-}
+fr_path = os.path.join(BASE, 'fr', 'index.html')
+c = read(fr_path)
+c2 = apply_replacements(c, FR_REPLACEMENTS)
+if c2 != c:
+    write(fr_path, c2)
+    print('✓ FR: labels + keywords translated')
+else:
+    print('  SKIP FR (no changes)')
 
-TARGETS = {
-    'de': os.path.join(BASE, 'de', 'index.html'),
-    'fr': os.path.join(BASE, 'fr', 'index.html'),
-    'tr': os.path.join(BASE, 'tr', 'index.html'),
-}
+# ─────────────────────────────────────────────────────────────────────────────
+# S4a + S4b TR
+# ─────────────────────────────────────────────────────────────────────────────
+TR_REPLACEMENTS = [
+    ('Keyword: <em>AWS Lambda cost calculator</em>', 'Keyword: <em>AWS Lambda maliyet hesaplayici</em>'),
+    ('Keyword: <em>API gateway pricing calculator</em>', 'Keyword: <em>API gateway maliyet hesaplayici</em>'),
+    ('Keyword: <em>embedding API cost</em>', 'Keyword: <em>embedding API maliyeti</em>'),
+    ('Keyword: <em>AI agent cost calculator</em>', 'Keyword: <em>YZ ajan maliyet hesaplayici</em>'),
+    ('<label class="lbl" for="sttModel">Provider</label>', '<label class="lbl" for="sttModel">Saglayici</label>'),
+    ('<label class="lbl" for="sttVol">Audio minutes / month</label>', '<label class="lbl" for="sttVol">Ses dakikasi / ay</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>', '<div class="brow"><span>Oran / 1M token</span><b id="sttRate">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>', '<div class="brow hl"><span>Yillik tahmin</span><b id="sttAnnual">—</b></div>'),
+    ('<label class="lbl" for="slProvider">Platform</label>', '<label class="lbl" for="slProvider">Platform</label>'),
+    ('<label class="lbl" for="slInvoke">Invocations / month</label>', '<label class="lbl" for="slInvoke">Cagri / ay</label>'),
+    ('<label class="lbl" for="slDuration">Avg duration (ms)</label>', '<label class="lbl" for="slDuration">Ort. sure (ms)</label>'),
+    ('<label class="lbl" for="slMemory">Memory</label>', '<label class="lbl" for="slMemory">Bellek</label>'),
+    ('<div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>', '<div class="brow"><span>Cagri maliyeti</span><b id="slInvCost">—</b></div>'),
+    ('<div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>', '<div class="brow"><span>Hesaplama maliyeti (GB-sn)</span><b id="slCompCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>', '<div class="brow hl"><span>Yillik tahmin</span><b id="slAnnual">—</b></div>'),
+    ('<label class="lbl" for="gwProvider">Provider</label>', '<label class="lbl" for="gwProvider">Saglayici</label>'),
+    ('<label class="lbl" for="gwReqs">Requests (millions/month)</label>', '<label class="lbl" for="gwReqs">Istek (milyon/ay)</label>'),
+    ('<label class="lbl" for="gwTransfer">Data transfer out (GB)</label>', '<label class="lbl" for="gwTransfer">Veri transferi (GB)</label>'),
+    ('<div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>', '<div class="brow"><span>Istek maliyeti</span><b id="gwReqCost">—</b></div>'),
+    ('<div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>', '<div class="brow"><span>Transfer maliyeti</span><b id="gwXferCost">—</b></div>'),
+    ('<div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>', '<div class="brow hl"><span>Yillik tahmin</span><b id="gwAnnual">—</b></div>'),
+    ('<label class="lbl" for="embModel">Model</label>', '<label class="lbl" for="embModel">Model</label>'),
+    ('<label class="lbl" for="embTokens">Tokens / month (millions)</label>', '<label class="lbl" for="embTokens">Token / ay (milyon)</label>'),
+    ('<label class="lbl" for="embDocs">Documents</label>', '<label class="lbl" for="embDocs">Belgeler</label>'),
+    ('<div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>', '<div class="brow"><span>Oran / 1M token</span><b id="embRate">—</b></div>'),
+]
 
-for lang, path in TARGETS.items():
-    with open(path, 'r', encoding='utf-8') as f:
-        c = f.read()
-    original = c
+tr_path = os.path.join(BASE, 'tr', 'index.html')
+c = read(tr_path)
+c2 = apply_replacements(c, TR_REPLACEMENTS)
+if c2 != c:
+    write(tr_path, c2)
+    print('✓ TR: labels + keywords translated')
+else:
+    print('  SKIP TR (no changes)')
 
-    # 1. Fix h2 titles
-    for en_h2, translations in H2_TRANSLATIONS.items():
-        if en_h2 in c:
-            c = c.replace(f'<h2>{en_h2}</h2>', f'<h2>{translations[lang]}</h2>')
-            print(f'{lang}: h2 fixed → {translations[lang][:40]}...')
+# ─────────────────────────────────────────────────────────────────────────────
+# S4a — Agent panel labels (all 3 lang homepages)
+# ─────────────────────────────────────────────────────────────────────────────
+AGENT_DE = [
+    ('<label class="lbl">Step 1 — Planner / Router</label>', '<label class="lbl">Schritt 1 — Planer / Router</label>'),
+    ('<label class="lbl">Step 2 — Main Worker</label>', '<label class="lbl">Schritt 2 — Hauptworker</label>'),
+    ('<label class="lbl">Step 3 — Summariser</label>', '<label class="lbl">Schritt 3 — Zusammenfasser</label>'),
+    ('<div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>', '<div class="brow"><span>Schritt 1 — Planer</span><b id="agS1">—</b></div>'),
+    ('<div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>', '<div class="brow"><span>Schritt 2 — Worker</span><b id="agS2">—</b></div>'),
+    ('<div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>', '<div class="brow"><span>Schritt 3 — Zusammenfasser</span><b id="agS3">—</b></div>'),
+]
+AGENT_FR = [
+    ('<label class="lbl">Step 1 — Planner / Router</label>', '<label class="lbl">Etape 1 — Planificateur / Routeur</label>'),
+    ('<label class="lbl">Step 2 — Main Worker</label>', '<label class="lbl">Etape 2 — Travailleur principal</label>'),
+    ('<label class="lbl">Step 3 — Summariser</label>', '<label class="lbl">Etape 3 — Resumeur</label>'),
+    ('<div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>', '<div class="brow"><span>Etape 1 — Planificateur</span><b id="agS1">—</b></div>'),
+    ('<div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>', '<div class="brow"><span>Etape 2 — Travailleur</span><b id="agS2">—</b></div>'),
+    ('<div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>', '<div class="brow"><span>Etape 3 — Resumeur</span><b id="agS3">—</b></div>'),
+]
+AGENT_TR = [
+    ('<label class="lbl">Step 1 — Planner / Router</label>', '<label class="lbl">Adim 1 — Planlayici / Yonlendirici</label>'),
+    ('<label class="lbl">Step 2 — Main Worker</label>', '<label class="lbl">Adim 2 — Ana Iscisi</label>'),
+    ('<label class="lbl">Step 3 — Summariser</label>', '<label class="lbl">Adim 3 — Ozetleyici</label>'),
+    ('<div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>', '<div class="brow"><span>Adim 1 — Planlayici</span><b id="agS1">—</b></div>'),
+    ('<div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>', '<div class="brow"><span>Adim 2 — Isci</span><b id="agS2">—</b></div>'),
+    ('<div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>', '<div class="brow"><span>Adim 3 — Ozetleyici</span><b id="agS3">—</b></div>'),
+]
 
-    # 2. Fix pdesc text
-    for en_pdesc, local_pdesc in PDESC_FIXES[lang].items():
-        if en_pdesc in c:
-            c = c.replace(en_pdesc, local_pdesc)
-            print(f'{lang}: pdesc fixed')
-
-    # 3. Fix partner CTA button text
-    # Find the Vultr partner link and fix its display text
-    import re
-    # Pattern: the anchor tag for partner Vultr CTA
-    def fix_cta_text(content, lang):
-        # Find <a ... href="https://www.vultr.com/?ref=9904710-9J">...</a>
-        pattern = r'(<a [^>]*href="https://www\.vultr\.com/\?ref=9904710-9J"[^>]*>)(.*?)(</a>)'
-        def replacer(m):
-            prefix = m.group(1)
-            inner = m.group(2)
-            suffix = m.group(3)
-            vultr_labels = {
-                'de': '<span class="em" style="font-weight:900;color:#1557c0">V</span> $300 Vultr-Guthaben · Jetzt starten <span class="arr">↗</span>',
-                'fr': '<span class="em" style="font-weight:900;color:#1557c0">V</span> $300 crédit Vultr · Démarrer <span class="arr">↗</span>',
-                'tr': '<span class="em" style="font-weight:900;color:#1557c0">V</span> $300 Vultr kredisi · Başla <span class="arr">↗</span>',
-            }
-            return prefix + vultr_labels[lang] + suffix
-        new_content = re.sub(pattern, replacer, content, flags=re.DOTALL)
-        if new_content != content:
-            print(f'{lang}: partner CTA button text fixed')
-        return new_content
-
-    c = fix_cta_text(c, lang)
-
-    if c != original:
-        with open(path, 'w', encoding='utf-8') as f:
-            f.write(c)
-        print(f'{lang}: saved ✓\n')
+for path, pairs, lang in [
+    (de_path, AGENT_DE, 'DE'),
+    (fr_path, AGENT_FR, 'FR'),
+    (tr_path, AGENT_TR, 'TR'),
+]:
+    c = read(path)
+    c2 = apply_replacements(c, pairs)
+    if c2 != c:
+        write(path, c2)
+        print(f'✓ {lang}: agent panel translated')
     else:
-        print(f'{lang}: no changes needed\n')
+        print(f'  SKIP {lang} agent (no changes)')
 
-print('All translation fixes done.')
+# ─────────────────────────────────────────────────────────────────────────────
+# S5 — Article + FAQPage schema for EN blog posts
+# ─────────────────────────────────────────────────────────────────────────────
+BLOG_SCHEMAS = {
+    'blog/llm-api-cost-guide-2026.html': {
+        'title': 'LLM API Cost Guide 2026: GPT-4o, Claude, Gemini Pricing',
+        'faq': [
+            ('How much does GPT-4o cost per 1 million tokens?',
+             'GPT-4o costs $2.50/M input tokens and $10.00/M output tokens (pay-as-you-go, 2026).'),
+            ('What is the cheapest LLM API in 2026?',
+             'GPT-4o mini ($0.15/$0.60) and Gemini 1.5 Flash ($0.075/$0.30) are cheapest. Claude 3.5 Haiku is best for quality-sensitive workloads on a budget.'),
+            ('Is this LLM cost calculator free?',
+             'Yes. APICalculators is free with no signup. All calculations run in your browser - no data sent to any server.'),
+        ]
+    },
+    'blog/stripe-vs-paddle-fees-2026.html': {
+        'title': 'Stripe vs Paddle vs Lemon Squeezy: Which Is Actually Cheaper for SaaS?',
+        'faq': [
+            ('Is Stripe cheaper than Paddle for SaaS?',
+             'At raw fee level yes (2.9% vs 5%), but adding Stripe Tax, international fees and chargebacks puts break-even at $12-18K MRR. Below that Paddle is often cheaper total.'),
+            ('What is a Merchant of Record?',
+             'A Merchant of Record handles all tax obligations globally. Paddle and Lemon Squeezy are MoRs - they collect VAT/sales tax. Stripe is not.'),
+        ]
+    },
+    'blog/vector-database-cost-comparison-2026.html': {
+        'title': 'Vector Database Cost Comparison 2026: Pinecone vs Qdrant vs Supabase',
+        'faq': [
+            ('What is the cheapest vector database in 2026?',
+             'Under 5M vectors: Supabase pgvector at $25/month. Over 50M vectors: self-hosted Qdrant on spot VMs at $150-300/month.'),
+            ('How much does Pinecone cost for 1 million vectors?',
+             'Approximately $10-30/month. Storage ~$3, plus $16 per million read units.'),
+        ]
+    },
+    'blog/aws-lambda-cost-calculator-2026.html': {
+        'title': 'AWS Lambda Cost Calculator 2026: True Serverless Pricing',
+        'faq': [
+            ('How much does AWS Lambda cost per million requests?',
+             '$0.20 per million invocations after free tier (1M/month). Compute adds $0.0000166725 per GB-second.'),
+            ('Is Cloudflare Workers cheaper than Lambda?',
+             'For short high-frequency functions yes. Workers at $0.50/M beats Lambda for APIs under 30ms. For longer compute (500ms+) Lambda may be cheaper.'),
+        ]
+    },
+    'blog/cloud-vps-cost-comparison-2026.html': {
+        'title': 'Cloud VPS Cost Comparison 2026: Hetzner vs DigitalOcean vs Vultr',
+        'faq': [
+            ('Is Hetzner cheaper than DigitalOcean?',
+             'Yes - 3-5x cheaper for EU. Hetzner CX22 (2 vCPU/4GB) is 4.50 EUR/mo vs DigitalOcean $24/mo.'),
+            ('Which VPS is best for a small SaaS?',
+             'Hetzner for EU audience. Vultr for global reach (32 locations). DigitalOcean if you need managed Postgres alongside compute.'),
+        ]
+    },
+}
+
+def make_article_schema(title):
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": title,
+        "datePublished": "2026-06-02",
+        "dateModified": "2026-06-04",
+        "author": {"@type": "Organization", "name": "APICalculators"},
+        "publisher": {
+            "@type": "Organization",
+            "name": "APICalculators",
+            "url": "https://apicalculators.com"
+        }
+    }
+
+def make_faq_schema(faq_items):
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a}
+            }
+            for q, a in faq_items
+        ]
+    }
+
+schema_updated = 0
+schema_skipped = 0
+
+for rel_path, data in BLOG_SCHEMAS.items():
+    path = os.path.join(BASE, rel_path)
+    if not os.path.exists(path):
+        print(f'  MISSING: {rel_path}')
+        continue
+    c = read(path)
+
+    if '"Article"' in c or "'Article'" in c:
+        schema_skipped += 1
+        print(f'  SKIP schema (exists): {rel_path}')
+        continue
+
+    article_json = json.dumps(make_article_schema(data['title']), ensure_ascii=False, indent=2)
+    faq_json = json.dumps(make_faq_schema(data['faq']), ensure_ascii=False, indent=2)
+
+    inject = (
+        f'<script type="application/ld+json">\n{article_json}\n</script>\n'
+        f'<script type="application/ld+json">\n{faq_json}\n</script>\n'
+    )
+
+    if '</head>' in c:
+        c = c.replace('</head>', inject + '</head>', 1)
+        write(path, c)
+        schema_updated += 1
+        print(f'✓ Schema added: {rel_path}')
+    else:
+        print(f'  WARN: no </head> in {rel_path}')
+
+print(f'\nSchema: {schema_updated} added, {schema_skipped} skipped')
+print('All done.')

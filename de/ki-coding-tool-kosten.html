@@ -87,7 +87,15 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted)}</style>
+footer a{color:var(--muted)}
+.donate-box{margin:14px 0 0;padding:14px 18px;background:rgba(255,178,77,.05);border:1px solid rgba(255,178,77,.2);border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.donate-box .d-msg{font-size:13px;color:var(--muted);flex:1;min-width:180px}
+.donate-box .d-msg strong{color:#ffb24d;display:block;margin-bottom:2px;font-size:13px}
+.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:14px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid var(--border2);border-radius:7px;padding:7px 12px;letter-spacing:.04em}
+.copy-btn{background:rgba(255,178,77,.12);border:1px solid rgba(255,178,77,.3);color:#ffb24d;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:background .15s;white-space:nowrap}
+.copy-btn:hover{background:rgba(255,178,77,.22)}
+.copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
+</style>
 </head>
 <body>
 <header class="nav"><div class="wrap nav-in">
@@ -159,6 +167,11 @@ footer a{color:var(--muted)}</style>
   <a href="/de/auth-anbieter-kosten.html" class="tool-link"><span class="ic">🔑</span><div><div class="tl-name">Auth-Anbieter Kosten</div><div class="tl-desc">Clerk vs Auth0 vs Supabase</div></div></a>
   <a href="/de/" class="tool-link"><span class="ic">🧮</span><div><div class="tl-name">Alle Rechner</div><div class="tl-desc">Zurueck zur Uebersicht</div></div></a>
 </div></section>
+<div class="donate-box">
+  <div class="d-msg"><strong>☕ Wenn dieses Tool Zeit oder Geld gespart hat</strong>Einen Kaffee spendieren via Binance:</div>
+  <span class="donate-id" id="bnb-de">90082319</span>
+  <button class="copy-btn" onclick="(function(b){navigator.clipboard.writeText('90082319');b.textContent='Kopiert!';b.classList.add('copied');setTimeout(function(){b.textContent='ID kopieren';b.classList.remove('copied')},2000)})(this)">ID kopieren</button>
+</div>
 </div>
 <footer><div class="wrap foot-in">
   <span>© 2026 <a href="/de/">APICalculators</a> · Kostenlose Infra-Kostentools</span>
