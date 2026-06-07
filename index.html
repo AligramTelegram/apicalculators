@@ -343,8 +343,10 @@ h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14
 
 /* ---------- FOOTER ---------- */
 footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
-.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 2fr 1fr 1fr;gap:30px}
 @media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
+.foot-calcs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+@media(max-width:720px){.foot-calcs-grid{grid-template-columns:1fr}}
 .foot-grid h4{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
 .foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
@@ -1168,20 +1170,22 @@ window.addEventListener('load',function(){
         <a href="/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
         <p>Developer infrastructure cost optimization tools. Free, fast, and private — built for engineers who hate surprise invoices.</p>
       </div>
-                  <div>
+                  <div class="foot-calcs-col">
         <h4>Calculators</h4>
-        <a href="#llm">LLM Token Cost</a>
-        <a href="#vector">Vector DB Cost</a>
-        <a href="#image">AI Image Generation</a>
-        <a href="#pay">Payment Fees</a>
-        <a href="#vps">Cloud VPS Comparison</a>
-        <a href="#stt">STT / TTS API Cost</a>
-        <a href="#serverless">Serverless Cost</a>
-        <a href="#gateway">API Gateway Cost</a>
-        <a href="#embeddings">Embedding API Cost</a>
-        <a href="#agent">AI Agent Cost</a>
-        <a href="/ai-coding-tool-cost.html">AI Coding Tool Cost</a>
-        <a href="/auth-provider-cost.html">Auth Provider Cost</a>
+        <div class="foot-calcs-grid">
+          <a href="#llm">LLM Token Cost</a>
+          <a href="#vector">Vector DB Cost</a>
+          <a href="#image">AI Image Generation</a>
+          <a href="#pay">Payment Fees</a>
+          <a href="#vps">Cloud VPS Comparison</a>
+          <a href="#stt">STT / TTS API Cost</a>
+          <a href="#serverless">Serverless Cost</a>
+          <a href="#gateway">API Gateway Cost</a>
+          <a href="#embeddings">Embedding API Cost</a>
+          <a href="#agent">AI Agent Cost</a>
+          <a href="/ai-coding-tool-cost.html">AI Coding Tool Cost</a>
+          <a href="/auth-provider-cost.html">Auth Provider Cost</a>
+        </div>
       </div>
       <div>
         <h4>Resources</h4>
