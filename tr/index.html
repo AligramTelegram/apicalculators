@@ -245,6 +245,16 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .copy-btn{background:rgba(255,178,77,.15);border:1px solid rgba(255,178,77,.4);color:#ffb24d;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s;white-space:nowrap}
 .copy-btn:hover{background:rgba(255,178,77,.3);transform:translateY(-1px)}
 .copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
+.calc-seo-content{padding:20px 28px 24px;border-top:1px solid var(--border);margin-top:4px;font-size:0.875rem;color:var(--muted)}
+.calc-seo-content h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:10px}
+.calc-seo-content>p{line-height:1.7;margin-bottom:14px}
+.calc-faq details{border-top:1px solid var(--border);padding:10px 0}
+.calc-faq details:last-child{border-bottom:1px solid var(--border)}
+.calc-faq summary{cursor:pointer;font-weight:600;color:var(--text);font-size:0.85rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.calc-faq summary::after{content:"＋";color:var(--muted);font-size:1rem;transition:transform .2s}
+.calc-faq details[open] summary::after{content:"－"}
+.calc-faq details p{margin-top:8px;line-height:1.65;color:var(--muted)}
+@media(max-width:780px){.calc-seo-content{padding:16px 20px 20px}}
 </style>
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
 <link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
@@ -346,10 +356,19 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Fiyatlar yayımlanmış 2026 kamuya açık API tarifelerini yansıtır (USD, kullandıkça öde). Hacim indirimleri, önbelleğe alınmış giriş ve toplu fiyatlandırma uygulanmaz. Bütçeleme öncesi sağlayıcının fiyat sayfasını kontrol edin.</p>
+  <div class="calc-seo-content">
+    <h3>LLM Maliyet Hesaplayıcı — GPT-4o API Maliyeti ve Token Fiyatları</h3>
+    <p>Bu LLM maliyet hesaplayıcısı, Türk geliştiricilerin ve ürün ekiplerinin aylık OpenAI, Anthropic ve Google API harcamalarını tahmin etmelerine yardımcı olur. İstek başına giriş token sayısı, çıkış token sayısı ve aylık istek hacmi gibi üç değişken girerek 2026 fiyatlarına göre toplam maliyetinizi USD cinsinden hesaplayabilirsiniz. GPT-4o API maliyeti 2026'da 1 milyon giriş tokeni için 2,50 $, 1 milyon çıkış tokeni için 10 $ olarak belirlenmiştir. Türkiye'deki bir SaaS startup'ı, ayda 100.000 GPT-4o isteği (her biri 1.500 giriş + 500 çıkış tokeni) ile çalıştığında yaklaşık 375 $/ay LLM API maliyeti öder — mevcut USD/TRY kuruna göre bu ciddi bir maliyet anlamına gelmektedir. GPT-4o mini'ye geçmek bu maliyeti 15 $'ın altına düşürür. Türk geliştiriciler için önemli not: OpenAI, Türkiye'ye hizmet sunmaktadır ancak ödeme yöntemi olarak kredi kartı veya prepaid kart gereklidir; kurumsal kullanım için DPA imzalanması önerilir.</p>
+    <div class="calc-faq">
+      <details><summary>GPT-4o API maliyeti 1.000 istek için ne kadar tutar?</summary><p>GPT-4o, 2026 kullandıkça öde tarifesinde 1 milyon giriş tokeni için 2,50 $, çıkış için 10 $ öder. 1.500 giriş + 500 çıkış tokenlik tipik bir istek yaklaşık 0,0088 $ tutar. 1.000 istek için toplam ~8,75 $. Mevcut USD/TRY kuru ile bu tutar TL cinsinden hesaplanmalıdır. Batch API fiyatlandırması, asenkron işlemler için %50 tasarruf sağlar.</p></details>
+      <details><summary>Yüksek hacimli Türk SaaS uygulamaları için en ucuz LLM API hangisi?</summary><p>2026'da yüksek hacim için GPT-4o mini (1M giriş tokeni başına 0,15 $) ve Gemini Flash (1M başına 0,075 $) en maliyet etkin seçeneklerdir. Her ikisi de Türkçe içerik üzerinde iyi performans göstermektedir. Bu hesaplayıcı, gerçek token kullanım profilinizle tüm modelleri yan yana karşılaştırmanızı sağlar.</p></details>
+      <details><summary>Üretimde LLM API maliyetlerimi nasıl azaltabilirim?</summary><p>Temel stratejiler: prompt caching kullanın (tekrarlanan bağlamlarda %75–90 tasarruf), sınıflandırma veya yönlendirme görevleri için daha küçük modellere geçin, asenkron işler için batch API'yi etkinleştirin ve sistem promptlarını sıkıştırın. Bu hesaplayıcı, değişikliklerinizi uygulamadan önce tasarruf miktarını hesaplamanıza yardımcı olur.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </section>
-  
+
 <div class="ad-wrap">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle ad-unit"
@@ -382,6 +401,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">Vektör DB fiyatlandırma modelleri büyük farklılık gösterir (read unit, pod-saat, hesaplama katmanları). Bunlar float32 vektörler ve ~1,5× indeks ek yükü varsayan basitleştirilmiş büyüklük tahminleridir — karşılaştırma için kullanın, sözleşme için değil.</p>
+  <div class="calc-seo-content">
+    <h3>Vektör Veritabanı Maliyeti — Pinecone Fiyat vs Supabase Karşılaştırması</h3>
+    <p>Bu vektör veritabanı maliyet hesaplayıcısı, vektör sayısı, boyut sayısı ve sorgu hacmine göre Pinecone, Supabase pgvector, Qdrant ve Weaviate için aylık harcamanızı hesaplar. Vektör veritabanları, RAG pipeline'larının, semantik aramanın ve öneri sistemlerinin temelidir — maliyetleri ölçeklendikçe önemli ölçüde artabilir. Pinecone Serverless, her read unit ve write unit için ücret alır; düşük hacimde öngörülebilir, büyük ölçekte pahalıdır. Supabase pgvector ise sabit bir PostgreSQL örneği maliyetiyle çalışır — 5 milyonun altında vektör depolayan Türk startupları için genellikle aylık 25 $ civarındadır. 1 milyon ürün açıklamasını 1.536 boyutla (OpenAI ada-002 çıktısı) indeksleyen ve ayda 2 milyon sorgu çalıştıran bir Türk ekibi, Pinecone Serverless'ta yaklaşık 70 $/ay, Supabase'de ise 25 $/ay öder. USD cinsinden maliyetler, TRY kurunu doğrudan etkilediğinden düşük maliyetli alternatiflere geçiş özellikle önem taşır.</p>
+    <div class="calc-faq">
+      <details><summary>Pinecone 1 milyon vektör için aylık ne kadar tutar?</summary><p>Pinecone Serverless, read/write unit başına ücret alır. 1.536 boyutlu 1M float32 vektör (~6 GB depolama) için sorgu hacmine bağlı olarak 50–120 $/ay beklenir. Pod planları ~70 $/ay'dan başlar. Qdrant ve Supabase pgvector benzer iş yüklerini çok daha düşük maliyetle yönetebilir — bu hesaplayıcı tam olarak ne kadar daha ucuz olduğunu gösterir.</p></details>
+      <details><summary>RAG uygulamaları için Supabase pgvector Pinecone'dan ucuz mu?</summary><p>5M vektör ve 1M sorgu/ay altındaki çoğu Türk startup için evet. Supabase pgvector, Postgres üzerinde çalışır — 25 $/ay Pro planı, HNSW indekslemeyle milyonlarca vektörü yönetir. Qdrant'ın ücretsiz katmanı ise 1 GB RAM sunar ve self-hosting ile Türkiye'deki sunucularda çalıştırılabilir, böylece USD giderleri azaltılabilir.</p></details>
+      <details><summary>RAG pipeline için en ucuz vektör veritabanı hangisi?</summary><p>Qdrant (kendi sunucunuzda barındırılan) en düşük maliyetli seçenektir — yalnızca sunucu maliyeti ödersiniz. Türk geliştiriciler için Hetzner'de self-hosted Qdrant + Supabase kombinasyonu popüler bir tercih. Yönetilen servis isteyenler için Supabase'in 25 $/ay Pro planı en iyi fiyat/performans oranını sunar. Bu hesaplayıcıya kendi vektör sayınızı girerek tam karşılaştırmayı görün.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -404,6 +432,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
       </div>
     </div>
     <p class="disclaimer">DALL·E tarifeleri görsel başına API fiyatlarıdır. Açık modeller (SDXL, Flux) tipik barındırılan API fiyatlarını yansıtır; kendi GPU'nuzda barındırma ölçekte çok daha ucuz olabilir ama burada modellenmemiş altyapı maliyeti ekler.</p>
+  <div class="calc-seo-content">
+    <h3>AI Görüntü Oluşturma Maliyeti — DALL-E 3 Fiyat Karşılaştırması 2026</h3>
+    <p>Bu AI görüntü oluşturma maliyet hesaplayıcısı, görsel hacmi ve kalite düzeyine göre DALL·E 3, Stable Diffusion ve Flux API'leri için aylık harcamanızı tahmin eder. Türk ürün ekipleri, oyun stüdyoları ve e-ticaret platformları için görsel başına maliyet büyük farklılık gösterir: DALL·E 3 HD, OpenAI API üzerinden görsel başına 0,080 $ olurken, SDXL barındırılan API'ler görsel başına yalnızca 0,002–0,004 $ olabilir. Aylık 10.000 ürün görseli üreten Türk bir e-ticaret platformu, DALL·E 3 HD ile 800 $/ay öderken Flux endpoint'iyle 40 $'ın altında harcama yapar — USD/TRY kuru göz önüne alındığında bu fark çok daha anlamlıdır. Türk geliştiriciler için önerilen strateji: prototip için DALL·E 3 API'si, üretim hacminde ise Türkiye'deki Hetzner GPU sunucularında self-hosted Flux. DALL-E 3 fiyat karşılaştırması için aylık görsel hacminizi girin.</p>
+    <div class="calc-faq">
+      <details><summary>DALL-E 3 API üzerinden görsel başına maliyeti ne kadar?</summary><p>DALL·E 3, 2026'da OpenAI API üzerinden standart kalitede (1024×1024) görsel başına 0,040 $, HD kalitede 0,080 $ ücretlendirilir. Ayda 5.000 görsel için standart: 200 $, HD: 400 $. Türkiye'de USD/TRY kuru dikkate alındığında, Flux veya SDXL gibi açık modeller maliyeti 10–40 kat düşürerek daha sürdürülebilir bir alternatif sunar.</p></details>
+      <details><summary>Yüksek hacimli Türk uygulamaları için en ucuz AI görüntü oluşturma API'si hangisi?</summary><p>Replicate, Together AI veya RunPod üzerindeki Flux Dev ve SDXL, görsel başına 0,001–0,004 $ ile en ucuz seçeneklerdir. Türk geliştiriciler için alternatif: Hetzner GPU sunucusunda (RTX 4090, ~50 $/ay) Flux barındırmak — aylık 10.000+ görsel için görsel başına maliyet 0,005 $'ın altına düşer ve veriler Türkiye'de kalır.</p></details>
+      <details><summary>SaaS ürünüm için AI görüntü maliyetini nasıl hesaplarım?</summary><p>Aylık görsel sayısını görsel başına API fiyatıyla çarpın, ardından varyasyon çarpanını ekleyin. Başarısız üretimler için %1–3 ekleyin. Kullanıcı başına görsel sınırı koyarak maliyeti kontrol altına alın. Bu hesaplayıcıya hacminizi ve model tercihlerinizi girerek tam aylık USD maliyetinizi ve Türkiye'deki alternatif seçenekleri karşılaştırın.</p></details>
+    </div>
+  </div>
 </div>
 </section>
   <section class="panel" id="pay" role="tabpanel">
@@ -422,6 +459,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="cmp" id="payCmp"></div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>Stripe vs Paddle Ücretleri — SaaS Ödeme Sistemi Maliyet Karşılaştırması</h3>
+    <p>Bu ödeme işlemci ücreti hesaplayıcısı, Stripe, Paddle, Lemon Squeezy ve PayPal'ın aylık SaaS gelirinizden ne kadar aldığını tam olarak gösterir. Türk SaaS girişimcileri için ödeme sağlayıcısı seçimi kritik bir karardır: Türkiye'den global satış yapan girişimcilerin çoğu, Türkiye'de şirket sahibi olmak yerine ABD veya Estonya'da şirket kurarak Stripe veya Paddle'a erişim sağlamaktadır. Stripe, ABD kartları için işlem başına %2,9 + 0,30 $ alırken, Paddle ve Lemon Squeezy Merchant of Record olarak işlev görerek küresel KDV/satış vergisi yönetimini üstlenir — bu, ABD ve AB pazarlarına satış yapan Türk girişimciler için büyük bir avantajdır. 25.000 $/ay geliri ve 800 işlemi olan bir Türk SaaS girişimi Stripe'ta ~1.010 $/ay öder. Lemon Squeezy ise basitliği ve Merchant of Record yapısıyla solo Türk geliştiriciler arasında en popüler seçenek haline gelmiştir. Tam karşılaştırma için gelirinizi ve işlem hacminizi girin.</p>
+    <div class="calc-faq">
+      <details><summary>Türkiye'den SaaS satan geliştiriciler için Stripe en iyi seçenek mi?</summary><p>Stripe, Türkiye'ye doğrudan hizmet vermez (Türkiye'de kayıtlı şirketler için), bu yüzden çoğu Türk geliştirici ABD (Wyoming, Delaware) veya Estonya'da şirket kurarak Stripe'a erişir. Alternatif olarak Paddle ve Lemon Squeezy, Merchant of Record yapısıyla KDV ve vergi yönetimini de üstlenerek özellikle solo Türk geliştiriciler için daha basit bir çözüm sunar.</p></details>
+      <details><summary>Paddle, Türk SaaS girişimcileri için Stripe'tan daha mı ucuz?</summary><p>Yüzde olarak Paddle daha pahalı görünür (%5–9), ancak küresel KDV, ABD satış vergisi ve AB KDV'sini yönettiği düşünüldüğünde toplam maliyet Stripe'a yaklaşır veya altına düşer. Türkiye'den global pazara satış yapan girişimciler için Lemon Squeezy (%5 + 0,50 $), basitlik ve Merchant of Record avantajlarıyla genellikle en iyi ilk seçenektir.</p></details>
+      <details><summary>Türk bağımsız geliştirici olarak hangi ödeme sağlayıcısını kullanmalıyım?</summary><p>2026 itibarıyla Türk solo geliştiriciler arasında Lemon Squeezy en popüler seçenek — Merchant of Record yapısı, basit API ve düşük kur riski sunar (USD fiyatlandırma). Gumroad da basit dijital ürünler için kullanılabilir. Hacim büyüdükçe Stripe (ABD şirketi üzerinden) daha uygun maliyetli hale gelir. Bu hesaplayıcı gerçek USD maliyet farkını gösterir.</p></details>
+    </div>
+  </div>
 </div>
 </section>
 
@@ -452,6 +498,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <div class="breakdown" id="cloudCmp"></div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>Bulut VPS Maliyet Karşılaştırma — Hetzner vs DigitalOcean Fiyat 2026</h3>
+    <p>Bu bulut VPS maliyet karşılaştırma aracı, Türk geliştiricilerin Vultr, DigitalOcean ve Hetzner arasında iş yükleri için en ucuz sunucuyu bulmalarına yardımcı olur. Türk geliştirici topluluğunda Hetzner en popüler tercih haline gelmiştir: CPX21 (3 vCPU / 4 GB RAM) Almanya'da yalnızca 5,83 €/ay — DigitalOcean'daki benzer konfigürasyonun 24 $/ay fiyatının yaklaşık dörtte biri. 4 vCPU / 8 GB RAM'lik üç uygulama sunucusu çalıştıran Türk bir startup, DigitalOcean'da 336 $/ay vs Hetzner'de ~55 €/ay öder — yıllık 3.000 $'ın üzerinde tasarruf anlamına gelir. USD/TRY kuru düşünüldüğünde bu fark kritik öneme sahiptir. Türk geliştiriciler için Hetzner Nürnberg, Falkenstein veya Helsinki lokasyonları tercih edilmekte; GDPR uyumu açısından AB veri merkezi avantajı sunmaktadır. ABD pazarına yakınlık gerekiyorsa Hetzner Ashburn (ABD-Doğu) de mevcut ve aynı düşük fiyatları sunar.</p>
+    <div class="calc-faq">
+      <details><summary>Hetzner, Türk geliştiriciler için DigitalOcean'dan ne kadar daha ucuz?</summary><p>Hetzner CPX21 (3 vCPU / 4 GB RAM) 5,83 €/ay, DigitalOcean'daki en yakın seçenek ise 24 $/ay — yaklaşık 4 kat fark. Türk geliştiriciler için EUR/USD kuru da elverişli olduğunda yıllık tasarruf 200 €'nun üzerine çıkar. Hetzner, ISO 27001 sertifikalı, KVKK uyumlu AB veri merkezi sağlar ve fatura EUR üzerinden kesilir.</p></details>
+      <details><summary>2026'da Türk geliştiriciler için en iyi fiyat/performans oranına sahip VPS hangisi?</summary><p>Hetzner, saf fiyat/performans açısından EU ve Türk iş yükleri için açık ara öndedir. ABD-Batı gecikme süresi gerekiyorsa Vultr rekabetçi 20–24 $/ay seçenekler sunar. DigitalOcean'ın fiyat farkı, yönetilen veritabanları ve Spaces nesne deposu gibi ekosistem avantajlarıyla dengelenir. Saf VPS kullanımında Hetzner veya Vultr neredeyse her zaman kazanır.</p></details>
+      <details><summary>Çoklu sunucu kümesi için bulut VPS maliyetlerini nasıl karşılaştırırım?</summary><p>Bu hesaplayıcıdaki sunucu sayısı alanını kullanarak maliyetleri büyütün. 4 vCPU / 8 GB RAM'lik 5 sunuculu küme: DigitalOcean'da ~600 $/ay, Hetzner'de ~90 €/ay. Türk startup'lar için yıllık tasarruf 6.000 $'ı aşabilir — bu, USD/TRY kuru hesaba katıldığında çok daha kritik bir faktördür.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -491,6 +546,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>Konuşma Tanıma API Maliyeti — ElevenLabs Fiyat vs Whisper Karşılaştırması</h3>
+    <p>Bu STT/TTS API maliyet hesaplayıcısı, işlenen ses dakikasına göre OpenAI Whisper, ElevenLabs, Deepgram ve Google Speech API'leri için aylık harcamanızı tahmin eder. Sesli özellikler, çağrı merkezi otomasyonu veya podcast transkripsiyon araçları geliştiren Türk ürün ekipleri için sağlayıcılar arasındaki fiyat farkı çarpıcıdır. OpenAI Whisper API dakika başına 0,006 $ — ayda 10.000 dakika 60 $ tutar. Deepgram Nova-2, 0,0043 $/dk ile hem daha ucuz hem de yüksek doğrulukludur. ElevenLabs TTS, 1 milyon karakter başına 330 $ ile premium ses sentezi sunar — Türkçe için de mükemmel ses kalitesine sahip olmakla birlikte, ayda 10 milyon karakter üreten bir uygulama 3.300 $/ay öder. OpenAI TTS ise aynı hacim için yalnızca 150 $. Türk geliştiriciler için pratik yaklaşım: Whisper self-hosted (Hetzner GPU'da) ile dakika başına maliyet 0,001 $'ın altına düşürülebilir ve ses verileri Türkiye'de kalır. ElevenLabs fiyat karşılaştırması için ses dakikanızı girin.</p>
+    <div class="calc-faq">
+      <details><summary>OpenAI Whisper API saatlik ses başına ne kadar tutar?</summary><p>OpenAI Whisper 0,006 $/dakika, yani 0,36 $/ses saati. Ayda 10.000 dakika (167 saat) için 60 $. USD/TRY kuru düşünüldüğünde, self-hosted Whisper (Hetzner GPU sunucusunda) çok daha ekonomik: RTX 4090 ile dakika başına maliyet 0,001 $'ın altına düşer. Türkçe desteği için Whisper Large-v3 en iyi sonuçları verir.</p></details>
+      <details><summary>ElevenLabs Türkçe sesler için OpenAI TTS'e kıyasla değer mi?</summary><p>ElevenLabs 330 $/1M karakter, OpenAI TTS ise 15 $/1M karakter — 22 kat fark. Türkçe için ElevenLabs gerçekçi ses klonlama ve duygusal tonlama sunar; sesli kitap, karakter AI veya premium içerik uygulamaları için mantıklı. Bildirim, IVR veya işlevsel TTS için OpenAI TTS yeterlidir ve maliyeti çok düşüktür. Bu hesaplayıcı her ikisini hacminizle hesaplar.</p></details>
+      <details><summary>Türkçe içerik için en iyi ve en ucuz STT API hangisi?</summary><p>OpenAI Whisper Large-v3 (0,006 $/dk), Türkçe için en iyi doğruluk/maliyet dengesini sunar. Google STT Türkçe modeliyle aksan ve teknik terimlerde daha iyi performans gösterir ancak 0,024 $/dk ile 4 kat pahalıdır. Deepgram Nova-2 Türkçe desteği İngilizce kadar olgun değildir. Yüksek doğruluk gerektiren Türkçe transkripsiyon (hukuk, tıp) için Whisper Large-v3 veya Google STT önerilir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -533,6 +597,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>AWS Lambda Maliyet Hesaplayıcı — Sunucusuz Maliyet Karşılaştırması 2026</h3>
+    <p>Bu AWS Lambda maliyet hesaplayıcısı, çağrı sayısı, ortalama yürütme süresi ve bellek tahsisine göre aylık sunucusuz hesaplama harcamanızı tahmin eder. Türk geliştirici topluluğunda event-driven mimari kullananlar için Lambda'nın fiyatlandırma modeli — 1 milyon istek başına 0,20 $ artı GB-saniye başına 0,0000166667 $ — düşük bellekli ve hızlı çalışan fonksiyonları ödüllendirir. Aylık 150 ms ve 256 MB ile 1 milyon Lambda çağrısı yapan tipik bir Türk API backend'i yaklaşık 5–8 $/ay öder. AWS Lambda'nın 1M istek/ay ücretsiz katmanı içinde kalındığında pratik olarak ücretsizdir. Cloudflare Workers ise 0,50 $/milyon istek fiyatıyla AWS API GW'den 7 kat daha ucuzdur ve Türkiye'ye yakın İstanbul PoP'u sayesinde Türk kullanıcılara düşük gecikme sunar. Türk startup'lar için öneri: düşük hacimli MVP'lerde Lambda free tier, büyük ölçekte Cloudflare Workers kombinasyonu. Tam maliyet karşılaştırması için hacminizi girin.</p>
+    <div class="calc-faq">
+      <details><summary>AWS Lambda aylık 1 milyon istek için ne kadar tutar?</summary><p>AWS Lambda'nın ilk 1 milyon isteği/ay ücretsizdir (kalıcı free tier). Sonrası: 1 milyon istek başına 0,20 $ artı hesaplama maliyeti. 150 ms ve 256 MB'de 1M çağrı için: ~0,45 $/ay. USD/TRY kuru hesaplandığında Lambda free tier, düşük hacimli Türk startup'ları için pratik olarak sıfır maliyetle en güçlü başlangıç seçeneğidir.</p></details>
+      <details><summary>Cloudflare Workers, Türk uygulamalar için AWS Lambda'dan daha ucuz mu?</summary><p>Çoğu iş yükü için evet. Cloudflare Workers Paid, aylık 5 $ temel planındaki ilk 10M isteğin ardından 0,50 $/milyon istek öder. AWS API Gateway REST 3,50 $/milyon — 7 kat pahalı. Cloudflare'in İstanbul PoP'u, Türk kullanıcılar için &lt;10 ms gecikme sağlar. Workers, kısa süreli edge fonksiyonlar için ideal; Lambda ise uzun süreli hesaplama için daha esnektir.</p></details>
+      <details><summary>Türk geliştiriciler için AWS Lambda'ya ücretsiz alternatifler var mı?</summary><p>Cloudflare Workers Free tier ayda 100.000 istek sunar — küçük Türk projeler için sıfır maliyetli. Vercel Functions free tier ile 100 GB-saat/ay hesaplama ücretsiz. Railway.app ve Render.com gibi platformlar da ücretsiz katmanlar sunar. Bu hesaplayıcı, hacminizin hangi platforma ne zaman geçişi ekonomik hale getirdiğini gösterir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -567,6 +640,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>API Gateway Maliyet Hesaplayıcı — AWS API Gateway Maliyeti 2026</h3>
+    <p>Bu API gateway maliyet hesaplayıcısı, istek hacmi ve veri transferine göre AWS API Gateway, Cloudflare Workers ve Kong Cloud için aylık maliyetleri tahmin eder. AWS API Gateway REST API, milyon istek başına 3,50 $ artı GB çıkış transferi başına 0,09 $ alır — aylık 100 milyon API çağrısını işleyen Türk bir SaaS platformu yalnızca istek ücretlerinde 350 $ öder. Cloudflare Workers API gateway front-end olarak milyon istek başına yalnızca 0,50 $ — AWS API GW'den 7 kat ucuz. Cloudflare'in İstanbul PoP'u sayesinde Türk kullanıcılar düşük gecikme yaşar. Kong Cloud ise 2,00 $/milyon ile kurumsal özellikler sunar. 50 GB transfer ile aylık 10 milyon istekli bir Türk SaaS API'si için: AWS API Gateway ~39,50 $/ay, Cloudflare Workers ~7 $/ay. USD cinsinden bu fark, TRY bazında önemli bir tasarruf anlamına gelir. Hacminizi girerek tam maliyet karşılaştırmasını görün.</p>
+    <div class="calc-faq">
+      <details><summary>AWS API Gateway milyon istek başına ne kadar tutar?</summary><p>AWS API Gateway REST API: 3,50 $/milyon istek (us-east-1). HTTP API (v2): 1,00 $/milyon — basit proxy veya JWT kimlik doğrulaması için kullanın. Veri çıkışı: 0,09 $/GB. 50 GB transferle aylık 10M istek için: REST API ~39,50 $ vs HTTP API ~14,50 $. Türk ekipler için USD/TRY kuru fiyat kararında kritik bir faktördür.</p></details>
+      <details><summary>Cloudflare Workers, Türk API'leri için AWS API Gateway'den daha ucuz mu?</summary><p>Evet, belirgin biçimde. Cloudflare Workers Paid: 5 $/ay temel planda ilk 10M isteğin ardından 0,50 $/milyon. AWS API Gateway REST: 3,50 $/milyon — 7 kat pahalı. Cloudflare'in İstanbul PoP'u Türk kullanıcılar için &lt;20 ms gecikme sağlar. Yüksek hacimli Türk API'leri için Cloudflare Workers yıllık 3.000 $+ tasarruf sunabilir.</p></details>
+      <details><summary>API Gateway yerine Lambda Function URL'leri ne zaman kullanmalıyım?</summary><p>Lambda Function URL'leri ücretsizdir (yalnızca Lambda maliyeti) ve basit kullanım durumları için yeterlidir. İstek azaltma, API anahtarları, WAF entegrasyonu, kullanım planları veya özel alan HTTPS sonlandırması gerektiğinde API Gateway kullanın. Türk ekipler için pratik yaklaşım: MVP'de Lambda URL, üretime geçişte API Gateway — bu hesaplayıcı ne zaman geçişin ekonomik olduğunu gösterir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -604,6 +686,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>Embedding API Maliyeti — OpenAI Embedding Fiyatı 2026</h3>
+    <p>Bu embedding API maliyet hesaplayıcısı, token hacmi ve belge sayısına göre OpenAI, Cohere, Voyage AI ve Jina AI embedding modelleri için aylık harcamayı tahmin eder. Embeddinglar, RAG sistemlerinin, semantik aramanın ve öneri motorlarının temelidir — ölçeklendikçe maliyetleri hızla artabilir. OpenAI text-embedding-3-small 0,020 $/1M token ile büyük Türkçe belge koleksiyonları için en maliyet etkin seçenektir. 500.000 Türkçe belgeyi (~300 token/belge, 150M token toplam) gömmek yalnızca 3 $/ay tutar. Cohere Embed Multilingual v3 (0,10 $/1M), Türkçe dahil 100+ dili destekleyen güçlü çok dilli bir modeldir — Türk e-ticaret ve içerik platformları için idealdir. Jina AI v3 (0,018 $/1M) 8.192 token bağlam penceresiyle uzun Türkçe belgeler (sözleşmeler, makaleler) için en ucuz seçenektir ve self-hosting ile Türkiye'deki sunucularda da çalıştırılabilir. OpenAI embedding fiyatı karşılaştırması için token hacminizi girin.</p>
+    <div class="calc-faq">
+      <details><summary>2026 OpenAI embedding API fiyatları Türkçe metinler için nedir?</summary><p>OpenAI text-embedding-3-small: 0,020 $/1M token, text-embedding-3-large: 0,130 $/1M, ada-002 (eski): 0,100 $/1M. Türkçe metinler için text-3-small iyi kalite sunar. Cohere embed-multilingual-v3 (0,10 $/1M) Türkçe için daha iyi optimize edilmiş olabilir. 100.000 Türkçe belgeyi gömmek text-3-small ile 3 $'ın altında tutar.</p></details>
+      <details><summary>Türk RAG uygulaması için embedding API maliyetini nasıl hesaplarım?</summary><p>Toplam belge token sayısını (ortalama Türkçe belge: ~300 token) fiyatla çarpın. OpenAI text-3-small ile 100.000 belge için (~30M token): tek seferlik gömme maliyeti ~0,60 $. Süregelen maliyet güncelleme sıklığına bağlı. Gerçek zamanlı kullanıcı sorguları sorgu başına ~0,000001 $ ekler — pratik olarak ihmal edilebilir düzeyde.</p></details>
+      <details><summary>Jina AI embedding büyük Türkçe belge koleksiyonları için OpenAI'dan ucuz mu?</summary><p>Jina AI v3 (0,018 $/1M), OpenAI text-3-small'dan (0,020 $/1M) biraz ucuz ve 8.192 token bağlam penceresi sunar — uzun Türkçe belgeler için chunking'e gerek kalmaz. Self-hosting seçeneğiyle Hetzner'de Türkiye'ye yakın sunucularda çalıştırılabilir, böylece hem maliyet düşer hem de veri kontrolü elinizde kalır.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -650,6 +741,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         </div>
       </div>
     </div>
+  <div class="calc-seo-content">
+    <h3>AI Ajan Maliyet Hesaplayıcı — Çok Modelli Pipeline Maliyeti 2026</h3>
+    <p>Bu AI ajan maliyet hesaplayıcısı, farklı modellerin farklı görevleri üstlendiği çok adımlı LLM pipeline'larının toplam maliyetini tahmin eder. Modern AI ajan mimarileri tipik olarak planlama veya yönlendirme için hızlı ve ucuz bir model (GPT-4o mini, Gemini Flash), temel muhakeme için güçlü bir model (GPT-4o, Claude 3.5 Sonnet) ve özetleme için ucuz bir model zincirler. Türk geliştirici ekipleri için bu katmanlı maliyetler genellikle en büyük bütçe sürprizi olur. GPT-4o mini → GPT-4o → GPT-4o mini pipeline'ı, aylık 5.000 çalışmayla 75–150 $/ay tutar. Aylık 50.000 çalışmada bu 750–1.500 $'a çıkar — USD/TRY kuru düşünüldüğünde önemli bir tutar. Ana worker adımını Claude 3.5 Haiku ile değiştirmek orta kademe maliyeti %80 azaltır. Türk AI girişimcileri için öneri: prototip aşamasında ücretsiz tier'lardan yararlanın, ölçeklendikçe daha ucuz modellere geçin. Hacminizi girerek çok modelli pipeline maliyetinizi görün.</p>
+    <div class="calc-faq">
+      <details><summary>Çok adımlı AI ajan pipeline'ı çalışma başına ne kadar tutar?</summary><p>GPT-4o mini / GPT-4o / GPT-4o mini ile tipik 3 adımlı pipeline (500/2.000/300 token/adım) çalışma başına ~0,024 $ tutar. 10.000 çalışma/ay için: ~240 $/ay. Ana worker adımında GPT-4o yerine Claude 3.5 Haiku kullanmak maliyeti 80 $/ay'ın altına düşürür. USD/TRY kuru hesaba katıldığında model seçimi kritik önem taşır.</p></details>
+      <details><summary>AI ajan yönlendirme ve planlama için en ucuz LLM hangisi?</summary><p>GPT-4o mini (0,15 $/1M giriş) ve Gemini Flash (0,075 $/1M giriş), 2026'da ucuz yönlendirme için en iyi seçeneklerdir. Her ikisi de sınıflandırma, araç seçimi ve yapılandırılmış JSON çıktısını güvenilir biçimde işler. Claude 3.5 Haiku (0,80 $/1M giriş), daha güçlü talimat takibi gerektiren planlama adımları için tercih edilir.</p></details>
+      <details><summary>Türk AI girişimcileri için yüksek çalışma hacminde maliyetleri nasıl düşürebilirim?</summary><p>Temel stratejiler: benzer girdiler için planlayıcı çıktılarını önbelleğe alın (%60–80 tasarruf), ara durumları özetleyerek daha küçük bağlam pencereleri kullanın, yaratıcı olmayan muhakeme adımlarında GPT-4o yerine Haiku veya Sonnet kullanın ve acil olmayan çalışmaları asenkron kuyruklara atın. Bu hesaplayıcı her optimizasyonun öncesi ve sonrası maliyetini modelleyebilir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -700,7 +800,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <a href="/tr/yapay-zeka-kodlama-arac-maliyeti.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
       </div>
     </div>
-  
+  <div class="calc-seo-content">
+    <h3>AI Kodlama Aracı Maliyeti — Cursor vs Copilot Fiyat Karşılaştırması 2026</h3>
+    <p>Bu AI kodlama aracı maliyet hesaplayıcısı, kullanım yoğunluğuna ve ekip büyüklüğüne göre Cursor, GitHub Copilot, Claude Code ve Windsurf için aylık harcamaları karşılaştırır. Türk geliştirici topluluğunda bu araçlar koltuk başına 10 ila 200+ $/ay arasında değişir. GitHub Copilot Business 19 $/koltuk/ay ile güçlü IDE entegrasyonu sunar. Cursor Pro, 20 $/ay ile GPT-4o ve Claude erişimi ve güçlü ajan modu sunar — 2026'da bireysel Türk geliştiriciler arasında en popüler seçenek. Claude Code kullanım bazlı fiyatlandırmayla yoğun ajan kullanımında 50–300 $/ay'a ulaşabilir. 5 kişilik Türk startup ekibi için Cursor vs Copilot karşılaştırması: 100 $/ay vs 95 $/ay standart tariflerde — ancak Cursor'ın ajan yetenekleri karmaşık refaktoring görevleri için farkı genellikle hak eder. USD/TRY kuru düşünüldüğünde bu aylık maliyetler önemli bir kalem oluşturur — bu nedenle kullanım yoğunluğunu doğru tahmin etmek ve doğru aracı seçmek kritiktir. Ekip büyüklüğünüzü ve kullanım tipinizi girerek tam karşılaştırmayı görün.</p>
+    <div class="calc-faq">
+      <details><summary>Türk geliştiriciler için Cursor ile GitHub Copilot arasındaki maliyet farkı nedir?</summary><p>Cursor Pro: kullanıcı başına 20 $/ay, Cursor Business: 40 $/koltuk. GitHub Copilot Individual: 10 $/ay, Copilot Business: 19 $/koltuk/ay. 5 kişilik Türk ekip için: Cursor Business 200 $/ay vs Copilot Business 95 $/ay. Cursor'ın güçlü ajan modu ve çoklu dosya düzenleme yetenekleri, karmaşık Türk kod tabanları için farkı çoğu zaman haklı kılar.</p></details>
+      <details><summary>Claude Code, solo Türk geliştirici için Cursor'a kıyasla değer mi?</summary><p>Claude Code kullanım bazlıdır (Anthropic API üzerinden token başına) — hafif kullanıcı 20–40 $/ay, yoğun ajan kullanıcısı 100–300 $/ay öder. Cursor Pro'nun 20 $/ay sabit tarifi, çoğu Türk solo geliştirici için daha öngörülebilirdir. USD/TRY kuru gözetildiğinde sabit tarifte bütçe planlaması daha kolaydır. Claude Code, karmaşık çok dosyalı görevlerde öne çıkar.</p></details>
+      <details><summary>Küçük Türk geliştirici ekibi için en iyi AI kodlama aracı hangisi?</summary><p>2026'da 1–5 kişilik Türk ekipler için Cursor Pro (20 $/koltuk) en dengeli seçenek — özellikler, ajan modu ve model erişimi açısından. Windsurf (15 $/koltuk) en düşük bütçeli alternatif. GitHub Copilot Business (19 $/koltuk) GitHub Enterprise kullananlar için mantıklı. Tüm araçlar için aylık maliyeti USD/TRY kuruna göre takip etmek ve kullanım bazlı faturalandırmaya dikkat etmek önerilir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </section>
@@ -735,7 +843,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
         <a href="/tr/kimlik-dogrulama-maliyet.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
       </div>
     </div>
-  
+  <div class="calc-seo-content">
+    <h3>Kimlik Doğrulama Maliyet Hesaplayıcı — Clerk vs Supabase Auth Fiyat 2026</h3>
+    <p>Bu kimlik doğrulama sağlayıcısı maliyet hesaplayıcısı, Aylık Aktif Kullanıcı (MAU) sayısına göre Clerk, Auth0, Supabase Auth ve Firebase Auth için aylık fiyatları karşılaştırır. Türk SaaS girişimcileri için auth maliyeti genellikle ölçeklendikçe sürpriz yapar. Clerk'in ücretsiz katmanı 10.000 MAU kapsar; Pro plan 25 $/ay ile 10.000 MAU içerir ve ötesinde 0,02 $/MAU alır — 100.000 MAU'da Clerk 1.825 $/ay tutar. Supabase Auth ise 25 $/ay Pro planına dahildir — sınırsız MAU, kullanıcı başına ücret yok. Tüketici odaklı Türk uygulamaları için bu muazzam bir maliyet avantajıdır: 100.000 MAU'da Clerk, Supabase Auth'tan 73 kat daha pahalıdır. Türk geliştiriciler için pratik öneri: MVP'de Supabase Auth (25 $/ay ile sınırsız MAU), gelişmiş organizasyon yönetimi veya kurumsal SSO gerektiğinde Clerk'e geçiş. USD/TRY kuru gözetildiğinde Clerk'in MAU bazlı fiyatlandırması hızla önemli bir gider kalemiye dönüşebilir. MAU sayınızı girerek gerçek maliyet farkını görün.</p>
+    <div class="calc-faq">
+      <details><summary>Clerk 50.000 MAU için aylık ne kadar tutar?</summary><p>Clerk Pro 25 $/ay temel ücret artı 10.000 üzerindeki her MAU için 0,02 $ alır. 50.000 MAU'da: 25 $ + (40.000 × 0,02 $) = 825 $/ay. Supabase Auth aynı ölçekte 25 $/ay (Pro planı dahilinde) — 33 kat daha ucuz. USD/TRY kuru düşünüldüğünde Clerk'in MAU bazlı fiyatlandırması Türk ölçekli uygulamalar için önemli bir kalem haline gelir.</p></details>
+      <details><summary>Supabase Auth, Türk uygulamaları için Clerk'in yerini tutabilir mi?</summary><p>Çoğu Türk B2C uygulaması için evet. Supabase Auth e-posta/şifre, magic link, OAuth (Google, GitHub), telefon OTP ve Row Level Security desteği sunar. Clerk'in hazır UI bileşenleri ve çok organizasyonlu yönetim özellikleri eksik. Kendi auth UI'sini oluşturmaya hazır Türk ekipler, Supabase ile önemli ölçüde tasarruf ederken tam kontrol elde eder.</p></details>
+      <details><summary>Türk B2B SaaS için SSO desteğiyle en ucuz auth sağlayıcısı hangisi?</summary><p>WorkOS, B2B SSO için özel olarak tasarlanmıştır ve bağlantı başına ücret alır (125–225 $/bağlantı/ay) — az sayıda enterprise müşteriyle çalışan Türk ekipler için Clerk ve Auth0'dan daha ucuz olabilir. Auth0 ve Clerk SSO/SAML'ı 240 $/ay'dan sunar. Supabase Auth SAML 2.0'ı Team planında (599 $/ay) destekler — yüksek MAU ve çoklu SSO bağlantısı olan Türk B2B SaaS'lar için en ekonomik olabilir.</p></details>
+    </div>
+  </div>
 </div>
 </div>
 </section>
