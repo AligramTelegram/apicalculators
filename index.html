@@ -381,6 +381,29 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .calc-faq details[open] summary::after{content:"－"}
 .calc-faq details p{margin-top:8px;line-height:1.65;color:var(--muted)}
 @media(max-width:780px){.calc-seo-content{padding:16px 20px 20px}}
+
+/* ── Share Button ── */
+.share-row{display:flex;align-items:center;gap:10px;margin-top:16px}
+.share-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);
+  border:1px solid var(--border2);border-radius:9px;padding:8px 14px;color:var(--muted);
+  font-size:12.5px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;
+  transition:all .18s}
+.share-btn:hover{border-color:var(--lime);color:var(--lime)}
+.share-confirm{font-size:12px;color:#4ade80;font-weight:600;animation:fade-in .2s ease}
+@keyframes fade-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ── Cost Warning ── */
+.cost-warning{margin-top:14px;padding:10px 14px;border-radius:9px;font-size:12.5px;font-weight:600;
+  border-left:3px solid;animation:fade-in .25s ease;display:none}
+.cost-warning.high{border-color:#ff5d6c;background:rgba(255,93,108,.08);color:#ff8f9a}
+.cost-warning.mid{border-color:#ffb24d;background:rgba(255,178,77,.08);color:#ffc96e}
+.cost-warning.low{border-color:#4ade80;background:rgba(74,222,128,.08);color:#4ade80}
+
+/* ── Recommendation ── */
+.calc-recommendation{margin-top:10px;padding:10px 14px;border-radius:9px;font-size:12.5px;
+  background:rgba(77,214,255,.07);border:1px solid rgba(77,214,255,.2);color:#7de2f5;
+  animation:fade-in .25s ease;display:none}
+.calc-recommendation .rec-icon{margin-right:4px}
 </style>
 <style>
 .affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
@@ -757,12 +780,15 @@ window.addEventListener('load',function(){
             <option value="whisper">OpenAI Whisper — $0.006/min</option>
             <option value="google-stt">Google STT — $0.024/min</option>
             <option value="deepgram">Deepgram Nova-2 — $0.0043/min</option>
+            <option value="azure-stt">Azure Speech — $1.00/hr</option>
+            <option value="assemblyai">AssemblyAI — $0.37/hr</option>
           </optgroup>
           <optgroup label="Text-to-Speech (TTS)">
             <option value="openai-tts">OpenAI TTS — $15/1M chars</option>
             <option value="openai-tts-hd">OpenAI TTS HD — $30/1M chars</option>
             <option value="elevenlabs">ElevenLabs — $330/1M chars</option>
             <option value="google-tts">Google TTS — $16/1M chars</option>
+            <option value="playht">PlayHT TTS — $30/1M chars</option>
           </optgroup>
         </select>
         <label class="lbl" for="sttVol">Audio minutes / month</label>
@@ -805,6 +831,8 @@ window.addEventListener('load',function(){
           <option value="vercel">Vercel Functions</option>
           <option value="cf">Cloudflare Workers</option>
           <option value="gcp">GCP Cloud Functions</option>
+          <option value="netlify">Netlify Functions</option>
+          <option value="railway">Railway</option>
         </select>
         <label class="lbl" for="slInvoke">Invocations / month</label>
         <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
@@ -1222,21 +1250,30 @@ window.addEventListener('load',function(){
 /* ============ PRICING DATA (2026, USD) ============ */
 // LLM: price per 1,000,000 tokens
 const LLM = [
-  {id:"gpt-4o",        name:"GPT-4o",                in:2.50,  out:10.00},
-  {id:"gpt-4o-mini",   name:"GPT-4o mini",           in:0.15,  out:0.60},
-  {id:"o1",            name:"OpenAI o1",             in:15.00, out:60.00},
-  {id:"claude-sonnet", name:"Claude 3.5 Sonnet",     in:3.00,  out:15.00},
-  {id:"claude-haiku",  name:"Claude 3.5 Haiku",      in:0.80,  out:4.00},
-  {id:"claude-opus",   name:"Claude 3 Opus",         in:15.00, out:75.00},
-  {id:"gemini-pro",    name:"Gemini 1.5 Pro",        in:1.25,  out:5.00},
-  {id:"gemini-flash",  name:"Gemini 1.5 Flash",      in:0.075, out:0.30},
+  {id:"gpt-4o",           name:"GPT-4o",                      in:2.50,  out:10.00},
+  {id:"gpt-4o-mini",      name:"GPT-4o mini",                 in:0.15,  out:0.60},
+  {id:"o1",               name:"OpenAI o1",                   in:15.00, out:60.00},
+  {id:"claude-sonnet",    name:"Claude 3.5 Sonnet",           in:3.00,  out:15.00},
+  {id:"claude-haiku",     name:"Claude 3.5 Haiku",            in:0.80,  out:4.00},
+  {id:"claude-opus",      name:"Claude 3 Opus",               in:15.00, out:75.00},
+  {id:"gemini-pro",       name:"Gemini 1.5 Pro",              in:1.25,  out:5.00},
+  {id:"gemini-flash",     name:"Gemini 1.5 Flash",            in:0.075, out:0.30},
+  {id:"mistral-large",    name:"Mistral Large",               in:2.00,  out:6.00},
+  {id:"mistral-small",    name:"Mistral Small",               in:0.20,  out:0.60},
+  {id:"llama-405b",       name:"Llama 3.1 405B (Together)",   in:3.50,  out:3.50},
+  {id:"llama-70b",        name:"Llama 3.1 70B (Together)",    in:0.88,  out:0.88},
+  {id:"groq-llama3",      name:"Groq Llama3",                 in:0.59,  out:0.79},
+  {id:"perplexity-sonar", name:"Perplexity Sonar",            in:1.00,  out:1.00},
 ];
 // Vector DB simplified model: {base, storagePerGB, queryPerMillion}
 const VEC = [
-  {id:"pinecone", name:"Pinecone (Serverless)", base:0,  storagePerGB:0.33, queryPerMillion:16.00},
-  {id:"supabase", name:"Supabase (pgvector)",   base:25, storagePerGB:0.125,queryPerMillion:0},
-  {id:"qdrant",   name:"Qdrant Cloud",          base:0,  storagePerGB:9.00, queryPerMillion:0},
-  {id:"weaviate", name:"Weaviate Cloud",        base:25, storagePerGB:0.50, queryPerMillion:10.00},
+  {id:"pinecone", name:"Pinecone (Serverless)", base:0,  storagePerGB:0.33,  queryPerMillion:16.00},
+  {id:"supabase", name:"Supabase (pgvector)",   base:25, storagePerGB:0.125, queryPerMillion:0},
+  {id:"qdrant",   name:"Qdrant Cloud",          base:0,  storagePerGB:9.00,  queryPerMillion:0},
+  {id:"weaviate", name:"Weaviate Cloud",        base:25, storagePerGB:0.50,  queryPerMillion:10.00},
+  {id:"chroma",   name:"Chroma Cloud",          base:0,  storagePerGB:0,     queryPerMillion:15.00},
+  {id:"mongodb",  name:"MongoDB Atlas Vector",  base:0,  storagePerGB:0.25,  queryPerMillion:100.00},
+  {id:"redis",    name:"Redis Vector",          base:0,  storagePerGB:36.00, queryPerMillion:0},
 ];
 // Image gen: price per image (USD)
 const IMG = [
@@ -1464,13 +1501,16 @@ function calcCloud(){
 
 /* ===== STT / TTS ===== */
 const STT_RATES = {
-  'whisper':     {type:'stt',rate:0.006},
-  'google-stt':  {type:'stt',rate:0.024},
-  'deepgram':    {type:'stt',rate:0.0043},
-  'openai-tts':  {type:'tts',rate:0.015},
+  'whisper':      {type:'stt',rate:0.006},
+  'google-stt':   {type:'stt',rate:0.024},
+  'deepgram':     {type:'stt',rate:0.0043},
+  'azure-stt':    {type:'stt',rate:0.01667},
+  'assemblyai':   {type:'stt',rate:0.00617},
+  'openai-tts':   {type:'tts',rate:0.015},
   'openai-tts-hd':{type:'tts',rate:0.030},
-  'elevenlabs':  {type:'tts',rate:0.330},
-  'google-tts':  {type:'tts',rate:0.016},
+  'elevenlabs':   {type:'tts',rate:0.330},
+  'google-tts':   {type:'tts',rate:0.016},
+  'playht':       {type:'tts',rate:0.030},
 };
 function calcStt(){
   var model=document.getElementById('sttModel').value;
@@ -1488,10 +1528,12 @@ function calcStt(){
 
 /* ===== SERVERLESS ===== */
 const SL_PRICES = {
-  lambda:{inv:0.0000002, gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
-  vercel:{inv:0.0000004, gb_sec:0.000018,     free_inv:0,       free_gb:0},
-  cf:    {inv:0.0000003, gb_sec:0.000012,     free_inv:1000000, free_gb:0},
-  gcp:   {inv:0.0000004, gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
+  lambda: {inv:0.0000002,  gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
+  vercel: {inv:0.0000004,  gb_sec:0.000018,     free_inv:0,       free_gb:0},
+  cf:     {inv:0.0000003,  gb_sec:0.000012,     free_inv:1000000, free_gb:0},
+  gcp:    {inv:0.0000004,  gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
+  netlify:{inv:0.000025,   gb_sec:0,            free_inv:125000,  free_gb:0},
+  railway:{inv:0.000000463,gb_sec:0.000463,     free_inv:0,       free_gb:0},
 };
 function calcServerless(){
   var prov=document.getElementById('slProvider').value;
@@ -1602,11 +1644,14 @@ calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent()
 /* ===== EN AI CODING CALC ===== */
 (function(){
   var TOOLS_en = [
-    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
-    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
-    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
-    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
-    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+    {name:'GitHub Copilot',           light:10, medium:10, heavy:19,  note:'Predictable'},
+    {name:'Windsurf',                 light:15, medium:15, heavy:45,  note:'Credit-based'},
+    {name:'Cursor',                   light:20, medium:20, heavy:80,  note:'$20-200/mo'},
+    {name:'Claude Code',              light:20, medium:20, heavy:120, note:'$20-200/mo'},
+    {name:'Tabnine',                  light:12, medium:12, heavy:12,  note:'No overages'},
+    {name:'Zed AI',                   light:0,  medium:0,  heavy:0,   note:'Free preview'},
+    {name:'Amazon CodeWhisperer',     light:19, medium:19, heavy:19,  note:'Pro plan'},
+    {name:'JetBrains AI',             light:10, medium:10, heavy:10,  note:'Flat rate'}
   ];
   function calcCoding_en(){
     var usage=document.getElementById('enCodingUsage').value;
@@ -1668,6 +1713,350 @@ calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent()
   calcAuth_en();
 })();
 
+/* ============ SHARE + WARNING + RECOMMENDATION SYSTEM ============ */
+(function(){
+/* -- Cost Warning -- */
+function showWarning(id, monthlyCost){
+  var el=document.getElementById(id+'-warning');
+  if(!el)return;
+  if(monthlyCost>500){
+    el.className='cost-warning high';
+    el.textContent='⚠️ High cost detected. See cheaper alternatives below.';
+    el.style.display='block';
+  } else if(monthlyCost>=100){
+    el.className='cost-warning mid';
+    el.textContent='💡 You could reduce this cost. See optimization tips below.';
+    el.style.display='block';
+  } else if(monthlyCost>0&&monthlyCost<20){
+    el.className='cost-warning low';
+    el.textContent='✅ Great choice! This is well-optimized.';
+    el.style.display='block';
+  } else {
+    el.style.display='none';
+  }
+}
+
+/* -- Recommendation -- */
+function showRec(id, text){
+  var el=document.getElementById(id+'-rec');
+  if(!el)return;
+  if(text){
+    el.innerHTML='<span class="rec-icon">💡</span><span class="rec-text">'+text+'</span>';
+    el.style.display='block';
+  } else {
+    el.style.display='none';
+  }
+}
+
+/* -- Inject UI into each calculator result -- */
+var CALC_IDS=['llm','vector','image','cloud','stt','serverless','gateway','embedding','agent','coding','auth'];
+var PAY_PANEL=document.getElementById('pay');
+
+function injectIntoResult(panelId){
+  var panel=document.getElementById(panelId);
+  if(!panel)return;
+  var result=panel.querySelector('.result');
+  if(!result)return;
+  var html='<div class="share-row">'
+    +'<button class="share-btn" data-calc="'+panelId+'">🔗 Share this calculation</button>'
+    +'<span class="share-confirm" id="'+panelId+'-confirm" style="display:none">✓ Link copied!</span>'
+    +'</div>'
+    +'<div class="cost-warning" id="'+panelId+'-warning" style="display:none"></div>'
+    +'<div class="calc-recommendation" id="'+panelId+'-rec" style="display:none"></div>';
+  result.insertAdjacentHTML('beforeend',html);
+}
+CALC_IDS.forEach(injectIntoResult);
+// Payment panel — different structure
+if(PAY_PANEL){
+  var cmp=PAY_PANEL.querySelector('.cmp');
+  if(cmp){
+    cmp.insertAdjacentHTML('afterend',
+      '<div class="share-row" style="margin-top:16px">'
+      +'<button class="share-btn" data-calc="pay">🔗 Share this calculation</button>'
+      +'<span class="share-confirm" id="pay-confirm" style="display:none">✓ Link copied!</span>'
+      +'</div>');
+  }
+}
+
+/* -- Share button click handlers -- */
+var SHARE_GETTERS={
+  llm:  function(){return{calc:'llm',model:document.getElementById('llmModel').value,in:document.getElementById('llmIn').value,out:document.getElementById('llmOut').value,req:document.getElementById('llmReq').value,days:window._llmDays||30};},
+  vector:function(){return{calc:'vector',prov:document.getElementById('vecProvider').value,n:document.getElementById('vecCount').value,dim:document.getElementById('vecDim').value,q:document.getElementById('vecQ').value};},
+  image: function(){return{calc:'image',model:document.getElementById('imgModel').value,cnt:document.getElementById('imgCount').value,var:document.getElementById('imgVar').value};},
+  pay:   function(){return{calc:'pay',rev:document.getElementById('payRev').value,tx:document.getElementById('payTx').value};},
+  cloud: function(){return{calc:'cloud',cpu:document.getElementById('cloudCpu').value,ram:document.getElementById('cloudRam').value,cnt:document.getElementById('cloudCount').value};},
+  stt:   function(){return{calc:'stt',model:document.getElementById('sttModel').value,vol:document.getElementById('sttVol').value};},
+  serverless:function(){return{calc:'serverless',prov:document.getElementById('slProvider').value,inv:document.getElementById('slInvoke').value,dur:document.getElementById('slDuration').value,mem:document.getElementById('slMemory').value};},
+  gateway:function(){return{calc:'gateway',prov:document.getElementById('gwProvider').value,reqs:document.getElementById('gwReqs').value,xfer:document.getElementById('gwTransfer').value};},
+  embedding:function(){return{calc:'embedding',model:document.getElementById('embModel').value,tok:document.getElementById('embTokens').value,docs:document.getElementById('embDocs').value};},
+  agent: function(){return{calc:'agent',m1:document.getElementById('agM1').value,m2:document.getElementById('agM2').value,m3:document.getElementById('agM3').value,runs:document.getElementById('agRuns').value};},
+  coding:function(){return{calc:'coding',usage:document.getElementById('enCodingUsage').value,type:document.getElementById('enCodingType').value,team:document.getElementById('enCodingTeam').value};},
+  auth:  function(){return{calc:'auth',mau:document.getElementById('enAuthMau').value,tier:document.getElementById('enAuthTier').value};}
+};
+
+document.addEventListener('click',function(e){
+  var btn=e.target.closest('.share-btn');
+  if(!btn)return;
+  var calcId=btn.dataset.calc;
+  var getter=SHARE_GETTERS[calcId];
+  if(!getter)return;
+  var params=getter();
+  var url=location.protocol+'//'+location.host+location.pathname+'?'+Object.keys(params).map(function(k){return k+'='+encodeURIComponent(params[k]);}).join('&')+'#'+calcId;
+  navigator.clipboard.writeText(url).then(function(){
+    var confirm=document.getElementById(calcId+'-confirm');
+    if(confirm){confirm.style.display='inline';setTimeout(function(){confirm.style.display='none';},2000);}
+  }).catch(function(){
+    var tmp=document.createElement('textarea');tmp.value=url;document.body.appendChild(tmp);tmp.select();document.execCommand('copy');document.body.removeChild(tmp);
+    var confirm=document.getElementById(calcId+'-confirm');
+    if(confirm){confirm.style.display='inline';setTimeout(function(){confirm.style.display='none';},2000);}
+  });
+});
+
+/* -- URL param pre-fill on load -- */
+(function(){
+  var p=new URLSearchParams(location.search);
+  var c=p.get('calc');
+  if(!c)return;
+  // Switch to correct tab
+  var tabBtn=document.querySelector('[data-tab="'+c+'"]');
+  if(tabBtn)tabBtn.click();
+  function sv(id,val){var el=document.getElementById(id);if(el&&val)el.value=val;}
+  switch(c){
+    case 'llm':
+      sv('llmModel',p.get('model'));sv('llmIn',p.get('in'));sv('llmOut',p.get('out'));sv('llmReq',p.get('req'));
+      if(p.get('days')){window._llmDays=parseInt(p.get('days'));var btns=document.getElementById('llmPeriod').querySelectorAll('button');btns.forEach(function(b){b.classList.toggle('on',b.dataset.v==p.get('days'));});}
+      setTimeout(calcLLM,100);break;
+    case 'vector':
+      sv('vecProvider',p.get('prov'));sv('vecCount',p.get('n'));sv('vecDim',p.get('dim'));sv('vecQ',p.get('q'));
+      setTimeout(calcVec,100);break;
+    case 'image':
+      sv('imgModel',p.get('model'));sv('imgCount',p.get('cnt'));sv('imgVar',p.get('var'));
+      setTimeout(calcImg,100);break;
+    case 'pay':
+      sv('payRev',p.get('rev'));sv('payTx',p.get('tx'));
+      setTimeout(calcPay,100);break;
+    case 'cloud':
+      sv('cloudCpu',p.get('cpu'));sv('cloudRam',p.get('ram'));sv('cloudCount',p.get('cnt'));
+      setTimeout(calcCloud,100);break;
+    case 'stt':
+      sv('sttModel',p.get('model'));sv('sttVol',p.get('vol'));
+      setTimeout(calcStt,100);break;
+    case 'serverless':
+      sv('slProvider',p.get('prov'));sv('slInvoke',p.get('inv'));sv('slDuration',p.get('dur'));sv('slMemory',p.get('mem'));
+      setTimeout(calcServerless,100);break;
+    case 'gateway':
+      sv('gwProvider',p.get('prov'));sv('gwReqs',p.get('reqs'));sv('gwTransfer',p.get('xfer'));
+      setTimeout(calcGateway,100);break;
+    case 'embedding':
+      sv('embModel',p.get('model'));sv('embTokens',p.get('tok'));sv('embDocs',p.get('docs'));
+      setTimeout(calcEmbedding,100);break;
+    case 'agent':
+      sv('agM1',p.get('m1'));sv('agM2',p.get('m2'));sv('agM3',p.get('m3'));sv('agRuns',p.get('runs'));
+      setTimeout(calcAgent,100);break;
+    case 'coding':
+      sv('enCodingUsage',p.get('usage'));sv('enCodingType',p.get('type'));sv('enCodingTeam',p.get('team'));
+      break;
+    case 'auth':
+      sv('enAuthMau',p.get('mau'));sv('enAuthTier',p.get('tier'));
+      break;
+  }
+})();
+
+/* -- Hook warnings + recommendations into calc functions -- */
+var _origCalcLLM=calcLLM;
+calcLLM=function(){
+  _origCalcLLM();
+  var m=LLM.find(function(x){return x.id===document.getElementById('llmModel').value;});
+  var inTok=num(document.getElementById('llmIn').value),outTok=num(document.getElementById('llmOut').value),req=num(document.getElementById('llmReq').value);
+  var perReq=(inTok/1e6*m.in)+(outTok/1e6*m.out);
+  var monthly=perReq*req*(window._llmDays||30);
+  if(window._llmDays&&window._llmDays!==30)monthly=perReq*req*30;
+  showWarning('llm',monthly);
+  var rec='';
+  if(m.id==='gpt-4o'&&monthly>100){
+    var haiku=LLM.find(function(x){return x.id==='claude-haiku';});
+    var haikuCost=(inTok/1e6*haiku.in+outTok/1e6*haiku.out)*req*30;
+    var pct=Math.round((1-haikuCost/monthly)*100);
+    rec='Switch to Claude 3.5 Haiku for simple tasks → estimated '+pct+'% cheaper';
+  } else if(m.id==='claude-sonnet'&&monthly>200){
+    var mini=LLM.find(function(x){return x.id==='gpt-4o-mini';});
+    var miniCost=(inTok/1e6*mini.in+outTok/1e6*mini.out)*req*30;
+    var pct2=Math.round((1-miniCost/monthly)*100);
+    rec='GPT-4o mini handles most tasks at '+pct2+'% lower cost';
+  } else if(monthly>500){
+    rec='Consider batch API — up to 50% discount for non-realtime workloads';
+  }
+  showRec('llm',rec);
+};
+
+var _origCalcVec=calcVec;
+calcVec=function(){
+  _origCalcVec();
+  var p=VEC.find(function(x){return x.id===document.getElementById('vecProvider').value;});
+  var n=num(document.getElementById('vecCount').value),d=num(document.getElementById('vecDim').value),q=num(document.getElementById('vecQ').value);
+  var gb=n*d*4*1.5/(1024**3);
+  var total=p.base+gb*p.storagePerGB+q/1e6*p.queryPerMillion;
+  showWarning('vector',total);
+  var rec='';
+  if(p.id==='pinecone'&&total>50){rec='Supabase pgvector handles this workload at ~$25/mo';}
+  else if(n>10000000){rec='Self-hosted Qdrant on Hetzner VPS saves ~70% at this scale';}
+  showRec('vector',rec);
+};
+
+var _origCalcImg=calcImg;
+calcImg=function(){
+  _origCalcImg();
+  var m=IMG.find(function(x){return x.id===document.getElementById('imgModel').value;});
+  var c=num(document.getElementById('imgCount').value),v=Math.max(1,num(document.getElementById('imgVar').value));
+  var total=c*v*m.unit;
+  showWarning('image',total);
+};
+
+var _origCalcCloud=calcCloud;
+calcCloud=function(){
+  _origCalcCloud();
+  var cpu=parseInt(document.getElementById('cloudCpu').value);
+  var ram=parseInt(document.getElementById('cloudRam').value);
+  var prov=document.getElementById('cloudPer')&&document.getElementById('cloudPer').textContent;
+  var rec='';
+  if(prov&&prov.indexOf('DigitalOcean')>=0){
+    var htz=CLOUD_PRICES['hetzner'];var best=null;
+    Object.keys(htz).forEach(function(c){if(parseInt(c)>=cpu){Object.keys(htz[c]).forEach(function(r){if(parseInt(r)>=ram){var price=htz[c][r];if(!best||price<best)best=price;}});}});
+    var doPrice=CLOUD_PRICES['digitalocean'];var doBest=null;
+    Object.keys(doPrice).forEach(function(c){if(parseInt(c)>=cpu){Object.keys(doPrice[c]).forEach(function(r){if(parseInt(r)>=ram){var price=doPrice[c][r];if(!doBest||price<doBest)doBest=price;}});}});
+    if(best&&doBest){var pct=Math.round((1-best/doBest)*100);rec='Same specs on Hetzner cost '+pct+'% less with 20TB free egress';}
+  } else if(prov&&prov.indexOf('Vultr')>=0&&ram>=8){
+    rec='Hetzner CPX41 offers better value at this RAM tier';
+  }
+  // Warning based on cheapest price
+  var cheapestEl=document.getElementById('cloudTotal');
+  if(cheapestEl){
+    var cnt=parseInt(document.getElementById('cloudCount').value)||1;
+    var price=parseFloat(cheapestEl.textContent.replace('$',''))||0;
+    showWarning('cloud',price*cnt);
+  }
+  showRec('cloud',rec);
+};
+
+var _origCalcStt=calcStt;
+calcStt=function(){
+  _origCalcStt();
+  var model=document.getElementById('sttModel').value;
+  var vol=parseFloat(document.getElementById('sttVol').value)||0;
+  var p=STT_RATES[model];if(!p)return;
+  var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;
+  showWarning('stt',total);
+};
+
+var _origCalcServerless=calcServerless;
+calcServerless=function(){
+  _origCalcServerless();
+  var prov=document.getElementById('slProvider').value;
+  var inv=parseFloat(document.getElementById('slInvoke').value)||0;
+  var p=SL_PRICES[prov];if(!p)return;
+  var billable_inv=Math.max(0,inv-p.free_inv);
+  var dur=parseFloat(document.getElementById('slDuration').value)||0;
+  var mem=parseFloat(document.getElementById('slMemory').value)||0.25;
+  var gb_sec=inv*(dur/1000)*mem;
+  var billable_gb=Math.max(0,gb_sec-p.free_gb);
+  var total=billable_inv*p.inv+billable_gb*p.gb_sec;
+  showWarning('serverless',total);
+  var rec='';
+  if(prov==='lambda'&&inv>10000000){
+    var cfPrices=SL_PRICES['cf'];
+    var cfCost=Math.max(0,inv-cfPrices.free_inv)*cfPrices.inv;
+    rec='Cloudflare Workers handles '+Math.round(inv/1e6)+'M invocations at $'+cfCost.toFixed(2)+' vs Lambda\'s $'+total.toFixed(2);
+  }
+  showRec('serverless',rec);
+};
+
+var _origCalcGateway=calcGateway;
+calcGateway=function(){
+  _origCalcGateway();
+  var reqs=parseFloat(document.getElementById('gwReqs').value)||0;
+  var xfer=parseFloat(document.getElementById('gwTransfer').value)||0;
+  var prov=document.getElementById('gwProvider').value;
+  var p=GW_PRICES[prov];if(!p)return;
+  var total=reqs*p.per_m+xfer*p.per_gb;
+  showWarning('gateway',total);
+};
+
+var _origCalcEmbedding=calcEmbedding;
+calcEmbedding=function(){
+  _origCalcEmbedding();
+  var tokM=parseFloat(document.getElementById('embTokens').value)||0;
+  var model=document.getElementById('embModel').value;
+  var rate=EMB_PRICES[model];if(rate===undefined)return;
+  var total=tokM*rate;
+  showWarning('embedding',total);
+};
+
+var _origCalcAgent=calcAgent;
+calcAgent=function(){
+  _origCalcAgent();
+  var runs=parseFloat(document.getElementById('agRuns').value)||0;
+  var step_costs=AG_STEPS.map(function(s){var m=document.getElementById(s.model).value;var p=AG_LLM[m];if(!p)return 0;return(s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out;});
+  var total=step_costs.reduce(function(a,b){return a+b;},0)*runs;
+  showWarning('agent',total);
+};
+
+/* Coding + Auth recommendations via patching at call time */
+window._codingWarning=function(bestCost,usage,team){
+  showWarning('coding',bestCost*team);
+  var rec='';
+  if(usage==='heavy'){rec='Claude Code Max 5x ($100/mo) may be more predictable for heavy agent use';}
+  else if(parseInt(team)>5){rec='GitHub Copilot Business ($19/seat) offers best per-seat value for teams';}
+  showRec('coding',rec);
+};
+window._authWarning=function(bestCost,mau,tier){
+  showWarning('auth',bestCost);
+  var rec='';
+  if(mau>10000&&tier!=='enterprise'){
+    var clerkCost=Math.max(0,mau-10000)*0.02;
+    var sbCost=25;
+    rec='Supabase Auth handles '+mau.toLocaleString()+' users for ~$'+sbCost+'/mo vs Clerk\'s $'+Math.round(clerkCost)+'/mo';
+  }
+  showRec('auth',rec);
+};
+
+/* Patch coding + auth calcs */
+var enCodingEl=document.getElementById('enCodingUsage');
+if(enCodingEl){
+  ['enCodingUsage','enCodingType','enCodingTeam'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('change',function(){
+      setTimeout(function(){
+        var best=document.getElementById('enCodingBest');
+        if(best)window._codingWarning(parseFloat(best.textContent.replace('$',''))||0,document.getElementById('enCodingUsage').value,document.getElementById('enCodingTeam').value);
+      },50);
+    });
+  });
+  setTimeout(function(){
+    var best=document.getElementById('enCodingBest');
+    if(best)window._codingWarning(parseFloat(best.textContent.replace('$',''))||0,document.getElementById('enCodingUsage').value,document.getElementById('enCodingTeam').value);
+  },200);
+}
+var enAuthEl=document.getElementById('enAuthMau');
+if(enAuthEl){
+  ['enAuthMau','enAuthTier'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el)el.addEventListener('input',function(){
+      setTimeout(function(){
+        var best=document.getElementById('enAuthBest');
+        if(best)window._authWarning(parseFloat(best.textContent.replace('$','').replace(',',''))||0,parseInt(document.getElementById('enAuthMau').value)||0,document.getElementById('enAuthTier').value);
+      },50);
+    });
+  });
+  setTimeout(function(){
+    var best=document.getElementById('enAuthBest');
+    if(best)window._authWarning(parseFloat(best.textContent.replace('$','').replace(',',''))||0,parseInt(document.getElementById('enAuthMau').value)||0,document.getElementById('enAuthTier').value);
+  },300);
+}
+
+/* Re-run calcs to trigger warnings on load */
+setTimeout(function(){calcLLM();calcVec();calcImg();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();calcCloud();},400);
+
+})(); // end SHARE+WARNING+REC
 </script>
 </body>
 </html>

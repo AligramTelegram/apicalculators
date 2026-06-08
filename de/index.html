@@ -277,6 +277,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .calc-faq details[open] summary::after{content:"－"}
 .calc-faq details p{margin-top:8px;line-height:1.65;color:var(--muted)}
 @media(max-width:780px){.calc-seo-content{padding:16px 20px 20px}}
+.share-row{display:flex;align-items:center;gap:10px;margin-top:16px}
+.share-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:9px;padding:8px 14px;color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .18s}
+.share-btn:hover{border-color:var(--lime);color:var(--lime)}
+.share-confirm{font-size:12px;color:#4ade80;font-weight:600}
+.cost-warning{margin-top:14px;padding:10px 14px;border-radius:9px;font-size:12.5px;font-weight:600;border-left:3px solid;display:none}
+.cost-warning.high{border-color:#ff5d6c;background:rgba(255,93,108,.08);color:#ff8f9a}
+.cost-warning.mid{border-color:#ffb24d;background:rgba(255,178,77,.08);color:#ffc96e}
+.cost-warning.low{border-color:#4ade80;background:rgba(74,222,128,.08);color:#4ade80}
+.calc-recommendation{margin-top:10px;padding:10px 14px;border-radius:9px;font-size:12.5px;background:rgba(77,214,255,.07);border:1px solid rgba(77,214,255,.2);color:#7de2f5;display:none}
 </style>
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
 <link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
@@ -581,12 +590,15 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
             <option value="whisper">OpenAI Whisper — $0.006/min</option>
             <option value="google-stt">Google STT — $0.024/min</option>
             <option value="deepgram">Deepgram Nova-2 — $0.0043/min</option>
+            <option value="azure-stt">Azure Speech — $1.00/Std</option>
+            <option value="assemblyai">AssemblyAI — $0.37/Std</option>
           </optgroup>
           <optgroup label="Text-to-Speech (TTS)">
-            <option value="openai-tts">OpenAI TTS — $15/1M chars</option>
-            <option value="openai-tts-hd">OpenAI TTS HD — $30/1M chars</option>
-            <option value="elevenlabs">ElevenLabs — $330/1M chars</option>
-            <option value="google-tts">Google TTS — $16/1M chars</option>
+            <option value="openai-tts">OpenAI TTS — $15/1M Zeichen</option>
+            <option value="openai-tts-hd">OpenAI TTS HD — $30/1M Zeichen</option>
+            <option value="elevenlabs">ElevenLabs — $330/1M Zeichen</option>
+            <option value="google-tts">Google TTS — $16/1M Zeichen</option>
+            <option value="playht">PlayHT TTS — $30/1M Zeichen</option>
           </optgroup>
         </select>
         <label class="lbl" for="sttVol">Audiominuten / Monat</label>
@@ -629,6 +641,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
           <option value="vercel">Vercel Functions</option>
           <option value="cf">Cloudflare Workers</option>
           <option value="gcp">GCP Cloud Functions</option>
+          <option value="netlify">Netlify Functions</option>
+          <option value="railway">Railway</option>
         </select>
         <label class="lbl" for="slInvoke">Aufrufe / Monat</label>
         <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
@@ -1023,8 +1037,8 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 
 <script>
 (function(){var dd=document.getElementById('langDD'),btn=document.getElementById('langBtn'),hamb=document.getElementById('hamb'),mm=document.getElementById('mobileMenu');btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');btn.setAttribute('aria-expanded',dd.classList.contains('open'));});document.addEventListener('click',function(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');});hamb.addEventListener('click',function(){var o=mm.classList.toggle('open');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hamb.classList.remove('open');});});})();
-const LLM=[{id:"gpt-4o",name:"GPT-4o",in:2.50,out:10.00},{id:"gpt-4o-mini",name:"GPT-4o mini",in:0.15,out:0.60},{id:"o1",name:"OpenAI o1",in:15.00,out:60.00},{id:"claude-sonnet",name:"Claude 3.5 Sonnet",in:3.00,out:15.00},{id:"claude-haiku",name:"Claude 3.5 Haiku",in:0.80,out:4.00},{id:"claude-opus",name:"Claude 3 Opus",in:15.00,out:75.00},{id:"gemini-pro",name:"Gemini 1.5 Pro",in:1.25,out:5.00},{id:"gemini-flash",name:"Gemini 1.5 Flash",in:0.075,out:0.30}];
-const VEC=[{id:"pinecone",name:"Pinecone (Serverless)",base:0,storagePerGB:0.33,queryPerMillion:16.00},{id:"supabase",name:"Supabase (pgvector)",base:25,storagePerGB:0.125,queryPerMillion:0},{id:"qdrant",name:"Qdrant Cloud",base:0,storagePerGB:9.00,queryPerMillion:0},{id:"weaviate",name:"Weaviate Cloud",base:25,storagePerGB:0.50,queryPerMillion:10.00}];
+const LLM=[{id:"gpt-4o",name:"GPT-4o",in:2.50,out:10.00},{id:"gpt-4o-mini",name:"GPT-4o mini",in:0.15,out:0.60},{id:"o1",name:"OpenAI o1",in:15.00,out:60.00},{id:"claude-sonnet",name:"Claude 3.5 Sonnet",in:3.00,out:15.00},{id:"claude-haiku",name:"Claude 3.5 Haiku",in:0.80,out:4.00},{id:"claude-opus",name:"Claude 3 Opus",in:15.00,out:75.00},{id:"gemini-pro",name:"Gemini 1.5 Pro",in:1.25,out:5.00},{id:"gemini-flash",name:"Gemini 1.5 Flash",in:0.075,out:0.30},{id:"mistral-large",name:"Mistral Large",in:2.00,out:6.00},{id:"mistral-small",name:"Mistral Small",in:0.20,out:0.60},{id:"llama-405b",name:"Llama 3.1 405B (Together)",in:3.50,out:3.50},{id:"llama-70b",name:"Llama 3.1 70B (Together)",in:0.88,out:0.88},{id:"groq-llama3",name:"Groq Llama3",in:0.59,out:0.79},{id:"perplexity-sonar",name:"Perplexity Sonar",in:1.00,out:1.00}];
+const VEC=[{id:"pinecone",name:"Pinecone (Serverless)",base:0,storagePerGB:0.33,queryPerMillion:16.00},{id:"supabase",name:"Supabase (pgvector)",base:25,storagePerGB:0.125,queryPerMillion:0},{id:"qdrant",name:"Qdrant Cloud",base:0,storagePerGB:9.00,queryPerMillion:0},{id:"weaviate",name:"Weaviate Cloud",base:25,storagePerGB:0.50,queryPerMillion:10.00},{id:"chroma",name:"Chroma Cloud",base:0,storagePerGB:0,queryPerMillion:15.00},{id:"mongodb",name:"MongoDB Atlas Vector",base:0,storagePerGB:0.25,queryPerMillion:100.00},{id:"redis",name:"Redis Vector",base:0,storagePerGB:36.00,queryPerMillion:0}];
 const IMG=[{id:"dalle3-std",name:"DALL·E 3 · 1024 Standard",unit:0.040},{id:"dalle3-hd",name:"DALL·E 3 · 1024 HD",unit:0.080},{id:"dalle3-wide",name:"DALL·E 3 · 1792 HD",unit:0.120},{id:"sdxl",name:"Stable Diffusion XL (API)",unit:0.009},{id:"sd3",name:"Stable Diffusion 3",unit:0.035},{id:"flux",name:"Flux.1 Pro (API)",unit:0.050}];
 const PAY=[{id:"stripe",name:"Stripe",rate:0.029,fixed:0.30,note:"2,9% + $0,30"},{id:"paddle",name:"Paddle",rate:0.050,fixed:0.50,note:"5% + $0,50 · MoR"},{id:"lemon",name:"Lemon Squeezy",rate:0.050,fixed:0.50,note:"5% + $0,50 · MoR"},{id:"paypal",name:"PayPal",rate:0.0349,fixed:0.49,note:"3,49% + $0,49"}];
 const $=id=>document.getElementById(id);
@@ -1123,13 +1137,16 @@ function calcCloud(){
 
 /* ===== STT / TTS ===== */
 const STT_RATES = {
-  'whisper':     {type:'stt',rate:0.006},
-  'google-stt':  {type:'stt',rate:0.024},
-  'deepgram':    {type:'stt',rate:0.0043},
-  'openai-tts':  {type:'tts',rate:0.015},
+  'whisper':      {type:'stt',rate:0.006},
+  'google-stt':   {type:'stt',rate:0.024},
+  'deepgram':     {type:'stt',rate:0.0043},
+  'azure-stt':    {type:'stt',rate:0.01667},
+  'assemblyai':   {type:'stt',rate:0.00617},
+  'openai-tts':   {type:'tts',rate:0.015},
   'openai-tts-hd':{type:'tts',rate:0.030},
-  'elevenlabs':  {type:'tts',rate:0.330},
-  'google-tts':  {type:'tts',rate:0.016},
+  'elevenlabs':   {type:'tts',rate:0.330},
+  'google-tts':   {type:'tts',rate:0.016},
+  'playht':       {type:'tts',rate:0.030},
 };
 function calcStt(){
   var model=document.getElementById('sttModel').value;
@@ -1147,10 +1164,12 @@ function calcStt(){
 
 /* ===== SERVERLESS ===== */
 const SL_PRICES = {
-  lambda:{inv:0.0000002, gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
-  vercel:{inv:0.0000004, gb_sec:0.000018,     free_inv:0,       free_gb:0},
-  cf:    {inv:0.0000003, gb_sec:0.000012,     free_inv:1000000, free_gb:0},
-  gcp:   {inv:0.0000004, gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
+  lambda: {inv:0.0000002,  gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
+  vercel: {inv:0.0000004,  gb_sec:0.000018,     free_inv:0,       free_gb:0},
+  cf:     {inv:0.0000003,  gb_sec:0.000012,     free_inv:1000000, free_gb:0},
+  gcp:    {inv:0.0000004,  gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
+  netlify:{inv:0.000025,   gb_sec:0,            free_inv:125000,  free_gb:0},
+  railway:{inv:0.000000463,gb_sec:0.000463,     free_inv:0,       free_gb:0},
 };
 function calcServerless(){
   var prov=document.getElementById('slProvider').value;
@@ -1261,11 +1280,14 @@ calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent()
 /* ===== DE AI CODING CALC ===== */
 (function(){
   var TOOLS_de = [
-    {name:'GitHub Copilot', light:10,  medium:10,  heavy:19,  note:'Predictable'},
-    {name:'Windsurf',       light:15,  medium:15,  heavy:45,  note:'Credit-based'},
-    {name:'Cursor',         light:20,  medium:20,  heavy:80,  note:'$20-200/mo'},
-    {name:'Claude Code',    light:20,  medium:20,  heavy:120, note:'$20-200/mo'},
-    {name:'Tabnine',        light:12,  medium:12,  heavy:12,  note:'No overages'}
+    {name:'GitHub Copilot',       light:10, medium:10, heavy:19,  note:'Planbar'},
+    {name:'Windsurf',             light:15, medium:15, heavy:45,  note:'Credit-basiert'},
+    {name:'Cursor',               light:20, medium:20, heavy:80,  note:'$20-200/Mo'},
+    {name:'Claude Code',          light:20, medium:20, heavy:120, note:'$20-200/Mo'},
+    {name:'Tabnine',              light:12, medium:12, heavy:12,  note:'Keine Überziehung'},
+    {name:'Zed AI',               light:0,  medium:0,  heavy:0,   note:'Kostenlose Vorschau'},
+    {name:'Amazon CodeWhisperer', light:19, medium:19, heavy:19,  note:'Pro-Plan'},
+    {name:'JetBrains AI',         light:10, medium:10, heavy:10,  note:'Flatrate'}
   ];
   function calcCoding_de(){
     var usage=document.getElementById('deCodingUsage').value;
@@ -1327,6 +1349,93 @@ calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent()
   calcAuth_de();
 })();
 
+/* ============ SHARE + WARNING + RECOMMENDATION (DE) ============ */
+(function(){
+function showWarning(id,cost){
+  var el=document.getElementById(id+'-warning');if(!el)return;
+  if(cost>500){el.className='cost-warning high';el.textContent='⚠️ Hohe Kosten erkannt. Günstigere Alternativen unten.';el.style.display='block';}
+  else if(cost>=100){el.className='cost-warning mid';el.textContent='💡 Diese Kosten können gesenkt werden. Optimierungstipps unten.';el.style.display='block';}
+  else if(cost>0&&cost<20){el.className='cost-warning low';el.textContent='✅ Gute Wahl! Das ist gut optimiert.';el.style.display='block';}
+  else el.style.display='none';
+}
+function showRec(id,text){var el=document.getElementById(id+'-rec');if(!el)return;if(text){el.innerHTML='<span class="rec-icon">💡</span><span class="rec-text">'+text+'</span>';el.style.display='block';}else el.style.display='none';}
+var CALC_IDS=['llm','vector','image','cloud','stt','serverless','gateway','embedding','agent','coding','auth'];
+CALC_IDS.forEach(function(pid){
+  var panel=document.getElementById(pid);if(!panel)return;
+  var result=panel.querySelector('.result');if(!result)return;
+  result.insertAdjacentHTML('beforeend',
+    '<div class="share-row"><button class="share-btn" data-calc="'+pid+'">🔗 Berechnung teilen</button><span class="share-confirm" id="'+pid+'-confirm" style="display:none">✓ Link kopiert!</span></div>'
+    +'<div class="cost-warning" id="'+pid+'-warning" style="display:none"></div>'
+    +'<div class="calc-recommendation" id="'+pid+'-rec" style="display:none"></div>');
+});
+var payPanel=document.getElementById('pay');if(payPanel){var cmp=payPanel.querySelector('.cmp');if(cmp)cmp.insertAdjacentHTML('afterend','<div class="share-row" style="margin-top:16px"><button class="share-btn" data-calc="pay">🔗 Berechnung teilen</button><span class="share-confirm" id="pay-confirm" style="display:none">✓ Link kopiert!</span></div>');}
+var SHARE_GETTERS={
+  llm:function(){return{calc:'llm',model:document.getElementById('llmModel').value,in:document.getElementById('llmIn').value,out:document.getElementById('llmOut').value,req:document.getElementById('llmReq').value};},
+  vector:function(){return{calc:'vector',prov:document.getElementById('vecProvider').value,n:document.getElementById('vecCount').value,dim:document.getElementById('vecDim').value,q:document.getElementById('vecQ').value};},
+  image:function(){return{calc:'image',model:document.getElementById('imgModel').value,cnt:document.getElementById('imgCount').value};},
+  pay:function(){return{calc:'pay',rev:document.getElementById('payRev').value,tx:document.getElementById('payTx').value};},
+  cloud:function(){return{calc:'cloud',cpu:document.getElementById('cloudCpu').value,ram:document.getElementById('cloudRam').value,cnt:document.getElementById('cloudCount').value};},
+  stt:function(){return{calc:'stt',model:document.getElementById('sttModel').value,vol:document.getElementById('sttVol').value};},
+  serverless:function(){return{calc:'serverless',prov:document.getElementById('slProvider').value,inv:document.getElementById('slInvoke').value,dur:document.getElementById('slDuration').value};},
+  gateway:function(){return{calc:'gateway',prov:document.getElementById('gwProvider').value,reqs:document.getElementById('gwReqs').value,xfer:document.getElementById('gwTransfer').value};},
+  embedding:function(){return{calc:'embedding',model:document.getElementById('embModel').value,tok:document.getElementById('embTokens').value};},
+  agent:function(){return{calc:'agent',m1:document.getElementById('agM1').value,m2:document.getElementById('agM2').value,m3:document.getElementById('agM3').value,runs:document.getElementById('agRuns').value};},
+  coding:function(){return{calc:'coding',usage:document.getElementById('deCodingUsage').value,type:document.getElementById('deCodingType').value,team:document.getElementById('deCodingTeam').value};},
+  auth:function(){return{calc:'auth',mau:document.getElementById('deAuthMau').value,tier:document.getElementById('deAuthTier').value};}
+};
+document.addEventListener('click',function(e){
+  var btn=e.target.closest('.share-btn');if(!btn)return;
+  var calcId=btn.dataset.calc;var getter=SHARE_GETTERS[calcId];if(!getter)return;
+  var params=getter();
+  var url=location.protocol+'//'+location.host+location.pathname+'?'+Object.keys(params).map(function(k){return k+'='+encodeURIComponent(params[k]);}).join('&')+'#'+calcId;
+  navigator.clipboard.writeText(url).then(function(){var c=document.getElementById(calcId+'-confirm');if(c){c.style.display='inline';setTimeout(function(){c.style.display='none';},2000);}}).catch(function(){});
+});
+var _origCalcLLM=calcLLM;
+calcLLM=function(){
+  _origCalcLLM();
+  var m=LLM.find(function(x){return x.id===document.getElementById('llmModel').value;});
+  var inTok=parseFloat(document.getElementById('llmIn').value)||0,outTok=parseFloat(document.getElementById('llmOut').value)||0,req=parseFloat(document.getElementById('llmReq').value)||0;
+  var monthly=(inTok/1e6*m.in+outTok/1e6*m.out)*req*30;
+  showWarning('llm',monthly);
+  var rec='';
+  if(m.id==='gpt-4o'&&monthly>100){rec='Wechseln Sie zu Claude 3.5 Haiku für einfache Aufgaben → erheblich günstiger';}
+  else if(m.id==='claude-sonnet'&&monthly>200){rec='GPT-4o mini erledigt die meisten Aufgaben zu deutlich niedrigeren Kosten';}
+  else if(monthly>500){rec='Batch-API in Betracht ziehen — bis zu 50% Rabatt für nicht-echtzeitkritische Workloads';}
+  showRec('llm',rec);
+};
+var _origCalcVec=calcVec;
+calcVec=function(){
+  _origCalcVec();
+  var p=VEC.find(function(x){return x.id===document.getElementById('vecProvider').value;});
+  var n=parseFloat(document.getElementById('vecCount').value)||0,d=parseFloat(document.getElementById('vecDim').value)||0,q=parseFloat(document.getElementById('vecQ').value)||0;
+  var gb=n*d*4*1.5/Math.pow(1024,3);var total=p.base+gb*p.storagePerGB+q/1e6*p.queryPerMillion;
+  showWarning('vector',total);
+  var rec='';if(p.id==='pinecone'&&total>50)rec='Supabase pgvector bewältigt diese Last für ~$25/Mo';else if(n>10000000)rec='Selbst gehostetes Qdrant auf Hetzner VPS spart ~70% bei dieser Skalierung';
+  showRec('vector',rec);
+};
+var _origCalcImg=calcImg;
+calcImg=function(){_origCalcImg();var m=IMG.find(function(x){return x.id===document.getElementById('imgModel').value;});var total=parseFloat(document.getElementById('imgCount').value)*Math.max(1,parseFloat(document.getElementById('imgVar').value))*m.unit;showWarning('image',total);};
+var _origCalcStt=calcStt;
+calcStt=function(){_origCalcStt();var p=STT_RATES[document.getElementById('sttModel').value];if(!p)return;var vol=parseFloat(document.getElementById('sttVol').value)||0;var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;showWarning('stt',total);};
+var _origCalcServerless=calcServerless;
+calcServerless=function(){
+  _origCalcServerless();
+  var prov=document.getElementById('slProvider').value;var inv=parseFloat(document.getElementById('slInvoke').value)||0;
+  var p=SL_PRICES[prov];if(!p)return;
+  var dur=parseFloat(document.getElementById('slDuration').value)||0,mem=parseFloat(document.getElementById('slMemory').value)||0.25;
+  var total=Math.max(0,inv-p.free_inv)*p.inv+Math.max(0,inv*(dur/1000)*mem-p.free_gb)*p.gb_sec;
+  showWarning('serverless',total);
+  var rec='';if(prov==='lambda'&&inv>10000000){rec='Cloudflare Workers verarbeitet '+Math.round(inv/1e6)+'M Aufrufe deutlich günstiger als Lambda';}showRec('serverless',rec);
+};
+var _origCalcGateway=calcGateway;calcGateway=function(){_origCalcGateway();var p=GW_PRICES[document.getElementById('gwProvider').value];if(!p)return;var total=parseFloat(document.getElementById('gwReqs').value)*p.per_m+parseFloat(document.getElementById('gwTransfer').value)*p.per_gb;showWarning('gateway',total);};
+var _origCalcEmbedding=calcEmbedding;calcEmbedding=function(){_origCalcEmbedding();var rate=EMB_PRICES[document.getElementById('embModel').value];if(rate===undefined)return;showWarning('embedding',parseFloat(document.getElementById('embTokens').value)*rate);};
+var _origCalcAgent=calcAgent;calcAgent=function(){_origCalcAgent();var runs=parseFloat(document.getElementById('agRuns').value)||0;var total=AG_STEPS.map(function(s){var p=AG_LLM[document.getElementById(s.model).value];return p?(s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out:0;}).reduce(function(a,b){return a+b;},0)*runs;showWarning('agent',total);};
+setTimeout(function(){
+  var ce=document.getElementById('deCodingUsage');if(ce){var best=document.getElementById('deCodingBest');if(best){showWarning('coding',parseFloat(best.textContent.replace('$',''))||0);['deCodingUsage','deCodingType','deCodingTeam'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('change',function(){setTimeout(function(){var b=document.getElementById('deCodingBest');if(b){var team=parseInt(document.getElementById('deCodingTeam').value)||1;var cost=parseFloat(b.textContent.replace('$',''))||0;showWarning('coding',cost);var usage=document.getElementById('deCodingUsage').value;var rec='';if(usage==='heavy')rec='JetBrains AI ($10/Monat) bietet planbare Kosten für Enterprise-Teams';else if(team>5)rec='GitHub Copilot Business ($19/Sitz) bietet besten Preis für Teams';showRec('coding',rec);}},50);});});}}
+  var ae=document.getElementById('deAuthMau');if(ae){var best=document.getElementById('deAuthBest');if(best){showWarning('auth',parseFloat(best.textContent.replace('$','').replace(',',''))||0);}}
+  calcLLM();calcVec();calcImg();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
+},400);
+})();
 </script>
 </body>
 </html>
