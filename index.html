@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -404,6 +404,21 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
   background:rgba(77,214,255,.07);border:1px solid rgba(77,214,255,.2);color:#7de2f5;
   animation:fade-in .25s ease;display:none}
 .calc-recommendation .rec-icon{margin-right:4px}
+
+/* ── Hub Grid ── */
+.llm-standalone{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:16px}
+.hub-section{padding:36px 0 0}
+.hub-section .sh{font-size:20px;font-weight:700;margin-bottom:6px;color:var(--text)}
+.hub-section .ssub{color:var(--muted);font-size:14px;margin-bottom:24px}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.hub-card{display:flex;flex-direction:column;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
+.hub-card:hover{border-color:var(--lime);transform:translateY(-2px)}
+.hub-card .hc-icon{font-size:26px;line-height:1}
+.hub-card .hc-title{font-size:14.5px;font-weight:700}
+.hub-card .hc-desc{font-size:12px;color:var(--muted);line-height:1.4}
+.hub-card .hc-link{font-size:11px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;margin-top:2px}
+@media(max-width:600px){.llm-standalone{padding:20px}.hub-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){.hub-grid{grid-template-columns:1fr}}
 </style>
 <style>
 .affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
@@ -506,615 +521,154 @@ window.addEventListener('load',function(){
 
 <!-- ===== CALCULATORS ===== -->
 <main class="wrap" id="calc">
-<div class="calc">
-  <div class="tabs" role="tablist" aria-label="Calculator tabs">
-    <button class="tab on" role="tab" aria-selected="true" aria-controls="llm" data-tab="llm"><span class="ic" aria-hidden="true">🔤</span> LLM Tokens <span class="num" aria-hidden="true">01</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="vector" data-tab="vector"><span class="ic" aria-hidden="true">🧊</span> Vector DB <span class="num" aria-hidden="true">02</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="image" data-tab="image"><span class="ic" aria-hidden="true">🎨</span> Image Gen <span class="num" aria-hidden="true">03</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="pay" data-tab="pay"><span class="ic" aria-hidden="true">💳</span> Payment Fees <span class="num" aria-hidden="true">04</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="cloud" data-tab="cloud"><span class="ic">&#9729;&#65039;</span> Cloud VPS <span class="num">05</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="stt" data-tab="stt"><span class="ic">&#127897;&#65039;</span> STT / TTS <span class="num">06</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="serverless" data-tab="serverless"><span class="ic">&#9889;</span> Serverless <span class="num">07</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="gateway" data-tab="gateway"><span class="ic">&#128256;</span> API Gateway <span class="num">08</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="embedding" data-tab="embedding"><span class="ic">&#129710;</span> Embeddings <span class="num">09</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="agent" data-tab="agent"><span class="ic">&#129302;</span> AI Agent <span class="num">10</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="coding" data-tab="coding"><span class="ic">💻</span> AI Coding <span class="num">11</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="auth" data-tab="auth"><span class="ic">🔑</span> Auth Cost <span class="num">12</span></button>
+<!-- LLM CALCULATOR (interactive) -->
+<div class="llm-standalone" id="llm">
+  <div class="panel-head">
+    <h2>LLM Token &amp; API Cost Calculator</h2>
+    <p>Estimate monthly spend across GPT-4o, Claude, Gemini, and Mistral based on your token throughput.</p>
   </div>
-
-  <!-- ===== PANEL 1: LLM ===== -->
-  <section class="panel on" id="llm" role="tabpanel" aria-labelledby="tab-llm">
-    <div class="panel-head">
-      <h2>LLM Token &amp; API Cost Calculator</h2>
-      <p>Estimate monthly spend across GPT-4o, Claude, and Gemini based on your token throughput.</p>
-    </div>
-    <div class="grid2">
-      <div>
+  <div class="grid2">
+    <div>
+      <div class="field">
+        <label for="llmModel">Model</label>
+        <select class="sel" id="llmModel" aria-label="Select LLM model"></select>
+      </div>
+      <div class="row2">
         <div class="field">
-          <label for="llmModel">Model</label>
-          <select class="sel" id="llmModel" aria-label="Select LLM model"></select>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="llmIn">Input tokens / request <span class="hint">avg</span></label>
-            <input class="inp" id="llmIn" type="number" value="1500" min="0" aria-label="Average input tokens per request">
-          </div>
-          <div class="field">
-            <label for="llmOut">Output tokens / request <span class="hint">avg</span></label>
-            <input class="inp" id="llmOut" type="number" value="500" min="0" aria-label="Average output tokens per request">
-          </div>
+          <label for="llmIn">Input tokens / request <span class="hint">avg</span></label>
+          <input class="inp" id="llmIn" type="number" value="1500" min="0" aria-label="Average input tokens per request">
         </div>
         <div class="field">
-          <label for="llmReq">Requests <span class="hint">per period</span></label>
-          <input class="inp" id="llmReq" type="number" value="10000" min="0" aria-label="Number of requests per billing period">
-        </div>
-        <div class="field">
-          <label>Billing period</label>
-          <div class="seg" id="llmPeriod" role="group" aria-label="Billing period">
-            <button data-v="1">Per day</button>
-            <button class="on" data-v="30">Per month</button>
-            <button data-v="365">Per year</button>
-          </div>
+          <label for="llmOut">Output tokens / request <span class="hint">avg</span></label>
+          <input class="inp" id="llmOut" type="number" value="500" min="0" aria-label="Average output tokens per request">
         </div>
       </div>
-      <div class="result">
-        <div class="rlabel">Estimated cost</div>
-        <div class="big" id="llmTotal">$0</div>
-        <div class="per" id="llmPer">— per month</div>
-        <div class="breakdown">
-          <div class="brow"><span>Price (input / output per 1M)</span><b id="llmPrice">—</b></div>
-          <div class="brow"><span>Cost per request</span><b id="llmPerReq">—</b></div>
-          <div class="brow"><span>Input token cost</span><b id="llmInCost">—</b></div>
-          <div class="brow"><span>Output token cost</span><b id="llmOutCost">—</b></div>
-          <div class="brow hl"><span>Total tokens / period</span><b id="llmTok">—</b></div>
+      <div class="field">
+        <label for="llmReq">Requests <span class="hint">per period</span></label>
+        <input class="inp" id="llmReq" type="number" value="10000" min="0" aria-label="Number of requests per billing period">
+      </div>
+      <div class="field">
+        <label>Billing period</label>
+        <div class="seg" id="llmPeriod" role="group" aria-label="Billing period">
+          <button data-v="1">Per day</button>
+          <button class="on" data-v="30">Per month</button>
+          <button data-v="365">Per year</button>
         </div>
       </div>
     </div>
-    <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider's pricing page before budgeting.</p>
+    <div class="result">
+      <div class="rlabel">Estimated cost</div>
+      <div class="big" id="llmTotal">$0</div>
+      <div class="per" id="llmPer">— per month</div>
+      <div class="breakdown">
+        <div class="brow"><span>Price (input / output per 1M)</span><b id="llmPrice">—</b></div>
+        <div class="brow"><span>Cost per request</span><b id="llmPerReq">—</b></div>
+        <div class="brow"><span>Input token cost</span><b id="llmInCost">—</b></div>
+        <div class="brow"><span>Output token cost</span><b id="llmOutCost">—</b></div>
+        <div class="brow hl"><span>Total tokens / period</span><b id="llmTok">—</b></div>
+      </div>
+    </div>
+  </div>
+  <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider&#39;s pricing page before budgeting.</p>
   <div class="calc-seo-content">
-    <h3>LLM Cost Calculator — GPT-4o API Cost & Token Pricing</h3>
-    <p>This LLM cost calculator helps developers and product teams estimate their monthly OpenAI, Anthropic, and Google API spend before it hits their credit card. You enter three variables — input tokens per request, output tokens per request, and monthly request volume — and the tool computes your total cost using current 2026 USD pricing. GPT-4o API cost, for example, sits at $2.50 per million input tokens and $10 per million output tokens at pay-as-you-go rates. A US-based SaaS team running 100,000 GPT-4o requests per month with 1,500 input and 500 output tokens each would pay roughly $375/month in LLM API costs alone. Switching to GPT-4o mini at the same volume drops that to under $15. Use this tool to benchmark model tiers, justify model selection to stakeholders, and catch runaway costs early in development.</p>
+    <h3>LLM Cost Calculator — GPT-4o API Cost &amp; Token Pricing</h3>
+    <p>This LLM cost calculator helps developers and product teams estimate their monthly OpenAI, Anthropic, and Google API spend before it hits their credit card. You enter three variables — input tokens per request, output tokens per request, and monthly request volume — and the tool computes your total cost using current 2026 USD pricing. GPT-4o API cost sits at $2.50 per million input tokens and $10 per million output tokens at pay-as-you-go rates. A US-based SaaS team running 100,000 GPT-4o requests per month with 1,500 input and 500 output tokens each would pay roughly $375/month in LLM API costs alone. Switching to GPT-4o mini at the same volume drops that to under $15.</p>
     <div class="calc-faq">
-      <details><summary>How much does GPT-4o API cost per 1,000 requests?</summary><p>At 2026 pay-as-you-go pricing, GPT-4o costs $2.50/1M input tokens and $10/1M output tokens. A typical request with 1,500 input + 500 output tokens costs about $0.0088. For 1,000 such requests, you'd pay approximately $8.75 USD. Batch API pricing reduces this by 50% for non-real-time workloads.</p></details>
-      <details><summary>What is the cheapest LLM API for high-volume applications?</summary><p>For high-volume US-based workloads in 2026, GPT-4o mini ($0.15/1M input) and Gemini Flash ($0.075/1M input) are the most cost-effective options. Claude Haiku is competitive for longer outputs. This calculator lets you compare all three side-by-side with your exact token usage profile.</p></details>
-      <details><summary>How do I reduce my LLM API costs in production?</summary><p>Key strategies: use prompt caching (saves 75–90% on repeated context), switch to a smaller model for classification or routing tasks, enable batch processing for async jobs, and compress system prompts. This tool helps you quantify savings from each change before you deploy it.</p></details>
+      <details><summary>How much does GPT-4o API cost per 1,000 requests?</summary><p>At 2026 pay-as-you-go pricing, GPT-4o costs $2.50/1M input tokens and $10/1M output tokens. A typical request with 1,500 input + 500 output tokens costs about $0.0088. For 1,000 such requests, you'd pay approximately $8.75 USD.</p></details>
+      <details><summary>What is the cheapest LLM API for high-volume applications?</summary><p>For high-volume US-based workloads in 2026, GPT-4o mini ($0.15/1M input) and Gemini Flash ($0.075/1M input) are the most cost-effective options. Claude Haiku is competitive for longer outputs.</p></details>
+      <details><summary>How do I reduce my LLM API costs in production?</summary><p>Key strategies: use prompt caching (saves 75–90% on repeated context), switch to a smaller model for classification tasks, enable batch processing for async jobs, and compress system prompts.</p></details>
     </div>
   </div>
-</div>
-</div>
-</section>
-
-  <!-- ===== PANEL 2: VECTOR ===== -->
-  <section class="panel" id="vector" role="tabpanel" aria-labelledby="tab-vector">
-    <div class="panel-head">
-      <h2>Vector Database Cloud Cost Estimator</h2>
-      <p>Approximate monthly cost for Pinecone, Supabase, Qdrant, and Weaviate from your index size.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="vecProvider">Provider</label>
-          <select class="sel" id="vecProvider" aria-label="Select vector database provider"></select>
-        </div>
-        <div class="row2">
-          <div class="field">
-            <label for="vecCount">Number of vectors</label>
-            <input class="inp" id="vecCount" type="number" value="1000000" min="0" aria-label="Number of vectors in index">
-          </div>
-          <div class="field">
-            <label for="vecDim">Dimensions</label>
-            <input class="inp" id="vecDim" type="number" value="1536" min="1" aria-label="Vector dimensions">
-          </div>
-        </div>
-        <div class="field">
-          <label for="vecQ">Queries / month</label>
-          <input class="inp" id="vecQ" type="number" value="2000000" min="0" aria-label="Monthly query count">
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Estimated monthly cost</div>
-        <div class="big" id="vecTotal">$0</div>
-        <div class="per" id="vecName">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Raw vector storage</span><b id="vecStore">—</b></div>
-          <div class="brow"><span>Storage cost</span><b id="vecStoreCost">—</b></div>
-          <div class="brow"><span>Query / compute cost</span><b id="vecQCost">—</b></div>
-          <div class="brow warn"><span>Plan base fee</span><b id="vecBase">—</b></div>
-        </div>
-      </div>
-    </div>
-    <p class="disclaimer">Vector DB pricing models vary widely (serverless read units, pod-hours, compute tiers). These are simplified order-of-magnitude estimates assuming float32 vectors and ~1.5× index overhead — use them for comparison, not for contracts.</p>
-  <div class="calc-seo-content">
-    <h3>Vector Database Cost — Pinecone vs Supabase Cost Comparison</h3>
-    <p>This vector database cost estimator calculates your monthly spend on Pinecone, Supabase pgvector, Qdrant, and Weaviate based on vector count, dimensions, and query volume. Vector databases are critical for RAG (retrieval-augmented generation) pipelines, semantic search, and recommendation engines. Pinecone's serverless tier charges per read unit and write unit, making it predictable at low volume but expensive at scale. Supabase pgvector, by contrast, runs on a flat PostgreSQL instance cost — often $25–50/month for a US-based startup storing under 5M vectors. A team embedding 1M product descriptions at 1536 dimensions (OpenAI ada-002 output) and running 2M queries/month would pay roughly $70/month on Pinecone serverless vs. $25/month on a Supabase $25 plan. Input your exact workload to see the real Pinecone vs Supabase cost difference.</p>
-    <div class="calc-faq">
-      <details><summary>How much does Pinecone cost for 1 million vectors?</summary><p>Pinecone's serverless pricing in 2026 charges per read/write unit. Storing 1M float32 vectors at 1536 dimensions uses roughly 6 GB of storage. Depending on query volume and region, expect $50–$120/month USD. Pod-based plans start at $70/month for the p1.x1 pod. Supabase pgvector on a $25 plan handles the same workload for many teams.</p></details>
-      <details><summary>Is Supabase pgvector cheaper than Pinecone for RAG apps?</summary><p>For most early-stage US startups under 5M vectors and 1M queries/month, yes. Supabase pgvector runs on Postgres — the $25/month Pro plan handles millions of vectors with proper indexing (HNSW). Pinecone becomes competitive at very high query throughput where managed scaling saves engineering time.</p></details>
-      <details><summary>What vector database is cheapest for a production RAG pipeline?</summary><p>Qdrant Cloud and Supabase pgvector are typically lowest-cost in 2026 for US teams. Qdrant free tier allows 1GB RAM, and their $25 cloud tier scales well. For enterprise-grade SLAs and managed scaling, Pinecone or Weaviate Cloud may justify the premium. Use this calculator to compare at your exact vector count.</p></details>
-    </div>
+  <div style="margin-top:12px">
+    <a href="/llm-cost-calculator.html" style="font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full LLM calculator with all models →</a>
   </div>
-</div>
-</div>
-</div>
-</section>
-
-  <!-- ===== PANEL 3: IMAGE ===== -->
-  <section class="panel" id="image" role="tabpanel" aria-labelledby="tab-image">
-    <div class="panel-head">
-      <h2>AI Image Generation Budget Planner</h2>
-      <p>Compare per-image and monthly cost across DALL·E 3, Stable Diffusion, and Flux.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="imgModel">Model / quality</label>
-          <select class="sel" id="imgModel" aria-label="Select image generation model and quality"></select>
-        </div>
-        <div class="field">
-          <label for="imgCount">Images / month</label>
-          <input class="inp" id="imgCount" type="number" value="5000" min="0" aria-label="Number of images per month">
-        </div>
-        <div class="field">
-          <label for="imgVar">Avg variations per prompt <span class="hint">multiplier</span></label>
-          <input class="inp" id="imgVar" type="number" value="1" min="1" aria-label="Average variations per prompt">
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Estimated monthly cost</div>
-        <div class="big" id="imgTotal">$0</div>
-        <div class="per" id="imgName">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Cost per image</span><b id="imgUnit">—</b></div>
-          <div class="brow"><span>Total images generated</span><b id="imgGen">—</b></div>
-          <div class="brow hl"><span>Cost per 1,000 images</span><b id="imgK">—</b></div>
-        </div>
-      </div>
-    </div>
-    <p class="disclaimer">DALL·E rates are per-image API prices. Open models (SDXL, Flux) reflect typical hosted-API pricing; self-hosting on your own GPU can be dramatically cheaper at scale but adds infra cost not modeled here.</p>
-  <div class="calc-seo-content">
-    <h3>AI Image Generation Cost — DALL-E 3 Cost Per Image</h3>
-    <p>This AI image generation cost calculator estimates your monthly spend on DALL·E 3, Stable Diffusion, and Flux APIs based on image volume and quality tier. For product teams, game studios, and marketing agencies using AI image generation at scale in the US market, cost per image varies wildly: DALL·E 3 HD costs $0.080 per image via the OpenAI API, while SDXL hosted APIs can run as low as $0.002–$0.004 per image. A US e-commerce platform generating 10,000 product images per month would pay $800/month with DALL·E 3 HD versus under $40 with a Flux-hosted endpoint. Enter your monthly image volume and preferred quality level to see your exact DALL-E 3 cost per image versus open-model alternatives and plan your AI image budget accordingly.</p>
-    <div class="calc-faq">
-      <details><summary>How much does DALL-E 3 cost per image via the API?</summary><p>DALL·E 3 via the OpenAI API costs $0.040 per image at standard quality (1024×1024) and $0.080 per image at HD quality in 2026. Wide format (1024×1792 or 1792×1024) adds a small premium. For US teams generating thousands of images monthly, open-source alternatives like Flux or SDXL via hosted APIs cost 10–40× less per image.</p></details>
-      <details><summary>What is the cheapest AI image generation API for high volume?</summary><p>For high-volume US applications in 2026, Stable Diffusion XL and Flux via providers like Replicate, Together AI, or Modal cost $0.001–$0.004 per image. At 50,000 images/month, that's under $200 versus $2,000+ for DALL·E 3 standard. The tradeoff is prompt adherence and photorealism, where DALL·E 3 still leads.</p></details>
-      <details><summary>How do I calculate AI image generation costs for my SaaS?</summary><p>Multiply your monthly image count by the per-image API price, then add variation multiplier (if users request multiple variants per prompt). Factor in failed generations (typically 1–3%). This calculator does all of that automatically — just enter your expected volume and select the model to get your monthly USD cost estimate.</p></details>
-    </div>
-  </div>
-</div>
-</section>
-
-  <!-- ===== PANEL 4: PAYMENT ===== -->
-  <section class="panel" id="pay" role="tabpanel" aria-labelledby="tab-pay">
-    <div class="panel-head">
-      <h2>SaaS Payment Gateway Fee Calculator</h2>
-      <p>See exactly what Stripe, Paddle, Lemon Squeezy, and PayPal take from your monthly revenue.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="row2">
-          <div class="field">
-            <label for="payRev">Monthly revenue <span class="hint">USD</span></label>
-            <input class="inp" id="payRev" type="number" value="25000" min="0" aria-label="Monthly revenue in USD">
-          </div>
-          <div class="field">
-            <label for="payTx">Transactions / month</label>
-            <input class="inp" id="payTx" type="number" value="800" min="0" aria-label="Number of transactions per month">
-          </div>
-        </div>
-        <div class="field">
-          <label for="payAvg">Avg transaction value</label>
-          <input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default" aria-label="Average transaction value (calculated automatically)">
-        </div>
-        <p class="disclaimer" style="margin-top:4px">Paddle &amp; Lemon Squeezy act as Merchant of Record — their higher % includes global sales-tax/VAT handling and chargeback coverage, which Stripe bills separately.</p>
-      </div>
-      <div>
-        <div class="rlabel" style="font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Fees by provider</div>
-        <div class="cmp" id="payCmp"></div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Stripe vs Paddle Fees — SaaS Payment Processor Cost Calculator</h3>
-    <p>This payment processor fee calculator shows exactly how much Stripe, Paddle, Lemon Squeezy, and PayPal take from your SaaS revenue each month. For US-based SaaS companies, choosing the right payment processor can save tens of thousands of dollars annually. Stripe charges 2.9% + $0.30 per transaction and requires you to handle sales tax collection yourself (or pay for Stripe Tax). Paddle and Lemon Squeezy act as Merchant of Record — their 5–9% fee includes global VAT/sales tax compliance, EU VAT, and chargeback coverage. A US startup doing $25,000/month in SaaS revenue with 800 transactions would pay roughly $1,010/month with Stripe versus $1,250–$2,250 with Paddle, depending on their tier. But Paddle saves potentially $200–$500/month in tax compliance tooling. Enter your revenue and transaction count to see the real Stripe vs Paddle fee comparison for your business.</p>
-    <div class="calc-faq">
-      <details><summary>What are Stripe fees for SaaS subscriptions in 2026?</summary><p>Stripe's standard US rate is 2.9% + $0.30 per successful card transaction. For subscriptions, Stripe Billing adds 0.5–0.8% on top. International cards add 1.5%. At $25,000/month revenue with 800 transactions, total Stripe fees land around $970–$1,050/month USD before tax tooling costs.</p></details>
-      <details><summary>Is Paddle cheaper than Stripe for global SaaS?</summary><p>Paddle's higher percentage (5–9%) looks expensive, but it includes global sales tax, VAT, EU digital services tax, and chargeback handling — all of which Stripe charges separately or requires third-party tools for. For US SaaS companies selling internationally, Paddle's total cost of compliance often matches or beats Stripe's true all-in cost.</p></details>
-      <details><summary>Which payment processor is best for indie SaaS developers?</summary><p>Lemon Squeezy is popular with US indie developers for its simplicity — it's Merchant of Record like Paddle but with a cleaner API and dashboard. For high-volume ($100K+/month) US B2B SaaS, Stripe is typically cheaper. For global consumer SaaS under $50K/month, Paddle or Lemon Squeezy reduces compliance overhead significantly.</p></details>
-    </div>
-  </div>
-</div>
-</section>
 </div>
 
-  <!-- PANEL 5: Cloud VPS -->
-  <section class="panel" id="cloud" role="tabpanel">
-    <div class="panel-head">
-      <h2>Cloud VPS &amp; Database Cost Comparison</h2>
-      <p class="pdesc">Compare Vultr, DigitalOcean, Hetzner server costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="cloudCpu">vCPU cores</label>
-        <select class="sel" id="cloudCpu">
-          <option value="1">1 vCPU</option><option value="2" selected>2 vCPU</option>
-          <option value="4">4 vCPU</option><option value="8">8 vCPU</option>
-        </select>
-        <label class="lbl" for="cloudRam">RAM</label>
-        <select class="sel" id="cloudRam">
-          <option value="1">1 GB</option><option value="4" selected>4 GB</option>
-          <option value="8">8 GB</option><option value="16">16 GB</option>
-        </select>
-        <label class="lbl" for="cloudCount">Servers</label>
-        <input class="inp" id="cloudCount" type="number" value="1" min="1">
-      </div>
-      <div class="result">
-        <div class="big" id="cloudTotal">$0</div>
-        <div class="per" id="cloudPer">—</div>
-        <div class="breakdown" id="cloudCmp"></div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Cloud VPS Cost Comparison — Hetzner vs DigitalOcean Price</h3>
-    <p>This cloud VPS cost comparison tool helps developers find the cheapest server for their workload across Vultr, DigitalOcean, and Hetzner. For US-based teams, DigitalOcean's 2 vCPU / 4 GB Droplet runs $24/month, while Vultr's equivalent is $20/month and Hetzner's CPX21 (3 vCPU / 4 GB) is just €5.83/month — though Hetzner data centers are EU-based, which matters for latency-sensitive US applications. A startup running three application servers at 4 vCPU / 8 GB RAM each would pay $336/month on DigitalOcean vs. $216/month on Vultr — a $1,440/year difference for identical specs. For US GDPR-adjacent workloads, Hetzner's Ashburn, VA location offers sub-$30/month instances with excellent price-to-performance. Select your CPU and RAM requirements to see the full Hetzner vs DigitalOcean price breakdown for your infrastructure.</p>
-    <div class="calc-faq">
-      <details><summary>Is Hetzner cheaper than DigitalOcean for VPS hosting?</summary><p>Yes, significantly. Hetzner's CPX21 (3 vCPU / 4 GB RAM) costs ~$6–8/month USD equivalent, while DigitalOcean's closest match is $24/month. For compute-heavy workloads, Hetzner is 3–4× cheaper. The tradeoff is that most Hetzner data centers are in Europe (Nuremberg, Helsinki, Falkenstein), though they now have US-East locations.</p></details>
-      <details><summary>Which cloud VPS has the best price-to-performance in 2026?</summary><p>For raw price-to-performance, Hetzner leads for EU/US-East workloads. For US-West latency, Vultr offers competitive $20–24/month instances. DigitalOcean's premium is justified by its developer ecosystem, managed databases, and Spaces object storage. For compute-only VPS, Hetzner or Vultr win on cost.</p></details>
-      <details><summary>How do I compare cloud VPS costs for multiple servers?</summary><p>Use the server count input in this calculator to multiply costs across your fleet. A 5-server cluster at 4 vCPU / 8 GB RAM costs $360/month on DigitalOcean versus under $100/month on Hetzner. For US teams without strict data-residency requirements, migrating to Hetzner Ashburn can save $2,000–$5,000/year.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+<!-- HUB: MORE CALCULATORS -->
+<section class="hub-section">
+  <h2 class="sh">More API Cost Calculators</h2>
+  <p class="ssub">11 free tools — click to open the full interactive calculator with all providers and options.</p>
+  <div class="hub-grid">
 
-  <!-- PANEL 6: STT/TTS -->
-  <section class="panel" id="stt" role="tabpanel">
-    <div class="panel-head">
-      <h2>STT &amp; TTS API Cost Calculator</h2>
-      <p class="pdesc">Estimate Whisper, ElevenLabs, Google Speech costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="sttModel">Provider</label>
-        <select class="sel" id="sttModel">
-          <optgroup label="Speech-to-Text (STT)">
-            <option value="whisper">OpenAI Whisper — $0.006/min</option>
-            <option value="google-stt">Google STT — $0.024/min</option>
-            <option value="deepgram">Deepgram Nova-2 — $0.0043/min</option>
-            <option value="azure-stt">Azure Speech — $1.00/hr</option>
-            <option value="assemblyai">AssemblyAI — $0.37/hr</option>
-          </optgroup>
-          <optgroup label="Text-to-Speech (TTS)">
-            <option value="openai-tts">OpenAI TTS — $15/1M chars</option>
-            <option value="openai-tts-hd">OpenAI TTS HD — $30/1M chars</option>
-            <option value="elevenlabs">ElevenLabs — $330/1M chars</option>
-            <option value="google-tts">Google TTS — $16/1M chars</option>
-            <option value="playht">PlayHT TTS — $30/1M chars</option>
-          </optgroup>
-        </select>
-        <label class="lbl" for="sttVol">Audio minutes / month</label>
-        <input class="inp" id="sttVol" type="number" value="10000" min="0">
-      </div>
-      <div class="result">
-        <div class="big" id="sttTotal">$0</div>
-        <div class="per" id="sttPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Rate / 1M tokens</span><b id="sttRate">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="sttAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Speech to Text API Cost — ElevenLabs vs Whisper Price</h3>
-    <p>This STT/TTS API cost calculator estimates your monthly spend on OpenAI Whisper, ElevenLabs, Deepgram, and Google Speech APIs based on audio minutes processed. For US product teams building voice features, call center automation, or podcast transcription tools, the price gap between providers is enormous. OpenAI Whisper API costs $0.006/minute — 10,000 minutes/month runs $60 USD. Google Speech-to-Text costs $0.024/minute for the same volume, totaling $240/month. ElevenLabs TTS for voice synthesis costs $330 per 1M characters — a text-heavy application generating 10M characters/month would pay $3,300/month, while OpenAI TTS covers the same for $150. Deepgram's Nova-2 STT at $0.0043/minute is the cheapest high-accuracy option for US transcription workloads. Enter your monthly audio volume to compare the ElevenLabs vs Whisper price difference instantly.</p>
-    <div class="calc-faq">
-      <details><summary>How much does OpenAI Whisper API cost per hour of audio?</summary><p>OpenAI Whisper costs $0.006 per minute, so $0.36 per hour of audio. For 10,000 minutes (167 hours) per month, the cost is $60 USD. It supports 57 languages and handles accented English well. Deepgram Nova-2 at $0.0043/minute is cheaper but requires separate model selection for non-English languages.</p></details>
-      <details><summary>Is ElevenLabs worth the cost compared to OpenAI TTS?</summary><p>ElevenLabs at $330/1M characters is 22× more expensive than OpenAI TTS at $15/1M characters. The premium buys ultra-realistic voice cloning, emotional range, and voice library access. For US apps where voice quality is a product differentiator (audiobooks, character AI, premium content), ElevenLabs is worth it. For functional TTS in notifications or IVR, OpenAI TTS wins on cost.</p></details>
-      <details><summary>What is the cheapest speech-to-text API with high accuracy?</summary><p>Deepgram Nova-2 at $0.0043/minute is the cheapest high-accuracy STT API in 2026 for US English. It outperforms Google STT on accuracy in many benchmarks while costing 5× less. For multilingual transcription, OpenAI Whisper ($0.006/min) offers the best language coverage. Google STT is best when integrated with Google Cloud's broader ecosystem.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+    <a href="/vector-database-cost.html" class="hub-card">
+      <span class="hc-icon">🧊</span>
+      <div class="hc-title">Vector Database Cost</div>
+      <div class="hc-desc">Pinecone vs Supabase vs Qdrant vs Weaviate</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
 
-  <!-- PANEL 7: Serverless -->
-  <section class="panel" id="serverless" role="tabpanel">
-    <div class="panel-head">
-      <h2>Serverless Compute Cost Calculator</h2>
-      <p class="pdesc">AWS Lambda, Vercel, Cloudflare Workers.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="slProvider">Platform</label>
-        <select class="sel" id="slProvider">
-          <option value="lambda">AWS Lambda</option>
-          <option value="vercel">Vercel Functions</option>
-          <option value="cf">Cloudflare Workers</option>
-          <option value="gcp">GCP Cloud Functions</option>
-          <option value="netlify">Netlify Functions</option>
-          <option value="railway">Railway</option>
-        </select>
-        <label class="lbl" for="slInvoke">Invocations / month</label>
-        <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
-        <label class="lbl" for="slDuration">Avg duration (ms)</label>
-        <input class="inp" id="slDuration" type="number" value="150" min="1">
-        <label class="lbl" for="slMemory">Memory</label>
-        <select class="sel" id="slMemory">
-          <option value="0.125">128 MB</option>
-          <option value="0.25" selected>256 MB</option>
-          <option value="0.5">512 MB</option>
-          <option value="1">1024 MB</option>
-        </select>
-      </div>
-      <div class="result">
-        <div class="big" id="slTotal">$0</div>
-        <div class="per" id="slPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Invocation cost</span><b id="slInvCost">—</b></div>
-          <div class="brow"><span>Compute cost (GB-sec)</span><b id="slCompCost">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="slAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AWS Lambda Cost Calculator — Serverless Pricing Comparison</h3>
-    <p>This AWS Lambda cost calculator estimates your monthly serverless compute spend based on invocation count, average duration, and memory allocation. For US-based teams running event-driven architectures, Lambda's pricing model — $0.20 per 1M requests plus $0.0000166667 per GB-second — rewards low-memory, fast-executing functions. A typical US API backend making 1 million Lambda invocations per month at 150ms and 256 MB would pay roughly $5–8/month, well within Lambda's generous free tier of 1M requests/month. Heavy workloads exceeding 10M invocations at 1 GB memory can climb to $100–$200/month. Vercel Functions and Cloudflare Workers offer cheaper per-invocation pricing ($0.50/1M) but have execution time limits. This serverless pricing comparison helps you decide whether Lambda, Vercel, or Cloudflare Workers fits your cost and latency requirements.</p>
-    <div class="calc-faq">
-      <details><summary>How much does AWS Lambda cost for 1 million requests per month?</summary><p>AWS Lambda's first 1M requests per month are free (permanent free tier). After that, it's $0.20 per 1M requests plus compute cost. For 1M invocations at 150ms and 256 MB, total monthly cost (including compute) is roughly $0.45 USD beyond the free tier. Lambda's cost rises significantly with longer execution times or higher memory.</p></details>
-      <details><summary>Is Cloudflare Workers cheaper than AWS Lambda?</summary><p>For most workloads, yes. Cloudflare Workers costs $0.50/1M requests on the paid plan (Workers Paid at $5/month base), with a 10ms CPU time limit per request. Lambda charges $0.20/1M requests but measures wall-clock time, not CPU time. For fast edge functions under 10ms CPU, Workers is cheaper. For longer-running compute, Lambda wins on flexibility.</p></details>
-      <details><summary>How do I reduce AWS Lambda costs in production?</summary><p>Use ARM/Graviton2 processors (20% cheaper than x86), right-size memory (more memory = faster = cheaper GB-seconds), enable provisioned concurrency only during peak hours, and implement request batching for SQS/Kinesis triggers. Use Lambda Power Tuning tool to find the memory sweet spot. This calculator lets you model memory changes before deploying them.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+    <a href="/image-generation-cost.html" class="hub-card">
+      <span class="hc-icon">🎨</span>
+      <div class="hc-title">Image Generation Cost</div>
+      <div class="hc-desc">DALL·E 3 vs Stable Diffusion vs Flux</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
 
-  <!-- PANEL 8: API Gateway -->
-  <section class="panel" id="gateway" role="tabpanel">
-    <div class="panel-head">
-      <h2>API Gateway Traffic Cost Calculator</h2>
-      <p class="pdesc">AWS API GW, Cloudflare, Kong costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="gwProvider">Provider</label>
-        <select class="sel" id="gwProvider">
-            <option value="aws">AWS API Gateway — $3.50/M req</option>
-            <option value="cf">Cloudflare Workers — $0.50/M req</option>
-            <option value="kong">Kong Cloud — $2.00/M req</option>
-        </select>
-        <label class="lbl" for="gwReqs">Requests (millions/month)</label>
-        <input class="inp" id="gwReqs" type="number" value="10" min="0" step="0.1">
-        <label class="lbl" for="gwTransfer">Data transfer out (GB)</label>
-        <input class="inp" id="gwTransfer" type="number" value="50" min="0">
-      </div>
-      <div class="result">
-        <div class="big" id="gwTotal">$0</div>
-        <div class="per" id="gwPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Request cost</span><b id="gwReqCost">—</b></div>
-          <div class="brow"><span>Transfer cost</span><b id="gwXferCost">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="gwAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>API Gateway Pricing Calculator — AWS API Gateway Cost</h3>
-    <p>This API gateway pricing calculator helps US-based engineering teams estimate monthly costs for AWS API Gateway, Cloudflare Workers, and Kong Cloud based on request volume and data transfer. AWS API Gateway REST API costs $3.50 per million requests plus $0.09/GB data transfer out — a US SaaS platform handling 100 million API calls per month would pay $350 in request fees alone before data transfer. Cloudflare Workers as an API gateway front-end costs just $0.50/million requests, making it 7× cheaper than AWS API GW for pure routing workloads. Kong Cloud falls in between at $2.00/million. For a typical B2B SaaS API at 10M requests/month with 50 GB data transfer, AWS API Gateway costs roughly $39.50/month versus $7/month with Cloudflare. Choose your provider and volume to see the full AWS API Gateway cost breakdown for your architecture.</p>
-    <div class="calc-faq">
-      <details><summary>How much does AWS API Gateway cost per million requests?</summary><p>AWS API Gateway REST API costs $3.50 per million API calls in us-east-1. HTTP API (v2) is cheaper at $1.00/million — use HTTP API for simple proxy or JWT-auth use cases. Data transfer out costs $0.09/GB. At 10M requests/month with 50 GB transfer, REST API costs ~$39.50 vs. $14.50 for HTTP API.</p></details>
-      <details><summary>Is Cloudflare Workers cheaper than AWS API Gateway?</summary><p>Yes, significantly. Cloudflare Workers Paid charges $0.50/million requests after the first 10M/month included in the $5/month base. AWS API Gateway REST costs $3.50/million — 7× more expensive. For teams using Cloudflare as an API gateway proxy, the savings at 100M+ requests/month can exceed $3,000/month USD.</p></details>
-      <details><summary>When should I use API Gateway vs direct Lambda URLs?</summary><p>Lambda Function URLs (free, no per-request charge beyond Lambda cost) are sufficient for simple use cases. Use API Gateway when you need request throttling, API keys, WAF integration, usage plans, or custom domain HTTPS termination. For US teams with complex auth or multi-stage deployments, the API Gateway premium is usually worth it.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+    <a href="/payment-processor-fees.html" class="hub-card">
+      <span class="hc-icon">💳</span>
+      <div class="hc-title">Payment Processor Fees</div>
+      <div class="hc-desc">Stripe vs Paddle vs Lemon Squeezy</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
 
-  <!-- PANEL 9: Embedding -->
-  <section class="panel" id="embedding" role="tabpanel">
-    <div class="panel-head">
-      <h2>Embedding API Cost Calculator</h2>
-      <p class="pdesc">OpenAI, Cohere, Voyage AI embedding costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="embModel">Model</label>
-        <select class="sel" id="embModel">
-            <option value="text3small">OpenAI text-3-small — $0.020/1M</option>
-            <option value="text3large">OpenAI text-3-large — $0.130/1M</option>
-            <option value="ada002">OpenAI ada-002 — $0.100/1M</option>
-            <option value="cohere">Cohere embed-v3 — $0.100/1M</option>
-            <option value="voyage">Voyage AI large-2 — $0.120/1M</option>
-            <option value="jina">Jina AI v3 — $0.018/1M</option>
-        </select>
-        <label class="lbl" for="embTokens">Tokens / month (millions)</label>
-        <input class="inp" id="embTokens" type="number" value="100" min="0">
-        <label class="lbl" for="embDocs">Documents</label>
-        <input class="inp" id="embDocs" type="number" value="500000" min="0">
-      </div>
-      <div class="result">
-        <div class="big" id="embTotal">$0</div>
-        <div class="per" id="embPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Rate / 1M tokens</span><b id="embRate">—</b></div>
-          <div class="brow"><span>Tokens / document</span><b id="embPerDoc">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="embAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Embedding API Cost — OpenAI Embedding Pricing 2026</h3>
-    <p>This embedding API cost calculator estimates monthly spend on OpenAI, Cohere, Voyage AI, and Jina AI embedding models based on token volume and document count. Embeddings are the foundation of RAG systems, semantic search, and recommendation engines — and embedding costs add up quickly at scale. OpenAI's text-embedding-3-small costs $0.020 per 1M tokens, making it the most cost-effective option for US teams with large document corpuses. Embedding 500,000 documents at ~200 tokens each (100M tokens total) costs just $2/month with text-3-small. Cohere Embed v3 at $0.100/1M and Voyage AI at $0.120/1M offer stronger multilingual performance but at 5–6× the price. For US startups building document Q&A or knowledge base search, text-embedding-3-small with its 1536-dimension output hits the sweet spot of cost, performance, and compatibility with Pinecone and pgvector.</p>
-    <div class="calc-faq">
-      <details><summary>What is OpenAI embedding API pricing in 2026?</summary><p>OpenAI's embedding models are priced at: text-embedding-3-small: $0.020/1M tokens, text-embedding-3-large: $0.130/1M tokens, ada-002 (legacy): $0.100/1M tokens. For most US production RAG systems, text-embedding-3-small delivers 90%+ of the quality at 1/5th the price of ada-002. Re-embedding 1M documents costs under $1.</p></details>
-      <details><summary>How do I calculate embedding API costs for my RAG pipeline?</summary><p>Multiply total document token count by the per-token price. Average English document: ~500 tokens. For 100,000 documents at $0.020/1M tokens (text-3-small), initial embedding cost is $1 USD. Ongoing cost depends on update frequency — for static corpuses, re-embedding is rare. Real-time user query embedding adds ~$0.000001 per query.</p></details>
-      <details><summary>Is Jina AI embedding cheaper than OpenAI for large document sets?</summary><p>Jina AI v3 at $0.018/1M tokens is slightly cheaper than OpenAI text-3-small ($0.020/1M) and supports 8192-token context windows. For US teams embedding long documents (legal, research papers, manuals), Jina's context advantage may reduce chunking overhead and total token cost. For standard RAG use cases, the difference is minimal.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+    <a href="/cloud-vps-comparison.html" class="hub-card">
+      <span class="hc-icon">☁️</span>
+      <div class="hc-title">Cloud VPS Comparison</div>
+      <div class="hc-desc">Hetzner vs DigitalOcean vs Vultr</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
 
-  <!-- PANEL 10: AI Agent -->
-  <section class="panel" id="agent" role="tabpanel">
-    <div class="panel-head">
-      <h2>AI Agent Multi-Model Cost Estimator</h2>
-      <p class="pdesc">Multi-step agent pipeline cost per run.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl">Step 1 — Planner / Router</label>
-        <select class="sel" id="agM1">
-          <option value="gpt4omini" selected>GPT-4o mini</option>
-          <option value="haiku">Claude 3.5 Haiku</option>
-          <option value="flash">Gemini Flash</option>
-        </select>
-        <label class="lbl">Step 2 — Main Worker</label>
-        <select class="sel" id="agM2">
-          <option value="gpt4o" selected>GPT-4o</option>
-          <option value="sonnet">Claude 3.5 Sonnet</option>
-          <option value="gempro">Gemini Pro</option>
-        </select>
-        <label class="lbl">Step 3 — Summariser</label>
-        <select class="sel" id="agM3">
-          <option value="gpt4omini" selected>GPT-4o mini</option>
-          <option value="flash">Gemini Flash</option>
-          <option value="haiku">Claude Haiku</option>
-        </select>
-        <label class="lbl" for="agRuns">Agent runs / month</label>
-        <input class="inp" id="agRuns" type="number" value="5000" min="1">
-      </div>
-      <div class="result">
-        <div class="big" id="agTotal">$0</div>
-        <div class="per" id="agPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Cost per run</span><b id="agPerRun">—</b></div>
-          <div class="brow"><span>Step 1 — Planner</span><b id="agS1">—</b></div>
-          <div class="brow"><span>Step 2 — Worker</span><b id="agS2">—</b></div>
-          <div class="brow"><span>Step 3 — Summariser</span><b id="agS3">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="agAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AI Agent Cost Calculator — Multi-Model Pipeline Cost</h3>
-    <p>This AI agent cost calculator estimates the total cost of running multi-step LLM pipelines where different models handle different tasks. Modern AI agent architectures typically chain a fast, cheap model for routing or planning (GPT-4o mini, Gemini Flash), a powerful model for core reasoning (GPT-4o, Claude 3.5 Sonnet), and a cheap model for summarization. For US teams shipping AI agents at scale, this stacking cost is often the biggest surprise. A 3-step pipeline with GPT-4o mini → GPT-4o → GPT-4o mini processing 5,000 runs/month with typical token volumes costs roughly $75–$150/month. At 50,000 runs/month, that becomes $750–$1,500 USD. Swapping the main worker to Claude 3.5 Haiku can cut mid-tier cost by 80%. Select your models and monthly run count to see the full multi-model pipeline cost breakdown.</p>
-    <div class="calc-faq">
-      <details><summary>How much does a multi-step AI agent pipeline cost per run?</summary><p>A typical 3-step agent (planner → worker → summarizer) using GPT-4o mini / GPT-4o / GPT-4o mini with 500/2000/300 tokens per step costs roughly $0.024 per run at 2026 pricing. At 10,000 runs/month that's ~$240 USD/month. Replacing GPT-4o with Claude 3.5 Haiku in the worker step cuts the cost to under $80/month.</p></details>
-      <details><summary>What is the cheapest LLM for AI agent routing and planning?</summary><p>GPT-4o mini ($0.15/1M input) and Gemini Flash ($0.075/1M input) are the top choices for cheap routing in 2026. Both handle classification, tool selection, and structured JSON output reliably. Claude 3.5 Haiku is another strong option at $0.80/1M input for tasks requiring stronger instruction following in the planner step.</p></details>
-      <details><summary>How do I reduce AI agent costs at high run volume?</summary><p>Key strategies: cache repeated planner outputs for similar inputs (saves 60–80% on routing), use smaller context windows by summarizing intermediate state, swap GPT-4o to Sonnet or Haiku for non-creative reasoning steps, and batch non-urgent runs through async queues. This calculator lets you model cost before and after each optimization.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-  <!-- PANEL 11: AI Coding Tool -->
-  <section class="panel" id="coding" role="tabpanel">
-    <div class="panel-head">
-      <h2>AI Coding Tool Cost Calculator</h2>
-      <p class="pdesc">Compare real monthly costs for Cursor, Copilot, Claude Code &amp; Windsurf.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="enCodingUsage">Daily usage intensity</label>
-          <select class="sel" id="enCodingUsage">
-          <option value="light">Light (1-2h/day)</option>
-          <option value="medium" selected>Medium (2-4h/day)</option>
-          <option value="heavy">Heavy (4h+/day, agents)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="enCodingType">Primary use case</label>
-          <select class="sel" id="enCodingType">
-          <option value="complete">Code completion only</option>
-          <option value="chat" selected>Completion + chat</option>
-          <option value="agent">Agentic tasks</option>
-          <option value="all">All combined</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="enCodingTeam">Team size</label>
-          <select class="sel" id="enCodingTeam">
-          <option value="1" selected>Individual (1)</option>
-          <option value="3">Small team (3)</option>
-          <option value="5">Small team (5)</option>
-          <option value="10">Medium (10)</option>
-          <option value="20">Medium (20)</option>
-          </select>
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Cheapest option</div>
-        <div class="big" id="enCodingBest">$10</div>
-        <div class="per" id="enCodingPer">— per month</div>
-        <div class="breakdown" id="enCodingBreakdown">
-          <div class="brow"><span>All tools (sorted)</span><b>—</b></div>
-        </div>
-        <a href="/ai-coding-tool-cost.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full calculator &amp; comparison →</a>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AI Coding Tool Cost — Cursor vs Copilot Pricing 2026</h3>
-    <p>This AI coding tool cost calculator compares monthly spend across Cursor, GitHub Copilot, Claude Code, and Windsurf based on your usage intensity and team size. For US-based developer teams, these tools range from $10 to $200+/month per seat depending on features and agent usage. GitHub Copilot Business costs $19/seat/month with solid IDE integration but limited agentic capability. Cursor Pro at $20/month offers GPT-4o and Claude access with strong agent mode, making it the most popular choice for individual US developers in 2026. Claude Code usage-based pricing can run $50–$300/month for heavy agentic coding sessions. A 5-person US startup comparing Cursor vs Copilot pricing would pay $100/month vs. $95/month at standard tiers — but Cursor's agent capabilities often justify the premium for teams doing complex refactors. Enter your team size and usage pattern to see the exact Cursor vs Copilot cost for your workflow.</p>
-    <div class="calc-faq">
-      <details><summary>How much does Cursor cost vs GitHub Copilot per month?</summary><p>Cursor Pro is $20/month per user, Cursor Business is $40/seat. GitHub Copilot Individual is $10/month, Copilot Business is $19/seat/month. For a 5-person US team, Cursor Business costs $200/month vs. Copilot Business at $95/month. Cursor's higher price buys stronger agent mode, multi-file editing, and direct Claude/GPT-4o access without usage caps on lower-tier plans.</p></details>
-      <details><summary>Is Claude Code worth it compared to Cursor for solo developers?</summary><p>Claude Code is usage-based (pay per token via Anthropic API) — a light user paying $20–40/month, a heavy agentic user $100–300/month. Cursor Pro's $20 flat rate is more predictable for most US solo developers. Claude Code shines for complex multi-file reasoning and autonomous task completion where Cursor's agent hits limits. Run both and compare after one month.</p></details>
-      <details><summary>What AI coding tool is best for a small US development team?</summary><p>For 1–5 US developers in 2026: Cursor Pro ($20/seat) is the most popular choice for its balance of features, agent mode, and Claude/GPT-4o access. GitHub Copilot Business ($19/seat) is better for teams already using GitHub Enterprise. Windsurf ($15/seat) is the budget option. For teams with heavy agentic needs, budget $40–60/seat/month including usage overages.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-  <!-- PANEL 12: Auth Provider -->
-  <section class="panel" id="auth" role="tabpanel">
-    <div class="panel-head">
-      <h2>Authentication Provider Cost Calculator</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase Auth — 73x price difference at 100K MAU.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="enAuthMau">Monthly Active Users (MAU)</label>
-          <input class="inp" id="enAuthMau" type="number" value="10000" min="0" step="1000">
-        </div>
-        <div class="field">
-          <label for="enAuthTier">Feature requirements</label>
-          <select class="sel" id="enAuthTier">
-          <option value="basic">Basic (email + social login)</option>
-          <option value="mid" selected>Standard (MFA + orgs)</option>
-          <option value="enterprise">Enterprise (SSO + SAML)</option>
-          </select>
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Cheapest option</div>
-        <div class="big" id="enAuthBest">$0</div>
-        <div class="per" id="enAuthPer">— per month</div>
-        <div class="breakdown" id="enAuthBreakdown">
-          <div class="brow"><span>All providers (sorted)</span><b>—</b></div>
-        </div>
-        <a href="/auth-provider-cost.html" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full calculator &amp; comparison →</a>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Auth Provider Cost Calculator — Clerk vs Supabase Auth Price</h3>
-    <p>This authentication provider cost calculator compares monthly pricing for Clerk, Auth0, Supabase Auth, and Firebase Auth based on Monthly Active Users. For US SaaS founders, auth cost is often underestimated until they hit scale. Clerk's free tier covers 10,000 MAU, but the Pro plan at $25/month includes 10,000 MAU and charges $0.02/MAU beyond that — at 100,000 MAU, Clerk costs $1,800/month. Supabase Auth, included in Supabase's $25/month Pro plan, handles unlimited MAU with no per-user fees — a massive cost advantage for US consumer apps. Auth0's pricing is famously opaque but typically runs $240–$800/month for B2B features at 10K MAU. The Clerk vs Supabase Auth price gap becomes critical at scale: 73× more expensive at 100K MAU according to our data. Enter your MAU and feature requirements to see the full auth provider cost comparison for your application.</p>
-    <div class="calc-faq">
-      <details><summary>How much does Clerk cost at 50,000 MAU?</summary><p>Clerk Pro charges $25/month base plus $0.02 per MAU over 10,000. At 50,000 MAU, that's $25 + (40,000 × $0.02) = $825/month USD. At 100,000 MAU, Clerk costs ~$1,825/month. Supabase Auth at the same scale costs $25/month (included in the Pro plan), making it 73× cheaper if you don't need Clerk's advanced features like multi-factor auth flows and organization management.</p></details>
-      <details><summary>Is Supabase Auth good enough to replace Clerk?</summary><p>For most US B2C apps, yes. Supabase Auth supports email/password, magic links, OAuth (Google, GitHub, etc.), phone OTP, and Row Level Security. It lacks Clerk's pre-built UI components and multi-organization management. Teams that need beautiful drop-in auth UI and B2B org features should budget for Clerk; teams comfortable building their own auth UI save significantly with Supabase.</p></details>
-      <details><summary>What is the cheapest auth provider with SSO support for US B2B SaaS?</summary><p>Auth0 and Clerk both offer SSO/SAML but at enterprise pricing ($240+/month). WorkOS is purpose-built for B2B SSO and charges per connection ($125–$225/connection/month), which is cheaper for US teams with fewer enterprise customers needing SSO. Supabase Auth supports SAML 2.0 on the Team plan ($599/month), making it cost-effective at high MAU with multiple SSO connections.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</section>
+    <a href="/stt-tts-api-cost.html" class="hub-card">
+      <span class="hc-icon">🎙️</span>
+      <div class="hc-title">STT / TTS API Cost</div>
+      <div class="hc-desc">Whisper vs ElevenLabs vs Deepgram</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
 
+    <a href="/serverless-cost-calculator.html" class="hub-card">
+      <span class="hc-icon">⚡</span>
+      <div class="hc-title">Serverless Cost Calculator</div>
+      <div class="hc-desc">Lambda vs Vercel vs Cloudflare Workers</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+    <a href="/api-gateway-pricing.html" class="hub-card">
+      <span class="hc-icon">🔀</span>
+      <div class="hc-title">API Gateway Pricing</div>
+      <div class="hc-desc">AWS API GW vs Cloudflare vs Kong</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+    <a href="/embedding-api-cost.html" class="hub-card">
+      <span class="hc-icon">🧲</span>
+      <div class="hc-title">Embedding API Cost</div>
+      <div class="hc-desc">OpenAI vs Cohere vs Voyage AI</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+    <a href="/ai-agent-cost.html" class="hub-card">
+      <span class="hc-icon">🤖</span>
+      <div class="hc-title">AI Agent Cost</div>
+      <div class="hc-desc">Multi-step pipeline pricing per run</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+    <a href="/ai-coding-tool-cost.html" class="hub-card">
+      <span class="hc-icon">💻</span>
+      <div class="hc-title">AI Coding Tool Cost</div>
+      <div class="hc-desc">Cursor vs Copilot vs Claude Code</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+    <a href="/auth-provider-cost.html" class="hub-card">
+      <span class="hc-icon">🔑</span>
+      <div class="hc-title">Auth Provider Cost</div>
+      <div class="hc-desc">Clerk vs Supabase Auth vs Auth0</div>
+      <div class="hc-link">Open Calculator →</div>
+    </a>
+
+  </div>
+</section>
 <!-- AD: IN-CONTENT -->
 <!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
 <ins class="adsbygoogle"

@@ -1,26 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant</title>
-<meta name="description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
+<title>AI Image Generation Cost Calculator 2026 — DALL·E 3 vs Stable Diffusion vs Flux</title>
+<meta name="description" content="Free AI image generation cost calculator. Compare DALL·E 3, Stable Diffusion, Flux, and Midjourney pricing. Enter volume → see exact monthly cost.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/vector-db-cost.html">
+<link rel="canonical" href="https://apicalculators.com/image-generation-cost.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant">
-<meta property="og:description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
-<meta property="og:url" content="https://apicalculators.com/vector-db-cost.html">
+<meta property="og:title" content="AI Image Generation Cost Calculator 2026 — DALL·E 3 vs Stable Diffusion vs Flux">
+<meta property="og:description" content="Free AI image generation cost calculator. Compare DALL·E 3, Stable Diffusion, Flux, and Midjourney pricing. Enter volume → see exact monthly cost.">
+<meta property="og:url" content="https://apicalculators.com/image-generation-cost.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant">
-<meta name="twitter:description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
+<meta name="twitter:title" content="AI Image Generation Cost Calculator 2026 — DALL·E 3 vs Stable Diffusion vs Flux">
+<meta name="twitter:description" content="Free AI image generation cost calculator. Compare DALL·E 3, Stable Diffusion, Flux, and Midjourney pricing. Enter volume → see exact monthly cost.">
 <meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the cheapest vector database in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "For under 5M vectors: Supabase pgvector at $25/month (queries included). For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month. Pinecone Serverless is cheapest for very small (under 100K) with the free tier."}}, {"@type": "Question", "name": "How much does Pinecone cost for 1 million vectors?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately $15–30/month depending on query volume. Storage ~$3 for 1536-dim vectors, plus $16 per million read units. At 100K queries/month expect ~$20."}}, {"@type": "Question", "name": "Is pgvector as good as Pinecone?", "acceptedAnswer": {"@type": "Answer", "text": "For most production workloads yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed scaling and dedicated infrastructure for very high query rates."}}, {"@type": "Question", "name": "How many vectors can Qdrant handle?", "acceptedAnswer": {"@type": "Answer", "text": "Qdrant Cloud handles hundreds of millions of vectors. Self-hosted Qdrant on a 16GB RAM server can store ~10M 1536-dim vectors in memory, or 50M+ with memory-mapped storage (slower queries)."}}, {"@type": "Question", "name": "What is a vector dimension?", "acceptedAnswer": {"@type": "Answer", "text": "Dimensions are the size of each embedding vector. OpenAI text-embedding-3-small produces 1536-dim vectors. Larger dimensions = more storage and cost. You can reduce OpenAI embeddings to 256 or 512 dimensions with minimal quality loss."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://apicalculators.com/vector-db-cost.html"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "APICalculators", "item": "https://apicalculators.com"}, {"@type": "ListItem", "position": 2, "name": "Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does DALL·E 3 cost?", "acceptedAnswer": {"@type": "Answer", "text": "DALL·E 3 via OpenAI API: $0.040 per standard 1024×1024 image, $0.080 per HD image, $0.120 per 1792×1024 HD image. For 1,000 standard images: $40."}}, {"@type": "Question", "name": "Is Midjourney cheaper than DALL·E 3?", "acceptedAnswer": {"@type": "Answer", "text": "Midjourney Basic ($10/mo) gives ~200 images/month at $0.05 each. DALL·E 3 standard at $0.040 is slightly cheaper per image with API access. For programmatic use, DALL·E 3 or SDXL are better since Midjourney has no official API."}}, {"@type": "Question", "name": "What is the cheapest AI image generator?", "acceptedAnswer": {"@type": "Answer", "text": "SDXL via Replicate/API at $0.009/image is cheapest managed API. Self-hosting SDXL on a spot GPU is cheaper at scale (~$0.002–0.005/image). Midjourney has no API; DALL·E 3 is cheapest quality-tier API option."}}, {"@type": "Question", "name": "Does Midjourney have an API?", "acceptedAnswer": {"@type": "Answer", "text": "No official API as of 2026. Midjourney requires Discord interaction. For programmatic image generation, use DALL·E 3 (OpenAI API), Stable Diffusion (Replicate/fal.ai), or Flux (Replicate)."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AI Image Generation Cost Calculator 2026 — DALL·E 3 vs Stable Diffusion vs Flux", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://apicalculators.com/image-generation-cost.html"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "APICalculators", "item": "https://apicalculators.com"}, {"@type": "ListItem", "position": 2, "name": "AI Image Generation Cost Calculator 2026 — DALL·E 3 vs Stable Diffusion vs Flux"}]}</script>
 
 <style>
 :root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
@@ -101,11 +101,11 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 .ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
 .ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
 </style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/vector-db-cost.html"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/vektordatenbank-kosten.html"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-base-vectorielle.html"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/vektor-veritabani-maliyet.html"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/vector-db-cost.html"/>
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/image-generation-cost.html"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/ki-bildgenerierung-kosten.html"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-generation-image-ia.html"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/yz-gorsel-uretim-maliyet.html"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/image-generation-cost.html"/>
 </head>
 <body>
 <header class="nav">
@@ -115,9 +115,9 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </header>
 <section class="hero wrap">
-  <span class="chip"><span class="dot"></span> June 2026 · Vector DB pricing</span>
-  <h1 class="ph"><span class="em">Vector Database</span> Cost Comparison</h1>
-  <p class="intro">Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate costs. Enter your vector count, dimensions, and query volume — see exact monthly prices.</p>
+  <span class="chip"><span class="dot"></span> June 2026 · AI image pricing</span>
+  <h1 class="ph"><span class="em">AI Image</span> Cost Calculator</h1>
+  <p class="intro">Compare DALL·E 3, Stable Diffusion XL, Flux.1, and Midjourney pricing. Enter daily generation volume → see exact monthly cost. Free, no signup.</p>
 <div class="ad-wrap">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle ad-unit"
@@ -133,56 +133,51 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
 <div class="calc-shell" id="calc">
   <div class="calc-header">
-    <h2>🗄️ Vector Database Cost Calculator</h2>
-    <p>Select provider · Enter vector count and queries · Results update live</p>
+    <h2>🎨 AI Image Generation Cost Calculator</h2>
+    <p>Select model · Enter volume · Results update live</p>
   </div>
   <div class="calc-body">
     <div>
-      <div class="field"><label for="vecProvider">Provider</label>
-        <select class="sel" id="vecProvider">
-          <option value="pinecone">Pinecone (Serverless)</option>
-          <option value="supabase">Supabase pgvector</option>
-          <option value="qdrant">Qdrant Cloud</option>
-          <option value="weaviate">Weaviate Cloud</option>
+      <div class="field"><label for="imgModel">Model</label>
+        <select class="sel" id="imgModel">
+          <option value="dalle3std">DALL·E 3 · 1024 standard ($0.040/img)</option>
+          <option value="dalle3hd">DALL·E 3 · 1024 HD ($0.080/img)</option>
+          <option value="dalle3wide">DALL·E 3 · 1792 HD ($0.120/img)</option>
+          <option value="sdxl">Stable Diffusion XL API ($0.009/img)</option>
+          <option value="flux">Flux.1 Pro API ($0.050/img)</option>
+          <option value="midjourney">Midjourney Basic ($10/mo ≈ $0.050/img)</option>
         </select></div>
       <div class="row2">
-        <div class="field"><label for="vecCount">Vectors (thousands)</label>
-          <input class="inp" id="vecCount" type="number" value="1000" min="1"></div>
-        <div class="field"><label for="vecDim">Dimensions</label>
-          <select class="sel" id="vecDim">
-            <option value="384">384 (MiniLM)</option>
-            <option value="768">768 (BERT)</option>
-            <option value="1536" selected>1536 (OpenAI)</option>
-            <option value="3072">3072 (text-3-large)</option>
-          </select></div>
+        <div class="field"><label for="imgCount">Generations / day</label>
+          <input class="inp" id="imgCount" type="number" value="100" min="0"></div>
+        <div class="field"><label for="imgVar">Variants per prompt</label>
+          <input class="inp" id="imgVar" type="number" value="2" min="1" max="10"></div>
       </div>
-      <div class="field"><label for="vecQ">Queries / month (thousands)</label>
-        <input class="inp" id="vecQ" type="number" value="100" min="0"></div>
     </div>
     <div class="result">
       <div class="rlabel">Estimated monthly cost</div>
-      <div class="big" id="vecTotal">$0</div>
-      <div class="per" id="vecName">— select provider</div>
+      <div class="big" id="imgTotal">$0</div>
+      <div class="per" id="imgName">per month</div>
       <div class="breakdown">
-        <div class="brow"><span>Storage size</span><b id="vecStore">—</b></div>
-        <div class="brow"><span>Storage cost</span><b id="vecStoreCost">—</b></div>
-        <div class="brow"><span>Query cost</span><b id="vecQCost">—</b></div>
-        <div class="brow hl"><span>Base fee</span><b id="vecBase">—</b></div>
+        <div class="brow"><span>Price per image</span><b id="imgUnit">—</b></div>
+        <div class="brow"><span>Images per month</span><b id="imgGen">—</b></div>
+        <div class="brow hl"><span>Cost per 1,000 images</span><b id="imgK">—</b></div>
       </div>
     </div>
   </div>
 </div>
 
 <section class="sec">
-  <h2>Vector Database Pricing 2026</h2>
-  <p class="sh-sub">Comparison for 1M vectors · 1536 dimensions · 100K queries/month.</p>
+  <h2>AI Image Generation Pricing 2026</h2>
+  <p class="sh-sub">Cost per image. API pricing unless noted.</p>
   <table class="ptable">
-    <thead><tr><th>Provider</th><th>Free tier</th><th>Storage</th><th>Queries</th><th>1M vec / 100K q</th></tr></thead>
+    <thead><tr><th>Model</th><th>Price / image</th><th>Quality</th><th>API?</th><th>1,000 images</th></tr></thead>
     <tbody>
-      <tr class="best"><td><strong>Supabase pgvector</strong><span class="badge">BEST VALUE</span></td><td>500MB + 2 projects</td><td class="mono">$0.125/GB</td><td>Included</td><td class="mono">~$27</td></tr>
-      <tr><td><strong>Qdrant Cloud</strong></td><td>1GB storage</td><td class="mono">$9.00/GB</td><td>Included</td><td class="mono">~$54</td></tr>
-      <tr><td><strong>Weaviate Cloud</strong></td><td>1 sandbox cluster</td><td class="mono">$0.50/GB</td><td class="mono">$10/M</td><td class="mono">~$28</td></tr>
-      <tr><td><strong>Pinecone Serverless</strong></td><td>100K vectors</td><td class="mono">$0.33/GB</td><td class="mono">$16/M RU</td><td class="mono">~$20</td></tr>
+      <tr class="best"><td><strong>Stable Diffusion XL</strong><span class="badge">CHEAPEST API</span></td><td class="mono">$0.009</td><td>Good</td><td>Yes</td><td class="mono">$9</td></tr>
+      <tr><td><strong>DALL·E 3 Standard</strong></td><td class="mono">$0.040</td><td>Excellent</td><td>Yes</td><td class="mono">$40</td></tr>
+      <tr><td><strong>Flux.1 Pro</strong></td><td class="mono">$0.050</td><td>Excellent</td><td>Yes</td><td class="mono">$50</td></tr>
+      <tr><td><strong>Midjourney Basic</strong></td><td class="mono">~$0.050</td><td>Excellent</td><td>No (Discord)</td><td class="mono">$50</td></tr>
+      <tr><td><strong>DALL·E 3 HD</strong></td><td class="mono">$0.080</td><td>Best</td><td>Yes</td><td class="mono">$80</td></tr>
     </tbody>
   </table>
 <div class="ad-wrap">
@@ -195,15 +190,14 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
        data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-  <div class="callout tip"><div class="cl">💡 Self-host Qdrant</div><p>Qdrant on a $6/mo Hetzner VPS handles 1–5M vectors easily. Total cost: ~$6–10/mo vs $50+ on managed cloud. Requires ops knowledge.</p></div>
-</section><div class="aff-box"><p>Start building your vector search:</p><div class="btns"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">⚡ Build on Supabase</a><a href="[PINECONE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">🌲 Try Pinecone free</a></div></div>
+  <div class="callout tip"><div class="cl">💡 Self-host for scale</div><p>Running SDXL on a $0.50/hr GPU spot instance (Hetzner, Vultr) generates ~500 images/hour. At 10,000 images/day: self-hosting costs ~$10/day vs $90 with SDXL API. Break-even at ~5,000 images/month.</p></div>
+</section><div class="aff-box"><p>GPU hosting for self-hosted image generation:</p><div class="btns"><a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored noopener" target="_blank" class="aff-btn">☁️ $300 Vultr credit (GPU servers)</a></div></div>
 <section class="sec">
   <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">What is the cheapest vector database in 2026?<span class="plus">+</span></div><div class="a"><p>For under 5M vectors: Supabase pgvector at $25/month (queries included). For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month. Pinecone Serverless is cheapest for very small (under 100K) with the free tier.</p></div></div>
-<div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Approximately $15–30/month depending on query volume. Storage ~$3 for 1536-dim vectors, plus $16 per million read units. At 100K queries/month expect ~$20.</p></div></div>
-<div class="qa"><div class="q">Is pgvector as good as Pinecone?<span class="plus">+</span></div><div class="a"><p>For most production workloads yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed scaling and dedicated infrastructure for very high query rates.</p></div></div>
-<div class="qa"><div class="q">How many vectors can Qdrant handle?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud handles hundreds of millions of vectors. Self-hosted Qdrant on a 16GB RAM server can store ~10M 1536-dim vectors in memory, or 50M+ with memory-mapped storage (slower queries).</p></div></div>
-<div class="qa"><div class="q">What is a vector dimension?<span class="plus">+</span></div><div class="a"><p>Dimensions are the size of each embedding vector. OpenAI text-embedding-3-small produces 1536-dim vectors. Larger dimensions = more storage and cost. You can reduce OpenAI embeddings to 256 or 512 dimensions with minimal quality loss.</p></div></div>
+  <div class="faq"><div class="qa"><div class="q">How much does DALL·E 3 cost?<span class="plus">+</span></div><div class="a"><p>DALL·E 3 via OpenAI API: $0.040 per standard 1024×1024 image, $0.080 per HD image, $0.120 per 1792×1024 HD image. For 1,000 standard images: $40.</p></div></div>
+<div class="qa"><div class="q">Is Midjourney cheaper than DALL·E 3?<span class="plus">+</span></div><div class="a"><p>Midjourney Basic ($10/mo) gives ~200 images/month at $0.05 each. DALL·E 3 standard at $0.040 is slightly cheaper per image with API access. For programmatic use, DALL·E 3 or SDXL are better since Midjourney has no official API.</p></div></div>
+<div class="qa"><div class="q">What is the cheapest AI image generator?<span class="plus">+</span></div><div class="a"><p>SDXL via Replicate/API at $0.009/image is cheapest managed API. Self-hosting SDXL on a spot GPU is cheaper at scale (~$0.002–0.005/image). Midjourney has no API; DALL·E 3 is cheapest quality-tier API option.</p></div></div>
+<div class="qa"><div class="q">Does Midjourney have an API?<span class="plus">+</span></div><div class="a"><p>No official API as of 2026. Midjourney requires Discord interaction. For programmatic image generation, use DALL·E 3 (OpenAI API), Stable Diffusion (Replicate/fal.ai), or Flux (Replicate).</p></div></div>
 </div>
 </section>
 <section class="sec">
@@ -218,10 +212,10 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 <h2>Related Calculators</h2>
-  <div class="tool-links"><a href="/embedding-api-cost.html" class="tool-link"><span class="ic">🔢</span><div><div class="tl-name">Embedding API Cost</div><div class="tl-desc">Cost to generate your vectors</div></div></a>
-<a href="/llm-cost-calculator.html" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Cost</div><div class="tl-desc">Full AI stack cost</div></div></a>
-<a href="/cloud-vps-comparison.html" class="tool-link"><span class="ic">🖥️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Self-host your vector DB</div></div></a>
-<a href="/ai-agent-cost-calculator.html" class="tool-link"><span class="ic">⛓️</span><div><div class="tl-name">AI Agent Cost</div><div class="tl-desc">RAG pipeline total cost</div></div></a>
+  <div class="tool-links"><a href="/llm-cost-calculator.html" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Cost</div><div class="tl-desc">Text generation costs</div></div></a>
+<a href="/cloud-vps-comparison.html" class="tool-link"><span class="ic">🖥️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Self-host image generation</div></div></a>
+<a href="/embedding-api-cost.html" class="tool-link"><span class="ic">🔢</span><div><div class="tl-name">Embedding Cost</div><div class="tl-desc">Image embedding cost</div></div></a>
+<a href="/ai-agent-cost.html" class="tool-link"><span class="ic">⛓️</span><div><div class="tl-name">AI Agent Cost</div><div class="tl-desc">Multi-modal agent cost</div></div></a>
 </div>
 </section>
 </div>
@@ -257,38 +251,35 @@ document.querySelectorAll('.qa').forEach(qa=>{
   });
 });
 
-const VEC_PROVIDERS = {
-  pinecone:{name:'Pinecone',      base:0,  storagePerGB:0.33, queryPerMillion:16.00},
-  supabase:{name:'Supabase',      base:25, storagePerGB:0.125,queryPerMillion:0},
-  qdrant:  {name:'Qdrant Cloud',  base:0,  storagePerGB:9.00, queryPerMillion:0},
-  weaviate:{name:'Weaviate Cloud',base:25, storagePerGB:0.50, queryPerMillion:10.00},
+const IMG_PRICES = {
+  dalle3std: {name:'DALL·E 3 Standard',unit:0.040},
+  dalle3hd:  {name:'DALL·E 3 HD',     unit:0.080},
+  dalle3wide:{name:'DALL·E 3 Wide HD', unit:0.120},
+  sdxl:      {name:'SDXL API',         unit:0.009},
+  flux:      {name:'Flux.1 Pro',       unit:0.050},
+  midjourney:{name:'Midjourney Basic', unit:0.050},
 };
 const $=id=>document.getElementById(id);
 const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
-const fmt$=v=>{if(v===0)return'$0';if(v<0.01)return'$'+v.toFixed(4);if(v<1)return'$'+v.toFixed(3);if(v<1000)return'$'+v.toFixed(2);return'$'+Math.round(v).toLocaleString('en-US');};
 const big$=v=>{if(v>=1000)return'$'+Math.round(v).toLocaleString('en-US');if(v>=1)return'$'+v.toFixed(2);if(v>0)return'$'+v.toFixed(4);return'$0';};
-function calcVec(){
-  const prov=$('vecProvider').value;
-  const p=VEC_PROVIDERS[prov];
-  const n=num($('vecCount').value)*1000;
-  const d=num($('vecDim').value);
-  const q=num($('vecQ').value)*1000;
-  const bytes=n*d*4*1.5;
-  const gb=bytes/(1024**3);
-  const storeCost=gb*p.storagePerGB;
-  const qCost=q/1e6*p.queryPerMillion;
-  const total=p.base+storeCost+qCost;
-  $('vecTotal').textContent=big$(total);
-  $('vecName').textContent='— '+p.name;
-  $('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+' MB':gb.toFixed(2)+' GB';
-  $('vecStoreCost').textContent=fmt$(storeCost);
-  $('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):'included';
-  $('vecBase').textContent=p.base?fmt$(p.base)+' /mo':'no base fee';
+const fmt$=v=>{if(v===0)return'$0';if(v<0.01)return'$'+v.toFixed(4);if(v<1)return'$'+v.toFixed(3);return'$'+v.toFixed(2);};
+const intf=v=>Math.round(v).toLocaleString('en-US');
+function calcImg(){
+  const m=IMG_PRICES[$('imgModel').value];
+  const c=num($('imgCount').value);
+  const v=Math.max(1,num($('imgVar').value));
+  const total_per_day=c*v;
+  const total=total_per_day*30*m.unit;
+  $('imgTotal').textContent=big$(total);
+  $('imgName').textContent='per month — '+m.name;
+  $('imgUnit').textContent=fmt$(m.unit);
+  $('imgGen').textContent=intf(total_per_day*30)+' images';
+  $('imgK').textContent=fmt$(m.unit*1000);
 }
-['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>{
-  const el=$(id);if(el)el.addEventListener('change',calcVec),el.addEventListener('input',calcVec);
+['imgModel','imgCount','imgVar'].forEach(id=>{
+  const el=$(id);if(el)el.addEventListener('change',calcImg),el.addEventListener('input',calcImg);
 });
-calcVec();
+calcImg();
 
 </script>
 </body>

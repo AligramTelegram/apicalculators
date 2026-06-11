@@ -89,23 +89,99 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "www.apicalculators.com"}],
+      "destination": "https://apicalculators.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/vector-db-cost.html",
+      "destination": "/vector-database-cost.html",
+      "permanent": true
+    },
+    {
+      "source": "/ai-image-cost-calculator.html",
+      "destination": "/image-generation-cost.html",
+      "permanent": true
+    },
+    {
+      "source": "/stripe-vs-paddle-calculator.html",
+      "destination": "/payment-processor-fees.html",
+      "permanent": true
+    },
+    {
+      "source": "/aws-lambda-calculator.html",
+      "destination": "/serverless-cost-calculator.html",
+      "permanent": true
+    },
+    {
+      "source": "/api-gateway-cost.html",
+      "destination": "/api-gateway-pricing.html",
+      "permanent": true
+    },
+    {
+      "source": "/ai-agent-cost-calculator.html",
+      "destination": "/ai-agent-cost.html",
+      "permanent": true
+    },
+    {
       "source": "/llm",
-      "destination": "/#llm",
+      "destination": "/llm-cost-calculator.html",
       "permanent": false
     },
     {
       "source": "/vector",
-      "destination": "/#vector",
+      "destination": "/vector-database-cost.html",
       "permanent": false
     },
     {
       "source": "/image",
-      "destination": "/#image",
+      "destination": "/image-generation-cost.html",
       "permanent": false
     },
     {
       "source": "/payment",
-      "destination": "/#pay",
+      "destination": "/payment-processor-fees.html",
+      "permanent": false
+    },
+    {
+      "source": "/serverless",
+      "destination": "/serverless-cost-calculator.html",
+      "permanent": false
+    },
+    {
+      "source": "/gateway",
+      "destination": "/api-gateway-pricing.html",
+      "permanent": false
+    },
+    {
+      "source": "/embedding",
+      "destination": "/embedding-api-cost.html",
+      "permanent": false
+    },
+    {
+      "source": "/agent",
+      "destination": "/ai-agent-cost.html",
+      "permanent": false
+    },
+    {
+      "source": "/coding",
+      "destination": "/ai-coding-tool-cost.html",
+      "permanent": false
+    },
+    {
+      "source": "/auth",
+      "destination": "/auth-provider-cost.html",
+      "permanent": false
+    },
+    {
+      "source": "/cloud",
+      "destination": "/cloud-vps-comparison.html",
+      "permanent": false
+    },
+    {
+      "source": "/stt",
+      "destination": "/stt-tts-api-cost.html",
       "permanent": false
     }
   ]
