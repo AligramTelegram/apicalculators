@@ -1,0 +1,30 @@
+{
+  "lastUpdated": "2026-06-11",
+  "sources": {
+    "openai": "https://openai.com/api/pricing/",
+    "anthropic": "https://www.anthropic.com/api",
+    "google": "https://ai.google.dev/gemini-api/docs/pricing"
+  },
+  "llm": {
+    "current": [
+      {"id": "gpt41",     "name": "GPT-4.1",             "provider": "OpenAI",    "in": 2.00,  "out": 8.00,  "context": "1M",   "bestFor": "General flagship 2026"},
+      {"id": "gpt4o",     "name": "GPT-4o",               "provider": "OpenAI",    "in": 2.50,  "out": 10.00, "context": "128K",  "bestFor": "Multimodal tasks"},
+      {"id": "gpt4omini", "name": "GPT-4o mini",          "provider": "OpenAI",    "in": 0.15,  "out": 0.60,  "context": "128K",  "bestFor": "High-volume, low-cost"},
+      {"id": "o3",        "name": "o3",                   "provider": "OpenAI",    "in": 2.00,  "out": 20.00, "context": "200K",  "bestFor": "Hard reasoning"},
+      {"id": "opus48",    "name": "Claude Opus 4.8",      "provider": "Anthropic", "in": 5.00,  "out": 25.00, "context": "1M",   "bestFor": "Complex agentic tasks"},
+      {"id": "sonnet46",  "name": "Claude Sonnet 4.6",    "provider": "Anthropic", "in": 3.00,  "out": 15.00, "context": "1M",   "bestFor": "Coding & reasoning"},
+      {"id": "haiku45",   "name": "Claude Haiku 4.5",     "provider": "Anthropic", "in": 1.00,  "out": 5.00,  "context": "200K",  "bestFor": "Quality on a budget"},
+      {"id": "gem25pro",  "name": "Gemini 2.5 Pro",       "provider": "Google",    "in": 1.25,  "out": 10.00, "context": "1M",   "bestFor": "Long-context tasks"},
+      {"id": "gem25flash","name": "Gemini 2.5 Flash",     "provider": "Google",    "in": 0.30,  "out": 2.50,  "context": "1M",   "bestFor": "Balanced speed/cost"},
+      {"id": "gem25lite", "name": "Gemini 2.5 Flash-Lite","provider": "Google",    "in": 0.10,  "out": 0.40,  "context": "1M",   "bestFor": "Ultra-high volume"}
+    ],
+    "legacy": [
+      {"id": "sonnet35",  "name": "Claude 3.5 Sonnet",    "provider": "Anthropic", "in": 3.00,  "out": 15.00, "context": "200K",  "bestFor": "Replaced by Sonnet 4.6"},
+      {"id": "haiku35",   "name": "Claude 3.5 Haiku",     "provider": "Anthropic", "in": 0.80,  "out": 4.00,  "context": "200K",  "bestFor": "Replaced by Haiku 4.5"},
+      {"id": "opus3",     "name": "Claude 3 Opus",        "provider": "Anthropic", "in": 15.00, "out": 75.00, "context": "200K",  "bestFor": "Legacy only"},
+      {"id": "o1",        "name": "OpenAI o1",            "provider": "OpenAI",    "in": 15.00, "out": 60.00, "context": "200K",  "bestFor": "Replaced by o3"},
+      {"id": "gem15pro",  "name": "Gemini 1.5 Pro",       "provider": "Google",    "in": 1.25,  "out": 5.00,  "context": "1M",   "bestFor": "Replaced by 2.5 Pro"},
+      {"id": "gem15flash","name": "Gemini 1.5 Flash",     "provider": "Google",    "in": 0.075, "out": 0.30,  "context": "1M",   "bestFor": "Replaced by 2.5 Flash-Lite"}
+    ]
+  }
+}
