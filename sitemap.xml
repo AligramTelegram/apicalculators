@@ -899,4 +899,26 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Compare pages -->
+  <url><loc>https://apicalculators.com/compare/pinecone-vs-qdrant.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/pinecone-vs-weaviate.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/qdrant-vs-weaviate.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/supabase-vs-pinecone.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/hetzner-vs-digitalocean.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/hetzner-vs-vultr.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/vultr-vs-digitalocean.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/stripe-vs-paddle.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/stripe-vs-lemonsqueezy.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/paddle-vs-lemonsqueezy.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/whisper-vs-deepgram.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/elevenlabs-vs-openai-tts.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/cursor-vs-copilot.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/cursor-vs-windsurf.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/claude-code-vs-cursor.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/clerk-vs-auth0.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/clerk-vs-supabase-auth.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/auth0-vs-supabase-auth.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/lambda-vs-cloudflare-workers.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://apicalculators.com/compare/vercel-vs-cloudflare-workers.html</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Pinecone vs Qdrant: Pricing & Performance Comparison 2026</title>
+<meta name="description" content="Pinecone vs Qdrant head-to-head: pricing, performance, and total cost at 3 scales. Self-hosted Qdrant wins on cost; Pinecone wins on ops simplicity. Real numbers.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/compare/pinecone-vs-qdrant.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Pinecone vs Qdrant: Pricing & Performance Comparison 2026">
+<meta property="og:description" content="Pinecone vs Qdrant head-to-head: pricing, performance, and total cost at 3 scales. Self-hosted Qdrant wins on cost; Pinecone wins on ops simplicity.">
+<meta property="og:url" content="https://apicalculators.com/compare/pinecone-vs-qdrant.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pinecone vs Qdrant: Pricing & Performance Comparison 2026">
+<meta name="twitter:description" content="Real cost at 1M, 10M, and 100M vectors. Includes self-hosted Qdrant on VPS vs Qdrant Cloud vs Pinecone Serverless.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Qdrant cheaper than Pinecone?","acceptedAnswer":{"@type":"Answer","text":"Yes, substantially. Self-hosted Qdrant on a $20/month VPS handles 1–2M vectors for free (infrastructure cost only). Pinecone Serverless for the same workload costs $15–30/month. At 10M vectors, self-hosted Qdrant runs ~$80/month vs Pinecone's $150–250/month. Qdrant Cloud managed is also cheaper than Pinecone at most scales."}},{"@type":"Question","name":"Is Pinecone faster than Qdrant?","acceptedAnswer":{"@type":"Answer","text":"Pinecone has more consistent P99 latency because it runs on dedicated, purpose-built infrastructure. Qdrant is extremely fast when self-hosted — Rust-based HNSW with mmap support achieves sub-10ms queries on 10M vectors with enough RAM. Qdrant Cloud performance depends on the cluster tier you provision."}},{"@type":"Question","name":"Can I migrate from Pinecone to Qdrant?","acceptedAnswer":{"@type":"Answer","text":"Yes. Export your vectors from Pinecone via the fetch API, then upsert into Qdrant using its gRPC or REST API. The main work is adapting client code — both use similar upsert/query patterns. Payload filtering syntax differs but the concepts map 1:1. Expect 1–3 days of engineering time for a production migration."}},{"@type":"Question","name":"Does Qdrant support hybrid search like Pinecone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Qdrant supports sparse-dense hybrid search (BM25 + dense vectors) natively since v1.7. Pinecone Serverless also supports hybrid search. Both support metadata filtering. Qdrant additionally supports multi-vector per payload and named vectors, giving it more flexibility for advanced RAG architectures."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Pinecone vs Qdrant"}]}</script>
+
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.badge-blue{background:var(--cyan);color:#001a22}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
+.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
+.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
+.sc-row b.win{color:var(--lime)}
+.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
+.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
+.prose p{margin-bottom:14px}
+.prose ul{margin:0 0 14px 20px}.prose li{margin-bottom:6px}
+.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
+.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
+.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
+.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
+.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
+.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
+.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
+.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/">Calculators</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> Vector Databases · Updated June 2026</span>
+  <h1 class="ph"><span class="em">Pinecone vs Qdrant</span>: Pricing Comparison 2026</h1>
+  <p class="intro">Fully managed simplicity vs open-source performance. We compare real monthly costs at three scales — and explain when each wins.</p>
+</section>
+
+<div class="wrap">
+
+<!-- Quick Verdict -->
+<div class="verdict-box">
+  <div>
+    <h3>🌲 Choose Pinecone if you…</h3>
+    <ul>
+      <li>Want zero infrastructure ops</li>
+      <li>Need SLA-backed uptime guarantees</li>
+      <li>Are already on AWS us-east-1 (lowest latency)</li>
+      <li>Process fewer than 5M vectors with bursty queries</li>
+      <li class="x">Have a tight budget (&lt;$50/month)</li>
+      <li class="x">Want to self-host or avoid vendor lock-in</li>
+    </ul>
+  </div>
+  <div>
+    <h3>🔷 Choose Qdrant if you…</h3>
+    <ul>
+      <li>Want lowest possible cost at any scale</li>
+      <li>Need open-source / self-hostable</li>
+      <li>Want multi-vector or sparse-dense hybrid search</li>
+      <li>Run on-prem or in your own VPC</li>
+      <li class="x">Cannot operate Kubernetes or Docker in prod</li>
+      <li class="x">Need a fully managed SaaS with zero infra</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Pricing Table -->
+<section class="sec">
+  <h2>Pricing Breakdown</h2>
+  <p class="sh-sub">All prices June 2026. Pinecone Serverless. Qdrant Cloud managed + self-hosted option.</p>
+  <table class="ptable">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Pinecone Serverless</th>
+        <th>Qdrant Cloud</th>
+        <th>Qdrant Self-Hosted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Free tier</td><td class="mono">1 index · ~100K vectors</td><td class="mono">1 cluster · 0.5 CPU · 1GB RAM</td><td class="mono">Unlimited (infra cost only)</td></tr>
+      <tr><td>Storage cost</td><td class="mono">~$0.33 / GB / month</td><td class="mono">Included in cluster price</td><td class="mono">$0 (disk cost only)</td></tr>
+      <tr><td>Read cost</td><td class="mono">$0.16 / million RU</td><td class="mono">Included in cluster</td><td class="mono">$0</td></tr>
+      <tr><td>Write cost</td><td class="mono">$2.00 / million WU</td><td class="mono">Included in cluster</td><td class="mono">$0</td></tr>
+      <tr class="best"><td>1M vectors · 100K q/mo</td><td class="mono">~$20–30/mo</td><td class="mono"><strong>~$15/mo</strong><span class="badge">CHEAPER</span></td><td class="mono"><strong>~$6/mo</strong> (VPS)</td></tr>
+      <tr><td>10M vectors · 1M q/mo</td><td class="mono">~$180–250/mo</td><td class="mono">~$100–140/mo</td><td class="mono"><strong>~$60–80/mo</strong></td></tr>
+      <tr><td>100M vectors · 10M q/mo</td><td class="mono">~$1,800+/mo</td><td class="mono">~$800–1,200/mo</td><td class="mono"><strong>~$400–600/mo</strong></td></tr>
+      <tr><td>Open source</td><td class="mono">❌ Proprietary</td><td class="mono">✅ Apache 2.0</td><td class="mono">✅ Apache 2.0</td></tr>
+      <tr><td>Self-hostable</td><td class="mono">❌</td><td class="mono">✅</td><td class="mono">✅</td></tr>
+      <tr><td>Sparse-dense hybrid</td><td class="mono">✅</td><td class="mono">✅</td><td class="mono">✅</td></tr>
+      <tr><td>Multi-vector / named vectors</td><td class="mono">❌</td><td class="mono">✅</td><td class="mono">✅</td></tr>
+      <tr><td>SLA</td><td class="mono">99.95% (Enterprise)</td><td class="mono">99.9% (paid plans)</td><td class="mono">You own it</td></tr>
+    </tbody>
+  </table>
+
+  <!-- AD SLOT 1: below pricing table -->
+  <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
+
+</section>
+
+<!-- Usage Scenarios -->
+<section class="sec">
+  <h2>Cost at 3 Scales</h2>
+  <p class="sh-sub">1536-dim vectors (OpenAI text-embedding-3-small). Includes storage, reads, writes.</p>
+  <div class="scenario-grid">
+
+    <div class="scenario-card">
+      <h3>🌱 Startup</h3>
+      <div class="sc-sub">1M vectors · 100K queries/month · 5K writes/day</div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>$22/mo</b></div>
+      <div class="sc-row"><span>Qdrant Cloud (starter)</span><b>$14/mo</b></div>
+      <div class="sc-row"><span>Qdrant self-hosted (€6 Hetzner CX22)</span><b class="win">$7/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Qdrant self-hosted</b></div>
+    </div>
+
+    <div class="scenario-card">
+      <h3>📈 Growth</h3>
+      <div class="sc-sub">10M vectors · 1M queries/month · 50K writes/day</div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>$210/mo</b></div>
+      <div class="sc-row"><span>Qdrant Cloud (standard)</span><b>$120/mo</b></div>
+      <div class="sc-row"><span>Qdrant self-hosted (2× Hetzner CPX31)</span><b class="win">$72/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Qdrant self-hosted</b></div>
+    </div>
+
+    <div class="scenario-card">
+      <h3>🏢 Scale</h3>
+      <div class="sc-sub">100M vectors · 10M queries/month · 500K writes/day</div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>$1,900/mo</b></div>
+      <div class="sc-row"><span>Qdrant Cloud (performance tier)</span><b>$950/mo</b></div>
+      <div class="sc-row"><span>Qdrant self-hosted (dedicated cluster)</span><b class="win">$480/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Qdrant self-hosted</b></div>
+    </div>
+
+  </div>
+
+  <div class="callout warn">
+    <div class="cl">⚠ Pinecone write costs compound fast</div>
+    <p>Pinecone charges $2.00 per million write units. A RAG pipeline ingesting 500K documents/day (with re-embedding on updates) hits $30/month in write costs alone before a single query. Qdrant has no per-operation fees — only the cluster price.</p>
+  </div>
+</section>
+
+<!-- Ad Slot 2: mid-content -->
+<div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
+
+<!-- Detailed Analysis -->
+<section class="sec">
+  <h2>When the Numbers Don't Tell the Full Story</h2>
+  <div class="prose">
+
+    <h3>Pinecone's Real Advantage: Predictable Operations</h3>
+    <p>Pinecone's pricing looks steep compared to self-hosted Qdrant, but it buys you something real: zero infrastructure overhead. There are no HNSW index parameters to tune, no memory-mapped segment configuration to optimize, no node failures to respond to at 3am. For a team of one or two engineers building a product — not a platform — this simplicity has genuine value. Pinecone's SDK abstracts away collection management, replica configuration, and shard balancing entirely.</p>
+    <p>Pinecone Serverless also has a meaningful architectural advantage over pod-based plans: you pay only for what you use, with no reserved capacity. A RAG chatbot with spiky traffic (demo days, product launches) won't overpay during quiet periods. Qdrant Cloud charges a fixed cluster fee whether you hit 1K queries or 1M queries that month.</p>
+
+    <h3>Qdrant's Real Advantage: Performance per Dollar</h3>
+    <p>Qdrant is written in Rust and uses HNSW indexing with configurable <code>m</code> and <code>ef_construct</code> parameters. On a 32GB RAM server with your collection fully in memory, Qdrant achieves under 5ms P99 query latency on 10M 1536-dim vectors — a benchmark Pinecone Serverless typically cannot match because your data is loaded on demand from object storage. Pinecone pod-based plans (now legacy) matched managed Qdrant on latency, but at significantly higher cost.</p>
+    <p>Qdrant also supports features Pinecone lacks: named vectors per payload (store multiple embedding models per document), sparse vector support with a BM25 lexical index for true hybrid search, and payload-level filtering that runs in Rust without a network hop. For complex RAG architectures — re-ranking, multi-stage retrieval, document hierarchies — Qdrant's query API is more expressive.</p>
+
+    <h3>The Vendor Lock-in Question</h3>
+    <p>Pinecone is a fully proprietary SaaS. You cannot download the database engine, run it in your own VPC, or avoid their pricing structure. If Pinecone raises prices or changes tier limits (which they have done twice since 2023), you pay or migrate. Qdrant is Apache 2.0 open source. You can deploy it on any cloud, your own hardware, or air-gapped environments. Qdrant Cloud is a convenience wrapper, not a requirement.</p>
+    <p>For regulated industries (healthcare, finance, government) this distinction is often non-negotiable. Data residency requirements may mandate that vectors never leave your VPC — possible with Qdrant, impossible with Pinecone unless on Enterprise plans with BYOC (Bring Your Own Cloud).</p>
+
+    <h3>Migration Complexity</h3>
+    <p>Both databases use similar vector upsert/query patterns, so migration is feasible. Fetch vectors from Pinecone using the <code>fetch</code> endpoint (note: Pinecone does not return vector values by default — you must store them separately or use <code>include_values=True</code>). Insert into Qdrant using the <code>upsert</code> collection endpoint. The main work is adapting filter syntax: Pinecone uses a MongoDB-style filter object; Qdrant uses its own typed filter DSL. Plan for 2–5 engineering days for a well-tested production migration at the 10M-vector scale.</p>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-block">
+  <h3>Calculate Your Exact Vector DB Cost</h3>
+  <p>Enter your actual vector count and query volume to get a precise monthly estimate across Pinecone, Qdrant, Weaviate, and Supabase pgvector.</p>
+  <a href="/vector-database-cost.html" class="cta-btn">Open Vector DB Calculator →</a>
+</div>
+
+<!-- FAQ -->
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">Is Qdrant cheaper than Pinecone?<span class="plus">+</span></div><div class="a"><p>Yes, substantially. Self-hosted Qdrant on a $20/month VPS handles 1–2M vectors for free (infrastructure cost only). Pinecone Serverless for the same workload costs $15–30/month. At 10M vectors, self-hosted Qdrant runs ~$80/month vs Pinecone's $150–250/month. Qdrant Cloud managed is also cheaper than Pinecone at most scales.</p></div></div>
+    <div class="qa"><div class="q">Is Pinecone faster than Qdrant?<span class="plus">+</span></div><div class="a"><p>Pinecone has more consistent P99 latency because it runs on dedicated, purpose-built infrastructure. Qdrant is extremely fast when self-hosted — Rust-based HNSW with mmap support achieves sub-10ms queries on 10M vectors with enough RAM. Qdrant Cloud performance depends on the cluster tier you provision.</p></div></div>
+    <div class="qa"><div class="q">Can I migrate from Pinecone to Qdrant?<span class="plus">+</span></div><div class="a"><p>Yes. Export your vectors from Pinecone via the fetch API, then upsert into Qdrant using its gRPC or REST API. The main work is adapting client code — both use similar upsert/query patterns. Payload filtering syntax differs but the concepts map 1:1. Expect 1–3 days of engineering time for a production migration.</p></div></div>
+    <div class="qa"><div class="q">Does Qdrant support hybrid search like Pinecone?<span class="plus">+</span></div><div class="a"><p>Yes. Qdrant supports sparse-dense hybrid search (BM25 + dense vectors) natively since v1.7. Pinecone Serverless also supports hybrid search. Both support metadata filtering. Qdrant additionally supports multi-vector per payload and named vectors, giving it more flexibility for advanced RAG architectures.</p></div></div>
+  </div>
+</section>
+
+<!-- Related comparisons -->
+<section class="sec">
+  <h2>Related Comparisons</h2>
+  <div class="tool-links">
+    <a href="/compare/pinecone-vs-weaviate.html" class="tool-link"><span class="ic">🌲</span><div><div class="tl-name">Pinecone vs Weaviate</div><div class="tl-desc">Managed vs GraphQL-native</div></div></a>
+    <a href="/compare/qdrant-vs-weaviate.html" class="tool-link"><span class="ic">🔷</span><div><div class="tl-name">Qdrant vs Weaviate</div><div class="tl-desc">Rust speed vs modular AI stack</div></div></a>
+    <a href="/compare/supabase-vs-pinecone.html" class="tool-link"><span class="ic">⚡</span><div><div class="tl-name">Supabase vs Pinecone</div><div class="tl-desc">pgvector vs dedicated vector DB</div></div></a>
+    <a href="/vector-database-cost.html" class="tool-link"><span class="ic">🗄️</span><div><div class="tl-name">Vector DB Calculator</div><div class="tl-desc">All providers, your exact numbers</div></div></a>
+  </div>
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
+    <span>Prices are estimates · verify before you ship</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.qa').forEach(qa=>{
+  qa.querySelector('.q').addEventListener('click',()=>{
+    const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
+  });
+});
+</script>
+</body>
+</html>

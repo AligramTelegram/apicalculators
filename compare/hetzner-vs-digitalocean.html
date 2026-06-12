@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Hetzner vs DigitalOcean: VPS Pricing Comparison 2026 | APICalculators</title>
+<meta name="description" content="Hetzner Cloud vs DigitalOcean Droplets: same specs, wildly different prices. At 4vCPU/8GB, Hetzner costs $19.90/mo vs DigitalOcean's $48/mo. Full breakdown.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/compare/hetzner-vs-digitalocean.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Hetzner vs DigitalOcean: VPS Pricing Comparison 2026 | APICalculators">
+<meta property="og:description" content="Hetzner Cloud vs DigitalOcean Droplets: same specs, wildly different prices. At 4vCPU/8GB, Hetzner costs $19.90/mo vs DigitalOcean's $48/mo. Full breakdown.">
+<meta property="og:url" content="https://apicalculators.com/compare/hetzner-vs-digitalocean.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hetzner vs DigitalOcean: VPS Pricing Comparison 2026 | APICalculators">
+<meta name="twitter:description" content="Hetzner Cloud vs DigitalOcean Droplets: same specs, wildly different prices. At 4vCPU/8GB, Hetzner costs $19.90/mo vs DigitalOcean's $48/mo. Full breakdown.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Hetzner slower than DigitalOcean for US users?","acceptedAnswer":{"@type":"Answer","text":"Hetzner operates data centers in Ashburn, VA and Hillsboro, OR in the US, plus Helsinki, Falkenstein, and Nuremberg in Europe. Latency from the US East Coast to Ashburn is comparable to DigitalOcean's NYC or ATL regions. For APAC users, DigitalOcean has more regional coverage with locations in Singapore, Bangalore, and Sydney. If your primary audience is in Western Europe or the US, Hetzner latency is not a meaningful disadvantage."}},{"@type":"Question","name":"Does Hetzner charge for bandwidth overages?","acceptedAnswer":{"@type":"Answer","text":"Hetzner includes 20TB of outbound traffic per month on all shared compute plans (CX series). If you exceed this, additional traffic is billed at approximately €1 per TB, which is still far cheaper than most competitors. DigitalOcean includes 1TB to 6TB depending on plan and charges $0.01 per GB after that. For bandwidth-heavy workloads like media delivery or large file transfers, Hetzner's 20TB allowance is a massive cost advantage."}},{"@type":"Question","name":"Does Hetzner offer managed databases like DigitalOcean?","acceptedAnswer":{"@type":"Answer","text":"Hetzner does not currently offer managed databases as a hosted service. DigitalOcean provides managed PostgreSQL, MySQL, Redis, MongoDB, and OpenSearch — all with automated backups, failover, and connection pooling. If your architecture depends on managed database services tightly integrated with your compute provider, DigitalOcean has a clear edge. Hetzner users typically self-host databases or use external services like PlanetScale, Supabase, or Neon."}},{"@type":"Question","name":"Does Hetzner have ARM-based servers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hetzner offers ARM64 servers under the CAX series, including the CAX11 (2 vCPU ARM/4GB RAM) starting at approximately €3.79/month — making them even cheaper than the already-affordable CX line. DigitalOcean does not currently offer ARM-based Droplets. For workloads that support ARM64 (most modern Linux software does), Hetzner's ARM options deliver exceptional price-to-performance ratios."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Hetzner vs DigitalOcean"}]}</script>
+
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
+.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
+.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
+.sc-row b.win{color:var(--lime)}
+.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
+.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
+.prose p{margin-bottom:14px}
+.prose ul{margin:0 0 14px 20px}.prose li{margin-bottom:6px}
+.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
+.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
+.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
+.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
+.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
+.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
+.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
+.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in"><a href="/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav></div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span>Cloud VPS · Updated <span id="luDate">2026-06-11</span></div>
+    <h1 class="ph"><span class="em">Hetzner vs DigitalOcean</span>: VPS Pricing Comparison 2026</h1>
+    <p class="intro">Same RAM. Same vCPUs. Prices that diverge by 80%. We break down every tier, scenario, and hidden cost so you can make the call with real numbers.</p>
+  </div>
+
+  <!-- Pricing Table -->
+  <section class="sec">
+    <h2>Side-by-Side Pricing</h2>
+    <p class="sh-sub">Closest equivalent tiers — both providers, same specs, monthly cost in USD.</p>
+    <table class="ptable">
+      <thead>
+        <tr>
+          <th>Specs</th>
+          <th>Hetzner Plan</th>
+          <th>Hetzner Price</th>
+          <th>DigitalOcean Plan</th>
+          <th>DO Price</th>
+          <th>Savings w/ Hetzner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="best">
+          <td class="mono">2 vCPU / 4 GB</td>
+          <td>CX22</td>
+          <td class="mono">~$4.50/mo<span class="badge">BEST</span></td>
+          <td>Basic Droplet</td>
+          <td class="mono">$24/mo</td>
+          <td style="color:var(--lime);font-weight:700">81% cheaper</td>
+        </tr>
+        <tr class="best">
+          <td class="mono">4 vCPU / 8 GB</td>
+          <td>CX32</td>
+          <td class="mono">~$8.80/mo<span class="badge">BEST</span></td>
+          <td>Basic Droplet</td>
+          <td class="mono">$48/mo</td>
+          <td style="color:var(--lime);font-weight:700">82% cheaper</td>
+        </tr>
+        <tr class="best">
+          <td class="mono">8 vCPU / 16 GB</td>
+          <td>CX42</td>
+          <td class="mono">~$19.90/mo<span class="badge">BEST</span></td>
+          <td>Basic Droplet</td>
+          <td class="mono">$96/mo</td>
+          <td style="color:var(--lime);font-weight:700">79% cheaper</td>
+        </tr>
+        <tr>
+          <td class="mono">4 vCPU / 16 GB dedicated</td>
+          <td>CCX23</td>
+          <td class="mono">~$27.50/mo</td>
+          <td>CPU-Optimized</td>
+          <td class="mono">~$72/mo</td>
+          <td style="color:var(--lime);font-weight:700">62% cheaper</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:12px;margin-top:10px">Note: Hetzner CX22 ships with 40 GB NVMe SSD; DigitalOcean's 2vCPU/4GB Droplet includes 80 GB network-attached SSD. Hetzner includes 20 TB outbound bandwidth; DigitalOcean includes 4 TB at this tier.</p>
+
+    <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="sec">
+    <h2>Real-World Cost Scenarios</h2>
+    <p class="sh-sub">Three team sizes, three infrastructure footprints — see what you actually pay each month.</p>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <h3>Small App / Blog</h3>
+        <div class="sc-sub">2 vCPU / 4 GB — personal project or static site with a backend</div>
+        <div class="sc-row"><span>Hetzner CX22</span><b>$4.50/mo</b></div>
+        <div class="sc-row"><span>DigitalOcean Droplet</span><b>$24.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$234/yr</b></div>
+      </div>
+      <div class="scenario-card">
+        <h3>Medium API Server</h3>
+        <div class="sc-sub">4 vCPU / 8 GB + 200 GB block storage</div>
+        <div class="sc-row"><span>Hetzner CX32 + Volume</span><b>$18.80/mo</b></div>
+        <div class="sc-row"><span>DO Droplet + Block Storage</span><b>$68.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$591/yr</b></div>
+      </div>
+      <div class="scenario-card">
+        <h3>Large Platform Cluster</h3>
+        <div class="sc-sub">3 × 8 vCPU / 16 GB nodes</div>
+        <div class="sc-row"><span>3 × Hetzner CX42</span><b>$59.70/mo</b></div>
+        <div class="sc-row"><span>3 × DO 8vCPU/16GB</span><b>$288.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$2,738/yr</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive -->
+  <section class="sec">
+    <h2>Full Analysis</h2>
+    <p class="sh-sub">Why prices diverge by 80% — and when the gap narrows or reverses.</p>
+
+    <div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
+
+    <div class="prose">
+      <h3>Why Hetzner Is So Much Cheaper</h3>
+      <p>The price difference is not a promotional trick or a quality shortcut. It reflects genuine structural cost advantages that Hetzner has built over decades of operating its own data centers in Falkenstein and Nuremberg, Germany, and Helsinki, Finland. Land and electricity are cheaper in central Europe than in US metro areas, and Hetzner does not pay to lease third-party facilities — they own the physical space. On top of that, Hetzner runs a deliberately lean organization with no enterprise sales team, minimal marketing budget, and no massive developer relations program burning cash. What you pay for is raw compute, storage, and bandwidth — nothing else.</p>
+
+      <p>DigitalOcean's higher pricing is also structural. The company has built an extensive ecosystem of managed services — Managed Kubernetes (DOKS), Managed PostgreSQL, MySQL, Redis, MongoDB, and OpenSearch clusters, the App Platform PaaS layer, Spaces CDN object storage, and native load balancers — all deeply integrated. Operating that many managed services at scale requires significant engineering headcount, customer support, redundancy infrastructure, and monitoring systems. Those costs flow through to compute pricing even if you never touch a managed database.</p>
+
+      <h3>Bandwidth: The Hidden Advantage</h3>
+      <p>Hetzner includes 20 TB of outbound traffic per month on every CX-series plan. That is not a typo. A CX22 at $4.50/month comes with 20 TB of egress. DigitalOcean's 2 vCPU/4 GB Droplet includes 4 TB at that tier, and charges $0.01 per GB beyond that. If your application serves video, large files, or high-frequency API responses to many clients, bandwidth costs on DigitalOcean can easily exceed the base compute cost. On Hetzner, you would need to stream roughly 670 GB of data per day before hitting the included limit. For the vast majority of applications, the bandwidth bill on Hetzner is effectively zero.</p>
+
+      <h3>Storage: NVMe Local vs Network-Attached</h3>
+      <p>Hetzner CX-series instances use local NVMe SSDs directly attached to the host. This means disk I/O latency is in the microseconds range — typically under 100 µs for random reads. DigitalOcean Droplets use network-attached SSDs (similar to AWS EBS), which add network hop latency to every disk operation. For most web applications this difference is imperceptible, but for database workloads, high-throughput logging, or applications doing heavy random I/O, Hetzner's local NVMe can meaningfully outperform a same-spec DO Droplet. The tradeoff is that DigitalOcean's network-attached storage survives host failure without data loss, while Hetzner local storage does not.</p>
+
+      <h3>DigitalOcean's Ecosystem Advantages</h3>
+      <p>Where DigitalOcean genuinely earns its premium is in managed services integration. DOKS (DigitalOcean Kubernetes Service) is one of the most beginner-friendly managed Kubernetes offerings available — the control plane is free, worker nodes bill as standard Droplets, and the dashboard makes cluster management approachable without deep Kubernetes expertise. Hetzner has no managed Kubernetes offering; teams that want K8s on Hetzner must self-manage with tools like k3s or Rancher, which is entirely feasible but requires engineering time and ongoing maintenance.</p>
+
+      <p>DigitalOcean's Managed Postgres clusters ship with connection pooling via PgBouncer, automated point-in-time recovery, read replicas, and SSL by default. Standing up a production-grade Postgres setup on Hetzner that matches this feature set requires configuring all of those components manually or using a third-party service like Supabase. For a developer who values time more than dollars, paying DigitalOcean's premium for a managed database that works out of the box may be the right tradeoff — particularly in the early stages of a product when operational burden is expensive.</p>
+
+      <h3>Support and Reliability</h3>
+      <p>DigitalOcean offers 24/7 ticket-based support on all paid plans, with faster response SLAs on higher tiers. Hetzner's support quality depends on the plan — lower-tier shared servers get community forum support and email tickets with no guaranteed response window. For production systems where downtime has a direct revenue impact, this is a meaningful operational consideration. Hetzner's uptime has historically been excellent, but when something breaks at 2 AM you want a support team you can actually reach.</p>
+
+      <h3>The Real Production Recommendation</h3>
+      <p>If you are a solo developer building personal projects, side products, or early-stage applications that do not yet need managed databases or Kubernetes — Hetzner is the obvious choice every single time. You will spend a fraction of what DigitalOcean charges, get more bandwidth, and receive equivalent raw compute performance. The annual savings on even a single 4 vCPU/8 GB server are substantial enough to pay for a meaningful portion of other tooling.</p>
+
+      <p>If you are a startup that relies on managed PostgreSQL with automated failover, runs Kubernetes for container orchestration, or needs Spaces CDN for object storage with integrated delivery — DigitalOcean's ecosystem cohesion is worth the cost. The time you save not managing infrastructure complexity has real value, and the tightly integrated DigitalOcean control plane reduces cognitive overhead when your team is small. The math changes once you cross a certain scale, at which point switching to Hetzner and managing services yourself (or via a dedicated DBaaS like Neon or PlanetScale) often makes financial sense.</p>
+    </div>
+  </section>
+
+  <!-- Verdict -->
+  <section class="sec">
+    <h2>Verdict</h2>
+    <p class="sh-sub">Quick reference — who wins in each category.</p>
+    <div class="verdict-box">
+      <div>
+        <h3 style="color:var(--lime)">Hetzner Wins</h3>
+        <ul>
+          <li>Raw compute price (consistently 79–82% cheaper)</li>
+          <li>Bandwidth allowance (20 TB vs 4 TB)</li>
+          <li>Local NVMe disk I/O performance</li>
+          <li>ARM64 server options (CAX series)</li>
+          <li>Dedicated CPU plans at half the price</li>
+          <li>Best for solo devs and cost-sensitive teams</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--cyan)">DigitalOcean Wins</h3>
+        <ul>
+          <li>Managed Kubernetes (DOKS) — mature, well-documented</li>
+          <li>Managed Postgres, MySQL, Redis, MongoDB</li>
+          <li>Spaces CDN object storage</li>
+          <li>App Platform (PaaS above raw VMs)</li>
+          <li>24/7 customer support on all paid plans</li>
+          <li>Wider global region coverage (9 regions)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <div class="cl">Cost Tip</div>
+      <p>Running a 3-node cluster on Hetzner instead of DigitalOcean saves over $2,700 per year. That budget can fund a managed database at Supabase ($25/mo), Cloudflare for CDN and DDoS protection ($20/mo), and still leave $2,000+ in annual savings.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q">Is Hetzner slower than DigitalOcean for US users?<span class="plus">+</span></div>
+        <div class="a"><p>Hetzner operates data centers in Ashburn, VA and Hillsboro, OR in the US, plus Helsinki, Falkenstein, and Nuremberg in Europe. Latency from the US East Coast to Ashburn is comparable to DigitalOcean's NYC or ATL regions. For APAC users, DigitalOcean has more regional coverage with locations in Singapore, Bangalore, and Sydney. If your primary audience is in Western Europe or the US, Hetzner latency is not a meaningful disadvantage.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Does Hetzner charge for bandwidth overages?<span class="plus">+</span></div>
+        <div class="a"><p>Hetzner includes 20TB of outbound traffic per month on all shared compute plans. If you exceed this, additional traffic is billed at approximately €1 per TB — still far cheaper than most competitors. DigitalOcean includes 1TB to 6TB depending on plan and charges $0.01 per GB after that. For bandwidth-heavy workloads like media delivery or large file transfers, Hetzner's 20TB allowance is a significant cost advantage.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Does Hetzner offer managed databases like DigitalOcean?<span class="plus">+</span></div>
+        <div class="a"><p>Hetzner does not currently offer managed databases as a hosted service. DigitalOcean provides managed PostgreSQL, MySQL, Redis, MongoDB, and OpenSearch — all with automated backups, failover, and connection pooling. If your architecture depends on managed database services tightly integrated with your compute provider, DigitalOcean has a clear edge. Hetzner users typically self-host databases or use external services like PlanetScale, Supabase, or Neon.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Does Hetzner have ARM-based servers?<span class="plus">+</span></div>
+        <div class="a"><p>Yes. Hetzner offers ARM64 servers under the CAX series, including the CAX11 (2 vCPU ARM / 4 GB RAM) starting at approximately €3.79/month — making them even cheaper than the already-affordable CX line. DigitalOcean does not currently offer ARM-based Droplets. For workloads that support ARM64 (most modern Linux software does), Hetzner's ARM options deliver exceptional price-to-performance ratios.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Compare All Cloud VPS Providers</h3>
+    <p>See Hetzner, DigitalOcean, Vultr, Linode, and AWS Lightsail in one table — with cost calculator.</p>
+    <a href="/cloud-vps-comparison.html" class="cta-btn">Open VPS Comparison Tool →</a>
+  </div>
+
+  <!-- Related -->
+  <section class="sec">
+    <h2>Related Comparisons</h2>
+    <div class="tool-links">
+      <a href="/compare/hetzner-vs-vultr.html" class="tool-link">
+        <div class="ic">⚡</div>
+        <div><div class="tl-name">Hetzner vs Vultr</div><div class="tl-desc">Price vs global reach tradeoff</div></div>
+      </a>
+      <a href="/compare/vultr-vs-digitalocean.html" class="tool-link">
+        <div class="ic">🔁</div>
+        <div><div class="tl-name">Vultr vs DigitalOcean</div><div class="tl-desc">Closest pricing matchup in cloud</div></div>
+      </a>
+      <a href="/cloud-vps-comparison.html" class="tool-link">
+        <div class="ic">🖥️</div>
+        <div><div class="tl-name">Cloud VPS Comparison</div><div class="tl-desc">All providers, one calculator</div></div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap foot-in"><span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span><span>Prices are estimates · verify before you ship</span></div></footer>
+<script src="/compare/calc.js"></script>
+<script>
+window.onPricingData = function(data, fmt$) {
+  var lu = document.getElementById('luDate');
+  if (lu && data.lastUpdated) lu.textContent = data.lastUpdated;
+};
+document.querySelectorAll('.qa .q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var qa=this.closest('.qa');
+    var isOpen=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(function(x){x.classList.remove('open');x.querySelector('.a').style.maxHeight='0'});
+    if(!isOpen){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px'}
+  });
+});
+</script>
+</body>
+</html>

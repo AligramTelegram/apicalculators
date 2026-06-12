@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Supabase vs Pinecone: Pricing Comparison 2026 | APICalculators</title>
+<meta name="description" content="Supabase pgvector vs Pinecone: do you need a dedicated vector DB? Real cost at 3 scales. Supabase wins for Postgres-native apps; Pinecone wins for pure vector workloads.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/compare/supabase-vs-pinecone.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Supabase vs Pinecone: Pricing Comparison 2026 | APICalculators">
+<meta property="og:description" content="Supabase pgvector vs Pinecone: real cost at 3 scales. When does a dedicated vector DB justify the extra spend?">
+<meta property="og:url" content="https://apicalculators.com/compare/supabase-vs-pinecone.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Supabase vs Pinecone: Pricing Comparison 2026">
+<meta name="twitter:description" content="pgvector inside Postgres vs dedicated vector DB. Real monthly costs, latency trade-offs, and when to switch.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Supabase replace Pinecone for vector search?","acceptedAnswer":{"@type":"Answer","text":"For most applications under 5M vectors with moderate query rates (under 500 QPS), Supabase pgvector is a perfectly viable alternative. pgvector supports exact nearest-neighbor and approximate nearest-neighbor search via IVFFlat and HNSW indexes. The main trade-offs are: Supabase keeps your vectors in the same Postgres instance as your relational data (simpler ops, higher coupling), while Pinecone is purpose-built for vector workloads and scales more linearly at extreme query volumes."}},{"@type":"Question","name":"Is Supabase pgvector slower than Pinecone?","acceptedAnswer":{"@type":"Answer","text":"At low-to-moderate scale (under 2M vectors, under 100 concurrent queries), pgvector HNSW indexes deliver comparable latency to Pinecone Serverless — typically 10–30ms per query. Pinecone's architecture is optimized exclusively for ANN queries and tends to outperform pgvector at high QPS (500+) or very large collections (50M+ vectors). pgvector also shares CPU and I/O with the rest of your Postgres workload, so spikes in relational query load can affect vector search latency."}},{"@type":"Question","name":"How do I add vector search to an existing Supabase project?","acceptedAnswer":{"@type":"Answer","text":"Run `CREATE EXTENSION IF NOT EXISTS vector;` in your Supabase SQL editor. Then add a vector column to any table: `ALTER TABLE documents ADD COLUMN embedding vector(1536);`. Create an HNSW index: `CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops);`. You can then query with `ORDER BY embedding <=> $1 LIMIT 10`. The entire setup takes under 10 minutes and requires no additional infrastructure."}},{"@type":"Question","name":"When should I switch from Supabase pgvector to Pinecone?","acceptedAnswer":{"@type":"Answer","text":"Consider switching when: (1) your vector collection exceeds 10M rows and pgvector query latency degrades noticeably, (2) your vector queries generate enough CPU load to interfere with relational queries on the same Postgres instance, (3) you need multi-region vector replication with sub-50ms global latency, or (4) your query volume exceeds 1,000 QPS sustained. Below these thresholds, pgvector inside Supabase is almost always the cheaper and simpler choice."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Supabase vs Pinecone"}]}</script>
+
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
+.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
+.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
+.sc-row b.win{color:var(--lime)}
+.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
+.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
+.prose p{margin-bottom:14px}
+.prose ul{margin:0 0 14px 20px}.prose li{margin-bottom:6px}
+.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
+.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
+.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
+.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
+.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
+.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
+.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
+.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> Vector Databases · Updated <span id="luDate">June 2026</span></span>
+  <h1 class="ph"><span class="em">Supabase vs Pinecone</span>: Pricing Comparison 2026</h1>
+  <p class="intro">pgvector inside your existing Postgres vs a dedicated serverless vector database. We compare real monthly costs and explain the exact scale at which switching to Pinecone pays off.</p>
+</section>
+
+<div class="wrap">
+
+<div class="verdict-box">
+  <div>
+    <h3>⚡ Choose Supabase pgvector if you…</h3>
+    <ul>
+      <li>Already use Supabase or Postgres</li>
+      <li>Have fewer than 5M vectors</li>
+      <li>Want vectors and relational data in one DB</li>
+      <li>Want zero additional infrastructure cost</li>
+      <li class="x">Need 500+ QPS sustained vector search</li>
+      <li class="x">Have vector queries interfering with relational load</li>
+    </ul>
+  </div>
+  <div>
+    <h3>🌲 Choose Pinecone if you…</h3>
+    <ul>
+      <li>Have 10M+ vectors with high query rates</li>
+      <li>Need consistent sub-20ms P99 at scale</li>
+      <li>Want dedicated infra for vector workloads</li>
+      <li>Need multi-region vector replication</li>
+      <li class="x">Already pay for Supabase Pro</li>
+      <li class="x">Your vector data is tightly coupled to relational data</li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec">
+  <h2>Pricing Breakdown</h2>
+  <p class="sh-sub">All prices June 2026. Supabase Pro plan + pgvector vs Pinecone Serverless pay-as-you-go.</p>
+  <table class="ptable">
+    <thead>
+      <tr><th>Metric</th><th>Supabase (Pro)</th><th>Pinecone Serverless</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Base price</td><td class="mono">$25/mo (includes DB + auth + storage)</td><td class="mono">Free tier then pay-as-you-go</td></tr>
+      <tr><td>Vector storage cost</td><td class="mono">$0.021/GB extra after 8GB included</td><td class="mono">$0.33/GB/month</td></tr>
+      <tr><td>Query cost</td><td class="mono">$0 (SQL query)</td><td class="mono">$0.16/million read units</td></tr>
+      <tr><td>Write cost</td><td class="mono">$0 (SQL insert)</td><td class="mono">$2.00/million write units</td></tr>
+      <tr class="best"><td>1M vectors · 100K q/mo</td><td class="mono"><strong>$25/mo</strong><span class="badge">CHEAPER</span></td><td class="mono">~$22/mo (+ base plan fee)</td></tr>
+      <tr><td>5M vectors · 500K q/mo</td><td class="mono">~$32/mo (extra storage)</td><td class="mono">~$95/mo</td></tr>
+      <tr><td>10M vectors · 1M q/mo</td><td class="mono">~$50/mo</td><td class="mono">~$200/mo</td></tr>
+      <tr><td>HNSW index support</td><td class="mono">✅ (pgvector 0.5+)</td><td class="mono">✅ Native</td></tr>
+      <tr><td>Hybrid search (BM25+vector)</td><td class="mono">✅ With pg_trgm or ParadeDB</td><td class="mono">✅ Native sparse-dense</td></tr>
+      <tr><td>Joins with relational data</td><td class="mono">✅ Standard SQL JOIN</td><td class="mono">❌ Separate service</td></tr>
+      <tr><td>Self-hostable</td><td class="mono">✅ (Supabase is open source)</td><td class="mono">❌</td></tr>
+    </tbody>
+  </table>
+  <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
+</section>
+
+<section class="sec">
+  <h2>Cost at 3 Scales</h2>
+  <p class="sh-sub">1536-dim OpenAI embeddings. Supabase Pro already paid for other features (auth, storage). Pinecone billed separately.</p>
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <h3>🌱 Startup</h3>
+      <div class="sc-sub">1M vectors · 100K queries/month</div>
+      <div class="sc-row"><span>Supabase Pro (all-in)</span><b class="win">$25/mo</b></div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>$22/mo + other infra</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Supabase (bundled value)</b></div>
+    </div>
+    <div class="scenario-card">
+      <h3>📈 Growth</h3>
+      <div class="sc-sub">5M vectors · 500K queries/month</div>
+      <div class="sc-row"><span>Supabase Pro + extra storage</span><b class="win">~$35/mo</b></div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>~$100/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Supabase by 3×</b></div>
+    </div>
+    <div class="scenario-card">
+      <h3>🏢 Scale</h3>
+      <div class="sc-sub">20M vectors · 5M queries/month · high QPS</div>
+      <div class="sc-row"><span>Supabase (needs larger compute)</span><b>~$120/mo</b></div>
+      <div class="sc-row"><span>Pinecone Serverless</span><b>~$800/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Supabase (if latency OK)</b></div>
+    </div>
+  </div>
+  <div class="callout tip">
+    <div class="cl">💡 pgvector HNSW vs IVFFlat — pick correctly</div>
+    <p>pgvector's IVFFlat index requires knowing your dataset size at creation time and rebuilding on size changes. HNSW (available from pgvector 0.5+) builds incrementally and delivers better recall at comparable latency. Always use HNSW for production vector indexes in Supabase unless your collection exceeds 50M vectors and you need lower memory overhead.</p>
+  </div>
+</section>
+
+<div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
+
+<section class="sec">
+  <h2>When pgvector Is Enough — And When It Isn't</h2>
+  <div class="prose">
+
+    <h3>The Case for Keeping Vectors in Postgres</h3>
+    <p>The strongest argument for Supabase pgvector is architectural simplicity. Every vector is stored in the same database as your users table, your documents table, and your application metadata. A similarity search that also filters by user ID, document date, or subscription tier is a single SQL query with a JOIN — no cross-service call, no data synchronization to maintain, no eventual consistency to reason about. In Pinecone, that same filter requires encoding the user ID and date as metadata fields on every vector record, and the metadata filter runs before ANN search, which can significantly reduce recall for small filtered sets.</p>
+    <p>For applications where vector search is one feature among many — a "similar documents" sidebar on a writing tool, a semantic search bar on a wiki, product recommendations embedded in a larger e-commerce backend — pgvector inside your existing Postgres instance is almost certainly the right default. You add one extension, one column, one index, and vector search is live. No new service to monitor, no new credentials to manage, no additional failure point.</p>
+
+    <h3>Where Pinecone Earns Its Price Premium</h3>
+    <p>Pinecone's purpose-built architecture delivers advantages that Postgres cannot match at the extremes. Pinecone Serverless stores vectors in object storage and loads them on demand, enabling collections of hundreds of millions of vectors without proportionally sized RAM. pgvector's HNSW index must fit in shared memory; at 50M 1536-dim vectors, you need roughly 120GB of RAM dedicated to the vector index alone — a $400–600/month Supabase compute add-on versus Pinecone's object-storage-backed model that scales without large upfront memory allocation.</p>
+    <p>Pinecone also decouples vector query load from your application database. A product recommendation engine that generates 2,000 vector queries per second during a sale event will consume all available Postgres connections and CPU on a shared instance — degrading every other database operation simultaneously. Pinecone handles that burst independently, with no impact on your transactional Postgres workload. This isolation is worth paying for once your vector query volume becomes significant relative to your overall database load.</p>
+
+    <h3>The Hybrid Search Comparison</h3>
+    <p>Both platforms support combining keyword and semantic search, but the implementations differ meaningfully. Pinecone Serverless supports true sparse-dense hybrid search: you generate sparse SPLADE vectors alongside dense embeddings and Pinecone fuses their scores server-side. This gives precise BM25-weighted keyword relevance combined with semantic similarity in a single API call. pgvector's hybrid search requires combining a full-text search result set (via <code>pg_trgm</code>, <code>tsvector</code>, or the ParadeDB extension) with a vector similarity result set at the application layer — more SQL joins, more application complexity, but no external service dependencies and zero additional cost.</p>
+    <p>ParadeDB, which integrates BM25 directly into Postgres as a purpose-built extension, significantly closes this gap. A Supabase project with ParadeDB installed can run hybrid BM25+vector queries in a single SQL statement. This is not enabled by default on Supabase but is available as a custom extension on Pro and Enterprise plans.</p>
+
+    <h3>Migration Path: When You've Outgrown pgvector</h3>
+    <p>The practical migration path from pgvector to Pinecone is well-documented. Export your vectors with <code>SELECT id, embedding, metadata_json FROM documents;</code>, convert to Pinecone's upsert format, and batch-upload in chunks of 100 vectors. Client code changes are minimal — replace your pgvector similarity query with a Pinecone query call. The main architectural change is moving metadata filters from SQL WHERE clauses to Pinecone's metadata filter objects, and implementing a data synchronization strategy to keep Pinecone in sync with your Postgres source of truth. Plan for 3–7 engineering days for a well-tested migration at the 5M-vector scale.</p>
+
+  </div>
+</section>
+
+<div class="cta-block">
+  <h3>Calculate Your Exact Vector DB Cost</h3>
+  <p>Compare Supabase pgvector, Pinecone, Qdrant, and Weaviate at your specific vector count and query volume.</p>
+  <a href="/vector-database-cost.html" class="cta-btn">Open Vector DB Calculator →</a>
+</div>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">Can Supabase replace Pinecone for vector search?<span class="plus">+</span></div><div class="a"><p>For most applications under 5M vectors with moderate query rates (under 500 QPS), Supabase pgvector is a perfectly viable alternative. pgvector supports exact nearest-neighbor and approximate nearest-neighbor search via IVFFlat and HNSW indexes. The main trade-offs are: Supabase keeps your vectors in the same Postgres instance as your relational data (simpler ops, higher coupling), while Pinecone is purpose-built for vector workloads and scales more linearly at extreme query volumes.</p></div></div>
+    <div class="qa"><div class="q">Is Supabase pgvector slower than Pinecone?<span class="plus">+</span></div><div class="a"><p>At low-to-moderate scale (under 2M vectors, under 100 concurrent queries), pgvector HNSW indexes deliver comparable latency to Pinecone Serverless — typically 10–30ms per query. Pinecone's architecture is optimized exclusively for ANN queries and tends to outperform pgvector at high QPS (500+) or very large collections (50M+ vectors). pgvector also shares CPU and I/O with the rest of your Postgres workload, so spikes in relational query load can affect vector search latency.</p></div></div>
+    <div class="qa"><div class="q">How do I add vector search to an existing Supabase project?<span class="plus">+</span></div><div class="a"><p>Run <code>CREATE EXTENSION IF NOT EXISTS vector;</code> in your Supabase SQL editor. Then add a vector column to any table: <code>ALTER TABLE documents ADD COLUMN embedding vector(1536);</code>. Create an HNSW index: <code>CREATE INDEX ON documents USING hnsw (embedding vector_cosine_ops);</code>. You can then query with <code>ORDER BY embedding &lt;=&gt; $1 LIMIT 10</code>. The entire setup takes under 10 minutes and requires no additional infrastructure.</p></div></div>
+    <div class="qa"><div class="q">When should I switch from Supabase pgvector to Pinecone?<span class="plus">+</span></div><div class="a"><p>Consider switching when: (1) your vector collection exceeds 10M rows and pgvector query latency degrades noticeably, (2) your vector queries generate enough CPU load to interfere with relational queries on the same Postgres instance, (3) you need multi-region vector replication with sub-50ms global latency, or (4) your query volume exceeds 1,000 QPS sustained. Below these thresholds, pgvector inside Supabase is almost always the cheaper and simpler choice.</p></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Related Comparisons</h2>
+  <div class="tool-links">
+    <a href="/compare/pinecone-vs-qdrant.html" class="tool-link"><span class="ic">🌲</span><div><div class="tl-name">Pinecone vs Qdrant</div><div class="tl-desc">Managed serverless vs Rust open-source</div></div></a>
+    <a href="/compare/pinecone-vs-weaviate.html" class="tool-link"><span class="ic">🟢</span><div><div class="tl-name">Pinecone vs Weaviate</div><div class="tl-desc">Serverless vs GraphQL-native RAG</div></div></a>
+    <a href="/compare/qdrant-vs-weaviate.html" class="tool-link"><span class="ic">🔷</span><div><div class="tl-name">Qdrant vs Weaviate</div><div class="tl-desc">Two open-source giants compared</div></div></a>
+    <a href="/vector-database-cost.html" class="tool-link"><span class="ic">🗄️</span><div><div class="tl-name">Vector DB Calculator</div><div class="tl-desc">All providers, your exact numbers</div></div></a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
+    <span>Prices are estimates · verify before you ship</span>
+  </div>
+</footer>
+<script src="/compare/calc.js"></script>
+<script>window.onPricingData = function(data) {};</script>
+</body>
+</html>

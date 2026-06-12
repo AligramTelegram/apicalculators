@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Auth0 vs Supabase Auth: Pricing Comparison 2026 | APICalculators</title>
+<meta name="description" content="Auth0 vs Supabase Auth pricing 2026. Auth0 Essential at $23/mo vs Supabase Auth at $0 free (50K MAU). Real cost at 3 scales and when enterprise features justify the premium.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/compare/auth0-vs-supabase-auth.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Auth0 vs Supabase Auth: Pricing Comparison 2026 | APICalculators">
+<meta property="og:description" content="Auth0 vs Supabase Auth: enterprise auth depth vs open-source Postgres-native auth. Real MAU cost at 3 scales.">
+<meta property="og:url" content="https://apicalculators.com/compare/auth0-vs-supabase-auth.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Auth0 vs Supabase Auth Pricing 2026">
+<meta name="twitter:description" content="Auth0 vs Supabase Auth: when does enterprise SAML and Actions justify Auth0's higher cost?">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Supabase Auth cheaper than Auth0?","acceptedAnswer":{"@type":"Answer","text":"Yes, dramatically. Supabase Auth on the free tier supports 50,000 MAU at $0. Auth0's free tier covers only 7,500 MAU. At 50,000 MAU, Supabase Pro (which includes auth) costs $25/month total; Auth0 Essential costs approximately $1,127/month. At 200,000 MAU: Supabase Pro costs ~$350/month; Auth0 Professional (100K MAU included) costs $240/month base but $4,623 for Essential tier. The cost difference is largest at the 10K–200K MAU range, which covers most early-growth SaaS companies."}},{"@type":"Question","name":"When does Auth0 justify the higher cost over Supabase Auth?","acceptedAnswer":{"@type":"Answer","text":"Auth0 justifies its premium in three specific scenarios: (1) Enterprise B2B SaaS where customers bring their own SAML identity provider (Okta, Entra, PingFederate) and require complex attribute mapping — Auth0's enterprise connections are unmatched. (2) Complex auth event pipelines where Auth0 Actions (serverless hooks running synchronously in the auth flow) are needed to enrich tokens, block logins, or trigger external systems. (3) Regulated industries where Auth0's compliance tooling (audit logs, anomaly detection, breached password protection) reduces compliance engineering burden."}},{"@type":"Question","name":"Does Supabase Auth support SAML SSO?","acceptedAnswer":{"@type":"Answer","text":"Yes, Supabase Auth supports SAML 2.0 SSO, but with less configuration flexibility than Auth0. Supabase's SAML implementation handles standard SP-initiated flows with common identity providers like Okta and Azure AD. Auth0's SAML support is more extensive: it handles IdP-initiated flows, complex attribute mapping transformations, signed assertions, encrypted assertions, and custom claim mapping via Rules/Actions. For standard enterprise SSO requirements, Supabase SAML works well. For complex legacy enterprise IdP configurations, Auth0's flexibility is often necessary."}},{"@type":"Question","name":"Can I self-host Supabase Auth but not Auth0?","acceptedAnswer":{"@type":"Answer","text":"Correct. Supabase is fully open source (Apache 2.0 license) and can be self-hosted on your own infrastructure using the official Docker Compose setup or Kubernetes helm chart. Self-hosted Supabase includes the full auth stack (GoTrue) at no licensing cost. Auth0 offers no self-hosted option — it is a cloud-only SaaS. For organizations with data residency requirements or air-gapped environments, self-hosted Supabase Auth is one of the few mature options available, whereas Auth0 requires BYOC (Bring Your Own Cloud) enterprise contracts."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Auth0 vs Supabase Auth"}]}</script>
+
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
+.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
+.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
+.sc-row b.win{color:var(--lime)}
+.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
+.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
+.prose p{margin-bottom:14px}
+.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
+.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
+.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
+.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
+.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
+.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
+.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
+.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> Authentication · Updated <span id="luDate">June 2026</span></span>
+  <h1 class="ph"><span class="em">Auth0 vs Supabase Auth</span>: Pricing Comparison 2026</h1>
+  <p class="intro">Enterprise auth depth and extensive connection library vs open-source Postgres-native auth with a 50K MAU free tier. We compare real monthly costs — and identify the exact scenarios where Auth0's premium is justified.</p>
+</section>
+
+<div class="wrap">
+
+<div class="verdict-box">
+  <div>
+    <h3>🔒 Choose Auth0 if you…</h3>
+    <ul>
+      <li>Build B2B SaaS requiring enterprise SAML SSO</li>
+      <li>Need Auth0 Actions for synchronous auth event logic</li>
+      <li>Have customers on Okta, Entra, PingFederate</li>
+      <li>Need anomaly detection and breach password protection</li>
+      <li class="x">Have 50K+ MAU on a tight budget</li>
+      <li class="x">Already use Supabase Postgres for your data</li>
+    </ul>
+  </div>
+  <div>
+    <h3>⚡ Choose Supabase Auth if you…</h3>
+    <ul>
+      <li>Want 50K MAU free tier (vs Auth0's 7.5K)</li>
+      <li>Already use Supabase Postgres — auth is included</li>
+      <li>Need Postgres RLS integration (auth.uid() in policies)</li>
+      <li>Want open-source / self-hostable auth</li>
+      <li class="x">Need complex legacy enterprise SAML configurations</li>
+      <li class="x">Need synchronous auth event hooks (Auth0 Actions)</li>
+    </ul>
+  </div>
+</div>
+
+<section class="sec">
+  <h2>Pricing Breakdown</h2>
+  <p class="sh-sub">All prices June 2026. Auth0 Essential vs Supabase Pro (auth included in plan).</p>
+  <table class="ptable">
+    <thead>
+      <tr><th>Metric</th><th>Auth0</th><th>Supabase Auth</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Free tier MAU</td><td class="mono">7,500</td><td class="mono"><strong>50,000</strong></td></tr>
+      <tr><td>Entry paid plan</td><td class="mono">$23/mo (Essential, 1K MAU incl.)</td><td class="mono">$25/mo (Pro, 100K MAU incl.)</td></tr>
+      <tr><td>Extra MAU rate</td><td class="mono">$0.023/MAU</td><td class="mono">$0.00325/MAU</td></tr>
+      <tr class="best"><td>Cost at 50K MAU</td><td class="mono">~$1,127/mo</td><td class="mono"><strong>$25/mo</strong><span class="badge">45× CHEAPER</span></td></tr>
+      <tr><td>Cost at 200K MAU</td><td class="mono">~$4,623/mo (Essential)</td><td class="mono"><strong>~$350/mo</strong></td></tr>
+      <tr><td>Enterprise SAML</td><td class="mono">✅ Extensive (all IdPs)</td><td class="mono">✅ Standard (Okta, Entra)</td></tr>
+      <tr><td>Auth event hooks</td><td class="mono">✅ Actions (synchronous)</td><td class="mono">✅ Webhooks (async)</td></tr>
+      <tr><td>Postgres RLS integration</td><td class="mono">❌ Manual</td><td class="mono">✅ Native auth.uid()</td></tr>
+      <tr><td>Self-hostable</td><td class="mono">❌ SaaS only</td><td class="mono">✅ Open source</td></tr>
+      <tr><td>Anomaly detection</td><td class="mono">✅</td><td class="mono">❌</td></tr>
+    </tbody>
+  </table>
+  <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
+</section>
+
+<section class="sec">
+  <h2>Monthly Cost at 3 Scales</h2>
+  <p class="sh-sub">Supabase Pro's $25/mo covers auth + database + storage + realtime. Auth0 is auth-only billing.</p>
+  <div class="scenario-grid">
+    <div class="scenario-card">
+      <h3>🌱 Early Stage</h3>
+      <div class="sc-sub">10,000 MAU</div>
+      <div class="sc-row"><span>Auth0 Essential</span><b>~$230/mo</b></div>
+      <div class="sc-row"><span>Supabase (free tier)</span><b class="win">$0/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Supabase (free!)</b></div>
+    </div>
+    <div class="scenario-card">
+      <h3>📈 Growth</h3>
+      <div class="sc-sub">50,000 MAU</div>
+      <div class="sc-row"><span>Auth0 Essential</span><b>~$1,127/mo</b></div>
+      <div class="sc-row"><span>Supabase Pro</span><b class="win">$25/mo</b></div>
+      <div class="sc-row"><span>Winner</span><b class="win">Supabase by 45×</b></div>
+    </div>
+    <div class="scenario-card">
+      <h3>🏢 Enterprise Scale</h3>
+      <div class="sc-sub">200,000 MAU · B2B with SAML</div>
+      <div class="sc-row"><span>Auth0 Professional</span><b>~$4,623/mo</b></div>
+      <div class="sc-row"><span>Supabase Pro</span><b class="win">~$350/mo</b></div>
+      <div class="sc-row"><span>Winner (cost)</span><b class="win">Supabase — unless SAML critical</b></div>
+    </div>
+  </div>
+  <div class="callout warn">
+    <div class="cl">⚠ Auth0 pricing scales steeply with MAU</div>
+    <p>Auth0 Essential includes only 1,000 MAU in the $23 base. Every additional MAU costs $0.023. At 50,000 MAU, Auth0 costs over $1,100/month — almost 50× more than Supabase Pro for the same user count. The main reason to pay that premium is Auth0's enterprise-grade SAML flexibility and synchronous auth Actions, not core authentication functionality.</p>
+  </div>
+</section>
+
+<div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
+
+<section class="sec">
+  <h2>When the Price Gap Is Worth Paying</h2>
+  <div class="prose">
+
+    <h3>Auth0's Enterprise Connection Library</h3>
+    <p>Auth0's most compelling enterprise advantage is the breadth of its identity provider connection library. Beyond standard SAML 2.0, Auth0 supports Active Directory/LDAP with an on-premises agent (for customers who cannot expose their AD server externally), Google Workspace SAML with automatic directory sync, ADFS (Active Directory Federation Services) for Microsoft-heavy enterprises, SCIM provisioning for automatic user creation and deprovisioning from enterprise directories, and custom OIDC connections for arbitrary internal identity providers. Each of these connection types includes a graphical setup wizard and extensive documentation for common enterprise IdP configurations.</p>
+    <p>Supabase Auth supports SAML 2.0 for the common case — the typical Okta, Azure AD, or Google Workspace setup that covers the majority of enterprise customers. For SaaS products selling to mid-market companies (50–1,000 employees), Supabase SAML is usually sufficient. For products selling to large enterprises with legacy IdP infrastructure — ADFS deployments, on-premises Shibboleth instances, custom OIDC federations — Auth0's flexibility is often the difference between winning and losing a deal.</p>
+
+    <h3>Auth0 Actions vs Supabase Webhooks</h3>
+    <p>The architectural difference between Auth0 Actions and Supabase Auth webhooks is significant for certain use cases. Auth0 Actions are JavaScript functions that execute synchronously within the authentication pipeline. This means an Action can inspect the current login attempt, call an external API, and either allow or block the login before the token is issued — all in the same request. You can use Actions to: enrich access tokens with external data (fetching a user's subscription tier from your billing system before the token is issued), block logins from suspended accounts (checking a fraud score API), or enforce step-up authentication policies (requiring MFA for users accessing sensitive resources).</p>
+    <p>Supabase Auth supports webhooks — asynchronous notifications that fire after auth events. Webhooks are excellent for side effects (sending a welcome email after registration, creating a user profile row in your database after sign-up) but cannot influence the authentication outcome itself. If your auth logic requires blocking a login or modifying a token based on an external service call, Supabase's async webhook model does not support it — you would need to implement that logic in your application middleware instead.</p>
+
+    <h3>The Self-Hosting Advantage</h3>
+    <p>Supabase Auth is built on GoTrue, an open-source JWT-based authentication server. The entire Supabase platform can be self-hosted using the official Docker Compose configuration or Kubernetes Helm chart, all free and open-source. For organizations with hard data residency requirements — government, healthcare, financial services — self-hosted Supabase Auth provides a complete, production-grade authentication solution with zero external data dependencies. Auth0 is cloud-only and offers no self-hosted option outside of enterprise BYOC (Bring Your Own Cloud) contracts that require significant minimum commitments.</p>
+    <p>The practical implication: a security-conscious startup that needs its user data to remain entirely within a specific AWS region can achieve that with self-hosted Supabase Auth. Auth0 processes authentication data in Okta's cloud infrastructure, with data residency options only on Enterprise plans. This is a genuine differentiator for regulated industry applications, where Supabase Auth is one of the few polished, production-ready options.</p>
+
+  </div>
+</section>
+
+<div class="cta-block">
+  <h3>Calculate Your Auth Provider Cost</h3>
+  <p>Enter your MAU count to compare Auth0, Clerk, and Supabase Auth at your exact user scale.</p>
+  <a href="/auth-provider-cost.html" class="cta-btn">Open Auth Cost Calculator →</a>
+</div>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">Is Supabase Auth cheaper than Auth0?<span class="plus">+</span></div><div class="a"><p>Yes, dramatically. Supabase Auth on the free tier supports 50,000 MAU at $0. Auth0's free tier covers only 7,500 MAU. At 50,000 MAU, Supabase Pro (which includes auth) costs $25/month total; Auth0 Essential costs approximately $1,127/month. At 200,000 MAU: Supabase Pro costs ~$350/month; Auth0 Essential costs ~$4,623/month. The cost difference is largest at the 10K–200K MAU range, which covers most early-growth SaaS companies.</p></div></div>
+    <div class="qa"><div class="q">When does Auth0 justify the higher cost over Supabase Auth?<span class="plus">+</span></div><div class="a"><p>Auth0 justifies its premium in three specific scenarios: (1) Enterprise B2B SaaS where customers bring their own SAML identity provider (Okta, Entra, PingFederate) and require complex attribute mapping — Auth0's enterprise connections are unmatched. (2) Complex auth event pipelines where Auth0 Actions (serverless hooks running synchronously in the auth flow) are needed to enrich tokens, block logins, or trigger external systems. (3) Regulated industries where Auth0's compliance tooling (audit logs, anomaly detection, breached password protection) reduces compliance engineering burden.</p></div></div>
+    <div class="qa"><div class="q">Does Supabase Auth support SAML SSO?<span class="plus">+</span></div><div class="a"><p>Yes, Supabase Auth supports SAML 2.0 SSO, but with less configuration flexibility than Auth0. Supabase's SAML implementation handles standard SP-initiated flows with common identity providers like Okta and Azure AD. Auth0's SAML support is more extensive: it handles IdP-initiated flows, complex attribute mapping transformations, signed assertions, encrypted assertions, and custom claim mapping via Rules/Actions. For standard enterprise SSO requirements, Supabase SAML works well. For complex legacy enterprise IdP configurations, Auth0's flexibility is often necessary.</p></div></div>
+    <div class="qa"><div class="q">Can I self-host Supabase Auth but not Auth0?<span class="plus">+</span></div><div class="a"><p>Correct. Supabase is fully open source (Apache 2.0 license) and can be self-hosted on your own infrastructure using the official Docker Compose setup or Kubernetes helm chart. Self-hosted Supabase includes the full auth stack (GoTrue) at no licensing cost. Auth0 offers no self-hosted option — it is a cloud-only SaaS. For organizations with data residency requirements or air-gapped environments, self-hosted Supabase Auth is one of the few mature options available, whereas Auth0 requires BYOC (Bring Your Own Cloud) enterprise contracts.</p></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Related Comparisons</h2>
+  <div class="tool-links">
+    <a href="/compare/clerk-vs-auth0.html" class="tool-link"><span class="ic">🔑</span><div><div class="tl-name">Clerk vs Auth0</div><div class="tl-desc">Developer experience vs enterprise depth</div></div></a>
+    <a href="/compare/clerk-vs-supabase-auth.html" class="tool-link"><span class="ic">⚡</span><div><div class="tl-name">Clerk vs Supabase Auth</div><div class="tl-desc">Dedicated auth vs Postgres-native</div></div></a>
+    <a href="/auth-provider-cost.html" class="tool-link"><span class="ic">👤</span><div><div class="tl-name">Auth Cost Calculator</div><div class="tl-desc">All providers at your MAU scale</div></div></a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
+    <span>Prices are estimates · verify before you ship</span>
+  </div>
+</footer>
+<script src="/compare/calc.js"></script>
+<script>window.onPricingData = function(data) {};</script>
+</body>
+</html>

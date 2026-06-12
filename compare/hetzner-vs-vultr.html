@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Hetzner vs Vultr: Cloud VPS Price Comparison 2026 | APICalculators</title>
+<meta name="description" content="Hetzner vs Vultr side-by-side: CX22 at $4.50/mo vs Vultr's $6/mo for comparable specs. Which has better network, locations, and value per dollar?">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/compare/hetzner-vs-vultr.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Hetzner vs Vultr: Cloud VPS Price Comparison 2026 | APICalculators">
+<meta property="og:description" content="Hetzner vs Vultr side-by-side: CX22 at $4.50/mo vs Vultr's $6/mo for comparable specs. Which has better network, locations, and value per dollar?">
+<meta property="og:url" content="https://apicalculators.com/compare/hetzner-vs-vultr.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hetzner vs Vultr: Cloud VPS Price Comparison 2026 | APICalculators">
+<meta name="twitter:description" content="Hetzner vs Vultr side-by-side: CX22 at $4.50/mo vs Vultr's $6/mo for comparable specs. Which has better network, locations, and value per dollar?">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Vultr faster than Hetzner?","acceptedAnswer":{"@type":"Answer","text":"Neither provider is universally faster — it depends entirely on where your users are. Vultr operates in 32 cities across six continents, which means it can place compute physically closer to users in Tokyo, Seoul, São Paulo, or Sydney. Hetzner has five locations (Falkenstein, Nuremberg, Helsinki, Ashburn VA, and Hillsboro OR). For North American and European workloads the networks are comparable in raw throughput and CPU clock speeds. For APAC or LATAM audiences, Vultr's geographic reach makes a measurable latency difference that Hetzner simply cannot match with its current footprint."}},{"@type":"Question","name":"Does Hetzner have data centers in the US?","acceptedAnswer":{"@type":"Answer","text":"Yes. Hetzner added two US locations in 2023: Ashburn, Virginia (US East) and Hillsboro, Oregon (US West). These locations offer the same CX and CCX series shared and dedicated compute that Hetzner operates in Europe, at equivalent pricing. The US locations also include 20 TB of outbound bandwidth per month, matching what European servers include. Availability of some instance types may be more limited than in the European locations."}},{"@type":"Question","name":"Which is better for game servers — Vultr or Hetzner?","acceptedAnswer":{"@type":"Answer","text":"For game servers where your player base is spread globally, Vultr is typically the stronger choice because you can spin up nodes in Tokyo, Warsaw, Atlanta, São Paulo, and Los Angeles simultaneously — reducing ping for all player regions. Hetzner is excellent for EU-focused gaming communities, and its high-core dedicated root servers (EX series) offer exceptional price-to-CPU ratios for CPU-heavy game engines. If you are running a single server for a known geographic audience, choose the provider with the closest region. If you need multi-region coverage, Vultr's 32-location network gives you more options."}},{"@type":"Question","name":"Which has cheaper object storage — Vultr or Hetzner?","acceptedAnswer":{"@type":"Answer","text":"Vultr Object Storage starts at $5/month for 250 GB with S3-compatible API access and egress included in the storage price for reasonable usage levels. Hetzner Object Storage is similarly priced at approximately €0.0119 per GB stored plus €0.01 per GB for outbound traffic. At small scale (under 250 GB) Vultr's flat-rate plan is slightly more predictable. At larger scales, Hetzner's per-GB model can be cheaper depending on egress volume. Both are dramatically cheaper than AWS S3 or DigitalOcean Spaces."}}]}</script>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Hetzner vs Vultr"}]}</script>
+
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
+.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
+.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
+.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
+.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
+.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
+.sc-row b.win{color:var(--lime)}
+.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
+.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
+.prose p{margin-bottom:14px}
+.prose ul{margin:0 0 14px 20px}.prose li{margin-bottom:6px}
+.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
+.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
+.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
+.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
+.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
+.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
+.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
+.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
+.cta-btn:hover{opacity:.88}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in"><a href="/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about.html">About</a></nav></div></header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span>Cloud VPS · Updated <span id="luDate">2026-06-11</span></div>
+    <h1 class="ph"><span class="em">Hetzner vs Vultr</span>: Cloud VPS Price Comparison 2026</h1>
+    <p class="intro">Hetzner dominates on price in EU and US locations. Vultr counters with 32 global cities. Which provider fits your infrastructure — and where does each actually fall short?</p>
+  </div>
+
+  <!-- Pricing Table -->
+  <section class="sec">
+    <h2>Side-by-Side Pricing</h2>
+    <p class="sh-sub">Closest equivalent tiers between Hetzner and Vultr. Monthly USD pricing.</p>
+    <table class="ptable">
+      <thead>
+        <tr>
+          <th>Specs</th>
+          <th>Hetzner Plan</th>
+          <th>Hetzner Price</th>
+          <th>Vultr Plan</th>
+          <th>Vultr Price</th>
+          <th>Savings w/ Hetzner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="best">
+          <td class="mono">1 vCPU / 2 GB</td>
+          <td>CX11 (approx)</td>
+          <td class="mono">~$3.50/mo<span class="badge">BEST</span></td>
+          <td>Cloud Compute</td>
+          <td class="mono">$12/mo</td>
+          <td style="color:var(--lime);font-weight:700">71% cheaper</td>
+        </tr>
+        <tr class="best">
+          <td class="mono">2 vCPU / 4 GB</td>
+          <td>CX22</td>
+          <td class="mono">~$4.50/mo<span class="badge">BEST</span></td>
+          <td>Cloud Compute</td>
+          <td class="mono">$24/mo</td>
+          <td style="color:var(--lime);font-weight:700">81% cheaper</td>
+        </tr>
+        <tr class="best">
+          <td class="mono">4 vCPU / 8 GB</td>
+          <td>CX32</td>
+          <td class="mono">~$8.80/mo<span class="badge">BEST</span></td>
+          <td>Cloud Compute</td>
+          <td class="mono">$48/mo</td>
+          <td style="color:var(--lime);font-weight:700">82% cheaper</td>
+        </tr>
+        <tr class="best">
+          <td class="mono">8 vCPU / 16 GB</td>
+          <td>CX42</td>
+          <td class="mono">~$19.90/mo<span class="badge">BEST</span></td>
+          <td>6 vCPU / 16 GB</td>
+          <td class="mono">$96/mo</td>
+          <td style="color:var(--lime);font-weight:700">79% cheaper</td>
+        </tr>
+        <tr>
+          <td class="mono">16 vCPU / 32 GB</td>
+          <td>CX52</td>
+          <td class="mono">~$37.60/mo</td>
+          <td>High Frequency</td>
+          <td class="mono">~$192/mo</td>
+          <td style="color:var(--lime);font-weight:700">80% cheaper</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="color:var(--muted);font-size:12px;margin-top:10px">Hetzner includes 20 TB outbound bandwidth on all plans. Vultr includes 1–5 TB depending on tier and charges ~$0.01/GB beyond that. Both use NVMe SSDs.</p>
+
+    <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
+  </section>
+
+  <!-- Scenarios -->
+  <section class="sec">
+    <h2>Cost Scenarios by Team Size</h2>
+    <p class="sh-sub">From solo developer to growth-stage startup — where each provider lands on the monthly bill.</p>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <h3>Solo Developer</h3>
+        <div class="sc-sub">2 vCPU / 4 GB — personal tools, side project, staging</div>
+        <div class="sc-row"><span>Hetzner CX22</span><b>$4.50/mo</b></div>
+        <div class="sc-row"><span>Vultr 2vCPU/4GB</span><b>$24.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$234/yr</b></div>
+      </div>
+      <div class="scenario-card">
+        <h3>Small Startup</h3>
+        <div class="sc-sub">4 vCPU / 8 GB — production API, 2 environments</div>
+        <div class="sc-row"><span>Hetzner CX32</span><b>$8.80/mo</b></div>
+        <div class="sc-row"><span>Vultr 4vCPU/8GB</span><b>$48.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$470/yr</b></div>
+      </div>
+      <div class="scenario-card">
+        <h3>Growth Stage</h3>
+        <div class="sc-sub">8 vCPU / 16 GB — high-traffic service or ML workload</div>
+        <div class="sc-row"><span>Hetzner CX42</span><b>$19.90/mo</b></div>
+        <div class="sc-row"><span>Vultr 6vCPU/16GB</span><b>$96.00/mo</b></div>
+        <div class="sc-row"><span>Annual savings</span><b class="win">$914/yr</b></div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="cl">Location Caveat</div>
+      <p>These savings apply when deploying in EU or US regions where both providers operate. If you need APAC or LATAM presence, Vultr is the only option — Hetzner does not have locations in those regions, so the comparison becomes moot.</p>
+    </div>
+  </section>
+
+  <!-- Deep Dive -->
+  <section class="sec">
+    <h2>Full Analysis</h2>
+    <p class="sh-sub">Network reach, storage, object storage, load balancers, and when each provider wins.</p>
+
+    <div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
+
+    <div class="prose">
+      <h3>Vultr's Defining Advantage: 32 Global Locations</h3>
+      <p>Vultr operates compute infrastructure in 32 cities across North America, Europe, Asia-Pacific, South America, Africa, and the Middle East. This is not just a marketing stat — it is the core architectural reason to choose Vultr over Hetzner. If you are building a product with users in Tokyo, Singapore, Mumbai, São Paulo, or Johannesburg, being able to deploy a node in those cities means measurably lower latency and a better end-user experience. Hetzner's five locations (Falkenstein, Nuremberg, Helsinki, Ashburn, and Hillsboro) serve EU and US users well, but they cannot cover APAC or LATAM with acceptable round-trip times.</p>
+
+      <p>For a globally distributed CDN edge network, a gaming platform with regional matchmaking servers, or a SaaS product sold in multiple continents simultaneously, Vultr's location coverage is not a nice-to-have — it is a technical requirement. No amount of Hetzner's pricing advantage compensates for deploying infrastructure that is geographically too far from your users.</p>
+
+      <h3>Hetzner's Pricing Advantage Is Structural, Not Temporary</h3>
+      <p>Developers sometimes assume Hetzner's prices are introductory or that performance is sacrificed to hit those numbers. Neither is true. Hetzner has been operating at these price points for years, and the reason is architectural: they own and operate their own facilities in lower-cost European markets, run a lean business model without a large enterprise sales organization, and do not offer the broad ecosystem of managed services that other providers bundle into their compute pricing. What you are buying is raw compute — and you get a lot of it per dollar. The CX42 at roughly $19.90/month delivers 8 vCPUs and 16 GB RAM with 160 GB local NVMe. Vultr's equivalent is $96/month for 6 vCPUs and 16 GB.</p>
+
+      <h3>Block Storage and Volumes</h3>
+      <p>Both providers offer network-attached block storage billed per gigabyte per month. Hetzner Volumes are priced at approximately €0.0476 per GB/month (roughly $0.05/GB). Vultr Block Storage is similarly priced at $0.10/GB/month, making Hetzner meaningfully cheaper here as well. For applications requiring large persistent volumes — databases, media files, log archives — this price difference compounds quickly. A 500 GB volume costs about $25/month on Hetzner versus $50/month on Vultr.</p>
+
+      <h3>Object Storage</h3>
+      <p>Vultr offers S3-compatible Object Storage starting at $5/month for 250 GB with built-in egress included at reasonable usage levels. It is a clean, developer-friendly offering that integrates well with existing S3 tooling. Hetzner Object Storage is priced per GB stored (approximately €0.0119/GB/month) plus outbound transfer charges. At small volumes under 100 GB, Vultr's flat rate is simpler; at larger scales, Hetzner's per-GB model can be cheaper depending on how much data you egress each month. Both are viable alternatives to AWS S3 and substantially cheaper than comparable AWS pricing.</p>
+
+      <h3>Vultr Marketplace vs Hetzner Simplicity</h3>
+      <p>Vultr's Marketplace lets you launch pre-configured one-click applications — WordPress, Ghost, Plesk, cPanel, various database stacks, and development environments — without writing any setup scripts. This is genuinely useful for teams that want to spin up a production application quickly without DevOps investment. Hetzner has no equivalent marketplace; their offering is a clean Linux instance that you configure yourself. Hetzner does publish community guides and their Cloud documentation is thorough, but you are expected to handle your own application layer setup.</p>
+
+      <h3>Load Balancers</h3>
+      <p>Both Hetzner and Vultr offer managed load balancers as separate billed services. Hetzner's load balancers start at approximately €5.83/month (LB11 tier) and support HTTP, HTTPS, and TCP with health checking and SSL termination. Vultr's load balancers are priced at $10/month at the entry level. Neither provider offers the deeply integrated load balancer experience that DigitalOcean provides with its native Droplet networking, but both are operationally straightforward and integrate with their respective control planes.</p>
+
+      <h3>Hetzner's IPv6 Native Architecture</h3>
+      <p>Hetzner is one of the few cloud providers that was built from the ground up with IPv6 as a first-class citizen. Every server gets a routable IPv6 /64 subnet included at no charge, and Hetzner's network architecture has been IPv6-native since before most North American providers took it seriously. This matters if you are building applications that need to communicate natively over IPv6, serve IPv6-only clients, or participate in internet routing infrastructure. Vultr also supports IPv6 but charges for additional IPv4 addresses, which is industry standard.</p>
+
+      <h3>Bare Metal Options</h3>
+      <p>Vultr offers bare metal servers at competitive prices — starting around $120/month for a dedicated physical machine with no hypervisor overhead. These are popular for high-throughput database workloads, compute-intensive ML inference, or applications that cannot tolerate the "noisy neighbor" variability of shared hypervisors. Hetzner also offers dedicated servers through their Robot division (separate from Hetzner Cloud) with root server options starting at similarly competitive prices, and their EX and AX series offer exceptionally strong CPU-to-price ratios for dedicated hardware. For bare metal at scale, Hetzner's Robot platform is often cheaper than Vultr's bare metal tiers, especially for European deployments.</p>
+
+      <h3>The Practical Decision Framework</h3>
+      <p>If your infrastructure is EU-primary or US-primary and you do not need more than five geographic locations, Hetzner wins on price every single time. There is no Vultr tier at any specification level where Vultr is cheaper than the equivalent Hetzner offering in overlapping regions. The savings are substantial enough that a solo developer or bootstrapped startup running on Hetzner can reallocate budget to paid tooling, monitoring, or external managed services and still come out ahead financially.</p>
+
+      <p>If your product serves users across Asia-Pacific, Latin America, sub-Saharan Africa, or the Middle East, and latency to those regions materially affects your product quality, Vultr is worth the premium. The ability to run a node in Tokyo, Mumbai, São Paulo, and Johannesburg simultaneously — and manage all of them through a single control plane — is a genuine operational advantage that Hetzner cannot match today. For multi-region architectures that span continents, Vultr's network is the technical enabler and the price difference becomes the cost of global reach.</p>
+    </div>
+  </section>
+
+  <!-- Verdict -->
+  <section class="sec">
+    <h2>Verdict</h2>
+    <p class="sh-sub">Category-by-category summary — quick reference before you commit.</p>
+    <div class="verdict-box">
+      <div>
+        <h3 style="color:var(--lime)">Hetzner Wins</h3>
+        <ul>
+          <li>Raw compute price at every tier (70–82% cheaper)</li>
+          <li>20 TB/mo bandwidth vs Vultr's 1–5 TB</li>
+          <li>Block storage pricing (~$0.05 vs $0.10/GB)</li>
+          <li>ARM64 servers (CAX series) — Vultr has no equivalent</li>
+          <li>Dedicated root servers (EX/AX) at low cost</li>
+          <li>IPv6 native architecture</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--cyan)">Vultr Wins</h3>
+        <ul>
+          <li>32 global locations vs Hetzner's 5</li>
+          <li>APAC and LATAM coverage (Hetzner has none)</li>
+          <li>Marketplace one-click app installs</li>
+          <li>S3-compatible Object Storage with simple flat pricing</li>
+          <li>Bare metal availability in more regions</li>
+          <li>Better for multi-continent distributed systems</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <div class="cl">Important</div>
+      <p>Vultr's pricing at identical spec tiers is consistently 5–8× higher than Hetzner in the same region. If all your users are in Europe or the US, there is no technical argument for paying Vultr's prices over Hetzner's. The location advantage only matters when you actually need those locations.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q">Is Vultr faster than Hetzner?<span class="plus">+</span></div>
+        <div class="a"><p>Neither provider is universally faster — it depends entirely on where your users are. Vultr operates in 32 cities across six continents, which means it can place compute physically closer to users in Tokyo, Seoul, São Paulo, or Sydney. Hetzner has five locations. For North American and European workloads, the networks are comparable in raw throughput and CPU performance. For APAC or LATAM audiences, Vultr's geographic reach makes a measurable latency difference that Hetzner simply cannot match today.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Does Hetzner have data centers in the US?<span class="plus">+</span></div>
+        <div class="a"><p>Yes. Hetzner added two US locations in 2023: Ashburn, Virginia (US East) and Hillsboro, Oregon (US West). These locations offer the same CX and CCX series shared and dedicated compute as the European data centers, at equivalent pricing. The US locations also include 20 TB of outbound bandwidth per month. Availability of some instance types may be more limited in the US locations compared to the established European facilities.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Which is better for game servers — Vultr or Hetzner?<span class="plus">+</span></div>
+        <div class="a"><p>For game servers where your player base is spread globally, Vultr is typically the stronger choice because you can spin up nodes in Tokyo, Warsaw, Atlanta, São Paulo, and Los Angeles simultaneously. Hetzner is excellent for EU-focused gaming communities, and their high-core dedicated root servers offer exceptional CPU-to-price ratios for CPU-heavy game engines. If you need multi-region coverage, Vultr's 32-location network gives you more flexibility.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q">Which has cheaper object storage — Vultr or Hetzner?<span class="plus">+</span></div>
+        <div class="a"><p>Vultr Object Storage starts at $5/month for 250 GB with S3-compatible API access and reasonable egress included. Hetzner Object Storage is priced at approximately €0.0119 per GB stored plus €0.01 per GB for outbound traffic. At small scale (under 250 GB) Vultr's flat-rate plan is more predictable. At larger scales, Hetzner's per-GB model can be cheaper depending on egress volume. Both are dramatically cheaper than AWS S3 or DigitalOcean Spaces.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h3>Compare All Cloud VPS Providers</h3>
+    <p>Run numbers across Hetzner, Vultr, DigitalOcean, Linode, and AWS Lightsail with the full VPS comparison calculator.</p>
+    <a href="/cloud-vps-comparison.html" class="cta-btn">Open VPS Comparison Tool →</a>
+  </div>
+
+  <!-- Related -->
+  <section class="sec">
+    <h2>Related Comparisons</h2>
+    <div class="tool-links">
+      <a href="/compare/hetzner-vs-digitalocean.html" class="tool-link">
+        <div class="ic">🆚</div>
+        <div><div class="tl-name">Hetzner vs DigitalOcean</div><div class="tl-desc">80% price gap, full breakdown</div></div>
+      </a>
+      <a href="/compare/vultr-vs-digitalocean.html" class="tool-link">
+        <div class="ic">🔁</div>
+        <div><div class="tl-name">Vultr vs DigitalOcean</div><div class="tl-desc">Nearly identical prices, different ecosystems</div></div>
+      </a>
+      <a href="/cloud-vps-comparison.html" class="tool-link">
+        <div class="ic">🖥️</div>
+        <div><div class="tl-name">Cloud VPS Comparison</div><div class="tl-desc">All providers, one calculator</div></div>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap foot-in"><span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span><span>Prices are estimates · verify before you ship</span></div></footer>
+<script src="/compare/calc.js"></script>
+<script>
+window.onPricingData = function(data, fmt$) {
+  var lu = document.getElementById('luDate');
+  if (lu && data.lastUpdated) lu.textContent = data.lastUpdated;
+};
+document.querySelectorAll('.qa .q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var qa=this.closest('.qa');
+    var isOpen=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(function(x){x.classList.remove('open');x.querySelector('.a').style.maxHeight='0'});
+    if(!isOpen){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px'}
+  });
+});
+</script>
+</body>
+</html>
