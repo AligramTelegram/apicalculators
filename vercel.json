@@ -89,12 +89,6 @@
   ],
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{"type": "host", "value": "www.apicalculators.com"}],
-      "destination": "https://apicalculators.com/:path*",
-      "permanent": true
-    },
-    {
       "source": "/vector-db-cost.html",
       "destination": "/vector-database-cost.html",
       "permanent": true
