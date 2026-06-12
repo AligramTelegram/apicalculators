@@ -4,16 +4,16 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pinecone vs Supabase vs Qdrant: Vektör Veritabanı Maliyeti 2026</title>
 <meta name="description" content="Pinecone, Supabase pgvector, Qdrant ve Weaviate'in 1M, 10M ve 100M vektör için tam maliyet karşılaştırması. 2026'da kullanım senaryonuz için en ucuz vektör veritabanını bulun.">
-<link rel="canonical" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html">
+<link rel="canonical" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR" />
 <meta property="og:title" content="Vektör Veritabanı Maliyet Karşılaştırması 2026: Pinecone vs Supabase vs Qdrant">
 <meta property="og:description" content="En iyi 4 vektör veritabanının üretim ölçeğinde maliyetleri. Ücretsiz hesaplayıcıyla.">
-<meta property="og:url" content="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html">
+<meta property="og:url" content="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026">
 <meta property="og:image" content="https://apicalculators.com/og-image.jpg">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pinecone vs Supabase vs Qdrant vs Weaviate: Vektör Veritabanı Maliyet Karşılaştırması 2026","inLanguage":"tr","author":{"@type":"Organization","name":"APICalculators"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"2026'da en ucuz vektör veritabanı hangisi?","acceptedAnswer":{"@type":"Answer","text":"Küçük-orta iş yükleri için (5M vektörün altında), Supabase pgvector Pro planı ($25/ay) genellikle en ucuzdur çünkü sorgu maliyetleri dahildir. Çok büyük ölçekte (100M+), spot örneklerde kendi barındırılan Qdrant kazanır."}},{"@type":"Question","name":"Pinecone 1 milyon vektör için ne kadar?","acceptedAnswer":{"@type":"Answer","text":"Pinecone Serverless ~$0,33/GB depolama ve $16/milyon read unit ücretlendirir. 1M 1536 boyutlu vektör (~9GB) için depolama ~$3/ay tutar. Sorgularla birlikte yaklaşık $11-25/ay olur."}}]}</script>
 <style>
@@ -72,15 +72,15 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/vektordatenbank-kosten-vergleich-2026.html"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html"/>
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/vektordatenbank-kosten-vergleich-2026"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026"/>
 <meta name="twitter:creator" content="@apicalculators" />
 </head>
 <body>
-<header class="nav"><div class="nav-in"><a href="/tr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/tr/#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about.html">Hakkımızda</a></nav></div></header>
+<header class="nav"><div class="nav-in"><a href="/tr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/tr/#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about">Hakkımızda</a></nav></div></header>
 <main class="wrap">
   <nav class="breadcrumb"><a href="/tr/">Ana Sayfa</a><span>/</span><a href="/tr/blog/">Blog</a><span>/</span><span>Vektör DB Maliyeti 2026</span></nav>
   <div class="art-tags"><span class="atag hi">VEKTÖR DB</span><span class="atag hi">KARŞILAŞTIRMA</span><span class="atag">PINECONE</span><span class="atag">SUPABASE</span><span class="atag">2026</span></div>
@@ -158,7 +158,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 
   <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px"><div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px">APICalculators Ekibi</div><p style="color:var(--muted);font-size:13.5px;margin:0">Geliştiriciler için ücretsiz maliyet hesaplayıcıları üretiyoruz. Fiyat verileri resmi sağlayıcı dokümantasyonundan alınır, aylık doğrulanır.</p></div></div>
 </main>
-<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/tr/privacy.html">Gizlilik</a></span></div>  <div class="wrap"><div class="foot-calcs">
+<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/tr/privacy">Gizlilik</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Hesaplayıcılar</strong>
         <nav>
           <a href="/tr/#llm">LLM Token Maliyeti</a>
@@ -171,8 +171,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
           <a href="/tr/#gateway">API Gateway</a>
           <a href="/tr/#embeddings">Embeddingler</a>
           <a href="/tr/#agent">AI Ajan</a>
-          <a href="/tr/yapay-zeka-kodlama-arac-maliyeti.html">AI Kodlama Aracı</a>
-          <a href="/tr/kimlik-dogrulama-maliyet.html">Kimlik Doğrulama</a>
+          <a href="/tr/yapay-zeka-kodlama-arac-maliyeti">AI Kodlama Aracı</a>
+          <a href="/tr/kimlik-dogrulama-maliyet">Kimlik Doğrulama</a>
         </nav>
       </div></div>
 </footer>

@@ -4,16 +4,16 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pinecone vs Supabase vs Qdrant : Coûts Base de Données Vectorielle 2026</title>
 <meta name="description" content="Comparaison précise des coûts de Pinecone, Supabase pgvector, Qdrant et Weaviate pour 1M, 10M et 100M de vecteurs. Trouvez la base de données vectorielle la moins chère pour votre cas d'usage en 2026.">
-<link rel="canonical" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
+<link rel="canonical" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article"><meta property="og:locale" content="fr_FR" />
 <meta property="og:title" content="Comparaison Coûts Base Vectorielle 2026 : Pinecone vs Supabase vs Qdrant">
 <meta property="og:description" content="Coûts des 4 meilleures bases vectorielles à l'échelle de production. Avec calculatrice gratuite.">
-<meta property="og:url" content="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
+<meta property="og:url" content="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026">
 <meta property="og:image" content="https://apicalculators.com/og-image.jpg">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Pinecone vs Supabase vs Qdrant vs Weaviate : Comparaison Coûts Base Vectorielle 2026","inLanguage":"fr","author":{"@type":"Organization","name":"APICalculators"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quelle est la base de données vectorielle la moins chère en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"Pour les charges petites à moyennes (moins de 5M de vecteurs), Supabase pgvector au plan Pro (25 $/mois) est généralement le moins cher car les requêtes sont incluses. À très grande échelle (100M+), Qdrant auto-hébergé sur instances spot gagne."}},{"@type":"Question","name":"Combien coûte Pinecone pour 1 million de vecteurs ?","acceptedAnswer":{"@type":"Answer","text":"Pinecone Serverless facture ~0,33 $/Go de stockage et 16 $/million de read units. Pour 1M de vecteurs de 1536 dimensions (~9 Go), le stockage coûte ~3 $/mois. Avec les requêtes, cela donne environ 11–25 $/mois."}}]}</script>
 <style>
@@ -72,15 +72,15 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/vektordatenbank-kosten-vergleich-2026.html"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026.html"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026.html"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026.html"/>
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/vektordatenbank-kosten-vergleich-2026"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/comparaison-couts-base-vectorielle-2026"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/vektor-veritabani-maliyet-karsilastirmasi-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/vector-database-cost-comparison-2026"/>
 <meta name="twitter:creator" content="@apicalculators" />
 </head>
 <body>
-<header class="nav"><div class="nav-in"><a href="/fr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/fr/#calc">Calculatrices</a><a href="/fr/blog/">Blog</a><a href="/fr/about.html">À propos</a></nav></div></header>
+<header class="nav"><div class="nav-in"><a href="/fr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/fr/#calc">Calculatrices</a><a href="/fr/blog/">Blog</a><a href="/fr/about">À propos</a></nav></div></header>
 <main class="wrap">
   <nav class="breadcrumb"><a href="/fr/">Accueil</a><span>/</span><a href="/fr/blog/">Blog</a><span>/</span><span>Coûts Base Vectorielle 2026</span></nav>
   <div class="art-tags"><span class="atag hi">BASE VECTORIELLE</span><span class="atag hi">COMPARAISON</span><span class="atag">PINECONE</span><span class="atag">SUPABASE</span><span class="atag">2026</span></div>
@@ -158,7 +158,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 
   <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px"><div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px">Équipe APICalculators</div><p style="color:var(--muted);font-size:13.5px;margin:0">Nous créons des calculatrices de coûts gratuites pour développeurs. Données de prix issues de la documentation officielle, vérifiées mensuellement.</p></div></div>
 </main>
-<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/fr/">Accueil</a> · <a href="/fr/blog/">Blog</a> · <a href="/fr/privacy.html">Confidentialité</a></span></div>  <div class="wrap"><div class="foot-calcs">
+<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/fr/">Accueil</a> · <a href="/fr/blog/">Blog</a> · <a href="/fr/privacy">Confidentialité</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculateurs</strong>
         <nav>
           <a href="/fr/#llm">Coût Tokens LLM</a>
@@ -171,8 +171,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
           <a href="/fr/#gateway">API Gateway</a>
           <a href="/fr/#embeddings">Embeddings</a>
           <a href="/fr/#agent">Agent IA</a>
-          <a href="/fr/cout-outil-ia-coding.html">Outil IA Coding</a>
-          <a href="/fr/cout-fournisseur-auth.html">Coût Auth</a>
+          <a href="/fr/cout-outil-ia-coding">Outil IA Coding</a>
+          <a href="/fr/cout-fournisseur-auth">Coût Auth</a>
         </nav>
       </div></div>
 </footer>

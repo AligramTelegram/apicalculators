@@ -4,16 +4,16 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LLM API Maliyetini Düşürme: %60 Tasarruf İçin 7 Strateji (2026)</title>
 <meta name="description" content="OpenAI, Anthropic ve Gemini API faturalarınızı %40-70 düşürmek için 7 kanıtlanmış strateji. Prompt önbelleği, model yönlendirme, Batch API ve bağlam sıkıştırma — gerçek tasarruf örnekleriyle.">
-<link rel="canonical" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026.html">
+<link rel="canonical" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article"><meta property="og:locale" content="tr_TR" />
 <meta property="og:title" content="LLM API Maliyetini %60 Düşürme: Gerçekten İşe Yarayan 7 Strateji">
 <meta property="og:description" content="Prompt önbelleği, model yönlendirme, Batch API — gerçek tasarruf örnekleriyle.">
-<meta property="og:url" content="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026.html">
+<meta property="og:url" content="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026">
 <meta property="og:image" content="https://apicalculators.com/og-image.jpg">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026.html">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"LLM API Maliyetini Düşürme: 2026 İçin 7 Kanıtlanmış Strateji","inLanguage":"tr","author":{"@type":"Organization","name":"APICalculators"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-02","dateModified":"2026-06-02","mainEntityOfPage":"https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026.html"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Prompt önbelleğiyle ne kadar tasarruf edebilirim?","acceptedAnswer":{"@type":"Answer","text":"Önbelleğe alınan içerik için giriş token'larında %90'a kadar. Anthropic önbellek isabetleri için normal giriş fiyatının %10'unu alır. Ayda 100.000 istekte 2.000 token'lık sistem prompt'u Claude 3.5 Sonnet'te ~540 $/ay tasarruf sağlar."}},{"@type":"Question","name":"LLM model yönlendirme nedir?","acceptedAnswer":{"@type":"Answer","text":"Model yönlendirme, farklı istek türlerini karmaşıklığa göre farklı modellere gönderir. Basit görevler ucuz mini modellere, karmaşık görevler amiral gemisi modellere gider. İyi bir yönlendirici maliyeti %50-80 düşürür."}}]}</script>
 <style>
@@ -72,15 +72,15 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/llm-kosten-senken-2026.html"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/reduire-couts-llm-2026.html"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026.html"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026.html"/>
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026"/>
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/llm-kosten-senken-2026"/>
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/reduire-couts-llm-2026"/>
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/llm-maliyet-dusurme-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/reduce-llm-api-costs-2026"/>
 <meta name="twitter:creator" content="@apicalculators" />
 </head>
 <body>
-<header class="nav"><div class="nav-in"><a href="/tr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/tr/#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about.html">Hakkımızda</a></nav></div></header>
+<header class="nav"><div class="nav-in"><a href="/tr/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/tr/#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about">Hakkımızda</a></nav></div></header>
 <main class="wrap">
   <nav class="breadcrumb"><a href="/tr/">Ana Sayfa</a><span>/</span><a href="/tr/blog/">Blog</a><span>/</span><span>LLM Maliyet Düşürme 2026</span></nav>
   <div class="art-tags"><span class="atag hi">MALİYET OPTİMİZASYONU</span><span class="atag hi">LLM</span><span class="atag">PROMPT ÖNBELLEĞİ</span><span class="atag">2026</span></div>
@@ -139,7 +139,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
 
   <div style="display:flex;gap:18px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:22px;margin-top:36px"><div style="width:52px;height:52px;border-radius:12px;background:var(--lime);display:grid;place-items:center;font-size:26px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:16px;margin-bottom:5px">APICalculators Ekibi</div><p style="color:var(--muted);font-size:13.5px;margin:0">Geliştiriciler için ücretsiz maliyet hesaplayıcıları üretiyoruz. Fiyat verileri resmi sağlayıcı dokümantasyonundan alınır, aylık doğrulanır.</p></div></div>
 </main>
-<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/tr/privacy.html">Gizlilik</a></span></div>  <div class="wrap"><div class="foot-calcs">
+<footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/tr/privacy">Gizlilik</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Hesaplayıcılar</strong>
         <nav>
           <a href="/tr/#llm">LLM Token Maliyeti</a>
@@ -152,8 +152,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;font-family:'Cascadia C
           <a href="/tr/#gateway">API Gateway</a>
           <a href="/tr/#embeddings">Embeddingler</a>
           <a href="/tr/#agent">AI Ajan</a>
-          <a href="/tr/yapay-zeka-kodlama-arac-maliyeti.html">AI Kodlama Aracı</a>
-          <a href="/tr/kimlik-dogrulama-maliyet.html">Kimlik Doğrulama</a>
+          <a href="/tr/yapay-zeka-kodlama-arac-maliyeti">AI Kodlama Aracı</a>
+          <a href="/tr/kimlik-dogrulama-maliyet">Kimlik Doğrulama</a>
         </nav>
       </div></div>
 </footer>

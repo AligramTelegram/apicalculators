@@ -3,7 +3,27 @@
   "sources": {
     "openai": "https://openai.com/api/pricing/",
     "anthropic": "https://www.anthropic.com/api",
-    "google": "https://ai.google.dev/gemini-api/docs/pricing"
+    "google": "https://ai.google.dev/gemini-api/docs/pricing",
+    "pinecone": "https://www.pinecone.io/pricing/",
+    "qdrant": "https://qdrant.tech/pricing/",
+    "weaviate": "https://weaviate.io/pricing",
+    "supabase": "https://supabase.com/pricing",
+    "hetzner": "https://www.hetzner.com/cloud/",
+    "digitalocean": "https://www.digitalocean.com/pricing/",
+    "vultr": "https://www.vultr.com/products/cloud-compute/",
+    "stripe": "https://stripe.com/pricing",
+    "paddle": "https://www.paddle.com/pricing",
+    "lemonsqueezy": "https://www.lemonsqueezy.com/pricing",
+    "deepgram": "https://deepgram.com/pricing",
+    "elevenlabs": "https://elevenlabs.io/pricing",
+    "cursor": "https://www.cursor.com/pricing",
+    "github_copilot": "https://github.com/features/copilot",
+    "windsurf": "https://windsurf.com/pricing",
+    "clerk": "https://clerk.com/pricing",
+    "auth0": "https://auth0.com/pricing",
+    "aws_lambda": "https://aws.amazon.com/lambda/pricing/",
+    "cloudflare_workers": "https://workers.cloudflare.com/",
+    "vercel": "https://vercel.com/pricing"
   },
   "llm": {
     "current": [
@@ -26,5 +46,258 @@
       {"id": "gem15pro",  "name": "Gemini 1.5 Pro",       "provider": "Google",    "in": 1.25,  "out": 5.00,  "context": "1M",   "bestFor": "Replaced by 2.5 Pro"},
       {"id": "gem15flash","name": "Gemini 1.5 Flash",     "provider": "Google",    "in": 0.075, "out": 0.30,  "context": "1M",   "bestFor": "Replaced by 2.5 Flash-Lite"}
     ]
+  },
+  "vectordb": {
+    "pinecone": {
+      "name": "Pinecone Serverless",
+      "free_vectors": 100000,
+      "storage_per_gb_month": 0.33,
+      "read_per_million_units": 0.16,
+      "write_per_million_units": 2.00,
+      "note": "1536-dim vectors: ~6 GB per 1M vectors"
+    },
+    "qdrant_cloud": {
+      "name": "Qdrant Cloud",
+      "clusters": [
+        {"name": "Starter",     "cpu": 0.5, "ram_gb": 1,  "disk_gb": 20,  "price_month": 9,   "vectors_1536dim": 100000},
+        {"name": "Standard",    "cpu": 2,   "ram_gb": 8,  "disk_gb": 60,  "price_month": 65,  "vectors_1536dim": 2000000},
+        {"name": "Performance", "cpu": 4,   "ram_gb": 32, "disk_gb": 200, "price_month": 220, "vectors_1536dim": 10000000},
+        {"name": "Scale",       "cpu": 8,   "ram_gb": 64, "disk_gb": 500, "price_month": 480, "vectors_1536dim": 30000000}
+      ]
+    },
+    "qdrant_self": {
+      "name": "Qdrant Self-Hosted",
+      "software_cost": 0,
+      "note": "Apache 2.0 open source. Cost = VPS/infra only. See vps section."
+    },
+    "weaviate_cloud": {
+      "name": "Weaviate Cloud",
+      "clusters": [
+        {"name": "Sandbox",     "price_month": 0,   "note": "14-day trial, shared"},
+        {"name": "Starter",     "price_month": 25,  "vectors_approx": 500000},
+        {"name": "Standard",    "price_month": 150, "vectors_approx": 5000000},
+        {"name": "Enterprise",  "price_month": 450, "vectors_approx": 50000000}
+      ],
+      "serverless_per_million_tokens_indexed": 0.10,
+      "serverless_per_million_queries": 0.50
+    },
+    "supabase": {
+      "name": "Supabase pgvector",
+      "plans": [
+        {"name": "Free",    "price_month": 0,  "storage_gb": 0.5,  "note": "500 MB total DB"},
+        {"name": "Pro",     "price_month": 25, "storage_gb": 8,    "note": "8 GB DB included"},
+        {"name": "Team",    "price_month": 599,"storage_gb": 100,  "note": "100 GB DB included"}
+      ],
+      "extra_storage_per_gb": 0.021,
+      "note": "pgvector queries billed same as SQL — included in plan. 1M 1536-dim vectors ≈ 6 GB."
+    }
+  },
+  "vps": {
+    "hetzner": {
+      "name": "Hetzner Cloud",
+      "currency": "EUR",
+      "usd_note": "EUR prices; multiply by ~1.08 for USD approx",
+      "plans": [
+        {"name": "CX22",  "cpu": 2,  "ram_gb": 4,  "disk_gb": 40,  "price_eur_month": 4.15,  "price_usd_approx": 4.50,  "bandwidth_tb": 20},
+        {"name": "CX32",  "cpu": 4,  "ram_gb": 8,  "disk_gb": 80,  "price_eur_month": 8.15,  "price_usd_approx": 8.80,  "bandwidth_tb": 20},
+        {"name": "CX42",  "cpu": 8,  "ram_gb": 16, "disk_gb": 160, "price_eur_month": 18.39, "price_usd_approx": 19.90, "bandwidth_tb": 20},
+        {"name": "CX52",  "cpu": 16, "ram_gb": 32, "disk_gb": 320, "price_eur_month": 34.79, "price_usd_approx": 37.60, "bandwidth_tb": 20},
+        {"name": "CCX23", "cpu": 4,  "ram_gb": 16, "disk_gb": 160, "price_eur_month": 25.49, "price_usd_approx": 27.50, "bandwidth_tb": 20, "type": "dedicated"},
+        {"name": "CCX33", "cpu": 8,  "ram_gb": 32, "disk_gb": 240, "price_eur_month": 48.99, "price_usd_approx": 52.90, "bandwidth_tb": 20, "type": "dedicated"}
+      ]
+    },
+    "digitalocean": {
+      "name": "DigitalOcean Droplets",
+      "currency": "USD",
+      "plans": [
+        {"name": "Basic 1vCPU/1GB",  "cpu": 1, "ram_gb": 1,  "disk_gb": 25,  "price_usd_month": 6,   "bandwidth_tb": 1},
+        {"name": "Basic 2vCPU/2GB",  "cpu": 2, "ram_gb": 2,  "disk_gb": 60,  "price_usd_month": 18,  "bandwidth_tb": 2},
+        {"name": "Basic 2vCPU/4GB",  "cpu": 2, "ram_gb": 4,  "disk_gb": 80,  "price_usd_month": 24,  "bandwidth_tb": 4},
+        {"name": "Basic 4vCPU/8GB",  "cpu": 4, "ram_gb": 8,  "disk_gb": 160, "price_usd_month": 48,  "bandwidth_tb": 5},
+        {"name": "Basic 8vCPU/16GB", "cpu": 8, "ram_gb": 16, "disk_gb": 320, "price_usd_month": 96,  "bandwidth_tb": 6},
+        {"name": "CPU-Opt 4vCPU/8GB","cpu": 4, "ram_gb": 8,  "disk_gb": 25,  "price_usd_month": 72,  "bandwidth_tb": 5, "type": "cpu-optimized"}
+      ]
+    },
+    "vultr": {
+      "name": "Vultr Cloud Compute",
+      "currency": "USD",
+      "plans": [
+        {"name": "1vCPU/1GB",  "cpu": 1, "ram_gb": 1,  "disk_gb": 25,  "price_usd_month": 6,   "bandwidth_tb": 1},
+        {"name": "1vCPU/2GB",  "cpu": 1, "ram_gb": 2,  "disk_gb": 55,  "price_usd_month": 12,  "bandwidth_tb": 2},
+        {"name": "2vCPU/4GB",  "cpu": 2, "ram_gb": 4,  "disk_gb": 80,  "price_usd_month": 24,  "bandwidth_tb": 3},
+        {"name": "4vCPU/8GB",  "cpu": 4, "ram_gb": 8,  "disk_gb": 160, "price_usd_month": 48,  "bandwidth_tb": 4},
+        {"name": "6vCPU/16GB", "cpu": 6, "ram_gb": 16, "disk_gb": 320, "price_usd_month": 96,  "bandwidth_tb": 5},
+        {"name": "8vCPU/32GB", "cpu": 8, "ram_gb": 32, "disk_gb": 640, "price_usd_month": 192, "bandwidth_tb": 6}
+      ]
+    }
+  },
+  "payments": {
+    "stripe": {
+      "name": "Stripe",
+      "domestic_percent": 2.9,
+      "domestic_fixed": 0.30,
+      "international_extra_percent": 1.5,
+      "currency_conversion_extra_percent": 1.0,
+      "dispute_fee": 15.00,
+      "radar_fee_per_txn": 0.05,
+      "note": "No monthly fee. Instant payouts +0.5%. Stripe Tax extra."
+    },
+    "paddle": {
+      "name": "Paddle",
+      "model": "merchant_of_record",
+      "percent": 5.0,
+      "fixed": 0.50,
+      "note": "MoR: Paddle handles VAT/sales tax globally. No extra tax compliance cost.",
+      "monthly_fee": 0
+    },
+    "lemonsqueezy": {
+      "name": "Lemon Squeezy",
+      "model": "merchant_of_record",
+      "percent": 5.0,
+      "fixed": 0.50,
+      "note": "MoR: Lemon Squeezy handles global tax. Built for SaaS/digital products.",
+      "monthly_fee": 0
+    }
+  },
+  "stt_tts": {
+    "openai_whisper": {
+      "name": "OpenAI Whisper (API)",
+      "type": "stt",
+      "price_per_minute": 0.006,
+      "model": "whisper-1",
+      "note": "Batch not available. Max 25MB file, 2hr duration."
+    },
+    "deepgram": {
+      "name": "Deepgram",
+      "type": "stt",
+      "models": [
+        {"name": "Nova-2", "price_per_minute": 0.0043, "note": "Best accuracy"},
+        {"name": "Base",   "price_per_minute": 0.0025, "note": "Faster, lower cost"}
+      ],
+      "free_credits": 200,
+      "note": "First $200 free. Real-time streaming available."
+    },
+    "elevenlabs": {
+      "name": "ElevenLabs",
+      "type": "tts",
+      "plans": [
+        {"name": "Free",    "price_month": 0,   "chars_month": 10000},
+        {"name": "Starter", "price_month": 5,   "chars_month": 30000},
+        {"name": "Creator", "price_month": 22,  "chars_month": 100000},
+        {"name": "Pro",     "price_month": 99,  "chars_month": 500000},
+        {"name": "Scale",   "price_month": 330, "chars_month": 2000000}
+      ],
+      "overage_per_1k_chars": 0.30,
+      "note": "Characters = input text length. ~5 chars per word."
+    },
+    "openai_tts": {
+      "name": "OpenAI TTS",
+      "type": "tts",
+      "models": [
+        {"name": "tts-1",    "price_per_million_chars": 15.00, "note": "Standard quality"},
+        {"name": "tts-1-hd", "price_per_million_chars": 30.00, "note": "HD quality"}
+      ],
+      "note": "Pay-as-you-go. No monthly minimums. Voice cloning not available."
+    }
+  },
+  "coding_tools": {
+    "cursor": {
+      "name": "Cursor",
+      "plans": [
+        {"name": "Free",     "price_month": 0,  "price_annual_month": 0,  "features": "2000 completions/mo, 50 slow requests"},
+        {"name": "Pro",      "price_month": 20, "price_annual_month": 16, "features": "Unlimited completions, 500 fast requests/mo"},
+        {"name": "Business", "price_month": 40, "price_annual_month": 32, "features": "Team features, centralized billing, SSO"}
+      ],
+      "note": "Fast requests = GPT-4o / Claude Sonnet tier. Slow = lower-priority queue."
+    },
+    "github_copilot": {
+      "name": "GitHub Copilot",
+      "plans": [
+        {"name": "Individual", "price_month": 10, "price_annual_month": 8.33, "features": "Unlimited completions, chat, multi-file"},
+        {"name": "Business",   "price_month": 19, "price_annual_month": 19,   "features": "Team admin, audit logs, IP protection"},
+        {"name": "Enterprise", "price_month": 39, "price_annual_month": 39,   "features": "Fine-tuned models, Copilot Workspace"}
+      ],
+      "note": "No usage-based overages. Flat rate. IDE and github.com chat included."
+    },
+    "windsurf": {
+      "name": "Windsurf",
+      "plans": [
+        {"name": "Free",  "price_month": 0,  "price_annual_month": 0,  "features": "Limited Cascade flows, basic completions"},
+        {"name": "Pro",   "price_month": 15, "price_annual_month": 12, "features": "Unlimited completions, 500 flow credits/mo"},
+        {"name": "Teams", "price_month": 30, "price_annual_month": 24, "features": "Team billing, admin console"}
+      ],
+      "note": "Flow credits = Cascade agent steps. Each credit ≈ 1 agentic task cycle."
+    },
+    "claude_code": {
+      "name": "Claude Code",
+      "plans": [
+        {"name": "Included",   "price_month": 17,  "features": "Included with Claude.ai Pro plan. ~$100 API equiv usage."},
+        {"name": "Max 5x",     "price_month": 100, "features": "5x more usage than standard Pro"},
+        {"name": "Max 20x",    "price_month": 200, "features": "20x more usage, priority access"},
+        {"name": "API direct", "price_month": 0,   "features": "Pay per token at API rates. Sonnet 4.6 $3/$15 per 1M."}
+      ],
+      "note": "Claude Code (CLI) free to use; costs are Anthropic API tokens or subscription plan."
+    }
+  },
+  "auth": {
+    "clerk": {
+      "name": "Clerk",
+      "plans": [
+        {"name": "Free",       "price_month": 0,    "mau_included": 10000, "extra_per_mau": 0},
+        {"name": "Pro",        "price_month": 25,   "mau_included": 10000, "extra_per_mau": 0.02},
+        {"name": "Enterprise", "price_month": null, "mau_included": null,  "extra_per_mau": null, "note": "Custom pricing"}
+      ],
+      "b2b_org_fee_per_org": 1.00,
+      "note": "MAU = Monthly Active Users (any sign-in). MFA, SSO, organizations all extra on Pro."
+    },
+    "auth0": {
+      "name": "Auth0",
+      "plans": [
+        {"name": "Free",         "price_month": 0,   "mau_included": 7500,   "extra_per_mau": 0},
+        {"name": "Essential",    "price_month": 23,  "mau_included": 10000,  "extra_per_mau": 0.023},
+        {"name": "Professional", "price_month": 240, "mau_included": 100000, "extra_per_mau": 0.0120},
+        {"name": "Enterprise",   "price_month": null,"mau_included": null,   "extra_per_mau": null, "note": "Custom"}
+      ],
+      "mfa_included": true,
+      "note": "Breached password detection, anomaly detection included on all paid plans."
+    },
+    "supabase_auth": {
+      "name": "Supabase Auth",
+      "plans": [
+        {"name": "Free",  "price_month": 0,   "mau_included": 50000, "extra_per_mau": 0},
+        {"name": "Pro",   "price_month": 25,  "mau_included": 100000,"extra_per_mau": 0.00325},
+        {"name": "Team",  "price_month": 599, "mau_included": 100000,"extra_per_mau": 0.00325}
+      ],
+      "note": "Auth included in Supabase plan. The $25 Pro plan covers database + auth + storage + edge functions."
+    }
+  },
+  "serverless": {
+    "aws_lambda": {
+      "name": "AWS Lambda",
+      "requests_per_million": 0.20,
+      "free_requests_per_month": 1000000,
+      "gb_second_price": 0.0000166667,
+      "free_gb_seconds_per_month": 400000,
+      "note": "Duration billed in 1ms increments. Memory 128MB–10GB. Default 1M req/mo free tier."
+    },
+    "cloudflare_workers": {
+      "name": "Cloudflare Workers",
+      "plans": [
+        {"name": "Free",       "price_month": 0, "requests_day": 100000, "cpu_ms_per_request": 10, "overage_per_million": null},
+        {"name": "Paid",       "price_month": 5, "requests_included_month": 10000000, "overage_per_million": 0.30, "cpu_ms_per_request": 30}
+      ],
+      "workers_kv_writes_per_million": 1.00,
+      "workers_kv_reads_per_million": 0.10,
+      "note": "Cold starts: ~0ms (V8 isolates). Max 128MB memory. 30s CPU limit on paid."
+    },
+    "vercel_functions": {
+      "name": "Vercel Functions",
+      "plans": [
+        {"name": "Hobby",   "price_month": 0,  "gb_hours_included": 100,  "executions_included": null, "note": "Personal projects only"},
+        {"name": "Pro",     "price_month": 20, "gb_hours_included": 1000, "executions_included": null, "overage_per_gb_hour": 0.18},
+        {"name": "Enterprise","price_month": null,"gb_hours_included": null,"executions_included": null,"note": "Custom"}
+      ],
+      "note": "Vercel Functions = serverless functions on Vercel platform. Max 1000s timeout on Pro."
+    }
   }
 }
