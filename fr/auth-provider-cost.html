@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0c10">
+<title>Calculateur Coût Fournisseur Auth 2026 — Clerk vs Auth0 vs Supabase Auth Tarifs France</title>
+<meta name="description" content="Calculez les coûts Clerk, Auth0 et Supabase Auth selon vos MAU. Calculateur auth gratuit pour développeurs français.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://apicalculators.com/fr/auth-provider-cost">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/auth-provider-cost">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/auth-provider-cost">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/auth-provider-cost">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/auth-provider-cost">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/auth-provider-cost">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calculateur Coût Fournisseur Auth 2026 — Clerk vs Auth0 vs Supabase Auth Tarifs France">
+<meta property="og:description" content="Calculez les coûts Clerk, Auth0 et Supabase Auth selon vos MAU.">
+<meta property="og:url" content="https://apicalculators.com/fr/auth-provider-cost">
+<meta property="og:site_name" content="APICalculators">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔑</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Accueil FR","item":"https://apicalculators.com/fr/"},{"@type":"ListItem","position":3,"name":"Calculateur Coût Fournisseur Auth","item":"https://apicalculators.com/fr/auth-provider-cost"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Clerk vs Auth0 — lequel est moins cher pour une startup française ?","acceptedAnswer":{"@type":"Answer","text":"Clerk (10K MAU gratuits) a un tier gratuit plus généreux qu'Auth0 (7 500 MAU). Au-delà : Clerk $0,02/MAU vs Auth0 $0,023/MAU — Clerk moins cher."}},{"@type":"Question","name":"Combien de MAU gratuits offre Supabase Auth ?","acceptedAnswer":{"@type":"Answer","text":"Supabase Auth : 50 000 MAU gratuits — le tier gratuit le plus généreux de tous les fournisseurs auth. Ensuite $0,00325/MAU."}},{"@type":"Question","name":"Quel fournisseur auth est le moins cher pour une startup RGPD-conforme ?","acceptedAnswer":{"@type":"Answer","text":"Supabase Auth (50K MAU gratuits, région EU Frankfurt) offre le meilleur rapport qualité-prix avec conformité RGPD."}}]}
+</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code',monospace}
+.brow.hl b{color:var(--lime)}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/fr/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/auth-provider-cost">Auth</a>
+      <a href="/fr/payment-processor-fees">Paiement</a>
+      <a href="/">EN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- AD SLOT 1 -->
+
+<main class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span> Mis à jour juin 2026</div>
+    <h1 class="ph">Calculateur Coût <span class="em">Fournisseur Auth</span></h1>
+    <p class="intro">Comparez Clerk, Auth0, Supabase Auth et WorkOS selon vos utilisateurs actifs mensuels (MAU).</p>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-header">
+      <h2>Calculateur Auth — Tous les fournisseurs</h2>
+      <p>Tous les prix calculés selon vos MAU</p>
+    </div>
+    <div class="calc-body">
+      <div>
+        <div class="field">
+          <label>MAU (Utilisateurs actifs mensuels)</label>
+          <input class="inp" id="mau" type="number" value="25000" min="0">
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Meilleur prix (Supabase)</div>
+        <div class="big" id="rBest">$0.00</div>
+        <div class="per">— par mois</div>
+        <div class="breakdown">
+          <div class="brow"><span>Clerk</span><b id="rClerk">—</b></div>
+          <div class="brow"><span>Auth0</span><b id="rAuth0">—</b></div>
+          <div class="brow"><span>Supabase Auth</span><b id="rSupa">—</b></div>
+          <div class="brow hl"><span>Économie Supabase vs Auth0</span><b id="rSaving">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+
+  <div class="callout tip">
+    <div class="cl">🇫🇷 RGPD</div>
+    <p>Clerk propose une région Paris pour le stockage des données conforme RGPD. Auth0 (Okta) est très utilisé dans les grandes entreprises françaises.</p>
+  </div>
+
+  <section class="sec">
+    <h2>Comparaison fournisseurs auth 2026</h2>
+    <p class="sh-sub">Tier gratuit et tarifs au-delà</p>
+    <table class="ptable">
+      <thead><tr><th>Fournisseur</th><th>Tier gratuit</th><th>Au-delà</th><th>Région EU</th><th>MFA</th></tr></thead>
+      <tbody>
+        <tr><td>Clerk</td><td>10 000 MAU</td><td class="mono">$0.02/MAU</td><td>Paris</td><td>Inclus</td></tr>
+        <tr><td>Auth0</td><td>7 500 MAU</td><td class="mono">$0.023/MAU</td><td>EU</td><td>Inclus</td></tr>
+        <tr class="best"><td>Supabase Auth<span class="badge">MEILLEUR RAPPORT</span></td><td>50 000 MAU</td><td class="mono">$0.00325/MAU</td><td>EU Frankfurt</td><td>Inclus</td></tr>
+        <tr><td>WorkOS</td><td>1M MAU</td><td>Contacter</td><td>Multi</td><td>SSO + MFA</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Clerk vs Auth0 — lequel est moins cher pour une startup française ?<span class="plus">+</span></div>
+        <div class="a"><p>Clerk (10K MAU gratuits) a un tier gratuit plus généreux qu'Auth0 (7 500 MAU). Au-delà : Clerk $0,02/MAU vs Auth0 $0,023/MAU — Clerk moins cher.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Combien de MAU gratuits offre Supabase Auth ?<span class="plus">+</span></div>
+        <div class="a"><p>Supabase Auth : 50 000 MAU gratuits — le tier gratuit le plus généreux de tous les fournisseurs auth. Ensuite $0,00325/MAU.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quel fournisseur auth est le moins cher pour une startup RGPD-conforme ?<span class="plus">+</span></div>
+        <div class="a"><p>Supabase Auth (50K MAU gratuits, région EU Frankfurt) offre le meilleur rapport qualité-prix avec conformité RGPD.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Outils associés</h2>
+    <div class="tool-links">
+      <a class="tool-link" href="/fr/payment-processor-fees"><span class="ic">💳</span><div><div class="tl-name">Frais de Paiement</div><div class="tl-desc">Stripe, Paddle, Lemon Squeezy</div></div></a>
+      <a class="tool-link" href="/fr/serverless-cost-calculator"><span class="ic">⚡</span><div><div class="tl-name">Serverless</div><div class="tl-desc">AWS Lambda, Vercel, CF</div></div></a>
+      <a class="tool-link" href="/fr/cloud-vps-comparison"><span class="ic">☁️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Hetzner vs Vultr</div></div></a>
+      <a class="tool-link" href="/fr/"><span class="ic">🏠</span><div><div class="tl-name">Tous les calculateurs</div><div class="tl-desc">12 outils gratuits</div></div></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/fr/">APICalculators</a> · Calculateurs gratuits</span>
+    <div style="display:flex;gap:12px"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/" style="color:var(--lime)">FR</a> <a href="/tr/">TR</a></div>
+    <span><a href="/privacy">Confidentialité</a> · <a href="/terms">Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+function tog(el) {
+  const qa = el.closest('.qa');
+  const a = qa.querySelector('.a');
+  const isOpen = qa.classList.contains('open');
+  document.querySelectorAll('.qa.open .a').forEach(x=>{ x.style.maxHeight='0'; x.closest('.qa').classList.remove('open'); });
+  if (!isOpen) { qa.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+}
+
+function calcAuth(mau, free, extraRate, base) {
+  if (mau <= free) return base || 0;
+  return (base || 0) + (mau - free) * extraRate;
+}
+
+function calc() {
+  const mau = +document.getElementById('mau').value || 25000;
+  const clerk = calcAuth(mau, 10000, 0.02, mau > 10000 ? 25 : 0);
+  const auth0 = calcAuth(mau, 7500, 0.023, mau > 7500 ? 23 : 0);
+  const supa = calcAuth(mau, 50000, 0.00325, mau > 50000 ? 25 : 0);
+  document.getElementById('rBest').textContent = '$' + supa.toFixed(2);
+  document.getElementById('rClerk').textContent = '$' + clerk.toFixed(2) + '/mois';
+  document.getElementById('rAuth0').textContent = '$' + auth0.toFixed(2) + '/mois';
+  document.getElementById('rSupa').textContent = '$' + supa.toFixed(2) + '/mois';
+  document.getElementById('rSaving').textContent = '$' + Math.max(0, auth0 - supa).toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  calc();
+  document.getElementById('mau').addEventListener('input', calc);
+});
+</script>
+</body>
+</html>

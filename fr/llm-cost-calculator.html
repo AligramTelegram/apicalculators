@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0c10">
+<title>Calculateur de Coût LLM API 2026 — GPT-5.5, Claude Opus 4.8, Gemini 3.5 Flash Tarifs</title>
+<meta name="description" content="Calculateur LLM gratuit. Comparez GPT-5.5, GPT-5.4 nano, Claude Sonnet 4.6, Gemini 3.5 Flash. Entrez votre volume → obtenez le coût mensuel instantanément.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://apicalculators.com/fr/llm-cost-calculator">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/llm-cost-calculator">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/llm-cost-calculator">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/llm-cost-calculator">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/llm-cost-calculator">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/llm-cost-calculator">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calculateur de Coût LLM API 2026 — GPT-5.5, Claude Opus 4.8, Gemini 3.5 Flash Tarifs">
+<meta property="og:description" content="Calculateur LLM gratuit. Comparez GPT-5.5, GPT-5.4 nano, Claude Sonnet 4.6, Gemini 3.5 Flash. Entrez votre volume → obtenez le coût mensuel instantanément.">
+<meta property="og:url" content="https://apicalculators.com/fr/llm-cost-calculator">
+<meta property="og:site_name" content="APICalculators">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Accueil FR","item":"https://apicalculators.com/fr/"},{"@type":"ListItem","position":3,"name":"Calculateur de Coût LLM","item":"https://apicalculators.com/fr/llm-cost-calculator"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quel est le coût de GPT-5.4 nano par million de tokens ?","acceptedAnswer":{"@type":"Answer","text":"GPT-5.4 nano coûte $0,20 par million de tokens d'entrée et $1,25 par million de tokens de sortie (juin 2026). C'est 25× moins cher que GPT-5.5."}},{"@type":"Question","name":"Quelle est l'API LLM la moins chère en 2026 ?","acceptedAnswer":{"@type":"Answer","text":"GPT-5.4 nano ($0,20/$1,25 par 1M) et Gemini 3.1 Flash-Lite ($0,25/$1,50 par 1M) sont les options les plus abordables."}},{"@type":"Question","name":"Quel est le coût de Claude Sonnet 4.6 ?","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet 4.6 coûte $3,00 par million de tokens d'entrée et $15,00 par million de tokens de sortie via l'API Anthropic."}},{"@type":"Question","name":"Comment réduire les coûts API LLM ?","acceptedAnswer":{"@type":"Answer","text":"Utilisez des modèles moins chers, activez le Batch API pour -50% sur les tâches asynchrones, mettez les prompts en cache et définissez max_tokens."}}]}
+</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:6px}.seg button{flex:1;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code',monospace}
+.brow.hl b{color:var(--lime)}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/fr/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/llm-cost-calculator">LLM</a>
+      <a href="/fr/cloud-vps-comparison">VPS</a>
+      <a href="/">EN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- AD SLOT 1 -->
+
+<main class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span> Mis à jour juin 2026</div>
+    <h1 class="ph">Calculateur de Coût <span class="em">LLM API</span></h1>
+    <p class="intro">Comparez GPT-5.5, GPT-5.4 nano, Claude Sonnet 4.6, Gemini 3.5 Flash et 12+ modèles. Entrez votre volume de tokens → coût mensuel instantané. Gratuit, sans inscription.</p>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-header">
+      <h2>Calculateur LLM</h2>
+      <p>Sélectionnez un modèle et entrez votre volume de tokens</p>
+    </div>
+    <div class="calc-body">
+      <div>
+        <div class="field">
+          <label>Modèle</label>
+          <select class="sel" id="model">
+            <option value="">Chargement...</option>
+          </select>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Tokens d'entrée / requête</label>
+            <input class="inp" id="tin" type="number" value="500" min="1">
+          </div>
+          <div class="field">
+            <label>Tokens de sortie / requête</label>
+            <input class="inp" id="tout" type="number" value="200" min="1">
+          </div>
+        </div>
+        <div class="field">
+          <label>Requêtes / mois</label>
+          <input class="inp" id="reqs" type="number" value="10000" min="1">
+        </div>
+        <div class="field">
+          <label>Période</label>
+          <div class="seg">
+            <button id="pDay" onclick="setPeriod('day')">Quotidien</button>
+            <button id="pMon" class="on" onclick="setPeriod('month')">Mensuel</button>
+            <button id="pYr" onclick="setPeriod('year')">Annuel</button>
+          </div>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Coût estimé</div>
+        <div class="big" id="rCost">$0.00</div>
+        <div class="per" id="rPer">— par mois</div>
+        <div class="breakdown">
+          <div class="brow"><span>Prix entrée / 1M</span><b id="rIn">—</b></div>
+          <div class="brow"><span>Prix sortie / 1M</span><b id="rOut">—</b></div>
+          <div class="brow"><span>Coût par requête</span><b id="rPerReq">—</b></div>
+          <div class="brow"><span>Coût entrée</span><b id="rInCost">—</b></div>
+          <div class="brow"><span>Coût sortie</span><b id="rOutCost">—</b></div>
+          <div class="brow hl"><span>Total tokens / mois</span><b id="rTok">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+
+  <section class="sec">
+    <h2>Tarifs LLM 2026</h2>
+    <p class="sh-sub">Prix par million de tokens (USD), juin 2026</p>
+    <table class="ptable" id="pricingTable">
+      <thead>
+        <tr>
+          <th>Modèle</th>
+          <th>Entrée / 1M</th>
+          <th>Sortie / 1M</th>
+          <th>Contexte</th>
+          <th>Meilleur usage</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr><td colspan="5" style="color:var(--muted);padding:20px">Chargement des tarifs...</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="callout tip">
+    <div class="cl">💡 Info</div>
+    <p>Facturation en USD — Toutes les APIs LLM sont facturées en USD. Les développeurs français doivent prévoir une marge EUR/USD dans leur budget.</p>
+  </div>
+
+  <section class="sec">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quel est le coût de GPT-5.4 nano par million de tokens ?<span class="plus">+</span></div>
+        <div class="a"><p>GPT-5.4 nano coûte $0,20 par million de tokens d'entrée et $1,25 par million de tokens de sortie (juin 2026). C'est 25× moins cher que GPT-5.5.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quelle est l'API LLM la moins chère en 2026 ?<span class="plus">+</span></div>
+        <div class="a"><p>GPT-5.4 nano ($0,20/$1,25 par 1M) et Gemini 3.1 Flash-Lite ($0,25/$1,50 par 1M) sont les options les plus abordables.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quel est le coût de Claude Sonnet 4.6 ?<span class="plus">+</span></div>
+        <div class="a"><p>Claude Sonnet 4.6 coûte $3,00 par million de tokens d'entrée et $15,00 par million de tokens de sortie via l'API Anthropic.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Comment réduire les coûts API LLM ?<span class="plus">+</span></div>
+        <div class="a"><p>Utilisez des modèles moins chers, activez le Batch API pour -50% sur les tâches asynchrones, mettez les prompts en cache et définissez max_tokens.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Outils associés</h2>
+    <div class="tool-links">
+      <a class="tool-link" href="/fr/ai-agent-cost"><span class="ic">🤖</span><div><div class="tl-name">Coût Agent IA</div><div class="tl-desc">Pipeline multi-étapes</div></div></a>
+      <a class="tool-link" href="/fr/embedding-api-cost"><span class="ic">🔢</span><div><div class="tl-name">API Embeddings</div><div class="tl-desc">OpenAI, Cohere, Voyage</div></div></a>
+      <a class="tool-link" href="/fr/cloud-vps-comparison"><span class="ic">☁️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Hetzner vs Vultr</div></div></a>
+      <a class="tool-link" href="/fr/vector-database-cost"><span class="ic">🧊</span><div><div class="tl-name">Base Vectorielle</div><div class="tl-desc">Pinecone, Qdrant, Supabase</div></div></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/fr/">APICalculators</a> · Calculateurs gratuits</span>
+    <div style="display:flex;gap:12px"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/" style="color:var(--lime)">FR</a> <a href="/tr/">TR</a></div>
+    <span><a href="/privacy">Confidentialité</a> · <a href="/terms">Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+const FALLBACK = [
+  {id:'gpt54nano',name:'GPT-5.4 nano',provider:'OpenAI',in:0.20,out:1.25,context:'1M',bestFor:'Ultra-haut volume'},
+  {id:'gpt54mini',name:'GPT-5.4 mini',provider:'OpenAI',in:0.75,out:4.50,context:'1M',bestFor:'Production économique'},
+  {id:'sonnet46',name:'Claude Sonnet 4.6',provider:'Anthropic',in:3.00,out:15.00,context:'1M',bestFor:'Code & raisonnement'},
+  {id:'haiku45',name:'Claude Haiku 4.5',provider:'Anthropic',in:1.00,out:5.00,context:'200K',bestFor:'Qualité économique'},
+  {id:'gem31lite',name:'Gemini 3.1 Flash-Lite',provider:'Google',in:0.25,out:1.50,context:'1M',bestFor:'Volume budget'},
+  {id:'gpt55',name:'GPT-5.5',provider:'OpenAI',in:5.00,out:30.00,context:'1M',bestFor:'Intelligence maximale'}
+];
+
+let models = [];
+let period = 'month';
+
+function setPeriod(p) {
+  period = p;
+  document.getElementById('pDay').classList.toggle('on', p==='day');
+  document.getElementById('pMon').classList.toggle('on', p==='month');
+  document.getElementById('pYr').classList.toggle('on', p==='year');
+  calc();
+}
+
+function tog(el) {
+  const qa = el.closest('.qa');
+  const a = qa.querySelector('.a');
+  const isOpen = qa.classList.contains('open');
+  document.querySelectorAll('.qa.open .a').forEach(x=>{ x.style.maxHeight='0'; x.closest('.qa').classList.remove('open'); });
+  if (!isOpen) { qa.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+}
+
+async function loadData() {
+  try {
+    const r = await fetch('/pricing-data.json');
+    const d = await r.json();
+    models = d.llm.current;
+  } catch(e) { models = FALLBACK; }
+  populateSelect();
+  buildTable();
+  calc();
+}
+
+function populateSelect() {
+  const sel = document.getElementById('model');
+  sel.innerHTML = models.map(m =>
+    `<option value="${m.id}">${m.name} — $${m.in}/$${m.out} per 1M</option>`
+  ).join('');
+}
+
+function buildTable() {
+  const cheapest = models.reduce((a,b) => a.in < b.in ? a : b, models[0]);
+  const rows = models.map(m => `
+    <tr class="${m.id === cheapest.id ? 'best' : ''}">
+      <td>${m.name}${m.id === cheapest.id ? '<span class="badge">MOINS CHER</span>' : ''}</td>
+      <td class="mono">$${m.in.toFixed(2)}</td>
+      <td class="mono">$${m.out.toFixed(2)}</td>
+      <td>${m.context}</td>
+      <td style="color:var(--muted)">${m.bestFor}</td>
+    </tr>`).join('');
+  document.getElementById('tableBody').innerHTML = rows;
+}
+
+function calc() {
+  const mId = document.getElementById('model').value;
+  const m = models.find(x=>x.id===mId) || models[0];
+  if (!m) return;
+  const tin = +document.getElementById('tin').value || 500;
+  const tout = +document.getElementById('tout').value || 200;
+  const reqs = +document.getElementById('reqs').value || 10000;
+  const inCost = (tin / 1e6) * m.in * reqs;
+  const outCost = (tout / 1e6) * m.out * reqs;
+  let total = inCost + outCost;
+  let perText = '— par mois';
+  if (period === 'day') { total /= 30; perText = '— par jour'; }
+  else if (period === 'year') { total *= 12; perText = '— par an'; }
+  document.getElementById('rCost').textContent = '$' + total.toFixed(2);
+  document.getElementById('rPer').textContent = perText;
+  document.getElementById('rIn').textContent = '$' + m.in.toFixed(2);
+  document.getElementById('rOut').textContent = '$' + m.out.toFixed(2);
+  document.getElementById('rPerReq').textContent = '$' + (((tin/1e6)*m.in)+((tout/1e6)*m.out)).toFixed(6);
+  document.getElementById('rInCost').textContent = '$' + inCost.toFixed(4);
+  document.getElementById('rOutCost').textContent = '$' + outCost.toFixed(4);
+  document.getElementById('rTok').textContent = ((tin+tout)*reqs).toLocaleString('fr-FR');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  document.querySelectorAll('.inp,.sel').forEach(el => el.addEventListener('input', calc));
+});
+</script>
+</body>
+</html>

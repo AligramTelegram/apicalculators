@@ -237,6 +237,126 @@
       "source": "/tr/kimlik-dogrulama-maliyet",
       "destination": "/tr/auth-provider-cost",
       "permanent": true
+    },
+    {
+      "source": "/de/llm-kostenrechner",
+      "destination": "/de/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/de/vektordatenbank-kosten",
+      "destination": "/de/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-bildgenerierung-kosten",
+      "destination": "/de/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/stripe-vs-paddle-rechner",
+      "destination": "/de/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/de/cloud-vps-kostenvergleich",
+      "destination": "/de/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/de/stt-tts-api-kosten",
+      "destination": "/de/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/aws-lambda-rechner",
+      "destination": "/de/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/de/api-gateway-kosten",
+      "destination": "/de/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/de/embedding-api-kosten",
+      "destination": "/de/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-agent-kostenrechner",
+      "destination": "/de/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-coding-tool-kosten",
+      "destination": "/de/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/auth-anbieter-kosten",
+      "destination": "/de/auth-provider-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/calculateur-cout-llm",
+      "destination": "/fr/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-base-vectorielle",
+      "destination": "/fr/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-generation-image-ia",
+      "destination": "/fr/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/comparateur-stripe-paddle",
+      "destination": "/fr/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/fr/comparateur-vps-cloud",
+      "destination": "/fr/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-stt-tts",
+      "destination": "/fr/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/calculateur-cout-aws-lambda",
+      "destination": "/fr/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-gateway",
+      "destination": "/fr/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-embedding",
+      "destination": "/fr/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-agent-ia",
+      "destination": "/fr/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-outil-ia-coding",
+      "destination": "/fr/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-fournisseur-auth",
+      "destination": "/fr/auth-provider-cost",
+      "permanent": true
     }
   ]
 }

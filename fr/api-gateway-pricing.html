@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0c10">
+<title>Calculateur Prix API Gateway 2026 — AWS API GW, Cloudflare, Kong Comparaison France</title>
+<meta name="description" content="Comparez AWS API Gateway, Cloudflare et Kong pour votre volume de requêtes. Gratuit, sans inscription.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://apicalculators.com/fr/api-gateway-pricing">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/api-gateway-pricing">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/api-gateway-pricing">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/api-gateway-pricing">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/api-gateway-pricing">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/api-gateway-pricing">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calculateur Prix API Gateway 2026 — AWS API GW, Cloudflare, Kong Comparaison France">
+<meta property="og:description" content="Comparez AWS API Gateway, Cloudflare et Kong pour votre volume de requêtes.">
+<meta property="og:url" content="https://apicalculators.com/fr/api-gateway-pricing">
+<meta property="og:site_name" content="APICalculators">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔀</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Accueil FR","item":"https://apicalculators.com/fr/"},{"@type":"ListItem","position":3,"name":"Calculateur Prix API Gateway","item":"https://apicalculators.com/fr/api-gateway-pricing"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quel est le coût d'AWS API Gateway pour 10 millions de requêtes ?","acceptedAnswer":{"@type":"Answer","text":"AWS REST : $35/mois. HTTP API : $10/mois. Cloudflare API Shield : $5/mois. Kong auto-hébergé : seulement le coût serveur."}},{"@type":"Question","name":"Cloudflare vs AWS API Gateway — lequel est moins cher ?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare ($0,50/1M) est 7× moins cher qu'AWS REST API ($3,50/1M) et inclut cache edge et protection DDoS."}},{"@type":"Question","name":"Kong auto-hébergé vaut-il la peine pour les développeurs français ?","acceptedAnswer":{"@type":"Answer","text":"Oui, au-delà de 5M requêtes/mois. Serveur Hetzner (€4,35/mois) + Kong = bien moins cher que les gateways managées. Avantage RGPD avec stockage EU."}}]}
+</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code',monospace}
+.brow.hl b{color:var(--lime)}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code',monospace}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/fr/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/api-gateway-pricing">API Gateway</a>
+      <a href="/fr/serverless-cost-calculator">Serverless</a>
+      <a href="/">EN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- AD SLOT 1 -->
+
+<main class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span> Mis à jour juin 2026</div>
+    <h1 class="ph">Calculateur Prix <span class="em">API Gateway</span></h1>
+    <p class="intro">Comparez AWS API Gateway, Cloudflare API Shield, Kong et Azure APIM.</p>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-header">
+      <h2>Calculateur API Gateway</h2>
+      <p>Tous les fournisseurs calculés simultanément</p>
+    </div>
+    <div class="calc-body">
+      <div>
+        <div class="field">
+          <label>Fournisseur</label>
+          <select class="sel" id="provider">
+            <option value="aws_rest">AWS REST API — $3.50/1M</option>
+            <option value="aws_http">AWS HTTP API — $1.00/1M</option>
+            <option value="cloudflare">Cloudflare API Shield — $0.50/1M</option>
+            <option value="kong">Kong auto-hébergé — ~$0</option>
+            <option value="azure">Azure APIM — $3.50/1M</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Requêtes / mois</label>
+          <input class="inp" id="requests" type="number" value="10000000" min="0">
+        </div>
+      </div>
+      <div class="result">
+        <div class="rlabel">Coût estimé</div>
+        <div class="big" id="rCost">$0.00</div>
+        <div class="per">— par mois</div>
+        <div class="breakdown">
+          <div class="brow"><span>AWS REST API</span><b id="rRest">—</b></div>
+          <div class="brow"><span>AWS HTTP API</span><b id="rHttp">—</b></div>
+          <div class="brow"><span>Cloudflare</span><b id="rCF">—</b></div>
+          <div class="brow hl"><span>Économie vs AWS REST</span><b id="rSaving">—</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+
+  <section class="sec">
+    <h2>Comparaison API Gateway 2026</h2>
+    <p class="sh-sub">Prix par million de requêtes</p>
+    <table class="ptable">
+      <thead><tr><th>Fournisseur</th><th>Prix/1M req</th><th>DDoS</th><th>Cache</th><th>Tier gratuit</th></tr></thead>
+      <tbody>
+        <tr><td>AWS REST API Gateway</td><td class="mono">$3.50</td><td>WAF séparé</td><td>Oui</td><td>1M req/mois 12 mois</td></tr>
+        <tr><td>AWS HTTP API Gateway</td><td class="mono">$1.00</td><td>Non inclus</td><td>Non</td><td>1M req/mois 12 mois</td></tr>
+        <tr class="best"><td>Cloudflare API Shield<span class="badge">MOINS CHER</span></td><td class="mono">$0.50</td><td>Inclus</td><td>Inclus</td><td>10M req/mois (Workers)</td></tr>
+        <tr><td>Kong (auto-hébergé)</td><td class="mono">~$0</td><td>Plugin</td><td>Plugin</td><td>Illimité (coût infra)</td></tr>
+        <tr><td>Azure APIM</td><td class="mono">$3.50</td><td>Inclus</td><td>Oui</td><td>Non</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="sec">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quel est le coût d'AWS API Gateway pour 10 millions de requêtes ?<span class="plus">+</span></div>
+        <div class="a"><p>AWS REST : $35/mois. HTTP API : $10/mois. Cloudflare API Shield : $5/mois. Kong auto-hébergé : seulement le coût serveur.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Cloudflare vs AWS API Gateway — lequel est moins cher ?<span class="plus">+</span></div>
+        <div class="a"><p>Cloudflare ($0,50/1M) est 7× moins cher qu'AWS REST API ($3,50/1M) et inclut cache edge et protection DDoS.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Kong auto-hébergé vaut-il la peine pour les développeurs français ?<span class="plus">+</span></div>
+        <div class="a"><p>Oui, au-delà de 5M requêtes/mois. Serveur Hetzner (€4,35/mois) + Kong = bien moins cher que les gateways managées. Avantage RGPD avec stockage EU.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Outils associés</h2>
+    <div class="tool-links">
+      <a class="tool-link" href="/fr/serverless-cost-calculator"><span class="ic">⚡</span><div><div class="tl-name">Serverless</div><div class="tl-desc">AWS Lambda, Vercel, CF</div></div></a>
+      <a class="tool-link" href="/fr/cloud-vps-comparison"><span class="ic">☁️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Hetzner vs Vultr</div></div></a>
+      <a class="tool-link" href="/fr/llm-cost-calculator"><span class="ic">🧠</span><div><div class="tl-name">Calculateur LLM</div><div class="tl-desc">GPT-5.5, Claude, Gemini</div></div></a>
+      <a class="tool-link" href="/fr/"><span class="ic">🏠</span><div><div class="tl-name">Tous les calculateurs</div><div class="tl-desc">12 outils gratuits</div></div></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/fr/">APICalculators</a> · Calculateurs gratuits</span>
+    <div style="display:flex;gap:12px"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/" style="color:var(--lime)">FR</a> <a href="/tr/">TR</a></div>
+    <span><a href="/privacy">Confidentialité</a> · <a href="/terms">Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+function tog(el) {
+  const qa = el.closest('.qa');
+  const a = qa.querySelector('.a');
+  const isOpen = qa.classList.contains('open');
+  document.querySelectorAll('.qa.open .a').forEach(x=>{ x.style.maxHeight='0'; x.closest('.qa').classList.remove('open'); });
+  if (!isOpen) { qa.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+}
+
+const PRICES = {
+  aws_rest: 3.50, aws_http: 1.00, cloudflare: 0.50, kong: 0, azure: 3.50
+};
+
+function calc() {
+  const pid = document.getElementById('provider').value;
+  const reqs = +document.getElementById('requests').value || 10000000;
+  const price = PRICES[pid] || 0;
+  const cost = (reqs / 1e6) * price;
+  const restCost = (reqs / 1e6) * 3.50;
+  document.getElementById('rCost').textContent = pid === 'kong' ? '~$' + (4.35).toFixed(2) + ' (infra)' : '$' + cost.toFixed(2);
+  document.getElementById('rRest').textContent = '$' + restCost.toFixed(2);
+  document.getElementById('rHttp').textContent = '$' + ((reqs / 1e6) * 1.00).toFixed(2);
+  document.getElementById('rCF').textContent = '$' + ((reqs / 1e6) * 0.50).toFixed(2);
+  document.getElementById('rSaving').textContent = pid !== 'aws_rest' ? '$' + Math.max(0, restCost - cost).toFixed(2) : '—';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  calc();
+  document.querySelectorAll('.inp,.sel').forEach(el => el.addEventListener('input', calc));
+});
+</script>
+</body>
+</html>

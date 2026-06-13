@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0a0c10">
+<title>Calculateur Coût Agent IA 2026 — Pipeline Multi-Étapes LLM Agent</title>
+<meta name="description" content="Calculez les coûts d'un pipeline agent IA avec planificateur, travailleur et réviseur. Choisissez le modèle par étape → coût total instantané.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://apicalculators.com/fr/ai-agent-cost">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-agent-cost">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/ai-agent-cost">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/ai-agent-cost">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/ai-agent-cost">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-agent-cost">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Calculateur Coût Agent IA 2026 — Pipeline Multi-Étapes LLM Agent">
+<meta property="og:description" content="Calculez les coûts d'un pipeline agent IA avec planificateur, travailleur et réviseur.">
+<meta property="og:url" content="https://apicalculators.com/fr/ai-agent-cost">
+<meta property="og:site_name" content="APICalculators">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Accueil FR","item":"https://apicalculators.com/fr/"},{"@type":"ListItem","position":3,"name":"Calculateur Coût Agent IA","item":"https://apicalculators.com/fr/ai-agent-cost"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quel est le coût d'un pipeline agent IA typique ?","acceptedAnswer":{"@type":"Answer","text":"Pipeline budget (GPT-5.4 nano partout) : ~$0,50/100 exécutions. Pipeline qualité (Sonnet 4.6 travailleur) : ~$30–50/100 exécutions."}},{"@type":"Question","name":"GPT-5.4 nano pour les agents IA — est-ce adapté ?","acceptedAnswer":{"@type":"Answer","text":"Oui pour le planificateur et le réviseur. GPT-5.4 nano ($0,20/$1,25 par 1M) est 25× moins cher que GPT-5.5 et suffisant pour les tâches structurées."}},{"@type":"Question","name":"Comment optimiser les coûts d'un agent IA ?","acceptedAnswer":{"@type":"Answer","text":"Modèle bon marché pour planificateur/réviseur, modèle puissant seulement pour le travailleur. Cache pour les contextes répétés. Minimiser les tokens de sortie."}}]}
+</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:720px){.row3{grid-template-columns:1fr}}
+.step-card{background:var(--surface2);border:1px solid var(--border);border-radius:14px;padding:18px;margin-bottom:16px}
+.step-card h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:14px;margin-bottom:14px;color:var(--lime)}
+.result-bar{background:var(--surface2);border:1px solid var(--border2);border-radius:14px;padding:20px;margin-top:16px}
+.result-bar .rl{font-family:'Cascadia Code',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.result-bar .big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:42px;color:var(--lime);line-height:1;margin-bottom:6px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.bitem{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px}
+.bitem .bi-label{font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);margin-bottom:4px}
+.bitem .bi-val{font-family:'Arial Black',sans-serif;font-weight:900;font-size:18px}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/fr/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="/fr/">Accueil</a>
+      <a href="/fr/llm-cost-calculator">LLM</a>
+      <a href="/fr/ai-agent-cost">Agent IA</a>
+      <a href="/">EN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- AD SLOT 1 -->
+
+<main class="wrap">
+  <div class="hero">
+    <div class="chip"><span class="dot"></span> Mis à jour juin 2026</div>
+    <h1 class="ph">Calculateur Coût <span class="em">Agent IA</span></h1>
+    <p class="intro">Calculez les coûts de votre pipeline agent IA multi-étapes. Choisissez modèle et tokens pour chaque étape.</p>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-header">
+      <h2>Pipeline Agent IA — 3 étapes</h2>
+      <p>Planificateur → Travailleur → Réviseur</p>
+    </div>
+    <div class="calc-body">
+      <div class="step-card">
+        <h3>Étape 1 — Planificateur</h3>
+        <div class="field"><label>Modèle</label><select class="sel" id="m1"><option value="">Chargement...</option></select></div>
+        <div class="row3">
+          <div class="field"><label>Tokens entrée</label><input class="inp" id="in1" type="number" value="500" min="1"></div>
+          <div class="field"><label>Tokens sortie</label><input class="inp" id="out1" type="number" value="200" min="1"></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <h3>Étape 2 — Travailleur</h3>
+        <div class="field"><label>Modèle</label><select class="sel" id="m2"><option value="">Chargement...</option></select></div>
+        <div class="row3">
+          <div class="field"><label>Tokens entrée</label><input class="inp" id="in2" type="number" value="2000" min="1"></div>
+          <div class="field"><label>Tokens sortie</label><input class="inp" id="out2" type="number" value="1000" min="1"></div>
+        </div>
+      </div>
+      <div class="step-card">
+        <h3>Étape 3 — Réviseur</h3>
+        <div class="field"><label>Modèle</label><select class="sel" id="m3"><option value="">Chargement...</option></select></div>
+        <div class="row3">
+          <div class="field"><label>Tokens entrée</label><input class="inp" id="in3" type="number" value="1000" min="1"></div>
+          <div class="field"><label>Tokens sortie</label><input class="inp" id="out3" type="number" value="300" min="1"></div>
+        </div>
+      </div>
+      <div class="field" style="margin-top:4px">
+        <label>Exécutions / mois</label>
+        <input class="inp" id="runs" type="number" value="1000" min="1">
+      </div>
+      <div class="result-bar">
+        <div class="rl">Coût total / mois</div>
+        <div class="big" id="rTotal">$0.00</div>
+        <div class="breakdown">
+          <div class="bitem"><div class="bi-label">Coût / exécution</div><div class="bi-val" id="rPerRun">—</div></div>
+          <div class="bitem"><div class="bi-label">Étape 1</div><div class="bi-val" id="rS1">—</div></div>
+          <div class="bitem"><div class="bi-label">Étape 2</div><div class="bi-val" id="rS2">—</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD SLOT 2 -->
+
+  <section class="sec">
+    <h2>Questions fréquentes</h2>
+    <div class="faq">
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Quel est le coût d'un pipeline agent IA typique ?<span class="plus">+</span></div>
+        <div class="a"><p>Pipeline budget (GPT-5.4 nano partout) : ~$0,50/100 exécutions. Pipeline qualité (Sonnet 4.6 travailleur) : ~$30–50/100 exécutions.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">GPT-5.4 nano pour les agents IA — est-ce adapté ?<span class="plus">+</span></div>
+        <div class="a"><p>Oui pour le planificateur et le réviseur. GPT-5.4 nano ($0,20/$1,25 par 1M) est 25× moins cher que GPT-5.5 et suffisant pour les tâches structurées.</p></div>
+      </div>
+      <div class="qa">
+        <div class="q" onclick="tog(this)">Comment optimiser les coûts d'un agent IA ?<span class="plus">+</span></div>
+        <div class="a"><p>Modèle bon marché pour planificateur/réviseur, modèle puissant seulement pour le travailleur. Cache pour les contextes répétés. Minimiser les tokens de sortie.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Outils associés</h2>
+    <div class="tool-links">
+      <a class="tool-link" href="/fr/llm-cost-calculator"><span class="ic">🧠</span><div><div class="tl-name">Calculateur LLM</div><div class="tl-desc">GPT-5.5, Claude, Gemini</div></div></a>
+      <a class="tool-link" href="/fr/embedding-api-cost"><span class="ic">🔢</span><div><div class="tl-name">API Embeddings</div><div class="tl-desc">OpenAI, Cohere, Voyage</div></div></a>
+      <a class="tool-link" href="/fr/vector-database-cost"><span class="ic">🧊</span><div><div class="tl-name">Base Vectorielle</div><div class="tl-desc">Pinecone, Qdrant, Supabase</div></div></a>
+      <a class="tool-link" href="/fr/"><span class="ic">🏠</span><div><div class="tl-name">Tous les calculateurs</div><div class="tl-desc">12 outils gratuits</div></div></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/fr/">APICalculators</a> · Calculateurs gratuits</span>
+    <div style="display:flex;gap:12px"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/" style="color:var(--lime)">FR</a> <a href="/tr/">TR</a></div>
+    <span><a href="/privacy">Confidentialité</a> · <a href="/terms">Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+const FALLBACK = [
+  {id:'gpt54nano',name:'GPT-5.4 nano',in:0.20,out:1.25},
+  {id:'gpt54mini',name:'GPT-5.4 mini',in:0.75,out:4.50},
+  {id:'sonnet46',name:'Claude Sonnet 4.6',in:3.00,out:15.00},
+  {id:'haiku45',name:'Claude Haiku 4.5',in:1.00,out:5.00},
+  {id:'gem31lite',name:'Gemini 3.1 Flash-Lite',in:0.25,out:1.50},
+  {id:'gpt55',name:'GPT-5.5',in:5.00,out:30.00}
+];
+let models = [];
+
+function tog(el) {
+  const qa = el.closest('.qa');
+  const a = qa.querySelector('.a');
+  const isOpen = qa.classList.contains('open');
+  document.querySelectorAll('.qa.open .a').forEach(x=>{ x.style.maxHeight='0'; x.closest('.qa').classList.remove('open'); });
+  if (!isOpen) { qa.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+}
+
+async function loadData() {
+  try {
+    const r = await fetch('/pricing-data.json');
+    const d = await r.json();
+    models = d.llm.current;
+  } catch(e) { models = FALLBACK; }
+  ['m1','m2','m3'].forEach(id => {
+    const sel = document.getElementById(id);
+    sel.innerHTML = models.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+  });
+  // Default: planner/reviewer = gpt54nano, worker = sonnet46
+  document.getElementById('m1').value = 'gpt54nano';
+  document.getElementById('m2').value = 'sonnet46';
+  document.getElementById('m3').value = 'gpt54nano';
+  calc();
+}
+
+function stepCost(mId, inTok, outTok) {
+  const m = models.find(x => x.id === mId) || models[0];
+  return (inTok/1e6)*m.in + (outTok/1e6)*m.out;
+}
+
+function calc() {
+  const runs = +document.getElementById('runs').value || 1000;
+  const s1 = stepCost(document.getElementById('m1').value, +document.getElementById('in1').value||500, +document.getElementById('out1').value||200);
+  const s2 = stepCost(document.getElementById('m2').value, +document.getElementById('in2').value||2000, +document.getElementById('out2').value||1000);
+  const s3 = stepCost(document.getElementById('m3').value, +document.getElementById('in3').value||1000, +document.getElementById('out3').value||300);
+  const perRun = s1+s2+s3;
+  const total = perRun * runs;
+  document.getElementById('rTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('rPerRun').textContent = '$' + perRun.toFixed(5);
+  document.getElementById('rS1').textContent = '$' + (s1*runs).toFixed(3);
+  document.getElementById('rS2').textContent = '$' + (s2*runs).toFixed(3);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  document.querySelectorAll('.inp').forEach(el => el.addEventListener('input', calc));
+  document.querySelectorAll('.sel').forEach(el => el.addEventListener('change', calc));
+});
+</script>
+</body>
+</html>
