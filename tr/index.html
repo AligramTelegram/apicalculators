@@ -2,1356 +2,273 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-<meta name="theme-color" content="#0a0c10">
-<title>LLM &amp; API Maliyet Hesaplayıcı 2026 | APICalculators</title>
-<meta name="description" content="Ücretsiz YZ altyapı maliyet hesaplayıcıları. LLM, vektör DB, serverless, auth ve YZ kodlama araçları dahil 12 hesaplayıcı. Kayıt gerekmez, tarayıcıda çalışır.">
-<meta name="keywords" content="LLM maliyet hesaplayıcı, AWS Lambda hesaplayıcı, cloud VPS karşılaştırma, embedding API maliyet, STT TTS fiyat, API gateway maliyet, YZ ajan maliyet, YZ kodlama aracı maliyet, kimlik dogrulama saglayici maliyet, Clerk vs Supabase fiyat, Cursor vs Copilot maliyet">
-<meta name="author" content="APICalculators">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>LLM &amp; API Maliyet Hesaplayıcı 2026 — APICalculators</title>
+<meta name="description" content="Ücretsiz YZ altyapı maliyet hesaplayıcıları. GPT-5.5, Claude Sonnet 4.6, Gemini 3.5 Flash ve daha fazlası. LLM, vektör DB, serverless, auth ve YZ kodlama araçları. Kayıt gerekmez.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta http-equiv="content-language" content="tr">
 <link rel="canonical" href="https://apicalculators.com/tr/">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/">
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/">
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/">
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR" />
-<meta property="og:title" content="APICalculators — YZ Altyapı Maliyet Hesaplayıcı">
-<meta property="og:description" content="YZ API'leri, vektör veritabanları, görsel üretim ve SaaS ödeme işlemcileri için gerçek zamanlı maliyet hesaplayıcılar.">
-<meta property="og:image" content="https://apicalculators.com/og-image.png">
-<meta property="og:url" content="https://apicalculators.com/tr/">
-<meta property="og:site_name" content="APICalculators">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@apicalculators">
-<meta name="twitter:creator" content="@apicalculators">
-<meta name="twitter:title" content="APICalculators — Geliştiriciler için Ücretsiz Maliyet Optimizasyon Araçları">
-<meta name="twitter:description" content="YZ altyapı maliyetlerinizi anında hesaplayın. LLM, vektör-DB, görsel üretim ve ödeme ücretleri.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-<meta name="google-site-verification" content="ragcSuE5Eegby97lXvNtkZJX_OKg0fH4bXar4H5MF3I">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
-<link rel="apple-touch-icon" href="https://apicalculators.com/icon-192.png">
-<link rel="manifest" href="/manifest.json">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"APICalculators","url":"https://apicalculators.com/tr/","description":"YZ altyapısı için maliyet hesaplayıcılar — LLM token, vektör veritabanları, görsel üretim ve ödeme ücretleri","inLanguage":"tr"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"},"description":"Geliştirici altyapısı için maliyet optimizasyon araçları","areaServed":["TR"],"sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"LLM maliyet hesaplamaları ne kadar doğru?","acceptedAnswer":{"@type":"Answer","text":"Hesaplayıcılarımız OpenAI, Anthropic, Google ve diğer sağlayıcıların resmi 2026 fiyatlarını kullanır. Fiyatlar aylık gözden geçirilir."}},{"@type":"Question","name":"APICalculators ücretsiz mi?","acceptedAnswer":{"@type":"Answer","text":"Evet, tüm hesaplayıcılar tamamen ücretsizdir ve kayıt gerektirmez."}},{"@type":"Question","name":"Verilerimi saklıyor musunuz?","acceptedAnswer":{"@type":"Answer","text":"Hayır. Tüm hesaplamalar tamamen tarayıcınızda çalışır. Girdiğiniz hiçbir şey sunucuya gönderilmez."}}]}
-</script>
-<script>
-window.addEventListener('load',function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-CNZN4LX2GH';document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-CNZN4LX2GH');});
-</script>
-<style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--lime-dim:#9be01f;--cyan:#4dd6ff;--amber:#ffb24d;--rose:#ff5d6c;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','SF Pro Text',system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 500px at 80% -10%,rgba(184,255,46,.07),transparent 60%),radial-gradient(700px 600px at 5% 10%,rgba(77,214,255,.06),transparent 55%)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%);mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 75%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-.mono{font-family:'Cascadia Code','Consolas','SF Mono','Monaco',monospace;font-variant-numeric:tabular-nums}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;font-size:19px;letter-spacing:-.02em}
-.logo .glyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:var(--lime);color:#06210a;font-size:17px;box-shadow:0 0 20px rgba(184,255,46,.4)}
-.logo b{color:var(--lime)}
-.nav-links{display:flex;align-items:center;gap:26px}
-.nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
-.nav-links a.nlink:hover{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:14px}
-.langdd{position:relative}
-.langdd-btn{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border2);border-radius:9px;padding:7px 11px;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:border-color .18s}
-.langdd-btn:hover{border-color:var(--muted2)}
-.langdd-btn .chev{transition:transform .2s;color:var(--muted2)}
-.langdd.open .langdd-btn .chev{transform:rotate(180deg)}
-.langdd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:180px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:6px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s;z-index:60;max-height:340px;overflow-y:auto}
-.langdd.open .langdd-menu{opacity:1;visibility:visible;transform:none}
-.langdd-menu a{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:8px;color:var(--muted);font-size:13.5px;font-weight:500;transition:all .14s}
-.langdd-menu a:hover{background:var(--surface2);color:var(--text)}
-.langdd-menu a.on{color:var(--lime)}
-.langdd-menu a .flag{font-size:16px}
-.langdd-menu a .code{margin-left:auto;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2)}
-.langdd-menu a.soon{opacity:.4;pointer-events:none}
-.hamb{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
-.hamb span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
-.hamb.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.hamb.open span:nth-child(2){opacity:0}
-.hamb.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--border);background:rgba(10,12,16,.96);backdrop-filter:blur(14px)}
-.mobile-menu.open{display:flex}
-.mobile-menu a{padding:15px 22px;color:var(--text);font-weight:600;font-size:16px;border-bottom:1px solid var(--border);transition:background .14s}
-.mobile-menu a:hover{background:var(--surface)}
-@media(max-width:760px){.nav-links .nlink{display:none}.hamb{display:flex}}
-.hero{padding:78px 0 30px;text-align:center;position:relative}
-.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
-.tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.h{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.05;font-size:clamp(32px,5.5vw,60px)}
-h1.h .em{color:var(--lime);position:relative}
-h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;background:rgba(184,255,46,.18);z-index:-1;transform:skewX(-8deg)}
-.sub{max-width:640px;margin:22px auto 0;color:var(--muted);font-size:18px}
-.hero-stats{display:flex;gap:34px;justify-content:center;margin-top:34px;flex-wrap:wrap}
-.hstat b{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:24px;display:block;color:var(--text)}
-.hstat span{font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace;text-transform:uppercase;letter-spacing:.06em}
-.adslot{margin:26px auto;max-width:760px;min-height:90px;border:1px dashed var(--border2);border-radius:10px;display:grid;place-items:center;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
-.calc{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-top:18px}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
-  padding:12px;border-bottom:1px solid var(--border)}
-.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:6px;padding:12px 8px;border-radius:12px;cursor:pointer;color:var(--muted);
-  font-weight:600;font-size:12px;text-align:center;border:1px solid transparent;
-  transition:all .18s;background:transparent;line-height:1.2;min-height:64px}
-.tab .ic{font-size:22px;line-height:1}
-.tab:hover{color:var(--text);background:var(--surface2)}
-.tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
-.tab.on .ic{filter:drop-shadow(0 0 10px rgba(184,255,46,.7))}
-.tab.on .num{color:var(--lime)}
-@media(max-width:900px){.tabs{grid-template-columns:repeat(5,1fr)}}
-@media(max-width:640px){.tabs{grid-template-columns:repeat(3,1fr);gap:5px}
-  .tab{padding:10px 6px;font-size:11px;min-height:58px}.tab .ic{font-size:20px}}
-@media(max-width:420px){.tabs{grid-template-columns:repeat(2,1fr)}
-  .tab{min-height:54px}}
-.tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
-.panel{display:none;padding:28px;animation:fade .35s ease}
-.panel.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.panel-head{margin-bottom:22px}
-.panel-head h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
-.panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
-.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
-.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
-.panel-body .inputs{display:flex;flex-direction:column;gap:0}
-.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
-.lbl:first-child{margin-top:0}
-.panel-body .result{position:relative}
-.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
-@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
-@media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
-.field{margin-bottom:18px}
-.field label{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
-.field label .hint{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2);font-weight:400}
-.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s,box-shadow .18s}
-.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
-.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{flex:1;min-width:max-content;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
-.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
-.seg button:not(.on):hover{color:var(--text);border-color:var(--border2)}
-.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.06),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:24px;position:relative;overflow:hidden}
-.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.result .rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
-.result .big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;letter-spacing:-.03em;font-size:clamp(40px,8vw,56px);line-height:1;margin:8px 0 2px;color:var(--lime)}
-.result .per{color:var(--muted);font-size:13.5px}
-.breakdown{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;display:flex;flex-direction:column;gap:11px}
-.brow{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
-.brow span{color:var(--muted)}
-.brow b{font-family:'Cascadia Code','Consolas',monospace;font-weight:500;font-size:14px}
-.brow.hl b{color:var(--lime)}
-.brow.warn b{color:var(--amber)}
-.cmp{display:flex;flex-direction:column;gap:14px;margin-top:6px}
-.cmpitem{background:var(--bg);border:1px solid var(--border2);border-radius:12px;padding:14px 16px}
-.cmpitem.best{border-color:rgba(184,255,46,.4);box-shadow:0 0 0 1px rgba(184,255,46,.15)}
-.cmptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.cmptop .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em}
-.cmptop .amt{font-family:'Cascadia Code','Consolas',monospace;font-weight:700;font-size:17px}
-.bar{height:7px;background:var(--border);border-radius:100px;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:100px;background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .5s cubic-bezier(.2,.8,.2,1)}
-.cmpitem.best .bar i{background:linear-gradient(90deg,var(--lime),var(--lime-dim))}
-.cmpmeta{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2);margin-top:7px}
-.disclaimer{font-size:12px;color:var(--muted2);margin-top:16px;line-height:1.5;border-left:2px solid var(--border2);padding-left:12px}
-.partners{margin:60px 0 10px}
-.sec-label{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:22px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:14px 20px;font-weight:600;font-size:14.5px;transition:all .2s;color:var(--text)}
-.cta-button:hover{border-color:var(--lime);transform:translateY(-2px);box-shadow:0 12px 30px -12px rgba(184,255,46,.3)}
-.cta-button .arr{color:var(--lime);transition:transform .2s}
-.cta-button:hover .arr{transform:translate(3px,-3px)}
-.cta-button .em{font-size:18px}
-.section{padding:62px 0}
-.section h2.sh{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:clamp(26px,4vw,36px);letter-spacing:-.025em;text-align:center}
-.section .ssub{text-align:center;color:var(--muted);margin:10px auto 0;max-width:540px}
-.faq{max-width:760px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:13px;overflow:hidden;transition:border-color .2s}
-.qa.open{border-color:var(--border2)}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 20px;cursor:pointer;font-weight:600;font-size:15.5px}
-.qa .q .plus{color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14.5px}
-.qa .a p{padding:0 20px 18px}
-.newsletter{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;padding:42px 32px;text-align:center;position:relative;overflow:hidden}
-.newsletter::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 200px at 50% 0%,rgba(184,255,46,.08),transparent)}
-.newsletter h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:800;font-size:26px;position:relative}
-.newsletter p{color:var(--muted);margin:8px auto 22px;max-width:440px;position:relative}
-.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;position:relative}
-.nl-form input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:13px 15px;color:var(--text);font-size:14.5px;font-family:'Cascadia Code','Consolas',monospace}
-.nl-form input:focus{outline:none;border-color:var(--lime)}
-.nl-form button{background:var(--lime);color:#06210a;border:none;border-radius:10px;padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:transform .15s,box-shadow .2s}
-.nl-form button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(184,255,46,.5)}
-.nl-note{font-size:12px;color:var(--muted2);margin-top:12px;position:relative}
-@media(max-width:520px){.nl-form{flex-direction:column}}
-footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
-.foot-grid{display:grid;grid-template-columns:1.6fr 2fr 1fr 1fr;gap:30px}
-@media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
-.foot-calcs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
-@media(max-width:720px){.foot-calcs-grid{grid-template-columns:1fr}}
-.foot-grid h4{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
-.foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
-.foot-grid a:hover{color:var(--lime)}
-.foot-about p{color:var(--muted);font-size:13.5px;margin-top:10px;max-width:260px}
-.foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:34px;padding-top:22px;border-top:1px solid var(--border);font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas',monospace}
-
-/* ── Vultr contextual CTA ─────────────────────────────────────── */
-#cloudVultrCta{display:none;margin-top:14px}
-.vcta{display:flex;gap:14px;align-items:flex-start;border-radius:12px;padding:16px 18px;border:1px solid var(--border2)}
-.vcta-win{background:rgba(184,255,46,.06);border-color:rgba(184,255,46,.3)}
-.vcta-near{background:var(--surface)}
-.vcta-icon{width:38px;height:38px;border-radius:9px;background:#1557c0;display:grid;place-items:center;
-  color:#fff;font-weight:900;font-size:17px;flex-shrink:0;margin-top:2px}
-.vcta-body{flex:1;min-width:0}
-.vcta-title{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:14px;margin-bottom:4px;color:var(--text)}
-.vcta-sub{font-size:12.5px;color:var(--muted);margin-bottom:10px}
-.vcta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--lime);color:#06210a;
-  padding:9px 15px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;transition:opacity .15s}
-.vcta-btn:hover{opacity:.85;text-decoration:none}
-.vcta-btn-sm{background:var(--surface2);color:var(--text);border:1px solid var(--border2)}
-.vcta-note{display:block;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2);margin-top:7px}
-</style>
-<meta name="geo.region" content="TR" />
-<meta name="geo.placename" content="Turkey" />
-<style>
-.affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
-.aff-headline{margin:0 0 .6rem;font-size:.85rem;color:#b8ff2e;font-weight:600;letter-spacing:.02em;}
-.aff-links{display:flex;flex-wrap:wrap;gap:.5rem;}
-.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s,border-color .15s;}
-.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:#b8ff2e;}
-</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "APICalculators \u2014 YZ Altyap\u0131 Maliyet Hesaplay\u0131c\u0131lar\u0131", "operatingSystem": "Web", "applicationCategory": "DeveloperApplication", "inLanguage": "tr", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "127", "bestRating": "5", "worstRating": "1"}, "url": "https://apicalculators.com/tr/"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://apicalculators.com/tr/"}]}</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
-<style>
-.ad-wrap{margin:2rem 0;text-align:center;overflow:hidden}
-.ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
-
-.donate-wrap{max-width:1140px;margin:24px auto 0;padding:0 22px}
-.donate-box{padding:20px 28px;background:linear-gradient(135deg,rgba(255,178,77,.08),rgba(255,178,77,.03));border:1px solid rgba(255,178,77,.35);border-radius:14px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center;position:relative;overflow:hidden}
-.donate-box::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 120px at 50% 0%,rgba(255,178,77,.06),transparent);pointer-events:none}
-.donate-box .d-msg{font-size:14px;color:var(--muted);text-align:center}
-.donate-box .d-msg strong{color:#ffb24d;display:block;font-size:15px;font-weight:700;margin-bottom:3px;letter-spacing:-.01em}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:16px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid rgba(255,178,77,.4);border-radius:8px;padding:8px 16px;letter-spacing:.06em}
-.copy-btn{background:rgba(255,178,77,.15);border:1px solid rgba(255,178,77,.4);color:#ffb24d;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.3);transform:translateY(-1px)}
-.copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
-.calc-seo-content{padding:20px 28px 24px;border-top:1px solid var(--border);margin-top:4px;font-size:0.875rem;color:var(--muted)}
-.calc-seo-content h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:10px}
-.calc-seo-content>p{line-height:1.7;margin-bottom:14px}
-.calc-faq details{border-top:1px solid var(--border);padding:10px 0}
-.calc-faq details:last-child{border-bottom:1px solid var(--border)}
-.calc-faq summary{cursor:pointer;font-weight:600;color:var(--text);font-size:0.85rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.calc-faq summary::after{content:"＋";color:var(--muted);font-size:1rem;transition:transform .2s}
-.calc-faq details[open] summary::after{content:"－"}
-.calc-faq details p{margin-top:8px;line-height:1.65;color:var(--muted)}
-@media(max-width:780px){.calc-seo-content{padding:16px 20px 20px}}
-.share-row{display:flex;align-items:center;gap:10px;margin-top:16px}
-.share-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border2);border-radius:9px;padding:8px 14px;color:var(--muted);font-size:12.5px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .18s}
-.share-btn:hover{border-color:var(--lime);color:var(--lime)}
-.share-confirm{font-size:12px;color:#4ade80;font-weight:600}
-.cost-warning{margin-top:14px;padding:10px 14px;border-radius:9px;font-size:12.5px;font-weight:600;border-left:3px solid;display:none}
-.cost-warning.high{border-color:#ff5d6c;background:rgba(255,93,108,.08);color:#ff8f9a}
-.cost-warning.mid{border-color:#ffb24d;background:rgba(255,178,77,.08);color:#ffc96e}
-.cost-warning.low{border-color:#4ade80;background:rgba(74,222,128,.08);color:#4ade80}
-.calc-recommendation{margin-top:10px;padding:10px 14px;border-radius:9px;font-size:12.5px;background:rgba(77,214,255,.07);border:1px solid rgba(77,214,255,.2);color:#7de2f5;display:none}
-</style>
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
 <link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
 <link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
 <link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
 <link rel="alternate" hreflang="x-default" href="https://apicalculators.com/"/>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="APICalculators — YZ Altyapı Maliyet Hesaplayıcı 2026">
+<meta property="og:description" content="YZ API'leri, vektör veritabanları, görsel üretim ve SaaS ödeme işlemcileri için gerçek zamanlı maliyet hesaplayıcılar.">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta property="og:url" content="https://apicalculators.com/tr/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APICalculators — Geliştiriciler için Ücretsiz Maliyet Hesaplayıcılar">
+<meta name="twitter:description" content="YZ altyapı maliyetlerinizi anında hesaplayın. LLM, vektör-DB, görsel üretim ve ödeme ücretleri.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
+<meta name="google-site-verification" content="ragcSuE5Eegby97lXvNtkZJX_OKg0fH4bXar4H5MF3I">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"APICalculators","url":"https://apicalculators.com/tr/","description":"YZ altyapısı için maliyet hesaplayıcılar","inLanguage":"tr"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"LLM API maliyet hesaplayıcı nasıl çalışır?","acceptedAnswer":{"@type":"Answer","text":"Model seçin, istek başına giriş ve çıkış token sayısını girin, günlük istek hacmini belirtin. Hesaplayıcı günlük, aylık ve yıllık maliyeti anında hesaplar."}},{"@type":"Question","name":"GPT-5.4 nano ne kadar maliyetli?","acceptedAnswer":{"@type":"Answer","text":"GPT-5.4 nano girişte 1 milyon token başına $0.20, çıkışta $1.25 ücretlendirilir (Haziran 2026 itibarıyla). Bütçe odaklı işler için en uygun OpenAI seçeneğidir."}},{"@type":"Question","name":"APICalculators ücretsiz mi?","acceptedAnswer":{"@type":"Answer","text":"Evet, tüm hesaplayıcılar tamamen ücretsizdir ve kayıt gerektirmez. Hesaplamalar tarayıcınızda çalışır."}},{"@type":"Question","name":"Türk geliştiriciler için hangi LLM en uygun maliyetli?","acceptedAnswer":{"@type":"Answer","text":"USD/TRY kurunu göz önünde bulundurunca GPT-5.4 nano ($0.20/1M giriş) veya Gemini 3.1 Flash-Lite ($0.25/1M) yüksek hacimli projeler için en ekonomik seçeneklerdir."}}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:6px}.seg button{flex:1;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
+.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code','Consolas',monospace}
+.brow.hl b{color:var(--lime)}.brow.amber b{color:var(--amber)}
+/* Hub card grid */
+.hub-section{padding:0 0 60px}
+.hub-section h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:8px}
+.hub-sub{color:var(--muted);margin-bottom:24px;font-size:15px}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:900px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.card-grid{grid-template-columns:1fr}}
+.calc-card{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:border-color .2s,transform .2s;color:var(--text);text-decoration:none}
+.calc-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.calc-card .cc-icon{font-size:26px;margin-bottom:4px}
+.calc-card .cc-title{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:15px;line-height:1.2}
+.calc-card .cc-desc{color:var(--muted);font-size:13px;line-height:1.4}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.foot-links a.on{color:var(--lime)}
+.ad-slot{margin:24px 0;padding:20px;border:1px dashed var(--border2);border-radius:10px;text-align:center;color:#4a5568;font-family:'Cascadia Code',monospace;font-size:11px}
+</style>
 </head>
 <body>
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="/tr/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
-    <nav class="nav-links">
-      <a class="nlink" href="#calc">Hesaplayıcılar</a>
-      <a class="nlink" href="#faq">SSS</a>
-      <a class="nlink" href="/tr/blog/">Blog</a>
-      <a class="nlink" href="/tr/about">Hakkımızda</a>
+    <a href="/tr/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r">
+      <a href="#calc">Hesaplayıcılar</a>
+      <a href="/tr/blog/">Blog</a>
+      <a href="/tr/about">Hakkımızda</a>
     </nav>
-    <div class="nav-right">
-      <div class="langdd" id="langDD">
-        <button class="langdd-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">🌐 <span>TR</span> <span class="chev">▾</span></button>
-        <div class="langdd-menu" role="menu">
-          <a href="/"><span class="flag">🇬🇧</span> English <span class="code">EN</span></a>
-          <a href="/de/"><span class="flag">🇩🇪</span> Deutsch <span class="code">DE</span></a>
-          <a href="/fr/"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
-          <a class="on" href="/tr/"><span class="flag">🇹🇷</span> Türkçe <span class="code">TR</span></a>
-          <a class="soon"><span class="flag">🇪🇸</span> Español <span class="code">YAKINDA</span></a>
-          <a class="soon"><span class="flag">🇮🇹</span> Italiano <span class="code">YAKINDA</span></a>
-          <a class="soon"><span class="flag">🇯🇵</span> 日本語 <span class="code">YAKINDA</span></a>
-          <a class="soon"><span class="flag">🇳🇱</span> Nederlands <span class="code">YAKINDA</span></a>
-          <a class="soon"><span class="flag">🇵🇱</span> Polski <span class="code">YAKINDA</span></a>
-          <a class="soon"><span class="flag">🇵🇹</span> Português <span class="code">YAKINDA</span></a>
-        </div>
-      </div>
-      <button class="hamb" id="hamb" aria-label="Menü" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#calc">Hesaplayıcılar</a>
-    <a href="#faq">SSS</a>
-    <a href="/tr/blog/">Blog</a>
-    <a href="/tr/about">Hakkımızda</a>
   </div>
 </header>
+
 <section class="hero wrap">
-  <span class="tagpill"><span class="dot"></span> 2026 fiyatları · 12 hesaplayıcı · %100 tarayıcınızda çalışır</span>
-  <h1 class="h">Ücretsiz <span class="em">LLM &amp; API Maliyet Hesaplayıcıları</span> — Faturadan Önce Altyapı Maliyetinizi Bilin.</h1>
-  <p class="sub">LLM token, vektör veritabanları, YZ görsel üretimi ve SaaS ödeme ücretleri için gerçek zamanlı maliyet hesaplayıcılar. Ücretsiz, kayıt yok, hiçbir veri cihazınızdan çıkmaz.</p>
-  <div class="hero-stats">
-    <div class="hstat"><b>12+</b><span>Sağlayıcı</span></div>
-    <div class="hstat"><b>&lt;300ms</b><span>Edge yanıt</span></div>
-    <div class="hstat"><b>$0</b><span>Kullanım</span></div>
-  </div>
-</section>
-<div class="wrap"><!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-     data-ad-slot="XXXXXXXXXX"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-<main class="wrap" id="calc">
-<div class="calc">
-  <div class="tabs" role="tablist" aria-label="Hesaplayıcı sekmeleri">
-    <button class="tab on" role="tab" aria-selected="true" aria-controls="llm" data-tab="llm"><span class="ic" aria-hidden="true">🔤</span> LLM Token <span class="num" aria-hidden="true">01</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="vector" data-tab="vector"><span class="ic" aria-hidden="true">🧊</span> Vektör DB <span class="num" aria-hidden="true">02</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="image" data-tab="image"><span class="ic" aria-hidden="true">🎨</span> Görsel Üretim <span class="num" aria-hidden="true">03</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="pay" data-tab="pay"><span class="ic" aria-hidden="true">💳</span> Ödeme Ücretleri <span class="num" aria-hidden="true">04</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="cloud" data-tab="cloud"><span class="ic">&#9729;&#65039;</span> Cloud VPS <span class="num">05</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="stt" data-tab="stt"><span class="ic">&#127897;&#65039;</span> STT / TTS <span class="num">06</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="serverless" data-tab="serverless"><span class="ic">&#9889;</span> Serverless <span class="num">07</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="gateway" data-tab="gateway"><span class="ic">&#128256;</span> API Gateway <span class="num">08</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="embedding" data-tab="embedding"><span class="ic">&#129710;</span> Embeddings <span class="num">09</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="agent" data-tab="agent"><span class="ic">&#129302;</span> YZ Ajan <span class="num">10</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="coding" data-tab="coding"><span class="ic">💻</span> YZ Kodlama <span class="num">11</span></button>
-    <button class="tab" role="tab" aria-selected="false" aria-controls="auth" data-tab="auth"><span class="ic">🔑</span> Auth Maliyet <span class="num">12</span></button>
-  </div>
-  <section class="panel on" id="llm" role="tabpanel">
-    <div class="panel-head"><h2>LLM Token & API Maliyet Hesaplayıcı</h2><p>Token hacminize göre GPT-4o, Claude ve Gemini için aylık harcamanızı tahmin edin.</p></div>
-    <div class="grid2">
-      <div>
-        <div class="field"><label for="llmModel">Model</label><select class="sel" id="llmModel" aria-label="LLM modeli seçin"></select></div>
-        <div class="row2">
-          <div class="field"><label for="llmIn">Giriş token / istek <span class="hint">ort.</span></label><input class="inp" id="llmIn" type="number" value="1500" min="0"></div>
-          <div class="field"><label for="llmOut">Çıkış token / istek <span class="hint">ort.</span></label><input class="inp" id="llmOut" type="number" value="500" min="0"></div>
-        </div>
-        <div class="field"><label for="llmReq">İstek <span class="hint">dönem başına</span></label><input class="inp" id="llmReq" type="number" value="10000" min="0"></div>
-        <div class="field"><label>Faturalandırma dönemi</label><div class="seg" id="llmPeriod" role="group" aria-label="Faturalandırma dönemi"><button data-v="1">Günlük</button><button class="on" data-v="30">Aylık</button><button data-v="365">Yıllık</button></div></div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Tahmini maliyet</div><div class="big" id="llmTotal">$0</div><div class="per" id="llmPer">— aylık</div>
-        <div class="breakdown">
-          <div class="brow"><span>Fiyat (giriş / çıkış 1M başına)</span><b id="llmPrice">—</b></div>
-          <div class="brow"><span>İstek başına maliyet</span><b id="llmPerReq">—</b></div>
-          <div class="brow"><span>Giriş token maliyeti</span><b id="llmInCost">—</b></div>
-          <div class="brow"><span>Çıkış token maliyeti</span><b id="llmOutCost">—</b></div>
-          <div class="brow hl"><span>Dönem başına toplam token</span><b id="llmTok">—</b></div>
-        </div>
-      </div>
-    </div>
-    <p class="disclaimer">Fiyatlar yayımlanmış 2026 kamuya açık API tarifelerini yansıtır (USD, kullandıkça öde). Hacim indirimleri, önbelleğe alınmış giriş ve toplu fiyatlandırma uygulanmaz. Bütçeleme öncesi sağlayıcının fiyat sayfasını kontrol edin.</p>
-  <div class="calc-seo-content">
-    <h3>LLM Maliyet Hesaplayıcı — GPT-4o API Maliyeti ve Token Fiyatları</h3>
-    <p>Bu LLM maliyet hesaplayıcısı, Türk geliştiricilerin ve ürün ekiplerinin aylık OpenAI, Anthropic ve Google API harcamalarını tahmin etmelerine yardımcı olur. İstek başına giriş token sayısı, çıkış token sayısı ve aylık istek hacmi gibi üç değişken girerek 2026 fiyatlarına göre toplam maliyetinizi USD cinsinden hesaplayabilirsiniz. GPT-4o API maliyeti 2026'da 1 milyon giriş tokeni için 2,50 $, 1 milyon çıkış tokeni için 10 $ olarak belirlenmiştir. Türkiye'deki bir SaaS startup'ı, ayda 100.000 GPT-4o isteği (her biri 1.500 giriş + 500 çıkış tokeni) ile çalıştığında yaklaşık 375 $/ay LLM API maliyeti öder — mevcut USD/TRY kuruna göre bu ciddi bir maliyet anlamına gelmektedir. GPT-4o mini'ye geçmek bu maliyeti 15 $'ın altına düşürür. Türk geliştiriciler için önemli not: OpenAI, Türkiye'ye hizmet sunmaktadır ancak ödeme yöntemi olarak kredi kartı veya prepaid kart gereklidir; kurumsal kullanım için DPA imzalanması önerilir.</p>
-    <div class="calc-faq">
-      <details><summary>GPT-4o API maliyeti 1.000 istek için ne kadar tutar?</summary><p>GPT-4o, 2026 kullandıkça öde tarifesinde 1 milyon giriş tokeni için 2,50 $, çıkış için 10 $ öder. 1.500 giriş + 500 çıkış tokenlik tipik bir istek yaklaşık 0,0088 $ tutar. 1.000 istek için toplam ~8,75 $. Mevcut USD/TRY kuru ile bu tutar TL cinsinden hesaplanmalıdır. Batch API fiyatlandırması, asenkron işlemler için %50 tasarruf sağlar.</p></details>
-      <details><summary>Yüksek hacimli Türk SaaS uygulamaları için en ucuz LLM API hangisi?</summary><p>2026'da yüksek hacim için GPT-4o mini (1M giriş tokeni başına 0,15 $) ve Gemini Flash (1M başına 0,075 $) en maliyet etkin seçeneklerdir. Her ikisi de Türkçe içerik üzerinde iyi performans göstermektedir. Bu hesaplayıcı, gerçek token kullanım profilinizle tüm modelleri yan yana karşılaştırmanızı sağlar.</p></details>
-      <details><summary>Üretimde LLM API maliyetlerimi nasıl azaltabilirim?</summary><p>Temel stratejiler: prompt caching kullanın (tekrarlanan bağlamlarda %75–90 tasarruf), sınıflandırma veya yönlendirme görevleri için daha küçük modellere geçin, asenkron işler için batch API'yi etkinleştirin ve sistem promptlarını sıkıştırın. Bu hesaplayıcı, değişikliklerinizi uygulamadan önce tasarruf miktarını hesaplamanıza yardımcı olur.</p></details>
-    </div>
-  </div>
-</div>
-</div>
+  <span class="chip"><span class="dot"></span> <span id="luDate">Haziran 2026</span> · Güncel fiyatlar</span>
+  <h1 class="ph"><span class="em">YZ Altyapı</span> Maliyet Hesaplayıcıları</h1>
+  <p class="intro">LLM API'larından vektör veritabanlarına, serverless'tan auth sağlayıcılarına kadar tüm YZ altyapı maliyetlerini anında hesaplayın. Ücretsiz, kayıt yok.</p>
 </section>
 
-<div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-       data-ad-slot="HOM0000000"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<section class="panel" id="vector" role="tabpanel">
-    <div class="panel-head"><h2>Vektör Veritabanı Bulut Maliyet Hesaplayıcı</h2><p>İndeks boyutunuzdan Pinecone, Supabase, Qdrant ve Weaviate için yaklaşık aylık maliyet.</p></div>
-    <div class="grid2">
-      <div>
-        <div class="field"><label for="vecProvider">Sağlayıcı</label><select class="sel" id="vecProvider" aria-label="Sağlayıcı seçin"></select></div>
-        <div class="row2">
-          <div class="field"><label for="vecCount">Vektör sayısı</label><input class="inp" id="vecCount" type="number" value="1000000" min="0"></div>
-          <div class="field"><label for="vecDim">Boyut</label><input class="inp" id="vecDim" type="number" value="1536" min="1"></div>
-        </div>
-        <div class="field"><label for="vecQ">Sorgu / ay</label><input class="inp" id="vecQ" type="number" value="2000000" min="0"></div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Tahmini aylık maliyet</div><div class="big" id="vecTotal">$0</div><div class="per" id="vecName">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Ham vektör depolama</span><b id="vecStore">—</b></div>
-          <div class="brow"><span>Depolama maliyeti</span><b id="vecStoreCost">—</b></div>
-          <div class="brow"><span>Sorgu / hesaplama maliyeti</span><b id="vecQCost">—</b></div>
-          <div class="brow warn"><span>Plan temel ücreti</span><b id="vecBase">—</b></div>
-        </div>
-      </div>
-    </div>
-    <p class="disclaimer">Vektör DB fiyatlandırma modelleri büyük farklılık gösterir (read unit, pod-saat, hesaplama katmanları). Bunlar float32 vektörler ve ~1,5× indeks ek yükü varsayan basitleştirilmiş büyüklük tahminleridir — karşılaştırma için kullanın, sözleşme için değil.</p>
-  <div class="calc-seo-content">
-    <h3>Vektör Veritabanı Maliyeti — Pinecone Fiyat vs Supabase Karşılaştırması</h3>
-    <p>Bu vektör veritabanı maliyet hesaplayıcısı, vektör sayısı, boyut sayısı ve sorgu hacmine göre Pinecone, Supabase pgvector, Qdrant ve Weaviate için aylık harcamanızı hesaplar. Vektör veritabanları, RAG pipeline'larının, semantik aramanın ve öneri sistemlerinin temelidir — maliyetleri ölçeklendikçe önemli ölçüde artabilir. Pinecone Serverless, her read unit ve write unit için ücret alır; düşük hacimde öngörülebilir, büyük ölçekte pahalıdır. Supabase pgvector ise sabit bir PostgreSQL örneği maliyetiyle çalışır — 5 milyonun altında vektör depolayan Türk startupları için genellikle aylık 25 $ civarındadır. 1 milyon ürün açıklamasını 1.536 boyutla (OpenAI ada-002 çıktısı) indeksleyen ve ayda 2 milyon sorgu çalıştıran bir Türk ekibi, Pinecone Serverless'ta yaklaşık 70 $/ay, Supabase'de ise 25 $/ay öder. USD cinsinden maliyetler, TRY kurunu doğrudan etkilediğinden düşük maliyetli alternatiflere geçiş özellikle önem taşır.</p>
-    <div class="calc-faq">
-      <details><summary>Pinecone 1 milyon vektör için aylık ne kadar tutar?</summary><p>Pinecone Serverless, read/write unit başına ücret alır. 1.536 boyutlu 1M float32 vektör (~6 GB depolama) için sorgu hacmine bağlı olarak 50–120 $/ay beklenir. Pod planları ~70 $/ay'dan başlar. Qdrant ve Supabase pgvector benzer iş yüklerini çok daha düşük maliyetle yönetebilir — bu hesaplayıcı tam olarak ne kadar daha ucuz olduğunu gösterir.</p></details>
-      <details><summary>RAG uygulamaları için Supabase pgvector Pinecone'dan ucuz mu?</summary><p>5M vektör ve 1M sorgu/ay altındaki çoğu Türk startup için evet. Supabase pgvector, Postgres üzerinde çalışır — 25 $/ay Pro planı, HNSW indekslemeyle milyonlarca vektörü yönetir. Qdrant'ın ücretsiz katmanı ise 1 GB RAM sunar ve self-hosting ile Türkiye'deki sunucularda çalıştırılabilir, böylece USD giderleri azaltılabilir.</p></details>
-      <details><summary>RAG pipeline için en ucuz vektör veritabanı hangisi?</summary><p>Qdrant (kendi sunucunuzda barındırılan) en düşük maliyetli seçenektir — yalnızca sunucu maliyeti ödersiniz. Türk geliştiriciler için Hetzner'de self-hosted Qdrant + Supabase kombinasyonu popüler bir tercih. Yönetilen servis isteyenler için Supabase'in 25 $/ay Pro planı en iyi fiyat/performans oranını sunar. Bu hesaplayıcıya kendi vektör sayınızı girerek tam karşılaştırmayı görün.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-  <section class="panel" id="image" role="tabpanel">
-    <div class="panel-head"><h2>YZ Görsel Üretim Bütçe Planlayıcı</h2><p>DALL·E 3, Stable Diffusion ve Flux için görsel başına ve aylık maliyeti karşılaştırın.</p></div>
-    <div class="grid2">
-      <div>
-        <div class="field"><label for="imgModel">Model / kalite</label><select class="sel" id="imgModel" aria-label="Görsel modeli seçin"></select></div>
-        <div class="field"><label for="imgCount">Görsel / ay</label><input class="inp" id="imgCount" type="number" value="5000" min="0"></div>
-        <div class="field"><label for="imgVar">Prompt başına ort. varyasyon <span class="hint">çarpan</span></label><input class="inp" id="imgVar" type="number" value="1" min="1"></div>
-      </div>
-      <div class="result">
-        <div class="rlabel">Tahmini aylık maliyet</div><div class="big" id="imgTotal">$0</div><div class="per" id="imgName">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Görsel başına maliyet</span><b id="imgUnit">—</b></div>
-          <div class="brow"><span>Üretilen toplam görsel</span><b id="imgGen">—</b></div>
-          <div class="brow hl"><span>1.000 görsel başına maliyet</span><b id="imgK">—</b></div>
-        </div>
-      </div>
-    </div>
-    <p class="disclaimer">DALL·E tarifeleri görsel başına API fiyatlarıdır. Açık modeller (SDXL, Flux) tipik barındırılan API fiyatlarını yansıtır; kendi GPU'nuzda barındırma ölçekte çok daha ucuz olabilir ama burada modellenmemiş altyapı maliyeti ekler.</p>
-  <div class="calc-seo-content">
-    <h3>AI Görüntü Oluşturma Maliyeti — DALL-E 3 Fiyat Karşılaştırması 2026</h3>
-    <p>Bu AI görüntü oluşturma maliyet hesaplayıcısı, görsel hacmi ve kalite düzeyine göre DALL·E 3, Stable Diffusion ve Flux API'leri için aylık harcamanızı tahmin eder. Türk ürün ekipleri, oyun stüdyoları ve e-ticaret platformları için görsel başına maliyet büyük farklılık gösterir: DALL·E 3 HD, OpenAI API üzerinden görsel başına 0,080 $ olurken, SDXL barındırılan API'ler görsel başına yalnızca 0,002–0,004 $ olabilir. Aylık 10.000 ürün görseli üreten Türk bir e-ticaret platformu, DALL·E 3 HD ile 800 $/ay öderken Flux endpoint'iyle 40 $'ın altında harcama yapar — USD/TRY kuru göz önüne alındığında bu fark çok daha anlamlıdır. Türk geliştiriciler için önerilen strateji: prototip için DALL·E 3 API'si, üretim hacminde ise Türkiye'deki Hetzner GPU sunucularında self-hosted Flux. DALL-E 3 fiyat karşılaştırması için aylık görsel hacminizi girin.</p>
-    <div class="calc-faq">
-      <details><summary>DALL-E 3 API üzerinden görsel başına maliyeti ne kadar?</summary><p>DALL·E 3, 2026'da OpenAI API üzerinden standart kalitede (1024×1024) görsel başına 0,040 $, HD kalitede 0,080 $ ücretlendirilir. Ayda 5.000 görsel için standart: 200 $, HD: 400 $. Türkiye'de USD/TRY kuru dikkate alındığında, Flux veya SDXL gibi açık modeller maliyeti 10–40 kat düşürerek daha sürdürülebilir bir alternatif sunar.</p></details>
-      <details><summary>Yüksek hacimli Türk uygulamaları için en ucuz AI görüntü oluşturma API'si hangisi?</summary><p>Replicate, Together AI veya RunPod üzerindeki Flux Dev ve SDXL, görsel başına 0,001–0,004 $ ile en ucuz seçeneklerdir. Türk geliştiriciler için alternatif: Hetzner GPU sunucusunda (RTX 4090, ~50 $/ay) Flux barındırmak — aylık 10.000+ görsel için görsel başına maliyet 0,005 $'ın altına düşer ve veriler Türkiye'de kalır.</p></details>
-      <details><summary>SaaS ürünüm için AI görüntü maliyetini nasıl hesaplarım?</summary><p>Aylık görsel sayısını görsel başına API fiyatıyla çarpın, ardından varyasyon çarpanını ekleyin. Başarısız üretimler için %1–3 ekleyin. Kullanıcı başına görsel sınırı koyarak maliyeti kontrol altına alın. Bu hesaplayıcıya hacminizi ve model tercihlerinizi girerek tam aylık USD maliyetinizi ve Türkiye'deki alternatif seçenekleri karşılaştırın.</p></details>
-    </div>
-  </div>
-</div>
-</section>
-  <section class="panel" id="pay" role="tabpanel">
-    <div class="panel-head"><h2>SaaS Ödeme Geçidi Ücret Hesaplayıcı</h2><p>Stripe, Paddle, Lemon Squeezy ve PayPal'ın aylık gelirinizden tam olarak ne aldığını görün.</p></div>
-    <div class="grid2">
-      <div>
-        <div class="row2">
-          <div class="field"><label for="payRev">Aylık gelir <span class="hint">USD</span></label><input class="inp" id="payRev" type="number" value="25000" min="0"></div>
-          <div class="field"><label for="payTx">İşlem / ay</label><input class="inp" id="payTx" type="number" value="800" min="0"></div>
-        </div>
-        <div class="field"><label for="payAvg">Ort. işlem değeri</label><input class="inp" id="payAvg" type="text" readonly value="$31.25" style="opacity:.7;cursor:default"></div>
-        <p class="disclaimer" style="margin-top:4px">Paddle & Lemon Squeezy, Merchant of Record olarak çalışır — daha yüksek yüzdeleri, Stripe'ın ayrı faturalandırdığı küresel KDV/satış vergisi yönetimini ve ters ibraz korumasını içerir.</p>
-      </div>
-      <div>
-        <div class="rlabel" style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:14px">Sağlayıcıya göre ücretler</div>
-        <div class="cmp" id="payCmp"></div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Stripe vs Paddle Ücretleri — SaaS Ödeme Sistemi Maliyet Karşılaştırması</h3>
-    <p>Bu ödeme işlemci ücreti hesaplayıcısı, Stripe, Paddle, Lemon Squeezy ve PayPal'ın aylık SaaS gelirinizden ne kadar aldığını tam olarak gösterir. Türk SaaS girişimcileri için ödeme sağlayıcısı seçimi kritik bir karardır: Türkiye'den global satış yapan girişimcilerin çoğu, Türkiye'de şirket sahibi olmak yerine ABD veya Estonya'da şirket kurarak Stripe veya Paddle'a erişim sağlamaktadır. Stripe, ABD kartları için işlem başına %2,9 + 0,30 $ alırken, Paddle ve Lemon Squeezy Merchant of Record olarak işlev görerek küresel KDV/satış vergisi yönetimini üstlenir — bu, ABD ve AB pazarlarına satış yapan Türk girişimciler için büyük bir avantajdır. 25.000 $/ay geliri ve 800 işlemi olan bir Türk SaaS girişimi Stripe'ta ~1.010 $/ay öder. Lemon Squeezy ise basitliği ve Merchant of Record yapısıyla solo Türk geliştiriciler arasında en popüler seçenek haline gelmiştir. Tam karşılaştırma için gelirinizi ve işlem hacminizi girin.</p>
-    <div class="calc-faq">
-      <details><summary>Türkiye'den SaaS satan geliştiriciler için Stripe en iyi seçenek mi?</summary><p>Stripe, Türkiye'ye doğrudan hizmet vermez (Türkiye'de kayıtlı şirketler için), bu yüzden çoğu Türk geliştirici ABD (Wyoming, Delaware) veya Estonya'da şirket kurarak Stripe'a erişir. Alternatif olarak Paddle ve Lemon Squeezy, Merchant of Record yapısıyla KDV ve vergi yönetimini de üstlenerek özellikle solo Türk geliştiriciler için daha basit bir çözüm sunar.</p></details>
-      <details><summary>Paddle, Türk SaaS girişimcileri için Stripe'tan daha mı ucuz?</summary><p>Yüzde olarak Paddle daha pahalı görünür (%5–9), ancak küresel KDV, ABD satış vergisi ve AB KDV'sini yönettiği düşünüldüğünde toplam maliyet Stripe'a yaklaşır veya altına düşer. Türkiye'den global pazara satış yapan girişimciler için Lemon Squeezy (%5 + 0,50 $), basitlik ve Merchant of Record avantajlarıyla genellikle en iyi ilk seçenektir.</p></details>
-      <details><summary>Türk bağımsız geliştirici olarak hangi ödeme sağlayıcısını kullanmalıyım?</summary><p>2026 itibarıyla Türk solo geliştiriciler arasında Lemon Squeezy en popüler seçenek — Merchant of Record yapısı, basit API ve düşük kur riski sunar (USD fiyatlandırma). Gumroad da basit dijital ürünler için kullanılabilir. Hacim büyüdükçe Stripe (ABD şirketi üzerinden) daha uygun maliyetli hale gelir. Bu hesaplayıcı gerçek USD maliyet farkını gösterir.</p></details>
-    </div>
-  </div>
-</div>
-</section>
+<!-- AD SLOT 1 -->
 
-<!-- PANEL 5: Cloud VPS -->
-  <section class="panel" id="cloud" role="tabpanel">
-    <div class="panel-head">
-      <h2>Bulut VPS &amp; Veritabanı Maliyet Karşılaştırması</h2>
-      <p class="pdesc">Hetzner, Vultr ve DigitalOcean VPS fiyatlarını 2026'da karşılaştırın.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="cloudCpu">vCPU cores</label>
-        <select class="sel" id="cloudCpu">
-          <option value="1">1 vCPU</option><option value="2" selected>2 vCPU</option>
-          <option value="4">4 vCPU</option><option value="8">8 vCPU</option>
-        </select>
-        <label class="lbl" for="cloudRam">RAM</label>
-        <select class="sel" id="cloudRam">
-          <option value="1">1 GB</option><option value="4" selected>4 GB</option>
-          <option value="8">8 GB</option><option value="16">16 GB</option>
-        </select>
-        <label class="lbl" for="cloudCount">Servers</label>
-        <input class="inp" id="cloudCount" type="number" value="1" min="1">
-      </div>
-      <div class="result">
-        <div class="big" id="cloudTotal">$0</div>
-        <div class="per" id="cloudPer">—</div>
-        <div class="breakdown" id="cloudCmp"></div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Bulut VPS Maliyet Karşılaştırma — Hetzner vs DigitalOcean Fiyat 2026</h3>
-    <p>Bu bulut VPS maliyet karşılaştırma aracı, Türk geliştiricilerin Vultr, DigitalOcean ve Hetzner arasında iş yükleri için en ucuz sunucuyu bulmalarına yardımcı olur. Türk geliştirici topluluğunda Hetzner en popüler tercih haline gelmiştir: CPX21 (3 vCPU / 4 GB RAM) Almanya'da yalnızca 5,83 €/ay — DigitalOcean'daki benzer konfigürasyonun 24 $/ay fiyatının yaklaşık dörtte biri. 4 vCPU / 8 GB RAM'lik üç uygulama sunucusu çalıştıran Türk bir startup, DigitalOcean'da 336 $/ay vs Hetzner'de ~55 €/ay öder — yıllık 3.000 $'ın üzerinde tasarruf anlamına gelir. USD/TRY kuru düşünüldüğünde bu fark kritik öneme sahiptir. Türk geliştiriciler için Hetzner Nürnberg, Falkenstein veya Helsinki lokasyonları tercih edilmekte; GDPR uyumu açısından AB veri merkezi avantajı sunmaktadır. ABD pazarına yakınlık gerekiyorsa Hetzner Ashburn (ABD-Doğu) de mevcut ve aynı düşük fiyatları sunar.</p>
-    <div class="calc-faq">
-      <details><summary>Hetzner, Türk geliştiriciler için DigitalOcean'dan ne kadar daha ucuz?</summary><p>Hetzner CPX21 (3 vCPU / 4 GB RAM) 5,83 €/ay, DigitalOcean'daki en yakın seçenek ise 24 $/ay — yaklaşık 4 kat fark. Türk geliştiriciler için EUR/USD kuru da elverişli olduğunda yıllık tasarruf 200 €'nun üzerine çıkar. Hetzner, ISO 27001 sertifikalı, KVKK uyumlu AB veri merkezi sağlar ve fatura EUR üzerinden kesilir.</p></details>
-      <details><summary>2026'da Türk geliştiriciler için en iyi fiyat/performans oranına sahip VPS hangisi?</summary><p>Hetzner, saf fiyat/performans açısından EU ve Türk iş yükleri için açık ara öndedir. ABD-Batı gecikme süresi gerekiyorsa Vultr rekabetçi 20–24 $/ay seçenekler sunar. DigitalOcean'ın fiyat farkı, yönetilen veritabanları ve Spaces nesne deposu gibi ekosistem avantajlarıyla dengelenir. Saf VPS kullanımında Hetzner veya Vultr neredeyse her zaman kazanır.</p></details>
-      <details><summary>Çoklu sunucu kümesi için bulut VPS maliyetlerini nasıl karşılaştırırım?</summary><p>Bu hesaplayıcıdaki sunucu sayısı alanını kullanarak maliyetleri büyütün. 4 vCPU / 8 GB RAM'lik 5 sunuculu küme: DigitalOcean'da ~600 $/ay, Hetzner'de ~90 €/ay. Türk startup'lar için yıllık tasarruf 6.000 $'ı aşabilir — bu, USD/TRY kuru hesaba katıldığında çok daha kritik bir faktördür.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+<div class="wrap" id="calc">
 
-  <!-- PANEL 6: STT/TTS -->
-  <section class="panel" id="stt" role="tabpanel">
-    <div class="panel-head">
-      <h2>STT &amp; TTS API Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">Whisper, ElevenLabs, Google Speech ve OpenAI TTS API maliyetleri 2026.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="sttModel">Saglayici</label>
-        <select class="sel" id="sttModel">
-          <optgroup label="Speech-to-Text (STT)">
-            <option value="whisper">OpenAI Whisper — $0.006/dak</option>
-            <option value="google-stt">Google STT — $0.024/dak</option>
-            <option value="deepgram">Deepgram Nova-2 — $0.0043/dak</option>
-            <option value="azure-stt">Azure Speech — $1.00/saat</option>
-            <option value="assemblyai">AssemblyAI — $0.37/saat</option>
-          </optgroup>
-          <optgroup label="Text-to-Speech (TTS)">
-            <option value="openai-tts">OpenAI TTS — $15/1M karakter</option>
-            <option value="openai-tts-hd">OpenAI TTS HD — $30/1M karakter</option>
-            <option value="elevenlabs">ElevenLabs — $330/1M karakter</option>
-            <option value="google-tts">Google TTS — $16/1M karakter</option>
-            <option value="playht">PlayHT TTS — $30/1M karakter</option>
-          </optgroup>
-        </select>
-        <label class="lbl" for="sttVol">Ses dakikasi / ay</label>
-        <input class="inp" id="sttVol" type="number" value="10000" min="0">
+<!-- LLM CALCULATOR -->
+<div class="calc-shell" style="margin-bottom:48px">
+  <div class="calc-header">
+    <h2>🤖 LLM API Maliyet Hesaplayıcı</h2>
+    <p>Model seçin · Token hacmini girin · Sonuçlar anında güncellenir</p>
+  </div>
+  <div class="calc-body">
+    <div>
+      <div class="field"><label for="llmModel">Model</label>
+        <select class="sel" id="llmModel"><option value="">Yükleniyor…</option></select></div>
+      <div class="row2">
+        <div class="field"><label for="llmIn">Giriş tokeni / istek</label>
+          <input class="inp" id="llmIn" type="number" value="1500" min="0"></div>
+        <div class="field"><label for="llmOut">Çıkış tokeni / istek</label>
+          <input class="inp" id="llmOut" type="number" value="500" min="0"></div>
       </div>
-      <div class="result">
-        <div class="big" id="sttTotal">$0</div>
-        <div class="per" id="sttPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Oran / 1M token</span><b id="sttRate">—</b></div>
-          <div class="brow hl"><span>Yillik tahmin</span><b id="sttAnnual">—</b></div>
+      <div class="field"><label for="llmReqs">İstek sayısı</label>
+        <input class="inp" id="llmReqs" type="number" value="10000" min="0"></div>
+      <div class="field"><label>Dönem</label>
+        <div class="seg">
+          <button onclick="setPeriod('daily',this)">Günlük</button>
+          <button onclick="setPeriod('monthly',this)" class="on">Aylık</button>
+          <button onclick="setPeriod('yearly',this)">Yıllık</button>
         </div>
       </div>
     </div>
-  <div class="calc-seo-content">
-    <h3>Konuşma Tanıma API Maliyeti — ElevenLabs Fiyat vs Whisper Karşılaştırması</h3>
-    <p>Bu STT/TTS API maliyet hesaplayıcısı, işlenen ses dakikasına göre OpenAI Whisper, ElevenLabs, Deepgram ve Google Speech API'leri için aylık harcamanızı tahmin eder. Sesli özellikler, çağrı merkezi otomasyonu veya podcast transkripsiyon araçları geliştiren Türk ürün ekipleri için sağlayıcılar arasındaki fiyat farkı çarpıcıdır. OpenAI Whisper API dakika başına 0,006 $ — ayda 10.000 dakika 60 $ tutar. Deepgram Nova-2, 0,0043 $/dk ile hem daha ucuz hem de yüksek doğrulukludur. ElevenLabs TTS, 1 milyon karakter başına 330 $ ile premium ses sentezi sunar — Türkçe için de mükemmel ses kalitesine sahip olmakla birlikte, ayda 10 milyon karakter üreten bir uygulama 3.300 $/ay öder. OpenAI TTS ise aynı hacim için yalnızca 150 $. Türk geliştiriciler için pratik yaklaşım: Whisper self-hosted (Hetzner GPU'da) ile dakika başına maliyet 0,001 $'ın altına düşürülebilir ve ses verileri Türkiye'de kalır. ElevenLabs fiyat karşılaştırması için ses dakikanızı girin.</p>
-    <div class="calc-faq">
-      <details><summary>OpenAI Whisper API saatlik ses başına ne kadar tutar?</summary><p>OpenAI Whisper 0,006 $/dakika, yani 0,36 $/ses saati. Ayda 10.000 dakika (167 saat) için 60 $. USD/TRY kuru düşünüldüğünde, self-hosted Whisper (Hetzner GPU sunucusunda) çok daha ekonomik: RTX 4090 ile dakika başına maliyet 0,001 $'ın altına düşer. Türkçe desteği için Whisper Large-v3 en iyi sonuçları verir.</p></details>
-      <details><summary>ElevenLabs Türkçe sesler için OpenAI TTS'e kıyasla değer mi?</summary><p>ElevenLabs 330 $/1M karakter, OpenAI TTS ise 15 $/1M karakter — 22 kat fark. Türkçe için ElevenLabs gerçekçi ses klonlama ve duygusal tonlama sunar; sesli kitap, karakter AI veya premium içerik uygulamaları için mantıklı. Bildirim, IVR veya işlevsel TTS için OpenAI TTS yeterlidir ve maliyeti çok düşüktür. Bu hesaplayıcı her ikisini hacminizle hesaplar.</p></details>
-      <details><summary>Türkçe içerik için en iyi ve en ucuz STT API hangisi?</summary><p>OpenAI Whisper Large-v3 (0,006 $/dk), Türkçe için en iyi doğruluk/maliyet dengesini sunar. Google STT Türkçe modeliyle aksan ve teknik terimlerde daha iyi performans gösterir ancak 0,024 $/dk ile 4 kat pahalıdır. Deepgram Nova-2 Türkçe desteği İngilizce kadar olgun değildir. Yüksek doğruluk gerektiren Türkçe transkripsiyon (hukuk, tıp) için Whisper Large-v3 veya Google STT önerilir.</p></details>
+    <div class="result">
+      <div class="rlabel">Tahmini maliyet</div>
+      <div class="big" id="totalCost">$0.00</div>
+      <div class="per" id="periodLabel">aylık</div>
+      <div class="breakdown">
+        <div class="brow"><span>Giriş token maliyeti</span><b id="inCost">$0.00</b></div>
+        <div class="brow"><span>Çıkış token maliyeti</span><b id="outCost">$0.00</b></div>
+        <div class="brow"><span>Toplam token (1M)</span><b id="totalTok">0.00</b></div>
+        <div class="brow hl"><span>Toplam</span><b id="totalCost2">$0.00</b></div>
+        <div class="brow amber"><span>Yıllık tahmini</span><b id="yearlyCost">$0.00</b></div>
+      </div>
     </div>
   </div>
 </div>
-</div>
-</div>
-</section>
 
-  <!-- PANEL 7: Serverless -->
-  <section class="panel" id="serverless" role="tabpanel">
-    <div class="panel-head">
-      <h2>Sunucusuz Hesaplama Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">AWS Lambda, Vercel, Cloudflare Workers.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="slProvider">Platform</label>
-        <select class="sel" id="slProvider">
-          <option value="lambda">AWS Lambda</option>
-          <option value="vercel">Vercel Functions</option>
-          <option value="cf">Cloudflare Workers</option>
-          <option value="gcp">GCP Cloud Functions</option>
-          <option value="netlify">Netlify Functions</option>
-          <option value="railway">Railway</option>
-        </select>
-        <label class="lbl" for="slInvoke">Cagri / ay</label>
-        <input class="inp" id="slInvoke" type="number" value="1000000" min="0">
-        <label class="lbl" for="slDuration">Ort. sure (ms)</label>
-        <input class="inp" id="slDuration" type="number" value="150" min="1">
-        <label class="lbl" for="slMemory">Bellek</label>
-        <select class="sel" id="slMemory">
-          <option value="0.125">128 MB</option>
-          <option value="0.25" selected>256 MB</option>
-          <option value="0.5">512 MB</option>
-          <option value="1">1024 MB</option>
-        </select>
-      </div>
-      <div class="result">
-        <div class="big" id="slTotal">$0</div>
-        <div class="per" id="slPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Cagri maliyeti</span><b id="slInvCost">—</b></div>
-          <div class="brow"><span>Hesaplama maliyeti (GB-sn)</span><b id="slCompCost">—</b></div>
-          <div class="brow hl"><span>Yillik tahmin</span><b id="slAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AWS Lambda Maliyet Hesaplayıcı — Sunucusuz Maliyet Karşılaştırması 2026</h3>
-    <p>Bu AWS Lambda maliyet hesaplayıcısı, çağrı sayısı, ortalama yürütme süresi ve bellek tahsisine göre aylık sunucusuz hesaplama harcamanızı tahmin eder. Türk geliştirici topluluğunda event-driven mimari kullananlar için Lambda'nın fiyatlandırma modeli — 1 milyon istek başına 0,20 $ artı GB-saniye başına 0,0000166667 $ — düşük bellekli ve hızlı çalışan fonksiyonları ödüllendirir. Aylık 150 ms ve 256 MB ile 1 milyon Lambda çağrısı yapan tipik bir Türk API backend'i yaklaşık 5–8 $/ay öder. AWS Lambda'nın 1M istek/ay ücretsiz katmanı içinde kalındığında pratik olarak ücretsizdir. Cloudflare Workers ise 0,50 $/milyon istek fiyatıyla AWS API GW'den 7 kat daha ucuzdur ve Türkiye'ye yakın İstanbul PoP'u sayesinde Türk kullanıcılara düşük gecikme sunar. Türk startup'lar için öneri: düşük hacimli MVP'lerde Lambda free tier, büyük ölçekte Cloudflare Workers kombinasyonu. Tam maliyet karşılaştırması için hacminizi girin.</p>
-    <div class="calc-faq">
-      <details><summary>AWS Lambda aylık 1 milyon istek için ne kadar tutar?</summary><p>AWS Lambda'nın ilk 1 milyon isteği/ay ücretsizdir (kalıcı free tier). Sonrası: 1 milyon istek başına 0,20 $ artı hesaplama maliyeti. 150 ms ve 256 MB'de 1M çağrı için: ~0,45 $/ay. USD/TRY kuru hesaplandığında Lambda free tier, düşük hacimli Türk startup'ları için pratik olarak sıfır maliyetle en güçlü başlangıç seçeneğidir.</p></details>
-      <details><summary>Cloudflare Workers, Türk uygulamalar için AWS Lambda'dan daha ucuz mu?</summary><p>Çoğu iş yükü için evet. Cloudflare Workers Paid, aylık 5 $ temel planındaki ilk 10M isteğin ardından 0,50 $/milyon istek öder. AWS API Gateway REST 3,50 $/milyon — 7 kat pahalı. Cloudflare'in İstanbul PoP'u, Türk kullanıcılar için &lt;10 ms gecikme sağlar. Workers, kısa süreli edge fonksiyonlar için ideal; Lambda ise uzun süreli hesaplama için daha esnektir.</p></details>
-      <details><summary>Türk geliştiriciler için AWS Lambda'ya ücretsiz alternatifler var mı?</summary><p>Cloudflare Workers Free tier ayda 100.000 istek sunar — küçük Türk projeler için sıfır maliyetli. Vercel Functions free tier ile 100 GB-saat/ay hesaplama ücretsiz. Railway.app ve Render.com gibi platformlar da ücretsiz katmanlar sunar. Bu hesaplayıcı, hacminizin hangi platforma ne zaman geçişi ekonomik hale getirdiğini gösterir.</p></details>
-    </div>
+<!-- OTHER CALCULATORS HUB -->
+<div class="hub-section">
+  <h2>Diğer Hesaplayıcılar</h2>
+  <p class="hub-sub">YZ altyapınızın tüm maliyetlerini karşılaştırın</p>
+  <div class="card-grid">
+    <a href="/tr/vector-database-cost" class="calc-card">
+      <div class="cc-icon">🧊</div>
+      <div class="cc-title">Vektör Veritabanı</div>
+      <div class="cc-desc">Pinecone, Supabase, Qdrant ve Weaviate maliyetlerini karşılaştırın</div>
+    </a>
+    <a href="/tr/image-generation-cost" class="calc-card">
+      <div class="cc-icon">🎨</div>
+      <div class="cc-title">Görsel Üretim</div>
+      <div class="cc-desc">DALL-E 3, Flux Dev, SDXL görsel API fiyatları</div>
+    </a>
+    <a href="/tr/payment-processor-fees" class="calc-card">
+      <div class="cc-icon">💳</div>
+      <div class="cc-title">Ödeme İşlemcileri</div>
+      <div class="cc-desc">Stripe, Paddle, Lemon Squeezy ücret karşılaştırması</div>
+    </a>
+    <a href="/tr/cloud-vps-comparison" class="calc-card">
+      <div class="cc-icon">☁️</div>
+      <div class="cc-title">Bulut VPS</div>
+      <div class="cc-desc">Hetzner, DigitalOcean, Vultr VPS fiyat rehberi</div>
+    </a>
+    <a href="/tr/stt-tts-api-cost" class="calc-card">
+      <div class="cc-icon">🎙️</div>
+      <div class="cc-title">STT / TTS API</div>
+      <div class="cc-desc">Whisper, ElevenLabs, Google Speech fiyatları</div>
+    </a>
+    <a href="/tr/serverless-cost-calculator" class="calc-card">
+      <div class="cc-icon">⚡</div>
+      <div class="cc-title">Serverless</div>
+      <div class="cc-desc">AWS Lambda, Vercel, Cloudflare Workers karşılaştırması</div>
+    </a>
+    <a href="/tr/api-gateway-pricing" class="calc-card">
+      <div class="cc-icon">🔀</div>
+      <div class="cc-title">API Gateway</div>
+      <div class="cc-desc">AWS, Cloudflare, Kong API gateway maliyetleri</div>
+    </a>
+    <a href="/tr/embedding-api-cost" class="calc-card">
+      <div class="cc-icon">🔢</div>
+      <div class="cc-title">Embedding API</div>
+      <div class="cc-desc">OpenAI, Cohere, Voyage embedding fiyatları</div>
+    </a>
+    <a href="/tr/ai-agent-cost" class="calc-card">
+      <div class="cc-icon">🤖</div>
+      <div class="cc-title">YZ Ajan</div>
+      <div class="cc-desc">Multi-step ajan pipeline toplam maliyeti</div>
+    </a>
+    <a href="/tr/ai-coding-tool-cost" class="calc-card">
+      <div class="cc-icon">💻</div>
+      <div class="cc-title">YZ Kodlama</div>
+      <div class="cc-desc">Cursor, Copilot, Claude Code takım maliyeti</div>
+    </a>
+    <a href="/tr/auth-provider-cost" class="calc-card">
+      <div class="cc-icon">🔑</div>
+      <div class="cc-title">Auth Sağlayıcı</div>
+      <div class="cc-desc">Clerk, Auth0, Supabase Auth MAU bazlı maliyet</div>
+    </a>
   </div>
 </div>
-</div>
-</div>
-</section>
 
-  <!-- PANEL 8: API Gateway -->
-  <section class="panel" id="gateway" role="tabpanel">
-    <div class="panel-head">
-      <h2>API Gateway Trafik Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">AWS API GW, Cloudflare, Kong costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="gwProvider">Saglayici</label>
-        <select class="sel" id="gwProvider">
-            <option value="aws">AWS API Gateway — $3.50/M req</option>
-            <option value="cf">Cloudflare Workers — $0.50/M req</option>
-            <option value="kong">Kong Cloud — $2.00/M req</option>
-        </select>
-        <label class="lbl" for="gwReqs">Istek (milyon/ay)</label>
-        <input class="inp" id="gwReqs" type="number" value="10" min="0" step="0.1">
-        <label class="lbl" for="gwTransfer">Veri transferi (GB)</label>
-        <input class="inp" id="gwTransfer" type="number" value="50" min="0">
-      </div>
-      <div class="result">
-        <div class="big" id="gwTotal">$0</div>
-        <div class="per" id="gwPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Istek maliyeti</span><b id="gwReqCost">—</b></div>
-          <div class="brow"><span>Transfer maliyeti</span><b id="gwXferCost">—</b></div>
-          <div class="brow hl"><span>Yillik tahmin</span><b id="gwAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>API Gateway Maliyet Hesaplayıcı — AWS API Gateway Maliyeti 2026</h3>
-    <p>Bu API gateway maliyet hesaplayıcısı, istek hacmi ve veri transferine göre AWS API Gateway, Cloudflare Workers ve Kong Cloud için aylık maliyetleri tahmin eder. AWS API Gateway REST API, milyon istek başına 3,50 $ artı GB çıkış transferi başına 0,09 $ alır — aylık 100 milyon API çağrısını işleyen Türk bir SaaS platformu yalnızca istek ücretlerinde 350 $ öder. Cloudflare Workers API gateway front-end olarak milyon istek başına yalnızca 0,50 $ — AWS API GW'den 7 kat ucuz. Cloudflare'in İstanbul PoP'u sayesinde Türk kullanıcılar düşük gecikme yaşar. Kong Cloud ise 2,00 $/milyon ile kurumsal özellikler sunar. 50 GB transfer ile aylık 10 milyon istekli bir Türk SaaS API'si için: AWS API Gateway ~39,50 $/ay, Cloudflare Workers ~7 $/ay. USD cinsinden bu fark, TRY bazında önemli bir tasarruf anlamına gelir. Hacminizi girerek tam maliyet karşılaştırmasını görün.</p>
-    <div class="calc-faq">
-      <details><summary>AWS API Gateway milyon istek başına ne kadar tutar?</summary><p>AWS API Gateway REST API: 3,50 $/milyon istek (us-east-1). HTTP API (v2): 1,00 $/milyon — basit proxy veya JWT kimlik doğrulaması için kullanın. Veri çıkışı: 0,09 $/GB. 50 GB transferle aylık 10M istek için: REST API ~39,50 $ vs HTTP API ~14,50 $. Türk ekipler için USD/TRY kuru fiyat kararında kritik bir faktördür.</p></details>
-      <details><summary>Cloudflare Workers, Türk API'leri için AWS API Gateway'den daha ucuz mu?</summary><p>Evet, belirgin biçimde. Cloudflare Workers Paid: 5 $/ay temel planda ilk 10M isteğin ardından 0,50 $/milyon. AWS API Gateway REST: 3,50 $/milyon — 7 kat pahalı. Cloudflare'in İstanbul PoP'u Türk kullanıcılar için &lt;20 ms gecikme sağlar. Yüksek hacimli Türk API'leri için Cloudflare Workers yıllık 3.000 $+ tasarruf sunabilir.</p></details>
-      <details><summary>API Gateway yerine Lambda Function URL'leri ne zaman kullanmalıyım?</summary><p>Lambda Function URL'leri ücretsizdir (yalnızca Lambda maliyeti) ve basit kullanım durumları için yeterlidir. İstek azaltma, API anahtarları, WAF entegrasyonu, kullanım planları veya özel alan HTTPS sonlandırması gerektiğinde API Gateway kullanın. Türk ekipler için pratik yaklaşım: MVP'de Lambda URL, üretime geçişte API Gateway — bu hesaplayıcı ne zaman geçişin ekonomik olduğunu gösterir.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+</div><!-- /wrap -->
 
-  <!-- PANEL 9: Embedding -->
-  <section class="panel" id="embedding" role="tabpanel">
-    <div class="panel-head">
-      <h2>Embedding API Maliyet Hesaplayıcı</h2>
-      <p class="pdesc">OpenAI, Cohere, Voyage AI embedding costs.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl" for="embModel">Model</label>
-        <select class="sel" id="embModel">
-            <option value="text3small">OpenAI text-3-small — $0.020/1M</option>
-            <option value="text3large">OpenAI text-3-large — $0.130/1M</option>
-            <option value="ada002">OpenAI ada-002 — $0.100/1M</option>
-            <option value="cohere">Cohere embed-v3 — $0.100/1M</option>
-            <option value="voyage">Voyage AI large-2 — $0.120/1M</option>
-            <option value="jina">Jina AI v3 — $0.018/1M</option>
-        </select>
-        <label class="lbl" for="embTokens">Token / ay (milyon)</label>
-        <input class="inp" id="embTokens" type="number" value="100" min="0">
-        <label class="lbl" for="embDocs">Belgeler</label>
-        <input class="inp" id="embDocs" type="number" value="500000" min="0">
-      </div>
-      <div class="result">
-        <div class="big" id="embTotal">$0</div>
-        <div class="per" id="embPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Oran / 1M token</span><b id="embRate">—</b></div>
-          <div class="brow"><span>Tokens / document</span><b id="embPerDoc">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="embAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Embedding API Maliyeti — OpenAI Embedding Fiyatı 2026</h3>
-    <p>Bu embedding API maliyet hesaplayıcısı, token hacmi ve belge sayısına göre OpenAI, Cohere, Voyage AI ve Jina AI embedding modelleri için aylık harcamayı tahmin eder. Embeddinglar, RAG sistemlerinin, semantik aramanın ve öneri motorlarının temelidir — ölçeklendikçe maliyetleri hızla artabilir. OpenAI text-embedding-3-small 0,020 $/1M token ile büyük Türkçe belge koleksiyonları için en maliyet etkin seçenektir. 500.000 Türkçe belgeyi (~300 token/belge, 150M token toplam) gömmek yalnızca 3 $/ay tutar. Cohere Embed Multilingual v3 (0,10 $/1M), Türkçe dahil 100+ dili destekleyen güçlü çok dilli bir modeldir — Türk e-ticaret ve içerik platformları için idealdir. Jina AI v3 (0,018 $/1M) 8.192 token bağlam penceresiyle uzun Türkçe belgeler (sözleşmeler, makaleler) için en ucuz seçenektir ve self-hosting ile Türkiye'deki sunucularda da çalıştırılabilir. OpenAI embedding fiyatı karşılaştırması için token hacminizi girin.</p>
-    <div class="calc-faq">
-      <details><summary>2026 OpenAI embedding API fiyatları Türkçe metinler için nedir?</summary><p>OpenAI text-embedding-3-small: 0,020 $/1M token, text-embedding-3-large: 0,130 $/1M, ada-002 (eski): 0,100 $/1M. Türkçe metinler için text-3-small iyi kalite sunar. Cohere embed-multilingual-v3 (0,10 $/1M) Türkçe için daha iyi optimize edilmiş olabilir. 100.000 Türkçe belgeyi gömmek text-3-small ile 3 $'ın altında tutar.</p></details>
-      <details><summary>Türk RAG uygulaması için embedding API maliyetini nasıl hesaplarım?</summary><p>Toplam belge token sayısını (ortalama Türkçe belge: ~300 token) fiyatla çarpın. OpenAI text-3-small ile 100.000 belge için (~30M token): tek seferlik gömme maliyeti ~0,60 $. Süregelen maliyet güncelleme sıklığına bağlı. Gerçek zamanlı kullanıcı sorguları sorgu başına ~0,000001 $ ekler — pratik olarak ihmal edilebilir düzeyde.</p></details>
-      <details><summary>Jina AI embedding büyük Türkçe belge koleksiyonları için OpenAI'dan ucuz mu?</summary><p>Jina AI v3 (0,018 $/1M), OpenAI text-3-small'dan (0,020 $/1M) biraz ucuz ve 8.192 token bağlam penceresi sunar — uzun Türkçe belgeler için chunking'e gerek kalmaz. Self-hosting seçeneğiyle Hetzner'de Türkiye'ye yakın sunucularda çalıştırılabilir, böylece hem maliyet düşer hem de veri kontrolü elinizde kalır.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-
-  <!-- PANEL 10: AI Agent -->
-  <section class="panel" id="agent" role="tabpanel">
-    <div class="panel-head">
-      <h2>YZ Ajan Çok-Model Maliyet Tahmincisi</h2>
-      <p class="pdesc">Multi-step agent pipeline cost per run.</p>
-    </div>
-    <div class="panel-body">
-      <div class="inputs">
-        <label class="lbl">Adim 1 — Planlayici / Yonlendirici</label>
-        <select class="sel" id="agM1">
-          <option value="gpt4omini" selected>GPT-4o mini</option>
-          <option value="haiku">Claude 3.5 Haiku</option>
-          <option value="flash">Gemini Flash</option>
-        </select>
-        <label class="lbl">Adim 2 — Ana Iscisi</label>
-        <select class="sel" id="agM2">
-          <option value="gpt4o" selected>GPT-4o</option>
-          <option value="sonnet">Claude 3.5 Sonnet</option>
-          <option value="gempro">Gemini Pro</option>
-        </select>
-        <label class="lbl">Adim 3 — Ozetleyici</label>
-        <select class="sel" id="agM3">
-          <option value="gpt4omini" selected>GPT-4o mini</option>
-          <option value="flash">Gemini Flash</option>
-          <option value="haiku">Claude Haiku</option>
-        </select>
-        <label class="lbl" for="agRuns">Agent runs / month</label>
-        <input class="inp" id="agRuns" type="number" value="5000" min="1">
-      </div>
-      <div class="result">
-        <div class="big" id="agTotal">$0</div>
-        <div class="per" id="agPer">—</div>
-        <div class="breakdown">
-          <div class="brow"><span>Cost per run</span><b id="agPerRun">—</b></div>
-          <div class="brow"><span>Adim 1 — Planlayici</span><b id="agS1">—</b></div>
-          <div class="brow"><span>Adim 2 — Isci</span><b id="agS2">—</b></div>
-          <div class="brow"><span>Adim 3 — Ozetleyici</span><b id="agS3">—</b></div>
-          <div class="brow hl"><span>Annual estimate</span><b id="agAnnual">—</b></div>
-        </div>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AI Ajan Maliyet Hesaplayıcı — Çok Modelli Pipeline Maliyeti 2026</h3>
-    <p>Bu AI ajan maliyet hesaplayıcısı, farklı modellerin farklı görevleri üstlendiği çok adımlı LLM pipeline'larının toplam maliyetini tahmin eder. Modern AI ajan mimarileri tipik olarak planlama veya yönlendirme için hızlı ve ucuz bir model (GPT-4o mini, Gemini Flash), temel muhakeme için güçlü bir model (GPT-4o, Claude 3.5 Sonnet) ve özetleme için ucuz bir model zincirler. Türk geliştirici ekipleri için bu katmanlı maliyetler genellikle en büyük bütçe sürprizi olur. GPT-4o mini → GPT-4o → GPT-4o mini pipeline'ı, aylık 5.000 çalışmayla 75–150 $/ay tutar. Aylık 50.000 çalışmada bu 750–1.500 $'a çıkar — USD/TRY kuru düşünüldüğünde önemli bir tutar. Ana worker adımını Claude 3.5 Haiku ile değiştirmek orta kademe maliyeti %80 azaltır. Türk AI girişimcileri için öneri: prototip aşamasında ücretsiz tier'lardan yararlanın, ölçeklendikçe daha ucuz modellere geçin. Hacminizi girerek çok modelli pipeline maliyetinizi görün.</p>
-    <div class="calc-faq">
-      <details><summary>Çok adımlı AI ajan pipeline'ı çalışma başına ne kadar tutar?</summary><p>GPT-4o mini / GPT-4o / GPT-4o mini ile tipik 3 adımlı pipeline (500/2.000/300 token/adım) çalışma başına ~0,024 $ tutar. 10.000 çalışma/ay için: ~240 $/ay. Ana worker adımında GPT-4o yerine Claude 3.5 Haiku kullanmak maliyeti 80 $/ay'ın altına düşürür. USD/TRY kuru hesaba katıldığında model seçimi kritik önem taşır.</p></details>
-      <details><summary>AI ajan yönlendirme ve planlama için en ucuz LLM hangisi?</summary><p>GPT-4o mini (0,15 $/1M giriş) ve Gemini Flash (0,075 $/1M giriş), 2026'da ucuz yönlendirme için en iyi seçeneklerdir. Her ikisi de sınıflandırma, araç seçimi ve yapılandırılmış JSON çıktısını güvenilir biçimde işler. Claude 3.5 Haiku (0,80 $/1M giriş), daha güçlü talimat takibi gerektiren planlama adımları için tercih edilir.</p></details>
-      <details><summary>Türk AI girişimcileri için yüksek çalışma hacminde maliyetleri nasıl düşürebilirim?</summary><p>Temel stratejiler: benzer girdiler için planlayıcı çıktılarını önbelleğe alın (%60–80 tasarruf), ara durumları özetleyerek daha küçük bağlam pencereleri kullanın, yaratıcı olmayan muhakeme adımlarında GPT-4o yerine Haiku veya Sonnet kullanın ve acil olmayan çalışmaları asenkron kuyruklara atın. Bu hesaplayıcı her optimizasyonun öncesi ve sonrası maliyetini modelleyebilir.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-  <!-- PANEL 11: AI Coding Tool -->
-  <section class="panel" id="coding" role="tabpanel">
-    <div class="panel-head">
-      <h2>YZ Kodlama Araci Maliyet Hesaplayici</h2>
-      <p class="pdesc">Cursor vs Copilot vs Claude Code gercek maliyet.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="trCodingUsage">Gunluk kullanim yogunlugu</label>
-          <select class="sel" id="trCodingUsage">
-          <option value="light">Hafif (1-2 saat/gun)</option>
-          <option value="medium" selected>Orta (2-4 saat/gun)</option>
-          <option value="heavy">Yogun (4+ saat/gun)</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="trCodingType">Kullanim tipi</label>
-          <select class="sel" id="trCodingType">
-          <option value="complete">Sadece tamamlama</option>
-          <option value="chat" selected>Tamamlama + chat</option>
-          <option value="agent">Ajan gorevleri</option>
-          <option value="all">Hepsi</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="trCodingTeam">Ekip buyuklugu</label>
-          <select class="sel" id="trCodingTeam">
-          <option value="1" selected>Bireysel (1)</option>
-          <option value="3">Kucuk ekip (3)</option>
-          <option value="5">Kucuk ekip (5)</option>
-          <option value="10">Orta ekip (10)</option>
-          <option value="20">Orta ekip (20)</option>
-          </select>
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">En ucuz secenek</div>
-        <div class="big" id="trCodingBest">$10</div>
-        <div class="per" id="trCodingPer">— aylik</div>
-        <div class="breakdown" id="trCodingBreakdown">
-          <div class="brow"><span>Tum araclar (sirali)</span><b>—</b></div>
-        </div>
-        <a href="/tr/yapay-zeka-kodlama-arac-maliyeti" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>AI Kodlama Aracı Maliyeti — Cursor vs Copilot Fiyat Karşılaştırması 2026</h3>
-    <p>Bu AI kodlama aracı maliyet hesaplayıcısı, kullanım yoğunluğuna ve ekip büyüklüğüne göre Cursor, GitHub Copilot, Claude Code ve Windsurf için aylık harcamaları karşılaştırır. Türk geliştirici topluluğunda bu araçlar koltuk başına 10 ila 200+ $/ay arasında değişir. GitHub Copilot Business 19 $/koltuk/ay ile güçlü IDE entegrasyonu sunar. Cursor Pro, 20 $/ay ile GPT-4o ve Claude erişimi ve güçlü ajan modu sunar — 2026'da bireysel Türk geliştiriciler arasında en popüler seçenek. Claude Code kullanım bazlı fiyatlandırmayla yoğun ajan kullanımında 50–300 $/ay'a ulaşabilir. 5 kişilik Türk startup ekibi için Cursor vs Copilot karşılaştırması: 100 $/ay vs 95 $/ay standart tariflerde — ancak Cursor'ın ajan yetenekleri karmaşık refaktoring görevleri için farkı genellikle hak eder. USD/TRY kuru düşünüldüğünde bu aylık maliyetler önemli bir kalem oluşturur — bu nedenle kullanım yoğunluğunu doğru tahmin etmek ve doğru aracı seçmek kritiktir. Ekip büyüklüğünüzü ve kullanım tipinizi girerek tam karşılaştırmayı görün.</p>
-    <div class="calc-faq">
-      <details><summary>Türk geliştiriciler için Cursor ile GitHub Copilot arasındaki maliyet farkı nedir?</summary><p>Cursor Pro: kullanıcı başına 20 $/ay, Cursor Business: 40 $/koltuk. GitHub Copilot Individual: 10 $/ay, Copilot Business: 19 $/koltuk/ay. 5 kişilik Türk ekip için: Cursor Business 200 $/ay vs Copilot Business 95 $/ay. Cursor'ın güçlü ajan modu ve çoklu dosya düzenleme yetenekleri, karmaşık Türk kod tabanları için farkı çoğu zaman haklı kılar.</p></details>
-      <details><summary>Claude Code, solo Türk geliştirici için Cursor'a kıyasla değer mi?</summary><p>Claude Code kullanım bazlıdır (Anthropic API üzerinden token başına) — hafif kullanıcı 20–40 $/ay, yoğun ajan kullanıcısı 100–300 $/ay öder. Cursor Pro'nun 20 $/ay sabit tarifi, çoğu Türk solo geliştirici için daha öngörülebilirdir. USD/TRY kuru gözetildiğinde sabit tarifte bütçe planlaması daha kolaydır. Claude Code, karmaşık çok dosyalı görevlerde öne çıkar.</p></details>
-      <details><summary>Küçük Türk geliştirici ekibi için en iyi AI kodlama aracı hangisi?</summary><p>2026'da 1–5 kişilik Türk ekipler için Cursor Pro (20 $/koltuk) en dengeli seçenek — özellikler, ajan modu ve model erişimi açısından. Windsurf (15 $/koltuk) en düşük bütçeli alternatif. GitHub Copilot Business (19 $/koltuk) GitHub Enterprise kullananlar için mantıklı. Tüm araçlar için aylık maliyeti USD/TRY kuruna göre takip etmek ve kullanım bazlı faturalandırmaya dikkat etmek önerilir.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-  <!-- PANEL 12: Auth Provider -->
-  <section class="panel" id="auth" role="tabpanel">
-    <div class="panel-head">
-      <h2>Kimlik Dogrulama Maliyet Hesaplayici</h2>
-      <p class="pdesc">Clerk vs Auth0 vs Supabase — 100K MAU'da 73x fiyat farki.</p>
-    </div>
-    <div class="grid2">
-      <div>
-        <div class="field">
-          <label for="trAuthMau">Aylik Aktif Kullanici (MAU)</label>
-          <input class="inp" id="trAuthMau" type="number" value="10000" min="0" step="1000">
-        </div>
-        <div class="field">
-          <label for="trAuthTier">Ozellik gereksinimleri</label>
-          <select class="sel" id="trAuthTier">
-          <option value="basic">Temel (e-posta + sosyal)</option>
-          <option value="mid" selected>Standart (MFA + org)</option>
-          <option value="enterprise">Kurumsal (SSO + SAML)</option>
-          </select>
-        </div>
-      </div>
-      <div class="result">
-        <div class="rlabel">En ucuz secenek</div>
-        <div class="big" id="trAuthBest">$0</div>
-        <div class="per" id="trAuthPer">— aylik</div>
-        <div class="breakdown" id="trAuthBreakdown">
-          <div class="brow"><span>Tum saglayicilar (sirali)</span><b>—</b></div>
-        </div>
-        <a href="/tr/kimlik-dogrulama-maliyet" style="display:inline-block;margin-top:14px;font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Tam hesaplayici →</a>
-      </div>
-    </div>
-  <div class="calc-seo-content">
-    <h3>Kimlik Doğrulama Maliyet Hesaplayıcı — Clerk vs Supabase Auth Fiyat 2026</h3>
-    <p>Bu kimlik doğrulama sağlayıcısı maliyet hesaplayıcısı, Aylık Aktif Kullanıcı (MAU) sayısına göre Clerk, Auth0, Supabase Auth ve Firebase Auth için aylık fiyatları karşılaştırır. Türk SaaS girişimcileri için auth maliyeti genellikle ölçeklendikçe sürpriz yapar. Clerk'in ücretsiz katmanı 10.000 MAU kapsar; Pro plan 25 $/ay ile 10.000 MAU içerir ve ötesinde 0,02 $/MAU alır — 100.000 MAU'da Clerk 1.825 $/ay tutar. Supabase Auth ise 25 $/ay Pro planına dahildir — sınırsız MAU, kullanıcı başına ücret yok. Tüketici odaklı Türk uygulamaları için bu muazzam bir maliyet avantajıdır: 100.000 MAU'da Clerk, Supabase Auth'tan 73 kat daha pahalıdır. Türk geliştiriciler için pratik öneri: MVP'de Supabase Auth (25 $/ay ile sınırsız MAU), gelişmiş organizasyon yönetimi veya kurumsal SSO gerektiğinde Clerk'e geçiş. USD/TRY kuru gözetildiğinde Clerk'in MAU bazlı fiyatlandırması hızla önemli bir gider kalemiye dönüşebilir. MAU sayınızı girerek gerçek maliyet farkını görün.</p>
-    <div class="calc-faq">
-      <details><summary>Clerk 50.000 MAU için aylık ne kadar tutar?</summary><p>Clerk Pro 25 $/ay temel ücret artı 10.000 üzerindeki her MAU için 0,02 $ alır. 50.000 MAU'da: 25 $ + (40.000 × 0,02 $) = 825 $/ay. Supabase Auth aynı ölçekte 25 $/ay (Pro planı dahilinde) — 33 kat daha ucuz. USD/TRY kuru düşünüldüğünde Clerk'in MAU bazlı fiyatlandırması Türk ölçekli uygulamalar için önemli bir kalem haline gelir.</p></details>
-      <details><summary>Supabase Auth, Türk uygulamaları için Clerk'in yerini tutabilir mi?</summary><p>Çoğu Türk B2C uygulaması için evet. Supabase Auth e-posta/şifre, magic link, OAuth (Google, GitHub), telefon OTP ve Row Level Security desteği sunar. Clerk'in hazır UI bileşenleri ve çok organizasyonlu yönetim özellikleri eksik. Kendi auth UI'sini oluşturmaya hazır Türk ekipler, Supabase ile önemli ölçüde tasarruf ederken tam kontrol elde eder.</p></details>
-      <details><summary>Türk B2B SaaS için SSO desteğiyle en ucuz auth sağlayıcısı hangisi?</summary><p>WorkOS, B2B SSO için özel olarak tasarlanmıştır ve bağlantı başına ücret alır (125–225 $/bağlantı/ay) — az sayıda enterprise müşteriyle çalışan Türk ekipler için Clerk ve Auth0'dan daha ucuz olabilir. Auth0 ve Clerk SSO/SAML'ı 240 $/ay'dan sunar. Supabase Auth SAML 2.0'ı Team planında (599 $/ay) destekler — yüksek MAU ve çoklu SSO bağlantısı olan Türk B2B SaaS'lar için en ekonomik olabilir.</p></details>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-
-</div>
-<!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-     data-ad-slot="XXXXXXXXXX"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-<section class="partners">
-  <div class="sec-label">Daha ucuza inşa et — partner teklifleri</div>
-  <div class="cta-row">
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://www.vultr.com/?ref=9904710-9J"><span class="em" style="font-weight:900;color:#1557c0">V</span> $300 Vultr kredisi ile başla <span class="arr">↗</span></a>
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"><span class="em">⚡</span> Supabase ile inşa et <span class="arr">↗</span></a>
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank" href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"><span class="em">▲</span> Vercel'de yayınla <span class="arr">↗</span></a>
-  </div>
-</div>
-</section>
-
-</main>
-<section class="section" id="faq">
-  <div class="wrap">
-    <h2 class="sh">Sıkça sorulan sorular</h2>
-    <p class="ssub">Bu hesaplayıcıların nasıl çalıştığı ve rakamların nereden geldiği hakkında her şey.</p>
-    <div class="faq" id="faqList">
-      <div class="qa"><div class="q">LLM maliyet hesaplamaları ne kadar doğru? <span class="plus">+</span></div><div class="a"><p>OpenAI, Anthropic, Google ve diğerlerinin yayımlanmış 2026 kamuya açık API tarifelerini kullanır, aylık gözden geçirilir. Kurumsal indirimleri, prompt önbelleğini veya toplu API tasarruflarını içermez — bütçeleme için üst sınır tahmini olarak değerlendirin.</p></div></div>
-      <div class="qa"><div class="q">APICalculators ücretsiz mi? <span class="plus">+</span></div><div class="a"><p>Evet. Her hesaplayıcı ücretsizdir; kayıt, giriş veya ödeme duvarı yoktur. Siteyi görüntülü reklamlar ve affiliate ortaklıklarıyla sürdürürüz.</p></div></div>
-      <div class="qa"><div class="q">Verilerimi saklıyor veya gönderiyor musunuz? <span class="plus">+</span></div><div class="a"><p>Hayır. Tüm hesaplamalar JavaScript ile tamamen tarayıcınızda çalışır. Girdiğiniz hiçbir şey sunucuya iletilmez veya oturumunuzun ötesinde saklanmaz.</p></div></div>
-      <div class="qa"><div class="q">Hangi ödeme işlemcisi en ucuz? <span class="plus">+</span></div><div class="a"><p>Ortalama işlem değerinize ve vergi yönetimine ihtiyacınız olup olmadığına bağlıdır. Stripe genellikle yüksek değerli işlemlerde ham yüzdede kazanır; Paddle ve Lemon Squeezy küresel KDV/satış vergisi uyumunu daha yüksek bir orana paketler. Hesaplayıcı, sizin rakamlarınız için gerçek dolar farkını gösterir.</p></div></div>
-    </div>
-  </div>
-</section>
-<section class="section wrap" style="padding-top:0">
-  <div class="newsletter">
-    <h3>Haftada bir maliyet tasarrufu ipucu</h3>
-    <p>YZ ve altyapı harcamalarını optimize eden geliştiricilere katılın. Yeni hesaplayıcılar, fiyat değişiklikleri ve gerçek analizler. Spam yok.</p>
-    <form class="nl-form" action="https://formsubmit.co/hello@apicalculators.com" method="POST">
-      <input type="hidden" name="_subject" value="Yeni APICalculators Bülten Abonesi (TR)">
-      <input type="hidden" name="_next" value="https://apicalculators.com/tr/?subscribed=true">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <input type="email" name="email" placeholder="siz@sirket.com" required aria-label="E-posta adresiniz">
-      <button type="submit">Abone Ol</button>
-    </form>
-    <p class="nl-note">Spam yok. İstediğiniz zaman çıkın. ~500 geliştirici çoktan katıldı.</p>
-  </div>
-</section>
-<!-- PANEL 5: Cloud VPS -->
+<!-- AD SLOT 2 -->
 
 <footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-about">
-        <a href="/tr/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
-        <p>Geliştirici altyapısı için maliyet optimizasyon araçları. Ücretsiz, hızlı ve özel — sürpriz faturalardan nefret eden mühendisler için.</p>
-      </div>
-                  <div class="foot-calcs-col">
-        <h4>Hesaplayıcılar</h4>
-        <div class="foot-calcs-grid">
-          <a href="/tr/#llm">LLM Token Maliyeti</a>
-          <a href="/tr/#vector">Vektör Veritabanı</a>
-          <a href="/tr/#image">AI Görüntü Oluşturma</a>
-          <a href="/tr/#pay">Ödeme Ücretleri</a>
-          <a href="/tr/#vps">Bulut VPS</a>
-          <a href="/tr/#stt">STT / TTS</a>
-          <a href="/tr/#serverless">Sunucusuz</a>
-          <a href="/tr/#gateway">API Gateway</a>
-          <a href="/tr/#embeddings">Embeddingler</a>
-          <a href="/tr/#agent">AI Ajan</a>
-          <a href="/tr/yapay-zeka-kodlama-arac-maliyeti">AI Kodlama Aracı</a>
-          <a href="/tr/kimlik-dogrulama-maliyet">Kimlik Doğrulama</a>
-        </div>
-      </div>
-      <div><h4>Kaynaklar</h4><a href="/tr/blog/">Blog</a><a href="/tr/about">Hakkımızda</a><a href="https://github.com/apicalculators" rel="nofollow noopener noreferrer" target="_blank">GitHub</a><a href="https://twitter.com/apicalculators" rel="nofollow noopener noreferrer" target="_blank">Twitter / X</a></div>
-      <div><h4>Yasal</h4><a href="/tr/privacy">Gizlilik</a><a href="/tr/terms">Şartlar</a><a href="/sitemap.xml">Site Haritası</a></div>
+  <div class="wrap foot-in">
+    <span>© 2026 <a href="/tr/">APICalculators</a> · Ücretsiz hesaplayıcılar</span>
+    <div class="foot-links">
+      <a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/">FR</a> <a href="/tr/" class="on">TR</a>
     </div>
-    <div class="foot-bot"><span>© 2026 APICalculators.com — Edge üzerinde inşa edildi.</span><span>Fiyatlar tahminidir · kullanmadan önce doğrulayın</span></div>
+    <span><a href="/privacy">Gizlilik</a> · <a href="/terms">Kullanım Koşulları</a></span>
   </div>
 </footer>
+
 <script>
-(function(){var dd=document.getElementById('langDD'),btn=document.getElementById('langBtn'),hamb=document.getElementById('hamb'),mm=document.getElementById('mobileMenu');btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');btn.setAttribute('aria-expanded',dd.classList.contains('open'));});document.addEventListener('click',function(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');});hamb.addEventListener('click',function(){var o=mm.classList.toggle('open');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hamb.classList.remove('open');});});})();
-const LLM=[{id:"gpt-4o",name:"GPT-4o",in:2.50,out:10.00},{id:"gpt-4o-mini",name:"GPT-4o mini",in:0.15,out:0.60},{id:"o1",name:"OpenAI o1",in:15.00,out:60.00},{id:"claude-sonnet",name:"Claude 3.5 Sonnet",in:3.00,out:15.00},{id:"claude-haiku",name:"Claude 3.5 Haiku",in:0.80,out:4.00},{id:"claude-opus",name:"Claude 3 Opus",in:15.00,out:75.00},{id:"gemini-pro",name:"Gemini 1.5 Pro",in:1.25,out:5.00},{id:"gemini-flash",name:"Gemini 1.5 Flash",in:0.075,out:0.30},{id:"mistral-large",name:"Mistral Large",in:2.00,out:6.00},{id:"mistral-small",name:"Mistral Small",in:0.20,out:0.60},{id:"llama-405b",name:"Llama 3.1 405B (Together)",in:3.50,out:3.50},{id:"llama-70b",name:"Llama 3.1 70B (Together)",in:0.88,out:0.88},{id:"groq-llama3",name:"Groq Llama3",in:0.59,out:0.79},{id:"perplexity-sonar",name:"Perplexity Sonar",in:1.00,out:1.00}];
-const VEC=[{id:"pinecone",name:"Pinecone (Serverless)",base:0,storagePerGB:0.33,queryPerMillion:16.00},{id:"supabase",name:"Supabase (pgvector)",base:25,storagePerGB:0.125,queryPerMillion:0},{id:"qdrant",name:"Qdrant Cloud",base:0,storagePerGB:9.00,queryPerMillion:0},{id:"weaviate",name:"Weaviate Cloud",base:25,storagePerGB:0.50,queryPerMillion:10.00},{id:"chroma",name:"Chroma Cloud",base:0,storagePerGB:0,queryPerMillion:15.00},{id:"mongodb",name:"MongoDB Atlas Vector",base:0,storagePerGB:0.25,queryPerMillion:100.00},{id:"redis",name:"Redis Vector",base:0,storagePerGB:36.00,queryPerMillion:0}];
-const IMG=[{id:"dalle3-std",name:"DALL·E 3 · 1024 standart",unit:0.040},{id:"dalle3-hd",name:"DALL·E 3 · 1024 HD",unit:0.080},{id:"dalle3-wide",name:"DALL·E 3 · 1792 HD",unit:0.120},{id:"sdxl",name:"Stable Diffusion XL (API)",unit:0.009},{id:"sd3",name:"Stable Diffusion 3",unit:0.035},{id:"flux",name:"Flux.1 Pro (API)",unit:0.050}];
-const PAY=[{id:"stripe",name:"Stripe",rate:0.029,fixed:0.30,note:"%2,9 + $0,30"},{id:"paddle",name:"Paddle",rate:0.050,fixed:0.50,note:"%5 + $0,50 · MoR"},{id:"lemon",name:"Lemon Squeezy",rate:0.050,fixed:0.50,note:"%5 + $0,50 · MoR"},{id:"paypal",name:"PayPal",rate:0.0349,fixed:0.49,note:"%3,49 + $0,49"}];
-const $=id=>document.getElementById(id);
-const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
-const fmt$=v=>{if(v===0)return"$0";if(v<0.01)return"$"+v.toFixed(5);if(v<1)return"$"+v.toFixed(3);if(v<1000)return"$"+v.toFixed(2);return"$"+Math.round(v).toLocaleString("tr-TR");};
-const big$=v=>{if(v>=1000)return"$"+Math.round(v).toLocaleString("tr-TR");if(v>=1)return"$"+v.toFixed(2);if(v>0)return"$"+v.toFixed(4);return"$0";};
-const intf=v=>Math.round(v).toLocaleString("tr-TR");
-document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));t.classList.add('on');t.setAttribute('aria-selected','true');$(t.dataset.tab).classList.add('on');});});
-LLM.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.in}/$${m.out} / 1M`;$('llmModel').appendChild(o);});
-let llmDays=30;
-$('llmPeriod').addEventListener('click',e=>{if(!e.target.dataset.v)return;[...$('llmPeriod').children].forEach(b=>b.classList.remove('on'));e.target.classList.add('on');llmDays=+e.target.dataset.v;calcLLM();});
-function calcLLM(){const m=LLM.find(x=>x.id===$('llmModel').value);const inTok=num($('llmIn').value),outTok=num($('llmOut').value),req=num($('llmReq').value);const inCostReq=inTok/1e6*m.in,outCostReq=outTok/1e6*m.out;const perReq=inCostReq+outCostReq;const reqTotal=req*llmDays;const total=perReq*reqTotal;const totalTok=(inTok+outTok)*reqTotal;$('llmTotal').textContent=big$(total);$('llmPer').textContent=llmDays===1?"— günlük":llmDays===30?"— aylık":"— yıllık";$('llmPrice').textContent=`$${m.in} / $${m.out}`;$('llmPerReq').textContent=fmt$(perReq);$('llmInCost').textContent=fmt$(inCostReq*reqTotal);$('llmOutCost').textContent=fmt$(outCostReq*reqTotal);$('llmTok').textContent=intf(totalTok)+" token";}
-['llmModel','llmIn','llmOut','llmReq'].forEach(id=>$(id).addEventListener('input',calcLLM));
-VEC.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;$('vecProvider').appendChild(o);});
-function calcVec(){const p=VEC.find(x=>x.id===$('vecProvider').value);const n=num($('vecCount').value),d=num($('vecDim').value),q=num($('vecQ').value);const bytes=n*d*4*1.5;const gb=bytes/(1024**3);const storeCost=gb*p.storagePerGB;const qCost=q/1e6*p.queryPerMillion;const total=p.base+storeCost+qCost;$('vecTotal').textContent=big$(total);$('vecName').textContent="— "+p.name;$('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+" MB":gb.toFixed(2)+" GB";$('vecStoreCost').textContent=fmt$(storeCost);$('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):"dahil";$('vecBase').textContent=p.base?fmt$(p.base)+" /ay":"temel ücret yok";}
-['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>$(id).addEventListener('input',calcVec));
-IMG.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.unit}/görsel`;$('imgModel').appendChild(o);});
-function calcImg(){const m=IMG.find(x=>x.id===$('imgModel').value);const c=num($('imgCount').value),v=Math.max(1,num($('imgVar').value));const totalImg=c*v;const total=totalImg*m.unit;$('imgTotal').textContent=big$(total);$('imgName').textContent="— "+m.name;$('imgUnit').textContent=fmt$(m.unit);$('imgGen').textContent=intf(totalImg)+" görsel";$('imgK').textContent=fmt$(m.unit*1000);}
-['imgModel','imgCount','imgVar'].forEach(id=>$(id).addEventListener('input',calcImg));
-function calcPay(){const rev=num($('payRev').value),tx=num($('payTx').value);$('payAvg').value=tx>0?"$"+(rev/tx).toFixed(2):"$0.00";const rows=PAY.map(p=>{const fee=rev*p.rate+tx*p.fixed;return {...p,fee,net:rev-fee,pct:rev>0?fee/rev*100:0};}).sort((a,b)=>a.fee-b.fee);const max=Math.max(...rows.map(r=>r.fee),1);$('payCmp').innerHTML=rows.map((r,i)=>`<div class="cmpitem${i===0?' best':''}"><div class="cmptop"><span class="name">${r.name}${i===0?'<span class="badge">EN UCUZ</span>':''}</span><span class="amt">${fmt$(r.fee)}</span></div><div class="bar"><i style="width:${(r.fee/max*100).toFixed(1)}%"></i></div><div class="cmpmeta">${r.note} · efektif %${r.pct.toFixed(2)} · net ${fmt$(r.net)}</div></div>`).join('');}
-['payRev','payTx'].forEach(id=>$(id).addEventListener('input',calcPay));
-document.querySelectorAll('.qa').forEach(qa=>{qa.querySelector('.q').addEventListener('click',()=>{const open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}});});
-calcLLM();calcVec();calcImg();calcPay();
-
-/* ===== CLOUD VPS ===== */
-const CLOUD_PRICES = {
-  vultr:        {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
-  digitalocean: {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
-  hetzner:      {2:{4:4.5},4:{8:8.5},8:{16:17}},
-  linode:       {1:{1:5},2:{4:18}},
-};
-const CLOUD_PROVIDERS = [
-  {id:'vultr',    name:'Vultr'},
-  {id:'digitalocean', name:'DigitalOcean'},
-  {id:'hetzner',  name:'Hetzner'},
-  {id:'linode',   name:'Linode'},
+const fmt$=v=>{if(v===0)return'$0';if(v<0.01)return'$'+v.toFixed(5);if(v<1)return'$'+v.toFixed(3);if(v<1000)return'$'+v.toFixed(2);return'$'+Math.round(v).toLocaleString('en-US');};
+const FALLBACK=[
+  {id:'gpt54nano',name:'GPT-5.4 nano',provider:'OpenAI',in:0.20,out:1.25},
+  {id:'gpt54mini',name:'GPT-5.4 mini',provider:'OpenAI',in:0.75,out:4.50},
+  {id:'haiku45',name:'Claude Haiku 4.5',provider:'Anthropic',in:1.00,out:5.00},
+  {id:'sonnet46',name:'Claude Sonnet 4.6',provider:'Anthropic',in:3.00,out:15.00},
+  {id:'gem31lite',name:'Gemini 3.1 Flash-Lite',provider:'Google',in:0.25,out:1.50},
+  {id:'gpt55',name:'GPT-5.5',provider:'OpenAI',in:5.00,out:30.00}
 ];
-function calcCloud(){
-  var cpu=parseInt(document.getElementById('cloudCpu').value);
-  var ram=parseInt(document.getElementById('cloudRam').value);
-  var cnt=parseInt(document.getElementById('cloudCount').value)||1;
-  var results=[];
-  CLOUD_PROVIDERS.forEach(function(p){
-    var tier=CLOUD_PRICES[p.id]||{};
-    // find cheapest plan meeting requirements
-    var best=null;
-    Object.keys(tier).forEach(function(c){
-      if(parseInt(c)>=cpu){
-        Object.keys(tier[c]).forEach(function(r){
-          if(parseInt(r)>=ram){
-            var price=tier[c][r];
-            if(!best||price<best.price) best={price:price,cpu:c,ram:r};
-          }
-        });
-      }
-    });
-    if(best) results.push({name:p.name,price:best.price*cnt,cpu:best.cpu,ram:best.ram});
-  });
-  if(!results.length){document.getElementById('cloudTotal').textContent='N/A';return;}
-  results.sort(function(a,b){return a.price-b.price;});
-  var cheapest=results[0];
-    var cheapestName = cheapest.name;
-  document.getElementById('cloudTotal').textContent = '$' + cheapest.price.toFixed(2);
-  document.getElementById('cloudPer').textContent   = 'per month — cheapest: ' + cheapestName;
-
-  // Contextual Vultr CTA
-  var ctaBox = document.getElementById('cloudVultrCta');
-  if (ctaBox) {
-    var isVultr = cheapestName === 'Vultr';
-    ctaBox.style.display = 'block';
-    ctaBox.innerHTML = isVultr
-      ? '<div class="vcta vcta-win"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Deploy on Vultr — cheapest for your spec</div>'
-        + '<div class="vcta-sub">Vultr matches your spec at the lowest price. Start with free credits.</div>'
-        + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow noopener" target="_blank" '
-        + 'class="vcta-btn" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
-        + '<span class="vcta-note">Affiliate link · You get $300 free credits</span></div></div>'
-      : '<div class="vcta vcta-near"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Compare on Vultr</div>'
-        + '<div class="vcta-sub">Vultr is close — compare plans before deciding.</div>'
-        + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow noopener" target="_blank" '
-        + 'class="vcta-btn vcta-btn-sm" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
-        + '</div></div>';
-  }
-  var cmp=document.getElementById('cloudCmp');
-  cmp.innerHTML='';
-  results.forEach(function(r){
-    var row=document.createElement('div');row.className='brow'+(r===cheapest?' hl':'');
-    row.innerHTML='<span>'+r.name+' ('+r.cpu+'vCPU/'+r.ram+'GB)</span><b>$'+r.price.toFixed(2)+'/mo</b>';
-    cmp.appendChild(row);
-  });
+let period='monthly';
+async function loadPricing(){
+  try{const r=await fetch('/pricing-data.json');const d=await r.json();
+    if(d.lastUpdated){const el=document.getElementById('luDate');if(el)el.textContent=new Date(d.lastUpdated).toLocaleDateString('tr-TR',{year:'numeric',month:'long'});}
+    if(d.llm&&d.llm.current)return d.llm.current;
+  }catch(e){}return null;
 }
-['cloudCpu','cloudRam','cloudCount'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcCloud),el.addEventListener('input',calcCloud);
-});
-
-/* ===== STT / TTS ===== */
-const STT_RATES = {
-  'whisper':      {type:'stt',rate:0.006},
-  'google-stt':   {type:'stt',rate:0.024},
-  'deepgram':     {type:'stt',rate:0.0043},
-  'azure-stt':    {type:'stt',rate:0.01667},
-  'assemblyai':   {type:'stt',rate:0.00617},
-  'openai-tts':   {type:'tts',rate:0.015},
-  'openai-tts-hd':{type:'tts',rate:0.030},
-  'elevenlabs':   {type:'tts',rate:0.330},
-  'playht':       {type:'tts',rate:0.030},
-  'google-tts':  {type:'tts',rate:0.016},
-};
-function calcStt(){
-  var model=document.getElementById('sttModel').value;
-  var vol=parseFloat(document.getElementById('sttVol').value)||0;
-  var p=STT_RATES[model];if(!p)return;
-  var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;
-  document.getElementById('sttTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('sttPer').textContent='per month';
-  document.getElementById('sttRate').textContent=p.type==='stt'?'$'+p.rate+'/min':'$'+p.rate+'/1K chars';
-  document.getElementById('sttAnnual').textContent='$'+(total*12).toFixed(2);
+function populateSelect(list){
+  const sel=document.getElementById('llmModel');
+  sel.innerHTML=list.map(m=>`<option value="${m.id}" data-in="${m.in}" data-out="${m.out}">${m.name} — ${m.provider}</option>`).join('');
+  calc();
 }
-['sttModel','sttVol'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcStt),el.addEventListener('input',calcStt);
-});
-
-/* ===== SERVERLESS ===== */
-const SL_PRICES = {
-  lambda: {inv:0.0000002,  gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
-  netlify:{inv:0.000025,   gb_sec:0,            free_inv:125000,  free_gb:0},
-  railway:{inv:0.000000463,gb_sec:0.000463,     free_inv:0,       free_gb:0},
-  vercel:{inv:0.0000004, gb_sec:0.000018,     free_inv:0,       free_gb:0},
-  cf:    {inv:0.0000003, gb_sec:0.000012,     free_inv:1000000, free_gb:0},
-  gcp:   {inv:0.0000004, gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
-};
-function calcServerless(){
-  var prov=document.getElementById('slProvider').value;
-  var inv=parseFloat(document.getElementById('slInvoke').value)||0;
-  var dur=parseFloat(document.getElementById('slDuration').value)||0;
-  var mem=parseFloat(document.getElementById('slMemory').value)||0.25;
-  var p=SL_PRICES[prov];if(!p)return;
-  var billable_inv=Math.max(0,inv-p.free_inv);
-  var gb_sec=inv*(dur/1000)*mem;
-  var billable_gb=Math.max(0,gb_sec-p.free_gb);
-  var inv_cost=billable_inv*p.inv;
-  var comp_cost=billable_gb*p.gb_sec;
-  var total=inv_cost+comp_cost;
-  document.getElementById('slTotal').textContent='$'+total.toFixed(4);
-  document.getElementById('slPer').textContent='per month';
-  document.getElementById('slInvCost').textContent='$'+inv_cost.toFixed(4);
-  document.getElementById('slCompCost').textContent='$'+comp_cost.toFixed(4);
-  document.getElementById('slAnnual').textContent='$'+(total*12).toFixed(2);
+function setPeriod(p,btn){
+  period=p;
+  document.querySelectorAll('.seg button').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');calc();
 }
-['slProvider','slInvoke','slDuration','slMemory'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcServerless),el.addEventListener('input',calcServerless);
-});
-
-/* ===== API GATEWAY ===== */
-const GW_PRICES = {
-  aws: {per_m:3.50,per_gb:0.09},
-  cf:  {per_m:0.50,per_gb:0.00},
-  kong:{per_m:2.00,per_gb:0.05},
-};
-function calcGateway(){
-  var prov=document.getElementById('gwProvider').value;
-  var reqs=parseFloat(document.getElementById('gwReqs').value)||0;
-  var xfer=parseFloat(document.getElementById('gwTransfer').value)||0;
-  var p=GW_PRICES[prov];if(!p)return;
-  var req_cost=reqs*p.per_m;
-  var xfer_cost=xfer*p.per_gb;
-  var total=req_cost+xfer_cost;
-  document.getElementById('gwTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('gwPer').textContent='per month';
-  document.getElementById('gwReqCost').textContent='$'+req_cost.toFixed(2);
-  document.getElementById('gwXferCost').textContent='$'+xfer_cost.toFixed(2);
-  document.getElementById('gwAnnual').textContent='$'+(total*12).toFixed(2);
+function calc(){
+  const sel=document.getElementById('llmModel');const opt=sel.options[sel.selectedIndex];if(!opt)return;
+  const inP=parseFloat(opt.dataset.in)||0,outP=parseFloat(opt.dataset.out)||0;
+  const inTok=parseFloat(document.getElementById('llmIn').value)||0;
+  const outTok=parseFloat(document.getElementById('llmOut').value)||0;
+  const reqs=parseFloat(document.getElementById('llmReqs').value)||0;
+  const mult=period==='daily'?1:period==='monthly'?30:365;
+  const totalReqs=reqs*mult;
+  const costIn=(inTok*totalReqs/1e6)*inP,costOut=(outTok*totalReqs/1e6)*outP,total=costIn+costOut;
+  document.getElementById('totalCost').textContent=fmt$(total);
+  document.getElementById('totalCost2').textContent=fmt$(total);
+  document.getElementById('inCost').textContent=fmt$(costIn);
+  document.getElementById('outCost').textContent=fmt$(costOut);
+  document.getElementById('totalTok').textContent=((inTok+outTok)*totalReqs/1e6).toFixed(3);
+  document.getElementById('yearlyCost').textContent=fmt$(period==='yearly'?total:total*(period==='daily'?365:12));
+  document.getElementById('periodLabel').textContent=period==='daily'?'günlük':period==='monthly'?'aylık':'yıllık';
 }
-['gwProvider','gwReqs','gwTransfer'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcGateway),el.addEventListener('input',calcGateway);
-});
-
-/* ===== EMBEDDING ===== */
-const EMB_PRICES = {
-  text3small:0.020, text3large:0.130, ada002:0.100,
-  cohere:0.100, voyage:0.120, jina:0.018,
-};
-function calcEmbedding(){
-  var model=document.getElementById('embModel').value;
-  var tokM=parseFloat(document.getElementById('embTokens').value)||0;
-  var docs=parseFloat(document.getElementById('embDocs').value)||1;
-  var rate=EMB_PRICES[model];if(rate===undefined)return;
-  var total=tokM*rate;
-  var tok_per_doc=docs>0?(tokM*1e6/docs).toFixed(0):'—';
-  document.getElementById('embTotal').textContent='$'+total.toFixed(4);
-  document.getElementById('embPer').textContent='per month';
-  document.getElementById('embRate').textContent='$'+rate+'/1M';
-  document.getElementById('embPerDoc').textContent=tok_per_doc+' tokens';
-  document.getElementById('embAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['embModel','embTokens','embDocs'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcEmbedding),el.addEventListener('input',calcEmbedding);
-});
-
-/* ===== AI AGENT ===== */
-const AG_LLM = {
-  gpt4o:    {in:2.50,out:10.00},
-  gpt4omini:{in:0.15,out:0.60},
-  sonnet:   {in:3.00,out:15.00},
-  haiku:    {in:0.80,out:4.00},
-  gempro:   {in:1.25,out:5.00},
-  flash:    {in:0.075,out:0.30},
-};
-var AG_STEPS=[
-  {model:'agM1',in_tok:500,out_tok:100},
-  {model:'agM2',in_tok:3000,out_tok:800},
-  {model:'agM3',in_tok:1500,out_tok:300},
-];
-function calcAgent(){
-  var runs=parseFloat(document.getElementById('agRuns').value)||0;
-  var step_costs=AG_STEPS.map(function(s){
-    var m=document.getElementById(s.model).value;
-    var p=AG_LLM[m];if(!p)return 0;
-    return (s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out;
-  });
-  var per_run=step_costs.reduce(function(a,b){return a+b;},0);
-  var total=per_run*runs;
-  document.getElementById('agTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('agPer').textContent='per month';
-  document.getElementById('agPerRun').textContent='$'+per_run.toFixed(6);
-  document.getElementById('agS1').textContent='$'+(step_costs[0]*runs).toFixed(2);
-  document.getElementById('agS2').textContent='$'+(step_costs[1]*runs).toFixed(2);
-  document.getElementById('agS3').textContent='$'+(step_costs[2]*runs).toFixed(2);
-  document.getElementById('agAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['agM1','agM2','agM3','agRuns'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcAgent),el.addEventListener('input',calcAgent);
-});
-
-/* ===== INIT ALL NEW CALCULATORS ===== */
-calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
-
-/* ===== TR AI CODING CALC ===== */
-(function(){
-  var TOOLS_tr = [
-    {name:'GitHub Copilot',       light:10, medium:10, heavy:19,  note:'Sabit'},
-    {name:'Windsurf',             light:15, medium:15, heavy:45,  note:'Kredi bazlı'},
-    {name:'Cursor',               light:20, medium:20, heavy:80,  note:'$20-200/ay'},
-    {name:'Claude Code',          light:20, medium:20, heavy:120, note:'$20-200/ay'},
-    {name:'Tabnine',              light:12, medium:12, heavy:12,  note:'Aşım yok'},
-    {name:'Zed AI',               light:0,  medium:0,  heavy:0,   note:'Ücretsiz önizleme'},
-    {name:'Amazon CodeWhisperer', light:19, medium:19, heavy:19,  note:'Pro plan'},
-    {name:'JetBrains AI',         light:10, medium:10, heavy:10,  note:'Sabit ücret'}
-  ];
-  function calcCoding_tr(){
-    var usage=document.getElementById('trCodingUsage').value;
-    var type=document.getElementById('trCodingType').value;
-    var team=parseInt(document.getElementById('trCodingTeam').value)||1;
-    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
-    var rows=TOOLS_tr.map(function(t){
-      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
-      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
-      return {name:t.name,note:t.note,per:base,total:base*team};
-    }).sort(function(a,b){return a.total-b.total;});
-    document.getElementById('trCodingBest').textContent='$'+rows[0].total.toLocaleString();
-    var bd=document.getElementById('trCodingBreakdown');
-    bd.innerHTML=rows.map(function(r,i){
-      return '<div class="brow'+(i===0?' hl':'')+'">'
-        +'<span>'+r.name+'</span>'
-        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
-        +'</div>';
-    }).join('');
-  }
-  ['trCodingUsage','trCodingType','trCodingTeam'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el)el.addEventListener('change',calcCoding_tr);
-  });
-  calcCoding_tr();
-})();
-
-/* ===== TR AUTH CALC ===== */
-(function(){
-  var PROVIDERS_tr=[
-    {name:'Supabase Auth', free:50000, rate:0.00325},
-    {name:'WorkOS',        free:1000000,rate:0.001},
-    {name:'Firebase Auth', free:50000, rate:0.0055},
-    {name:'Better Auth',   free:10000, rate:0.01},
-    {name:'Clerk',         free:10000, rate:0.02},
-    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
-  ];
-  function calcAuth_tr(){
-    var mau=parseInt(document.getElementById('trAuthMau').value)||0;
-    var tier=document.getElementById('trAuthTier').value;
-    var sso=tier==='enterprise'?130:0;
-    var rows=PROVIDERS_tr.map(function(p){
-      var cost=Math.max(0,mau-p.free)*p.rate+sso;
-      return {name:p.name,cost:Math.round(cost*100)/100};
-    }).sort(function(a,b){return a.cost-b.cost;});
-    document.getElementById('trAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
-    var bd=document.getElementById('trAuthBreakdown');
-    bd.innerHTML=rows.map(function(r,i){
-      return '<div class="brow'+(i===0?' hl':'')+'">'
-        +'<span>'+r.name+'</span>'
-        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
-        +'</div>';
-    }).join('');
-  }
-  ['trAuthMau','trAuthTier'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el){el.addEventListener('input',calcAuth_tr);el.addEventListener('change',calcAuth_tr);}
-  });
-  calcAuth_tr();
-})();
-
-/* ============ SHARE + WARNING + RECOMMENDATION (TR) ============ */
-(function(){
-function showWarning(id,cost){
-  var el=document.getElementById(id+'-warning');if(!el)return;
-  if(cost>500){el.className='cost-warning high';el.textContent='⚠️ Yüksek maliyet tespit edildi. Aşağıda ucuz alternatifler.';el.style.display='block';}
-  else if(cost>=100){el.className='cost-warning mid';el.textContent='💡 Bu maliyeti düşürebilirsiniz. Optimizasyon ipuçları için aşağıya bakın.';el.style.display='block';}
-  else if(cost>0&&cost<20){el.className='cost-warning low';el.textContent='✅ Harika seçim! Bu iyi optimize edilmiş.';el.style.display='block';}
-  else el.style.display='none';
-}
-function showRec(id,text){var el=document.getElementById(id+'-rec');if(!el)return;if(text){el.innerHTML='<span class="rec-icon">💡</span><span class="rec-text">'+text+'</span>';el.style.display='block';}else el.style.display='none';}
-var CALC_IDS=['llm','vector','image','cloud','stt','serverless','gateway','embedding','agent','coding','auth'];
-CALC_IDS.forEach(function(pid){
-  var panel=document.getElementById(pid);if(!panel)return;
-  var result=panel.querySelector('.result');if(!result)return;
-  result.insertAdjacentHTML('beforeend',
-    '<div class="share-row"><button class="share-btn" data-calc="'+pid+'">🔗 Hesabı paylaş</button><span class="share-confirm" id="'+pid+'-confirm" style="display:none">✓ Link kopyalandı!</span></div>'
-    +'<div class="cost-warning" id="'+pid+'-warning" style="display:none"></div>'
-    +'<div class="calc-recommendation" id="'+pid+'-rec" style="display:none"></div>');
-});
-var payPanel=document.getElementById('pay');if(payPanel){var cmp=payPanel.querySelector('.cmp');if(cmp)cmp.insertAdjacentHTML('afterend','<div class="share-row" style="margin-top:16px"><button class="share-btn" data-calc="pay">🔗 Hesabı paylaş</button><span class="share-confirm" id="pay-confirm" style="display:none">✓ Link kopyalandı!</span></div>');}
-var SHARE_GETTERS={
-  llm:function(){return{calc:'llm',model:document.getElementById('llmModel').value,in:document.getElementById('llmIn').value,out:document.getElementById('llmOut').value,req:document.getElementById('llmReq').value};},
-  vector:function(){return{calc:'vector',prov:document.getElementById('vecProvider').value,n:document.getElementById('vecCount').value,dim:document.getElementById('vecDim').value,q:document.getElementById('vecQ').value};},
-  image:function(){return{calc:'image',model:document.getElementById('imgModel').value,cnt:document.getElementById('imgCount').value};},
-  pay:function(){return{calc:'pay',rev:document.getElementById('payRev').value,tx:document.getElementById('payTx').value};},
-  cloud:function(){return{calc:'cloud',cpu:document.getElementById('cloudCpu').value,ram:document.getElementById('cloudRam').value,cnt:document.getElementById('cloudCount').value};},
-  stt:function(){return{calc:'stt',model:document.getElementById('sttModel').value,vol:document.getElementById('sttVol').value};},
-  serverless:function(){return{calc:'serverless',prov:document.getElementById('slProvider').value,inv:document.getElementById('slInvoke').value,dur:document.getElementById('slDuration').value};},
-  gateway:function(){return{calc:'gateway',prov:document.getElementById('gwProvider').value,reqs:document.getElementById('gwReqs').value,xfer:document.getElementById('gwTransfer').value};},
-  embedding:function(){return{calc:'embedding',model:document.getElementById('embModel').value,tok:document.getElementById('embTokens').value};},
-  agent:function(){return{calc:'agent',m1:document.getElementById('agM1').value,m2:document.getElementById('agM2').value,m3:document.getElementById('agM3').value,runs:document.getElementById('agRuns').value};},
-  coding:function(){return{calc:'coding',usage:document.getElementById('trCodingUsage').value,type:document.getElementById('trCodingType').value,team:document.getElementById('trCodingTeam').value};},
-  auth:function(){return{calc:'auth',mau:document.getElementById('trAuthMau').value,tier:document.getElementById('trAuthTier').value};}
-};
-document.addEventListener('click',function(e){
-  var btn=e.target.closest('.share-btn');if(!btn)return;
-  var calcId=btn.dataset.calc;var getter=SHARE_GETTERS[calcId];if(!getter)return;
-  var params=getter();
-  var url=location.protocol+'//'+location.host+location.pathname+'?'+Object.keys(params).map(function(k){return k+'='+encodeURIComponent(params[k]);}).join('&')+'#'+calcId;
-  navigator.clipboard.writeText(url).then(function(){var c=document.getElementById(calcId+'-confirm');if(c){c.style.display='inline';setTimeout(function(){c.style.display='none';},2000);}}).catch(function(){});
-});
-var _origCalcLLM=calcLLM;
-calcLLM=function(){
-  _origCalcLLM();
-  var m=LLM.find(function(x){return x.id===document.getElementById('llmModel').value;});
-  var inTok=parseFloat(document.getElementById('llmIn').value)||0,outTok=parseFloat(document.getElementById('llmOut').value)||0,req=parseFloat(document.getElementById('llmReq').value)||0;
-  var monthly=(inTok/1e6*m.in+outTok/1e6*m.out)*req*30;
-  showWarning('llm',monthly);
-  var rec='';
-  if(m.id==='gpt-4o'&&monthly>100){rec='Claude 3.5 Haiku basit görevler için çok daha ucuz — USD/TRY kur riskini de azaltır';}
-  else if(m.id==='claude-sonnet'&&monthly>200){rec='GPT-4o mini çoğu görevi çok daha düşük maliyetle halledebilir';}
-  else if(monthly>500){rec='Batch API kullanın — gerçek zamanlı olmayan iş yükleri için %50 indirim';}
-  showRec('llm',rec);
-};
-var _origCalcVec=calcVec;
-calcVec=function(){
-  _origCalcVec();
-  var p=VEC.find(function(x){return x.id===document.getElementById('vecProvider').value;});
-  var n=parseFloat(document.getElementById('vecCount').value)||0,d=parseFloat(document.getElementById('vecDim').value)||0,q=parseFloat(document.getElementById('vecQ').value)||0;
-  var gb=n*d*4*1.5/Math.pow(1024,3);var total=p.base+gb*p.storagePerGB+q/1e6*p.queryPerMillion;
-  showWarning('vector',total);
-  var rec='';if(p.id==='pinecone'&&total>50)rec='Supabase pgvector bu yükü ~$25/ay karşılar';else if(n>10000000)rec='Hetzner VPS üzerinde kendi başına Qdrant kurarak ~%70 tasarruf sağlayabilirsiniz';
-  showRec('vector',rec);
-};
-var _origCalcImg=calcImg;
-calcImg=function(){_origCalcImg();var m=IMG.find(function(x){return x.id===document.getElementById('imgModel').value;});var total=parseFloat(document.getElementById('imgCount').value)*Math.max(1,parseFloat(document.getElementById('imgVar').value))*m.unit;showWarning('image',total);};
-var _origCalcStt=calcStt;
-calcStt=function(){_origCalcStt();var p=STT_RATES[document.getElementById('sttModel').value];if(!p)return;var vol=parseFloat(document.getElementById('sttVol').value)||0;var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;showWarning('stt',total);};
-var _origCalcServerless=calcServerless;
-calcServerless=function(){
-  _origCalcServerless();
-  var prov=document.getElementById('slProvider').value;var inv=parseFloat(document.getElementById('slInvoke').value)||0;
-  var p=SL_PRICES[prov];if(!p)return;
-  var dur=parseFloat(document.getElementById('slDuration').value)||0,mem=parseFloat(document.getElementById('slMemory').value)||0.25;
-  var total=Math.max(0,inv-p.free_inv)*p.inv+Math.max(0,inv*(dur/1000)*mem-p.free_gb)*p.gb_sec;
-  showWarning('serverless',total);
-  var rec='';if(prov==='lambda'&&inv>10000000)rec='Cloudflare Workers '+Math.round(inv/1e6)+'M çağrıyı Lambda\'dan çok daha ucuza işler';showRec('serverless',rec);
-};
-var _origCalcGateway=calcGateway;calcGateway=function(){_origCalcGateway();var p=GW_PRICES[document.getElementById('gwProvider').value];if(!p)return;var total=parseFloat(document.getElementById('gwReqs').value)*p.per_m+parseFloat(document.getElementById('gwTransfer').value)*p.per_gb;showWarning('gateway',total);};
-var _origCalcEmbedding=calcEmbedding;calcEmbedding=function(){_origCalcEmbedding();var rate=EMB_PRICES[document.getElementById('embModel').value];if(rate===undefined)return;showWarning('embedding',parseFloat(document.getElementById('embTokens').value)*rate);};
-var _origCalcAgent=calcAgent;calcAgent=function(){_origCalcAgent();var runs=parseFloat(document.getElementById('agRuns').value)||0;var total=AG_STEPS.map(function(s){var p=AG_LLM[document.getElementById(s.model).value];return p?(s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out:0;}).reduce(function(a,b){return a+b;},0)*runs;showWarning('agent',total);};
-setTimeout(function(){
-  var ce=document.getElementById('trCodingUsage');if(ce){['trCodingUsage','trCodingType','trCodingTeam'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('change',function(){setTimeout(function(){var b=document.getElementById('trCodingBest');if(b){var cost=parseFloat(b.textContent.replace('$',''))||0;showWarning('coding',cost);var team=parseInt(document.getElementById('trCodingTeam').value)||1;var usage=document.getElementById('trCodingUsage').value;var rec='';if(usage==='heavy')rec='Windsurf Türk geliştirici topluluğunda popüler — aylık $15\'den başlıyor';else if(team>5)rec='GitHub Copilot Business ($19/kişi) takımlar için en iyi fiyat/performans oranını sunar';showRec('coding',rec);}},50);});});}
-  var ae=document.getElementById('trAuthMau');if(ae){var best=document.getElementById('trAuthBest');if(best)showWarning('auth',parseFloat(best.textContent.replace('$','').replace(',',''))||0);}
-  calcLLM();calcVec();calcImg();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
-},400);
-})();
+['llmModel','llmIn','llmOut','llmReqs'].forEach(id=>document.getElementById(id).addEventListener('input',calc));
+loadPricing().then(list=>populateSelect(list||FALLBACK));
 </script>
 </body>
 </html>

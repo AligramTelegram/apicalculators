@@ -915,4 +915,113 @@
   <url><loc>https://apicalculators.com/compare/auth0-vs-supabase-auth</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://apicalculators.com/compare/lambda-vs-cloudflare-workers</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://apicalculators.com/compare/vercel-vs-cloudflare-workers</loc><lastmod>2026-06-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url>
+    <loc>https://apicalculators.com/tr/llm-cost-calculator</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/llm-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/llm-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/llm-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/vector-database-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/vector-database-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/vector-database-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/vector-database-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/image-generation-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/image-generation-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/image-generation-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/image-generation-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/payment-processor-fees</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/payment-processor-fees"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/payment-processor-fees"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/payment-processor-fees"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/cloud-vps-comparison</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/cloud-vps-comparison"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/cloud-vps-comparison"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/cloud-vps-comparison"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/stt-tts-api-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/stt-tts-api-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/stt-tts-api-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/stt-tts-api-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/serverless-cost-calculator</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/serverless-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/serverless-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/serverless-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/api-gateway-pricing</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/api-gateway-pricing"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/api-gateway-pricing"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/api-gateway-pricing"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/embedding-api-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/embedding-api-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/embedding-api-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/embedding-api-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/ai-agent-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/ai-agent-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-agent-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-agent-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/ai-coding-tool-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/ai-coding-tool-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-coding-tool-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-coding-tool-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/auth-provider-cost</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/auth-provider-cost"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/auth-provider-cost"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/auth-provider-cost"/>
+  </url>
 </urlset>

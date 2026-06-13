@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YZ Kodlama Araçları Maliyet Karşılaştırması 2026 — Cursor, Copilot, Claude Code</title>
+<meta name="description" content="Cursor, GitHub Copilot, Claude Code, Windsurf ve Cody YZ kodlama araçları maliyetlerini karşılaştırın. Geliştirici sayısını girin → aylık ekip maliyetini görün.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://apicalculators.com/tr/ai-coding-tool-cost">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-coding-tool-cost">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/ai-coding-tool-cost">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/ai-coding-tool-cost">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://apicalculators.com/tr/ai-coding-tool-cost">
+<meta property="og:title" content="YZ Kodlama Araçları Maliyet Karşılaştırması 2026 — Cursor, Copilot, Claude Code">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Cursor vs GitHub Copilot fiyat karşılaştırması 2026?","acceptedAnswer":{"@type":"Answer","text":"Cursor Pro $20/ay, GitHub Copilot Individual $10/ay. Cursor daha gelişmiş ajan yetenekleri ve daha fazla model seçeneği sunar. Copilot GitHub entegrasyonu ve kod güvenliği özellikleriyle öne çıkar."}},{"@type":"Question","name":"Claude Code maliyeti nedir?","acceptedAnswer":{"@type":"Answer","text":"Claude Code (Anthropic CLI) Claude.ai Pro planında ($17/ay) dahildir. API üzerinden kullanımda token başına ücretlendirilir: Sonnet 4.6 $3/$15 per 1M token. Yoğun kullanım için Max planlar $100-200/ay."}},{"@type":"Question","name":"Takım için en ucuz YZ kodlama aracı hangisi?","acceptedAnswer":{"@type":"Answer","text":"Cody ($9/geliştirici/ay) en ucuz ücretli seçenektir. GitHub Copilot Individual ($10/ay) de uygun fiyatlıdır. Windsurf Pro ($15/ay) iyi denge sunar. Büyük ekipler için yıllık planlar %20 indirim sağlar."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"TR Ana Sayfa","item":"https://apicalculators.com/tr/"},{"@type":"ListItem","position":3,"name":"YZ Kodlama Araçları Maliyet Karşılaştırması"}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code',monospace}
+.brow.hl b{color:var(--lime)}.brow.amber b{color:var(--amber)}
+section.sec{padding:0 0 48px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}.foot-links a.on{color:var(--lime)}
+.ad-slot{margin:24px 0;padding:20px;border:1px dashed var(--border2);border-radius:10px;text-align:center;color:#4a5568;font-family:'Cascadia Code',monospace;font-size:11px}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap nav-in">
+  <a href="/tr/" class="logo">API<b>Calculators</b></a>
+  <nav class="nav-r"><a href="#calc">Hesaplayıcılar</a><a href="/tr/blog/">Blog</a><a href="/tr/about">Hakkımızda</a></nav>
+</div></header>
+
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> <span id="luDate">Haziran 2026</span> · Güncel fiyatlar</span>
+  <h1 class="ph"><span class="em">YZ Kodlama Araçları</span> Maliyet Karşılaştırması</h1>
+  <p class="intro">Cursor, GitHub Copilot, Claude Code, Windsurf ve Cody maliyetlerini karşılaştırın. Geliştirici sayısını girin → aylık ekip maliyetini görün.</p>
+</section>
+
+<!-- AD SLOT 1 -->
+
+<div class="wrap" id="calc">
+<div class="calc-shell">
+  <div class="calc-header">
+    <h2>💻 YZ Kodlama Araçları Maliyet Hesaplayıcı</h2>
+    <p>Araç seçin · Geliştirici sayısını girin · Maliyet anında hesaplanır</p>
+  </div>
+  <div class="calc-body">
+    <div>
+      <div class="field"><label for="toolName">Araç</label>
+        <select class="sel" id="toolName" onchange="calcTool()">
+          <option value="20">Cursor Pro ($20/geliştirici/ay)</option>
+          <option value="10">GitHub Copilot Individual ($10/ay)</option>
+          <option value="19">GitHub Copilot Business ($19/ay)</option>
+          <option value="17">Claude Code (Pro dahil, $17/ay)</option>
+          <option value="15">Windsurf Pro ($15/ay)</option>
+          <option value="9">Cody Pro ($9/ay)</option>
+        </select></div>
+      <div class="field"><label for="devCount">Geliştirici sayısı</label>
+        <input class="inp" id="devCount" type="number" value="5" min="1" oninput="calcTool()"></div>
+    </div>
+    <div class="result">
+      <div class="rlabel">Aylık ekip maliyeti</div>
+      <div class="big" id="toolTotal">$0.00</div>
+      <div class="per">aylık</div>
+      <div class="breakdown">
+        <div class="brow"><span>Kişi başı aylık</span><b id="toolPerDev">$0.00</b></div>
+        <div class="brow"><span>Geliştirici sayısı</span><b id="toolDevs">5</b></div>
+        <div class="brow hl"><span>Aylık toplam</span><b id="toolTotal2">$0.00</b></div>
+        <div class="brow amber"><span>Yıllık tahmini</span><b id="toolYearly">$0.00</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sec">
+  <h2>YZ Kodlama Araçları Karşılaştırması</h2>
+  <p class="sh-sub">Kişi başı aylık fiyat (Haziran 2026)</p>
+  <table class="ptable">
+    <thead><tr><th>Araç</th><th>Plan</th><th>Fiyat/ay</th><th>5 Geliştirici</th><th>Öne Çıkan Özellik</th></tr></thead>
+    <tbody>
+      <tr class="best"><td>Cody <span class="badge">EN UCUZ</span></td><td>Pro</td><td class="mono">$9</td><td class="mono">$45</td><td>Sourcegraph entegrasyonu</td></tr>
+      <tr><td>GitHub Copilot</td><td>Individual</td><td class="mono">$10</td><td class="mono">$50</td><td>GitHub native, geniş IDE</td></tr>
+      <tr><td>Windsurf</td><td>Pro</td><td class="mono">$15</td><td class="mono">$75</td><td>Cascade ajan akışları</td></tr>
+      <tr><td>Claude Code</td><td>Pro dahil</td><td class="mono">$17</td><td class="mono">$85</td><td>CLI ajan, Anthropic modelleri</td></tr>
+      <tr><td>Cursor</td><td>Pro</td><td class="mono">$20</td><td class="mono">$100</td><td>Çoklu model, güçlü ajan</td></tr>
+      <tr><td>GitHub Copilot</td><td>Business</td><td class="mono">$19</td><td class="mono">$95</td><td>Audit, IP koruması</td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip" style="margin-top:24px">
+    <div class="cl">💡 Takım için Seçim Rehberi</div>
+    <p>Küçük başlangıçlar için Cody veya GitHub Copilot Individual en ekonomiktir. Güçlü ajan özellikleri için Cursor Pro veya Claude Code tercih edin. Yıllık ödeme genellikle %15-20 indirim sağlar.</p>
+  </div>
+</section>
+
+<!-- AD SLOT 2 -->
+
+<section class="sec">
+  <h2>Sık Sorulan Sorular</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">Cursor vs GitHub Copilot fiyat karşılaştırması 2026? <span class="plus">+</span></div>
+      <div class="a"><p>Cursor Pro $20/ay, GitHub Copilot Individual $10/ay. Cursor daha gelişmiş ajan yetenekleri ve GPT-5.5, Claude Sonnet 4.6 gibi top modellere erişim sunar. Copilot GitHub entegrasyonu ve kod güvenliği özellikleriyle öne çıkar.</p></div></div>
+    <div class="qa"><div class="q">Claude Code maliyeti nedir? <span class="plus">+</span></div>
+      <div class="a"><p>Claude Code (Anthropic CLI) Claude.ai Pro planında ($17/ay) dahildir (~$100 API denk). API üzerinden kullanımda token bazlı: Sonnet 4.6 $3/$15 per 1M. Max planlar: $100/ay (5x) veya $200/ay (20x).</p></div></div>
+    <div class="qa"><div class="q">Takım için en ucuz YZ kodlama aracı hangisi? <span class="plus">+</span></div>
+      <div class="a"><p>Cody Pro ($9/geliştirici/ay) en ucuz ücretli seçenektir. GitHub Copilot Individual ($10/ay) de uygun fiyatlı ve GitHub native entegrasyonuyla öne çıkar. 10+ geliştirici için Business planları değerlendirin.</p></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>İlgili Araçlar</h2>
+  <div class="tool-links">
+    <a href="/tr/llm-cost-calculator" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM Maliyet Hesaplayıcı</div><div class="tl-desc">GPT-5.5, Claude, Gemini fiyatları</div></div></a>
+    <a href="/tr/cloud-vps-comparison" class="tool-link"><span class="ic">☁️</span><div><div class="tl-name">Bulut VPS Karşılaştırma</div><div class="tl-desc">Hetzner, DigitalOcean, Vultr</div></div></a>
+    <a href="/tr/" class="tool-link"><span class="ic">🧮</span><div><div class="tl-name">Tüm Hesaplayıcılar</div><div class="tl-desc">APICalculators ana sayfa</div></div></a>
+  </div>
+</section>
+</div>
+
+<footer><div class="wrap foot-in">
+  <span>© 2026 <a href="/tr/">APICalculators</a> · Ücretsiz hesaplayıcılar</span>
+  <div class="foot-links"><a href="/">EN</a> <a href="/de/">DE</a> <a href="/fr/">FR</a> <a href="/tr/" class="on">TR</a></div>
+  <span><a href="/privacy">Gizlilik</a> · <a href="/terms">Kullanım Koşulları</a></span>
+</div></footer>
+
+<script>
+const fmt$=v=>{if(v===0)return'$0';if(v<1000)return'$'+v.toFixed(2);return'$'+Math.round(v).toLocaleString('en-US');};
+function calcTool(){
+  const price=parseFloat(document.getElementById('toolName').value)||0;
+  const devs=parseFloat(document.getElementById('devCount').value)||1;
+  const total=price*devs;
+  document.getElementById('toolTotal').textContent=fmt$(total);
+  document.getElementById('toolTotal2').textContent=fmt$(total);
+  document.getElementById('toolPerDev').textContent=fmt$(price);
+  document.getElementById('toolDevs').textContent=devs;
+  document.getElementById('toolYearly').textContent=fmt$(total*12);
+}
+async function loadPricing(){
+  try{const r=await fetch('/pricing-data.json');const d=await r.json();
+    if(d.lastUpdated){const el=document.getElementById('luDate');if(el)el.textContent=new Date(d.lastUpdated).toLocaleDateString('tr-TR',{year:'numeric',month:'long'});}
+  }catch(e){}
+}
+loadPricing();calcTool();
+document.querySelectorAll('.qa').forEach(qa=>{
+  qa.querySelector('.q').addEventListener('click',()=>{
+    const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
+  });
+});
+</script>
+</body>
+</html>

@@ -177,6 +177,66 @@
       "source": "/stt",
       "destination": "/stt-tts-api-cost.html",
       "permanent": false
+    },
+    {
+      "source": "/tr/llm-maliyet-hesaplayici",
+      "destination": "/tr/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tr/vektor-veritabani-maliyet",
+      "destination": "/tr/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yz-gorsel-uretim-maliyet",
+      "destination": "/tr/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/stripe-vs-paddle-hesaplayici",
+      "destination": "/tr/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/tr/bulut-vps-maliyet",
+      "destination": "/tr/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/tr/stt-tts-api-maliyet",
+      "destination": "/tr/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/aws-lambda-maliyet",
+      "destination": "/tr/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tr/api-gateway-maliyet",
+      "destination": "/tr/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/tr/embedding-api-maliyet",
+      "destination": "/tr/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yz-ajan-maliyet",
+      "destination": "/tr/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yapay-zeka-kodlama-arac-maliyeti",
+      "destination": "/tr/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/kimlik-dogrulama-maliyet",
+      "destination": "/tr/auth-provider-cost",
+      "permanent": true
     }
   ]
 }
