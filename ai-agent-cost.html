@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>AI Agent Cost Calculator 2026 — Multi-Model Pipeline Pricing</title>
-<meta name="description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-4o, Claude, Gemini agents. Enter run volume → see monthly cost.">
+<meta name="description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-5.4, Claude, Gemini 3.5 agents. Enter run volume → see monthly cost.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://apicalculators.com/ai-agent-cost">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US" />
 <meta property="og:title" content="AI Agent Cost Calculator 2026 — Multi-Model Pipeline Pricing">
-<meta property="og:description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-4o, Claude, Gemini agents. Enter run volume → see monthly cost.">
+<meta property="og:description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-5.4, Claude, Gemini 3.5 agents. Enter run volume → see monthly cost.">
 <meta property="og:url" content="https://apicalculators.com/ai-agent-cost">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI Agent Cost Calculator 2026 — Multi-Model Pipeline Pricing">
-<meta name="twitter:description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-4o, Claude, Gemini agents. Enter run volume → see monthly cost.">
+<meta name="twitter:description" content="Free AI agent cost calculator. Estimate multi-step LLM pipeline costs for GPT-5.4, Claude, Gemini 3.5 agents. Enter run volume → see monthly cost.">
 <meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does an AI agent cost per run?", "acceptedAnswer": {"@type": "Answer", "text": "A 3-step agent (planner + worker + critic) with GPT-4o mini costs ~$0.0008 per run. With GPT-4o for the worker step: ~$0.027 per run. For 1,000 runs/month: $0.80 to $27 depending on model choice."}}, {"@type": "Question", "name": "What is the cheapest LLM for AI agents?", "acceptedAnswer": {"@type": "Answer", "text": "Gemini 1.5 Flash ($0.075/$0.30 per 1M tokens) and GPT-4o mini ($0.15/$0.60) are cheapest. Use Flash for planning/verification steps and GPT-4o or Claude Sonnet only for the main reasoning step."}}, {"@type": "Question", "name": "How do I reduce AI agent costs?", "acceptedAnswer": {"@type": "Answer", "text": "Use cheap models for routing, planning, and verification. Cache repeated tool calls. Limit max steps per agent run. Use streaming to detect early termination. Set hard token limits per step."}}, {"@type": "Question", "name": "What is an AI agent pipeline?", "acceptedAnswer": {"@type": "Answer", "text": "A multi-step LLM workflow where each step uses an LLM call: (1) Planner decides what to do, (2) Worker executes tasks (often with tool use), (3) Critic checks the result. Total cost = sum of all LLM calls per run × number of runs."}}]}</script>
@@ -140,25 +140,25 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
     <div>
       <div class="field"><label>Step 1 — Planner LLM</label>
         <select class="sel" id="agM1">
-          <option value="gpt4omini">GPT-4o mini ($0.15/$0.60)</option>
-          <option value="gem25lite">Gemini 2.5 Flash-Lite ($0.10/$0.40)</option>
-          <option value="gem25flash">Gemini 2.5 Flash ($0.30/$2.50)</option>
-          <option value="gpt41">GPT-4.1 ($2.00/$8.00)</option>
+          <option value="gpt54nano">GPT-5.4 nano ($0.20/$1.25)</option>
+          <option value="gem31lite">Gemini 3.1 Flash-Lite ($0.25/$1.50)</option>
+          <option value="haiku45">Claude Haiku 4.5 ($1.00/$5.00)</option>
+          <option value="gpt54mini">GPT-5.4 mini ($0.75/$4.50)</option>
           <option value="sonnet46">Claude Sonnet 4.6 ($3.00/$15.00)</option>
         </select></div>
       <div class="field"><label>Step 2 — Worker LLM</label>
         <select class="sel" id="agM2">
-          <option value="gpt41" selected>GPT-4.1 ($2.00/$8.00)</option>
+          <option value="gpt54" selected>GPT-5.4 ($2.50/$15.00)</option>
           <option value="sonnet46">Claude Sonnet 4.6 ($3.00/$15.00)</option>
-          <option value="gpt4o">GPT-4o ($2.50/$10.00)</option>
-          <option value="gpt4omini">GPT-4o mini ($0.15/$0.60)</option>
-          <option value="haiku45">Claude Haiku 4.5 ($1.00/$5.00)</option>
+          <option value="gem35flash">Gemini 3.5 Flash ($1.50/$9.00)</option>
+          <option value="gpt54mini">GPT-5.4 mini ($0.75/$4.50)</option>
+          <option value="opus48">Claude Opus 4.8 ($5.00/$25.00)</option>
         </select></div>
       <div class="field"><label>Step 3 — Critic/Verifier LLM</label>
         <select class="sel" id="agM3">
-          <option value="gpt4omini">GPT-4o mini ($0.15/$0.60)</option>
+          <option value="gpt54nano">GPT-5.4 nano ($0.20/$1.25)</option>
           <option value="haiku45">Claude Haiku 4.5 ($1.00/$5.00)</option>
-          <option value="gpt41">GPT-4.1 ($2.00/$8.00)</option>
+          <option value="gpt54mini">GPT-5.4 mini ($0.75/$4.50)</option>
           <option value="sonnet46">Claude Sonnet 4.6 ($3.00/$15.00)</option>
         </select></div>
       <div class="field"><label for="agRuns">Agent runs / month</label>
@@ -185,10 +185,10 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <table class="ptable">
     <thead><tr><th>Pipeline</th><th>Step 1 (Planner)</th><th>Step 2 (Worker)</th><th>Step 3 (Critic)</th><th>Cost / 1K runs</th></tr></thead>
     <tbody>
-      <tr class="best"><td><strong>Budget</strong><span class="badge">CHEAPEST</span></td><td>Flash</td><td>GPT-4o mini</td><td>GPT-4o mini</td><td class="mono">~$0.80</td></tr>
-      <tr><td><strong>Balanced</strong></td><td>GPT-4o mini</td><td>GPT-4o</td><td>GPT-4o mini</td><td class="mono">~$27</td></tr>
-      <tr><td><strong>High Quality</strong></td><td>GPT-4o</td><td>Claude Sonnet</td><td>GPT-4o</td><td class="mono">~$95</td></tr>
-      <tr><td><strong>Maximum</strong></td><td>Claude Sonnet</td><td>Claude Sonnet</td><td>Claude Sonnet</td><td class="mono">~$185</td></tr>
+      <tr class="best"><td><strong>Budget</strong><span class="badge">CHEAPEST</span></td><td>GPT-5.4 nano</td><td>GPT-5.4 nano</td><td>GPT-5.4 nano</td><td class="mono">~$0.62</td></tr>
+      <tr><td><strong>Balanced</strong></td><td>GPT-5.4 nano</td><td>GPT-5.4 ($2.50/$15)</td><td>GPT-5.4 nano</td><td class="mono">~$35</td></tr>
+      <tr><td><strong>High Quality</strong></td><td>Haiku 4.5</td><td>Claude Sonnet 4.6</td><td>Haiku 4.5</td><td class="mono">~$96</td></tr>
+      <tr><td><strong>Maximum</strong></td><td>Sonnet 4.6</td><td>Claude Opus 4.8</td><td>Sonnet 4.6</td><td class="mono">~$330</td></tr>
     </tbody>
   </table>
 <div class="ad-wrap">
@@ -201,12 +201,12 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
        data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-  <div class="callout tip"><div class="cl">💡 Mix models strategically</div><p>Use cheap models (Flash, GPT-4o mini) for planning and verification. Reserve expensive models (GPT-4o, Claude Sonnet) only for the main worker step. This cuts costs 5–10× with minimal quality loss.</p></div>
-</section><div class="aff-box"><p>Deploy your AI agent infrastructure:</p><div class="btns"><a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored noopener" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a><a href="[DIGITALOCEAN_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">🌊 $200 DigitalOcean</a></div></div>
+  <div class="callout tip"><div class="cl">💡 Mix models strategically</div><p>Use cheap models (GPT-5.4 nano, Gemini 3.1 Flash-Lite) for planning and verification. Reserve expensive models (GPT-5.4, Claude Sonnet 4.6) only for the main worker step. This cuts costs 5–10× with minimal quality loss.</p></div>
+</section><div class="aff-box"><p>Deploy your AI agent infrastructure:</p><div class="btns"><a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored noopener" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a></div></div>
 <section class="sec">
   <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">How much does an AI agent cost per run?<span class="plus">+</span></div><div class="a"><p>A 3-step agent (planner + worker + critic) with GPT-4o mini costs ~$0.0008 per run. With GPT-4o for the worker step: ~$0.027 per run. For 1,000 runs/month: $0.80 to $27 depending on model choice.</p></div></div>
-<div class="qa"><div class="q">What is the cheapest LLM for AI agents?<span class="plus">+</span></div><div class="a"><p>Gemini 1.5 Flash ($0.075/$0.30 per 1M tokens) and GPT-4o mini ($0.15/$0.60) are cheapest. Use Flash for planning/verification steps and GPT-4o or Claude Sonnet only for the main reasoning step.</p></div></div>
+  <div class="faq"><div class="qa"><div class="q">How much does an AI agent cost per run?<span class="plus">+</span></div><div class="a"><p>A 3-step agent (planner + worker + critic) with GPT-5.4 nano costs ~$0.00062 per run. With GPT-5.4 for the worker step: ~$0.035 per run. For 1,000 runs/month: $0.62 to $35 depending on model choice.</p></div></div>
+<div class="qa"><div class="q">What is the cheapest LLM for AI agents?<span class="plus">+</span></div><div class="a"><p>GPT-5.4 nano ($0.20/$1.25 per 1M tokens) and Gemini 3.1 Flash-Lite ($0.25/$1.50) are the cheapest capable models in 2026. Use them for planning/verification steps and reserve GPT-5.4 or Claude Sonnet only for the main reasoning step.</p></div></div>
 <div class="qa"><div class="q">How do I reduce AI agent costs?<span class="plus">+</span></div><div class="a"><p>Use cheap models for routing, planning, and verification. Cache repeated tool calls. Limit max steps per agent run. Use streaming to detect early termination. Set hard token limits per step.</p></div></div>
 <div class="qa"><div class="q">What is an AI agent pipeline?<span class="plus">+</span></div><div class="a"><p>A multi-step LLM workflow where each step uses an LLM call: (1) Planner decides what to do, (2) Worker executes tasks (often with tool use), (3) Critic checks the result. Total cost = sum of all LLM calls per run × number of runs.</p></div></div>
 </div>
@@ -263,21 +263,22 @@ document.querySelectorAll('.qa').forEach(qa=>{
 });
 
 const AG_LLM = {
-  gpt41:    {in:2.00, out:8.00},
-  gpt4o:    {in:2.50, out:10.00},
-  gpt4omini:{in:0.15, out:0.60},
-  o3:       {in:2.00, out:20.00},
+  gpt55:    {in:5.00, out:30.00},
+  gpt54:    {in:2.50, out:15.00},
+  gpt54mini:{in:0.75, out:4.50},
+  gpt54nano:{in:0.20, out:1.25},
+  o4mini:   {in:0.55, out:2.20},
+  fable5:   {in:10.00,out:50.00},
   opus48:   {in:5.00, out:25.00},
   sonnet46: {in:3.00, out:15.00},
   haiku45:  {in:1.00, out:5.00},
-  gem25pro: {in:1.25, out:10.00},
-  gem25flash:{in:0.30,out:2.50},
-  gem25lite:{in:0.10, out:0.40},
-  // legacy
-  sonnet:   {in:3.00, out:15.00},
-  haiku:    {in:0.80, out:4.00},
-  gempro:   {in:1.25, out:5.00},
-  flash:    {in:0.075,out:0.30},
+  gem35flash:{in:1.50,out:9.00},
+  gem31pro: {in:2.00, out:12.00},
+  gem31lite:{in:0.25, out:1.50},
+  // legacy kept for compatibility
+  gpt41:    {in:2.00, out:8.00},
+  gpt4o:    {in:2.50, out:10.00},
+  gpt4omini:{in:0.15, out:0.60},
 };
 const AG_STEPS=[
   {model:'agM1',in_tok:500, out_tok:100},

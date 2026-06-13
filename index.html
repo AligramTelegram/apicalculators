@@ -525,7 +525,7 @@ window.addEventListener('load',function(){
 <div class="llm-standalone" id="llm">
   <div class="panel-head">
     <h2>LLM Token &amp; API Cost Calculator</h2>
-    <p>Estimate monthly spend across GPT-4o, Claude, Gemini, and Mistral based on your token throughput.</p>
+    <p>Estimate monthly spend across GPT-5.5, GPT-5.4 nano, Claude Sonnet 4.6, and Gemini 3.5 Flash based on your token throughput.</p>
   </div>
   <div class="grid2">
     <div>
@@ -571,12 +571,12 @@ window.addEventListener('load',function(){
   </div>
   <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider&#39;s pricing page before budgeting.</p>
   <div class="calc-seo-content">
-    <h3>LLM Cost Calculator — GPT-4o API Cost &amp; Token Pricing</h3>
-    <p>This LLM cost calculator helps developers and product teams estimate their monthly OpenAI, Anthropic, and Google API spend before it hits their credit card. You enter three variables — input tokens per request, output tokens per request, and monthly request volume — and the tool computes your total cost using current 2026 USD pricing. GPT-4o API cost sits at $2.50 per million input tokens and $10 per million output tokens at pay-as-you-go rates. A US-based SaaS team running 100,000 GPT-4o requests per month with 1,500 input and 500 output tokens each would pay roughly $375/month in LLM API costs alone. Switching to GPT-4o mini at the same volume drops that to under $15.</p>
+    <h3>LLM Cost Calculator — GPT-5.5, GPT-5.4 Nano &amp; Gemini 3.5 Flash Pricing</h3>
+    <p>This LLM cost calculator helps developers and product teams estimate their monthly OpenAI, Anthropic, and Google API spend before it hits their credit card. You enter three variables — input tokens per request, output tokens per request, and monthly request volume — and the tool computes your total cost using current June 2026 USD pricing. GPT-5.5 costs $5.00 per million input tokens and $30 per million output tokens. For budget workloads, GPT-5.4 nano at $0.20/$1.25 per 1M is the most affordable OpenAI option in 2026 — a team running 100,000 requests/month at 1,500 in + 500 out tokens pays around $30/month.</p>
     <div class="calc-faq">
-      <details><summary>How much does GPT-4o API cost per 1,000 requests?</summary><p>At 2026 pay-as-you-go pricing, GPT-4o costs $2.50/1M input tokens and $10/1M output tokens. A typical request with 1,500 input + 500 output tokens costs about $0.0088. For 1,000 such requests, you'd pay approximately $8.75 USD.</p></details>
-      <details><summary>What is the cheapest LLM API for high-volume applications?</summary><p>For high-volume US-based workloads in 2026, GPT-4o mini ($0.15/1M input) and Gemini Flash ($0.075/1M input) are the most cost-effective options. Claude Haiku is competitive for longer outputs.</p></details>
-      <details><summary>How do I reduce my LLM API costs in production?</summary><p>Key strategies: use prompt caching (saves 75–90% on repeated context), switch to a smaller model for classification tasks, enable batch processing for async jobs, and compress system prompts.</p></details>
+      <details><summary>How much does GPT-5.5 API cost per 1,000 requests?</summary><p>At June 2026 pay-as-you-go pricing, GPT-5.5 costs $5.00/1M input tokens and $30/1M output tokens. A typical request with 1,500 input + 500 output tokens costs about $0.0225. For 1,000 such requests, you'd pay approximately $22.50 USD. Use GPT-5.4 nano ($0.20/$1.25) to reduce that cost by ~97%.</p></details>
+      <details><summary>What is the cheapest LLM API for high-volume applications?</summary><p>For high-volume workloads in 2026, GPT-5.4 nano ($0.20/1M input) and Gemini 3.1 Flash-Lite ($0.25/1M input) are the most cost-effective capable options. Claude Haiku 4.5 ($1.00/$5.00) is competitive when output quality matters more.</p></details>
+      <details><summary>How do I reduce my LLM API costs in production?</summary><p>Key strategies: use prompt caching (saves 75–90% on repeated context), switch to GPT-5.4 nano or Gemini 3.1 Flash-Lite for classification tasks, enable batch processing for async jobs, and compress system prompts.</p></details>
     </div>
   </div>
   <div style="margin-top:12px">
@@ -798,20 +798,21 @@ window.addEventListener('load',function(){
 /* ============ PRICING DATA (2026, USD) ============ */
 // LLM: price per 1,000,000 tokens
 const LLM = [
-  {id:"gpt-4o",           name:"GPT-4o",                      in:2.50,  out:10.00},
-  {id:"gpt-4o-mini",      name:"GPT-4o mini",                 in:0.15,  out:0.60},
-  {id:"o1",               name:"OpenAI o1",                   in:15.00, out:60.00},
-  {id:"claude-sonnet",    name:"Claude 3.5 Sonnet",           in:3.00,  out:15.00},
-  {id:"claude-haiku",     name:"Claude 3.5 Haiku",            in:0.80,  out:4.00},
-  {id:"claude-opus",      name:"Claude 3 Opus",               in:15.00, out:75.00},
-  {id:"gemini-pro",       name:"Gemini 1.5 Pro",              in:1.25,  out:5.00},
-  {id:"gemini-flash",     name:"Gemini 1.5 Flash",            in:0.075, out:0.30},
+  {id:"gpt-55",           name:"GPT-5.5",                     in:5.00,  out:30.00},
+  {id:"gpt-54",           name:"GPT-5.4",                     in:2.50,  out:15.00},
+  {id:"gpt-54-mini",      name:"GPT-5.4 mini",                in:0.75,  out:4.50},
+  {id:"gpt-54-nano",      name:"GPT-5.4 nano",                in:0.20,  out:1.25},
+  {id:"o4-mini",          name:"o4-mini",                     in:0.55,  out:2.20},
+  {id:"claude-fable5",    name:"Claude Fable 5",              in:10.00, out:50.00},
+  {id:"claude-opus48",    name:"Claude Opus 4.8",             in:5.00,  out:25.00},
+  {id:"claude-sonnet46",  name:"Claude Sonnet 4.6",           in:3.00,  out:15.00},
+  {id:"claude-haiku45",   name:"Claude Haiku 4.5",            in:1.00,  out:5.00},
+  {id:"gemini-35-flash",  name:"Gemini 3.5 Flash",            in:1.50,  out:9.00},
+  {id:"gemini-31-pro",    name:"Gemini 3.1 Pro",              in:2.00,  out:12.00},
+  {id:"gemini-31-lite",   name:"Gemini 3.1 Flash-Lite",       in:0.25,  out:1.50},
   {id:"mistral-large",    name:"Mistral Large",               in:2.00,  out:6.00},
-  {id:"mistral-small",    name:"Mistral Small",               in:0.20,  out:0.60},
-  {id:"llama-405b",       name:"Llama 3.1 405B (Together)",   in:3.50,  out:3.50},
   {id:"llama-70b",        name:"Llama 3.1 70B (Together)",    in:0.88,  out:0.88},
   {id:"groq-llama3",      name:"Groq Llama3",                 in:0.59,  out:0.79},
-  {id:"perplexity-sonar", name:"Perplexity Sonar",            in:1.00,  out:1.00},
 ];
 // Vector DB simplified model: {base, storagePerGB, queryPerMillion}
 const VEC = [
@@ -1153,12 +1154,16 @@ function calcEmbedding(){
 
 /* ===== AI AGENT ===== */
 const AG_LLM = {
+  gpt54nano: {in:0.20, out:1.25},
+  gpt54mini: {in:0.75, out:4.50},
+  gpt54:     {in:2.50, out:15.00},
+  sonnet46:  {in:3.00, out:15.00},
+  haiku45:   {in:1.00, out:5.00},
+  gem31lite: {in:0.25, out:1.50},
+  gem35flash:{in:1.50, out:9.00},
+  // legacy
   gpt4o:    {in:2.50,out:10.00},
   gpt4omini:{in:0.15,out:0.60},
-  sonnet:   {in:3.00,out:15.00},
-  haiku:    {in:0.80,out:4.00},
-  gempro:   {in:1.25,out:5.00},
-  flash:    {in:0.075,out:0.30},
 };
 var AG_STEPS=[
   {model:'agM1',in_tok:500,out_tok:100},
@@ -1421,16 +1426,12 @@ calcLLM=function(){
   if(window._llmDays&&window._llmDays!==30)monthly=perReq*req*30;
   showWarning('llm',monthly);
   var rec='';
-  if(m.id==='gpt-4o'&&monthly>100){
-    var haiku=LLM.find(function(x){return x.id==='claude-haiku';});
-    var haikuCost=(inTok/1e6*haiku.in+outTok/1e6*haiku.out)*req*30;
-    var pct=Math.round((1-haikuCost/monthly)*100);
-    rec='Switch to Claude 3.5 Haiku for simple tasks → estimated '+pct+'% cheaper';
-  } else if(m.id==='claude-sonnet'&&monthly>200){
-    var mini=LLM.find(function(x){return x.id==='gpt-4o-mini';});
-    var miniCost=(inTok/1e6*mini.in+outTok/1e6*mini.out)*req*30;
-    var pct2=Math.round((1-miniCost/monthly)*100);
-    rec='GPT-4o mini handles most tasks at '+pct2+'% lower cost';
+  if(m.in>1&&monthly>100){
+    var nano=LLM.find(function(x){return x.id==='gpt-54-nano';});
+    if(nano){var nanoCost=(inTok/1e6*nano.in+outTok/1e6*nano.out)*req*30;var pct=Math.round((1-nanoCost/monthly)*100);rec='Switch to GPT-5.4 nano for simple tasks → estimated '+pct+'% cheaper';}
+  } else if(m.id==='claude-sonnet46'&&monthly>200){
+    var nano2=LLM.find(function(x){return x.id==='gpt-54-nano';});
+    if(nano2){var miniCost=(inTok/1e6*nano2.in+outTok/1e6*nano2.out)*req*30;var pct2=Math.round((1-miniCost/monthly)*100);rec='GPT-5.4 nano handles most tasks at '+pct2+'% lower cost';}
   } else if(monthly>500){
     rec='Consider batch API — up to 50% discount for non-realtime workloads';
   }
