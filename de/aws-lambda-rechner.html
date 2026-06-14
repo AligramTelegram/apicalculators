@@ -171,10 +171,7 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
     </tbody>
   </table>
   <div class="callout info"><div class="cl">⚠ Versteckte Kosten</div><p>AWS API Gateway kostet $3,50/M Anfragen — verdoppelt oft die Lambda-Rechnung. CloudWatch Logs kosten $0,50/GB. Diese Posten im Budget berücksichtigen.</p></div>
-</section><div class="aff-box"><p>Serverless heute deployen:</p><div class="btns"><a href="[VERCEL_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">▲ Auf Vercel deployen</a><a href="[CLOUDFLARE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">🔶 Cloudflare Workers</a></div></div>
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">Was kostet AWS Lambda pro Million Aufrufe?<span class="plus">+</span></div><div class="a"><p>Nach dem kostenlosen Tier (1M/Monat) kostet Lambda $0,20 pro Million Aufrufe plus Rechenkosten. Eine 256MB-Funktion bei 200ms Ø = ~$3,47/Monat für 10M Aufrufe.</p></div></div>
+</section>
 <div class="qa"><div class="q">Ist Cloudflare Workers günstiger als Lambda?<span class="plus">+</span></div><div class="a"><p>Für kurze Laufzeiten (unter 30ms) bei hoher Frequenz ja. Workers bei $0,30/M schlägt Lambda. Für längere Berechnungen (500ms+) oder AWS-Integrationen ist Lambda oft besser.</p></div></div>
 <div class="qa"><div class="q">Was ist das AWS Lambda Free Tier?<span class="plus">+</span></div><div class="a"><p>1 Million kostenlose Aufrufe pro Monat + 400.000 GB-Sekunden Rechenzeit, dauerhaft (kein 12-Monats-Trial). Reicht für ~2M Aufrufe bei 256MB/200ms.</p></div></div>
 <div class="qa"><div class="q">Hat Lambda Cold Starts?<span class="plus">+</span></div><div class="a"><p>Ja. Cold Starts fügen 100–500ms Latenz beim ersten Aufruf nach Inaktivität hinzu. Gegenmaßnahmen: Provisioned Concurrency, Warmup-Pings oder Cloudflare Workers (keine Cold Starts).</p></div></div>

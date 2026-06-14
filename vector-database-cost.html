@@ -196,10 +196,7 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
   <div class="callout tip"><div class="cl">💡 Self-host Qdrant</div><p>Qdrant on a $6/mo Hetzner VPS handles 1–5M vectors easily. Total cost: ~$6–10/mo vs $50+ on managed cloud. Requires ops knowledge.</p></div>
-</section><div class="aff-box"><p>Start building your vector search:</p><div class="btns"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">⚡ Build on Supabase</a><a href="[PINECONE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">🌲 Try Pinecone free</a></div></div>
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">What is the cheapest vector database in 2026?<span class="plus">+</span></div><div class="a"><p>For under 5M vectors: Supabase pgvector at $25/month (queries included). For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month. Pinecone Serverless is cheapest for very small (under 100K) with the free tier.</p></div></div>
+</section>
 <div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Approximately $15–30/month depending on query volume. Storage ~$3 for 1536-dim vectors, plus $16 per million read units. At 100K queries/month expect ~$20.</p></div></div>
 <div class="qa"><div class="q">Is pgvector as good as Pinecone?<span class="plus">+</span></div><div class="a"><p>For most production workloads yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed scaling and dedicated infrastructure for very high query rates.</p></div></div>
 <div class="qa"><div class="q">How many vectors can Qdrant handle?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud handles hundreds of millions of vectors. Self-hosted Qdrant on a 16GB RAM server can store ~10M 1536-dim vectors in memory, or 50M+ with memory-mapped storage (slower queries).</p></div></div>
@@ -232,16 +229,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>
         <nav>
-          <a href="/#llm">LLM Token Cost</a>
-          <a href="/#vector">Vector DB Cost</a>
-          <a href="/#image">AI Image Generation</a>
-          <a href="/#pay">Payment Fees</a>
-          <a href="/#vps">Cloud VPS Comparison</a>
-          <a href="/#stt">STT / TTS API Cost</a>
-          <a href="/#serverless">Serverless Cost</a>
-          <a href="/#gateway">API Gateway Cost</a>
-          <a href="/#embeddings">Embedding API Cost</a>
-          <a href="/#agent">AI Agent Cost</a>
+          <a href="/llm-cost-calculator">LLM Token Cost</a>
+          <a href="/vector-database-cost">Vector DB Cost</a>
+          <a href="/image-generation-cost">AI Image Generation</a>
+          <a href="/payment-processor-fees">Payment Fees</a>
+          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
+          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
+          <a href="/serverless-cost-calculator">Serverless Cost</a>
+          <a href="/api-gateway-pricing">API Gateway Cost</a>
+          <a href="/embedding-api-cost">Embedding API Cost</a>
+          <a href="/ai-agent-cost">AI Agent Cost</a>
           <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
           <a href="/auth-provider-cost">Auth Provider Cost</a>
         </nav>

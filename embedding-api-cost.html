@@ -191,10 +191,7 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
        data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-</section><div class="aff-box"><p>Store your embeddings — start free:</p><div class="btns"><a href="[SUPABASE_AFFILIATE_LINK]" rel="sponsored noopener" target="_blank" class="aff-btn">⚡ Build on Supabase</a></div></div>
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">How much does the OpenAI embedding API cost?<span class="plus">+</span></div><div class="a"><p>text-embedding-3-small costs $0.020 per million tokens (cheapest OpenAI option). text-embedding-3-large costs $0.130/M. For 100K documents at ~300 tokens each (30M tokens), text-3-small costs $0.60 total.</p></div></div>
+</section>
 <div class="qa"><div class="q">What is the cheapest embedding API in 2026?<span class="plus">+</span></div><div class="a"><p>Jina Embeddings v2 at $0.018/M tokens is cheapest. OpenAI text-3-small at $0.020/M is close and has excellent quality. For self-hosted, sentence-transformers (free) on a $6/mo Hetzner VPS is near-zero cost at scale.</p></div></div>
 <div class="qa"><div class="q">What dimensions should I use for embeddings?<span class="plus">+</span></div><div class="a"><p>1536 dimensions (OpenAI text-3-small default) works well for most RAG use cases. You can truncate OpenAI text-3-small to 512 or 256 dimensions with minimal quality loss and significant storage savings. Only use 3072-dim for very high-precision retrieval needs.</p></div></div>
 <div class="qa"><div class="q">How many tokens per document for embeddings?<span class="plus">+</span></div><div class="a"><p>Typical documents: 100-word paragraph ~133 tokens, 1-page document ~700 tokens, 10-page report ~7,000 tokens. Most embedding models have 8,191 token input limits — chunk longer documents.</p></div></div>
@@ -226,16 +223,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>
         <nav>
-          <a href="/#llm">LLM Token Cost</a>
-          <a href="/#vector">Vector DB Cost</a>
-          <a href="/#image">AI Image Generation</a>
-          <a href="/#pay">Payment Fees</a>
-          <a href="/#vps">Cloud VPS Comparison</a>
-          <a href="/#stt">STT / TTS API Cost</a>
-          <a href="/#serverless">Serverless Cost</a>
-          <a href="/#gateway">API Gateway Cost</a>
-          <a href="/#embeddings">Embedding API Cost</a>
-          <a href="/#agent">AI Agent Cost</a>
+          <a href="/llm-cost-calculator">LLM Token Cost</a>
+          <a href="/vector-database-cost">Vector DB Cost</a>
+          <a href="/image-generation-cost">AI Image Generation</a>
+          <a href="/payment-processor-fees">Payment Fees</a>
+          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
+          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
+          <a href="/serverless-cost-calculator">Serverless Cost</a>
+          <a href="/api-gateway-pricing">API Gateway Cost</a>
+          <a href="/embedding-api-cost">Embedding API Cost</a>
+          <a href="/ai-agent-cost">AI Agent Cost</a>
           <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
           <a href="/auth-provider-cost">Auth Provider Cost</a>
         </nav>
