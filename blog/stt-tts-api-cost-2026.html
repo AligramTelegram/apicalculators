@@ -144,6 +144,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
     <a href="/blog/embedding-api-cost-2026">Embedding</a>
 </div></div>
   <div style="display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:20px;margin-top:32px"><div style="width:48px;height:48px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui;font-weight:900;font-size:15px;margin-bottom:4px">APICalculators</div><p style="color:var(--muted);font-size:13px;margin:0">Free developer cost tools. Prices from official docs, reviewed monthly.</p></div></div>
+
+<section style="max-width:760px;margin:40px auto 32px;padding:0 20px">
+  <h2>STT and TTS in Production: Architecture Patterns and Cost Control</h2>
+  <p>Speech-to-text and text-to-speech APIs have reached a quality level where they are viable for consumer-facing products, but production deployments require careful architecture to keep latency low and costs predictable.</p>
+  <p><strong>Stream, do not batch, for real-time applications.</strong> For voice assistants, call center automation, and real-time transcription, streaming STT (WebSocket or chunked HTTP) dramatically reduces perceived latency. Users perceive the start of a transcription response faster than a batch result, even if total processing time is similar. Streaming also prevents timeout issues on long audio inputs that can fail batch requests.</p>
+  <p><strong>VAD (voice activity detection) before STT.</strong> Sending silence or background noise to an STT API wastes money. Implement client-side VAD to detect speech start and end before sending audio to the API. WebRTC VAD libraries are available for most platforms and add under 10ms of processing overhead. In a typical voice assistant interaction with 40% silence, VAD reduces STT costs by 40% with no quality impact.</p>
+  <p><strong>TTS caching for repeated phrases.</strong> Many TTS use cases involve semi-fixed text: error messages, menu prompts, system notifications, and templated responses where only a few variables change. Pregenerate audio for all known variants and serve cached MP3/OGG files directly. TTS APIs charge per character synthesized — serving a cached file costs zero. For a customer support IVR with 200 fixed prompts, initial synthesis costs $2-$5; serving cached audio for thousands of daily calls costs nothing.</p>
+  <p>Model your specific audio volume, language requirements, and quality needs in the <a href="/stt-tts-api-cost">STT/TTS API cost calculator</a> to compare providers for your workload.</p>
+</section>
 </main>
 <footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>

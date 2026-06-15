@@ -721,6 +721,66 @@ window.addEventListener('load',function(){
   </div>
 </section>
 
+<!-- ===== METHODOLOGY ===== -->
+<section class="section" id="methodology">
+  <div class="wrap">
+    <h2 class="sh">About Our Methodology</h2>
+    <p class="ssub">How we source, maintain, and calculate every number on this site.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px">
+      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
+        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">📌 Pricing Sources</div>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">All prices are sourced directly from each provider's official public pricing page. We never estimate, interpolate, or use affiliate-biased rates. When a provider quotes pricing in ranges or tiers, we use the standard on-demand, pay-as-you-go rate available to any developer without a sales call.</p>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">For LLM APIs: OpenAI, Anthropic, and Google pricing pages. For cloud infrastructure: Hetzner, Vultr, DigitalOcean pricing pages. For payment processors: Stripe, Paddle, Lemon Squeezy official rates. For auth providers: Clerk, Supabase, Auth0, WorkOS pricing pages.</p>
+      </div>
+      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
+        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">🔄 Update Schedule</div>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">We review all pricing data monthly and update within 48 hours of any provider announcement. LLM API pricing changes most frequently — OpenAI, Anthropic, and Google have each made multiple pricing adjustments in 2025–2026 as competition intensified. Infrastructure and SaaS tool pricing changes less frequently (quarterly to annually).</p>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">All calculators read from a single <code style="background:#0a0c10;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code> file so every update propagates to all 12 calculators simultaneously. The "Last updated" chip on each calculator page shows the most recent data refresh date.</p>
+      </div>
+      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
+        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">🧮 Calculation Models</div>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">All math runs in your browser. No data is sent to a server. For simple per-unit pricing (LLM tokens, image generation, embeddings), we apply the published rate directly to your volume inputs. For complex pricing models (vector database storage + query units, serverless compute GB-seconds, auth MAU tiers), we use transparent simplified models documented in each calculator's Pricing Methodology section.</p>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">Where providers use complex or opaque pricing (e.g., Pinecone read units, Auth0 enterprise tiers), we clearly label estimates as approximations and link to the provider's official calculator for verification.</p>
+      </div>
+      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
+        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">⚠️ What We Exclude</div>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">We deliberately exclude enterprise negotiated rates, committed-use discounts, academic or startup credits, and promotional rates — because these are not consistently available to all developers. We also exclude free trials. Our goal is to show the sustainable, reproducible cost you can plan a business around, not a promotional introductory price.</p>
+        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">Provider-specific bonuses (e.g., Anthropic's prompt caching discount, OpenAI's Batch API 50% discount) are excluded from default calculations but documented in the tips and FAQ sections of each relevant calculator — they require implementation effort to unlock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="accuracy">
+  <div class="wrap">
+    <h2 class="sh">How We Keep Prices Accurate</h2>
+    <p class="ssub">The process behind staying current in a market where pricing changes weekly.</p>
+    <p style="color:#cdd6dd;font-size:15px;line-height:1.75;max-width:760px;margin:0 auto 20px">Keeping 12 calculators across 4 languages accurate is a significant editorial commitment. Here is our exact process:</p>
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">1</div>
+        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Monthly provider review</strong>On the first Monday of each month, we visit the pricing page of every provider represented in our calculators. We note any changes and compare against current values in <code style="background:#12161d;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code>. This covers 40+ pricing data points across LLM, vector DB, image generation, payments, auth, and infrastructure providers.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">2</div>
+        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Alert monitoring for major providers</strong>For providers that change pricing frequently (OpenAI, Anthropic, Google), we monitor their official announcements via email newsletters and RSS feeds. LLM pricing has changed multiple times in 2025–2026 as competition pushed prices down significantly. We target updating the site within 48 hours of any price change announcement.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">3</div>
+        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Community correction</strong>Developer communities on Reddit, Hacker News, and X (Twitter) often surface pricing changes faster than official announcements. We monitor these communities and treat community-reported price changes as verification triggers — we verify directly with the provider's pricing page before updating. Found an error? Email <a href="mailto:hello@apicalculators.com" style="color:#b8ff2e">hello@apicalculators.com</a>.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">4</div>
+        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Single source of truth</strong>All 12 calculators read their pricing from <code style="background:#12161d;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code> — a single JSON file that is the canonical source for all pricing data. When we update one price, all calculators that use that provider automatically reflect the change. Static pricing tables in HTML are updated simultaneously, so there's no drift between the interactive calculator and the comparison tables.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">5</div>
+        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Accuracy disclaimer</strong>Despite our best efforts, infrastructure pricing is complex and changes rapidly. Never use our calculators as the sole basis for financial decisions, investor projections, or customer contracts. Always verify current rates directly with the provider's official pricing page before committing to a budget. We provide estimates for planning and comparison — treat them as a starting point, not a final number.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== NEWSLETTER ===== -->
 <section class="section wrap" style="padding-top:0">
   <div class="newsletter">

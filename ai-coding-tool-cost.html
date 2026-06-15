@@ -94,6 +94,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -162,6 +170,25 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">AI Coding Tool Prices — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Tool</th><th>Price</th><th>Usage model</th></tr></thead>
+<tbody>
+<tr><td>GitHub Copilot Individual</td><td>$10/mo</td><td>Flat subscription</td></tr>
+<tr><td>GitHub Copilot Business</td><td>$19/seat/mo</td><td>Flat subscription per seat</td></tr>
+<tr><td>Tabnine</td><td>$12/mo</td><td>Flat subscription</td></tr>
+<tr><td>Windsurf Pro</td><td>$15/mo</td><td>Flat + usage overages</td></tr>
+<tr><td>Cursor Pro</td><td>$20/mo</td><td>Flat + usage overages</td></tr>
+<tr><td>Claude Code Pro</td><td>$20/mo</td><td>Flat + API usage</td></tr>
+<tr><td>Claude Code Max 5x</td><td>$100/mo</td><td>Higher limits</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost comparisons.</p>
+</div>
+</noscript>
+
 <div class="callout warn">
   <div class="cl">⚠ Hidden cost warning</div>
   <p>Cursor Pro ($20) auto-upgrades to Pro+ ($60) or Ultra ($200) when you hit limits. Claude Code API usage can add $15+ per heavy session. Always monitor your billing dashboard.</p>
@@ -194,9 +221,38 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </section>
 
 
-    <div class="qa"><div class="q">Which AI coding tool is cheapest in 2026?<span class="plus">+</span></div><div class="a"><p>GitHub Copilot at $10/month offers the best value for light-to-medium users. For heavy agentic work, Claude Code Max 5x ($100/month) or Cursor Pro ($20/month with limits) compete. Use the calculator above for your specific usage.</p></div></div>
-    <div class="qa"><div class="q">Is Claude Code free?<span class="plus">+</span></div><div class="a"><p>Claude Code has a limited free tier. The Pro plan is $20/month, Max 5x is $100/month, and Max 20x is $200/month. Heavy API usage through Claude Code can exceed subscription costs significantly.</p></div></div>
-    <div class="qa"><div class="q">Cursor vs GitHub Copilot — which is better for teams?<span class="plus">+</span></div><div class="a"><p>Copilot Business ($19/seat) offers predictable team billing. Cursor Business ($40/seat) has stronger IDE integration but higher cost. For teams over 10, Copilot usually wins on total cost.</p></div></div>
+<section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Find your true monthly cost for AI coding tools — including usage-based overages.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Select your coding tools</strong>The calculator lets you check multiple tools simultaneously. Select all the tools you're considering or currently paying for. Each tool's pricing model is different: GitHub Copilot and Tabnine use flat monthly subscriptions with no usage overages. Cursor and Windsurf have subscription tiers with usage limits — heavy users get bumped to higher (more expensive) tiers automatically. Claude Code uses a subscription plus underlying API costs for intensive sessions.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Choose your usage level</strong>Light: primarily autocomplete, occasional chat queries, rarely uses agent/composer features. Medium: daily code chat, uses autocomplete heavily, occasional agent tasks (1–5 per week). Heavy: daily agent loops, multi-file refactors, frequent composer sessions, AI-assisted debugging. Ultra: professional AI-first workflow, 10+ agent sessions per day, code generation as primary input method. Honest assessment here is critical — underestimating usage leads to surprise bills.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Set your team size</strong>Per-seat costs compound with team size. The difference between Cursor Pro ($40/seat/month for Business) and GitHub Copilot Business ($19/seat/month) seems small at 1 user but is $252/month at 12 users = $3,024/year. For teams, prioritize tools with predictable per-seat billing over usage-variable pricing, since engineering team billing surprises are hard to forecast and budget.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Read the sorted comparison</strong>The result panel shows all selected tools sorted cheapest-first for your configuration. Pay attention to the "true cost" column that accounts for typical overages at your usage level — not just the headline subscription price. The static pricing table below shows what costs look like for light vs. heavy users at the same plan level.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>A 5-person startup team using Cursor: if 3 devs are heavy users (hitting Pro+ at $60/mo each) and 2 are light users ($20/mo each), total = $220/month. Switching 3 heavy users to Claude Code Max 5x ($100/mo) + keeping 2 on Copilot ($10/mo each) = $320/month but with predictable billing and higher limits. The cheapest option for most 5-person teams: GitHub Copilot Business at $19/seat = $95/month, predictable, no overages.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How we model AI coding tool costs.</p>
+  <div class="mbox">
+    <p><strong>Sources:</strong> GitHub Copilot pricing from GitHub's pricing page. Cursor pricing from Cursor's pricing page. Claude Code pricing from Anthropic's Claude Code pricing page. Windsurf pricing from their website. Tabnine from their pricing page. All are current as of June 2026.</p>
+    <p><strong>Usage tier modeling:</strong> Flat-subscription tools (Copilot, Tabnine) have single prices regardless of usage — these are easy to model. Variable tools (Cursor, Windsurf) auto-upgrade users when they exceed tier limits. We model the expected tier for each usage level based on published limits and community reports of where the tier transitions typically occur in practice.</p>
+    <p><strong>Claude Code API costs:</strong> Claude Code uses Anthropic's API under the hood for intensive agent sessions. At heavy usage levels, API costs can exceed the subscription cost. Claude Code Pro ($20/month) includes credits, but power users regularly see $50–200/month in additional API charges. We model this as a range based on typical heavy-user reports.</p>
+    <p><strong>What is excluded:</strong> Productivity gains (the true ROI argument for premium tools), context window differences between tools, quality differences in code suggestion accuracy, IDE compatibility trade-offs, and team collaboration features. This calculator models direct financial cost only.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">Which AI coding tool is cheapest in 2026?<span class="plus">+</span></div><div class="a"><p>GitHub Copilot Individual at $10/month is the cheapest predictable option. Tabnine at $12/month is close. For heavy users who need agent loops and multi-file editing, Claude Code Max 5x ($100/month) or Cursor Pro ($20/month with potential overages to $60–200) provide more capability. Use the calculator above for your specific usage pattern — "cheapest" depends heavily on whether you're a light autocomplete user or a power agent user.</p></div></div>
+    <div class="qa"><div class="q">Is Claude Code worth the price?<span class="plus">+</span></div><div class="a"><p>Claude Code Pro at $20/month is competitive for light-to-medium use. The Pro plan works well for occasional agent tasks and code review. At heavy usage, Claude Code Max 5x ($100/month) provides 5× higher limits. The key consideration: Claude Code's underlying model (Claude Sonnet 4.6 / Opus 4.8) is exceptionally strong for coding tasks, particularly multi-file refactors, test writing, and code explanation. If quality of agentic output matters most for your work, Claude Code is often worth the premium over Copilot.</p></div></div>
+    <div class="qa"><div class="q">Cursor vs GitHub Copilot — which is better for teams?<span class="plus">+</span></div><div class="a"><p>For predictable team billing: GitHub Copilot Business at $19/seat is the clear winner — no usage overages, enterprise audit logs, IP protection policy. For code quality and IDE integration: Cursor Business at $40/seat provides a stronger agentic experience but at 2× the cost. For teams over 10 people, Copilot's predictable billing usually wins in total cost. For smaller teams of 3–5 developers who heavily use agent features, Cursor's quality advantage may justify the cost premium.</p></div></div>
+    <div class="qa"><div class="q">Why does Cursor cost more than its listed price?<span class="plus">+</span></div><div class="a"><p>Cursor Pro ($20/month) includes a quota of "fast AI requests." Heavy users — those running agent loops, multi-file composer sessions, or extended chat conversations daily — exhaust this quota within days. Cursor automatically upgrades these users to Pro+ ($60/month) or Ultra ($200/month) depending on usage. The upgrade happens mid-month and is billed immediately. This auto-upgrade behavior is the source of most user complaints about unexpected Cursor bills.</p></div></div>
+    <div class="qa"><div class="q">Is Windsurf better than Cursor?<span class="plus">+</span></div><div class="a"><p>Windsurf (by Codeium) is a strong Cursor alternative at $15/month base. It offers a native IDE experience with AI first-class integration, similar agent loop capabilities, and generally lower cost than Cursor at comparable usage levels. In quality benchmarks, Cursor and Windsurf perform similarly. The key differences: Cursor has a longer track record and larger user community (more tutorials, plugins). Windsurf has more predictable pricing at medium usage levels. Both are significantly more capable than Copilot for complex, multi-file tasks.</p></div></div>
+    <div class="qa"><div class="q">Can I use multiple AI coding tools simultaneously?<span class="plus">+</span></div><div class="a"><p>Yes, and many developers do. A common setup: GitHub Copilot ($10/month) for always-on autocomplete in your daily editor, plus Claude Code Pro ($20/month) for agent tasks and complex sessions. Total: $30/month with better coverage than either tool alone. Copilot's autocomplete is faster and less disruptive for flow-state coding. Claude Code's agent capabilities are stronger for complex multi-step tasks. The hybrid approach gives you both for less than Cursor Ultra ($200/month).</p></div></div>
   </div>
 </section>
 </div>

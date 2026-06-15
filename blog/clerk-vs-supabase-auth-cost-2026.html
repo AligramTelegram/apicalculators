@@ -147,6 +147,15 @@ footer a{color:var(--muted)}</style>
 <a href="/llm-cost-calculator" class="ilink"><span class="ic2">🤖</span><div><b>LLM API Cost</b><span>GPT-5.4, Claude, Gemini pricing</span></div></a>
 <a href="/ai-coding-tool-cost" class="ilink"><span class="ic2">💻</span><div><b>AI Coding Tool Cost</b><span>Cursor vs Copilot vs Claude Code</span></div></a></div>
 </div>
+
+<section style="margin:40px 0 32px">
+  <h2>Auth Provider Migration: What to Expect and How to Reduce Risk</h2>
+  <p>Switching authentication providers is one of the highest-risk infrastructure changes a SaaS product can make. Users sessions, social login connections, MFA settings, and password hashes are all tied to your current provider. A botched migration can lock users out of their accounts. Here is how to migrate safely.</p>
+  <p><strong>Never do a hard cutover.</strong> Run both providers in parallel for at least 2-4 weeks. Configure your auth middleware to check the new provider first; fall back to the old provider if the user does not exist yet. Migrate users lazily on next login, or in batches during low-traffic windows. This eliminates the all-or-nothing risk that makes auth migrations scary.</p>
+  <p><strong>Social login is the hard part.</strong> Each OAuth provider (Google, GitHub, Apple) has its own rules about transferring app credentials. In most cases, you can reuse your existing Google OAuth client ID and secret with Supabase — users will not notice the switch. But some providers require re-authorization by the end user, which creates friction. Test every social provider in staging before touching production.</p>
+  <p><strong>Password hash migration.</strong> Clerk uses bcrypt by default; Supabase Auth supports bcrypt import. This means you can export password hashes from Clerk and import them into Supabase without forcing users to reset passwords. Confirm hash compatibility and test with a small cohort of users before full migration.</p>
+  <p><strong>Plan for MFA re-enrollment.</strong> TOTP secrets (authenticator app codes) are typically not exportable for security reasons. Users with MFA enabled will need to re-enroll after migration. Communicate this in advance via email, provide a clear re-enrollment flow, and temporarily increase session duration so users are not immediately locked out. Budget 2-3% support ticket volume increase during the migration window. Use the <a href="/auth-provider-cost">auth provider cost calculator</a> to model your specific MAU trajectory and identify the crossover point where migration ROI is positive.</p>
+</section>
 </div>
 <footer><div class="wrap foot-in">
   <span>© 2026 <a href="/">APICalculators</a></span>

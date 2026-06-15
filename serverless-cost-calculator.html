@@ -90,6 +90,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -173,6 +181,22 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Serverless Pricing — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Provider</th><th>Free tier</th><th>Invocations</th><th>Compute</th><th>10M inv / 200ms / 256MB</th></tr></thead>
+<tbody>
+<tr><td>AWS Lambda</td><td>1M inv/mo + 400K GB-s</td><td>$0.20/M</td><td>$0.0000166725/GB-s</td><td>~$3.47/mo</td></tr>
+<tr><td>Cloudflare Workers</td><td>1M req/day (free plan)</td><td>$0.30/M</td><td>$0.012/M GB-s</td><td>~$2.70/mo</td></tr>
+<tr><td>Vercel Functions</td><td>100K GB-s/mo</td><td>$0.40/M</td><td>$0.018/GB-s</td><td>~$4.00/mo</td></tr>
+<tr><td>GCP Cloud Functions</td><td>2M inv/mo + 400K GB-s</td><td>$0.40/M</td><td>$0.0000250/GB-s</td><td>~$3.20/mo</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost estimates.</p>
+</div>
+</noscript>
+
 <section class="sec">
   <h2>Serverless Pricing Comparison 2026</h2>
   <p class="sh-sub">Monthly cost for 10M invocations · 256MB · 200ms avg duration.</p>
@@ -210,10 +234,38 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
     </tbody>
   </table>
 </section>
-<div class="qa"><div class="q">Is Cloudflare Workers cheaper than Lambda?<span class="plus">+</span></div><div class="a"><p>For short-duration (under 30ms) high-frequency APIs, yes. Workers at $0.30/M beats Lambda. For longer compute (500ms+) or when you need AWS integrations, Lambda is often better value.</p></div></div>
-<div class="qa"><div class="q">What is the AWS Lambda free tier?<span class="plus">+</span></div><div class="a"><p>1 million free invocations per month + 400,000 GB-seconds of compute per month, forever (not just 12-month trial). Enough for ~2M requests at 256MB/200ms.</p></div></div>
-<div class="qa"><div class="q">Does Lambda have cold starts?<span class="plus">+</span></div><div class="a"><p>Yes. Cold starts add 100–500ms latency for the first request after a function is idle. Mitigation: Provisioned Concurrency ($0.0000041271/GB-s), keeping functions warm with scheduled pings, or choosing Cloudflare Workers (no cold starts).</p></div></div>
-<div class="qa"><div class="q">What is the maximum timeout for AWS Lambda?<span class="plus">+</span></div><div class="a"><p>15 minutes (900 seconds). For longer workloads use AWS Step Functions or ECS Fargate instead.</p></div></div>
+<section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Estimate your serverless compute cost across AWS Lambda, Cloudflare Workers, and Vercel.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Select your provider</strong>AWS Lambda is the industry standard with the broadest ecosystem (native integration with S3, SQS, DynamoDB, etc.) and a generous permanent free tier. Cloudflare Workers executes at the edge with zero cold starts, ideal for sub-50ms API responses. Vercel Functions offer zero-configuration deployment for Next.js apps. GCP Cloud Functions is best if you're already in the Google Cloud ecosystem.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Enter invocations per month</strong>Count each function call as one invocation. A REST API handling 500 requests/second = 1.3 billion invocations/month (well into paid territory). A background job running every minute = 43,200 invocations/month (free tier on Lambda). A webhook handler receiving 10,000 events/day = 300,000 invocations/month (still within Lambda's free tier). Start with your current or expected request rate.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Set average duration</strong>Duration is how long each function invocation takes to execute. A simple database query + response: 50–100ms. An API call to an LLM or external service: 500–3,000ms. Image processing: 1,000–5,000ms. You can find actual average duration in your cloud provider's monitoring dashboard. If you don't know yet, use 200ms as a reasonable default for typical API handlers.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Select memory allocation</strong>Memory directly affects compute cost and execution speed. More memory = faster CPU allocation in AWS Lambda. For CPU-bound tasks (parsing, computation), allocating more memory can reduce duration enough to lower the total cost despite the higher per-GB-s price. For I/O-bound tasks (database calls, API calls), memory above 256MB rarely reduces duration significantly. Start with 256MB and profile under load.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>An API backend handling 50M requests/month (575 req/s) with average 150ms duration and 256MB memory: AWS Lambda compute = 50M × 0.15s × 0.256GB × $0.0000166725/GB-s = $32/month. Plus invocations = 50M × $0.20/M = $10/month. Plus AWS API Gateway = 50M × $3.50/M = $175/month. <strong>Total: ~$217/month</strong> — a reminder to include API Gateway costs which often exceed Lambda itself.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How we calculate serverless costs.</p>
+  <div class="mbox">
+    <p><strong>Sources:</strong> AWS Lambda pricing from AWS Lambda pricing page. Cloudflare Workers pricing from Cloudflare Workers pricing page. Vercel Functions pricing from Vercel pricing page. GCP Cloud Functions pricing from Google Cloud pricing page. All are pay-as-you-go, on-demand rates.</p>
+    <p><strong>Compute cost formula:</strong> Serverless compute is billed in GB-seconds: (memory GB) × (duration seconds) × (rate per GB-s). Example: 256MB function running 200ms = 0.256 × 0.2 = 0.0512 GB-s per invocation. The calculator applies this formula automatically with the selected provider's rate.</p>
+    <p><strong>Free tier handling:</strong> AWS Lambda's free tier (1M invocations + 400K GB-s/month) applies permanently (not time-limited). The calculator deducts the free tier automatically. GCP Cloud Functions includes 2M invocations and 400K GB-s free. Cloudflare Workers free plan includes 100K requests/day (3M/month) but requires upgrading to the paid plan for consistent high-volume workloads. Vercel's free tier is per-project and limited.</p>
+    <p><strong>What is excluded:</strong> API Gateway costs (AWS: $3.50/M REST requests, $1/M HTTP API), CloudWatch Logs ($0.50/GB ingested), NAT Gateway for VPC ($0.045/GB processed), Lambda@Edge (different pricing), and Provisioned Concurrency ($0.0000041271/GB-s). Add these based on your architecture — API Gateway alone often equals or exceeds the Lambda compute cost for high-traffic APIs.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+<div class="qa"><div class="q">Is Cloudflare Workers cheaper than AWS Lambda?<span class="plus">+</span></div><div class="a"><p>For short-duration, high-frequency workloads (under 30ms execution), Cloudflare Workers at $0.30/M invocations plus $0.012/M GB-s can be cheaper than Lambda. The key advantage is no cold starts and edge execution. For longer compute (500ms+) or when you need AWS integrations (S3, DynamoDB, SQS), Lambda's mature ecosystem and generous free tier make it the better choice. Most teams start with Lambda and add Workers for latency-critical edge use cases.</p></div></div>
+<div class="qa"><div class="q">What is the AWS Lambda free tier?<span class="plus">+</span></div><div class="a"><p>AWS Lambda's free tier includes 1 million invocations and 400,000 GB-seconds of compute per month, permanently (not a 12-month trial). At 256MB/200ms per invocation, 400K GB-s covers approximately 7.8 million invocations of compute — well above the invocation limit. The practical limit is the 1M invocation cap, not the compute cap, for typical workloads.</p></div></div>
+<div class="qa"><div class="q">Does AWS Lambda have cold starts and how bad are they?<span class="plus">+</span></div><div class="a"><p>Yes, Lambda cold starts add 100–500ms latency for the first invocation after a function is idle. Python and Node.js cold starts average 100–300ms. Java and .NET cold starts average 500ms–2s due to JVM/CLR initialization. Mitigation options: Provisioned Concurrency (eliminates cold starts, billed continuously), scheduled keep-warm pings (reduces frequency, doesn't eliminate), or Cloudflare Workers/Fastly (no cold starts by architecture). For user-facing APIs, cold starts over 200ms are noticeable; for background jobs, they're irrelevant.</p></div></div>
+<div class="qa"><div class="q">What is the maximum timeout for AWS Lambda?<span class="plus">+</span></div><div class="a"><p>15 minutes (900 seconds). For workloads exceeding this, use AWS Step Functions (orchestrate multiple Lambda calls), ECS Fargate (container-based, no time limit), or AWS Batch. Note that API Gateway's maximum integration timeout is 29 seconds — so any Lambda function responding to HTTP requests through API Gateway must complete in under 29 seconds, regardless of the 15-minute Lambda limit.</p></div></div>
+<div class="qa"><div class="q">When should I use serverless vs a VPS?<span class="plus">+</span></div><div class="a"><p>Serverless wins for: spiky, unpredictable traffic; event-driven workloads (S3 uploads, queue processing); very low traffic where idle time would waste VPS resources; rapid deployment without ops overhead. VPS wins for: sustained high traffic (50M+ requests/month where serverless costs exceed $50–100 and a $20 VPS can handle the load); long-running processes; WebSocket connections; heavy in-memory caching (Redis); GPU workloads. Use the VPS calculator to compare — the break-even point is typically around 20–50M requests/month for a medium-spec VPS.</p></div></div>
+<div class="qa"><div class="q">What are the hidden costs of AWS Lambda?<span class="plus">+</span></div><div class="a"><p>The most common hidden costs: (1) AWS API Gateway: $3.50/M REST requests or $1/M for HTTP API — often doubles your Lambda bill. (2) CloudWatch Logs: $0.50/GB ingested, $0.03/GB stored. A verbose API logging 1KB per request at 10M requests/month = 10GB/month = $5 in log ingestion. (3) NAT Gateway: if your Lambda runs in a VPC to access RDS, NAT Gateway charges $0.045/GB processed. (4) Data transfer: $0.09/GB out. (5) Secrets Manager: $0.40/secret/month if you store environment credentials there.</p></div></div>
 </div>
 </section>
 <section class="sec">

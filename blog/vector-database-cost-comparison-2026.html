@@ -334,6 +334,15 @@ footer a{color:var(--muted2)}.footer a:hover{color:var(--lime)}
             <a href="/blog/reduce-llm-api-costs-2026" class="rel-card"><div class="rt">Cost Optimization</div><p>7 Ways to Cut Your AI Infrastructure Costs by 60%</p></a>
           </div>
         </div>
+
+      <section id="scaling-guide" style="margin-top:48px">
+        <h2>Scaling Your Vector Database: Cost Trajectory and Architecture Decisions</h2>
+        <p>Vector database costs behave differently from relational database costs as you scale. Understanding the cost drivers — vector count, dimensions, query volume, and index type — helps you plan capacity and avoid sticker shock when your corpus or user base grows.</p>
+        <p><strong>Cost driver 1: Vector count and storage.</strong> Every vector you store costs money in managed vector databases, either as a per-vector storage charge or as underlying object storage fees. At 1,536 dimensions (OpenAI text-embedding-3-small output), each vector requires approximately 6KB of storage including metadata and index overhead. One million vectors requires roughly 6GB. At 100M vectors, storage costs alone can reach $500-$1,500/month depending on provider.</p>
+        <p><strong>Cost driver 2: Query volume.</strong> Pinecone serverless tier charges per query unit; Weaviate Cloud charges based on stored objects plus requests. For read-heavy applications (search, recommendation), query costs can exceed storage costs. Benchmark your queries-per-user and queries-per-day metrics early to forecast this component accurately.</p>
+        <p><strong>Cost driver 3: Index type.</strong> Approximate nearest neighbor indexes (HNSW, IVF) use more memory than flat indexes but reduce query latency dramatically at scale. Memory costs more than disk in managed services. A 100M vector HNSW index requires 40-100GB of RAM to serve queries at acceptable latency, often the dominant cost in managed vector database pricing at this scale.</p>
+        <p><strong>When to migrate from managed to self-hosted.</strong> Compare your monthly managed database bill to the cost of a VPS with sufficient RAM to hold your index in memory, plus the engineering time to set up and maintain the self-hosted instance. At $500+/month for managed services, self-hosting Qdrant or Weaviate on a $150-$250/month high-memory VPS often pencils out within 2-3 months of savings. Use the <a href="/vector-database-cost">vector database cost calculator</a> to model your specific scenario before making an architectural commitment.</p>
+      </section>
       </article>
     <div class="ilink-box"><div class="il-title">Related Tools &amp; Guides</div><div class="il-grid"><a href="/blog/embedding-api-cost-2026">Embedding API cost guide</a><a href="/blog/llm-api-cost-guide-2026">Full AI stack cost with LLM</a><a href="/blog/">Blog index</a></div></div>
 </main>

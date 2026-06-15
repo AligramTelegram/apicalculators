@@ -312,6 +312,16 @@ const response = await openai.chat.completions.create({
             <a href="/blog/stripe-vs-paddle-fees-2026" class="rel-card"><div class="rt">Payment</div><p>Stripe vs Paddle: True SaaS Cost 2026</p></a>
           </div>
         </div>
+
+      <section id="cost-reduction-checklist" style="margin-top:48px">
+        <h2>The LLM Cost Reduction Checklist: 20 Actionable Items</h2>
+        <p>If you implement every strategy in this article, here is a consolidated checklist to audit your current setup. Work through it top-to-bottom; the highest-ROI items are listed first.</p>
+        <p><strong>Model Selection (highest impact):</strong> Route simple queries to mini/flash models. Use the cheapest model that passes your quality bar. Test GPT-4o Mini or Gemini 2.0 Flash before defaulting to full-size models. Benchmark on your actual data, not generic evals. Consider open-source self-hosted models for predictable-volume workloads where marginal cost matters most.</p>
+        <p><strong>Prompt Engineering (high impact, zero cost):</strong> Trim system prompts — every token saved is charged on every request. Remove examples once the model is reliable. Use structured output formats (JSON mode) to reduce verbose responses. Avoid repeating instructions the model already follows. Move reference data from prompts to retrieval (RAG).</p>
+        <p><strong>Caching (high impact, low effort):</strong> Exact-match cache for identical prompts. Implement semantic cache for near-identical queries. Cache document summaries and embeddings. Set appropriate TTLs based on how frequently your source data changes. Log cache hit rates and optimize for highest-volume query patterns first.</p>
+        <p><strong>Infrastructure (medium impact):</strong> Use batch API for non-real-time work (typically 50% discount). Enable prompt caching for long static contexts (up to 90% savings on repeated context). Set per-user and per-session token budgets. Implement request queuing to spread load and avoid concurrency limits. Monitor spend with alerts at 50%, 80%, and 100% of monthly budget.</p>
+        <p><strong>Architecture (long-term):</strong> Evaluate whether you need LLM for every feature. Rule-based or ML alternatives are often cheaper for classification and routing. Consider on-premise deployment for very high volumes. Negotiate enterprise contracts once monthly spend exceeds $10K consistently. Use the <a href="/llm-cost-calculator">LLM cost calculator</a> to model the impact of each change before implementing it.</p>
+      </section>
       </article>
     </main>
     <aside>

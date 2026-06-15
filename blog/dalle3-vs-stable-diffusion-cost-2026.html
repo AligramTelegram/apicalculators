@@ -277,6 +277,16 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
             <a href="/image-generation-cost" class="rel-card" style="opacity:1"><div class="rt">Free Tool</div><p>Image Gen Cost Calculator — live comparison</p></a>
           </div>
         </div>
+
+      <section id="production-guide" style="margin-top:48px">
+        <h2>Running AI Image Generation in Production: Architecture Decisions</h2>
+        <p>Choosing between DALL-E 3, Midjourney, Stable Diffusion, and alternatives is both a quality and architecture decision that affects your cost structure, latency, compliance posture, and ability to customize output style.</p>
+        <p><strong>API vs self-hosted: when does self-hosting win?</strong> For most teams generating under 10,000 images per month, API pricing is cheaper than the engineering and infrastructure cost of self-hosting. The crossover typically occurs at 50,000-100,000 images/month on commodity GPU hardware. Below that threshold, the operational burden of maintaining GPU infrastructure rarely justifies the per-image savings.</p>
+        <p><strong>Latency requirements shape provider choice.</strong> DALL-E 3 API generates a 1024x1024 image in 5-12 seconds. Stable Diffusion XL on a modern GPU generates at 2-4 seconds at higher batch sizes. If your application requires images in under 3 seconds, self-hosted accelerated inference or Stability AI dedicated endpoints are the only viable options. For async generation where users wait 10-30 seconds, any provider works.</p>
+        <p><strong>Content policy compliance.</strong> DALL-E 3 has the strictest content policies by design. Midjourney policies fall in the middle. Self-hosted Stable Diffusion has no built-in content filtering, giving maximum flexibility but placing full compliance responsibility on your team. Verify each provider permitted use policies before building on their API.</p>
+        <p><strong>Style consistency across your application.</strong> Fine-tuning is only available via self-hosted or some enterprise API tiers. If brand consistency is critical — product mockups, avatar generation, consistent character design — self-hosted models with LoRA fine-tuning deliver results that prompt engineering alone cannot replicate. Budget 20-50 GPU-hours for initial fine-tuning and re-run when the base model updates.</p>
+        <p>Use the <a href="/image-generation-cost">image generation cost calculator</a> to model API costs versus self-hosting break-even for your specific generation volume and target quality level.</p>
+      </section>
       </article>
     </main>
     <aside>

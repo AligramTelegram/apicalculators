@@ -136,6 +136,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
     <a href="/blog/aws-lambda-cost-calculator-2026">Serverless</a>
 </div></div>
   <div style="display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:20px;margin-top:32px"><div style="width:48px;height:48px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui;font-weight:900;font-size:15px;margin-bottom:4px">APICalculators</div><p style="color:var(--muted);font-size:13px;margin:0">Free developer cost tools. Prices from official docs, reviewed monthly.</p></div></div>
+
+<section style="max-width:760px;margin:40px auto 32px;padding:0 20px">
+  <h2>Controlling AI Agent Costs in Production</h2>
+  <p>AI agents are fundamentally different from single-turn LLM calls in terms of cost predictability. A single agent run can trigger anywhere from 3 to 50+ LLM calls depending on the complexity of the task and how many subtasks it spawns. This unpredictability is the biggest risk when deploying agents at scale.</p>
+  <p><strong>Set hard iteration limits.</strong> Every production agent should have a maximum number of steps or tool calls it can make per run. If your agent has not completed the task in 15 steps, something is wrong. Without a hard limit, a single stuck agent run can consume $5-$50 in tokens before timing out.</p>
+  <p><strong>Use cheap models for planning, expensive ones for execution.</strong> The planning phase — deciding what to do next, routing between subtasks — typically does not require the most capable model. A GPT-4o Mini or Claude Haiku planner at $0.15/M input tokens can effectively direct a specialized GPT-4o or Claude Sonnet worker. This hybrid architecture often reduces overall agent costs by 40-60% compared to running every step on a frontier model.</p>
+  <p><strong>Cache tool call results aggressively.</strong> If your agent browses the same documentation page or queries the same database row multiple times within a single run, that is wasted money. Implement a session-level cache for all tool outputs. The cost of the cache lookup is negligible compared to re-running an LLM step to interpret redundant data.</p>
+  <p><strong>Log everything at the step level.</strong> Unlike a simple API call, agent debugging requires knowing which step consumed the most tokens, which tool was called most frequently, and where runs diverge between success and failure. Step-level logging is the foundation of any serious agent cost optimization effort. Without it, you are blind to which prompts and tool integrations are driving your bill. Use the calculator above to model cost-per-run before launching new agent features.</p>
+</section>
 </main>
 <footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>

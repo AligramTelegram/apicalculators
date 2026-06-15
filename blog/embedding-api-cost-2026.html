@@ -144,6 +144,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
 <div style="width:48px;height:48px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px;flex-shrink:0">🧮</div>
 <div><div style="font-family:'Arial Black',system-ui;font-weight:900;font-size:15px;margin-bottom:4px">APICalculators</div>
 <p style="color:var(--muted);font-size:13px;margin:0">APICalculators Team · Free developer cost tools. Prices from official documentation, reviewed monthly.</p></div></div>
+
+<section style="max-width:760px;margin:40px auto 32px;padding:0 20px">
+  <h2>Embedding API Cost Optimization: A Practical Guide</h2>
+  <p>Embedding costs look trivial per token but add up quickly in production RAG systems where every document chunk, every user query, and every re-indexing operation generates embedding calls. Here is how to keep embedding costs under control without sacrificing retrieval quality.</p>
+  <p><strong>Batch everything.</strong> Embedding APIs charge the same per token whether you send 1 document or 1,000 in a single request, but batching dramatically reduces HTTP overhead and improves throughput. Most providers accept batches of 100-2,048 inputs per request. Always batch during initial indexing. Processing a 10,000-document corpus one-at-a-time versus in batches of 1,000 is the difference between 10,000 API calls and 10.</p>
+  <p><strong>Cache embeddings aggressively.</strong> Once you have embedded a document chunk, store the embedding vector alongside the text in your vector database. Never re-embed the same content twice. Implement a content hash as a cache key so you only re-embed when the source document actually changes. For most knowledge bases, this means re-indexing costs are near-zero after the initial load.</p>
+  <p><strong>Choose dimensionality wisely.</strong> OpenAI text-embedding-3-large (3,072 dimensions) costs 3x more than text-embedding-3-small (1,536 dimensions) per call and requires 2x more storage. For most retrieval tasks on English text, the small model performs within 2-5% of the large model on standard benchmarks. Unless you have measured a quality deficit on your specific domain, start with the smaller model.</p>
+  <p><strong>Right-size your chunks.</strong> Larger chunks mean fewer embedding calls but worse retrieval precision. Smaller chunks improve precision but multiply your embedding and storage costs. For most enterprise documents, 256-512 token chunks with 10-20% overlap strike the best balance. Measure retrieval precision across chunk sizes using a small golden test set before committing to a chunk strategy at scale. Use the <a href="/embedding-api-cost">embedding API cost calculator</a> to model your exact scenario.</p>
+</section>
 </main>
 <footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>

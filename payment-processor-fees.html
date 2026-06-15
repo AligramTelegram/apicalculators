@@ -90,6 +90,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -152,6 +160,22 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Payment Processor Fees — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Processor</th><th>Rate</th><th>Fixed fee</th><th>Tax handling</th><th>MoR</th></tr></thead>
+<tbody>
+<tr><td>Stripe</td><td>2.9%</td><td>$0.30/tx</td><td>You handle (Stripe Tax extra)</td><td>No</td></tr>
+<tr><td>PayPal</td><td>3.49%</td><td>$0.49/tx</td><td>You handle</td><td>No</td></tr>
+<tr><td>Paddle</td><td>5%</td><td>$0.50/tx</td><td>Handled (global VAT)</td><td>Yes</td></tr>
+<tr><td>Lemon Squeezy</td><td>5%</td><td>$0.50/tx</td><td>Handled (global VAT)</td><td>Yes</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live fee comparisons.</p>
+</div>
+</noscript>
+
 <section class="sec">
   <h2>Stripe vs Paddle vs Lemon Squeezy Fees</h2>
   <p class="sh-sub">True cost comparison — raw fees only, excluding tax handling.</p>
@@ -178,11 +202,36 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <div class="callout tip"><div class="cl">💡 Break-even point</div><p>Paddle's 5% beats Stripe at MRR above ~$15K when adding Stripe Tax ($0.50/tx) and accounting for international card fees (1.5% extra). Below $15K MRR: Stripe is cheaper. Above $15K MRR with global customers: Paddle or Lemon Squeezy saves tax headaches.</p></div>
 </section>
 <section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Find your true payment processing cost including hidden fees and tax handling.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Enter your monthly revenue</strong>Use your gross revenue before payment fees. If you're pre-launch, use a realistic target — $5K/month is early stage, $50K/month is a healthy indie SaaS, $200K+/month is scaling. The fee comparison will show the absolute dollar cost difference between processors at your revenue level.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Enter your transaction count</strong>This matters because fixed fees ($0.30–0.50 per transaction) become significant at low average order values. If your average transaction is $5 and you charge $0.30 fixed fee, that's 6% on top of the percentage rate. High-volume, low-value transactions favor processors with no or low fixed fees. Enter the total number of successful charges per month.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Read the fee comparison</strong>The result panel shows total fees for each processor side by side. Look at the absolute dollar difference, not just percentage points. At $5K MRR, the 2.1% difference between Stripe (2.9%) and Paddle (5%) is $105/month — meaningful but not decisive. At $100K MRR, that same 2.1% difference is $2,100/month. As revenue grows, the processor choice matters more.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Factor in tax handling off-calculator</strong>Stripe's 2.9% rate does not include VAT/sales tax compliance. If you sell to EU customers, you must collect and remit VAT in each country, or use Stripe Tax ($0.50 per transaction) or a tax service. Paddle and Lemon Squeezy are Merchants of Record — they handle all global tax collection and remittance automatically. For global SaaS, the true Stripe cost is often 2.9% + 0.5% (Stripe Tax) + 0.5–1% (FX fees on international cards) = 3.9–4.4% effective rate.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>A SaaS at $30K MRR with 300 monthly subscriptions and 40% EU customers: Stripe raw fees = $870 + Stripe Tax for EU ($60) + international card fees ($90) = <strong>$1,020/month effective</strong>. Paddle at 5% + $0.50 = $1,500 + $150 = $1,650/month — but Paddle handles all tax, no surprise compliance issues. At $100K MRR the math shifts: Stripe total ≈ $3,400 vs Paddle ≈ $5,150. Tax peace-of-mind has a price.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How we calculate payment processing fees.</p>
+  <div class="mbox">
+    <p><strong>Sources:</strong> All processing rates are sourced from each provider's official pricing pages — Stripe's pricing page, PayPal's merchant fees page, Paddle's pricing page, and Lemon Squeezy's pricing page. These are standard, public rates available to any developer without volume negotiation.</p>
+    <p><strong>What the calculator includes:</strong> The base percentage rate and fixed per-transaction fee for standard card transactions. For Stripe, we show the base domestic rate (2.9% + $0.30). International card fees (+1.5%), currency conversion fees (+1%), Stripe Tax ($0.50/tx), and dispute/chargeback fees are not included in the automated calculation but are explained in the tips section.</p>
+    <p><strong>What the calculator excludes:</strong> Stripe Radar fraud protection fees, ACH/bank transfer rates (typically 0.8%), Buy Now Pay Later surcharges (Klarna, Afterpay integrations), and subscription management platform fees (Stripe Billing adds a 0.5–0.8% fee on revenue managed through their platform).</p>
+    <p><strong>Update cadence:</strong> Payment processor fees change infrequently — typically once every 1–2 years. We verify rates quarterly and update immediately when a provider announces a fee change.</p>
+  </div>
+</section>
+
+<section class="sec">
   <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">Is Stripe cheaper than Paddle for SaaS?<span class="plus">+</span></div><div class="a"><p>At raw fee level yes (2.9% vs 5%). But adding Stripe Tax ($0.50/tx for VAT), international card fees (1.5%), and chargeback costs puts the break-even at $12–18K MRR. Below that Stripe is cheaper; above that Paddle is often cheaper total.</p></div></div>
-<div class="qa"><div class="q">What is a Merchant of Record?<span class="plus">+</span></div><div class="a"><p>A Merchant of Record (MoR) is the legal entity that processes payment and handles all tax obligations. Paddle and Lemon Squeezy are MoRs — they collect VAT/sales tax globally. Stripe is not a MoR; you are responsible for tax compliance.</p></div></div>
-<div class="qa"><div class="q">Does Stripe work in Turkey?<span class="plus">+</span></div><div class="a"><p>Yes, Stripe supports Turkey. You can accept TRY payments and international cards. Note: Stripe Tax applies for VAT in EU countries. Turkish customers paying in TRY may incur FX conversion fees.</p></div></div>
-<div class="qa"><div class="q">What is Lemon Squeezy vs Paddle?<span class="plus">+</span></div><div class="a"><p>Both are Merchant of Record platforms at 5% + $0.50. Lemon Squeezy is newer with a simpler UI and stronger developer experience. Paddle has been around longer with more enterprise features. Both handle global VAT automatically.</p></div></div>
+  <div class="faq"><div class="qa"><div class="q">Is Stripe cheaper than Paddle for SaaS?<span class="plus">+</span></div><div class="a"><p>At the raw rate level, yes — 2.9% vs 5%. But adding Stripe Tax ($0.50/tx for EU VAT), international card fees (1.5% extra), and chargeback processing costs, the effective break-even is around $12–18K MRR depending on your customer geography. Below that Stripe is cheaper; above that Paddle's all-inclusive pricing is often comparable or better when you value tax compliance and no surprises.</p></div></div>
+<div class="qa"><div class="q">What is a Merchant of Record?<span class="plus">+</span></div><div class="a"><p>A Merchant of Record (MoR) is the legal entity that processes payment and assumes all tax obligations globally. Paddle and Lemon Squeezy are MoRs — they collect VAT/sales tax in 100+ countries, remit it to local tax authorities, and handle disputes. Stripe is not a MoR: you are the merchant of record, making you responsible for global tax compliance, which is complex and potentially costly for international businesses.</p></div></div>
+<div class="qa"><div class="q">What is the difference between Lemon Squeezy and Paddle?<span class="plus">+</span></div><div class="a"><p>Both are Merchant of Record platforms charging 5% + $0.50. Lemon Squeezy launched in 2021 with a developer-first UX, strong product page builder, and simple API. Paddle has been operating since 2012 with more enterprise features, a larger customer base, and more complex integration options. For indie developers and small SaaS, Lemon Squeezy is often easier to set up. For established companies with volume, Paddle offers more customization.</p></div></div>
+<div class="qa"><div class="q">Does Stripe work globally?<span class="plus">+</span></div><div class="a"><p>Stripe is available in 47+ countries for businesses to register in, and accepts payments from customers in 195+ countries. International card payments (non-domestic) incur a 1.5% surcharge. If your business is registered in a country Stripe supports but you sell to customers globally, you'll also need Stripe Tax or a separate VAT registration strategy for EU/UK compliance. Paddle and Lemon Squeezy handle this automatically.</p></div></div>
+<div class="qa"><div class="q">What is PayPal's actual fee for SaaS?<span class="plus">+</span></div><div class="a"><p>PayPal's standard rate for digital goods is 3.49% + $0.49 per transaction. There's also a 1.50% fee for international transactions. For subscription SaaS, PayPal's recurring billing options are more limited than Stripe. Most SaaS companies use PayPal as a supplementary checkout option (some customers strongly prefer it) rather than their primary processor, because Stripe's developer experience and subscription tooling is significantly better.</p></div></div>
+<div class="qa"><div class="q">How do chargebacks affect payment processing costs?<span class="plus">+</span></div><div class="a"><p>Chargebacks (disputed transactions) cost $15–25 per dispute with Stripe and PayPal, regardless of outcome. If your dispute rate exceeds 1% of transactions, Stripe may place your account under review. Paddle and Lemon Squeezy absorb chargeback risk as the Merchant of Record, so disputes don't directly affect your account standing. For products with higher refund rates (digital goods with unclear value propositions), MoR platforms provide meaningful risk protection.</p></div></div>
 </div>
 </section>
 <section class="sec">

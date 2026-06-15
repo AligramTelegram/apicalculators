@@ -209,6 +209,15 @@ footer a{color:var(--muted)}</style>
 
 <p>Total: <strong>$17,928/month</strong> — achievable with smart model routing vs a naive "use GPT-5.4 for everything" approach that would cost far more for the same workload.</p>
 
+
+<section id="cost-benchmarks" style="margin:48px 0 32px">
+  <h2>Real-World LLM Cost Benchmarks: What Teams Actually Spend</h2>
+  <p>Raw per-token prices tell you one number. What you actually spend depends on your usage patterns, feature set, and how aggressively you optimize. Here are representative monthly LLM costs from common application types, based on typical usage volumes observed in 2026.</p>
+  <p><strong>Consumer chatbot (50K monthly active users, 10 messages/user/day):</strong> At 500 prompt tokens and 300 output tokens per exchange, that is 500M prompt + 300M output tokens per month. Using GPT-4o at $2.50/$10.00 per million tokens: $1,250 input + $3,000 output = $4,250/month. Switching to GPT-4o Mini at $0.15/$0.60: $255/month. This 94% reduction explains why model tiering is the single highest-ROI optimization for volume applications.</p>
+  <p><strong>AI coding assistant (25 developers, moderate use):</strong> Code models process longer contexts averaging 2,000 prompt tokens and 800 output tokens per completion. At 200 completions per developer per day: 10B prompt + 4B output tokens per month. At Claude Sonnet 4 pricing ($3.00/$15.00/M): $30,000 + $60,000 = $90,000/month. Most teams use batch API discounts (50% off) and aggressive caching to bring this to $30,000-$45,000/month.</p>
+  <p><strong>Document processing pipeline (10K documents/day):</strong> Each document averages 4,000 tokens of input and requires 500 tokens of structured output. Monthly: 1.2B input + 150M output tokens. At Gemini 1.5 Flash pricing ($0.075/$0.30/M): $90 + $45 = $135/month. This illustrates why Flash-class models dominate batch processing workloads where latency is not critical.</p>
+  <p>The calculator above lets you model any of these scenarios with current pricing. Use it to compare models side by side and find your optimal cost-quality point before committing to an architecture.</p>
+</section>
 </article>
 
 <div class="faq">

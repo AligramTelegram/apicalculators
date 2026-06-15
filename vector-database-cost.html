@@ -90,6 +90,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -173,6 +181,22 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Vector Database Prices — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Provider</th><th>Free tier</th><th>Storage</th><th>Queries</th><th>1M vec / 100K q/mo est.</th></tr></thead>
+<tbody>
+<tr><td>Supabase pgvector</td><td>500MB</td><td>$0.125/GB</td><td>Included</td><td>~$27/mo</td></tr>
+<tr><td>Pinecone Serverless</td><td>100K vectors</td><td>$0.33/GB</td><td>$16/M RU</td><td>~$20/mo</td></tr>
+<tr><td>Qdrant Cloud</td><td>1GB storage</td><td>$9.00/GB</td><td>Included</td><td>~$54/mo</td></tr>
+<tr><td>Weaviate Cloud</td><td>1 sandbox</td><td>$0.50/GB</td><td>$10/M queries</td><td>~$28/mo</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost estimates.</p>
+</div>
+</noscript>
+
 <section class="sec">
   <h2>Vector Database Pricing 2026</h2>
   <p class="sh-sub">Comparison for 1M vectors · 1536 dimensions · 100K queries/month.</p>
@@ -197,10 +221,42 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>
   <div class="callout tip"><div class="cl">💡 Self-host Qdrant</div><p>Qdrant on a $6/mo Hetzner VPS handles 1–5M vectors easily. Total cost: ~$6–10/mo vs $50+ on managed cloud. Requires ops knowledge.</p></div>
 </section>
-<div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Approximately $15–30/month depending on query volume. Storage ~$3 for 1536-dim vectors, plus $16 per million read units. At 100K queries/month expect ~$20.</p></div></div>
-<div class="qa"><div class="q">Is pgvector as good as Pinecone?<span class="plus">+</span></div><div class="a"><p>For most production workloads yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed scaling and dedicated infrastructure for very high query rates.</p></div></div>
-<div class="qa"><div class="q">How many vectors can Qdrant handle?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud handles hundreds of millions of vectors. Self-hosted Qdrant on a 16GB RAM server can store ~10M 1536-dim vectors in memory, or 50M+ with memory-mapped storage (slower queries).</p></div></div>
-<div class="qa"><div class="q">What is a vector dimension?<span class="plus">+</span></div><div class="a"><p>Dimensions are the size of each embedding vector. OpenAI text-embedding-3-small produces 1536-dim vectors. Larger dimensions = more storage and cost. You can reduce OpenAI embeddings to 256 or 512 dimensions with minimal quality loss.</p></div></div>
+
+<section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Find the cheapest vector database for your RAG or semantic search workload in under a minute.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Enter your vector count</strong>This is the total number of embeddings you plan to store. A document library of 10,000 PDFs, each split into 20 chunks, is 200,000 vectors. A product catalog with 500,000 SKUs is 500,000 vectors. An e-commerce site with semantic search across 5 million product descriptions would need 5 million vectors. Start with your current dataset size; you can always scale up.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Choose your embedding dimensions</strong>Dimensions are set by your embedding model, not by the vector database. OpenAI text-embedding-3-small produces 1536-dimensional vectors by default (configurable down to 256). OpenAI text-embedding-3-large produces 3072-dimensional vectors. Larger dimensions improve retrieval quality but increase storage cost proportionally — a 3072-dim vector occupies twice the storage of a 1536-dim vector.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Set your query volume</strong>Enter monthly queries in thousands. A customer-facing search feature with 10,000 daily active users making 3 searches each is about 900,000 queries/month (900K). An internal RAG assistant used by a 50-person team making 20 queries/day each is 30,000 queries/month (30K). Query costs vary significantly by provider — Pinecone charges per read unit while Supabase includes queries in storage pricing.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Compare providers side by side</strong>Switch between Pinecone Serverless, Supabase pgvector, Qdrant Cloud, and Weaviate Cloud. The cheapest provider varies depending on your query-to-storage ratio. For read-heavy workloads (many queries, small index), Supabase tends to win because queries are included. For write-heavy pipelines with large indexes, Pinecone's serverless pricing often comes out ahead at scale.</div></li>
+    <li class="step"><div class="step-num">5</div><div class="step-body"><strong>Add the self-hosting factor</strong>For any managed provider costing more than $30–50/month, consider self-hosting Qdrant or pgvector on a VPS. A 4GB RAM VPS ($12/month) handles 2–3M 1536-dim vectors comfortably. An 8GB instance ($24/month) handles 5–6M vectors. Self-hosting eliminates per-query fees entirely at the cost of your operations time.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>A legal document search system with 500,000 contracts (avg 10 chunks each = 5M vectors, 1536 dims) and 50,000 queries/month: Pinecone Serverless ≈ $16.50 storage + $0.80 queries = <strong>~$17/month</strong>. Supabase pgvector ≈ $25 flat. Qdrant Cloud ≈ $45. Self-hosted Qdrant on a $12/month VPS with 8GB RAM: <strong>$12/month total</strong>.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How we calculate and maintain these cost estimates.</p>
+  <div class="mbox">
+    <p><strong>Sources:</strong> All prices are sourced directly from each provider's official pricing page — Pinecone's serverless pricing documentation, Supabase's billing page, Qdrant Cloud's pricing tier list, and Weaviate Cloud's pricing calculator. We do not use affiliate or negotiated rates.</p>
+    <p><strong>Storage calculations:</strong> Vector storage is calculated as: (vector count × dimensions × 4 bytes per float32) ÷ 1,073,741,824 = GB stored. For 1M vectors at 1536 dimensions, that's approximately 5.72 GB before index overhead. We add a 1.5× multiplier for HNSW index overhead, which is standard for all providers.</p>
+    <p><strong>Query cost methodology:</strong> For Pinecone, we use the Read Unit model: each query reads approximately 6 read units for 1M vectors (scales with dataset size). For Weaviate, we apply their published per-million-query rate. For Supabase and Qdrant Cloud, queries are included in the storage-based plan pricing.</p>
+    <p><strong>Update cadence:</strong> We review vector database pricing monthly. Serverless pricing models in particular change frequently as providers optimize their infrastructure costs. When a price changes, we update the <code>/pricing-data.json</code> file and this static table simultaneously.</p>
+    <p><strong>What is not included:</strong> Egress costs (typically $0.09/GB, negligible for most use cases), backup storage, enterprise support fees, and custom deployment costs for self-hosted options.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+<div class="qa"><div class="q">What is the cheapest vector database in 2026?<span class="plus">+</span></div><div class="a"><p>For under 5M vectors: Supabase pgvector at $25/month (queries included) is usually the best value. For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month total. Pinecone Serverless has a free tier for under 100K vectors, making it cheapest for tiny prototypes.</p></div></div>
+<div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Approximately $15–30/month depending on query volume. Storage costs about $3 for 1M 1536-dim vectors. At 100K queries/month using the read unit model, expect roughly $16–20 in query fees — totaling around $19–23/month.</p></div></div>
+<div class="qa"><div class="q">Is pgvector as good as Pinecone?<span class="plus">+</span></div><div class="a"><p>For most production workloads, yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed horizontal scaling and dedicated infrastructure for very high query rates (millions per day). For most applications under 50M vectors and 1M queries/month, pgvector is functionally equivalent at a lower cost.</p></div></div>
+<div class="qa"><div class="q">How many vectors can Qdrant handle?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud handles hundreds of millions of vectors across a distributed cluster. Self-hosted Qdrant on a 16GB RAM server stores ~10M 1536-dim vectors in memory (fast queries), or 50M+ with memory-mapped storage (slower but workable for batch retrieval). Add more nodes for linear scalability.</p></div></div>
+<div class="qa"><div class="q">What is a vector dimension and how does it affect cost?<span class="plus">+</span></div><div class="a"><p>Dimensions are the length of each embedding vector — 1536 floats for OpenAI's default, 3072 for text-3-large. Each float32 takes 4 bytes, so 1M vectors at 1536 dims = 5.72 GB of raw storage. Higher dimensions improve retrieval accuracy but increase storage cost proportionally. OpenAI's Matryoshka embeddings let you truncate to 256 or 512 dimensions with less than 5% quality loss — worth doing if cost is critical.</p></div></div>
+<div class="qa"><div class="q">When should I self-host a vector database instead of using a managed service?<span class="plus">+</span></div><div class="a"><p>Self-hosting becomes cost-effective when your managed bill exceeds $30–50/month. At that point, a $12–24/month VPS running Qdrant or pgvector covers the same workload. The trade-offs are operational: you manage upgrades, backups, and monitoring yourself. For teams without DevOps resources or for production systems that require SLA guarantees, managed services are worth the premium.</p></div></div>
+<div class="qa"><div class="q">Does query volume or storage matter more for vector DB costs?<span class="plus">+</span></div><div class="a"><p>It depends on the provider. For Pinecone Serverless, high query volumes dominate cost — a dataset of 1M vectors with 10M queries/month costs more in query fees than storage fees. For Supabase pgvector, storage is the cost driver because queries are included. For Qdrant Cloud, both are covered in the plan tier. The calculator shows the full breakdown so you can identify your primary cost driver.</p></div></div>
 </div>
 </section>
 <section class="sec">

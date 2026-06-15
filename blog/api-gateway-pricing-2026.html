@@ -136,6 +136,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
     <a href="/blog/embedding-api-cost-2026">Embedding</a>
 </div></div>
   <div style="display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border2);border-radius:12px;padding:20px;margin-top:32px"><div style="width:48px;height:48px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px;flex-shrink:0">🧮</div><div><div style="font-family:'Arial Black',system-ui;font-weight:900;font-size:15px;margin-bottom:4px">APICalculators</div><p style="color:var(--muted);font-size:13px;margin:0">Free developer cost tools. Prices from official docs, reviewed monthly.</p></div></div>
+
+<section style="max-width:760px;margin:40px auto 32px;padding:0 20px">
+  <h2>Choosing the Right API Gateway for Your Scale</h2>
+  <p>API gateway pricing structures vary dramatically between providers, and the cheapest option at one scale is often the most expensive at another. Understanding how each pricing model works helps you choose the right gateway now and anticipate costs as traffic grows.</p>
+  <p><strong>AWS API Gateway REST vs HTTP.</strong> REST API costs $3.50 per million API calls while HTTP API costs $1.00/M — a 71% difference. HTTP API lacks some advanced features (edge-optimized endpoints, WAF integration at the gateway level, request validation), but for straightforward REST proxy and JWT authorization, HTTP API is the smarter default in 2026. Switching from REST to HTTP API is the single highest-ROI optimization for most AWS API Gateway users.</p>
+  <p><strong>Cloudflare API Shield and Workers.</strong> The flat $5/month Workers Paid plan includes 10M requests/month, effectively free for most production APIs. Above 10M, additional requests cost $0.30/M. For globally distributed APIs where latency is critical, Cloudflare edge network often delivers better performance than region-specific gateways at lower cost. The trade-off is less native integration with AWS/GCP services.</p>
+  <p><strong>Kong Gateway self-hosted.</strong> No per-request charge — you pay only for the infrastructure running Kong. At high volumes (100M+ monthly requests), self-hosting Kong on a $100-$300/month VPS cluster can be 10-50x cheaper than managed API gateways. The cost is operational complexity: your team owns upgrades, scaling, and incident response. The managed Kong Konnect cloud reduces this burden but adds per-request pricing back in.</p>
+  <p>Model your expected request volume, data transfer, and feature requirements in the <a href="/api-gateway-pricing">API gateway pricing calculator</a> before committing to a provider. The cost difference at scale is significant enough to influence architecture decisions.</p>
+</section>
 </main>
 <footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>

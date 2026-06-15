@@ -90,6 +90,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -170,6 +178,30 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">LLM API Prices — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Model</th><th>Provider</th><th>Input / 1M tokens</th><th>Output / 1M tokens</th></tr></thead>
+<tbody>
+<tr><td>GPT-5.5</td><td>OpenAI</td><td>$5.00</td><td>$30.00</td></tr>
+<tr><td>GPT-5.4</td><td>OpenAI</td><td>$2.50</td><td>$15.00</td></tr>
+<tr><td>GPT-5.4 mini</td><td>OpenAI</td><td>$0.75</td><td>$4.50</td></tr>
+<tr><td>GPT-5.4 nano</td><td>OpenAI</td><td>$0.20</td><td>$1.25</td></tr>
+<tr><td>o4-mini</td><td>OpenAI</td><td>$0.55</td><td>$2.20</td></tr>
+<tr><td>Claude Fable 5</td><td>Anthropic</td><td>$10.00</td><td>$50.00</td></tr>
+<tr><td>Claude Opus 4.8</td><td>Anthropic</td><td>$5.00</td><td>$25.00</td></tr>
+<tr><td>Claude Sonnet 4.6</td><td>Anthropic</td><td>$3.00</td><td>$15.00</td></tr>
+<tr><td>Claude Haiku 4.5</td><td>Anthropic</td><td>$1.00</td><td>$5.00</td></tr>
+<tr><td>Gemini 3.5 Flash</td><td>Google</td><td>$1.50</td><td>$9.00</td></tr>
+<tr><td>Gemini 3.1 Pro</td><td>Google</td><td>$2.00</td><td>$12.00</td></tr>
+<tr><td>Gemini 3.1 Flash-Lite</td><td>Google</td><td>$0.25</td><td>$1.50</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost estimates.</p>
+</div>
+</noscript>
+
 <section class="sec">
   <h2>2026 LLM API Pricing Table</h2>
   <p class="sh-sub">All prices in USD per 1 million tokens, pay-as-you-go, June 2026. Source: official provider pricing pages.</p>
@@ -216,12 +248,40 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </table>
 </section><div class="aff-box"><p>Ready to build? Start with free cloud credits:</p><div class="btns"><a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored noopener" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a></div></div>
 <section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Estimate your exact LLM API bill in under 60 seconds — no spreadsheets required.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Select your model</strong>The dropdown is split into Current Models (active, pay-as-you-go) and Legacy (older generations). Start with the model you plan to deploy. If you're still evaluating, try GPT-5.4 nano for budget workloads and Claude Sonnet 4.6 or GPT-5.4 for quality-first production use.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Enter input tokens per request</strong>Input tokens include your system prompt, conversation history, and the user's message. A 200-word system prompt plus a 50-word user question is roughly 330 tokens. A RAG application that retrieves five 600-word document chunks plus a user question sends approximately 4,500 input tokens per request. When in doubt, use the rule of thumb: 1 word ≈ 1.33 tokens.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Enter output tokens per request</strong>Output tokens are the model's response. A one-sentence answer is about 30 tokens; a code function, roughly 400 tokens; a detailed summary, 600–1,000 tokens. Output tokens cost 4–10× more per token than input tokens across all providers, so reducing output length has the highest ROI for cost optimization.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Set requests per day</strong>Estimate realistically: a medium SaaS with 500 active users making 2 LLM calls each = 1,000 requests/day. A document pipeline processing 500 documents with 3 LLM passes each = 1,500 requests/day. For a new product, starting with 100–500 requests/day is typical in early beta.</div></li>
+    <li class="step"><div class="step-num">5</div><div class="step-body"><strong>Choose your period and read the breakdown</strong>Switch between Day, Month, and Year. The result panel shows total cost, cost per request, input vs. output cost split, and total tokens consumed. Pay attention to the input/output split — if output dominates, consider shortening responses with max_tokens. If input dominates, look at prompt caching or trimming your system prompt.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>A customer support bot with a 500-token system prompt, 200-token average user message, and 300-token responses running 1,000 requests/day: on GPT-5.4 nano ($0.20 input / $1.25 output per 1M), that's $0.00014 per request × 30,000 requests/month = <strong>$4.20/month</strong>. The same workload on Claude Sonnet 4.6 would be $27/month — a 6.4× difference.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How we source and maintain the pricing data in this calculator.</p>
+  <div class="mbox">
+    <p><strong>Source:</strong> All prices shown are official, published pay-as-you-go rates from OpenAI's API pricing page, Anthropic's pricing page, and Google AI's pricing documentation, as of June 2026. We do not estimate, interpolate, or infer rates — every figure has a direct source URL we verify before publishing.</p>
+    <p><strong>Update cadence:</strong> We review all pricing monthly and update within 48 hours of any provider announcement. When a price change is confirmed, we update both the static HTML table and the <code>/pricing-data.json</code> file that powers the interactive calculator simultaneously, so both surfaces stay in sync.</p>
+    <p><strong>What we include:</strong> Standard, on-demand (pay-as-you-go) rates only. Enterprise contracts, committed-use discounts, and academic grants are not included because they vary by negotiation and are not available to all developers.</p>
+    <p><strong>What we exclude:</strong> Batch API discounts (50% off for async jobs) and prompt caching discounts (up to 90% off on Anthropic cached tokens) are excluded from the base calculation but documented in the tips and FAQ sections. We list context window sizes for reference because exceeding a model's context limit causes an error — not an additional charge.</p>
+    <p><strong>Accuracy disclaimer:</strong> LLM API pricing changes frequently. Always verify current rates directly with the provider before signing contracts or publishing cost estimates to investors or customers.</p>
+  </div>
+</section>
+
+<section class="sec">
   <h2>Frequently Asked Questions</h2>
   <div class="faq"><div class="qa"><div class="q">How much does GPT-5.5 cost per 1 million tokens?<span class="plus">+</span></div><div class="a"><p>GPT-5.5 costs $5.00 per million input tokens and $30.00 per million output tokens (pay-as-you-go, June 2026). For budget workloads, GPT-5.4 nano at $0.20/$1.25 per 1M is OpenAI's cheapest option — 25× less on input.</p></div></div>
 <div class="qa"><div class="q">What is the cheapest LLM API in 2026?<span class="plus">+</span></div><div class="a"><p>GPT-5.4 nano at $0.20/$1.25 per million tokens is the cheapest capable OpenAI model in 2026. Gemini 3.1 Flash-Lite ($0.25/$1.50) is Google's budget option. Both handle high-volume tasks well.</p></div></div>
 <div class="qa"><div class="q">How much does Claude Sonnet 4.6 cost?<span class="plus">+</span></div><div class="a"><p>Claude Sonnet 4.6 costs $3.00 per million input tokens and $15.00 per million output tokens via the Anthropic API. It offers 1M token context and excels at coding and reasoning tasks.</p></div></div>
-<div class="qa"><div class="q">How do I reduce LLM API costs?<span class="plus">+</span></div><div class="a"><p>Use cheaper models (GPT-5.4 nano vs GPT-5.5 is 25× cheaper on input). Enable Batch API for 50% off async workloads. Cache repeated prompts (Anthropic: 90% off cached tokens). Trim system prompts. Set max_tokens explicitly.</p></div></div>
-<div class="qa"><div class="q">What is a token in LLM pricing?<span class="plus">+</span></div><div class="a"><p>A token is roughly 4 characters or 0.75 words. A 1,000-word document is approximately 1,333 tokens. Most LLM APIs charge separately for input (prompt) and output (completion) tokens.</p></div></div>
+<div class="qa"><div class="q">How do I reduce LLM API costs?<span class="plus">+</span></div><div class="a"><p>Use cheaper models (GPT-5.4 nano vs GPT-5.5 is 25× cheaper on input). Enable Batch API for 50% off async workloads. Cache repeated prompts (Anthropic: 90% off cached tokens). Trim system prompts. Set max_tokens explicitly to avoid unnecessarily long responses.</p></div></div>
+<div class="qa"><div class="q">What is a token in LLM pricing?<span class="plus">+</span></div><div class="a"><p>A token is roughly 4 characters or 0.75 words. A 1,000-word document is approximately 1,333 tokens. Most LLM APIs charge separately for input (prompt) and output (completion) tokens. Code and non-English text tend to use more tokens per word.</p></div></div>
+<div class="qa"><div class="q">Does the Batch API really cut costs in half?<span class="plus">+</span></div><div class="a"><p>Yes — OpenAI, Anthropic, and Google all offer 50% discounts for asynchronous batch processing (results returned within 24 hours). The trade-off is latency: batch jobs are not suitable for real-time user interactions. They are ideal for overnight document processing, dataset annotation, report generation, and embeddings computation where speed is not critical.</p></div></div>
+<div class="qa"><div class="q">How does prompt caching reduce Anthropic API costs?<span class="plus">+</span></div><div class="a"><p>Anthropic's prompt caching lets you mark the beginning of your prompt (system prompt, document context) as cacheable. On subsequent requests that reuse that exact prefix, cached input tokens cost 90% less. At Claude Sonnet 4.6's $3.00/1M input rate, cached tokens cost $0.30/1M. This is most valuable when your system prompt is 500+ tokens and consistent across requests — common in RAG and agent applications.</p></div></div>
+<div class="qa"><div class="q">Why are output tokens more expensive than input tokens?<span class="plus">+</span></div><div class="a"><p>Generating a token requires sequential forward passes through the model (each token depends on the previous one), which is computationally intensive and cannot be parallelized. Reading input tokens (the "prefill" phase) can be parallelized across the GPU, making it far cheaper per token. This is why output tokens are typically 4–10× the price of input tokens across all major providers.</p></div></div>
 </div>
 </section>
 <section class="sec">

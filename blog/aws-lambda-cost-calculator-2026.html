@@ -207,6 +207,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;font-family:'Cascadia C
 <div style="width:48px;height:48px;border-radius:10px;background:var(--lime);display:grid;place-items:center;font-size:22px;flex-shrink:0">🧮</div>
 <div><div style="font-family:'Arial Black',system-ui;font-weight:900;font-size:15px;margin-bottom:4px">APICalculators</div>
 <p style="color:var(--muted);font-size:13px;margin:0">APICalculators Team · Free developer cost tools. Prices from official documentation, reviewed monthly.</p></div></div>
+
+<section style="max-width:760px;margin:40px auto 32px;padding:0 20px">
+  <h2>AWS Lambda Cost Optimization: Practical Strategies</h2>
+  <p>AWS Lambda pricing model rewards careful optimization of memory allocation, execution duration, and invocation patterns. A few configuration changes can reduce your Lambda bill by 50-80% without any architectural changes.</p>
+  <p><strong>Right-size memory allocation.</strong> Lambda charges for GB-seconds: memory (GB) multiplied by duration (seconds). More memory means faster execution (more CPU allocated) and lower duration. The optimal memory setting for most functions is not the minimum — it is the point where additional memory no longer reduces duration proportionally. Use AWS Lambda Power Tuning to automatically benchmark your function across 10+ memory configurations. Most teams find 256MB or 512MB outperforms the default 128MB on pure cost.</p>
+  <p><strong>Use Graviton2 (arm64) architecture.</strong> Lambda Graviton2 functions cost 20% less per GB-second than x86. Most Lambda runtimes (Node.js, Python, Java, .NET, Ruby) support arm64 with zero code changes — just change the architecture field in your function config. This is the easiest cost reduction available and requires no optimization work beyond a redeploy.</p>
+  <p><strong>Batch SQS and Kinesis triggers.</strong> Lambda invocations triggered by SQS or Kinesis can process multiple records per invocation via batch processing. Increasing batch size from 1 to 10 reduces invocation count by 10x, directly cutting the $0.20/million invocations charge by 90%. The GB-seconds charge remains similar since you are processing the same total data volume, just more efficiently. Larger batches also reduce the overhead fraction of each invocation.</p>
+  <p><strong>Minimize cold start impact on critical paths.</strong> Cold starts add latency that can cause timeouts, retries, and cascading failures. Provisioned Concurrency (pre-warming instances) adds cost but is worth it for latency-sensitive APIs. For background processing, cold starts are irrelevant. Do not pay for Provisioned Concurrency you do not need. Use the <a href="/serverless-cost-calculator">serverless cost calculator</a> to model Lambda costs and compare with Cloudflare Workers and Vercel Functions for your workload.</p>
+</section>
 </main>
 <footer><div class="foot-in"><span>© 2026 APICalculators.com</span><span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span></div>  <div class="wrap"><div class="foot-calcs">
         <strong>Calculators</strong>

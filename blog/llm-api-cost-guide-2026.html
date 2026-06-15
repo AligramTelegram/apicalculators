@@ -526,6 +526,16 @@ footer a{color:var(--muted2);transition:color .15s}footer a:hover{color:var(--li
           </div>
         </div>
 
+
+      <section id="implementation-guide" style="margin-top:48px">
+        <h2>Putting It All Together: A Practical LLM Cost Management Framework</h2>
+        <p>Understanding LLM pricing is only half the battle. The real challenge is building a cost management system that scales with your application. Here is a framework used by high-traffic AI applications to keep costs predictable without sacrificing quality.</p>
+        <p><strong>Step 1 — Classify your prompts by complexity.</strong> Not every user request requires the most expensive model. A customer support bot can answer simple questions with a $0.15/M input token model. Save the $5.00/M input token models for tasks that genuinely need deep reasoning: complex code generation, multi-step analysis, or nuanced creative writing. Most applications find that 60-80% of their traffic can be handled by smaller models with no user-noticeable quality drop.</p>
+        <p><strong>Step 2 — Instrument before you optimize.</strong> Add token counting to every LLM call in your codebase. Log the model used, prompt tokens, completion tokens, and request timestamp. Without this data, you are guessing. A simple database table with these fields lets you calculate your exact cost per feature, per user segment, or per day. You will often discover that a single feature accounts for a disproportionate share of your bill.</p>
+        <p><strong>Step 3 — Set hard limits per user and per session.</strong> Define a maximum token budget for free tier users and enforce it server-side. Rate limiting prevents runaway costs from abuse or bugs. A misconfigured prompt that loops or an adversarial user who pastes a large document can easily generate hundreds of dollars in charges before you notice.</p>
+        <p><strong>Step 4 — Review your system prompts monthly.</strong> System prompts are charged on every single request. A 500-token system prompt on 1 million daily requests costs $250/day at $0.50/M tokens. Trim redundant instructions, move static reference data to retrieval (RAG) instead of embedding it in the prompt, and test whether shorter prompts maintain the same output quality. Most teams find 30-50% reduction is achievable without quality loss.</p>
+        <p><strong>Step 5 — Use caching aggressively.</strong> If your application asks similar questions repeatedly, cache the LLM response and serve it directly for subsequent identical or near-identical requests. Semantic caching can reduce LLM calls by 40-70% for content-heavy applications. The cost of an embedding lookup is typically 100x cheaper than a fresh LLM call.</p>
+      </section>
       </article>
     </main>
 

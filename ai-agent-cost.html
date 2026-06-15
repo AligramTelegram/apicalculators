@@ -90,6 +90,14 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
 .aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
+.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
+.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
+.step-body strong{color:var(--text);display:block;margin-bottom:3px}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
@@ -179,6 +187,21 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   </div>
 </div>
 
+<noscript>
+<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
+<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">AI Agent Pipeline Costs — June 2026 (JavaScript disabled)</h3>
+<table class="ptable">
+<thead><tr><th>Pipeline</th><th>Planner</th><th>Worker</th><th>Critic</th><th>Cost / 1K runs</th></tr></thead>
+<tbody>
+<tr><td>Budget</td><td>GPT-5.4 nano</td><td>GPT-5.4 nano</td><td>GPT-5.4 nano</td><td>~$0.62</td></tr>
+<tr><td>Balanced</td><td>GPT-5.4 nano</td><td>GPT-5.4</td><td>GPT-5.4 nano</td><td>~$35</td></tr>
+<tr><td>Quality</td><td>GPT-5.4 mini</td><td>Claude Sonnet 4.6</td><td>GPT-5.4 mini</td><td>~$105</td></tr>
+</tbody>
+</table>
+<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost estimates.</p>
+</div>
+</noscript>
+
 <section class="sec">
   <h2>AI Agent Pipeline Cost Breakdown</h2>
   <p class="sh-sub">Typical 3-step agent: planner → worker → critic. Monthly cost for 1,000 runs.</p>
@@ -204,11 +227,36 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <div class="callout tip"><div class="cl">💡 Mix models strategically</div><p>Use cheap models (GPT-5.4 nano, Gemini 3.1 Flash-Lite) for planning and verification. Reserve expensive models (GPT-5.4, Claude Sonnet 4.6) only for the main worker step. This cuts costs 5–10× with minimal quality loss.</p></div>
 </section><div class="aff-box"><p>Deploy your AI agent infrastructure:</p><div class="btns"><a href="https://www.vultr.com/?ref=9904710-9J" rel="sponsored noopener" target="_blank" class="aff-btn">☁️ $300 Vultr credit</a></div></div>
 <section class="sec">
+  <h2>How to Use This Calculator</h2>
+  <p class="sh-sub">Model a 3-step AI agent pipeline and find the optimal cost/quality tradeoff.</p>
+  <ol class="steps">
+    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Configure the planner (Step 1)</strong>The planner decides what the agent should do based on the user's request. It reads the input and produces a structured action plan. This step is typically low-stakes quality-wise (it's deciding, not executing), so a cheaper model works well. GPT-5.4 nano ($0.20/$1.25/1M) handles most planning tasks at a fraction of the cost of premium models. A typical planner prompt: 1,500 input tokens, 300 output tokens.</div></li>
+    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Configure the worker (Step 2)</strong>The worker executes the main task — this is where quality matters most. Use your highest-quality model here. GPT-5.4 ($2.50/$15.00/1M) or Claude Sonnet 4.6 ($3.00/$15.00/1M) are strong choices for complex reasoning, coding, and tool-use tasks. A typical worker prompt: 3,000 input tokens (system prompt + plan + context), 800 output tokens. This is usually the most expensive step — optimize here last, not first.</div></li>
+    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Configure the critic (Step 3)</strong>The critic reviews the worker's output and decides if it's satisfactory or if the agent should retry. Like the planner, this can use a cheaper model because it's making a binary decision (accept/retry) rather than generating complex content. GPT-5.4 nano or Claude Haiku 4.5 work well for most criticism patterns. Typical critic: 2,000 input tokens (original request + worker output), 150 output tokens.</div></li>
+    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Set monthly runs and read cost per run</strong>Enter how many times per month your agent runs end-to-end. The result shows total monthly cost and — most importantly — cost per run. Cost per run is your unit economics baseline: if your product charges $5/use and your agent costs $0.05/run, your LLM margin is 99%. If it costs $2/run, you have a unit economics problem. Compare model configurations until you find an acceptable cost per run.</div></li>
+  </ol>
+  <div class="callout info"><div class="cl">📌 Real example</div><p>A code review agent (planner: GPT-5.4 nano, worker: Claude Sonnet 4.6, critic: GPT-5.4 nano) processing 500 PRs/month: Planner = 500 × (1,500 × $0.20 + 300 × $1.25)/1M = $0.27. Worker = 500 × (3,000 × $3.00 + 800 × $15.00)/1M = $10.50. Critic = 500 × (2,000 × $0.20 + 150 × $1.25)/1M = $0.29. <strong>Total: ~$11.06/month for 500 code reviews</strong>.</p></div>
+</section>
+
+<section class="sec">
+  <h2>Pricing Methodology</h2>
+  <p class="sh-sub">How this agent cost model works.</p>
+  <div class="mbox">
+    <p><strong>Pipeline model:</strong> The calculator models a 3-step sequential agent: Planner (Step 1) → Worker (Step 2) → Critic (Step 3). Each step is modeled as a single LLM call. Real agents may have more steps, parallel branches, or variable step counts — use this as a baseline and scale by your actual step count.</p>
+    <p><strong>Token assumptions:</strong> Default token counts represent typical production agent pipelines. Planner: 1,500 input / 300 output. Worker: 3,000 input / 800 output. Critic: 2,000 input / 150 output. The actual token count in your pipeline will depend on system prompt length, context accumulated across steps, and task complexity. We recommend profiling your agent in staging to get accurate per-step token counts before using the calculator for budget planning.</p>
+    <p><strong>LLM prices:</strong> All model prices are official, pay-as-you-go rates as of June 2026. See the LLM API Cost Calculator for the full model list with context window sizes.</p>
+    <p><strong>What is excluded:</strong> Vector database costs for agent memory or RAG retrieval, tool API costs (search APIs, code execution, external services), orchestration framework overhead (LangChain, LlamaIndex, custom orchestration), and compute/serverless infrastructure for running the agent. A complete AI agent cost estimate adds these components; the calculator models the LLM portion only.</p>
+  </div>
+</section>
+
+<section class="sec">
   <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">How much does an AI agent cost per run?<span class="plus">+</span></div><div class="a"><p>A 3-step agent (planner + worker + critic) with GPT-5.4 nano costs ~$0.00062 per run. With GPT-5.4 for the worker step: ~$0.035 per run. For 1,000 runs/month: $0.62 to $35 depending on model choice.</p></div></div>
-<div class="qa"><div class="q">What is the cheapest LLM for AI agents?<span class="plus">+</span></div><div class="a"><p>GPT-5.4 nano ($0.20/$1.25 per 1M tokens) and Gemini 3.1 Flash-Lite ($0.25/$1.50) are the cheapest capable models in 2026. Use them for planning/verification steps and reserve GPT-5.4 or Claude Sonnet only for the main reasoning step.</p></div></div>
-<div class="qa"><div class="q">How do I reduce AI agent costs?<span class="plus">+</span></div><div class="a"><p>Use cheap models for routing, planning, and verification. Cache repeated tool calls. Limit max steps per agent run. Use streaming to detect early termination. Set hard token limits per step.</p></div></div>
-<div class="qa"><div class="q">What is an AI agent pipeline?<span class="plus">+</span></div><div class="a"><p>A multi-step LLM workflow where each step uses an LLM call: (1) Planner decides what to do, (2) Worker executes tasks (often with tool use), (3) Critic checks the result. Total cost = sum of all LLM calls per run × number of runs.</p></div></div>
+  <div class="faq"><div class="qa"><div class="q">How much does an AI agent cost per run?<span class="plus">+</span></div><div class="a"><p>Cost depends heavily on model choice and step complexity. A budget 3-step agent (all GPT-5.4 nano) costs approximately $0.00062 per run. A balanced pipeline (nano planner, GPT-5.4 worker, nano critic) costs ~$0.035/run. A quality pipeline using Claude Sonnet 4.6 for the worker step costs ~$0.105/run. For 1,000 runs/month: $0.62 to $105 depending on configuration.</p></div></div>
+<div class="qa"><div class="q">What is the cheapest LLM for AI agents in 2026?<span class="plus">+</span></div><div class="a"><p>GPT-5.4 nano at $0.20/$1.25 per 1M tokens is the cheapest capable model for agent tasks in 2026. Gemini 3.1 Flash-Lite ($0.25/$1.50) is a close second from Google. Both handle planning, routing, and verification tasks well. For the main worker step requiring complex reasoning, GPT-5.4 or Claude Sonnet 4.6 produce significantly better results despite their higher cost.</p></div></div>
+<div class="qa"><div class="q">How do I reduce AI agent costs?<span class="plus">+</span></div><div class="a"><p>Key strategies: (1) Use cheap models (GPT-5.4 nano) for planning and verification — reserve expensive models for the worker step only. (2) Cache repeated tool calls and identical contexts (prompt caching on Anthropic saves 90% on cached input tokens). (3) Set a hard maximum steps per run — unbounded agents can cost 10–100× more than expected if they get stuck in loops. (4) Use streaming to detect early termination opportunities. (5) Batch similar agent tasks when latency allows (50% Batch API discount).</p></div></div>
+<div class="qa"><div class="q">What is an AI agent pipeline?<span class="plus">+</span></div><div class="a"><p>An AI agent pipeline is a multi-step LLM workflow where each step uses a separate model call: (1) Planner decides what actions to take based on the user's request, (2) Worker executes the main task (reasoning, tool use, code generation), (3) Critic reviews the result and decides if it meets quality criteria or should be retried. Total pipeline cost = sum of all LLM call costs per run × number of monthly runs.</p></div></div>
+<div class="qa"><div class="q">Should I use the same model for all agent steps?<span class="plus">+</span></div><div class="a"><p>No — this is the most common and most expensive mistake in agent design. Using Claude Opus 4.8 for all three steps of a simple pipeline is like using a surgeon for triage work. Optimal strategy: cheapest capable model for planner (routing/planning doesn't need top-tier intelligence), best model for worker (where quality directly impacts output quality), cheap model for critic (binary accept/retry decision). This "model mixing" approach typically reduces agent costs by 5–10× with minimal quality loss.</p></div></div>
+<div class="qa"><div class="q">What are the non-LLM costs in an AI agent?<span class="plus">+</span></div><div class="a"><p>Several components add to LLM costs in a production agent: (1) Vector database for RAG memory storage — see Vector DB Cost Calculator; (2) Embedding API for converting documents to vectors — see Embedding API Cost Calculator; (3) External tool APIs (search, weather, database queries) — varies widely; (4) Serverless compute to run the orchestration — typically $5–20/month at modest scale; (5) Logging and monitoring for agent runs — $5–50/month depending on volume and verbosity. Total non-LLM costs often equal or exceed LLM costs for well-optimized pipelines.</p></div></div>
 </div>
 </section>
 <section class="sec">
