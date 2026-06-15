@@ -89,6 +89,191 @@
   ],
   "redirects": [
     {
+      "source": "/%5B:path*%5D",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/tr/llm-maliyet-hesaplayici.html",
+      "destination": "/tr/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tr/vektor-veritabani-maliyet.html",
+      "destination": "/tr/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yz-gorsel-uretim-maliyet.html",
+      "destination": "/tr/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/stripe-vs-paddle-hesaplayici.html",
+      "destination": "/tr/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/tr/bulut-vps-maliyet.html",
+      "destination": "/tr/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/tr/stt-tts-api-maliyet.html",
+      "destination": "/tr/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/aws-lambda-maliyet.html",
+      "destination": "/tr/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/tr/api-gateway-maliyet.html",
+      "destination": "/tr/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/tr/embedding-api-maliyet.html",
+      "destination": "/tr/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yz-ajan-maliyet.html",
+      "destination": "/tr/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/yapay-zeka-kodlama-arac-maliyeti.html",
+      "destination": "/tr/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/tr/kimlik-dogrulama-maliyet.html",
+      "destination": "/tr/auth-provider-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/llm-kostenrechner.html",
+      "destination": "/de/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/de/vektordatenbank-kosten.html",
+      "destination": "/de/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-bildgenerierung-kosten.html",
+      "destination": "/de/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/stripe-vs-paddle-rechner.html",
+      "destination": "/de/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/de/cloud-vps-kostenvergleich.html",
+      "destination": "/de/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/de/stt-tts-api-kosten.html",
+      "destination": "/de/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/aws-lambda-rechner.html",
+      "destination": "/de/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/de/api-gateway-kosten.html",
+      "destination": "/de/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/de/embedding-api-kosten.html",
+      "destination": "/de/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-agent-kostenrechner.html",
+      "destination": "/de/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/ki-coding-tool-kosten.html",
+      "destination": "/de/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/de/auth-anbieter-kosten.html",
+      "destination": "/de/auth-provider-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/calculateur-cout-llm.html",
+      "destination": "/fr/llm-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-base-vectorielle.html",
+      "destination": "/fr/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-generation-image-ia.html",
+      "destination": "/fr/image-generation-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/comparateur-stripe-paddle.html",
+      "destination": "/fr/payment-processor-fees",
+      "permanent": true
+    },
+    {
+      "source": "/fr/comparateur-vps-cloud.html",
+      "destination": "/fr/cloud-vps-comparison",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-stt-tts.html",
+      "destination": "/fr/stt-tts-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/calculateur-cout-aws-lambda.html",
+      "destination": "/fr/serverless-cost-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-gateway.html",
+      "destination": "/fr/api-gateway-pricing",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-api-embedding.html",
+      "destination": "/fr/embedding-api-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-agent-ia.html",
+      "destination": "/fr/ai-agent-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-outil-ia-coding.html",
+      "destination": "/fr/ai-coding-tool-cost",
+      "permanent": true
+    },
+    {
+      "source": "/fr/cout-fournisseur-auth.html",
+      "destination": "/fr/auth-provider-cost",
+      "permanent": true
+    },
+    {
       "source": "/vector-db-cost.html",
       "destination": "/vector-database-cost.html",
       "permanent": true
