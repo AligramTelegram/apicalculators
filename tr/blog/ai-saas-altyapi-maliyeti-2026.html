@@ -126,13 +126,14 @@ article h2{font-size:20px;margin:40px 0 14px;color:var(--text)}
 article p{color:#cdd6dd;font-size:15px;line-height:1.75;margin-bottom:16px}
 article ul,article ol{color:#cdd6dd;font-size:15px;line-height:1.75;margin:0 0 16px 20px}
 article li{margin-bottom:6px}
-.ptable{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 28px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
 .ptable th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
 .ptable td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .ptable tr:last-child td{border-bottom:none}
 .ptable td:first-child{color:var(--text);font-weight:600}
 .ptable .best{color:var(--lime);font-weight:700}
-.total-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:13px}
+.total-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
 .total-table th{background:var(--surface);padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border)}
 .total-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .total-table tr.total-row td{background:var(--surface);color:var(--lime);font-weight:700;font-size:14px;border-top:2px solid var(--border)}
@@ -191,16 +192,16 @@ article li{margin-bottom:6px}
 
       <p>LLM API harcaması, her AI SaaS'ta en büyük ve en değişken gider kalemidir. Seçtiğiniz model, en ucuz ile en güçlü seçenek arasında <strong>15 katlık bir maliyet çarpanı</strong> oluşturur. Ölçekte bu tek karar, altyapının kârlı mı yoksa sürdürülemez mi olacağını belirler.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
-          <tr><th>Ölçek</th><th>Günlük Aktif Kullanıcı</th><th>Aylık Sorgu</th><th>GPT-5.4 nano (0,20$/1M giriş)</th><th>Claude Sonnet 4.6 (3,00$/1M giriş)</th></tr>
+          <tr><th>Ölçek</th><th>Günlük Aktif</th><th>Aylık Sorgu</th><th>GPT-5.4 nano</th><th>Claude Sonnet 4.6</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>100</td><td>15.000</td><td class="best">7$/ay</td><td>90$/ay</td></tr>
           <tr><td>Büyüme (10K)</td><td>1.000</td><td>150.000</td><td class="best">71$/ay</td><td>900$/ay</td></tr>
           <tr><td>Ölçek (100K)</td><td>10.000</td><td>1.500.000</td><td class="best">713$/ay</td><td>9.000$/ay</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p><strong>Akıllı yaklaşım:</strong> Sorguların %80'ini GPT-5.4 nano'ya (basit erişim, biçimlendirme, SSS yanıtları), %20'sini Sonnet 4.6'ya (karmaşık akıl yürütme, kod üretimi, analiz) yönlendirin. Bu karma yaklaşım, Ölçek'te yaklaşık 1.942 dolar/ay'a düşer — tümü Sonnet 4.6'ya kıyasla %78 daha ucuz, günlük sorgularda kalite kaybı minimum.</p>
 
@@ -210,7 +211,7 @@ article li{margin-bottom:6px}
 
       <p>Vektör veritabanları, AI'ın bilgi tabanını depolar ve sorgular. Maliyet, vektör sayısıyla (corpus büyüklüğü) ve sorgu hacmiyle (kullanıcı aktivitesi) büyür. Corpus büyüklüğünü kullanıcı sayısıyla orantılı tahmin ediyoruz: 1K kullanıcı → 1M vektör, 10K → 5M, 100K → 50M (1.536 boyut, OpenAI text-embedding-3-small formatında).</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Ölçek</th><th>Vektör Sayısı</th><th>Pinecone Serverless</th><th>Self-hosted Qdrant (Hetzner)</th></tr>
         </thead>
@@ -219,7 +220,7 @@ article li{margin-bottom:6px}
           <tr><td>Büyüme (10K)</td><td>5M</td><td>~15$/ay</td><td class="best">9$/ay (CX32)</td></tr>
           <tr><td>Ölçek (100K)</td><td>50M</td><td>~100$/ay</td><td class="best">20$/ay (CX42)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Hetzner CX42 (8 vCPU, 16GB RAM, 19,90 dolar/ay) 50M vektörü rahatça taşır ve sorgu başına ücret yoktur. Self-hosted Qdrant kurulumu Docker Compose ile 2 saati geçmez. Ekibinizde container yönetimi deneyimi varsa bu, yüzde 80'in üzerinde tasarruf anlamına gelir.</p>
 
@@ -229,7 +230,7 @@ article li{margin-bottom:6px}
 
       <p>Kimlik doğrulama, altyapı maliyeti sürprizlerinin en yaygın kaynağıdır. Clerk'in ücretsiz katmanı 10.000 MAU'ya kadar cömert davranır — ancak ölçekte sıçrama dramatiktir. Supabase Auth ücretsiz katmanı 50.000 MAU'yu kapsar ve Pro planı 100.000 MAU'yu 25 dolar sabit ücretle içerir.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Ölçek</th><th>MAU</th><th>Clerk</th><th>Supabase Auth</th></tr>
         </thead>
@@ -238,7 +239,7 @@ article li{margin-bottom:6px}
           <tr><td>Büyüme (10K)</td><td>10.000</td><td>25$/ay (Pro)</td><td class="best">0$ (ücretsiz, &lt;50K)</td></tr>
           <tr><td>Ölçek (100K)</td><td>100.000</td><td>1.825$/ay (25$+90K×0,02$)</td><td class="best">25$/ay (Pro)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>100.000 MAU'da Supabase Auth, Clerk'ten <strong>73 kat daha ucuzdur</strong>. Zaten Supabase veritabanı kullanıyorsanız kimlik doğrulama neredeyse sıfır maliyetle gelir. Tavsiye: 10K MAU sınırına çarpmadan önce taşıma planı yapın; baskı altında taşıma çok daha risklidir.</p>
 
@@ -251,7 +252,7 @@ article li{margin-bottom:6px}
 
       <p>HTTP isteklerine yanıt veren bir AI SaaS için standart seçim VPS ya da konteyner platformudur. Hetzner Cloud (güçlü fiyat/performans oranıyla Avrupalı sağlayıcı) ile AWS EC2 (varsayılan kurumsal seçenek) karşılaştırmasına bakıyoruz. Not: Vercel veya benzeri serverless platformlar kullanıyorsanız düşük ölçekte hosting maliyetiniz sıfır olabilir.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Ölçek</th><th>Hetzner Cloud</th><th>AWS EC2 (eşdeğer)</th></tr>
         </thead>
@@ -260,7 +261,7 @@ article li{margin-bottom:6px}
           <tr><td>Büyüme (10K)</td><td class="best">8,80$/ay (CX32, 4 vCPU, 8GB)</td><td>30$/ay (t3.medium)</td></tr>
           <tr><td>Ölçek (100K)</td><td class="best">19,90$/ay (CX42, 8 vCPU, 16GB)</td><td>120$/ay (t3.xlarge)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Hetzner, web sunucu iş yükleri için AWS EC2'ye kıyasla 3-6 kat daha iyi fiyat/performans sunar. Avantajı: aylık veri aktarımı dahil 20TB bant genişliği. Ayrıca Türkiye'den Avrupa veri merkezlerine ping süresi genellikle 20-40ms aralığındadır — üretim için kabul edilebilir. Ekibiniz yönetimli AWS hizmetlerine (RDS, ElastiCache) bağımlıysa bu faktörü maliyetlere ekleyin.</p>
 
@@ -270,7 +271,7 @@ article li{margin-bottom:6px}
 
       <p>Ödeme işlemcisi ücretleri doğrudan gelirle ölçeklenir. Modelimize göre hesaplanan gelir: kullanıcıların %3'ü 29 dolar/ay plana geçiyor. Startup: 30 ödeme yapan × 29$ = 870$ MRR. Büyüme: 300 × 29$ = 8.700$ MRR. Ölçek: 3.000 × 29$ = 87.000$ MRR.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Ölçek</th><th>Gelir</th><th>Stripe (%2,9 + 0,30$)</th><th>Paddle (%5,0 + 0,50$)</th></tr>
         </thead>
@@ -279,7 +280,7 @@ article li{margin-bottom:6px}
           <tr><td>Büyüme (10K)</td><td>8.700$</td><td class="best">342$/ay</td><td>585$/ay</td></tr>
           <tr><td>Ölçek (100K)</td><td>87.000$</td><td class="best">3.423$/ay</td><td>5.850$/ay</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Türkiye pazarı için önemli not: Stripe, Türkiye kurulu şirketlerin Türk kartlarından ödeme almasını destekler. Ancak uluslararası müşterilerden (AB, ABD, Kanada) ödeme alıyorsanız KDV ve satış vergisi yükümlülükleri devreye girer. Paddle'ın MoR (kayıtlı satıcı) modeli bu vergi uyumunu otomatik olarak yönetir; Stripe'ta ise ek yazılım veya danışman gerekir. <a href="/tr/payment-processor-fees">Ödeme işlemcisi ücret hesaplayıcısı</a> ile rakamlarınızı hesaplayın.</p>
 
@@ -287,7 +288,7 @@ article li{margin-bottom:6px}
 
       <p>AI SaaS uygulamaları arka plan görevleri için serverless fonksiyonları sık kullanır: embedding üretimi, webhook işleme, zamanlanmış yeniden indeksleme ve asenkron LLM çağrıları. Günde aktif kullanıcı başına 10 çağrı, ortalama 200ms süre, 256MB bellek modelliyoruz.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Ölçek</th><th>Aylık Çağrı</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
         </thead>
@@ -296,7 +297,7 @@ article li{margin-bottom:6px}
           <tr><td>Büyüme (10K)</td><td>300K</td><td class="best">~1$/ay</td><td class="best">0$ (ücretsiz katman)</td></tr>
           <tr><td>Ölçek (100K)</td><td>3M</td><td>~20$/ay</td><td class="best">5$/ay (Ücretli plan)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Serverless maliyetler bu modelde tüm ölçeklerde LLM ve kimlik doğrulama harcamasına kıyasla ihmal edilebilir düzeydedir. Cloudflare Workers, Ölçek'te 3M çağrıyı 5 dolarlık Ücretli planın 10M dahil isteğiyle rahatça karşılar. <a href="/tr/serverless-cost-calculator">Serverless maliyet hesaplayıcısı</a> ile kendi konfigürasyonunuzu modelleyin.</p>
 
@@ -304,9 +305,9 @@ article li{margin-bottom:6px}
 
       <p>İki yığın: <strong>Bütçe</strong> — GPT-5.4 nano, Hetzner'da self-hosted Qdrant, Supabase Auth, Hetzner VPS, Stripe, AWS Lambda. <strong>Premium</strong> — Claude Sonnet 4.6, Pinecone Serverless, Clerk, AWS EC2, Stripe, Lambda.</p>
 
-      <table class="total-table">
+      <div class="tbl-wrap"><table class="total-table">
         <thead>
-          <tr><th>Bileşen</th><th>Startup Bütçe</th><th>Startup Premium</th><th>Büyüme Bütçe</th><th>Büyüme Premium</th><th>Ölçek Bütçe</th><th>Ölçek Premium</th></tr>
+          <tr><th>Bileşen</th><th>1K Bütçe</th><th>1K Premium</th><th>10K Bütçe</th><th>10K Premium</th><th>100K Bütçe</th><th>100K Premium</th></tr>
         </thead>
         <tbody>
           <tr><td>LLM API</td><td>7$</td><td>90$</td><td>71$</td><td>900$</td><td>713$</td><td>9.000$</td></tr>
@@ -317,7 +318,7 @@ article li{margin-bottom:6px}
           <tr><td>Serverless</td><td>&lt;1$</td><td>&lt;1$</td><td>1$</td><td>1$</td><td>20$</td><td>20$</td></tr>
           <tr class="total-row"><td>TOPLAM / AY</td><td>51$</td><td>143$</td><td>432$</td><td>1.313$</td><td>4.201$</td><td>14.488$</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Not: Ödeme işleme saf maliyet değil, gelirin yüzdesidir. Ölçek'te Stripe'a ödenen 3.423 dolar, 87.000 dolar MRR'dan çıkar. Ödeme işleme hariç net altyapı maliyeti bütçe yığınında 100K kullanıcıda aylık 778 dolardır — MRR'ın yaklaşık yüzde 0,9'u. Bu son derece sağlıklı bir birim ekonomisidir.</p>
 

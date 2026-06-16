@@ -124,13 +124,14 @@ article h2{font-size:20px;margin:40px 0 14px;color:var(--text)}
 article p{color:#cdd6dd;font-size:15px;line-height:1.75;margin-bottom:16px}
 article ul,article ol{color:#cdd6dd;font-size:15px;line-height:1.75;margin:0 0 16px 20px}
 article li{margin-bottom:6px}
-.ptable{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 28px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
 .ptable th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
 .ptable td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .ptable tr:last-child td{border-bottom:none}
 .ptable td:first-child{color:var(--text);font-weight:600}
 .ptable .best{color:var(--lime);font-weight:700}
-.total-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:13px}
+.total-table{width:100%;border-collapse:collapse;font-size:13px;min-width:700px}
 .total-table th{background:var(--surface);padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border)}
 .total-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .total-table tr.total-row td{background:var(--surface);color:var(--lime);font-weight:700;font-size:14px;border-top:2px solid var(--border)}
@@ -189,16 +190,16 @@ article li{margin-bottom:6px}
 
       <p>Les depenses en API LLM constituent le poste de cout le plus important et le plus variable de tout AI SaaS. Le modele choisi cree un <strong>multiplicateur de cout de 15x</strong> entre l'option la moins chere et la plus performante. A l'echelle, cette seule decision determine si l'infrastructure est rentable ou insoutenable.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
-          <tr><th>Echelle</th><th>Utilisateurs actifs/jour</th><th>Requetes mensuelles</th><th>GPT-5.4 nano (0,20$/1M)</th><th>Claude Sonnet 4.6 (3,00$/1M)</th></tr>
+          <tr><th>Echelle</th><th>Actifs/jour</th><th>Requetes/mois</th><th>GPT-5.4 nano</th><th>Claude Sonnet 4.6</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>100</td><td>15 000</td><td class="best">7$/mois</td><td>90$/mois</td></tr>
           <tr><td>Croissance (10K)</td><td>1 000</td><td>150 000</td><td class="best">71$/mois</td><td>900$/mois</td></tr>
           <tr><td>Scale (100K)</td><td>10 000</td><td>1 500 000</td><td class="best">713$/mois</td><td>9 000$/mois</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p><strong>L'approche intelligente :</strong> Router 80% des requetes vers GPT-5.4 nano (recuperation simple, formatage, reponses FAQ) et 20% vers Sonnet 4.6 (raisonnement complexe, generation de code, analyse). A l'echelle Scale, cette approche mixte coute environ 1 942$/mois — 78% moins cher que tout-Sonnet 4.6, avec un impact minimal sur la qualite des requetes routinieres.</p>
 
@@ -208,7 +209,7 @@ article li{margin-bottom:6px}
 
       <p>Les bases de donnees vectorielles stockent et interrogent la base de connaissances de votre IA. Le cout augmente avec le nombre de vecteurs (taille du corpus) et le volume de requetes. Nous estimons la taille du corpus proportionnelle au nombre d'utilisateurs : 1K → 1M vecteurs, 10K → 5M, 100K → 50M (1 536 dimensions, format OpenAI text-embedding-3-small).</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Echelle</th><th>Vecteurs</th><th>Pinecone Serverless</th><th>Qdrant auto-heberge (Hetzner)</th></tr>
         </thead>
@@ -217,7 +218,7 @@ article li{margin-bottom:6px}
           <tr><td>Croissance (10K)</td><td>5M</td><td>~15$/mois</td><td class="best">9$/mois (CX32)</td></tr>
           <tr><td>Scale (100K)</td><td>50M</td><td>~100$/mois</td><td class="best">20$/mois (CX42)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Hetzner CX42 (8 vCPU, 16 Go RAM, 19,90$/mois) gere 50M vecteurs sans frais par requete. La configuration de Qdrant avec Docker Compose prend moins de 2 heures. Comparez toutes les options avec le <a href="/fr/vector-database-cost">calculateur de couts de bases vectorielles</a>.</p>
 
@@ -225,7 +226,7 @@ article li{margin-bottom:6px}
 
       <p>L'authentification est la source la plus courante de mauvaises surprises de cout d'infrastructure. Le tier gratuit de Clerk est genereux jusqu'a 10 000 MAU — mais le saut a l'echelle est dramatique. Supabase Auth est gratuit jusqu'a 50 000 MAU, et le plan Pro inclut 100 000 MAU pour un tarif fixe de 25$/mois.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Echelle</th><th>MAU</th><th>Clerk</th><th>Supabase Auth</th></tr>
         </thead>
@@ -234,7 +235,7 @@ article li{margin-bottom:6px}
           <tr><td>Croissance (10K)</td><td>10 000</td><td>25$/mois (Pro, 10K inclus)</td><td class="best">0$ (gratuit &lt;50K)</td></tr>
           <tr><td>Scale (100K)</td><td>100 000</td><td>1 825$/mois (25$+90K×0,02$)</td><td class="best">25$/mois (Pro)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>A 100 000 MAU, Supabase Auth est <strong>73 fois moins cher</strong> que Clerk. Conseil : planifiez la migration vers Supabase avant d'atteindre 10K MAU, pas apres 50K MAU quand la pression et le risque de migration sont bien plus eleves. Modelisez votre trajectoire MAU avec le <a href="/fr/auth-provider-cost">calculateur de couts d'auth</a>.</p>
 
@@ -245,7 +246,7 @@ article li{margin-bottom:6px}
 
       <p>Pour un AI SaaS qui traite des requetes HTTP, un VPS ou une plateforme de conteneurs est le standard. Nous comparons Hetzner Cloud (fournisseur europeen avec un excellent rapport qualite/prix) avec AWS EC2 (le choix enterprise par defaut).</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Echelle</th><th>Hetzner Cloud</th><th>AWS EC2 (equivalent)</th></tr>
         </thead>
@@ -254,7 +255,7 @@ article li{margin-bottom:6px}
           <tr><td>Croissance (10K)</td><td class="best">8,80$/mois (CX32, 4 vCPU, 8 Go)</td><td>30$/mois (t3.medium)</td></tr>
           <tr><td>Scale (100K)</td><td class="best">19,90$/mois (CX42, 8 vCPU, 16 Go)</td><td>120$/mois (t3.xlarge)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Hetzner offre un rapport qualite/prix 3 a 6 fois superieur a AWS EC2 pour les charges de travail de serveurs web. Les datacenters de Hetzner en Allemagne et en Finlande offrent une faible latence vers les utilisateurs europeens. Pour les startups francaises cherchant a optimiser les couts tout en restant proches de leurs donnees en Europe, Hetzner est le choix evident. Comparez avec le <a href="/fr/cloud-vps-comparison">comparateur de VPS cloud</a>.</p>
 
@@ -262,7 +263,7 @@ article li{margin-bottom:6px}
 
       <p>Les frais de traitement des paiements s'adaptent directement aux revenus. Calcul base sur notre modele : 3% de conversion vers 29$/mois. Startup : 30 payants × 29$ = 870$ MRR. Croissance : 300 × 29$ = 8 700$ MRR. Scale : 3 000 × 29$ = 87 000$ MRR.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Echelle</th><th>Revenus</th><th>Stripe (2,9% + 0,30$)</th><th>Paddle (5,0% + 0,50$)</th></tr>
         </thead>
@@ -271,22 +272,22 @@ article li{margin-bottom:6px}
           <tr><td>Croissance (10K)</td><td>8 700$</td><td class="best">342$/mois</td><td>585$/mois</td></tr>
           <tr><td>Scale (100K)</td><td>87 000$</td><td class="best">3 423$/mois</td><td>5 850$/mois</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Pour les AI SaaS français vendant dans toute l'Europe, Paddle comme Merchant of Record est particulierement pertinent : il gere automatiquement la TVA europeenne, les declarations fiscales et la conformite dans chaque pays de l'UE. La prime de 2,1% peut valoir la peine quand on prend en compte les couts d'expert-comptable, les declarations de TVA dans plusieurs pays de l'UE et les risques d'audit. Calculez votre seuil de rentabilite avec le <a href="/fr/payment-processor-fees">calculateur de frais de paiement</a>.</p>
 
       <h2 id="serverless">6. Couts des fonctions serverless</h2>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
-          <tr><th>Echelle</th><th>Invocations mensuelles</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
+          <tr><th>Echelle</th><th>Invocations/mois</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>30K</td><td class="best">&lt;1$/mois (tier gratuit)</td><td class="best">0$ (tier gratuit)</td></tr>
           <tr><td>Croissance (10K)</td><td>300K</td><td class="best">~1$/mois</td><td class="best">0$ (tier gratuit)</td></tr>
           <tr><td>Scale (100K)</td><td>3M</td><td>~20$/mois</td><td class="best">5$/mois (plan paye)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Les couts serverless sont negligeables par rapport aux depenses LLM et auth a toutes les echelles dans ce modele. Comparez les configurations avec le <a href="/fr/serverless-cost-calculator">calculateur de couts serverless</a>.</p>
 
@@ -294,9 +295,9 @@ article li{margin-bottom:6px}
 
       <p>Deux stacks : <strong>Budget</strong> — GPT-5.4 nano, Qdrant auto-heberge sur Hetzner, Supabase Auth, Hetzner VPS, Stripe, AWS Lambda. <strong>Premium</strong> — Claude Sonnet 4.6, Pinecone Serverless, Clerk, AWS EC2, Stripe, Lambda.</p>
 
-      <table class="total-table">
+      <div class="tbl-wrap"><table class="total-table">
         <thead>
-          <tr><th>Composant</th><th>Startup Budget</th><th>Startup Premium</th><th>Croissance Budget</th><th>Croissance Premium</th><th>Scale Budget</th><th>Scale Premium</th></tr>
+          <tr><th>Composant</th><th>1K Budget</th><th>1K Premium</th><th>10K Budget</th><th>10K Premium</th><th>100K Budget</th><th>100K Premium</th></tr>
         </thead>
         <tbody>
           <tr><td>API LLM</td><td>7$</td><td>90$</td><td>71$</td><td>900$</td><td>713$</td><td>9 000$</td></tr>
@@ -307,7 +308,7 @@ article li{margin-bottom:6px}
           <tr><td>Serverless</td><td>&lt;1$</td><td>&lt;1$</td><td>1$</td><td>1$</td><td>20$</td><td>20$</td></tr>
           <tr class="total-row"><td>TOTAL / MOIS</td><td>51$</td><td>143$</td><td>432$</td><td>1 313$</td><td>4 201$</td><td>14 488$</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Note : les frais de paiement ne sont pas un cout pur — ils representent un pourcentage des revenus. A l'echelle Scale, les 3 423$ verses a Stripe proviennent de 87 000$ de MRR. Le cout net d'infrastructure (hors frais de paiement) sur le stack budget a 100K utilisateurs est de 778$/mois — environ 0,9% du MRR. C'est une economie unitaire tres saine.</p>
 

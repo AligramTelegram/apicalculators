@@ -128,13 +128,14 @@ article h3{font-size:16px;margin:28px 0 10px;color:var(--text)}
 article p{color:#cdd6dd;font-size:15px;line-height:1.75;margin-bottom:16px}
 article ul,article ol{color:#cdd6dd;font-size:15px;line-height:1.75;margin:0 0 16px 20px}
 article li{margin-bottom:6px}
-.ptable{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0 28px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
 .ptable th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
 .ptable td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .ptable tr:last-child td{border-bottom:none}
 .ptable td:first-child{color:var(--text);font-weight:600}
 .ptable .best{color:var(--lime);font-weight:700}
-.total-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.total-table{width:100%;border-collapse:collapse;font-size:14px;min-width:700px}
 .total-table th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border)}
 .total-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
 .total-table tr.total-row td{background:var(--surface);color:var(--lime);font-weight:700;font-size:15px;border-top:2px solid var(--border)}
@@ -213,16 +214,16 @@ article li{margin-bottom:6px}
 
       <p>For our model: 30 active days × 5 queries/active user/day × (500 prompt tokens + 300 output tokens) per query.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
-          <tr><th>Scale</th><th>Active Users/Day</th><th>Monthly Queries</th><th>GPT-5.4 nano ($0.20/$1.25 /1M)</th><th>Claude Sonnet 4.6 ($3.00/$15.00 /1M)</th></tr>
+          <tr><th>Scale</th><th>Active/Day</th><th>Queries/Mo</th><th>GPT-5.4 nano</th><th>Claude Sonnet 4.6</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>100</td><td>15,000</td><td class="best">$7/mo</td><td>$90/mo</td></tr>
           <tr><td>Growth (10K)</td><td>1,000</td><td>150,000</td><td class="best">$71/mo</td><td>$900/mo</td></tr>
           <tr><td>Scale (100K)</td><td>10,000</td><td>1,500,000</td><td class="best">$713/mo</td><td>$9,000/mo</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>The math: GPT-5.4 nano at Scale = 1.5M queries × 500 prompt tokens / 1M × $0.20 + 1.5M × 300 output tokens / 1M × $1.25 = $150 + $562.50 = $712.50/month. Claude Sonnet 4.6 = $2,250 + $6,750 = $9,000/month.</p>
 
@@ -234,7 +235,7 @@ article li{margin-bottom:6px}
 
       <p>Vector databases store and query your AI's knowledge base. Cost grows with vector count (corpus size) and query volume (user activity). We estimate corpus size scaling with user count: 1K users → 1M vectors, 10K users → 5M vectors, 100K users → 50M vectors (at 1,536 dimensions, OpenAI text-embedding-3-small format).</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Scale</th><th>Vectors</th><th>Pinecone Serverless</th><th>Qdrant Self-Hosted (Hetzner)</th></tr>
         </thead>
@@ -243,7 +244,7 @@ article li{margin-bottom:6px}
           <tr><td>Growth (10K)</td><td>5M</td><td>~$15/mo</td><td class="best">$9/mo (CX32)</td></tr>
           <tr><td>Scale (100K)</td><td>50M</td><td>~$100/mo</td><td class="best">$20/mo (CX42)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Pinecone Serverless charges $0.33/GB/month storage (1M vectors at 1,536 dim ≈ 6GB = $1.98) plus $0.16 per million read units. At low query volumes, Pinecone is cost-competitive. At Scale with 1.5M queries/month, the read charges add up. Self-hosted Qdrant on Hetzner's CX42 ($19.90/month, 8 vCPU, 16GB RAM) handles 50M vectors with headroom and has zero per-query fees.</p>
 
@@ -253,16 +254,16 @@ article li{margin-bottom:6px}
 
       <p>Authentication is the most common source of infrastructure cost surprise. Clerk's free tier is generous at 10,000 MAU — but the jump at scale is dramatic. Supabase Auth's free tier covers 50,000 MAU, and the Pro plan covers 100,000 MAU for a flat $25/month.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Scale</th><th>MAU</th><th>Clerk</th><th>Supabase Auth</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>1,000</td><td class="best">$0 (free &lt;10K)</td><td class="best">$0 (free &lt;50K)</td></tr>
-          <tr><td>Growth (10K)</td><td>10,000</td><td>$25/mo (Pro, 10K included)</td><td class="best">$0 (free &lt;50K)</td></tr>
+          <tr><td>Growth (10K)</td><td>10,000</td><td>$25/mo (Pro, 10K incl.)</td><td class="best">$0 (free &lt;50K)</td></tr>
           <tr><td>Scale (100K)</td><td>100,000</td><td>$1,825/mo ($25 + 90K×$0.02)</td><td class="best">$25/mo (Pro)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>At 100,000 MAU, Supabase Auth is <strong>73x cheaper</strong> than Clerk. The trade-off: Clerk provides polished pre-built UI components for React/Next.js that can save 2–3 days of development. If you are building with a custom UI or using Supabase for your database anyway, Supabase Auth is an obvious choice. If you need Clerk's component library, start on Clerk and plan a migration before 10K MAU to avoid the scaling cliff.</p>
 
@@ -272,7 +273,7 @@ article li{margin-bottom:6px}
 
       <p>For an AI SaaS serving HTTP requests, a VPS or container platform is standard. We compare Hetzner Cloud (European provider with strong price/performance) against AWS EC2 (the default enterprise choice). Note: if you use Vercel or similar platforms for serverless hosting, your hosting cost may be $0 at low scale — see Section 6.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Scale</th><th>Hetzner Cloud</th><th>AWS EC2 (equiv.)</th></tr>
         </thead>
@@ -281,7 +282,7 @@ article li{margin-bottom:6px}
           <tr><td>Growth (10K)</td><td class="best">$8.80/mo (CX32, 4 vCPU, 8GB)</td><td>$30/mo (t3.medium)</td></tr>
           <tr><td>Scale (100K)</td><td class="best">$19.90/mo (CX42, 8 vCPU, 16GB)</td><td>$120/mo (t3.xlarge)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Hetzner delivers 3–6x better price/performance than AWS EC2 for web serving workloads. The trade-off is geography (primary data centers in Germany and Finland, with US locations available) and the absence of managed services like RDS, ElastiCache, and EKS. For an early-stage AI SaaS where a single developer manages infrastructure, Hetzner is the default recommendation.</p>
 
@@ -294,7 +295,7 @@ article li{margin-bottom:6px}
 
       <p>Payment processor fees scale directly with revenue. We calculate against our modeled revenue: 3% of users converting to $29/month paid plans. At Startup: 30 paying users × $29 = $870 MRR. At Growth: 300 paying × $29 = $8,700 MRR. At Scale: 3,000 paying × $29 = $87,000 MRR.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
           <tr><th>Scale</th><th>Revenue</th><th>Stripe (2.9% + $0.30)</th><th>Paddle (5.0% + $0.50)</th></tr>
         </thead>
@@ -303,7 +304,7 @@ article li{margin-bottom:6px}
           <tr><td>Growth (10K)</td><td>$8,700</td><td class="best">$342/mo</td><td>$585/mo</td></tr>
           <tr><td>Scale (100K)</td><td>$87,000</td><td class="best">$3,423/mo</td><td>$5,850/mo</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Stripe is cheaper in pure fee terms. Paddle's 2.1% premium buys you global VAT/GST compliance as a merchant of record — worth it if you have EU, Australian, or Canadian customers. At $87,000 MRR, the Paddle premium is $2,427/month. A dedicated tax compliance solution (Stripe Tax + Avalara) for the same markets runs $500–$1,500/month, narrowing the gap. For a global consumer AI SaaS at Scale, the effective Paddle vs Stripe difference may be as little as $1,000/month in real total cost.</p>
 
@@ -313,16 +314,16 @@ article li{margin-bottom:6px}
 
       <p>AI SaaS applications commonly use serverless functions for background jobs: embedding generation, webhook processing, scheduled re-indexing, and async LLM calls. We model 10 invocations per active user per day at 200ms average duration on 256MB memory.</p>
 
-      <table class="ptable">
+      <div class="tbl-wrap"><table class="ptable">
         <thead>
-          <tr><th>Scale</th><th>Monthly Invocations</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
+          <tr><th>Scale</th><th>Invocations/Mo</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
         </thead>
         <tbody>
           <tr><td>Startup (1K)</td><td>30K</td><td class="best">&lt;$1/mo (free tier)</td><td class="best">$0 (free tier)</td></tr>
           <tr><td>Growth (10K)</td><td>300K</td><td class="best">~$1/mo</td><td class="best">$0 (free tier)</td></tr>
           <tr><td>Scale (100K)</td><td>3M</td><td>~$20/mo</td><td class="best">$5/mo (Paid plan)</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Serverless costs are negligible relative to LLM and auth spend at every scale in this model. The main optimization is using Cloudflare Workers at Scale for workloads that fit within its CPU limits — at 3M invocations/month, you stay well within the Paid plan's 10M included requests at $5/month. AWS Lambda remains preferable for longer-running jobs (over 30 seconds) or those requiring more than 128MB memory.</p>
 
@@ -332,9 +333,9 @@ article li{margin-bottom:6px}
 
       <p>Two stacks: <strong>Budget</strong> uses GPT-5.4 nano, Qdrant self-hosted on Hetzner, Supabase Auth, Hetzner VPS, Stripe, and AWS Lambda. <strong>Premium</strong> uses Claude Sonnet 4.6, Pinecone Serverless, Clerk, AWS EC2, Stripe, and Lambda.</p>
 
-      <table class="total-table">
+      <div class="tbl-wrap"><table class="total-table">
         <thead>
-          <tr><th>Component</th><th>Startup (1K) Budget</th><th>Startup (1K) Premium</th><th>Growth (10K) Budget</th><th>Growth (10K) Premium</th><th>Scale (100K) Budget</th><th>Scale (100K) Premium</th></tr>
+          <tr><th>Component</th><th>1K Budget</th><th>1K Premium</th><th>10K Budget</th><th>10K Premium</th><th>100K Budget</th><th>100K Premium</th></tr>
         </thead>
         <tbody>
           <tr><td>LLM API</td><td>$7</td><td>$90</td><td>$71</td><td>$900</td><td>$713</td><td>$9,000</td></tr>
@@ -345,7 +346,7 @@ article li{margin-bottom:6px}
           <tr><td>Serverless</td><td>&lt;$1</td><td>&lt;$1</td><td>$1</td><td>$1</td><td>$20</td><td>$20</td></tr>
           <tr class="total-row"><td>TOTAL / MONTH</td><td>$51</td><td>$143</td><td>$432</td><td>$1,313</td><td>$4,201</td><td>$14,488</td></tr>
         </tbody>
-      </table>
+      </table></div>
 
       <p>Note: payments are not pure cost — they are a percentage of revenue. At Scale, $3,423 in Stripe fees comes out of $87,000 MRR. Net infrastructure cost (excluding payment processing) is $778/month on the budget stack at 100K users — approximately 0.9% of MRR. That is an extremely healthy unit economics profile.</p>
 
