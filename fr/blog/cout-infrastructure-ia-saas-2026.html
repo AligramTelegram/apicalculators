@@ -105,8 +105,27 @@
 }
 </script>
 
-<link rel="stylesheet" href="/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#5e6976;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Hanken Grotesk',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.85);border-bottom:1px solid var(--border)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:'Archivo';font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.logo b{color:var(--lime)}
+nav{display:flex;gap:24px}
+nav a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s;text-decoration:none}
+nav a:hover,nav a.on{color:var(--text)}
+footer{border-top:1px solid var(--border);padding:32px 0;margin-top:40px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:8px;padding-bottom:20px}
+.foot-in a{color:var(--muted)}
+.foot-calcs{padding-top:20px;border-top:1px solid var(--border)}
+.foot-calcs strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted2);margin-bottom:10px}
+.foot-calcs nav{flex-wrap:wrap;gap:8px 16px}
+.foot-calcs nav a{font-size:12px;color:var(--muted2)}
 .blog-wrap{display:grid;grid-template-columns:1fr 280px;gap:40px;max-width:1100px;margin:0 auto;padding:40px 20px 80px}
 @media(max-width:860px){.blog-wrap{grid-template-columns:1fr}}
 aside{position:sticky;top:24px;align-self:start}
