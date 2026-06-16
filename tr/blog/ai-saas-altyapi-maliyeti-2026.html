@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>2026'da AI SaaS Kurmanın Gerçek Maliyeti — Eksiksiz Altyapı Analizi</title>
+<meta name="description" content="LLM API, vector DB, auth, hosting ve ödeme altyapısı için gerçek aylık dolar rakamları. 1K, 10K ve 100K kullanıcı ölçeğinde AI SaaS maliyetleri ve tasarruf stratejileri.">
+<link rel="canonical" href="https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="APICalculators">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026'da AI SaaS Kurmanın Gerçek Maliyeti — Eksiksiz Altyapı Analizi">
+<meta property="og:description" content="LLM, vector DB, kimlik doğrulama, hosting, ödeme altyapısı — üç ölçekte gerçek dolar rakamları.">
+<meta property="og:url" content="https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="article:published_time" content="2026-06-16T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-16T00:00:00Z">
+<meta property="article:author" content="APICalculators">
+<meta property="article:tag" content="AI SaaS maliyet">
+<meta property="article:tag" content="altyapı maliyet 2026">
+<meta property="article:tag" content="LLM API fiyat">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="2026'da AI SaaS Kurmanın Gerçek Maliyeti">
+<meta name="twitter:description" content="LLM, vector DB, auth, hosting, ödeme — 1K, 10K ve 100K kullanıcıda gerçek aylık maliyetler.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<meta name="twitter:image:alt" content="AI SaaS Altyapı Maliyeti 2026 — APICalculators">
+
+<meta property="og:locale" content="tr_TR">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/ai-saas-infrastrukturkosten-2026">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/cout-infrastructure-ia-saas-2026">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+
+<meta name="language" content="Turkish">
+<meta name="geo.region" content="TR">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"2026'da AI SaaS Kurmanın Gerçek Maliyeti — Eksiksiz Altyapı Analizi",
+  "description":"LLM API, vektör veritabanı, kimlik doğrulama, hosting ve ödeme altyapısı için 1K, 10K ve 100K kullanıcı ölçeğinde gerçek aylık maliyet rakamları.",
+  "author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},
+  "publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},
+  "datePublished":"2026-06-16",
+  "dateModified":"2026-06-16",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026"},
+  "inLanguage":"tr"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Ana Sayfa","item":"https://apicalculators.com/tr/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/tr/blog/"},
+    {"@type":"ListItem","position":3,"name":"AI SaaS Altyapı Maliyeti 2026","item":"https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"1.000 kullanıcıda AI SaaS kurmanın maliyeti ne kadar?",
+      "acceptedAnswer":{"@type":"Answer","text":"1.000 kullanıcıda yalın bir AI SaaS için aylık altyapı maliyeti yaklaşık 51-143 dolar arasındadır. Model seçimi belirleyicidir: GPT-5.4 nano (0,20$/1M token) ile LLM maliyeti ayda 7 doların altında kalırken, Claude Sonnet 4.6 (3,00$/1M token) ile bu rakam 90 dolara çıkar. Hosting (Hetzner 4,50$), kimlik doğrulama (Supabase Auth 50K MAU'ya kadar ücretsiz) ve serverless (Lambda, düşük hacimde neredeyse ücretsiz) çok az ek maliyet getirir."}
+    },
+    {
+      "@type":"Question",
+      "name":"AI SaaS maliyetlerinde en büyük kalem hangisi?",
+      "acceptedAnswer":{"@type":"Answer","text":"LLM API maliyetleri tüm ölçeklerde hakim kalemdir; genellikle toplam altyapı harcamasının %60-80'ini oluşturur. Model seçimi 15 katlık bir maliyet çarpanı yaratır: GPT-5.4 nano 0,20$/1M girdi tokenı, Claude Sonnet 4.6 ise 3,00$/1M girdi tokenıdır. 100.000 kullanıcıda yalnızca LLM kalemi ayda 713 ile 9.000 dolar arasında değişir. Ölçekte ikinci büyük sürpriz Clerk kimlik doğrulamasıdır: 100K MAU'da aylık 1.825 dolara ulaşır."}
+    },
+    {
+      "@type":"Question",
+      "name":"Pinecone mu, self-hosted Qdrant mı daha ucuz?",
+      "acceptedAnswer":{"@type":"Answer","text":"Her ölçekte Hetzner üzerinde self-hosted Qdrant çok daha ucuzdur. 100K kullanıcıda (yaklaşık 50 milyon vektör) Pinecone serverless depolama ve sorgu ücretleriyle ayda yaklaşık 100 dolar tutar. Aynı iş yükü için Hetzner CX42 üzerinde self-hosted Qdrant sadece 19,90 dolardır ve sorgu başına ücret yoktur. Aradaki fark ekstra DevOps zamanıdır; ancak Docker Compose ile kurulum 2 saati geçmez."}
+    },
+    {
+      "@type":"Question",
+      "name":"Clerk mi yoksa Supabase Auth mı seçmeliyim?",
+      "acceptedAnswer":{"@type":"Answer","text":"Maliyet açısından Supabase Auth açık ara kazanır. 100.000 MAU'da Clerk aylık 1.825 dolar (25$ + 90K×0,02$) tutarken, Supabase Auth Pro planı 100K MAU dahil sadece 25 dolar/ay ödetirir — bu 73 kat daha ucuz demektir. Clerk'in avantajı, Next.js/React için hazır UI bileşenlerinin geliştirme süresini 2-3 gün kısaltmasıdır. 10K MAU sınırına yaklaşmadan önce Supabase'e geçiş planlamak, ölçeklendirme tuzağından kaçınmanın en iyi yoludur."}
+    },
+    {
+      "@type":"Question",
+      "name":"Stripe mi yoksa Paddle mi kullanmalıyım?",
+      "acceptedAnswer":{"@type":"Answer","text":"Yalnızca Türkiye ve ABD pazarı hedefliyorsanız Stripe (yüzde 2,9 + 0,30$) Paddle'dan (yüzde 5 + 0,50$) daha ucuzdur. Avrupa, Avustralya veya Kanada gibi KDV yükümlülüğü olan pazarlara satış yapıyorsanız Paddle'ın MoR (kayıtlı satıcı) modeli uluslararası vergi uyumunu otomatik yönetir. 10.000 dolar MRR'da Paddle, Stripe'tan aylık yaklaşık 250 dolar daha pahalıdır; bu fark, uluslararası vergi danışmanlığı ya da uyumluluk yazılımı maliyetleriyle karşılaştırıldığında kabul edilebilir düzeydedir."}
+    },
+    {
+      "@type":"Question",
+      "name":"AI SaaS altyapı faturamı nasıl yarıya indirebilirim?",
+      "acceptedAnswer":{"@type":"Answer","text":"En yüksek etkili dört optimizasyon: (1) Sorguların %80'ini nano/mini modele yönlendirin — LLM maliyetlerinde %60-90 tasarruf. (2) 10K MAU'ya ulaşmadan Supabase Auth'a geçin — 100K kullanıcıda aylık 1.800 dolar tasarruf. (3) Pinecone yerine Hetzner'da self-hosted Qdrant kullanın — aylık 80-200 dolar tasarruf. (4) Tekrarlanan sistem promptları için prompt önbelleğini etkinleştirin — önbelleklenen tokenlarda %40-90 tasarruf. Bu değişiklikler birlikte toplam altyapı maliyetini %50-70 azaltır."}
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/style.css">
+<style>
+.blog-wrap{display:grid;grid-template-columns:1fr 280px;gap:40px;max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+@media(max-width:860px){.blog-wrap{grid-template-columns:1fr}}
+aside{position:sticky;top:24px;align-self:start}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:20px}
+.toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.toc ol{padding-left:16px;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--muted);font-size:13.5px;text-decoration:none}
+.toc a:hover{color:var(--text)}
+.calc-cta{background:var(--surface);border:1px solid rgba(184,255,46,.25);border-radius:14px;padding:20px 22px;margin-bottom:20px}
+.calc-cta h3{font-size:15px;margin-bottom:8px}
+.calc-cta p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.cta-btn{display:block;background:var(--lime);color:#06210a;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none}
+article h1{font-size:clamp(22px,4vw,34px);line-height:1.25;margin-bottom:16px}
+article h2{font-size:20px;margin:40px 0 14px;color:var(--text)}
+article p{color:#cdd6dd;font-size:15px;line-height:1.75;margin-bottom:16px}
+article ul,article ol{color:#cdd6dd;font-size:15px;line-height:1.75;margin:0 0 16px 20px}
+article li{margin-bottom:6px}
+.ptable{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.ptable th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+.ptable td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:last-child td{border-bottom:none}
+.ptable td:first-child{color:var(--text);font-weight:600}
+.ptable .best{color:var(--lime);font-weight:700}
+.total-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:13px}
+.total-table th{background:var(--surface);padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border)}
+.total-table td{padding:10px 12px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.total-table tr.total-row td{background:var(--surface);color:var(--lime);font-weight:700;font-size:14px;border-top:2px solid var(--border)}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
+.ilink-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:32px 0}
+.ilink-box h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:14px}
+.ilinks{display:flex;flex-direction:column;gap:10px}
+.ilink{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:border-color .15s}
+.ilink:hover{border-color:var(--border2)}
+.ic2{font-size:22px;line-height:1}
+.ilink b{display:block;font-size:13.5px;margin-bottom:2px}
+.ilink span{font-size:12px;color:var(--muted)}
+.qa{border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.qa .q{padding:16px 18px;cursor:pointer;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;align-items:center}
+.qa .q:hover{background:var(--surface)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s}
+.qa.open .a{max-height:600px}
+.qa .a p{padding:4px 18px 18px;color:#cdd6dd;font-size:14px;line-height:1.7;margin:0}
+.plus{color:var(--lime);font-size:20px;font-weight:300}
+.ad-slot{background:var(--surface);border:1px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:12px;margin:28px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav-in">
+    <a href="/tr/" class="logo">&#127381; API <b>Calculators</b></a>
+    <nav>
+      <a href="/tr/">Hesaplayıcılar</a>
+      <a href="/tr/blog/" class="on">Blog</a>
+      <a href="/tr/about">Hakkımızda</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="blog-wrap">
+    <article>
+      <h1>2026'da AI SaaS Kurmanın Gerçek Maliyeti — Eksiksiz Altyapı Analizi</h1>
+
+      <p style="color:var(--muted);font-size:13.5px;margin-bottom:28px">16 Haziran 2026 · 13 dk okuma · <a href="/tr/blog/" style="color:var(--muted)">APICalculators Blog</a></p>
+
+      <p>Herkes AI SaaS'ın potansiyelinden bahseder. Onu gerçekten çalıştırmanın ne kadara mal olduğundan değil. Bu rehber, Türkiye'den ve dünyadan AI ürünleri inşa eden geliştiriciler için gerçek aylık dolar rakamlarını sunuyor: LLM API'leri, vektör veritabanları, kimlik doğrulama, hosting, ödeme altyapısı ve serverless fonksiyonlar — üç üretim ölçeğinde: Startup (1.000 kullanıcı), Büyüme (10.000 kullanıcı), Ölçek (100.000 kullanıcı).</p>
+
+      <p>Tüm fiyatlar Haziran 2026 itibarıyla resmi sağlayıcı belgelerinden alınmıştır. Kullandığımız model: Kullanıcıların günde 5 sorgu gönderdiği, her sorgunun bir LLM çağrısı (500 prompt tokeni + 300 çıktı tokeni) ve vektör araması gerektirdiği bir AI SaaS uygulaması. Ödeme modeli: %3 dönüşüm oranı, ortalama 29 dolar/ay.</p>
+
+      <div class="mbox">
+        <p><strong>Özet:</strong> 1.000 kullanıcıda yalın AI SaaS aylık <strong>51-143 dolar</strong> tutar. 10.000 kullanıcıda: <strong>432-1.313 dolar</strong>. 100.000 kullanıcıda: <strong>4.201-14.488 dolar</strong>. Bütçe ve premium yığın arasındaki 3 katlık fark, esas olarak üç karardan kaynaklanır: model seçimi, kimlik doğrulama sağlayıcısı ve vektör veritabanı dağıtım modeli.</p>
+      </div>
+
+      <!-- AD SLOT -->
+      <div class="ad-slot"><!-- AD SLOT: içerik üstü --></div>
+
+      <h2 id="llm">1. LLM API Maliyetleri</h2>
+
+      <p>LLM API harcaması, her AI SaaS'ta en büyük ve en değişken gider kalemidir. Seçtiğiniz model, en ucuz ile en güçlü seçenek arasında <strong>15 katlık bir maliyet çarpanı</strong> oluşturur. Ölçekte bu tek karar, altyapının kârlı mı yoksa sürdürülemez mi olacağını belirler.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>Günlük Aktif Kullanıcı</th><th>Aylık Sorgu</th><th>GPT-5.4 nano (0,20$/1M giriş)</th><th>Claude Sonnet 4.6 (3,00$/1M giriş)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>100</td><td>15.000</td><td class="best">7$/ay</td><td>90$/ay</td></tr>
+          <tr><td>Büyüme (10K)</td><td>1.000</td><td>150.000</td><td class="best">71$/ay</td><td>900$/ay</td></tr>
+          <tr><td>Ölçek (100K)</td><td>10.000</td><td>1.500.000</td><td class="best">713$/ay</td><td>9.000$/ay</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Akıllı yaklaşım:</strong> Sorguların %80'ini GPT-5.4 nano'ya (basit erişim, biçimlendirme, SSS yanıtları), %20'sini Sonnet 4.6'ya (karmaşık akıl yürütme, kod üretimi, analiz) yönlendirin. Bu karma yaklaşım, Ölçek'te yaklaşık 1.942 dolar/ay'a düşer — tümü Sonnet 4.6'ya kıyasla %78 daha ucuz, günlük sorgularda kalite kaybı minimum.</p>
+
+      <p>Kendi token oranlarınızı ve model karışımınızı modellemek için <a href="/tr/llm-cost-calculator">LLM API maliyet hesaplayıcısını</a> kullanın.</p>
+
+      <h2 id="vectordb">2. Vektör Veritabanı Maliyetleri</h2>
+
+      <p>Vektör veritabanları, AI'ın bilgi tabanını depolar ve sorgular. Maliyet, vektör sayısıyla (corpus büyüklüğü) ve sorgu hacmiyle (kullanıcı aktivitesi) büyür. Corpus büyüklüğünü kullanıcı sayısıyla orantılı tahmin ediyoruz: 1K kullanıcı → 1M vektör, 10K → 5M, 100K → 50M (1.536 boyut, OpenAI text-embedding-3-small formatında).</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>Vektör Sayısı</th><th>Pinecone Serverless</th><th>Self-hosted Qdrant (Hetzner)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>1M</td><td>~4$/ay</td><td class="best">5$/ay (CX22)</td></tr>
+          <tr><td>Büyüme (10K)</td><td>5M</td><td>~15$/ay</td><td class="best">9$/ay (CX32)</td></tr>
+          <tr><td>Ölçek (100K)</td><td>50M</td><td>~100$/ay</td><td class="best">20$/ay (CX42)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Hetzner CX42 (8 vCPU, 16GB RAM, 19,90 dolar/ay) 50M vektörü rahatça taşır ve sorgu başına ücret yoktur. Self-hosted Qdrant kurulumu Docker Compose ile 2 saati geçmez. Ekibinizde container yönetimi deneyimi varsa bu, yüzde 80'in üzerinde tasarruf anlamına gelir.</p>
+
+      <p>Seçenekleri <a href="/tr/vector-database-cost">vektör veritabanı maliyet hesaplayıcısında</a> karşılaştırın.</p>
+
+      <h2 id="auth">3. Kimlik Doğrulama Maliyetleri</h2>
+
+      <p>Kimlik doğrulama, altyapı maliyeti sürprizlerinin en yaygın kaynağıdır. Clerk'in ücretsiz katmanı 10.000 MAU'ya kadar cömert davranır — ancak ölçekte sıçrama dramatiktir. Supabase Auth ücretsiz katmanı 50.000 MAU'yu kapsar ve Pro planı 100.000 MAU'yu 25 dolar sabit ücretle içerir.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>MAU</th><th>Clerk</th><th>Supabase Auth</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>1.000</td><td class="best">0$ (ücretsiz, &lt;10K)</td><td class="best">0$ (ücretsiz, &lt;50K)</td></tr>
+          <tr><td>Büyüme (10K)</td><td>10.000</td><td>25$/ay (Pro)</td><td class="best">0$ (ücretsiz, &lt;50K)</td></tr>
+          <tr><td>Ölçek (100K)</td><td>100.000</td><td>1.825$/ay (25$+90K×0,02$)</td><td class="best">25$/ay (Pro)</td></tr>
+        </tbody>
+      </table>
+
+      <p>100.000 MAU'da Supabase Auth, Clerk'ten <strong>73 kat daha ucuzdur</strong>. Zaten Supabase veritabanı kullanıyorsanız kimlik doğrulama neredeyse sıfır maliyetle gelir. Tavsiye: 10K MAU sınırına çarpmadan önce taşıma planı yapın; baskı altında taşıma çok daha risklidir.</p>
+
+      <p><a href="/tr/auth-provider-cost">Kimlik doğrulama maliyet hesaplayıcısı</a> ile MAU trajekinizi modelleyin.</p>
+
+      <!-- AD SLOT -->
+      <div class="ad-slot"><!-- AD SLOT: içerik ortası --></div>
+
+      <h2 id="hosting">4. Hosting Maliyetleri</h2>
+
+      <p>HTTP isteklerine yanıt veren bir AI SaaS için standart seçim VPS ya da konteyner platformudur. Hetzner Cloud (güçlü fiyat/performans oranıyla Avrupalı sağlayıcı) ile AWS EC2 (varsayılan kurumsal seçenek) karşılaştırmasına bakıyoruz. Not: Vercel veya benzeri serverless platformlar kullanıyorsanız düşük ölçekte hosting maliyetiniz sıfır olabilir.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>Hetzner Cloud</th><th>AWS EC2 (eşdeğer)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td class="best">4,50$/ay (CX22, 2 vCPU, 4GB)</td><td>15$/ay (t3.small)</td></tr>
+          <tr><td>Büyüme (10K)</td><td class="best">8,80$/ay (CX32, 4 vCPU, 8GB)</td><td>30$/ay (t3.medium)</td></tr>
+          <tr><td>Ölçek (100K)</td><td class="best">19,90$/ay (CX42, 8 vCPU, 16GB)</td><td>120$/ay (t3.xlarge)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Hetzner, web sunucu iş yükleri için AWS EC2'ye kıyasla 3-6 kat daha iyi fiyat/performans sunar. Avantajı: aylık veri aktarımı dahil 20TB bant genişliği. Ayrıca Türkiye'den Avrupa veri merkezlerine ping süresi genellikle 20-40ms aralığındadır — üretim için kabul edilebilir. Ekibiniz yönetimli AWS hizmetlerine (RDS, ElastiCache) bağımlıysa bu faktörü maliyetlere ekleyin.</p>
+
+      <p><a href="/tr/cloud-vps-comparison">Bulut VPS karşılaştırma hesaplayıcısında</a> sağlayıcıları yan yana inceleyin.</p>
+
+      <h2 id="payments">5. Ödeme İşleme Maliyetleri</h2>
+
+      <p>Ödeme işlemcisi ücretleri doğrudan gelirle ölçeklenir. Modelimize göre hesaplanan gelir: kullanıcıların %3'ü 29 dolar/ay plana geçiyor. Startup: 30 ödeme yapan × 29$ = 870$ MRR. Büyüme: 300 × 29$ = 8.700$ MRR. Ölçek: 3.000 × 29$ = 87.000$ MRR.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>Gelir</th><th>Stripe (%2,9 + 0,30$)</th><th>Paddle (%5,0 + 0,50$)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>870$</td><td class="best">34$/ay</td><td>58$/ay</td></tr>
+          <tr><td>Büyüme (10K)</td><td>8.700$</td><td class="best">342$/ay</td><td>585$/ay</td></tr>
+          <tr><td>Ölçek (100K)</td><td>87.000$</td><td class="best">3.423$/ay</td><td>5.850$/ay</td></tr>
+        </tbody>
+      </table>
+
+      <p>Türkiye pazarı için önemli not: Stripe, Türkiye kurulu şirketlerin Türk kartlarından ödeme almasını destekler. Ancak uluslararası müşterilerden (AB, ABD, Kanada) ödeme alıyorsanız KDV ve satış vergisi yükümlülükleri devreye girer. Paddle'ın MoR (kayıtlı satıcı) modeli bu vergi uyumunu otomatik olarak yönetir; Stripe'ta ise ek yazılım veya danışman gerekir. <a href="/tr/payment-processor-fees">Ödeme işlemcisi ücret hesaplayıcısı</a> ile rakamlarınızı hesaplayın.</p>
+
+      <h2 id="serverless">6. Serverless Fonksiyon Maliyetleri</h2>
+
+      <p>AI SaaS uygulamaları arka plan görevleri için serverless fonksiyonları sık kullanır: embedding üretimi, webhook işleme, zamanlanmış yeniden indeksleme ve asenkron LLM çağrıları. Günde aktif kullanıcı başına 10 çağrı, ortalama 200ms süre, 256MB bellek modelliyoruz.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Ölçek</th><th>Aylık Çağrı</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>30K</td><td class="best">&lt;1$/ay (ücretsiz kota)</td><td class="best">0$ (ücretsiz katman)</td></tr>
+          <tr><td>Büyüme (10K)</td><td>300K</td><td class="best">~1$/ay</td><td class="best">0$ (ücretsiz katman)</td></tr>
+          <tr><td>Ölçek (100K)</td><td>3M</td><td>~20$/ay</td><td class="best">5$/ay (Ücretli plan)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Serverless maliyetler bu modelde tüm ölçeklerde LLM ve kimlik doğrulama harcamasına kıyasla ihmal edilebilir düzeydedir. Cloudflare Workers, Ölçek'te 3M çağrıyı 5 dolarlık Ücretli planın 10M dahil isteğiyle rahatça karşılar. <a href="/tr/serverless-cost-calculator">Serverless maliyet hesaplayıcısı</a> ile kendi konfigürasyonunuzu modelleyin.</p>
+
+      <h2 id="total">7. Toplam Aylık Maliyet Özeti</h2>
+
+      <p>İki yığın: <strong>Bütçe</strong> — GPT-5.4 nano, Hetzner'da self-hosted Qdrant, Supabase Auth, Hetzner VPS, Stripe, AWS Lambda. <strong>Premium</strong> — Claude Sonnet 4.6, Pinecone Serverless, Clerk, AWS EC2, Stripe, Lambda.</p>
+
+      <table class="total-table">
+        <thead>
+          <tr><th>Bileşen</th><th>Startup Bütçe</th><th>Startup Premium</th><th>Büyüme Bütçe</th><th>Büyüme Premium</th><th>Ölçek Bütçe</th><th>Ölçek Premium</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LLM API</td><td>7$</td><td>90$</td><td>71$</td><td>900$</td><td>713$</td><td>9.000$</td></tr>
+          <tr><td>Vektör DB</td><td>5$</td><td>4$</td><td>9$</td><td>15$</td><td>20$</td><td>100$</td></tr>
+          <tr><td>Kimlik Doğrulama</td><td>0$</td><td>0$</td><td>0$</td><td>25$</td><td>25$</td><td>1.825$</td></tr>
+          <tr><td>Hosting</td><td>5$</td><td>15$</td><td>9$</td><td>30$</td><td>20$</td><td>120$</td></tr>
+          <tr><td>Ödeme İşleme</td><td>34$</td><td>34$</td><td>342$</td><td>342$</td><td>3.423$</td><td>3.423$</td></tr>
+          <tr><td>Serverless</td><td>&lt;1$</td><td>&lt;1$</td><td>1$</td><td>1$</td><td>20$</td><td>20$</td></tr>
+          <tr class="total-row"><td>TOPLAM / AY</td><td>51$</td><td>143$</td><td>432$</td><td>1.313$</td><td>4.201$</td><td>14.488$</td></tr>
+        </tbody>
+      </table>
+
+      <p>Not: Ödeme işleme saf maliyet değil, gelirin yüzdesidir. Ölçek'te Stripe'a ödenen 3.423 dolar, 87.000 dolar MRR'dan çıkar. Ödeme işleme hariç net altyapı maliyeti bütçe yığınında 100K kullanıcıda aylık 778 dolardır — MRR'ın yaklaşık yüzde 0,9'u. Bu son derece sağlıklı bir birim ekonomisidir.</p>
+
+      <h2 id="cut">8. Faturayı Yarıya İndirme Stratejileri</h2>
+
+      <p>Bütçe ve premium yığın arasındaki toplam maliyet farkı, üç karardan kaynaklanır. Etkiye göre sıralanan en yüksek getirili dört optimizasyon:</p>
+
+      <p><strong>1. Model katmanlama — LLM maliyetlerinde %60-90 tasarruf.</strong> Sorgu türlerinizi denetleyin. Çoğu AI SaaS iş yükü şöyle dağılır: %70 erişim artırma (nano modeli yeterli), %20 özetleme/biçimlendirme (mini modeli yeterli), %10 karmaşık akıl yürütme (öncü model gerekli). En ucuz uygun modele yönlendiren bir sınıflandırıcı uygulayın. Bu tek adım, LLM maliyetlerini Ölçek'te 9.000 dolardan 2.000 doların altına indirir.</p>
+
+      <p><strong>2. 10K MAU'ya ulaşmadan kimlik doğrulama sağlayıcısını değiştirin — Ölçek'te aylık 1.800 dolar tasarruf.</strong> Clerk'ten Supabase'e taşıma 3-5 günlük mühendislik çalışması gerektirir. Bunu 50K MAU altında yapın; baskı yokken geçiş çok daha az risklidir. 10K MAU'yu geçtikten sonra Clerk'te kalan her ay, ek kullanıcı başına 0,02 dolar maliyetlidir.</p>
+
+      <p><strong>3. Vektör veritabanınızı self-host edin — aylık 80-200 dolar tasarruf.</strong> Hetzner CX42 üzerinde Qdrant, tek bir Docker Compose dosyası ve haftalık yedekleme cron görevi gerektirir. Ekibiniz herhangi bir konteynerleştirilmiş hizmeti zaten yönetiyorsa bu, 2 saatlik kurulumla yüzde 80'in üzerinde maliyet azalmasıdır.</p>
+
+      <p><strong>4. Tekrarlanan bağlam için prompt önbelleğini etkinleştirin — önbelleklenen tokenlarda %40-90 tasarruf.</strong> Sistem promptunuz büyükse (500+ token) ve uygulamanız kullanıcı oturumu başına birden fazla ardışık mesaj işliyorsa, Anthropic'in prompt önbelleği ilk çağrıdan sonra önbelleklenen tokenları %90 indirimle faturalandırır. Sohbet robotu tarzı uygulamalar için bu genellikle model katmalamanın ardından en yüksek getirili LLM optimizasyonudur.</p>
+
+      <div class="ilink-box">
+        <h3>Kendi Yığınınızı Modelleyin</h3>
+        <div class="ilinks">
+          <a href="/tr/llm-cost-calculator" class="ilink"><span class="ic2">🤖</span><div><b>LLM API Maliyet Hesaplayıcı</b><span>GPT-5.4 nano vs Sonnet 4.6 vs Gemini 3.5 Flash</span></div></a>
+          <a href="/tr/vector-database-cost" class="ilink"><span class="ic2">🗄️</span><div><b>Vektör Veritabanı Maliyet Hesaplayıcı</b><span>Pinecone vs Qdrant vs Weaviate vs Supabase pgvector</span></div></a>
+          <a href="/tr/auth-provider-cost" class="ilink"><span class="ic2">🔑</span><div><b>Kimlik Doğrulama Maliyet Hesaplayıcı</b><span>Clerk vs Supabase Auth vs Auth0 — MAU bazında</span></div></a>
+          <a href="/tr/cloud-vps-comparison" class="ilink"><span class="ic2">☁️</span><div><b>Bulut VPS Karşılaştırma</b><span>Hetzner vs DigitalOcean vs Vultr vs AWS</span></div></a>
+          <a href="/tr/payment-processor-fees" class="ilink"><span class="ic2">💳</span><div><b>Ödeme İşlemcisi Ücret Hesaplayıcı</b><span>Stripe vs Paddle vs Lemon Squeezy</span></div></a>
+          <a href="/tr/serverless-cost-calculator" class="ilink"><span class="ic2">⚡</span><div><b>Serverless Maliyet Hesaplayıcı</b><span>AWS Lambda vs Cloudflare Workers vs Vercel</span></div></a>
+        </div>
+      </div>
+
+      <h2 id="faq">Sık Sorulan Sorular</h2>
+
+      <div class="qa"><div class="q">1.000 kullanıcıda AI SaaS kurmanın maliyeti ne kadar?<span class="plus">+</span></div><div class="a"><p>1.000 kullanıcıda yalın bir AI SaaS için aylık altyapı maliyeti yaklaşık 51-143 dolar arasındadır. Model seçimi belirleyicidir: GPT-5.4 nano ile LLM maliyeti ayda 7 doların altında kalırken, Claude Sonnet 4.6 bu rakamı 90 dolara çıkarır. Hosting (Hetzner 4,50$), kimlik doğrulama (Supabase Auth 50K MAU'ya kadar ücretsiz) ve serverless (Lambda, düşük hacimde neredeyse ücretsiz) çok az ek maliyet getirir.</p></div></div>
+
+      <div class="qa"><div class="q">AI SaaS maliyetlerinde en büyük kalem hangisi?<span class="plus">+</span></div><div class="a"><p>LLM API maliyetleri tüm ölçeklerde hakim kalemdir; genellikle toplam altyapı harcamasının %60-80'ini oluşturur. Model seçimi 15 katlık bir maliyet çarpanı yaratır: GPT-5.4 nano 0,20$/1M giriş tokeni, Claude Sonnet 4.6 ise 3,00$/1M. 100.000 kullanıcıda yalnızca LLM kalemi ayda 713 ile 9.000 dolar arasında değişir.</p></div></div>
+
+      <div class="qa"><div class="q">Pinecone mu, self-hosted Qdrant mı daha ucuz?<span class="plus">+</span></div><div class="a"><p>Her ölçekte Hetzner üzerinde self-hosted Qdrant çok daha ucuzdur. 100K kullanıcıda (yaklaşık 50M vektör) Pinecone serverless ayda yaklaşık 100 dolar tutarken, Hetzner CX42 üzerinde self-hosted Qdrant sadece 19,90 dolardır ve sorgu başına ücret yoktur. Kurulum Docker Compose ile 2 saati geçmez.</p></div></div>
+
+      <div class="qa"><div class="q">Clerk mi yoksa Supabase Auth mı seçmeliyim?<span class="plus">+</span></div><div class="a"><p>Maliyet açısından Supabase Auth açık ara kazanır. 100.000 MAU'da Clerk aylık 1.825 dolar tutarken Supabase Auth Pro planı 100K MAU dahil sadece 25 dolar ödetirir — 73 kat daha ucuz. Clerk'in avantajı Next.js/React için hazır UI bileşenleridir. 10K MAU sınırına yaklaşmadan önce geçiş planlamanız önerilir.</p></div></div>
+
+      <div class="qa"><div class="q">Stripe mi yoksa Paddle mi kullanmalıyım?<span class="plus">+</span></div><div class="a"><p>Yalnızca Türkiye ve ABD pazarı hedefliyorsanız Stripe (yüzde 2,9 + 0,30$) daha ucuzdur. AB, Avustralya veya Kanada gibi KDV yükümlülüğü olan pazarlara satış yapıyorsanız Paddle'ın MoR modeli uluslararası vergi uyumunu otomatik yönetir. 10.000 dolar MRR'da Paddle, Stripe'tan aylık yaklaşık 250 dolar daha pahalıdır.</p></div></div>
+
+      <div class="qa"><div class="q">AI SaaS altyapı faturamı nasıl yarıya indirebilirim?<span class="plus">+</span></div><div class="a"><p>En yüksek etkili dört optimizasyon: (1) Sorguların %80'ini nano/mini modele yönlendirin — LLM maliyetlerinde %60-90 tasarruf. (2) 10K MAU'ya ulaşmadan Supabase Auth'a geçin — 100K kullanıcıda aylık 1.800 dolar tasarruf. (3) Pinecone yerine Hetzner'da self-hosted Qdrant kullanın — aylık 80-200 dolar tasarruf. (4) Tekrarlanan sistem promptları için prompt önbelleğini etkinleştirin — %40-90 tasarruf. Bu değişiklikler birlikte toplam altyapı maliyetini %50-70 azaltır.</p></div></div>
+
+    </article>
+
+    <aside>
+      <div class="toc">
+        <h4>Bu makalede</h4>
+        <ol>
+          <li><a href="#llm">LLM API Maliyetleri</a></li>
+          <li><a href="#vectordb">Vektör Veritabanı</a></li>
+          <li><a href="#auth">Kimlik Doğrulama</a></li>
+          <li><a href="#hosting">Hosting</a></li>
+          <li><a href="#payments">Ödeme İşleme</a></li>
+          <li><a href="#serverless">Serverless</a></li>
+          <li><a href="#total">Toplam Özet</a></li>
+          <li><a href="#cut">Tasarruf Stratejileri</a></li>
+          <li><a href="#faq">SSS</a></li>
+        </ol>
+      </div>
+
+      <div class="calc-cta">
+        <h3>🧮 LLM Hesaplayıcı</h3>
+        <p>İnşa etmeden önce token maliyetlerinizi modelleyin.</p>
+        <a href="/tr/llm-cost-calculator" class="cta-btn">Hesaplayıcıyı Aç →</a>
+      </div>
+
+      <div class="calc-cta" style="margin-top:0">
+        <h3>🔑 Auth Maliyet Hesaplayıcı</h3>
+        <p>MAU bazında Clerk ile Supabase Auth karşılaştırın.</p>
+        <a href="/tr/auth-provider-cost" class="cta-btn">Auth Karşılaştır →</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer><div class="wrap foot-in">
+  <span>© 2026 APICalculators.com</span>
+  <span><a href="/tr/">Ana Sayfa</a> · <a href="/tr/blog/">Blog</a> · <a href="/privacy">Gizlilik</a> · <a href="/sitemap.xml">Site Haritası</a></span>
+</div>
+<div class="wrap"><div class="foot-calcs">
+  <strong>Hesaplayıcılar</strong>
+  <nav>
+    <a href="/tr/llm-cost-calculator">LLM Token Maliyeti</a>
+    <a href="/tr/vector-database-cost">Vektör DB Maliyeti</a>
+    <a href="/tr/image-generation-cost">AI Görsel Üretimi</a>
+    <a href="/tr/payment-processor-fees">Ödeme Ücretleri</a>
+    <a href="/tr/cloud-vps-comparison">Bulut VPS Karşılaştırma</a>
+    <a href="/tr/stt-tts-api-cost">STT / TTS API Maliyeti</a>
+    <a href="/tr/serverless-cost-calculator">Serverless Maliyet</a>
+    <a href="/tr/api-gateway-pricing">API Gateway Maliyeti</a>
+    <a href="/tr/embedding-api-cost">Embedding API Maliyeti</a>
+    <a href="/tr/ai-agent-cost">AI Ajan Maliyeti</a>
+    <a href="/tr/ai-coding-tool-cost">AI Kodlama Aracı Maliyeti</a>
+    <a href="/tr/auth-provider-cost">Auth Sağlayıcı Maliyeti</a>
+  </nav>
+</div></div>
+</footer>
+
+<script>
+document.querySelectorAll('.qa .q').forEach(q => {
+  q.addEventListener('click', () => {
+    const qa = q.parentElement, open = qa.classList.toggle('open');
+    const a = qa.querySelector('.a');
+    if (a) a.style.maxHeight = open ? '600px' : '0';
+  });
+});
+</script>
+</body>
+</html>

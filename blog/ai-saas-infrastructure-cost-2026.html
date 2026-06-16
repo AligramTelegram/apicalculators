@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>The Real Cost of Building an AI SaaS in 2026 — Complete Breakdown</title>
+<meta name="description" content="Exact monthly costs for LLM APIs, vector databases, auth, hosting, and payments at 1K, 10K, and 100K users. Real numbers for building an AI SaaS in 2026 — and how to cut the bill in half.">
+<link rel="canonical" href="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="APICalculators">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Real Cost of Building an AI SaaS in 2026 — Complete Infrastructure Breakdown">
+<meta property="og:description" content="LLM, vector DB, auth, hosting, payments — real dollar figures at Startup, Growth, and Scale. Know your numbers before you build.">
+<meta property="og:url" content="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="article:published_time" content="2026-06-16T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-16T00:00:00Z">
+<meta property="article:author" content="APICalculators">
+<meta property="article:tag" content="AI SaaS cost">
+<meta property="article:tag" content="infrastructure cost 2026">
+<meta property="article:tag" content="LLM API pricing">
+<meta property="article:tag" content="startup costs AI">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="The Real Cost of Building an AI SaaS in 2026">
+<meta name="twitter:description" content="LLM, vector DB, auth, hosting, payments — exact monthly costs at 1K, 10K, and 100K users.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<meta name="twitter:image:alt" content="AI SaaS Infrastructure Cost 2026 — APICalculators">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI SaaS Infrastructure Cost 2026 by APICalculators">
+
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/blog/ai-saas-altyapi-maliyeti-2026">
+<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/blog/ai-saas-infrastrukturkosten-2026">
+<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/cout-infrastructure-ia-saas-2026">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026">
+
+<meta name="language" content="English">
+<meta name="geo.region" content="US">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"The Real Cost of Building an AI SaaS in 2026 — A Complete Breakdown",
+  "description":"Exact monthly infrastructure costs for an AI SaaS at 1K, 10K, and 100K users. LLM APIs, vector databases, auth, hosting, payments, and serverless — with real dollar figures and optimization strategies.",
+  "author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},
+  "publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},
+  "datePublished":"2026-06-16",
+  "dateModified":"2026-06-16",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/blog/"},
+    {"@type":"ListItem","position":3,"name":"AI SaaS Infrastructure Cost 2026","item":"https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"How much does it cost to build an AI SaaS at 1,000 users?",
+      "acceptedAnswer":{"@type":"Answer","text":"A lean AI SaaS at 1,000 users costs approximately $57–$145 per month for infrastructure. The range depends on model choice: GPT-5.4 nano ($0.20/1M input tokens) keeps LLM costs under $10/month at this scale, while Claude Sonnet 4.6 ($3.00/1M input tokens) pushes LLM costs to $90/month. Hosting (Hetzner $4.50), auth (Supabase Auth free under 50K MAU), and serverless (Lambda, effectively free at low volume) add minimal cost."}
+    },
+    {
+      "@type":"Question",
+      "name":"What is the biggest cost driver for AI SaaS applications?",
+      "acceptedAnswer":{"@type":"Answer","text":"LLM API costs dominate at every scale, often representing 60–80% of total infrastructure spend. The model you choose has a 10–45x cost multiplier: GPT-5.4 nano at $0.20/1M input tokens versus Claude Sonnet 4.6 at $3.00/1M input tokens. At 100,000 users, the LLM line item alone ranges from $713/month (nano) to $9,000/month (Sonnet 4.6). Auth costs become the second-largest surprise at scale, specifically Clerk, which costs $1,825/month at 100K MAU."}
+    },
+    {
+      "@type":"Question",
+      "name":"Pinecone vs self-hosted Qdrant — which is cheaper?",
+      "acceptedAnswer":{"@type":"Answer","text":"Self-hosted Qdrant on Hetzner is significantly cheaper at every scale. At 100K users (approximately 50M vectors), Pinecone serverless costs around $100/month in storage and query charges. Self-hosted Qdrant on a Hetzner CX42 ($19.90/month) handles the same workload with no per-query fees. The trade-off is operational complexity: your team manages upgrades, backups, and scaling. For teams without DevOps capacity, Pinecone's managed service justifies the premium."}
+    },
+    {
+      "@type":"Question",
+      "name":"Should I use Clerk or Supabase Auth for my AI SaaS?",
+      "acceptedAnswer":{"@type":"Answer","text":"Supabase Auth wins on cost at scale. Clerk is free up to 10,000 MAU and costs $25/month for Pro (still 10K MAU included, with $0.02 per additional MAU). At 100,000 MAU, Clerk costs $1,825/month. Supabase Auth Pro costs $25/month and includes up to 100,000 MAU — effectively 73x cheaper at that scale. Choose Clerk only if you need its pre-built Next.js/React UI components and are staying under 10K MAU long-term."}
+    },
+    {
+      "@type":"Question",
+      "name":"Stripe vs Paddle for an AI SaaS — which should I choose?",
+      "acceptedAnswer":{"@type":"Answer","text":"For US-only or B2B sales, Stripe (2.9% + $0.30) is cheaper than Paddle (5% + $0.50). For global consumer sales where VAT/GST compliance matters, Paddle as a merchant of record handles international tax automatically, which is worth 2% premium when you factor in tax software, accountant time, and audit risk. At $10,000 MRR, Paddle costs roughly $250 more per month than Stripe — approximately the cost of one hour of tax consultant time per week."}
+    },
+    {
+      "@type":"Question",
+      "name":"How can I cut my AI SaaS infrastructure bill in half?",
+      "acceptedAnswer":{"@type":"Answer","text":"The four highest-ROI optimizations are: (1) Route 80% of queries to a nano/mini model and reserve frontier models for complex tasks — saves 60–90% on LLM costs. (2) Switch from Clerk to Supabase Auth before hitting 10K MAU — saves $1,800/month at 100K users. (3) Self-host Qdrant on Hetzner instead of Pinecone — saves $80–$200/month depending on vector count. (4) Use AWS Lambda Graviton2 (arm64) — 20% cost reduction with zero code changes. Combined, these changes typically reduce total infrastructure cost by 50–70%."}
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="/style.css">
+<style>
+.blog-wrap{display:grid;grid-template-columns:1fr 280px;gap:40px;max-width:1100px;margin:0 auto;padding:40px 20px 80px}
+@media(max-width:860px){.blog-wrap{grid-template-columns:1fr}}
+aside{position:sticky;top:24px;align-self:start}
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:20px}
+.toc h4{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:12px}
+.toc ol{padding-left:16px;display:flex;flex-direction:column;gap:6px}
+.toc a{color:var(--muted);font-size:13.5px;text-decoration:none}
+.toc a:hover{color:var(--text)}
+.calc-cta{background:var(--surface);border:1px solid rgba(184,255,46,.25);border-radius:14px;padding:20px 22px;margin-bottom:20px}
+.calc-cta h3{font-size:15px;margin-bottom:8px}
+.calc-cta p{font-size:13px;color:var(--muted);margin-bottom:14px}
+.cta-btn{display:block;background:var(--lime);color:#06210a;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none}
+article h1{font-size:clamp(22px,4vw,34px);line-height:1.25;margin-bottom:16px}
+article h2{font-size:20px;margin:40px 0 14px;color:var(--text)}
+article h3{font-size:16px;margin:28px 0 10px;color:var(--text)}
+article p{color:#cdd6dd;font-size:15px;line-height:1.75;margin-bottom:16px}
+article ul,article ol{color:#cdd6dd;font-size:15px;line-height:1.75;margin:0 0 16px 20px}
+article li{margin-bottom:6px}
+.ptable{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.ptable th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--border)}
+.ptable td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:last-child td{border-bottom:none}
+.ptable td:first-child{color:var(--text);font-weight:600}
+.ptable .best{color:var(--lime);font-weight:700}
+.total-table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+.total-table th{background:var(--surface);padding:10px 14px;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:2px solid var(--border)}
+.total-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.total-table tr.total-row td{background:var(--surface);color:var(--lime);font-weight:700;font-size:15px;border-top:2px solid var(--border)}
+.total-table tr:last-child td{border-bottom:none}
+.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
+.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
+.mbox p:last-child{margin-bottom:0}
+.ilink-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:32px 0}
+.ilink-box h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:14px}
+.ilinks{display:flex;flex-direction:column;gap:10px}
+.ilink{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:border-color .15s}
+.ilink:hover{border-color:var(--border2)}
+.ic2{font-size:22px;line-height:1}
+.ilink b{display:block;font-size:13.5px;margin-bottom:2px}
+.ilink span{font-size:12px;color:var(--muted)}
+.rel-box{margin:32px 0}
+.rel-box h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:14px}
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:600px){.rel-grid{grid-template-columns:1fr}}
+.rel-card{display:flex;flex-direction:column;gap:6px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text)}
+.rel-card:hover{border-color:var(--border2)}
+.rt{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--lime)}
+.rel-card p{font-size:13px;color:var(--muted);margin:0}
+.qa{border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.qa .q{padding:16px 18px;cursor:pointer;font-weight:600;font-size:14.5px;display:flex;justify-content:space-between;align-items:center}
+.qa .q:hover{background:var(--surface)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s}
+.qa.open .a{max-height:600px}
+.qa .a p{padding:4px 18px 18px;color:#cdd6dd;font-size:14px;line-height:1.7;margin:0}
+.plus{color:var(--lime);font-size:20px;font-weight:300}
+.ad-slot{background:var(--surface);border:1px dashed var(--border);border-radius:10px;padding:20px;text-align:center;color:var(--muted);font-size:12px;margin:28px 0}
+.scale-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-right:6px}
+.badge-startup{background:rgba(77,214,255,.12);color:#4dd6ff}
+.badge-growth{background:rgba(255,178,77,.12);color:#ffb24d}
+.badge-scale{background:rgba(184,255,46,.12);color:#b8ff2e}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav-in">
+    <a href="/" class="logo">&#127381; API <b>Calculators</b></a>
+    <nav>
+      <a href="/">Calculators</a>
+      <a href="/blog/" class="on">Blog</a>
+      <a href="/about">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="blog-wrap">
+    <article>
+      <div style="margin-bottom:20px">
+        <span class="scale-badge badge-startup">💰 COST</span>
+        <span class="scale-badge badge-growth">🏗️ INFRASTRUCTURE</span>
+      </div>
+
+      <h1>The Real Cost of Building an AI SaaS in 2026 — A Complete Breakdown</h1>
+
+      <p style="color:var(--muted);font-size:13.5px;margin-bottom:28px">June 16, 2026 · 14 min read · <a href="/blog/" style="color:var(--muted)">APICalculators Blog</a></p>
+
+      <p>Everyone talks about AI SaaS potential. Few talk about what it actually costs to run one. This guide cuts through the hype with real monthly dollar figures across every major infrastructure layer — LLM APIs, vector databases, authentication, hosting, payment processing, and serverless functions — at three production scales: Startup (1,000 users), Growth (10,000 users), and Scale (100,000 users).</p>
+
+      <p>All prices are sourced from official provider documentation as of June 2026. We use a consistent AI SaaS model throughout: a product where users send 5 queries per active day, each requiring an LLM call (500 prompt tokens + 300 output tokens), vector similarity search over a growing knowledge base, and occasional background serverless processing. Revenue model assumes 3% conversion to paid plans at $29/month average.</p>
+
+      <div class="mbox">
+        <p><strong>TL;DR:</strong> A lean AI SaaS at 1,000 users costs <strong>$57–$145/month</strong>. At 10,000 users: <strong>$448–$1,283/month</strong>. At 100,000 users: <strong>$4,301–$14,493/month</strong>. The 3x multiplier between budget and premium stacks comes almost entirely from three decisions: model choice, auth provider, and vector database deployment model.</p>
+      </div>
+
+      <!-- AD SLOT -->
+      <div class="ad-slot"><!-- AD SLOT: in-content top --></div>
+
+      <h2 id="llm">1. LLM API Costs</h2>
+
+      <p>LLM API spend is the largest and most variable line item in any AI SaaS. The model you choose has a <strong>15x cost multiplier</strong> between the cheapest and most capable options. At scale, this single decision determines whether your infrastructure is profitable or catastrophic.</p>
+
+      <p>For our model: 30 active days × 5 queries/active user/day × (500 prompt tokens + 300 output tokens) per query.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>Active Users/Day</th><th>Monthly Queries</th><th>GPT-5.4 nano ($0.20/$1.25 /1M)</th><th>Claude Sonnet 4.6 ($3.00/$15.00 /1M)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>100</td><td>15,000</td><td class="best">$7/mo</td><td>$90/mo</td></tr>
+          <tr><td>Growth (10K)</td><td>1,000</td><td>150,000</td><td class="best">$71/mo</td><td>$900/mo</td></tr>
+          <tr><td>Scale (100K)</td><td>10,000</td><td>1,500,000</td><td class="best">$713/mo</td><td>$9,000/mo</td></tr>
+        </tbody>
+      </table>
+
+      <p>The math: GPT-5.4 nano at Scale = 1.5M queries × 500 prompt tokens / 1M × $0.20 + 1.5M × 300 output tokens / 1M × $1.25 = $150 + $562.50 = $712.50/month. Claude Sonnet 4.6 = $2,250 + $6,750 = $9,000/month.</p>
+
+      <p><strong>The smart approach:</strong> Route 80% of queries to GPT-5.4 nano (simple retrieval, formatting, FAQ answers) and 20% to Sonnet 4.6 (complex reasoning, code generation, analysis). At Scale, this mixed approach costs approximately $1,942/month — 78% cheaper than all-Sonnet, with minimal quality impact on routine queries.</p>
+
+      <p>Use the <a href="/llm-cost-calculator">LLM API cost calculator</a> to model your specific token ratios and model mix.</p>
+
+      <h2 id="vectordb">2. Vector Database Costs</h2>
+
+      <p>Vector databases store and query your AI's knowledge base. Cost grows with vector count (corpus size) and query volume (user activity). We estimate corpus size scaling with user count: 1K users → 1M vectors, 10K users → 5M vectors, 100K users → 50M vectors (at 1,536 dimensions, OpenAI text-embedding-3-small format).</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>Vectors</th><th>Pinecone Serverless</th><th>Qdrant Self-Hosted (Hetzner)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>1M</td><td>~$4/mo</td><td class="best">$5/mo (CX22)</td></tr>
+          <tr><td>Growth (10K)</td><td>5M</td><td>~$15/mo</td><td class="best">$9/mo (CX32)</td></tr>
+          <tr><td>Scale (100K)</td><td>50M</td><td>~$100/mo</td><td class="best">$20/mo (CX42)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Pinecone Serverless charges $0.33/GB/month storage (1M vectors at 1,536 dim ≈ 6GB = $1.98) plus $0.16 per million read units. At low query volumes, Pinecone is cost-competitive. At Scale with 1.5M queries/month, the read charges add up. Self-hosted Qdrant on Hetzner's CX42 ($19.90/month, 8 vCPU, 16GB RAM) handles 50M vectors with headroom and has zero per-query fees.</p>
+
+      <p>Compare options in detail at the <a href="/vector-database-cost">vector database cost calculator</a>.</p>
+
+      <h2 id="auth">3. Authentication Costs</h2>
+
+      <p>Authentication is the most common source of infrastructure cost surprise. Clerk's free tier is generous at 10,000 MAU — but the jump at scale is dramatic. Supabase Auth's free tier covers 50,000 MAU, and the Pro plan covers 100,000 MAU for a flat $25/month.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>MAU</th><th>Clerk</th><th>Supabase Auth</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>1,000</td><td class="best">$0 (free &lt;10K)</td><td class="best">$0 (free &lt;50K)</td></tr>
+          <tr><td>Growth (10K)</td><td>10,000</td><td>$25/mo (Pro, 10K included)</td><td class="best">$0 (free &lt;50K)</td></tr>
+          <tr><td>Scale (100K)</td><td>100,000</td><td>$1,825/mo ($25 + 90K×$0.02)</td><td class="best">$25/mo (Pro)</td></tr>
+        </tbody>
+      </table>
+
+      <p>At 100,000 MAU, Supabase Auth is <strong>73x cheaper</strong> than Clerk. The trade-off: Clerk provides polished pre-built UI components for React/Next.js that can save 2–3 days of development. If you are building with a custom UI or using Supabase for your database anyway, Supabase Auth is an obvious choice. If you need Clerk's component library, start on Clerk and plan a migration before 10K MAU to avoid the scaling cliff.</p>
+
+      <p>Model your MAU trajectory with the <a href="/auth-provider-cost">auth provider cost calculator</a>.</p>
+
+      <h2 id="hosting">4. Hosting Costs</h2>
+
+      <p>For an AI SaaS serving HTTP requests, a VPS or container platform is standard. We compare Hetzner Cloud (European provider with strong price/performance) against AWS EC2 (the default enterprise choice). Note: if you use Vercel or similar platforms for serverless hosting, your hosting cost may be $0 at low scale — see Section 6.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>Hetzner Cloud</th><th>AWS EC2 (equiv.)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td class="best">$4.50/mo (CX22, 2 vCPU, 4GB)</td><td>$15/mo (t3.small)</td></tr>
+          <tr><td>Growth (10K)</td><td class="best">$8.80/mo (CX32, 4 vCPU, 8GB)</td><td>$30/mo (t3.medium)</td></tr>
+          <tr><td>Scale (100K)</td><td class="best">$19.90/mo (CX42, 8 vCPU, 16GB)</td><td>$120/mo (t3.xlarge)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Hetzner delivers 3–6x better price/performance than AWS EC2 for web serving workloads. The trade-off is geography (primary data centers in Germany and Finland, with US locations available) and the absence of managed services like RDS, ElastiCache, and EKS. For an early-stage AI SaaS where a single developer manages infrastructure, Hetzner is the default recommendation.</p>
+
+      <p>Compare providers side by side at the <a href="/cloud-vps-comparison">cloud VPS comparison calculator</a>.</p>
+
+      <!-- AD SLOT -->
+      <div class="ad-slot"><!-- AD SLOT: in-content middle --></div>
+
+      <h2 id="payments">5. Payment Processing Costs</h2>
+
+      <p>Payment processor fees scale directly with revenue. We calculate against our modeled revenue: 3% of users converting to $29/month paid plans. At Startup: 30 paying users × $29 = $870 MRR. At Growth: 300 paying × $29 = $8,700 MRR. At Scale: 3,000 paying × $29 = $87,000 MRR.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>Revenue</th><th>Stripe (2.9% + $0.30)</th><th>Paddle (5.0% + $0.50)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>$870</td><td class="best">$34/mo</td><td>$58/mo</td></tr>
+          <tr><td>Growth (10K)</td><td>$8,700</td><td class="best">$342/mo</td><td>$585/mo</td></tr>
+          <tr><td>Scale (100K)</td><td>$87,000</td><td class="best">$3,423/mo</td><td>$5,850/mo</td></tr>
+        </tbody>
+      </table>
+
+      <p>Stripe is cheaper in pure fee terms. Paddle's 2.1% premium buys you global VAT/GST compliance as a merchant of record — worth it if you have EU, Australian, or Canadian customers. At $87,000 MRR, the Paddle premium is $2,427/month. A dedicated tax compliance solution (Stripe Tax + Avalara) for the same markets runs $500–$1,500/month, narrowing the gap. For a global consumer AI SaaS at Scale, the effective Paddle vs Stripe difference may be as little as $1,000/month in real total cost.</p>
+
+      <p>Run the numbers for your specific transaction count and geography at the <a href="/payment-processor-fees">payment processor fee calculator</a>.</p>
+
+      <h2 id="serverless">6. Serverless Function Costs</h2>
+
+      <p>AI SaaS applications commonly use serverless functions for background jobs: embedding generation, webhook processing, scheduled re-indexing, and async LLM calls. We model 10 invocations per active user per day at 200ms average duration on 256MB memory.</p>
+
+      <table class="ptable">
+        <thead>
+          <tr><th>Scale</th><th>Monthly Invocations</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Startup (1K)</td><td>30K</td><td class="best">&lt;$1/mo (free tier)</td><td class="best">$0 (free tier)</td></tr>
+          <tr><td>Growth (10K)</td><td>300K</td><td class="best">~$1/mo</td><td class="best">$0 (free tier)</td></tr>
+          <tr><td>Scale (100K)</td><td>3M</td><td>~$20/mo</td><td class="best">$5/mo (Paid plan)</td></tr>
+        </tbody>
+      </table>
+
+      <p>Serverless costs are negligible relative to LLM and auth spend at every scale in this model. The main optimization is using Cloudflare Workers at Scale for workloads that fit within its CPU limits — at 3M invocations/month, you stay well within the Paid plan's 10M included requests at $5/month. AWS Lambda remains preferable for longer-running jobs (over 30 seconds) or those requiring more than 128MB memory.</p>
+
+      <p>Model your exact configuration at the <a href="/serverless-cost-calculator">serverless cost calculator</a>.</p>
+
+      <h2 id="total">7. Total Monthly Cost Summary</h2>
+
+      <p>Two stacks: <strong>Budget</strong> uses GPT-5.4 nano, Qdrant self-hosted on Hetzner, Supabase Auth, Hetzner VPS, Stripe, and AWS Lambda. <strong>Premium</strong> uses Claude Sonnet 4.6, Pinecone Serverless, Clerk, AWS EC2, Stripe, and Lambda.</p>
+
+      <table class="total-table">
+        <thead>
+          <tr><th>Component</th><th>Startup (1K) Budget</th><th>Startup (1K) Premium</th><th>Growth (10K) Budget</th><th>Growth (10K) Premium</th><th>Scale (100K) Budget</th><th>Scale (100K) Premium</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LLM API</td><td>$7</td><td>$90</td><td>$71</td><td>$900</td><td>$713</td><td>$9,000</td></tr>
+          <tr><td>Vector DB</td><td>$5</td><td>$4</td><td>$9</td><td>$15</td><td>$20</td><td>$100</td></tr>
+          <tr><td>Auth</td><td>$0</td><td>$0</td><td>$0</td><td>$25</td><td>$25</td><td>$1,825</td></tr>
+          <tr><td>Hosting</td><td>$5</td><td>$15</td><td>$9</td><td>$30</td><td>$20</td><td>$120</td></tr>
+          <tr><td>Payments</td><td>$34</td><td>$34</td><td>$342</td><td>$342</td><td>$3,423</td><td>$3,423</td></tr>
+          <tr><td>Serverless</td><td>&lt;$1</td><td>&lt;$1</td><td>$1</td><td>$1</td><td>$20</td><td>$20</td></tr>
+          <tr class="total-row"><td>TOTAL / MONTH</td><td>$51</td><td>$143</td><td>$432</td><td>$1,313</td><td>$4,201</td><td>$14,488</td></tr>
+        </tbody>
+      </table>
+
+      <p>Note: payments are not pure cost — they are a percentage of revenue. At Scale, $3,423 in Stripe fees comes out of $87,000 MRR. Net infrastructure cost (excluding payment processing) is $778/month on the budget stack at 100K users — approximately 0.9% of MRR. That is an extremely healthy unit economics profile.</p>
+
+      <h2 id="cut">8. How to Cut This Bill in Half</h2>
+
+      <p>The total cost difference between budget and premium stacks is driven by three decisions. Here are the four highest-ROI optimizations, ranked by impact:</p>
+
+      <p><strong>1. Model tiering — saves 60–90% on LLM costs.</strong> Audit your query types. Most AI SaaS workloads break down as: 70% retrieval augmentation (nano-class model sufficient), 20% summarization/formatting (mini-class model), 10% complex reasoning (frontier model warranted). Implement a classifier that routes to the cheapest model that can handle the task. This alone reduces LLM costs from $9,000/month to under $2,000/month at Scale.</p>
+
+      <p><strong>2. Switch auth providers before you hit the wall — saves $1,800/month at Scale.</strong> The Clerk-to-Supabase migration takes 3–5 days of engineering. Do it before 10K MAU, not after 50K MAU when migration risk is higher and urgency is already creating pressure. Every month you wait past 10K MAU on Clerk costs $0.02 per additional user.</p>
+
+      <p><strong>3. Self-host your vector database — saves $80–$200/month.</strong> Qdrant on a $20/month Hetzner CX42 handles 50M vectors. The operational overhead is one Docker Compose file and a weekly backup cron job. If your team already manages any containerized services, this is a 2-hour setup with 90% cost reduction versus Pinecone at scale.</p>
+
+      <p><strong>4. Enable prompt caching for repeated context — saves 40–90% on cached tokens.</strong> If your system prompt is large (500+ tokens) and your app processes many sequential messages per user session, Anthropic's prompt caching (cached tokens billed at 90% discount after the first call) and OpenAI's analogous feature can dramatically reduce per-session LLM costs. For chatbot-style applications with multi-turn conversations, this is often the highest-ROI LLM optimization after model tiering.</p>
+
+      <div class="ilink-box">
+        <h3>Use Our Calculators to Model Your Exact Stack</h3>
+        <div class="ilinks">
+          <a href="/llm-cost-calculator" class="ilink"><span class="ic2">🤖</span><div><b>LLM API Cost Calculator</b><span>GPT-5.4 nano vs Sonnet 4.6 vs Gemini 3.5 Flash</span></div></a>
+          <a href="/vector-database-cost" class="ilink"><span class="ic2">🗄️</span><div><b>Vector Database Cost Calculator</b><span>Pinecone vs Qdrant vs Weaviate vs Supabase pgvector</span></div></a>
+          <a href="/auth-provider-cost" class="ilink"><span class="ic2">🔑</span><div><b>Auth Provider Cost Calculator</b><span>Clerk vs Supabase Auth vs Auth0 by MAU</span></div></a>
+          <a href="/cloud-vps-comparison" class="ilink"><span class="ic2">☁️</span><div><b>Cloud VPS Comparison</b><span>Hetzner vs DigitalOcean vs Vultr vs AWS</span></div></a>
+          <a href="/payment-processor-fees" class="ilink"><span class="ic2">💳</span><div><b>Payment Processor Fee Calculator</b><span>Stripe vs Paddle vs Lemon Squeezy</span></div></a>
+          <a href="/serverless-cost-calculator" class="ilink"><span class="ic2">⚡</span><div><b>Serverless Cost Calculator</b><span>AWS Lambda vs Cloudflare Workers vs Vercel</span></div></a>
+        </div>
+      </div>
+
+      <h2 id="faq">Frequently Asked Questions</h2>
+
+      <div class="qa"><div class="q">How much does it cost to build an AI SaaS at 1,000 users?<span class="plus">+</span></div><div class="a"><p>A lean AI SaaS at 1,000 users costs approximately $51–$143 per month for infrastructure. The range depends on model choice: GPT-5.4 nano ($0.20/1M input tokens) keeps LLM costs under $10/month at this scale, while Claude Sonnet 4.6 ($3.00/1M input tokens) pushes LLM costs to $90/month. Hosting (Hetzner $4.50), auth (Supabase Auth free under 50K MAU), and serverless (Lambda, effectively free at low volume) add minimal cost.</p></div></div>
+
+      <div class="qa"><div class="q">What is the biggest cost driver for AI SaaS applications?<span class="plus">+</span></div><div class="a"><p>LLM API costs dominate at every scale, often representing 60–80% of total infrastructure spend. The model you choose has a 15x cost multiplier: GPT-5.4 nano at $0.20/1M input tokens versus Claude Sonnet 4.6 at $3.00/1M input tokens. At 100,000 users, the LLM line item alone ranges from $713/month to $9,000/month. Auth costs become the second-largest surprise at scale — specifically Clerk at $1,825/month for 100K MAU.</p></div></div>
+
+      <div class="qa"><div class="q">Pinecone vs self-hosted Qdrant — which is cheaper?<span class="plus">+</span></div><div class="a"><p>Self-hosted Qdrant on Hetzner is significantly cheaper at every scale. At 100K users (approximately 50M vectors), Pinecone serverless costs around $100/month in storage and query charges. Self-hosted Qdrant on a Hetzner CX42 ($19.90/month) handles the same workload with no per-query fees. The trade-off is operational complexity: your team manages upgrades, backups, and scaling.</p></div></div>
+
+      <div class="qa"><div class="q">Should I use Clerk or Supabase Auth for my AI SaaS?<span class="plus">+</span></div><div class="a"><p>Supabase Auth wins on cost at scale. At 100,000 MAU, Clerk costs $1,825/month ($25 + 90K × $0.02). Supabase Auth Pro costs $25/month and includes up to 100,000 MAU — 73x cheaper. Choose Clerk only if you need its pre-built React/Next.js UI components and plan to stay under 10K MAU long-term.</p></div></div>
+
+      <div class="qa"><div class="q">Stripe vs Paddle for an AI SaaS — which should I choose?<span class="plus">+</span></div><div class="a"><p>For US-only or B2B sales, Stripe (2.9% + $0.30) is cheaper than Paddle (5.0% + $0.50). For global consumer sales where VAT/GST compliance matters, Paddle as a merchant of record handles international tax automatically — worth the 2.1% premium when you factor in tax software and accountant time. At $10,000 MRR, Paddle costs roughly $250 more per month than Stripe.</p></div></div>
+
+      <div class="qa"><div class="q">How can I cut my AI SaaS infrastructure bill in half?<span class="plus">+</span></div><div class="a"><p>The four highest-ROI optimizations: (1) Route 80% of queries to nano/mini models — saves 60–90% on LLM costs. (2) Switch to Supabase Auth before hitting 10K MAU — saves $1,800/month at 100K users. (3) Self-host Qdrant on Hetzner instead of Pinecone — saves $80–$200/month. (4) Enable prompt caching for repeated system prompts — saves 40–90% on cached tokens. Combined, these reduce total infrastructure cost by 50–70%.</p></div></div>
+
+      <div class="rel-box">
+        <h3>Related Articles</h3>
+        <div class="rel-grid">
+          <a href="/blog/clerk-vs-supabase-auth-cost-2026" class="rel-card">
+            <div class="rt">Auth Cost</div>
+            <p>We Switched From Clerk to Supabase Auth and Saved $1,800/Month</p>
+          </a>
+          <a href="/blog/llm-api-cost-guide-2026" class="rel-card">
+            <div class="rt">LLM Guide</div>
+            <p>How to Estimate Your LLM API Costs in 2026</p>
+          </a>
+          <a href="/blog/vector-database-cost-comparison-2026" class="rel-card">
+            <div class="rt">Vector DB</div>
+            <p>Vector Database Cost Comparison 2026</p>
+          </a>
+          <a href="/blog/reduce-llm-api-costs-2026" class="rel-card">
+            <div class="rt">Optimization</div>
+            <p>5 Ways to Cut Your LLM API Bill by 80%</p>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <aside>
+      <div class="toc">
+        <h4>In this article</h4>
+        <ol>
+          <li><a href="#llm">LLM API Costs</a></li>
+          <li><a href="#vectordb">Vector Database</a></li>
+          <li><a href="#auth">Authentication</a></li>
+          <li><a href="#hosting">Hosting</a></li>
+          <li><a href="#payments">Payments</a></li>
+          <li><a href="#serverless">Serverless</a></li>
+          <li><a href="#total">Total Summary</a></li>
+          <li><a href="#cut">Cut the Bill</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+
+      <div class="calc-cta">
+        <h3>🧮 LLM Calculator</h3>
+        <p>Model your exact token costs before you build.</p>
+        <a href="/llm-cost-calculator" class="cta-btn">Open Calculator →</a>
+      </div>
+
+      <div class="calc-cta" style="margin-top:0">
+        <h3>🔑 Auth Cost Calculator</h3>
+        <p>Compare Clerk vs Supabase Auth at your MAU.</p>
+        <a href="/auth-provider-cost" class="cta-btn">Compare Auth →</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 APICalculators.com</span>
+    <span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a> · <a href="/sitemap.xml">Sitemap</a></span>
+  </div>
+  <div class="wrap"><div class="foot-calcs">
+    <strong>Calculators</strong>
+    <nav>
+      <a href="/llm-cost-calculator">LLM Token Cost</a>
+      <a href="/vector-database-cost">Vector DB Cost</a>
+      <a href="/image-generation-cost">AI Image Generation</a>
+      <a href="/payment-processor-fees">Payment Fees</a>
+      <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
+      <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
+      <a href="/serverless-cost-calculator">Serverless Cost</a>
+      <a href="/api-gateway-pricing">API Gateway Cost</a>
+      <a href="/embedding-api-cost">Embedding API Cost</a>
+      <a href="/ai-agent-cost">AI Agent Cost</a>
+      <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
+      <a href="/auth-provider-cost">Auth Provider Cost</a>
+    </nav>
+  </div></div>
+</footer>
+
+<script>
+document.querySelectorAll('.qa .q').forEach(q => {
+  q.addEventListener('click', () => {
+    const qa = q.parentElement, open = qa.classList.toggle('open');
+    const a = qa.querySelector('.a');
+    if (a) a.style.maxHeight = open ? '600px' : '0';
+  });
+});
+</script>
+</body>
+</html>
