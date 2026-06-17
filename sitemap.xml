@@ -43,8 +43,14 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
   </url>
   <url>
+    <loc>https://apicalculators.com/contact</loc>
+    <lastmod>2026-06-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://apicalculators.com/about</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-06-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
