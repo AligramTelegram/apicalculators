@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Cheapest Vector Database 2026: Ranked by Real Cost at Scale</title>
+<meta name="description" content="Which vector database is cheapest in 2026? We rank Pinecone, Qdrant, Supabase pgvector, Weaviate, and Chroma by real monthly cost at 100K, 1M, and 10M vectors.">
+<link rel="canonical" href="https://apicalculators.com/blog/cheapest-vector-database-2026">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="APICalculators">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Cheapest Vector Database 2026: Ranked by Real Cost at Scale">
+<meta property="og:description" content="Pinecone vs Qdrant vs Supabase pgvector vs Weaviate vs Chroma — ranked cheapest to most expensive at 3 production scales.">
+<meta property="og:url" content="https://apicalculators.com/blog/cheapest-vector-database-2026">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta property="article:published_time" content="2026-06-19T00:00:00Z">
+<meta property="article:modified_time" content="2026-06-19T00:00:00Z">
+<meta property="article:tag" content="vector database pricing">
+<meta property="article:tag" content="cheapest vector database">
+<meta property="article:tag" content="Pinecone alternative">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cheapest Vector Database 2026: Ranked by Real Cost">
+<meta name="twitter:description" content="Pinecone vs Qdrant vs Supabase pgvector vs Weaviate — real monthly costs at production scale.">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/cheapest-vector-database-2026"/>
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/cheapest-vector-database-2026"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Cheapest Vector Database 2026: Ranked by Real Cost at Scale","description":"Ranking of vector databases by real monthly cost at 100K, 1M, and 10M vectors.","author":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"publisher":{"@type":"Organization","name":"APICalculators","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png"}},"datePublished":"2026-06-19","dateModified":"2026-06-19","mainEntityOfPage":"https://apicalculators.com/blog/cheapest-vector-database-2026","keywords":"cheapest vector database, vector database pricing 2026, Pinecone alternative, Qdrant vs Pinecone cost, Supabase pgvector pricing"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the cheapest vector database in 2026?","acceptedAnswer":{"@type":"Answer","text":"For managed services: Qdrant Cloud free tier (up to 1GB) and Supabase pgvector (free tier with 500MB) are cheapest for small scale. At 1M+ vectors, self-hosted Qdrant on a $6/month Hetzner VPS is by far the cheapest option — often 90% less than Pinecone."}},{"@type":"Question","name":"Is there a free vector database?","acceptedAnswer":{"@type":"Answer","text":"Yes. Qdrant Cloud offers a permanent free tier (1 cluster, 1GB storage). Pinecone Starter is free up to 100K vectors. Weaviate Cloud has a free sandbox. Chroma is fully open source and free to self-host. Supabase includes pgvector on free and paid plans."}},{"@type":"Question","name":"Is Supabase pgvector cheaper than Pinecone?","acceptedAnswer":{"@type":"Answer","text":"Yes, significantly. Supabase pgvector at $25/month includes 500K vectors and compute — Pinecone equivalent would cost $50–100/month. For teams already using Supabase as their database, pgvector adds vector search at zero additional infrastructure cost."}},{"@type":"Question","name":"Can I self-host a vector database for free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Qdrant, Weaviate, and Chroma are all open source and self-hostable. Running self-hosted Qdrant on a €6/month Hetzner CX22 VPS handles 1–5M vectors comfortably. The only cost is the server."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://apicalculators.com/blog/"},{"@type":"ListItem","position":3,"name":"Cheapest Vector Database 2026","item":"https://apicalculators.com/blog/cheapest-vector-database-2026"}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--lime);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px;max-width:1100px;margin:0 auto;padding:0 22px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+main{padding:56px 0 90px}
+.breadcrumb{display:flex;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted);margin-bottom:24px;flex-wrap:wrap}
+.breadcrumb a{color:var(--muted)}.breadcrumb span{color:var(--border2)}
+.art-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.atag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;border:1px solid var(--border2);border-radius:5px;padding:3px 8px;color:var(--muted)}
+.atag.hi{border-color:rgba(184,255,46,.35);color:var(--lime)}
+h1{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,40px);letter-spacing:-.03em;line-height:1.05;margin-bottom:16px}
+.art-meta{font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted);margin-bottom:30px}
+.intro{font-size:18px;color:#cdd6dd;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,26px);letter-spacing:-.02em;margin:40px 0 13px}
+h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:700;font-size:17px;margin:26px 0 9px;color:#d4dce3}
+p{color:#cdd6dd;margin-bottom:15px}ul,ol{color:#cdd6dd;padding-left:24px;margin-bottom:15px}li{margin-bottom:8px}strong{color:var(--text)}
+.ptable{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:9px 13px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:10px 13px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 5px;border-radius:4px;margin-left:5px;font-weight:700}
+.badge-amber{background:var(--amber);color:#1a0d00}
+.rank-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin:16px 0;position:relative;padding-left:60px}
+.rank-num{position:absolute;left:16px;top:18px;font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:22px;color:var(--lime)}
+.rank-card h3{margin:0 0 5px;font-size:16px}
+.rank-card .cost{font-family:'Cascadia Code','Consolas',monospace;font-size:13px;color:var(--lime);margin-bottom:8px}
+.rank-card p{font-size:14px;margin:0;color:var(--muted)}
+.calc-cta{background:linear-gradient(135deg,var(--surface),var(--bg2));border:1px solid var(--border2);border-radius:14px;padding:24px;margin:30px 0;position:relative;overflow:hidden}
+.calc-cta::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.calc-cta h3{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;margin-bottom:6px}.calc-cta p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:#06210a;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:20px 0}
+.tool-link{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--muted);transition:border-color .18s}
+.tool-link:hover{border-color:var(--lime);color:var(--text)}.tool-link .ic{font-size:18px}
+.tl-name{font-weight:600;color:var(--text);margin-bottom:2px}.tl-desc{font-size:12px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:36px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;max-width:1100px;margin:0 auto;padding:0 22px}footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="nav"><div class="nav-in"><a href="/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main>
+<div class="wrap">
+  <nav class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><span>Cheapest Vector Database 2026</span></nav>
+  <div class="art-tags"><span class="atag hi">Vector Databases</span><span class="atag">Pricing</span><span class="atag">2026</span></div>
+  <h1>Cheapest Vector Database 2026: Ranked by Real Cost</h1>
+  <p class="art-meta">Updated June 2026 · APICalculators · 8 min read</p>
+  <p class="intro">Not all vector databases are priced the same — and the price difference between the cheapest and most expensive option at 10M vectors can be 10× or more. This ranking is based on real monthly costs at three production scales, not marketing page headlines.</p>
+
+  <h2>TL;DR — Cheapest at Each Scale</h2>
+  <table class="ptable">
+    <thead><tr><th>Scale</th><th>Cheapest Managed</th><th>Cheapest Overall</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr class="best"><td>Under 100K vectors</td><td>Qdrant Cloud free tier</td><td>Chroma (self-hosted)</td><td><strong>$0</strong></td></tr>
+      <tr class="best"><td>1M vectors</td><td>Qdrant Cloud</td><td>Self-hosted Qdrant (VPS)</td><td><strong>$6–14/mo</strong></td></tr>
+      <tr class="best"><td>10M vectors</td><td>Supabase pgvector</td><td>Self-hosted Qdrant (VPS)</td><td><strong>$50–90/mo</strong></td></tr>
+      <tr><td>100M vectors</td><td>Weaviate Cloud</td><td>Self-hosted Qdrant (dedicated)</td><td>$400–600/mo</td></tr>
+    </tbody>
+  </table>
+
+  <div class="calc-cta">
+    <h3>🗄️ Calculate Your Exact Vector DB Cost</h3>
+    <p>Enter your vector count, dimensions, and query volume — get a real monthly cost for every major provider side by side.</p>
+    <a href="/vector-database-cost" class="cta-btn">Open Vector DB Calculator →</a>
+  </div>
+
+  <h2>Full Ranking: Cheapest to Most Expensive</h2>
+  <p>Assumptions: 1536-dimension vectors (OpenAI text-embedding-3-small), 100K queries/month at 1M scale, June 2026 published pricing.</p>
+
+  <div class="rank-card">
+    <span class="rank-num">#1</span>
+    <h3>Self-Hosted Qdrant <span class="badge">CHEAPEST</span></h3>
+    <div class="cost">$0 software + $6–20/mo server</div>
+    <p>Qdrant is Apache 2.0 open source. Running it on a Hetzner CX22 (€3.29/mo) handles 500K–1M vectors. A CX32 (€5.89/mo) handles 5M+ vectors. You pay nothing per query, nothing per vector — only the server cost. The catch: you manage infrastructure, backups, and uptime yourself.</p>
+  </div>
+
+  <div class="rank-card">
+    <span class="rank-num">#2</span>
+    <h3>Chroma (Self-Hosted)</h3>
+    <div class="cost">$0 software + server cost</div>
+    <p>Chroma is fully open source and the default vector store for LangChain and many RAG tutorials. Best for development and small production workloads. No cloud managed offering yet — fully self-hosted only. Less feature-rich than Qdrant at scale but extremely simple to start.</p>
+  </div>
+
+  <div class="rank-card">
+    <span class="rank-num">#3</span>
+    <h3>Qdrant Cloud (Managed) <span class="badge">FREE TIER</span></h3>
+    <div class="cost">Free up to 1GB · $14–50/mo for 1M+ vectors</div>
+    <p>The managed version of Qdrant. Free tier gives you 1 cluster with 1GB RAM — enough for ~100K vectors at 1536 dims. Paid tiers are typically 40–60% cheaper than Pinecone equivalent tiers. No per-query fees — you pay for cluster size, not usage.</p>
+  </div>
+
+  <div class="rank-card">
+    <span class="rank-num">#4</span>
+    <h3>Supabase pgvector</h3>
+    <div class="cost">$25/mo Pro plan (500K vectors included)</div>
+    <p>If you already use Supabase, pgvector adds vector search to your existing PostgreSQL instance at zero additional infrastructure cost. The $25/mo Pro plan includes 8GB database storage. For teams already on Supabase, this is effectively the cheapest path to vector search for 1M+ vectors.</p>
+  </div>
+
+  <div class="rank-card">
+    <span class="rank-num">#5</span>
+    <h3>Weaviate Cloud</h3>
+    <div class="cost">Free sandbox · Paid from ~$25/mo</div>
+    <p>Weaviate's cloud offering has a free sandbox tier (no SLA, shared infrastructure). Paid plans include compute, storage, and queries in a cluster price — no per-query fees at standard tiers. At 10M vectors, Weaviate Cloud is typically 30–40% cheaper than Pinecone Serverless.</p>
+  </div>
+
+  <div class="rank-card">
+    <span class="rank-num">#6</span>
+    <h3>Pinecone Serverless</h3>
+    <div class="cost">Free up to 100K vectors · $20–300/mo at 1M–10M</div>
+    <p>Pinecone is the most mature managed vector DB with the best tooling, documentation, and integrations. The free Starter tier (1 index, 100K vectors) is generous for prototyping. However, at 1M+ vectors, Pinecone's per-read-unit pricing makes it 2–5× more expensive than Qdrant Cloud or self-hosted alternatives.</p>
+  </div>
+
+  <h2>Cost Comparison at 1M Vectors</h2>
+  <table class="ptable">
+    <thead><tr><th>Provider</th><th>Monthly Cost</th><th>Per-query fee?</th><th>Open source?</th></tr></thead>
+    <tbody>
+      <tr class="best"><td>Self-Hosted Qdrant (Hetzner CX32)<span class="badge">CHEAPEST</span></td><td class="mono"><strong>~$7/mo</strong></td><td>No</td><td>✅ Apache 2.0</td></tr>
+      <tr class="best"><td>Qdrant Cloud</td><td class="mono"><strong>~$14/mo</strong></td><td>No</td><td>✅</td></tr>
+      <tr><td>Supabase pgvector (Pro)</td><td class="mono">~$25/mo</td><td>No</td><td>✅</td></tr>
+      <tr><td>Weaviate Cloud</td><td class="mono">~$30/mo</td><td>No</td><td>✅</td></tr>
+      <tr><td>Pinecone Serverless</td><td class="mono">~$22/mo</td><td>Yes ($16/M reads)</td><td>❌</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What Actually Makes a Vector Database "Cheap"?</h2>
+  <p>There are three cost components that vary dramatically between providers:</p>
+  <ul>
+    <li><strong>Storage cost:</strong> Pinecone charges $0.33/GB/month for stored vectors. Qdrant Cloud includes storage in the cluster price. Self-hosted: you pay whatever your VPS disk costs (~$0.05/GB at Hetzner).</li>
+    <li><strong>Query cost:</strong> Pinecone charges $16/million Read Units. Most alternatives include queries in the cluster/plan price — no per-query fees.</li>
+    <li><strong>Infrastructure cost:</strong> Managed services handle ops but mark up the underlying infra 3–10×. Self-hosted on a VPS is raw compute cost.</li>
+  </ul>
+  <p>The biggest cost lever for most teams is eliminating per-query fees. A production system doing 10M queries/month pays $160 in read units alone on Pinecone Serverless — $0 on Qdrant Cloud or Weaviate at the same cluster tier.</p>
+
+  <h2>When to Pay for Pinecone (Or Not)</h2>
+  <p><strong>Pay for Pinecone when:</strong> You need managed infrastructure with minimal ops burden, your team has no DevOps capacity, you expect 100M+ vectors with high QPS, or you need enterprise SLAs and support contracts.</p>
+  <p><strong>Choose an alternative when:</strong> Your vector count is under 50M, you have someone who can manage a containerized service, or you're already paying for Supabase.</p>
+  <p>Use our <a href="/vector-database-cost">vector database cost calculator</a> to compare all providers at your specific vector count and query volume — the difference is often 3–10× at production scale.</p>
+
+  <div class="calc-cta">
+    <h3>📊 See Exact Costs for Your Scale</h3>
+    <p>Enter your vector count and query volume — instant side-by-side comparison of all major vector databases.</p>
+    <a href="/vector-database-cost" class="cta-btn">Calculate My Cost →</a>
+  </div>
+
+  <h2>Related Comparisons</h2>
+  <div class="tool-links">
+    <a href="/compare/pinecone-vs-qdrant" class="tool-link"><span class="ic">⚔️</span><div><div class="tl-name">Pinecone vs Qdrant</div><div class="tl-desc">Deep cost + feature dive</div></div></a>
+    <a href="/blog/vector-database-cost-comparison-2026" class="tool-link"><span class="ic">📊</span><div><div class="tl-name">Full Cost Comparison</div><div class="tl-desc">All 4 providers vs your scale</div></div></a>
+    <a href="/compare/supabase-vs-pinecone" class="tool-link"><span class="ic">🗄️</span><div><div class="tl-name">Supabase vs Pinecone</div><div class="tl-desc">pgvector vs managed vector DB</div></div></a>
+  </div>
+</div>
+</main>
+<footer><div class="foot-in"><span>© 2026 APICalculators.com · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></span><nav style="display:flex;gap:16px"><a href="/vector-database-cost">Vector DB Cost</a><a href="/llm-cost-calculator">LLM Cost</a><a href="/blog/">Blog</a></nav></div></footer>
+</body>
+</html>
