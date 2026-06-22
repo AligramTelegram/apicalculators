@@ -1348,4 +1348,62 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/blog/pinecone-guide-tarifs-2026"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026"/>
   </url>
+  <url>
+    <loc>https://apicalculators.com/prompt-caching-cost</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/prompt-caching-cost"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/prompt-caching-kosten"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-mise-en-cache-prompt"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/prompt-onbellekleme-maliyet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/prompt-caching-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/de/prompt-caching-kosten</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/fr/cout-mise-en-cache-prompt</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/prompt-onbellekleme-maliyet</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/batch-api-cost</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/batch-api-cost"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/batch-api-kosten"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-batch-api"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/batch-api-maliyet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/batch-api-cost"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/de/batch-api-kosten</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/fr/cout-batch-api</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/tr/batch-api-maliyet</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
