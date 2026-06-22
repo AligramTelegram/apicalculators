@@ -102,6 +102,11 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
 </style>
@@ -140,6 +145,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>
 </section>
 <div class="wrap">
+
+<div class="kt">
+<div class="kt-hd">Key Takeaways</div>
+<ul>
+<li><strong>AWS API Gateway</strong> costs <strong>$3.50 per million API calls</strong> plus $0.09/GB data transfer — most expensive managed option</li>
+<li><strong>Cloudflare Workers</strong> is free for up to 100K requests/day, then <strong>$5/month for 10M requests</strong></li>
+<li><strong>Self-hosted Kong</strong> is open source with no per-request fees — pay only for server infrastructure ($6–15/month on a VPS)</li>
+<li>At 10M monthly API calls: <strong>AWS ≈ $35</strong>, Cloudflare ≈ $5, self-hosted Kong ≈ $6–15</li>
+</ul>
+</div>
 
 <div class="calc-shell" id="calc">
   <div class="calc-header">

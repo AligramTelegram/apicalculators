@@ -103,6 +103,11 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
 footer a{color:var(--muted)}
 </style>
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/auth-provider-cost"/>
@@ -122,6 +127,15 @@ footer a{color:var(--muted)}
   <p class="intro">At 100K monthly active users, Clerk costs $1,825/month and Supabase Auth costs $25/month. Same authentication. 73x price difference. Find your number before you scale.</p>
 </section>
 <div class="wrap">
+<div class="kt">
+<div class="kt-hd">Key Takeaways</div>
+<ul>
+<li><strong>Supabase Auth is free</strong> up to 50,000 MAU when bundled with your Supabase database plan</li>
+<li><strong>Clerk</strong> costs <strong>$25/month for 10,000 MAU</strong> and includes social login, MFA, and a polished pre-built UI</li>
+<li><strong>Auth0 Essentials</strong> is ≈ $23/month for 10,000 MAU — similar price to Clerk but older developer experience</li>
+<li><strong>Better Auth</strong> is open source and self-hosted — pay only infrastructure cost, no per-MAU fees</li>
+</ul>
+</div>
 <div class="calc-shell" id="calc">
   <div class="calc-header"><h2>🔑 Authentication Cost Calculator</h2><p>Enter your MAU · Select feature tier · Compare all providers instantly</p></div>
   <div class="calc-body">

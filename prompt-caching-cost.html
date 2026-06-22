@@ -97,6 +97,11 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .ptab.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 .savings-bar{height:8px;border-radius:4px;background:var(--border);margin:6px 0;overflow:hidden}
 .savings-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--lime),var(--cyan));transition:width .4s ease}
@@ -122,6 +127,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </section>
 
 <div class="wrap">
+
+<div class="kt">
+<div class="kt-hd">Key Takeaways</div>
+<ul>
+<li><strong>Anthropic gives 90% off</strong> cached reads — the highest prompt caching discount of any major AI provider</li>
+<li><strong>OpenAI auto-caches at 50% off</strong> with no extra API calls — discount applied automatically on prompts over 1,024 tokens</li>
+<li><strong>Google Gemini caches at 75% off</strong> but requires a minimum 32,768 token context to enable caching</li>
+<li>For a 10K-token system prompt with 10K monthly requests, caching saves ≈ <strong>$270/month</strong> on Claude Sonnet 4.6</li>
+</ul>
+</div>
 
 <div class="calc-shell" id="calc">
   <div class="calc-header">

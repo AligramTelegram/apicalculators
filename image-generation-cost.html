@@ -102,6 +102,11 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
 </style>
@@ -140,6 +145,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>
 </section>
 <div class="wrap">
+
+<div class="kt">
+<div class="kt-hd">Key Takeaways</div>
+<ul>
+<li><strong>DALL·E 3</strong> via OpenAI API costs <strong>$0.040 per image</strong> at 1024×1024 standard quality (June 2026)</li>
+<li><strong>Flux Pro</strong> via fal.ai costs $0.055/image at full quality — highest quality managed API option</li>
+<li><strong>Self-hosted Stable Diffusion</strong> on RunPod A100 costs ≈ <strong>$0.002–0.005 per image</strong> — 10–20× cheaper than managed APIs</li>
+<li>At 10,000 images/month: <strong>DALL·E 3 ≈ $400</strong>, Flux Pro ≈ $550, self-hosted SD ≈ $20–50</li>
+</ul>
+</div>
 
 <div class="calc-shell" id="calc">
   <div class="calc-header">

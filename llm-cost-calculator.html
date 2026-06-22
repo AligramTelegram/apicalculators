@@ -103,6 +103,11 @@ section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;fo
 .mbox p:last-child{margin-bottom:0}
 footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
 footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
 </style>
@@ -141,6 +146,16 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 </div>
 </section>
 <div class="wrap">
+
+<div class="kt">
+<div class="kt-hd">Key Takeaways</div>
+<ul>
+<li><strong>GPT-5.5</strong> costs <strong>$5.00 per million input tokens</strong> and <strong>$30.00 per million output tokens</strong> as of June 2026</li>
+<li>A typical request (1,500 input + 500 output tokens) costs approximately <strong>$0.023</strong> with GPT-5.5</li>
+<li><strong>GPT-5.4 nano is 97% cheaper</strong> at $0.20/1M input — best for high-volume classification and routing</li>
+<li>Use <strong>Batch API for 50% off</strong> async workloads, or <strong>prompt caching</strong> to save 75–90% on repeated system prompts</li>
+</ul>
+</div>
 
 <div class="calc-shell" id="calc">
   <div class="calc-header">
