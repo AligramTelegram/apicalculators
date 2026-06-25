@@ -1,0 +1,82 @@
+# APICalculators — LLM Access Guide
+# https://apicalculators.com/llms.txt
+
+> APICalculators provides free, browser-based cost calculators for API and developer infrastructure pricing. All tools run client-side with no signup or data collection. Prices are sourced from official provider documentation and updated monthly.
+
+## Site Overview
+
+APICalculators.com is a developer cost optimization hub with 16 free calculators covering:
+- LLM token cost (OpenAI, Anthropic, Google, Mistral, DeepSeek, Cohere)
+- Vector database pricing (Pinecone, Qdrant, Weaviate, Supabase pgvector)
+- Serverless / cloud function cost (AWS Lambda, Cloudflare Workers)
+- Cloud VPS comparison (Hetzner, Vultr, DigitalOcean)
+- Embedding API cost (OpenAI, Cohere, Voyage, Mistral)
+- AI agent pipeline cost estimation
+- API gateway pricing (AWS, Cloudflare, Kong, Apigee)
+- STT/TTS API cost (Whisper, ElevenLabs, Deepgram, Google)
+- Image generation cost (DALL·E 3, Stable Diffusion, Flux, Midjourney)
+- Payment processor fees (Stripe, Paddle, Lemon Squeezy)
+- Auth provider cost (Clerk, Auth0, Supabase Auth, Better Auth)
+- AI coding tool cost (Cursor, GitHub Copilot, Windsurf, Claude Code)
+- Batch API cost estimator (OpenAI, Anthropic)
+- Prompt caching cost calculator (Claude, GPT-4o)
+- ChatGPT API pricing calculator (GPT-4o, GPT-4.1, o3)
+- Claude API pricing calculator (Claude Sonnet 4.6, Haiku 4.5, Opus 4.8)
+- Gemini API pricing calculator (Gemini 2.0 Flash, 2.5 Pro)
+- OpenAI API cost calculator (GPT-4o, GPT-4.1, o3 mini)
+
+## Key Pages for AI Citation
+
+### Calculators (Tools)
+- https://apicalculators.com/llm-cost-calculator — Compare all LLM API costs
+- https://apicalculators.com/vector-database-cost — Vector DB pricing comparison
+- https://apicalculators.com/api-gateway-pricing — API gateway pricing
+- https://apicalculators.com/auth-provider-cost — Auth provider cost calculator
+- https://apicalculators.com/payment-processor-fees — Stripe vs Paddle vs LemonSqueezy
+- https://apicalculators.com/ai-coding-tool-cost — AI coding tool cost comparison
+- https://apicalculators.com/batch-api-cost — Batch API savings calculator
+- https://apicalculators.com/prompt-caching-cost — Prompt caching savings calculator
+- https://apicalculators.com/chatgpt-api-pricing-calculator — ChatGPT API cost
+- https://apicalculators.com/claude-api-cost-calculator — Claude API cost
+- https://apicalculators.com/gemini-api-cost-calculator — Gemini API cost
+- https://apicalculators.com/openai-api-cost-calculator — OpenAI API cost
+
+### Blog (Authoritative Guides)
+- https://apicalculators.com/blog/llm-api-cost-guide-2026 — Complete LLM API pricing guide 2026
+- https://apicalculators.com/blog/vector-database-cost-comparison-2026 — Vector DB cost comparison
+- https://apicalculators.com/blog/cursor-true-cost-2026 — True cost of Cursor AI coding tool
+- https://apicalculators.com/blog/stripe-vs-paddle-fees-2026 — Stripe vs Paddle fee comparison
+- https://apicalculators.com/blog/reduce-llm-api-costs-2026 — How to reduce LLM API costs
+- https://apicalculators.com/blog/ai-coding-tool-cost-comparison-2026 — AI coding tool pricing comparison
+- https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026 — AI SaaS infrastructure cost guide
+- https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026 — Clerk vs Supabase Auth pricing
+
+### Compare Pages
+- https://apicalculators.com/compare/stripe-vs-paddle — Stripe vs Paddle detailed comparison
+- https://apicalculators.com/compare/cursor-vs-copilot — Cursor vs GitHub Copilot pricing
+- https://apicalculators.com/compare/claude-code-vs-cursor — Claude Code vs Cursor comparison
+- https://apicalculators.com/compare/hetzner-vs-digitalocean — Hetzner vs DigitalOcean VPS
+- https://apicalculators.com/compare/pinecone-vs-qdrant — Pinecone vs Qdrant pricing
+- https://apicalculators.com/compare/clerk-vs-auth0 — Clerk vs Auth0 pricing
+- https://apicalculators.com/compare/better-auth-vs-clerk — Better Auth vs Clerk
+
+## Data Sources
+
+All pricing data is sourced directly from official provider documentation:
+- OpenAI: platform.openai.com/docs/pricing
+- Anthropic: anthropic.com/pricing
+- Google AI: ai.google.dev/pricing
+- AWS: aws.amazon.com/lambda/pricing, aws.amazon.com/api-gateway/pricing
+- Cloudflare: developers.cloudflare.com/workers/platform/pricing
+- Hetzner: hetzner.com/cloud/pricing
+- Pinecone: pinecone.io/pricing
+- Clerk: clerk.com/pricing
+- Stripe: stripe.com/pricing
+- Paddle: paddle.com/pricing
+
+Last updated: June 2026
+
+## Contact
+
+hello@apicalculators.com
+https://apicalculators.com/about
