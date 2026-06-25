@@ -22,7 +22,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Prompt Caching Savings","description":"Calculate cost savings from caching repeated system prompts with Anthropic, OpenAI, or Google.","step":[{"@type":"HowToStep","position":1,"name":"Select Provider","text":"Choose your AI provider — Anthropic (90% off cache reads), OpenAI (50% off), or Google (75% off)."},{"@type":"HowToStep","position":2,"name":"Enter System Prompt Size","text":"Input your system prompt token count — this is the portion that gets cached across requests."},{"@type":"HowToStep","position":3,"name":"Set Cache Hit Rate","text":"Estimate what percentage of requests reuse the cached prompt to calculate your monthly savings."}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is prompt caching and how does it save money?","acceptedAnswer":{"@type":"Answer","text":"Prompt caching lets you reuse the beginning of a prompt (system prompt, document context) across multiple requests. Instead of re-processing the same tokens every call, the provider caches the KV state. Anthropic charges 90% less for cached tokens ($0.30/1M vs $3.00/1M on Sonnet). OpenAI charges 50% less. Google charges 75% less for Gemini cached tokens."}},{"@type":"Question","name":"How much does Anthropic prompt caching cost?","acceptedAnswer":{"@type":"Answer","text":"Anthropic prompt caching: cache write costs 25% more than standard input ($3.75/1M on Sonnet), but cache reads cost 90% less ($0.30/1M on Sonnet). Break-even is typically 2 requests using the same prefix. For 10+ requests with the same system prompt, savings are 80–88%."}},{"@type":"Question","name":"Does OpenAI support prompt caching?","acceptedAnswer":{"@type":"Answer","text":"Yes. OpenAI automatically caches prompt prefixes longer than 1024 tokens at 50% discount — no code change needed. GPT-4o cached input drops from $2.50/1M to $1.25/1M. Cache TTL is a few minutes for active sessions."}},{"@type":"Question","name":"When does prompt caching NOT help?","acceptedAnswer":{"@type":"Answer","text":"Caching helps only when the same prefix is reused. If every request has a unique system prompt, caching has no benefit. It also has minimal effect for short prompts under 512 tokens — the cache overhead reduces savings. Best use cases: RAG with a fixed document corpus, agents with a long static system prompt, and multi-turn conversations."}}]}</script>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3540510471635518" crossorigin="anonymous"></script>
 <link rel="alternate" hreflang="en" href="https://apicalculators.com/prompt-caching-cost"/>
 <link rel="alternate" hreflang="de" href="https://apicalculators.com/de/prompt-caching-kosten"/>
 <link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-mise-en-cache-prompt"/>
@@ -121,7 +121,7 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
   <p class="intro">Calculate exact savings from prompt caching on Claude, GPT-5, and Gemini. Enter your system prompt size and daily requests — see monthly savings instantly.</p>
   <div class="ad-wrap">
     <div class="ad-label">Advertisement</div>
-    <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="TOP0000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-3540510471635518" data-ad-slot="TOP0000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 </section>
@@ -201,7 +201,7 @@ footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
 
 <div class="ad-wrap">
   <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="MID0000000" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+  <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-3540510471635518" data-ad-slot="MID0000000" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
