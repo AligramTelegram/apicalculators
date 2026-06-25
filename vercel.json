@@ -89,6 +89,46 @@
   ],
   "redirects": [
     {
+      "source": "/blog/vector-database-cost-comparison-2026.html",
+      "destination": "/blog/vector-database-cost-comparison-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stripe-vs-paddle-fees-2026.html",
+      "destination": "/blog/stripe-vs-paddle-fees-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/stt-tts-api-cost-2026.html",
+      "destination": "/blog/stt-tts-api-cost-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lemon-squeezy-vs-stripe-2026.html",
+      "destination": "/blog/lemon-squeezy-vs-stripe-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/midjourney-vs-dalle-cost-2026.html",
+      "destination": "/blog/midjourney-vs-dalle-cost-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/reduce-llm-api-costs-2026.html",
+      "destination": "/blog/reduce-llm-api-costs-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/llm-api-cost-guide-2026.html",
+      "destination": "/blog/llm-api-cost-guide-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-coding-tool-cost-comparison-2026.html",
+      "destination": "/blog/ai-coding-tool-cost-comparison-2026",
+      "permanent": true
+    },
+    {
       "source": "/%5B:path*%5D",
       "destination": "/",
       "permanent": false
