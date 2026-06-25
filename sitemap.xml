@@ -495,48 +495,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://apicalculators.com/de/llm-kostenrechner</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/cloud-vps-kostenvergleich</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/aws-lambda-rechner</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/calculateur-cout-llm</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/comparateur-vps-cloud</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/llm-maliyet-hesaplayici</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/aws-lambda-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <url>
     <loc>https://apicalculators.com/ai-coding-tool-cost</loc>
@@ -551,31 +509,6 @@
   </url>
 
   <url>
-    <loc>https://apicalculators.com/de/ki-coding-tool-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/ai-coding-tool-cost"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://apicalculators.com/de/ki-coding-tool-kosten"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-outil-ia-coding"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/yapay-zeka-kodlama-arac-maliyeti"/>
-  </url>
-
-  <url>
-    <loc>https://apicalculators.com/fr/cout-outil-ia-coding</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://apicalculators.com/tr/yapay-zeka-kodlama-arac-maliyeti</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://apicalculators.com/auth-provider-cost</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -585,27 +518,6 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/cout-fournisseur-auth"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/kimlik-dogrulama-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/auth-provider-cost"/>
-  </url>
-
-  <url>
-    <loc>https://apicalculators.com/de/auth-anbieter-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://apicalculators.com/fr/cout-fournisseur-auth</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://apicalculators.com/tr/kimlik-dogrulama-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <url>
@@ -709,144 +621,6 @@
 
   <url>
     <loc>https://apicalculators.com/tr/blog/stripe-turkiye-komisyon-2026</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/calculateur-cout-aws-lambda</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/bulut-vps-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/vektordatenbank-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-base-vectorielle</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/vektor-veritabani-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/embedding-api-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-api-embedding</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/embedding-api-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/api-gateway-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-api-gateway</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/api-gateway-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/stt-tts-api-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-api-stt-tts</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/stt-tts-api-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/ki-agent-kostenrechner</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-agent-ia</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/yz-ajan-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/ki-bildgenerierung-kosten</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/cout-generation-image-ia</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/yz-gorsel-uretim-maliyet</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/de/stripe-vs-paddle-rechner</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/fr/comparateur-stripe-paddle</loc>
-    <lastmod>2026-06-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://apicalculators.com/tr/stripe-vs-paddle-hesaplayici</loc>
     <lastmod>2026-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
