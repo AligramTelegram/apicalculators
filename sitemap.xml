@@ -1226,5 +1226,29 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/batch-api-maliyet"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/batch-api-cost"/>
   </url>
+  <url>
+    <loc>https://apicalculators.com/openai-api-cost-calculator</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/openai-api-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/openai-api-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/gemini-api-cost-calculator</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/gemini-api-cost-calculator"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/gemini-api-cost-calculator"/>
+  </url>
+  <url>
+    <loc>https://apicalculators.com/blog/ai-agent-cost-calculator-2026</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://apicalculators.com/blog/ai-agent-cost-calculator-2026"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/ai-agent-cost-calculator-2026"/>
+  </url>
 </urlset>
 
