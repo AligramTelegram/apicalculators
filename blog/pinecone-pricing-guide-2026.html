@@ -3,16 +3,61 @@
 <title>Pinecone Pricing Guide 2026: Serverless vs Pod Cost Breakdown</title>
 <meta name="description" content="Pinecone 2026 pricing breakdown. Serverless vs Pod, cost per 1M vectors, storage+query costs at scale.">
 <link rel="canonical" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026">
-<style>
-:root{--bg:#0a0c10;--surface:#12161d;--border:#1d2530;--text:#e8edf1;--lime:#b8ff2e}
-body{background:var(--bg);color:var(--text);font-family:system-ui;line-height:1.75}
-a{color:var(--lime)}.wrap{max-width:820px;margin:0 auto;padding:22px}
-h1{font-weight:900;font-size:32px}h2{font-weight:900;margin:24px 0 12px}
-table{width:100%;border-collapse:collapse;margin:20px 0}
-td{padding:10px;border:1px solid var(--border)}.best{background:rgba(184,255,46,.04)}
-header{border-bottom:1px solid var(--border);padding:12px 22px}
-footer{border-top:1px solid var(--border);text-align:center;font-size:12px;color:#8b97a4;padding:20px}
-</style>
+<style>:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px}
+.hero{padding:52px 0 28px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--muted)}.breadcrumb span{color:var(--border2);margin:0 6px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:5px 12px;border-radius:100px;margin-bottom:16px}
+h1{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(24px,4.5vw,42px);letter-spacing:-.03em;line-height:1.08;margin-bottom:16px}
+h1 .em{color:var(--lime)}
+.meta{color:var(--muted);font-size:13px;margin-bottom:28px}
+article p{color:#cdd6dd;font-size:16px;margin-bottom:20px}
+article h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(18px,2.5vw,26px);letter-spacing:-.02em;margin:40px 0 14px;color:var(--text)}
+article h3{font-size:17px;font-weight:700;margin:24px 0 10px;color:var(--text)}
+code{font-family:'Cascadia Code','Consolas',monospace;font-size:13px;background:var(--surface);padding:2px 6px;border-radius:4px;color:var(--lime)}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block;margin:20px 0 32px}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:24px 0;border-left:3px solid}
+.callout p{margin:0;color:#cdd6dd;font-size:14px}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.cta-box{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:12px;padding:22px 24px;margin:36px 0;text-align:center}
+.cta-box p{color:var(--muted);font-size:15px;margin-bottom:14px}
+.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:700;padding:12px 24px;border-radius:10px;font-size:15px;transition:opacity .15s}
+.cta-btn:hover{opacity:.85}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.ilink-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:40px 0}
+.ilink-box h3{font-size:13px;font-family:'Cascadia Code','Consolas',monospace;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:14px}
+.ilinks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.ilinks{grid-template-columns:1fr}}
+.ilink{display:flex;align-items:center;gap:10px;color:var(--text);padding:10px 12px;border:1px solid var(--border);border-radius:10px;transition:border-color .2s}
+.ilink:hover{border-color:var(--lime)}.ilink .ic2{font-size:18px}.ilink b{font-size:13px;display:block}
+.ilink span{font-size:12px;color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted)}
+.foot-calcs{padding:16px 0 0;font-size:12px;color:var(--muted)}
+.foot-calcs strong{display:block;margin-bottom:10px;color:var(--text)}
+.foot-calcs nav{display:flex;flex-wrap:wrap;gap:8px 16px}
+.foot-calcs nav a{color:var(--muted)}</style>
 
 <script type="application/ld+json">
 {
@@ -99,68 +144,161 @@ footer{border-top:1px solid var(--border);text-align:center;font-size:12px;color
 <link rel="alternate" hreflang="x-default" href="https://apicalculators.com/blog/pinecone-pricing-guide-2026"/>
 </head>
 <body>
-<header><a href="/">APICalculators</a></header>
+<header class="nav"><div class="wrap nav-in">
+  <a href="/" class="logo">API<b>Calculators</b></a>
+  <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
+</div></header>
 <div class="wrap">
-<h1>Pinecone Pricing Guide 2026</h1>
-<p><strong>Pinecone Serverless:</strong> New, simplest, $0.33/GB stored + $16/M queries.</p>
-<div class="ad-unit ad-top-content" style="margin:2rem 0;text-align:center;min-height:90px;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="XXXXXXXXXX"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="hero">
+  <div class="breadcrumb"><a href="/">APICalculators</a><span>/</span><a href="/blog/">Blog</a></div>
+  <span class="tag">Vector Databases · June 2026</span>
+  <h1>Pinecone <span class="em">Pricing Guide</span> 2026: Serverless vs Pod Cost Breakdown</h1>
+  <div class="meta">June 2, 2026 · 10 min read</div>
+</div>
+<article>
+
+<p>Pinecone is the most widely used managed vector database in 2026, but its pricing is genuinely confusing. There are two fundamentally different billing models — Serverless and Pods — with completely different cost structures. Choosing the wrong one at your scale can mean paying 3-10× more than necessary.</p>
+
+<h2>Pinecone Pricing Models Explained</h2>
+
+<h3>Serverless (pay per use)</h3>
+<p>Pinecone Serverless launched in 2024 and is now the default for new accounts. You pay for storage and queries independently, with no fixed capacity to provision:</p>
+<ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+  <li><strong style="color:var(--text)">Storage:</strong> $0.33/GB per month (1M vectors at 1536 dims ≈ 6GB ≈ $2/mo)</li>
+  <li><strong style="color:var(--text)">Read units:</strong> $16 per million read units (1 query ≈ 6-10 read units)</li>
+  <li><strong style="color:var(--text)">Write units:</strong> $2 per million write units</li>
+</ul>
+
+<h3>Pods (reserved capacity)</h3>
+<p>Pinecone Pods are the original model — you provision dedicated compute pods with fixed monthly pricing. Cost is predictable but requires capacity planning:</p>
+<ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+  <li><strong style="color:var(--text)">p1.x1 pod:</strong> ~$0.096/hour ($70/month) — holds ~1M vectors at 1536 dims</li>
+  <li><strong style="color:var(--text)">p1.x2 pod:</strong> ~$0.192/hour ($140/month) — holds ~2M vectors</li>
+  <li><strong style="color:var(--text)">p2.x1 pod:</strong> ~$0.192/hour ($140/month) — better query speed</li>
+  <li><strong style="color:var(--text)">s1.x1 pod:</strong> ~$0.024/hour ($17/month) — storage-optimized, slower queries</li>
+</ul>
+
+<h2>Real Cost at Different Vector Counts</h2>
+
+<table class="ptable">
+  <thead><tr><th>Scale (1536 dims)</th><th>Serverless/mo</th><th>Pod (p1.x1)/mo</th><th>Pod (s1.x1)/mo</th></tr></thead>
+  <tbody>
+    <tr><td>100K vectors</td><td class="mono">~$2 + queries</td><td class="mono">$70 (overprovisioned)</td><td class="mono">$17</td></tr>
+    <tr class="best"><td>1M vectors</td><td class="mono">~$12 + queries</td><td class="mono">$70</td><td class="mono">$17</td></tr>
+    <tr><td>5M vectors</td><td class="mono">~$60 + queries</td><td class="mono">$280 (4x p1.x1)</td><td class="mono">$85</td></tr>
+    <tr><td>10M vectors</td><td class="mono">~$120 + queries</td><td class="mono">$560</td><td class="mono">$170</td></tr>
+    <tr><td>100M vectors</td><td class="mono">~$1,200 + queries</td><td class="mono">$5,600+</td><td class="mono">$1,700</td></tr>
+  </tbody>
+</table>
+
+<div class="callout warn"><div class="cl">Watch out: query costs add up fast</div><p>At 100 queries/second (8.6M queries/day), Serverless query costs alone are ~$1,400/month. At high QPS, Pods' flat-rate pricing can be significantly cheaper even though the base pod cost looks higher.</p></div>
+
+<h2>Serverless vs Pods: Which to Choose</h2>
+
+<h3>Choose Serverless if:</h3>
+<ul style="color:var(--muted);font-size:16px;margin:12px 0 16px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+  <li>Your query volume is unpredictable or bursty (you only pay when you query)</li>
+  <li>You are in development or early production with low daily QPS</li>
+  <li>You want zero capacity planning overhead</li>
+  <li>Your monthly queries are under 500K (cost stays under ~$10)</li>
+</ul>
+
+<h3>Choose Pods if:</h3>
+<ul style="color:var(--muted);font-size:16px;margin:12px 0 16px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+  <li>Your query volume is consistent and high (10+ queries/second daily)</li>
+  <li>You need predictable monthly billing for budget forecasting</li>
+  <li>You are storing 5M+ vectors and querying them heavily</li>
+  <li>Latency requirements are strict (p1/p2 pods have dedicated compute)</li>
+</ul>
+
+<h2>Pinecone Free Tier in 2026</h2>
+<p>Pinecone's free Starter tier provides:</p>
+<ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+  <li>1 serverless index</li>
+  <li>Up to 2GB storage (approximately 300K vectors at 1536 dims)</li>
+  <li>Shared infrastructure (lower query performance)</li>
+  <li>No SLA</li>
+</ul>
+<p>The free tier is generous enough for development and small RAG applications. The main limitation is the 1-index restriction — if your application needs multiple isolated namespaces, you will hit this limit quickly.</p>
+
+<h2>Pinecone vs Alternatives: When to Pay the Premium and When to Switch</h2>
+
+<p>Pinecone is excellent infrastructure, but it is not always the right choice at every scale. Here is an honest comparison:</p>
+
+<table class="ptable">
+  <thead><tr><th>Database</th><th>1M vectors cost</th><th>10M vectors cost</th><th>Best for</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pinecone Serverless</strong></td><td class="mono">$12 + queries</td><td class="mono">$120 + queries</td><td>Bursty/unpredictable workloads</td></tr>
+    <tr><td><strong>Pinecone Pods (s1)</strong></td><td class="mono">$17/mo flat</td><td class="mono">$170/mo flat</td><td>High QPS, storage-focused</td></tr>
+    <tr class="best"><td><strong>Qdrant Cloud</strong><span class="badge">VALUE</span></td><td class="mono">~$9/mo</td><td class="mono">~$70/mo</td><td>Cost-conscious teams</td></tr>
+    <tr><td><strong>Qdrant self-hosted</strong></td><td class="mono">~$6 (VPS cost)</td><td class="mono">~$25 (larger VPS)</td><td>DevOps-capable teams</td></tr>
+    <tr><td><strong>Supabase pgvector</strong></td><td class="mono">$25/mo (included)</td><td class="mono">$50-100/mo</td><td>Supabase users, &lt;1M vectors</td></tr>
+    <tr><td><strong>Weaviate Cloud</strong></td><td class="mono">~$25/mo</td><td class="mono">~$150/mo</td><td>GraphQL, hybrid search</td></tr>
+  </tbody>
+</table>
+
+<h3>Where Pinecone genuinely earns its premium</h3>
+<p>Pinecone query latency at extreme scale (100M+ vectors, 100+ QPS) is consistently competitive in third-party benchmarks. If you are building a production recommendation engine or enterprise search where p99 latency under 50ms matters, Pinecone's managed infrastructure — automatic sharding, replication, failover — removes significant operational burden. For teams without dedicated infrastructure engineers, this is a real cost saving even when the per-unit price is higher.</p>
+
+<h3>Where Qdrant or pgvector wins</h3>
+<p>For most RAG applications, semantic search features, and AI assistants with under 50M vectors, Qdrant Cloud at 40-60% of equivalent Pinecone pricing is the better choice. Self-hosted Qdrant on a $25/month Hetzner VPS handles 5M+ vectors comfortably for most query patterns. The operational complexity is a single Docker container — manageable for any team that already runs containerized services.</p>
+<p>Supabase pgvector is the right call if your application data already lives in Supabase PostgreSQL. Adding vector search to an existing database eliminates infrastructure entirely for small-to-medium vector counts.</p>
+
+<div class="callout tip"><div class="cl">Migration cost is real</div><p>Switching from Pinecone to Qdrant requires exporting all vectors, reformatting index structures, and end-to-end retrieval quality testing. Budget 3-5 engineering days for a production migration. Run the numbers first: the monthly savings need to pay back that migration investment.</p></div>
+
+<div class="cta-box">
+  <p>Calculate your exact Pinecone vs Qdrant vs pgvector cost at your vector count and QPS</p>
+  <a href="/vector-database-cost" class="cta-btn">Estimate My Vector DB Cost →</a>
 </div>
 
-<p><strong>Pinecone Pods:</strong> Traditional, needs capacity planning, $0.12/GB + custom pricing.</p>
-
-<div class="ad-unit ad-bottom-content" style="margin:2rem 0;text-align:center;min-height:90px;">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="ZZZZZZZZZZ"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<h2>Frequently Asked Questions</h2>
+<div class="faq">
+<div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Serverless: approximately $12/month for storage + query costs on top. Pods: $17/month flat (s1.x1 storage-optimized pod). At low query volume (&lt;100K queries/month), Serverless is cheaper. At high QPS, Pod pricing is more predictable.</p></div></div>
+<div class="qa"><div class="q">Is Pinecone free?<span class="plus">+</span></div><div class="a"><p>Pinecone has a free Starter tier with 1 index, up to 2GB storage (~300K vectors at 1536 dims), on shared infrastructure. For production workloads over 300K vectors or requiring dedicated compute, paid plans start at $17/month (s1.x1 pod).</p></div></div>
+<div class="qa"><div class="q">What is cheaper than Pinecone?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud (~40-60% cheaper for equivalent specs), self-hosted Qdrant on a $6/month VPS (cheapest option if you have DevOps capacity), Supabase pgvector (free if already using Supabase), and Weaviate Cloud sandbox (free tier available). For &lt;1M vectors, all these alternatives are cheaper than Pinecone.</p></div></div>
+<div class="qa"><div class="q">Should I use Pinecone Serverless or Pods?<span class="plus">+</span></div><div class="a"><p>Serverless for low or unpredictable query volume (under 10 QPS average). Pods for consistent high query load — at 50+ QPS, the flat Pod rate is usually cheaper than per-query Serverless pricing. s1 pods for storage-heavy workloads, p1/p2 pods for latency-sensitive queries.</p></div></div>
 </div>
-<h2>Cost at 10M vectors (1536 dims)</h2>
-<table><tr><td>Scale</td><td>Serverless</td><td>Pod (1xp1)</td></tr>
-<tr><td>1M vectors</td><td>$50</td><td>$15</td></tr>
-<tr><td>10M vectors</td><td>$500</td><td>$150 base + queries</td></tr>
-<tr class="best"><td>100M vectors</td><td>$5,000+</td><td>$1,500+ (p3 needed)</td></tr></table>
 
-<p><strong>Serverless wins:</strong> Easy, no ops, predictable.</p>
-<p><strong>Pods win:</strong> Huge scale, fixed capacity cost.</p>
-
-<a href="/vector-database-cost">Estimate your costs →</a>
-
-<section style="margin:40px 0 32px">
-  <h2>Pinecone vs Alternatives: When to Pay the Premium and When to Switch</h2>
-  <p>Pinecone is the most widely recognized managed vector database, and its name recognition means many teams default to it without seriously evaluating alternatives. Understanding where Pinecone genuinely earns its premium versus where competitors match or exceed it helps you make an informed choice.</p>
-  <p><strong>Where Pinecone earns its premium.</strong> Pinecone query latency at high scale (billions of vectors, high QPS) is consistently strong in benchmarks. If you are building a production search or recommendation system where p99 query latency under 100ms matters and you expect vector counts in the hundreds of millions, Pinecone managed infrastructure removes significant engineering burden. The serverless tier pay-per-query model is genuinely cost-effective for bursty workloads where you cannot predict daily query volume.</p>
-  <p><strong>Where Qdrant wins.</strong> Qdrant open-source, self-hosted option eliminates per-vector and per-query charges entirely — you pay only for the server running it. For teams with consistent workloads, moderate vector counts (under 50M), and DevOps capacity to manage a containerized service, self-hosted Qdrant on a $50-$100/month VPS often costs 90% less than Pinecone managed service. Qdrant Cloud (managed) is also typically 40-60% cheaper than equivalent Pinecone tiers for the same vector count and QPS.</p>
-  <p><strong>Where Supabase pgvector wins.</strong> If your application already uses Supabase for its database, the pgvector extension adds vector search to your existing PostgreSQL instance at zero additional infrastructure cost. For use cases with under 1M vectors and moderate query volume, pgvector performance is adequate and the operational simplicity of a single database instance is significant.</p>
-  <p><strong>The switching cost is real.</strong> Migrating from Pinecone to an alternative requires exporting vectors, reformatting index structures, and testing retrieval quality end-to-end. Budget 3-5 days of engineering time for a production migration. Run the cost comparison in our <a href="/vector-database-cost">vector database cost calculator</a> to confirm the savings justify the migration effort at your specific scale.</p>
-</section>
+<div class="ilink-box">
+  <h3>Related Calculators &amp; Guides</h3>
+  <div class="ilinks">
+    <a href="/vector-database-cost" class="ilink"><span class="ic2">🗄️</span><div><b>Vector DB Cost Calculator</b><span>Pinecone, Qdrant, Weaviate, pgvector</span></div></a>
+    <a href="/compare/pinecone-vs-qdrant" class="ilink"><span class="ic2">⚖️</span><div><b>Pinecone vs Qdrant</b><span>Head-to-head comparison</span></div></a>
+    <a href="/embedding-api-cost" class="ilink"><span class="ic2">📐</span><div><b>Embedding API Cost</b><span>OpenAI, Cohere, Voyage pricing</span></div></a>
+    <a href="/blog/vector-database-cost-comparison-2026" class="ilink"><span class="ic2">📊</span><div><b>Vector DB Comparison 2026</b><span>Full cost breakdown at scale</span></div></a>
+  </div>
 </div>
-<footer>© 2026 APICalculators.com  <div class="wrap"><div class="foot-calcs">
-        <strong>Calculators</strong>
-        <nav>
-          <a href="/llm-cost-calculator">LLM Token Cost</a>
-          <a href="/vector-database-cost">Vector DB Cost</a>
-          <a href="/image-generation-cost">AI Image Generation</a>
-          <a href="/payment-processor-fees">Payment Fees</a>
-          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
-          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
-          <a href="/serverless-cost-calculator">Serverless Cost</a>
-          <a href="/api-gateway-pricing">API Gateway Cost</a>
-          <a href="/embedding-api-cost">Embedding API Cost</a>
-          <a href="/ai-agent-cost">AI Agent Cost</a>
-          <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-          <a href="/auth-provider-cost">Auth Provider Cost</a>
-        </nav>
-      </div></div>
+
+</article>
+</div>
+<footer><div class="wrap foot-in">
+  <span>© 2026 <a href="/">APICalculators</a></span>
+  <span>Prices are estimates</span>
+</div>
+<div class="wrap"><div class="foot-calcs">
+  <strong>Calculators</strong>
+  <nav>
+    <a href="/llm-cost-calculator">LLM Token Cost</a>
+    <a href="/vector-database-cost">Vector DB Cost</a>
+    <a href="/image-generation-cost">AI Image Generation</a>
+    <a href="/payment-processor-fees">Payment Fees</a>
+    <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
+    <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
+    <a href="/serverless-cost-calculator">Serverless Cost</a>
+    <a href="/api-gateway-pricing">API Gateway Cost</a>
+    <a href="/embedding-api-cost">Embedding API Cost</a>
+    <a href="/ai-agent-cost">AI Agent Cost</a>
+    <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
+    <a href="/auth-provider-cost">Auth Provider Cost</a>
+  </nav>
+</div></div>
 </footer>
+<script>document.querySelectorAll('.qa .q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const qa=q.parentElement,open=qa.classList.toggle('open');
+    const a=qa.querySelector('.a');
+    if(a) a.style.maxHeight=open?'400px':'0';
+  });
+});</script>
 </body>
 </html>

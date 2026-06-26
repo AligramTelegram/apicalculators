@@ -164,6 +164,83 @@ footer a{color:var(--muted)}</style>
   <p><strong>Use .cursorrules to reduce context overhead.</strong> A well-crafted .cursorrules file teaches the model your conventions, preferred libraries, and code style once, reducing back-and-forth iterations. Every clarification round uses a fast request. Invest 2 hours in writing a thorough .cursorrules file and it will save hundreds of requests over the project lifetime.</p>
   <p><strong>Bring your own API key for high-volume work.</strong> Cursor supports BYOK (Bring Your Own Key) for OpenAI and Anthropic. If you are regularly hitting limits, calculate whether paying API rates directly is cheaper than Cursor overage pricing. Use the <a href="/ai-coding-tool-cost">AI coding tool calculator</a> to run this comparison for your usage level.</p>
 </section>
+
+<section style="margin:40px 0 32px">
+  <h2>What Actually Consumes Your Fast Requests</h2>
+  <p>Not all Cursor interactions are equal. Understanding the request cost breakdown is the fastest way to stop burning through your monthly limit in the first two weeks.</p>
+
+  <h3>High-cost operations (5-20 requests each)</h3>
+  <ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+    <li><strong style="color:var(--text)">Cursor Composer / Agent mode</strong> — each agent loop step consumes a fast request. A 10-step refactor = 10 fast requests.</li>
+    <li><strong style="color:var(--text)">Large file edits</strong> — any Composer session editing files over 500 lines costs disproportionately due to context size.</li>
+    <li><strong style="color:var(--text)">Multi-file context</strong> — attaching 5+ files to a chat sends the entire context to the frontier model on every message.</li>
+  </ul>
+
+  <h3>Low-cost operations (1 request each)</h3>
+  <ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+    <li><strong style="color:var(--text)">Single-file inline edits</strong> — the classic Ctrl+K shortcut on a small function.</li>
+    <li><strong style="color:var(--text)">Chat questions</strong> — asking Cursor to explain a function or suggest a variable name.</li>
+    <li><strong style="color:var(--text)">Tab autocomplete</strong> — does NOT consume fast requests. Autocomplete runs on a separate, cheaper model.</li>
+  </ul>
+
+  <div class="callout warn"><div class="cl">Common mistake</div><p>Developers think tab autocomplete uses their fast requests. It doesn't — but every time you open Cursor Chat or trigger Composer, you do. If you use Chat 30 times per day, that's 900 requests per month. Cursor Pro's limit is 500.</p></div>
+</section>
+
+<section style="margin:40px 0 32px">
+  <h2>Fast Requests vs Slow Requests: The Hidden Tier</h2>
+  <p>When your fast requests run out, Cursor doesn't stop working — it silently switches you to <em>slow requests</em>. These use the same frontier models but you join a shared queue, meaning responses take 30-120 seconds instead of 2-5 seconds. For most developers, slow requests feel like the tool is broken.</p>
+  <p>Cursor also offers <strong>additional fast request packs</strong> you can purchase mid-month. These are billed immediately and don't roll over. If you buy a pack in week 3 and only use half, you lose the rest at month-end. Always check whether upgrading to Pro+ ($60/month) is cheaper than buying packs for your usage level.</p>
+
+  <table class="ptable">
+    <thead><tr><th>Situation</th><th>Cheapest option</th><th>Monthly cost</th></tr></thead>
+    <tbody>
+      <tr><td>Under 500 fast requests/mo</td><td>Cursor Pro</td><td class="mono">$20</td></tr>
+      <tr><td>500-2000 fast requests/mo</td><td>Cursor Pro+</td><td class="mono">$60</td></tr>
+      <tr><td>2000+ fast requests/mo</td><td>Cursor Ultra or BYOK</td><td class="mono">$200 or API cost</td></tr>
+      <tr class="best"><td>Mixed workload (autocomplete + agents)</td><td>Copilot + Claude Code hybrid<span class="badge">BEST VALUE</span></td><td class="mono">$30</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section style="margin:40px 0 32px">
+  <h2>Cursor BYOK: When Direct API Access Beats the Subscription</h2>
+  <p>Cursor supports Bring Your Own Key (BYOK) — you paste your OpenAI or Anthropic API key into settings, and Cursor routes your requests directly through that key, billing you at standard API rates instead of Cursor's bundled pricing.</p>
+  <p>At what usage level does BYOK become cheaper? Running the numbers with Claude Sonnet 4.6 (the most common model for Cursor Composer sessions):</p>
+  <ul style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:8px">
+    <li>Average Composer session: ~8,000 input tokens + ~2,000 output tokens</li>
+    <li>Claude Sonnet 4.6 pricing: $3/M input, $15/M output</li>
+    <li>Cost per session: $0.024 + $0.030 = ~$0.054</li>
+    <li>1,000 sessions/month via BYOK: ~$54 (vs Cursor Ultra at $200)</li>
+  </ul>
+  <p>BYOK wins for heavy users doing 500+ Composer sessions per month. Below that threshold, Cursor Pro ($20) or Pro+ ($60) is still cheaper when you factor in the IDE integration value. Use the <a href="/ai-coding-tool-cost">AI coding cost calculator</a> to find your exact crossover point.</p>
+</section>
+
+<section style="margin:40px 0 32px">
+  <h2>Windsurf vs Cursor vs GitHub Copilot: Which Is Actually Worth It in 2026</h2>
+  <p>After six months of testing all three on production codebases, here is the honest verdict for each developer profile:</p>
+
+  <h3>Choose GitHub Copilot if:</h3>
+  <p>You write code 6+ hours per day, mostly in established codebases, and want predictable billing. Copilot's $10/month individual plan or $19/month Business plan (with no overages) makes budgeting simple. The autocomplete quality in 2026 is excellent for TypeScript, Python, Go, and Rust. It is the only AI coding tool with a hard monthly cap — you will never see a surprise bill.</p>
+
+  <h3>Choose Cursor Pro if:</h3>
+  <p>You do 1-3 agent sessions per week and benefit from the tight IDE integration. Cursor's Composer is still the best implementation of agentic coding in a desktop IDE. At 500 fast requests per month with disciplined usage, $20/month is reasonable. The problem is that "disciplined usage" is hard once you experience how good Composer is at multi-file tasks — it's very easy to accidentally become a heavy user.</p>
+
+  <h3>Choose the hybrid approach if:</h3>
+  <p>You want the best of both worlds without Cursor Ultra's $200 price tag. GitHub Copilot handles daily autocomplete at $10/month. Claude Code CLI handles agent sessions — the $20/month Pro plan gives you solid token limits, and you can see exactly what each session costs. Total: $30/month for a setup that outperforms Cursor Ultra in most real-world benchmarks.</p>
+</section>
+
+<section style="margin:40px 0 32px">
+  <h2>How to Monitor Your Cursor Usage Before the Surprise Bill</h2>
+  <p>Cursor does not send email alerts when you approach your fast request limit. You have to check manually. Here is how:</p>
+  <ol style="color:var(--muted);font-size:16px;margin:12px 0 20px;padding-left:24px;display:flex;flex-direction:column;gap:10px">
+    <li><strong style="color:var(--text)">Open Cursor → Settings → Cursor Settings → Usage</strong> — this shows fast requests used vs remaining for the current billing period.</li>
+    <li><strong style="color:var(--text)">Check on day 10 and day 20</strong> — if you have used more than 40% by day 10, you will likely hit the limit before month-end.</li>
+    <li><strong style="color:var(--text)">Set a calendar reminder for billing date</strong> — Cursor bills at the start of each cycle. Knowing when your counter resets helps you time heavy agent work for early in the month.</li>
+    <li><strong style="color:var(--text)">Enable Cursor notifications</strong> — in some versions, Cursor will show a banner when you switch to slow mode. Do not mistake this for a connection issue; it means you have exhausted fast requests.</li>
+  </ol>
+  <div class="callout tip"><div class="cl">Quick check</div><p>Type /usage in the Cursor chat to see your remaining fast requests without navigating to settings. Works in all current Cursor versions.</p></div>
+</section>
+
 </div>
 <footer><div class="wrap foot-in">
   <span>© 2026 <a href="/">APICalculators</a></span>
