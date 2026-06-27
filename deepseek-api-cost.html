@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>DeepSeek API Cost Calculator 2026 — DeepSeek V3 & R1 Pricing</title>
+<meta name="description" content="Free DeepSeek API cost calculator. Estimate DeepSeek V3 and R1 API costs instantly. DeepSeek V3 starts at $0.27/1M input tokens — 10× cheaper than GPT-4o. No signup required.">
+<link rel="canonical" href="https://apicalculators.com/deepseek-api-cost">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="DeepSeek API Cost Calculator 2026 — V3 & R1 Pricing">
+<meta property="og:description" content="Calculate DeepSeek V3 and R1 API costs. DeepSeek V3 at $0.27/1M input tokens is one of the cheapest frontier models available.">
+<meta property="og:url" content="https://apicalculators.com/deepseek-api-cost">
+<meta property="og:image" content="https://apicalculators.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@apicalculators">
+<meta name="twitter:title" content="DeepSeek API Cost Calculator 2026 — V3 & R1 Pricing">
+<meta name="twitter:description" content="DeepSeek V3 at $0.27/1M input — calculate your exact monthly API cost instantly.">
+<meta name="twitter:image" content="https://apicalculators.com/twitter-image.jpg">
+<link rel="alternate" hreflang="en" href="https://apicalculators.com/deepseek-api-cost">
+<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/deepseek-api-cost">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"DeepSeek API Cost Calculator 2026","url":"https://apicalculators.com/deepseek-api-cost","description":"Free calculator for DeepSeek V3 and R1 API pricing. Estimate monthly costs at your token volume.","isPartOf":{"@type":"WebSite","url":"https://apicalculators.com"},"inLanguage":"en-US","dateModified":"2026-06-27"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does the DeepSeek API cost?","acceptedAnswer":{"@type":"Answer","text":"DeepSeek API pricing (June 2026): DeepSeek-V3 costs $0.27/1M input and $1.10/1M output tokens. Cache hits are $0.07/1M input. DeepSeek-R1 (reasoning model) costs $0.55/1M input and $2.19/1M output. Both models are accessed via api.deepseek.com."}},{"@type":"Question","name":"Is DeepSeek cheaper than GPT-4o?","acceptedAnswer":{"@type":"Answer","text":"Yes, significantly. DeepSeek-V3 at $0.27/$1.10 per 1M tokens is about 9× cheaper on input and 9× cheaper on output compared to GPT-4o ($2.50/$10.00). For high-volume workloads like classification or extraction, DeepSeek can reduce costs by 85–90%."}},{"@type":"Question","name":"What is DeepSeek context caching?","acceptedAnswer":{"@type":"Answer","text":"DeepSeek caches frequently repeated context (system prompts, documents). Cache hits are billed at $0.07/1M for V3 and $0.14/1M for R1 — roughly 75% off normal input price. This makes DeepSeek extremely cost-effective for RAG and agentic workloads with large repeated context."}},{"@type":"Question","name":"DeepSeek V3 vs R1 — which should I use?","acceptedAnswer":{"@type":"Answer","text":"Use DeepSeek-V3 for general tasks: coding, writing, summarization, classification. It is faster and cheaper ($0.27/$1.10 per 1M). Use DeepSeek-R1 for complex reasoning, math, and multi-step problem solving — it uses chain-of-thought reasoning and costs $0.55/$2.19 per 1M. R1 is comparable to o1-mini but at roughly 5× lower cost."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"DeepSeek API Cost Calculator"}]}</script>
+<style>
+:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--muted2:#8a96a5;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 70% -5%,rgba(184,255,46,.07),transparent 60%)}
+a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
+.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
+.hero{padding:58px 0 30px;text-align:center}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
+.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,54px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
+h1.ph .em{color:var(--lime)}
+p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
+.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
+.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
+.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
+.calc-header p{color:var(--muted);font-size:14px}
+.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
+.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
+.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
+.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
+.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
+.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2)}
+.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
+.per{color:var(--muted);font-size:13px;margin-bottom:14px}
+.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
+.brow{display:flex;justify-content:space-between;font-size:13px}
+.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code','Consolas',monospace}
+.brow.hl b{color:var(--lime)}.brow.green b{color:#4ade80}
+section.sec{padding:0 0 44px}
+section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
+.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
+.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
+.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
+.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
+.ptable tr:hover td{background:rgba(255,255,255,.02)}
+.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
+.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
+.mono{font-family:'Cascadia Code','Consolas',monospace}
+.callout{border-radius:12px;padding:16px 20px;margin:18px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px;line-height:1.6}
+.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
+.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
+.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
+.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 36px}
+.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
+.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
+.qa.open .q .plus{transform:rotate(45deg)}
+.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
+.qa .a p{padding:0 20px 16px}
+.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:16px 0 36px}
+.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
+.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
+.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}
+.tool-link .tl-desc{color:var(--muted);font-size:12px}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:600px){.vs-grid{grid-template-columns:1fr}}
+.vs-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px}
+.vs-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px}
+.vs-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.vs-card li{font-size:13.5px;color:#cdd6dd;padding-left:16px;position:relative}
+.vs-card li::before{content:"✓";position:absolute;left:0;color:var(--lime);font-weight:700}
+footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted2)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer a{color:var(--muted2)}
+.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
+.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
+.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
+.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
+.kt strong{color:var(--lime)}
+.ad-wrap{margin:2rem 0;text-align:center;overflow:hidden}
+.ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3540510471635518" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="/" class="logo">API<b>Calculators</b></a>
+    <nav class="nav-r"><a href="/#calc">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <span class="chip"><span class="dot"></span> June 2026 · DeepSeek official pricing</span>
+  <h1 class="ph"><span class="em">DeepSeek API</span> Cost Calculator</h1>
+  <p class="intro">Estimate DeepSeek V3 and R1 API costs instantly. DeepSeek V3 at <strong style="color:var(--lime)">$0.27/1M input tokens</strong> is one of the cheapest frontier models — 9× less than GPT-4o. Free, no signup.</p>
+<div class="ad-wrap">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-3540510471635518" data-ad-slot="TOP0000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+</section>
+
+<div class="wrap">
+<div class="kt">
+  <div class="kt-hd">Key Takeaways</div>
+  <ul>
+    <li><strong>DeepSeek-V3</strong> costs <strong>$0.27/1M input</strong> and <strong>$1.10/1M output</strong> — roughly 9× cheaper than GPT-4o on both input and output</li>
+    <li><strong>DeepSeek-R1</strong> (reasoning model) at $0.55/$2.19 per 1M is comparable to o1-mini but 5× cheaper</li>
+    <li><strong>Context caching</strong> drops V3 input to $0.07/1M — making RAG and agentic workloads extremely cost-effective</li>
+    <li>DeepSeek models are open-weight — you can self-host to reduce costs further on high volume</li>
+  </ul>
+</div>
+
+<div class="calc-shell" id="calc">
+  <div class="calc-header">
+    <h2>🐋 DeepSeek API Cost Estimator</h2>
+    <p>Includes context cache hit savings — enter your system prompt size to model real costs</p>
+  </div>
+  <div class="calc-body">
+    <div>
+      <div class="field"><label for="dsModel">Model</label>
+        <select class="sel" id="dsModel" aria-label="Select DeepSeek model"></select></div>
+      <div class="row2">
+        <div class="field"><label for="dsIn">Input tokens / request</label>
+          <input class="inp" id="dsIn" type="number" value="2000" min="0" aria-label="Input tokens per request"></div>
+        <div class="field"><label for="dsOut">Output tokens / request</label>
+          <input class="inp" id="dsOut" type="number" value="500" min="0" aria-label="Output tokens per request"></div>
+      </div>
+      <div class="field"><label for="dsReq">Requests / month</label>
+        <input class="inp" id="dsReq" type="number" value="50000" min="0" aria-label="Monthly request count"></div>
+      <div class="field"><label for="dsCache">Cached tokens / request <span style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted2)">(system prompt / docs)</span></label>
+        <input class="inp" id="dsCache" type="number" value="800" min="0" aria-label="Cached tokens per request"></div>
+      <div class="field"><label>Period</label>
+        <div class="seg" id="dsPeriod" role="group" aria-label="Billing period">
+          <button data-v="1">Day</button><button class="on" data-v="30">Month</button><button data-v="365">Year</button>
+        </div></div>
+    </div>
+    <div class="result">
+      <div class="rlabel">Estimated cost</div>
+      <div class="big" id="dsTotal">$0</div>
+      <div class="per" id="dsPer">— per month</div>
+      <div class="breakdown">
+        <div class="brow"><span>Input / output per 1M</span><b id="dsPrice">—</b></div>
+        <div class="brow"><span>Uncached input cost</span><b id="dsInCost">—</b></div>
+        <div class="brow green"><span>Cache savings</span><b id="dsCacheSave">—</b></div>
+        <div class="brow"><span>Output cost</span><b id="dsOutCost">—</b></div>
+        <div class="brow hl"><span>Total with caching</span><b id="dsWithCache">—</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="sec">
+  <h2>2026 DeepSeek API Pricing</h2>
+  <p class="sh-sub">DeepSeek API rates in USD per million tokens, June 2026. Accessed via api.deepseek.com.</p>
+  <table class="ptable">
+    <thead><tr><th>Model</th><th>Input / 1M</th><th>Cache Hit / 1M</th><th>Output / 1M</th><th>Context</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr class="best"><td><strong>DeepSeek-V3</strong><span class="badge">CHEAPEST</span></td><td class="mono">$0.27</td><td class="mono">$0.07</td><td class="mono">$1.10</td><td class="mono">64K</td><td>General tasks, coding, summarization</td></tr>
+      <tr><td><strong>DeepSeek-R1</strong></td><td class="mono">$0.55</td><td class="mono">$0.14</td><td class="mono">$2.19</td><td class="mono">64K</td><td>Reasoning, math, complex analysis</td></tr>
+    </tbody>
+  </table>
+  <div class="callout tip" style="margin-top:16px">
+    <div class="cl">✦ Context Cache = 74% off input</div>
+    <p>DeepSeek's context cache (cache hit) prices repeated tokens at ~74% below standard input price. For agentic workloads with large system prompts or RAG contexts, this compounds into massive savings at scale.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>DeepSeek vs GPT-4o vs Claude Sonnet</h2>
+  <p class="sh-sub">Cost comparison at 50,000 requests/month with 2,000 input + 500 output tokens.</p>
+  <table class="ptable">
+    <thead><tr><th>Model</th><th>Input / 1M</th><th>Output / 1M</th><th>Monthly cost</th><th>vs DeepSeek V3</th></tr></thead>
+    <tbody>
+      <tr class="best"><td><strong>DeepSeek-V3</strong><span class="badge">CHEAPEST</span></td><td class="mono">$0.27</td><td class="mono">$1.10</td><td class="mono">$54.50</td><td class="mono">—</td></tr>
+      <tr><td><strong>DeepSeek-R1</strong></td><td class="mono">$0.55</td><td class="mono">$2.19</td><td class="mono">$109.75</td><td class="mono">2× more</td></tr>
+      <tr><td><strong>Gemini 2.0 Flash</strong></td><td class="mono">$0.10</td><td class="mono">$0.40</td><td class="mono">$20.00</td><td class="mono">0.37× less</td></tr>
+      <tr><td><strong>GPT-4o mini</strong></td><td class="mono">$0.15</td><td class="mono">$0.60</td><td class="mono">$30.00</td><td class="mono">0.55× less</td></tr>
+      <tr><td><strong>Claude Haiku 4.5</strong></td><td class="mono">$0.80</td><td class="mono">$4.00</td><td class="mono">$180.00</td><td class="mono">3.3× more</td></tr>
+      <tr><td><strong>GPT-4o</strong></td><td class="mono">$2.50</td><td class="mono">$10.00</td><td class="mono">$625.00</td><td class="mono">11.5× more</td></tr>
+      <tr><td><strong>Claude Sonnet 4.6</strong></td><td class="mono">$3.00</td><td class="mono">$15.00</td><td class="mono">$875.00</td><td class="mono">16× more</td></tr>
+    </tbody>
+  </table>
+  <div class="callout warn" style="margin-top:16px">
+    <div class="cl">⚠ Note on quality</div>
+    <p>DeepSeek-V3 is highly capable but may underperform on nuanced instruction following, long-form creative tasks, and complex multi-step reasoning compared to GPT-4o or Claude Sonnet. For cost-sensitive, high-volume workloads (classification, extraction, summarization), V3 is an excellent choice.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>DeepSeek V3 vs R1: Which to Use?</h2>
+  <div class="vs-grid">
+    <div class="vs-card">
+      <h3 style="color:var(--lime)">DeepSeek-V3 — $0.27/1M in</h3>
+      <ul>
+        <li>General coding and debugging</li>
+        <li>Text summarization and extraction</li>
+        <li>Classification at high volume</li>
+        <li>RAG retrieval and Q&amp;A</li>
+        <li>Content generation and rewriting</li>
+        <li>Customer support automation</li>
+      </ul>
+    </div>
+    <div class="vs-card">
+      <h3 style="color:var(--cyan)">DeepSeek-R1 — $0.55/1M in</h3>
+      <ul>
+        <li>Complex mathematical reasoning</li>
+        <li>Multi-step logical inference</li>
+        <li>Algorithm design and analysis</li>
+        <li>Scientific problem solving</li>
+        <li>Financial modeling and analysis</li>
+        <li>Tasks that benefit from chain-of-thought</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="ad-wrap">
+  <div class="ad-label">Advertisement</div>
+  <ins class="adsbygoogle ad-unit" style="display:block" data-ad-client="ca-pub-3540510471635518" data-ad-slot="MID0000000" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<section class="sec">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq">
+    <div class="qa"><div class="q">How much does the DeepSeek API cost? <span class="plus">+</span></div>
+      <div class="a"><p>DeepSeek-V3: $0.27/1M input, $1.10/1M output. Cache hits: $0.07/1M. DeepSeek-R1: $0.55/1M input, $2.19/1M output. Cache hits: $0.14/1M. All prices are pay-as-you-go USD via api.deepseek.com (June 2026).</p></div></div>
+    <div class="qa"><div class="q">Is DeepSeek cheaper than GPT-4o? <span class="plus">+</span></div>
+      <div class="a"><p>Yes — DeepSeek-V3 is about 9× cheaper than GPT-4o on both input ($0.27 vs $2.50/1M) and output ($1.10 vs $10.00/1M). For 50,000 requests/month with 2K input + 500 output tokens: DeepSeek costs ~$55/month vs GPT-4o's ~$625/month. However, Gemini 2.0 Flash ($0.10/$0.40) is cheaper than V3 for simple tasks.</p></div></div>
+    <div class="qa"><div class="q">What is DeepSeek context caching? <span class="plus">+</span></div>
+      <div class="a"><p>DeepSeek caches repeated context (system prompts, documents) server-side. Cache hits are billed at $0.07/1M for V3 — 74% off the standard $0.27/1M input rate. Enable by structuring your API calls to put cacheable content at the start of your context. This is especially effective for RAG pipelines where the same documents are retrieved repeatedly.</p></div></div>
+    <div class="qa"><div class="q">Can I self-host DeepSeek to reduce costs further? <span class="plus">+</span></div>
+      <div class="a"><p>Yes. DeepSeek-V3 and R1 are open-weight models available on Hugging Face. You can self-host on GPU instances — a single H100 (~$3/hr on Lambda Labs) can serve V3 at roughly 15–20 tokens/second for low-concurrency workloads. At 50M+ tokens/month, self-hosting typically breaks even vs the API. Below that, the managed API is usually more cost-effective.</p></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Compare Other LLM APIs</h2>
+  <div class="tool-links">
+    <a href="/llm-cost-calculator" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">All LLM Cost Calculator</div><div class="tl-desc">Compare DeepSeek, GPT, Claude, Gemini side by side</div></div></a>
+    <a href="/chatgpt-api-pricing-calculator" class="tool-link"><span class="ic">💬</span><div><div class="tl-name">ChatGPT API Calculator</div><div class="tl-desc">GPT-4o, o1, GPT-4o mini pricing</div></div></a>
+    <a href="/claude-api-cost-calculator" class="tool-link"><span class="ic">🧠</span><div><div class="tl-name">Claude API Calculator</div><div class="tl-desc">Sonnet 4.6, Haiku 4.5, Opus 4.8 pricing</div></div></a>
+    <a href="/gemini-api-cost-calculator" class="tool-link"><span class="ic">✨</span><div><div class="tl-name">Gemini API Calculator</div><div class="tl-desc">Gemini 2.0 Flash, 2.5 Pro cost estimation</div></div></a>
+    <a href="/blog/reduce-llm-api-costs-2026" class="tool-link"><span class="ic">📉</span><div><div class="tl-name">Reduce LLM API Costs</div><div class="tl-desc">Caching, batching, model routing strategies</div></div></a>
+    <a href="/blog/llm-api-cost-guide-2026" class="tool-link"><span class="ic">📖</span><div><div class="tl-name">LLM API Cost Guide 2026</div><div class="tl-desc">Complete breakdown of every major model</div></div></a>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 APICalculators.com · Verify at <a href="https://platform.deepseek.com/api-docs/pricing" target="_blank" rel="noopener">platform.deepseek.com</a></span>
+    <span><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/privacy">Privacy</a></span>
+  </div>
+  <div class="wrap" style="margin-top:16px">
+    <nav style="display:flex;flex-wrap:wrap;gap:16px">
+      <a href="/llm-cost-calculator">LLM Token Cost</a>
+      <a href="/openai-api-cost-calculator">OpenAI API Cost</a>
+      <a href="/claude-api-cost-calculator">Claude API Cost</a>
+      <a href="/gemini-api-cost-calculator">Gemini API Cost</a>
+      <a href="/vector-database-cost">Vector DB Cost</a>
+      <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
+      <a href="/payment-processor-fees">Payment Fees</a>
+      <a href="/auth-provider-cost">Auth Provider Cost</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const M=[
+  {id:"v3",name:"DeepSeek-V3",in:.27,out:1.10,cache:.07},
+  {id:"r1",name:"DeepSeek-R1 (Reasoning)",in:.55,out:2.19,cache:.14}
+];
+M.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.in}/$${m.out} per 1M`;document.getElementById('dsModel').appendChild(o);});
+const $=id=>document.getElementById(id);
+const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
+const fmt$=v=>{if(!v)return"$0";if(v<.01)return"$"+v.toFixed(5);if(v<1)return"$"+v.toFixed(3);if(v<1000)return"$"+v.toFixed(2);return"$"+Math.round(v).toLocaleString()};
+const big$=v=>{if(v>=1000)return"$"+Math.round(v).toLocaleString();if(v>=1)return"$"+v.toFixed(2);if(v>0)return"$"+v.toFixed(4);return"$0"};
+let days=30;
+$('dsPeriod').addEventListener('click',e=>{if(!e.target.dataset.v)return;[...$('dsPeriod').children].forEach(b=>b.classList.remove('on'));e.target.classList.add('on');days=+e.target.dataset.v;calc();});
+function calc(){
+  const m=M.find(x=>x.id===$('dsModel').value);
+  const iT=num($('dsIn').value),oT=num($('dsOut').value),req=num($('dsReq').value),cT=Math.min(num($('dsCache').value),iT);
+  const uncachedIn=(iT-cT)/1e6*m.in*req*days;
+  const cachedIn=cT/1e6*m.cache*req*days;
+  const outCost=oT/1e6*m.out*req*days;
+  const total=uncachedIn+cachedIn+outCost;
+  const noCacheTotal=iT/1e6*m.in*req*days+outCost;
+  const saved=noCacheTotal-total;
+  $('dsTotal').textContent=big$(total);
+  $('dsPer').textContent=days===1?"— per day":days===30?"— per month":"— per year";
+  $('dsPrice').textContent=`$${m.in} / $${m.out}`;
+  $('dsInCost').textContent=fmt$(uncachedIn);
+  $('dsCacheSave').textContent="−"+fmt$(saved);
+  $('dsOutCost').textContent=fmt$(outCost);
+  $('dsWithCache').textContent=big$(total);
+}
+['dsModel','dsIn','dsOut','dsReq','dsCache'].forEach(id=>$(id).addEventListener('input',calc));
+calc();
+document.querySelectorAll('.qa').forEach(qa=>{qa.querySelector('.q').addEventListener('click',()=>{const open=qa.classList.contains('open');document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}});});
+</script>
+</body>
+</html>

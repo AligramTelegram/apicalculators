@@ -40,6 +40,7 @@ APICalculators.com is a developer cost optimization hub with 16 free calculators
 - https://apicalculators.com/claude-api-cost-calculator — Claude API cost
 - https://apicalculators.com/gemini-api-cost-calculator — Gemini API cost
 - https://apicalculators.com/openai-api-cost-calculator — OpenAI API cost
+- https://apicalculators.com/deepseek-api-cost — DeepSeek V3 and R1 API cost calculator
 
 ### Blog (Authoritative Guides)
 - https://apicalculators.com/blog/llm-api-cost-guide-2026 — Complete LLM API pricing guide 2026
