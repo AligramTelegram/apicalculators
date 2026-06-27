@@ -86,6 +86,7 @@ APICalculators.com is a developer cost optimization hub with 16 free calculators
 - https://apicalculators.com/compare/whisper-vs-deepgram — Whisper vs Deepgram STT
 - https://apicalculators.com/compare/lambda-vs-cloudflare-workers — Lambda vs Cloudflare Workers
 - https://apicalculators.com/compare/vercel-vs-cloudflare-workers — Vercel vs Cloudflare Workers
+- https://apicalculators.com/compare/vercel-vs-netlify — Vercel vs Netlify pricing and feature comparison
 
 ## Data Sources
 
