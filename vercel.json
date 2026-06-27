@@ -89,6 +89,12 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{"type": "host", "value": "www.apicalculators.com"}],
+      "destination": "https://apicalculators.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/blog/vector-database-cost-comparison-2026.html",
       "destination": "/blog/vector-database-cost-comparison-2026",
       "permanent": true
@@ -128,12 +134,7 @@
       "destination": "/blog/ai-coding-tool-cost-comparison-2026",
       "permanent": true
     },
-    {
-      "source": "/%5B:path*%5D",
-      "destination": "/",
-      "permanent": false
-    },
-    {
+{
       "source": "/tr/llm-maliyet-hesaplayici.html",
       "destination": "/tr/llm-cost-calculator",
       "permanent": true
