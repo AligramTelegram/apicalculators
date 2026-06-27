@@ -316,7 +316,12 @@
     },
     {
       "source": "/vector-db-cost.html",
-      "destination": "/vector-database-cost.html",
+      "destination": "/vector-database-cost",
+      "permanent": true
+    },
+    {
+      "source": "/vector-db-cost",
+      "destination": "/vector-database-cost",
       "permanent": true
     },
     {

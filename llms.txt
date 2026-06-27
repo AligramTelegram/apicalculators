@@ -43,22 +43,48 @@ APICalculators.com is a developer cost optimization hub with 16 free calculators
 
 ### Blog (Authoritative Guides)
 - https://apicalculators.com/blog/llm-api-cost-guide-2026 — Complete LLM API pricing guide 2026
-- https://apicalculators.com/blog/vector-database-cost-comparison-2026 — Vector DB cost comparison
-- https://apicalculators.com/blog/cursor-true-cost-2026 — True cost of Cursor AI coding tool
-- https://apicalculators.com/blog/stripe-vs-paddle-fees-2026 — Stripe vs Paddle fee comparison
+- https://apicalculators.com/blog/llm-api-pricing-calculator-2026 — LLM API pricing calculator guide
 - https://apicalculators.com/blog/reduce-llm-api-costs-2026 — How to reduce LLM API costs
+- https://apicalculators.com/blog/vector-database-cost-comparison-2026 — Vector DB cost comparison
+- https://apicalculators.com/blog/cheapest-vector-database-2026 — Cheapest vector database 2026
+- https://apicalculators.com/blog/pinecone-pricing-guide-2026 — Pinecone pricing guide 2026
+- https://apicalculators.com/blog/cursor-true-cost-2026 — True cost of Cursor AI coding tool
 - https://apicalculators.com/blog/ai-coding-tool-cost-comparison-2026 — AI coding tool pricing comparison
-- https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026 — AI SaaS infrastructure cost guide
+- https://apicalculators.com/blog/stripe-vs-paddle-fees-2026 — Stripe vs Paddle fee comparison
+- https://apicalculators.com/blog/lemon-squeezy-vs-stripe-2026 — Lemon Squeezy vs Stripe cost guide
 - https://apicalculators.com/blog/clerk-vs-supabase-auth-cost-2026 — Clerk vs Supabase Auth pricing
+- https://apicalculators.com/blog/cloud-vps-cost-comparison-2026 — Cloud VPS cost comparison 2026
+- https://apicalculators.com/blog/aws-lambda-cost-calculator-2026 — AWS Lambda cost guide 2026
+- https://apicalculators.com/blog/api-gateway-pricing-2026 — API Gateway pricing guide 2026
+- https://apicalculators.com/blog/embedding-api-cost-2026 — Embedding API cost comparison
+- https://apicalculators.com/blog/stt-tts-api-cost-2026 — STT and TTS API cost guide 2026
+- https://apicalculators.com/blog/midjourney-vs-dalle-cost-2026 — Midjourney vs DALL-E cost 2026
+- https://apicalculators.com/blog/dalle3-vs-stable-diffusion-cost-2026 — DALL-E 3 vs Stable Diffusion cost
+- https://apicalculators.com/blog/ai-agent-cost-calculator-2026 — AI agent cost calculator guide
+- https://apicalculators.com/blog/ai-saas-infrastructure-cost-2026 — AI SaaS infrastructure cost guide
 
 ### Compare Pages
 - https://apicalculators.com/compare/stripe-vs-paddle — Stripe vs Paddle detailed comparison
+- https://apicalculators.com/compare/stripe-vs-lemonsqueezy — Stripe vs Lemon Squeezy pricing
+- https://apicalculators.com/compare/paddle-vs-lemonsqueezy — Paddle vs Lemon Squeezy comparison
 - https://apicalculators.com/compare/cursor-vs-copilot — Cursor vs GitHub Copilot pricing
+- https://apicalculators.com/compare/cursor-vs-windsurf — Cursor vs Windsurf comparison
 - https://apicalculators.com/compare/claude-code-vs-cursor — Claude Code vs Cursor comparison
 - https://apicalculators.com/compare/hetzner-vs-digitalocean — Hetzner vs DigitalOcean VPS
+- https://apicalculators.com/compare/hetzner-vs-vultr — Hetzner vs Vultr VPS pricing
+- https://apicalculators.com/compare/vultr-vs-digitalocean — Vultr vs DigitalOcean comparison
 - https://apicalculators.com/compare/pinecone-vs-qdrant — Pinecone vs Qdrant pricing
+- https://apicalculators.com/compare/pinecone-vs-weaviate — Pinecone vs Weaviate comparison
+- https://apicalculators.com/compare/qdrant-vs-weaviate — Qdrant vs Weaviate pricing
+- https://apicalculators.com/compare/supabase-vs-pinecone — Supabase pgvector vs Pinecone
 - https://apicalculators.com/compare/clerk-vs-auth0 — Clerk vs Auth0 pricing
+- https://apicalculators.com/compare/clerk-vs-supabase-auth — Clerk vs Supabase Auth
+- https://apicalculators.com/compare/auth0-vs-supabase-auth — Auth0 vs Supabase Auth
 - https://apicalculators.com/compare/better-auth-vs-clerk — Better Auth vs Clerk
+- https://apicalculators.com/compare/elevenlabs-vs-openai-tts — ElevenLabs vs OpenAI TTS
+- https://apicalculators.com/compare/whisper-vs-deepgram — Whisper vs Deepgram STT
+- https://apicalculators.com/compare/lambda-vs-cloudflare-workers — Lambda vs Cloudflare Workers
+- https://apicalculators.com/compare/vercel-vs-cloudflare-workers — Vercel vs Cloudflare Workers
 
 ## Data Sources
 
