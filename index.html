@@ -413,14 +413,23 @@ footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
 .hub-section .sh{font-size:20px;font-weight:700;margin-bottom:6px;color:var(--text)}
 .hub-section .ssub{color:var(--muted);font-size:14px;margin-bottom:24px}
 .hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.hub-category{margin-bottom:32px}
+.hub-category-label{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:12px;padding-left:2px}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:24px}
+.blog-card{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
+.blog-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
+.blog-card .bc-tag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.blog-card .bc-title{font-size:14.5px;font-weight:700;line-height:1.35}
+.blog-card .bc-desc{font-size:12.5px;color:var(--muted);line-height:1.45}
+.blog-card .bc-link{font-size:11px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;margin-top:4px}
 .hub-card{display:flex;flex-direction:column;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
 .hub-card:hover{border-color:var(--lime);transform:translateY(-2px)}
 .hub-card .hc-icon{font-size:26px;line-height:1}
 .hub-card .hc-title{font-size:14.5px;font-weight:700}
 .hub-card .hc-desc{font-size:12px;color:var(--muted);line-height:1.4}
 .hub-card .hc-link{font-size:11px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;margin-top:2px}
-@media(max-width:600px){.llm-standalone{padding:20px}.hub-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:400px){.hub-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.llm-standalone{padding:20px}.hub-grid{grid-template-columns:1fr 1fr}.blog-grid{grid-template-columns:1fr}}
+@media(max-width:400px){.hub-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
 </style>
 <style>
 .affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
@@ -588,102 +597,144 @@ window.addEventListener('load',function(){
 
 <!-- HUB: MORE CALCULATORS -->
 <section class="hub-section">
-  <h2 class="sh">More API Cost Calculators</h2>
-  <p class="ssub">11 free tools — click to open the full interactive calculator with all providers and options.</p>
-  <div class="hub-grid">
+  <h2 class="sh">All 13 Free Calculators</h2>
+  <p class="ssub">Click any tool to open the full interactive calculator with all providers and options.</p>
 
-    <a href="/vector-database-cost" class="hub-card">
-      <span class="hc-icon">🧊</span>
-      <div class="hc-title">Vector Database Cost</div>
-      <div class="hc-desc">Pinecone vs Supabase vs Qdrant vs Weaviate</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
+  <div class="hub-category">
+    <div class="hub-category-label">AI &amp; LLM Tools</div>
+    <div class="hub-grid">
+      <a href="/llm-cost-calculator" class="hub-card">
+        <span class="hc-icon">🧠</span>
+        <div class="hc-title">LLM Cost Calculator</div>
+        <div class="hc-desc">GPT-4o vs Claude vs Gemini — per token &amp; per month</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/deepseek-api-cost" class="hub-card">
+        <span class="hc-icon">🐋</span>
+        <div class="hc-title">DeepSeek API Cost</div>
+        <div class="hc-desc">DeepSeek V3 &amp; R1 — $0.27/1M input</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/embedding-api-cost" class="hub-card">
+        <span class="hc-icon">🧲</span>
+        <div class="hc-title">Embedding API Cost</div>
+        <div class="hc-desc">OpenAI vs Cohere vs Voyage AI</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/image-generation-cost" class="hub-card">
+        <span class="hc-icon">🎨</span>
+        <div class="hc-title">Image Generation Cost</div>
+        <div class="hc-desc">DALL·E 3 vs Stable Diffusion vs Flux</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/stt-tts-api-cost" class="hub-card">
+        <span class="hc-icon">🎙️</span>
+        <div class="hc-title">STT / TTS API Cost</div>
+        <div class="hc-desc">Whisper vs ElevenLabs vs Deepgram</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/ai-agent-cost" class="hub-card">
+        <span class="hc-icon">🤖</span>
+        <div class="hc-title">AI Agent Cost</div>
+        <div class="hc-desc">Multi-step pipeline pricing per run</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/ai-coding-tool-cost" class="hub-card">
+        <span class="hc-icon">💻</span>
+        <div class="hc-title">AI Coding Tool Cost</div>
+        <div class="hc-desc">Cursor vs Copilot vs Claude Code</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/vector-database-cost" class="hub-card">
+        <span class="hc-icon">🧊</span>
+        <div class="hc-title">Vector Database Cost</div>
+        <div class="hc-desc">Pinecone vs Supabase vs Qdrant vs Weaviate</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+    </div>
+  </div>
 
-    <a href="/image-generation-cost" class="hub-card">
-      <span class="hc-icon">🎨</span>
-      <div class="hc-title">Image Generation Cost</div>
-      <div class="hc-desc">DALL·E 3 vs Stable Diffusion vs Flux</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
+  <div class="hub-category">
+    <div class="hub-category-label">Infrastructure</div>
+    <div class="hub-grid">
+      <a href="/cloud-vps-comparison" class="hub-card">
+        <span class="hc-icon">☁️</span>
+        <div class="hc-title">Cloud VPS Comparison</div>
+        <div class="hc-desc">Hetzner vs DigitalOcean vs Vultr</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/serverless-cost-calculator" class="hub-card">
+        <span class="hc-icon">⚡</span>
+        <div class="hc-title">Serverless Cost Calculator</div>
+        <div class="hc-desc">Lambda vs Vercel vs Cloudflare Workers</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/api-gateway-pricing" class="hub-card">
+        <span class="hc-icon">🔀</span>
+        <div class="hc-title">API Gateway Pricing</div>
+        <div class="hc-desc">AWS API GW vs Cloudflare vs Kong</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+    </div>
+  </div>
 
-    <a href="/payment-processor-fees" class="hub-card">
-      <span class="hc-icon">💳</span>
-      <div class="hc-title">Payment Processor Fees</div>
-      <div class="hc-desc">Stripe vs Paddle vs Lemon Squeezy</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
+  <div class="hub-category">
+    <div class="hub-category-label">Payments &amp; Auth</div>
+    <div class="hub-grid">
+      <a href="/payment-processor-fees" class="hub-card">
+        <span class="hc-icon">💳</span>
+        <div class="hc-title">Payment Processor Fees</div>
+        <div class="hc-desc">Stripe vs Paddle vs Lemon Squeezy</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/auth-provider-cost" class="hub-card">
+        <span class="hc-icon">🔑</span>
+        <div class="hc-title">Auth Provider Cost</div>
+        <div class="hc-desc">Clerk vs Supabase Auth vs Auth0</div>
+        <div class="hc-link">Open Calculator →</div>
+      </a>
+      <a href="/compare/supabase-vs-firebase" class="hub-card">
+        <span class="hc-icon">🆚</span>
+        <div class="hc-title">Supabase vs Firebase</div>
+        <div class="hc-desc">BaaS pricing — flat $25/mo vs per read/write</div>
+        <div class="hc-link">Compare Now →</div>
+      </a>
+    </div>
+  </div>
 
-    <a href="/cloud-vps-comparison" class="hub-card">
-      <span class="hc-icon">☁️</span>
-      <div class="hc-title">Cloud VPS Comparison</div>
-      <div class="hc-desc">Hetzner vs DigitalOcean vs Vultr</div>
-      <div class="hc-link">Open Calculator →</div>
+</section>
+<!-- ===== BLOG HIGHLIGHTS ===== -->
+<section class="hub-section" style="padding-top:48px">
+  <h2 class="sh">From the Blog</h2>
+  <p class="ssub">Deep dives into API pricing, cost optimization, and developer infrastructure.</p>
+  <div class="blog-grid">
+    <a href="/blog/reduce-llm-api-costs-2026" class="blog-card">
+      <div class="bc-tag">Cost Optimization</div>
+      <div class="bc-title">How to Reduce LLM API Costs by 60%: 7 Proven Strategies</div>
+      <div class="bc-desc">Prompt caching, model routing, batch API, context compression — with real savings examples.</div>
+      <div class="bc-link">Read Guide →</div>
     </a>
-
-    <a href="/stt-tts-api-cost" class="hub-card">
-      <span class="hc-icon">🎙️</span>
-      <div class="hc-title">STT / TTS API Cost</div>
-      <div class="hc-desc">Whisper vs ElevenLabs vs Deepgram</div>
-      <div class="hc-link">Open Calculator →</div>
+    <a href="/blog/cursor-true-cost-2026" class="blog-card">
+      <div class="bc-tag">AI Coding Tools</div>
+      <div class="bc-title">Cursor True Cost 2026: Why Your $20/mo Plan Bills $180+</div>
+      <div class="bc-desc">Agentic usage pushes Cursor bills far beyond the base plan. The real cost breakdown explained.</div>
+      <div class="bc-link">Read Guide →</div>
     </a>
-
-    <a href="/serverless-cost-calculator" class="hub-card">
-      <span class="hc-icon">⚡</span>
-      <div class="hc-title">Serverless Cost Calculator</div>
-      <div class="hc-desc">Lambda vs Vercel vs Cloudflare Workers</div>
-      <div class="hc-link">Open Calculator →</div>
+    <a href="/blog/ai-coding-tool-cost-comparison-2026" class="blog-card">
+      <div class="bc-tag">Comparison</div>
+      <div class="bc-title">GitHub Copilot vs Cursor vs Claude Code — Real Monthly Costs</div>
+      <div class="bc-desc">Light, medium, and heavy usage costs for every major AI coding tool in 2026.</div>
+      <div class="bc-link">Read Guide →</div>
     </a>
-
-    <a href="/api-gateway-pricing" class="hub-card">
-      <span class="hc-icon">🔀</span>
-      <div class="hc-title">API Gateway Pricing</div>
-      <div class="hc-desc">AWS API GW vs Cloudflare vs Kong</div>
-      <div class="hc-link">Open Calculator →</div>
+    <a href="/blog/llm-api-cost-guide-2026" class="blog-card">
+      <div class="bc-tag">LLM Pricing</div>
+      <div class="bc-title">LLM API Cost Guide 2026: GPT-4o, Claude &amp; Gemini Pricing</div>
+      <div class="bc-desc">Complete model pricing comparison per token, per request, and per month. Updated June 2026.</div>
+      <div class="bc-link">Read Guide →</div>
     </a>
-
-    <a href="/embedding-api-cost" class="hub-card">
-      <span class="hc-icon">🧲</span>
-      <div class="hc-title">Embedding API Cost</div>
-      <div class="hc-desc">OpenAI vs Cohere vs Voyage AI</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
-
-    <a href="/ai-agent-cost" class="hub-card">
-      <span class="hc-icon">🤖</span>
-      <div class="hc-title">AI Agent Cost</div>
-      <div class="hc-desc">Multi-step pipeline pricing per run</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
-
-    <a href="/ai-coding-tool-cost" class="hub-card">
-      <span class="hc-icon">💻</span>
-      <div class="hc-title">AI Coding Tool Cost</div>
-      <div class="hc-desc">Cursor vs Copilot vs Claude Code</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
-
-    <a href="/auth-provider-cost" class="hub-card">
-      <span class="hc-icon">🔑</span>
-      <div class="hc-title">Auth Provider Cost</div>
-      <div class="hc-desc">Clerk vs Supabase Auth vs Auth0</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
-
-    <a href="/deepseek-api-cost" class="hub-card">
-      <span class="hc-icon">🐋</span>
-      <div class="hc-title">DeepSeek API Cost</div>
-      <div class="hc-desc">DeepSeek V3 & R1 — $0.27/1M input</div>
-      <div class="hc-link">Open Calculator →</div>
-    </a>
-    <a href="/compare/supabase-vs-firebase" class="hub-card">
-      <span class="hc-icon">🆚</span>
-      <div class="hc-title">Supabase vs Firebase</div>
-      <div class="hc-desc">BaaS pricing — flat $25/mo vs per read/write</div>
-      <div class="hc-link">Compare Now →</div>
-    </a>
-
   </div>
 </section>
+
 <!-- AD: IN-CONTENT -->
 <!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
 <ins class="adsbygoogle"
