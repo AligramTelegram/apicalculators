@@ -1,21 +1,16 @@
 User-agent: *
 Allow: /
-Disallow: /config/
 
-# AI crawlers — full access encouraged
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: Google-Extended
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
 Allow: /
 
 User-agent: Amazonbot

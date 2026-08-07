@@ -1,1737 +1,246 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-<meta name="theme-color" content="#0a0c10">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="shortcut icon" href="/favicon.svg">
-
-<!-- PRIMARY SEO -->
-<title>API Cost & Pricing Calculators 2026 — Free | APICalculators</title>
-<meta name="description" content="Free API pricing calculators for LLM, vector DB, serverless, API gateway, embedding, auth and payment processors. Compare API costs instantly — 14 tools, zero signup.">
-<meta name="keywords" content="LLM cost calculator, AWS Lambda cost calculator, cloud VPS comparison, embedding API cost, STT TTS API pricing, API gateway pricing, AI agent cost, vector database pricing, payment processor fees, AI coding tool cost, auth provider cost calculator, Clerk vs Supabase pricing, Cursor vs Copilot cost">
-<meta name="author" content="APICalculators">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Cost Calculators 2026 — Free Developer Infrastructure Pricing Tools | APICalculators</title>
+<meta name="description" content="Free calculators for LLM API cost, vector databases, cloud VPS, image & speech generation, payment processors, and auth providers. Pricing reviewed monthly, updated for 2026.">
 <link rel="canonical" href="https://apicalculators.com/">
-
-<!-- HREFLANG (REGIONAL) -->
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/">
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/">
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/">
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/">
-
-<!-- OPEN GRAPH -->
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="API Cost & Pricing Calculators 2026 — Free | APICalculators">
-<meta property="og:description" content="Compare API pricing across 14+ tools: LLM, vector DB, serverless, API gateway, auth and payment processors. Free, zero signup.">
-<meta property="og:image" content="https://apicalculators.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="APICalculators — Developer Infrastructure Cost Hub">
+<meta property="og:title" content="API Cost Calculators 2026 — Free Developer Infrastructure Pricing Tools">
+<meta property="og:description" content="Free calculators for LLM API cost, vector databases, cloud VPS, image & speech generation, payment processors, and auth providers.">
 <meta property="og:url" content="https://apicalculators.com/">
-<meta property="og:site_name" content="APICalculators">
-
-<!-- TWITTER -->
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@apicalculators">
-<meta name="twitter:creator" content="@apicalculators">
-<meta name="twitter:title" content="API Cost & Pricing Calculators 2026 — Free | APICalculators">
-<meta name="twitter:description" content="Compare API pricing instantly. LLM, vector DB, serverless, API gateway, auth and payment fees. 14 free tools, no signup.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-<meta name="twitter:image:alt" content="APICalculators dashboard showing LLM and API cost calculators">
-
-<!-- GEO & LANGUAGE -->
-<meta name="language" content="English">
-<meta name="geo.region" content="US">
-<meta name="geo.placename" content="United States">
-
-<!-- ICONS & PWA -->
-<meta name="google-site-verification" content="ragcSuE5Eegby97lXvNtkZJX_OKg0fH4bXar4H5MF3I">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%A7%AE</text></svg>">
-<link rel="apple-touch-icon" href="https://apicalculators.com/icon-192.png">
-<link rel="manifest" href="/manifest.json">
-
-<!-- No external font requests — 100% system fonts for instant LCP -->
-<!-- ADSENSE: Replace ca-pub-3540510471635518 with your publisher ID after approval -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3540510471635518" crossorigin="anonymous"></script> -->
-
-<!-- SCHEMA: WEBSITE (enables Google Sitelinks Searchbox) -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"APICalculators","url":"https://apicalculators.com","description":"Developer infrastructure cost optimization tools — free calculators for LLM tokens, vector databases, image generation, and payment fees","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://apicalculators.com/blog/?q={search_term_string}"},"query-input":"required name=search_term_string"}}
-</script>
-<!-- SCHEMA: WEBPAGE -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"Free LLM & API Cost Calculators 2026 — APICalculators","url":"https://apicalculators.com/","description":"Calculate and optimize production AI infrastructure costs in real-time.","isPartOf":{"@type":"WebSite","url":"https://apicalculators.com"},"speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2",".sub"]},"inLanguage":"en-US","dateModified":"2026-06-05"}
-</script>
-<!-- SCHEMA: ORGANIZATION -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"APICalculators","url":"https://apicalculators.com","logo":{"@type":"ImageObject","url":"https://apicalculators.com/logo.png","width":512,"height":512},"description":"Developer infrastructure cost optimization tools","contactPoint":{"@type":"ContactPoint","email":"hello@apicalculators.com","contactType":"customer support"},"sameAs":["https://twitter.com/apicalculators","https://github.com/apicalculators"]}
-</script>
-<!-- SCHEMA: SOFTWARE APPLICATION -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"APICalculators - Cost Optimization Hub","operatingSystem":"Web","applicationCategory":"DeveloperApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
-</script>
-<!-- SCHEMA: BREADCRUMB -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"LLM Calculator","item":"https://apicalculators.com/#llm"}]}
-</script>
-<!-- SCHEMA: FAQ -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How accurate are the LLM pricing calculations?","acceptedAnswer":{"@type":"Answer","text":"Our calculators use official 2026 pricing from OpenAI, Anthropic, Google, and other providers. Prices are reviewed monthly to reflect current rates."}},{"@type":"Question","name":"Is APICalculators free to use?","acceptedAnswer":{"@type":"Answer","text":"Yes, all calculators are completely free and require no registration or authentication."}},{"@type":"Question","name":"Do you store my data?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations run entirely in your browser. Nothing you type is sent to a server."}}]}
-</script>
-
-<style>
-:root{
-  --bg:#0a0c10; --bg2:#0c0f15; --surface:#12161d; --surface2:#161b24;
-  --border:#1d2530; --border2:#27313e;
-  --text:#e8edf1; --muted:#8b97a4; --muted2:#8a96a5;
-  --lime:#b8ff2e; --lime-dim:#9be01f; --cyan:#4dd6ff; --amber:#ffb24d; --rose:#ff5d6c;
-  --shadow:0 24px 60px -20px rgba(0,0,0,.7);
-  --r:14px;
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "APICalculators",
+  "url": "https://apicalculators.com/",
+  "description": "Free calculators for LLM API, vector database, cloud, and developer infrastructure costs."
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg); color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','SF Pro Text',system-ui,sans-serif;
-  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-/* atmosphere */
-body::before{
-  content:""; position:fixed; inset:0; z-index:-2;
-  background:
-    radial-gradient(900px 500px at 80% -10%, rgba(184,255,46,.07), transparent 60%),
-    radial-gradient(700px 600px at 5% 10%, rgba(77,214,255,.06), transparent 55%);
-}
-body::after{
-  content:""; position:fixed; inset:0; z-index:-1; opacity:.5;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:54px 54px;
-  -webkit-mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
-          mask-image:radial-gradient(circle at 50% 30%, #000 0%, transparent 75%);
-}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
-.mono{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-variant-numeric:tabular-nums}
-
-/* ---------- NAV ---------- */
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
-  background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;
-  font-size:19px;letter-spacing:-.02em}
-.logo .glyph{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
-  background:var(--lime);color:#06210a;font-size:17px;box-shadow:0 0 20px rgba(184,255,46,.4)}
-.logo b{color:var(--lime)}
-.nav-links{display:flex;align-items:center;gap:26px}
-.nav-links a.nlink{color:var(--muted);font-weight:500;font-size:14.5px;transition:color .2s}
-.nav-links a.nlink:hover{color:var(--text)}
-.nav-right{display:flex;align-items:center;gap:14px}
-/* language dropdown (scales to 10 langs) */
-.langdd{position:relative}
-.langdd-btn{display:flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border2);
-  border-radius:9px;padding:7px 11px;color:var(--text);font-size:13px;font-weight:600;cursor:pointer;
-  font-family:-apple-system,system-ui,sans-serif;transition:border-color .18s}
-.langdd-btn:hover{border-color:var(--muted2)}
-.langdd-btn .chev{transition:transform .2s;color:var(--muted2)}
-.langdd.open .langdd-btn .chev{transform:rotate(180deg)}
-.langdd-menu{position:absolute;top:calc(100% + 8px);right:0;min-width:180px;background:var(--surface);
-  border:1px solid var(--border2);border-radius:12px;padding:6px;box-shadow:var(--shadow);
-  opacity:0;visibility:hidden;transform:translateY(-6px);transition:all .18s;z-index:60;
-  max-height:340px;overflow-y:auto}
-.langdd.open .langdd-menu{opacity:1;visibility:visible;transform:none}
-.langdd-menu a{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:8px;
-  color:var(--muted);font-size:13.5px;font-weight:500;transition:all .14s}
-.langdd-menu a:hover{background:var(--surface2);color:var(--text)}
-.langdd-menu a.on{color:var(--lime)}
-.langdd-menu a .flag{font-size:16px}
-.langdd-menu a .code{margin-left:auto;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2)}
-.langdd-menu a.soon{opacity:.4;pointer-events:none}
-/* hamburger (mobile only) */
-.hamb{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px}
-.hamb span{width:20px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
-.hamb.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.hamb.open span:nth-child(2){opacity:0}
-.hamb.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-/* mobile slide-down menu */
-.mobile-menu{display:none;flex-direction:column;border-top:1px solid var(--border);
-  background:rgba(10,12,16,.96);backdrop-filter:blur(14px)}
-.mobile-menu.open{display:flex}
-.mobile-menu a{padding:15px 22px;color:var(--text);font-weight:600;font-size:16px;
-  border-bottom:1px solid var(--border);transition:background .14s}
-.mobile-menu a:hover{background:var(--surface)}
-@media(max-width:760px){
-  .nav-links .nlink{display:none}
-  .hamb{display:flex}
-}
-
-/* ---------- HERO ---------- */
-.hero{padding:78px 0 30px;text-align:center;position:relative}
-.tagpill{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;
-  font-size:12px;color:var(--muted);border:1px solid var(--border2);
-  background:var(--surface);padding:7px 14px;border-radius:100px;margin-bottom:26px}
-.tagpill .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);
-  box-shadow:0 0 10px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.h{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.035em;line-height:1.02;
-  font-size:clamp(38px,7vw,72px)}
-h1.h .em{color:var(--lime);position:relative}
-h1.h .em::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:14px;
-  background:rgba(184,255,46,.18);z-index:-1;transform:skewX(-8deg)}
-.sub{max-width:600px;margin:22px auto 0;color:var(--muted);font-size:18px}
-.hero-stats{display:flex;gap:34px;justify-content:center;margin-top:34px;flex-wrap:wrap}
-.hstat b{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:24px;display:block;color:var(--text)}
-.hstat span{font-size:12.5px;color:var(--muted2);font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;
-  text-transform:uppercase;letter-spacing:.06em}
-
-/* ---------- AD SLOT ---------- */
-.adslot{margin:26px auto;max-width:760px;min-height:90px;border:1px dashed var(--border2);
-  border-radius:10px;display:grid;place-items:center;color:var(--muted2);
-  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.08em;background:rgba(255,255,255,.012)}
-
-/* ---------- CALCULATOR SHELL ---------- */
-.calc{background:linear-gradient(180deg,var(--surface),var(--bg2));
-  border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);
-  overflow:hidden;margin-top:18px}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;
-  padding:12px;border-bottom:1px solid var(--border)}
-.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:6px;padding:12px 8px;border-radius:12px;cursor:pointer;color:var(--muted);
-  font-weight:600;font-size:12px;text-align:center;border:1px solid transparent;
-  transition:all .18s;background:transparent;line-height:1.2;min-height:64px}
-.tab .ic{font-size:22px;line-height:1}
-.tab:hover{color:var(--text);background:var(--surface2)}
-.tab.on{color:var(--text);background:var(--surface2);border-color:var(--border2)}
-.tab.on .ic{filter:drop-shadow(0 0 10px rgba(184,255,46,.7))}
-.tab.on .num{color:var(--lime)}
-@media(max-width:900px){.tabs{grid-template-columns:repeat(5,1fr)}}
-@media(max-width:640px){.tabs{grid-template-columns:repeat(3,1fr);gap:5px}
-  .tab{padding:10px 6px;font-size:11px;min-height:58px}.tab .ic{font-size:20px}}
-@media(max-width:420px){.tabs{grid-template-columns:repeat(2,1fr)}
-  .tab{min-height:54px}}
-.tab.on .num{color:var(--lime);border-color:rgba(184,255,46,.3)}
-
-.panel{display:none;padding:28px;animation:fade .35s ease}
-.panel.on{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.panel-head{margin-bottom:22px}
-.panel-head h2{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:23px;letter-spacing:-.02em}
-.panel-head p{color:var(--muted);font-size:14.5px;margin-top:4px}
-
-.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:26px}
-.panel-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;padding:28px}
-.panel-body .inputs{display:flex;flex-direction:column;gap:0}
-.lbl{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px;margin-top:14px}
-.lbl:first-child{margin-top:0}
-.panel-body .result{position:relative}
-.panel-body .result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan));border-radius:2px 2px 0 0}
-@media(max-width:780px){.panel-body{grid-template-columns:1fr;padding:20px}}
-@media(max-width:780px){.grid2{grid-template-columns:1fr}.panel{padding:20px}}
-
-/* inputs */
-.field{margin-bottom:18px}
-.field label{display:flex;justify-content:space-between;align-items:center;
-  font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px}
-.field label .hint{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);font-weight:400}
-.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);
-  border-radius:10px;padding:12px 14px;color:var(--text);font-size:15px;
-  font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;transition:border-color .18s,box-shadow .18s}
-.inp:focus,.sel:focus{outline:none;border-color:var(--lime);
-  box-shadow:0 0 0 3px rgba(184,255,46,.12)}
-.sel{appearance:none;cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{flex:1;min-width:max-content;background:var(--bg);border:1px solid var(--border2);
-  color:var(--muted);border-radius:9px;padding:9px 12px;font-size:13px;font-weight:600;
-  cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;transition:all .15s}
-.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
-.seg button:not(.on):hover{color:var(--text);border-color:var(--border2)}
-
-/* result card */
-.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.06),transparent 55%),var(--surface2);
-  border:1px solid var(--border2);border-radius:16px;padding:24px;position:relative;overflow:hidden}
-.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.result .rlabel{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted2)}
-.result .big{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:900;letter-spacing:-.03em;
-  font-size:clamp(40px,8vw,56px);line-height:1;margin:8px 0 2px;color:var(--lime)}
-.result .big small{font-size:24px;color:var(--muted);font-weight:700}
-.result .per{color:var(--muted);font-size:13.5px}
-.breakdown{margin-top:20px;border-top:1px solid var(--border);padding-top:16px;
-  display:flex;flex-direction:column;gap:11px}
-.brow{display:flex;justify-content:space-between;align-items:baseline;font-size:14px}
-.brow span{color:var(--muted)}
-.brow b{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-weight:500;font-size:14px}
-.brow.hl b{color:var(--lime)}
-.brow.warn b{color:var(--amber)}
-
-/* comparison bars (payment) */
-.cmp{display:flex;flex-direction:column;gap:14px;margin-top:6px}
-.cmpitem{background:var(--bg);border:1px solid var(--border2);border-radius:12px;padding:14px 16px}
-.cmpitem.best{border-color:rgba(184,255,46,.4);box-shadow:0 0 0 1px rgba(184,255,46,.15)}
-.cmptop{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}
-.cmptop .name{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
-.badge{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:10px;background:var(--lime);color:#06210a;
-  padding:2px 7px;border-radius:5px;font-weight:700;letter-spacing:.03em}
-.cmptop .amt{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-weight:700;font-size:17px}
-.bar{height:7px;background:var(--border);border-radius:100px;overflow:hidden}
-.bar i{display:block;height:100%;border-radius:100px;
-  background:linear-gradient(90deg,var(--cyan),var(--lime));transition:width .5s cubic-bezier(.2,.8,.2,1)}
-.cmpitem.best .bar i{background:linear-gradient(90deg,var(--lime),var(--lime-dim))}
-.cmpmeta{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;color:var(--muted2);margin-top:7px}
-
-.disclaimer{font-size:12px;color:var(--muted2);margin-top:16px;line-height:1.5;
-  border-left:2px solid var(--border2);padding-left:12px}
-
-/* ---------- AFFILIATE STRIP ---------- */
-.partners{margin:60px 0 10px}
-.sec-label{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:12px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:22px}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.cta-button{display:inline-flex;align-items:center;gap:10px;background:var(--surface);
-  border:1px solid var(--border2);border-radius:12px;padding:14px 20px;font-weight:600;
-  font-size:14.5px;transition:all .2s;color:var(--text)}
-.cta-button:hover{border-color:var(--lime);transform:translateY(-2px);
-  box-shadow:0 12px 30px -12px rgba(184,255,46,.3)}
-.cta-button .arr{color:var(--lime);transition:transform .2s}
-.cta-button:hover .arr{transform:translate(3px,-3px)}
-.cta-button .em{font-size:18px}
-
-/* ---------- FAQ ---------- */
-.section{padding:62px 0}
-.section h2.sh{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:clamp(26px,4vw,36px);
-  letter-spacing:-.025em;text-align:center}
-.section .ssub{text-align:center;color:var(--muted);margin:10px auto 0;max-width:540px}
-.faq{max-width:760px;margin:34px auto 0;display:flex;flex-direction:column;gap:10px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:13px;
-  overflow:hidden;transition:border-color .2s}
-.qa.open{border-color:var(--border2)}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:18px 20px;cursor:pointer;font-weight:600;font-size:15.5px}
-.qa .q .plus{color:var(--lime);font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:20px;
-  transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);
-  font-size:14.5px}
-.qa .a p{padding:0 20px 18px}
-
-/* ---------- NEWSLETTER ---------- */
-.newsletter{background:linear-gradient(135deg,var(--surface),var(--bg2));
-  border:1px solid var(--border);border-radius:20px;padding:42px 32px;text-align:center;
-  position:relative;overflow:hidden}
-.newsletter::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(500px 200px at 50% 0%,rgba(184,255,46,.08),transparent)}
-.newsletter h3{font-family:'Arial Black','Impact',system-ui,sans-serif;font-weight:800;font-size:26px;position:relative}
-.newsletter p{color:var(--muted);margin:8px auto 22px;max-width:440px;position:relative}
-.nl-form{display:flex;gap:10px;max-width:420px;margin:0 auto;position:relative}
-.nl-form input{flex:1;background:var(--bg);border:1px solid var(--border2);border-radius:10px;
-  padding:13px 15px;color:var(--text);font-size:14.5px;font-family:'JetBrains Mono'}
-.nl-form input:focus{outline:none;border-color:var(--lime)}
-.nl-form button{background:var(--lime);color:#06210a;border:none;border-radius:10px;
-  padding:13px 22px;font-weight:700;font-size:14.5px;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
-  transition:transform .15s,box-shadow .2s}
-.nl-form button:hover{transform:translateY(-1px);box-shadow:0 8px 24px -8px rgba(184,255,46,.5)}
-.nl-note{font-size:12px;color:var(--muted2);margin-top:12px;position:relative}
-@media(max-width:520px){.nl-form{flex-direction:column}}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--border);margin-top:40px;padding:44px 0 32px}
-.foot-grid{display:grid;grid-template-columns:1.6fr 2fr 1fr 1fr;gap:30px}
-@media(max-width:720px){.foot-grid{grid-template-columns:1fr 1fr}}
-.foot-calcs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
-@media(max-width:720px){.foot-calcs-grid{grid-template-columns:1fr}}
-.foot-grid h4{font-family:'Cascadia Code','Consolas','SF Mono','Monaco','Menlo',monospace;font-size:11px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
-.foot-grid a{display:block;color:var(--muted);font-size:14px;margin-bottom:9px;transition:color .15s}
-.foot-grid a:hover{color:var(--lime)}
-.foot-about p{color:var(--muted);font-size:13.5px;margin-top:10px;max-width:260px}
-.foot-bot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  margin-top:34px;padding-top:22px;border-top:1px solid var(--border);
-  font-size:12.5px;color:var(--muted2);font-family:'JetBrains Mono'}
-
-/* ── Vultr contextual CTA ─────────────────────────────────────── */
-#cloudVultrCta{display:none;margin-top:14px}
-.vcta{display:flex;gap:14px;align-items:flex-start;border-radius:12px;padding:16px 18px;border:1px solid var(--border2)}
-.vcta-win{background:rgba(184,255,46,.06);border-color:rgba(184,255,46,.3)}
-.vcta-near{background:var(--surface)}
-.vcta-icon{width:38px;height:38px;border-radius:9px;background:#1557c0;display:grid;place-items:center;
-  color:#fff;font-weight:900;font-size:17px;flex-shrink:0;margin-top:2px}
-.vcta-body{flex:1;min-width:0}
-.vcta-title{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:14px;margin-bottom:4px;color:var(--text)}
-.vcta-sub{font-size:12.5px;color:var(--muted);margin-bottom:10px}
-.vcta-btn{display:inline-flex;align-items:center;gap:6px;background:var(--lime);color:#06210a;
-  padding:9px 15px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none;transition:opacity .15s}
-.vcta-btn:hover{opacity:.85;text-decoration:none}
-.vcta-btn-sm{background:var(--surface2);color:var(--text);border:1px solid var(--border2)}
-.vcta-note{display:block;font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:var(--muted2);margin-top:7px}
-.calc-seo-content{padding:20px 28px 24px;border-top:1px solid var(--border);margin-top:4px;font-size:0.875rem;color:var(--muted)}
-.calc-seo-content h3{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:10px}
-.calc-seo-content>p{line-height:1.7;margin-bottom:14px}
-.calc-faq details{border-top:1px solid var(--border);padding:10px 0}
-.calc-faq details:last-child{border-bottom:1px solid var(--border)}
-.calc-faq summary{cursor:pointer;font-weight:600;color:var(--text);font-size:0.85rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
-.calc-faq summary::after{content:"＋";color:var(--muted);font-size:1rem;transition:transform .2s}
-.calc-faq details[open] summary::after{content:"－"}
-.calc-faq details p{margin-top:8px;line-height:1.65;color:var(--muted)}
-@media(max-width:780px){.calc-seo-content{padding:16px 20px 20px}}
-
-/* ── Share Button ── */
-.share-row{display:flex;align-items:center;gap:10px;margin-top:16px}
-.share-btn{display:inline-flex;align-items:center;gap:6px;background:var(--surface2);
-  border:1px solid var(--border2);border-radius:9px;padding:8px 14px;color:var(--muted);
-  font-size:12.5px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;
-  transition:all .18s}
-.share-btn:hover{border-color:var(--lime);color:var(--lime)}
-.share-confirm{font-size:12px;color:#4ade80;font-weight:600;animation:fade-in .2s ease}
-@keyframes fade-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-
-/* ── Cost Warning ── */
-.cost-warning{margin-top:14px;padding:10px 14px;border-radius:9px;font-size:12.5px;font-weight:600;
-  border-left:3px solid;animation:fade-in .25s ease;display:none}
-.cost-warning.high{border-color:#ff5d6c;background:rgba(255,93,108,.08);color:#ff8f9a}
-.cost-warning.mid{border-color:#ffb24d;background:rgba(255,178,77,.08);color:#ffc96e}
-.cost-warning.low{border-color:#4ade80;background:rgba(74,222,128,.08);color:#4ade80}
-
-/* ── Recommendation ── */
-.calc-recommendation{margin-top:10px;padding:10px 14px;border-radius:9px;font-size:12.5px;
-  background:rgba(77,214,255,.07);border:1px solid rgba(77,214,255,.2);color:#7de2f5;
-  animation:fade-in .25s ease;display:none}
-.calc-recommendation .rec-icon{margin-right:4px}
-
-/* ── Hub Grid ── */
-.llm-standalone{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;margin-bottom:16px}
-.hub-section{padding:36px 0 0}
-.hub-section .sh{font-size:20px;font-weight:700;margin-bottom:6px;color:var(--text)}
-.hub-section .ssub{color:var(--muted);font-size:14px;margin-bottom:24px}
-.hub-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
-.hub-category{margin-bottom:32px}
-.hub-category-label{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);margin-bottom:12px;padding-left:2px}
-.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:24px}
-.blog-card{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
-.blog-card:hover{border-color:var(--cyan);transform:translateY(-2px)}
-.blog-card .bc-tag{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
-.blog-card .bc-title{font-size:14.5px;font-weight:700;line-height:1.35}
-.blog-card .bc-desc{font-size:12.5px;color:var(--muted);line-height:1.45}
-.blog-card .bc-link{font-size:11px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;margin-top:4px}
-.hub-card{display:flex;flex-direction:column;gap:7px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--text);transition:border-color .18s,transform .18s}
-.hub-card:hover{border-color:var(--lime);transform:translateY(-2px)}
-.hub-card .hc-icon{font-size:26px;line-height:1}
-.hub-card .hc-title{font-size:14.5px;font-weight:700}
-.hub-card .hc-desc{font-size:12px;color:var(--muted);line-height:1.4}
-.hub-card .hc-link{font-size:11px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace;margin-top:2px}
-@media(max-width:600px){.llm-standalone{padding:20px}.hub-grid{grid-template-columns:1fr 1fr}.blog-grid{grid-template-columns:1fr}}
-@media(max-width:400px){.hub-grid{grid-template-columns:1fr}.blog-grid{grid-template-columns:1fr}}
-</style>
-<style>
-.affiliate-cta{margin:1.5rem 0 0.5rem;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px;}
-.aff-headline{margin:0 0 .6rem;font-size:.85rem;color:#b8ff2e;font-weight:600;letter-spacing:.02em;}
-.aff-links{display:flex;flex-wrap:wrap;gap:.5rem;}
-.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s,border-color .15s;}
-.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:#b8ff2e;}
-
-.donate-wrap{max-width:1140px;margin:24px auto 0;padding:0 22px}
-.donate-box{padding:20px 28px;background:linear-gradient(135deg,rgba(255,178,77,.08),rgba(255,178,77,.03));border:1px solid rgba(255,178,77,.35);border-radius:14px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center;position:relative;overflow:hidden}
-.donate-box::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 120px at 50% 0%,rgba(255,178,77,.06),transparent);pointer-events:none}
-.donate-box .d-msg{font-size:14px;color:var(--muted);text-align:center}
-.donate-box .d-msg strong{color:#ffb24d;display:block;font-size:15px;font-weight:700;margin-bottom:3px;letter-spacing:-.01em}
-.donate-id{font-family:'Cascadia Code','Consolas',monospace;font-size:16px;font-weight:700;color:var(--text);background:var(--bg);border:1px solid rgba(255,178,77,.4);border-radius:8px;padding:8px 16px;letter-spacing:.06em}
-.copy-btn{background:rgba(255,178,77,.15);border:1px solid rgba(255,178,77,.4);color:#ffb24d;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s;white-space:nowrap}
-.copy-btn:hover{background:rgba(255,178,77,.3);transform:translateY(-1px)}
-.copy-btn.copied{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.4);color:var(--lime)}
-</style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/"/>
+</script>
 </head>
 <body>
 
-<!-- Google Analytics — deferred after page load to protect LCP/TBT -->
-<script>
-window.addEventListener('load',function(){
-  var s=document.createElement('script');
-  s.async=true;
-  s.src='https://www.googletagmanager.com/gtag/js?id=G-CNZN4LX2GH';
-  document.head.appendChild(s);
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag=gtag;
-  gtag('js',new Date());
-  gtag('config','G-CNZN4LX2GH');
-});
-</script>
-
-<!-- ===== NAV ===== -->
-<header class="nav">
-  <div class="wrap nav-in">
-    <a href="/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
-    <nav class="nav-links">
-      <a class="nlink" href="#calc">Calculators</a>
-      <a class="nlink" href="#faq">FAQ</a>
-      <a class="nlink" href="/blog/">Blog</a>
-      <a class="nlink" href="/about">About</a>
-    </nav>
-    <div class="nav-right">
-      <div class="langdd" id="langDD">
-        <button class="langdd-btn" id="langBtn" aria-haspopup="true" aria-expanded="false">🌐 <span>EN</span> <span class="chev">▾</span></button>
-        <div class="langdd-menu" role="menu">
-          <a class="on" href="/"><span class="flag">🇬🇧</span> English <span class="code">EN</span></a>
-          <a href="/de/"><span class="flag">🇩🇪</span> Deutsch <span class="code">DE</span></a>
-          <a href="/fr/"><span class="flag">🇫🇷</span> Français <span class="code">FR</span></a>
-          <a href="/tr/"><span class="flag">🇹🇷</span> Türkçe <span class="code">TR</span></a>
-          <a class="soon"><span class="flag">🇪🇸</span> Español <span class="code">SOON</span></a>
-          <a class="soon"><span class="flag">🇮🇹</span> Italiano <span class="code">SOON</span></a>
-          <a class="soon"><span class="flag">🇯🇵</span> 日本語 <span class="code">SOON</span></a>
-          <a class="soon"><span class="flag">🇳🇱</span> Nederlands <span class="code">SOON</span></a>
-          <a class="soon"><span class="flag">🇵🇱</span> Polski <span class="code">SOON</span></a>
-          <a class="soon"><span class="flag">🇵🇹</span> Português <span class="code">SOON</span></a>
-        </div>
-      </div>
-      <button class="hamb" id="hamb" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#calc">Calculators</a>
-    <a href="#faq">FAQ</a>
-    <a href="/blog/">Blog</a>
-    <a href="/about">About</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Know your infrastructure cost before the invoice does.</h1>
+    <p class="lede">Free, ad-light calculators for the bills every dev team argues about — LLM tokens, vector databases, cloud compute, generative media, payments, and auth. No signup. Pricing reviewed monthly straight from provider docs.</p>
+    <div class="row">
+      <a href="#calculators" class="btn btn--primary">Browse calculators</a>
+      <a href="/about.html" class="btn btn--ghost">How pricing is verified</a>
+    </div>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero wrap">
-  <span class="tagpill"><span class="dot"></span> 2026 pricing · 12 calculators · runs 100% in your browser</span>
-  <h1 class="h">Free <span class="em">LLM & API Cost Calculator</span> — Know Your Infra Bill Before It Arrives.</h1>
-  <p class="sub">Real-time cost calculators for LLM tokens, vector databases, cloud VPS, serverless, auth providers, AI coding tools and payment fees. 12 free tools, zero signup.</p>
-  <div class="hero-stats">
-    <div class="hstat"><b>12+</b><span>Providers</span></div>
-    <div class="hstat"><b>&lt;300ms</b><span>Edge response</span></div>
-    <div class="hstat"><b>$0</b><span>To use</span></div>
-  </div>
-</section>
-
-<!-- AD: TOP LEADERBOARD -->
-<div class="wrap"><!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3540510471635518"
-     data-ad-slot="XXXXXXXXXX"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
-
-<!-- ===== CALCULATORS ===== -->
-<main class="wrap" id="calc">
-<!-- LLM CALCULATOR (interactive) -->
-<div class="llm-standalone" id="llm">
-  <div class="panel-head">
-    <h2>LLM Token &amp; API Cost Calculator</h2>
-    <p>Estimate monthly spend across GPT-5.5, GPT-5.4 nano, Claude Sonnet 4.6, and Gemini 3.5 Flash based on your token throughput.</p>
-  </div>
-  <div class="grid2">
-    <div>
-      <div class="field">
-        <label for="llmModel">Model</label>
-        <select class="sel" id="llmModel" aria-label="Select LLM model"></select>
-      </div>
-      <div class="row2">
-        <div class="field">
-          <label for="llmIn">Input tokens / request <span class="hint">avg</span></label>
-          <input class="inp" id="llmIn" type="number" value="1500" min="0" aria-label="Average input tokens per request">
-        </div>
-        <div class="field">
-          <label for="llmOut">Output tokens / request <span class="hint">avg</span></label>
-          <input class="inp" id="llmOut" type="number" value="500" min="0" aria-label="Average output tokens per request">
-        </div>
-      </div>
-      <div class="field">
-        <label for="llmReq">Requests <span class="hint">per period</span></label>
-        <input class="inp" id="llmReq" type="number" value="10000" min="0" aria-label="Number of requests per billing period">
-      </div>
-      <div class="field">
-        <label>Billing period</label>
-        <div class="seg" id="llmPeriod" role="group" aria-label="Billing period">
-          <button data-v="1">Per day</button>
-          <button class="on" data-v="30">Per month</button>
-          <button data-v="365">Per year</button>
-        </div>
-      </div>
-    </div>
-    <div class="result">
-      <div class="rlabel">Estimated cost</div>
-      <div class="big" id="llmTotal">$0</div>
-      <div class="per" id="llmPer">— per month</div>
-      <div class="breakdown">
-        <div class="brow"><span>Price (input / output per 1M)</span><b id="llmPrice">—</b></div>
-        <div class="brow"><span>Cost per request</span><b id="llmPerReq">—</b></div>
-        <div class="brow"><span>Input token cost</span><b id="llmInCost">—</b></div>
-        <div class="brow"><span>Output token cost</span><b id="llmOutCost">—</b></div>
-        <div class="brow hl"><span>Total tokens / period</span><b id="llmTok">—</b></div>
-      </div>
-    </div>
-  </div>
-  <p class="disclaimer">Pricing reflects published 2026 public API rates (USD, pay-as-you-go). Volume discounts, cached input, and batch pricing are not applied. Verify against the provider&#39;s pricing page before budgeting.</p>
-  <div class="calc-seo-content">
-    <h3>LLM Cost Calculator — GPT-5.5, GPT-5.4 Nano &amp; Gemini 3.5 Flash Pricing</h3>
-    <p>This LLM cost calculator helps developers and product teams estimate their monthly OpenAI, Anthropic, and Google API spend before it hits their credit card. You enter three variables — input tokens per request, output tokens per request, and monthly request volume — and the tool computes your total cost using current June 2026 USD pricing. GPT-5.5 costs $5.00 per million input tokens and $30 per million output tokens. For budget workloads, GPT-5.4 nano at $0.20/$1.25 per 1M is the most affordable OpenAI option in 2026 — a team running 100,000 requests/month at 1,500 in + 500 out tokens pays around $30/month.</p>
-    <div class="calc-faq">
-      <details><summary>How much does GPT-5.5 API cost per 1,000 requests?</summary><p>At June 2026 pay-as-you-go pricing, GPT-5.5 costs $5.00/1M input tokens and $30/1M output tokens. A typical request with 1,500 input + 500 output tokens costs about $0.0225. For 1,000 such requests, you'd pay approximately $22.50 USD. Use GPT-5.4 nano ($0.20/$1.25) to reduce that cost by ~97%.</p></details>
-      <details><summary>What is the cheapest LLM API for high-volume applications?</summary><p>For high-volume workloads in 2026, GPT-5.4 nano ($0.20/1M input) and Gemini 3.1 Flash-Lite ($0.25/1M input) are the most cost-effective capable options. Claude Haiku 4.5 ($1.00/$5.00) is competitive when output quality matters more.</p></details>
-      <details><summary>How do I reduce my LLM API costs in production?</summary><p>Key strategies: use prompt caching (saves 75–90% on repeated context), switch to GPT-5.4 nano or Gemini 3.1 Flash-Lite for classification tasks, enable batch processing for async jobs, and compress system prompts.</p></details>
-    </div>
-  </div>
-  <div style="margin-top:12px">
-    <a href="/llm-cost-calculator" style="font-size:12px;color:var(--lime);font-family:'Cascadia Code','Consolas',monospace">Full LLM calculator with all models →</a>
-  </div>
-</div>
-
-<!-- HUB: MORE CALCULATORS -->
-<section class="hub-section">
-  <h2 class="sh">All 13 Free Calculators</h2>
-  <p class="ssub">Click any tool to open the full interactive calculator with all providers and options.</p>
-
-  <div class="hub-category">
-    <div class="hub-category-label">AI &amp; LLM Tools</div>
-    <div class="hub-grid">
-      <a href="/llm-cost-calculator" class="hub-card">
-        <span class="hc-icon">🧠</span>
-        <div class="hc-title">LLM Cost Calculator</div>
-        <div class="hc-desc">GPT-4o vs Claude vs Gemini — per token &amp; per month</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/deepseek-api-cost" class="hub-card">
-        <span class="hc-icon">🐋</span>
-        <div class="hc-title">DeepSeek API Cost</div>
-        <div class="hc-desc">DeepSeek V3 &amp; R1 — $0.27/1M input</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/embedding-api-cost" class="hub-card">
-        <span class="hc-icon">🧲</span>
-        <div class="hc-title">Embedding API Cost</div>
-        <div class="hc-desc">OpenAI vs Cohere vs Voyage AI</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/image-generation-cost" class="hub-card">
-        <span class="hc-icon">🎨</span>
-        <div class="hc-title">Image Generation Cost</div>
-        <div class="hc-desc">DALL·E 3 vs Stable Diffusion vs Flux</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/stt-tts-api-cost" class="hub-card">
-        <span class="hc-icon">🎙️</span>
-        <div class="hc-title">STT / TTS API Cost</div>
-        <div class="hc-desc">Whisper vs ElevenLabs vs Deepgram</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/ai-agent-cost" class="hub-card">
-        <span class="hc-icon">🤖</span>
-        <div class="hc-title">AI Agent Cost</div>
-        <div class="hc-desc">Multi-step pipeline pricing per run</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/ai-coding-tool-cost" class="hub-card">
-        <span class="hc-icon">💻</span>
-        <div class="hc-title">AI Coding Tool Cost</div>
-        <div class="hc-desc">Cursor vs Copilot vs Claude Code</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/vector-database-cost" class="hub-card">
-        <span class="hc-icon">🧊</span>
-        <div class="hc-title">Vector Database Cost</div>
-        <div class="hc-desc">Pinecone vs Supabase vs Qdrant vs Weaviate</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-    </div>
-  </div>
-
-  <div class="hub-category">
-    <div class="hub-category-label">Infrastructure</div>
-    <div class="hub-grid">
-      <a href="/cloud-vps-comparison" class="hub-card">
-        <span class="hc-icon">☁️</span>
-        <div class="hc-title">Cloud VPS Comparison</div>
-        <div class="hc-desc">Hetzner vs DigitalOcean vs Vultr</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/serverless-cost-calculator" class="hub-card">
-        <span class="hc-icon">⚡</span>
-        <div class="hc-title">Serverless Cost Calculator</div>
-        <div class="hc-desc">Lambda vs Vercel vs Cloudflare Workers</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/api-gateway-pricing" class="hub-card">
-        <span class="hc-icon">🔀</span>
-        <div class="hc-title">API Gateway Pricing</div>
-        <div class="hc-desc">AWS API GW vs Cloudflare vs Kong</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-    </div>
-  </div>
-
-  <div class="hub-category">
-    <div class="hub-category-label">Payments &amp; Auth</div>
-    <div class="hub-grid">
-      <a href="/payment-processor-fees" class="hub-card">
-        <span class="hc-icon">💳</span>
-        <div class="hc-title">Payment Processor Fees</div>
-        <div class="hc-desc">Stripe vs Paddle vs Lemon Squeezy</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/auth-provider-cost" class="hub-card">
-        <span class="hc-icon">🔑</span>
-        <div class="hc-title">Auth Provider Cost</div>
-        <div class="hc-desc">Clerk vs Supabase Auth vs Auth0</div>
-        <div class="hc-link">Open Calculator →</div>
-      </a>
-      <a href="/compare/supabase-vs-firebase" class="hub-card">
-        <span class="hc-icon">🆚</span>
-        <div class="hc-title">Supabase vs Firebase</div>
-        <div class="hc-desc">BaaS pricing — flat $25/mo vs per read/write</div>
-        <div class="hc-link">Compare Now →</div>
-      </a>
-    </div>
-  </div>
-
-</section>
-<!-- ===== BLOG HIGHLIGHTS ===== -->
-<section class="hub-section" style="padding-top:48px">
-  <h2 class="sh">From the Blog</h2>
-  <p class="ssub">Deep dives into API pricing, cost optimization, and developer infrastructure.</p>
-  <div class="blog-grid">
-    <a href="/blog/reduce-llm-api-costs-2026" class="blog-card">
-      <div class="bc-tag">Cost Optimization</div>
-      <div class="bc-title">How to Reduce LLM API Costs by 60%: 7 Proven Strategies</div>
-      <div class="bc-desc">Prompt caching, model routing, batch API, context compression — with real savings examples.</div>
-      <div class="bc-link">Read Guide →</div>
-    </a>
-    <a href="/blog/cursor-true-cost-2026" class="blog-card">
-      <div class="bc-tag">AI Coding Tools</div>
-      <div class="bc-title">Cursor True Cost 2026: Why Your $20/mo Plan Bills $180+</div>
-      <div class="bc-desc">Agentic usage pushes Cursor bills far beyond the base plan. The real cost breakdown explained.</div>
-      <div class="bc-link">Read Guide →</div>
-    </a>
-    <a href="/blog/ai-coding-tool-cost-comparison-2026" class="blog-card">
-      <div class="bc-tag">Comparison</div>
-      <div class="bc-title">GitHub Copilot vs Cursor vs Claude Code — Real Monthly Costs</div>
-      <div class="bc-desc">Light, medium, and heavy usage costs for every major AI coding tool in 2026.</div>
-      <div class="bc-link">Read Guide →</div>
-    </a>
-    <a href="/blog/llm-api-cost-guide-2026" class="blog-card">
-      <div class="bc-tag">LLM Pricing</div>
-      <div class="bc-title">LLM API Cost Guide 2026: GPT-4o, Claude &amp; Gemini Pricing</div>
-      <div class="bc-desc">Complete model pricing comparison per token, per request, and per month. Updated June 2026.</div>
-      <div class="bc-link">Read Guide →</div>
-    </a>
-  </div>
-</section>
-
-<!-- AD: IN-CONTENT -->
-<!-- AdSense: replace ca-pub-XX and slot-XX with real IDs after approval -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3540510471635518"
-     data-ad-slot="XXXXXXXXXX"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-
-<!-- ===== AFFILIATE PARTNERS ===== -->
-<section class="partners">
-  <div class="sec-label">Build it cheaper — partner offers</div>
-  <div class="cta-row">
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank"
-       href="https://www.vultr.com/?ref=9904710-9J"
-       onclick="trackAffiliateClick('vultr')">
-       <span class="em" style="font-weight:900;color:#1557c0">V</span> Get $300 free credits at Vultr <span class="arr">↗</span></a>
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank"
-       href="https://supabase.com?utm_source=apicalculators&utm_medium=referral"
-       onclick="trackAffiliateClick('supabase')">
-       <span class="em">⚡</span> Build with Supabase <span class="arr">↗</span></a>
-    <a class="cta-button" rel="sponsored nofollow noopener" target="_blank"
-       href="https://vercel.com?utm_source=apicalculators&utm_medium=referral"
-       onclick="trackAffiliateClick('vercel')">
-       <span class="em">▲</span> Ship on Vercel <span class="arr">↗</span></a>
-  </div>
-</div>
-</section>
-
-</main>
-
-<!-- ===== FAQ ===== -->
-<section class="section" id="faq">
+<section class="section" id="calculators" style="border-top:none;">
   <div class="wrap">
-    <h2 class="sh">Frequently asked questions</h2>
-    <p class="ssub">Everything about how these calculators work and where the numbers come from.</p>
-    <div class="faq" id="faqList">
-      <div class="qa"><div class="q">How accurate are the LLM pricing calculations? <span class="plus">+</span></div>
-        <div class="a"><p>They use published 2026 public API rates from OpenAI, Anthropic, Google and others, reviewed monthly. They don't include negotiated enterprise discounts, prompt caching, or batch-API savings — so treat them as an upper-bound budgeting estimate.</p></div></div>
-      <div class="qa"><div class="q">Is APICalculators free to use? <span class="plus">+</span></div>
-        <div class="a"><p>Yes. Every calculator is free with no registration, login, or paywall. We sustain the site through display ads and affiliate partnerships.</p></div></div>
-      <div class="qa"><div class="q">Do you store or send my data anywhere? <span class="plus">+</span></div>
-        <div class="a"><p>No. All math runs entirely in your browser with JavaScript. Nothing you type is transmitted to a server or persisted beyond your session.</p></div></div>
-      <div class="qa"><div class="q">Why do vector DB and image estimates vary from my real bill? <span class="plus">+</span></div>
-        <div class="a"><p>Those providers price on complex dimensions (read units, pod-hours, GPU time, plan tiers). We use simplified, transparent models for apples-to-apples comparison — great for choosing a provider, not a substitute for their official calculator.</p></div></div>
-      <div class="qa"><div class="q">Which payment processor is cheapest? <span class="plus">+</span></div>
-        <div class="a"><p>It depends on your average transaction value and whether you need tax handling. Stripe usually wins on raw % for high-value transactions; Paddle and Lemon Squeezy bundle global VAT/sales-tax compliance into a higher rate. The calculator shows the real dollar difference for your numbers.</p></div></div>
+    <div class="section-head">
+      <span class="eyebrow">12 tools</span>
+      <h2>Pick your bill</h2>
+      <p>Every calculator runs entirely in your browser — nothing you type is sent anywhere.</p>
+    </div>
+    <div class="grid">
+
+      <a class="card" href="/llm-api-cost.html">
+        <span class="card__icon">$</span>
+        <h3 class="card__title">LLM API Cost</h3>
+        <p class="card__desc">Compare GPT, Claude, and Gemini token pricing for your workload.</p>
+        <span class="card__meta">GPT-5 · Claude · Gemini</span>
+      </a>
+
+      <a class="card" href="/embedding-api-cost.html">
+        <span class="card__icon">◇</span>
+        <h3 class="card__title">Embedding API Cost</h3>
+        <p class="card__desc">Estimate cost of embedding your corpus across providers.</p>
+        <span class="card__meta">OpenAI · Cohere · Voyage</span>
+      </a>
+
+      <a class="card" href="/vector-database-cost.html">
+        <span class="card__icon">▤</span>
+        <h3 class="card__title">Vector Database Cost</h3>
+        <p class="card__desc">Model monthly spend on Pinecone, Qdrant, and Weaviate.</p>
+        <span class="card__meta">Pinecone · Qdrant · Weaviate</span>
+      </a>
+
+      <a class="card" href="/cloud-vps-cost.html">
+        <span class="card__icon">▣</span>
+        <h3 class="card__title">Cloud VPS Cost</h3>
+        <p class="card__desc">Compare monthly VPS pricing across major providers.</p>
+        <span class="card__meta">Hetzner · Vultr · DigitalOcean</span>
+      </a>
+
+      <a class="card" href="/serverless-function-cost.html">
+        <span class="card__icon">λ</span>
+        <h3 class="card__title">Serverless Function Cost</h3>
+        <p class="card__desc">Estimate Lambda/Workers cost from invocations and duration.</p>
+        <span class="card__meta">AWS Lambda · Cloudflare Workers</span>
+      </a>
+
+      <a class="card" href="/api-gateway-cost.html">
+        <span class="card__icon">⇄</span>
+        <h3 class="card__title">API Gateway Cost</h3>
+        <p class="card__desc">Model request-based gateway pricing at your traffic level.</p>
+        <span class="card__meta">AWS · Kong · Apigee</span>
+      </a>
+
+      <a class="card" href="/image-generation-cost.html">
+        <span class="card__icon">▦</span>
+        <h3 class="card__title">Image Generation Cost</h3>
+        <p class="card__desc">Per-image pricing across diffusion and generation APIs.</p>
+        <span class="card__meta">DALL·E 3 · Stable Diffusion</span>
+      </a>
+
+      <a class="card" href="/speech-api-cost.html">
+        <span class="card__icon">♪</span>
+        <h3 class="card__title">Speech (STT/TTS) Cost</h3>
+        <p class="card__desc">Cost per minute of transcription and voice synthesis.</p>
+        <span class="card__meta">Whisper · ElevenLabs</span>
+      </a>
+
+      <a class="card" href="/ai-agent-cost.html">
+        <span class="card__icon">◈</span>
+        <h3 class="card__title">AI Agent Cost</h3>
+        <p class="card__desc">Model multi-step agent runs: tokens, tools, and retries.</p>
+        <span class="card__meta">Agent loops · tool calls</span>
+      </a>
+
+      <a class="card" href="/ai-coding-tool-cost.html">
+        <span class="card__icon">{ }</span>
+        <h3 class="card__title">AI Coding Tool Cost</h3>
+        <p class="card__desc">Compare per-seat cost of AI pair-programming tools.</p>
+        <span class="card__meta">Cursor · Copilot · Windsurf</span>
+      </a>
+
+      <a class="card" href="/payment-processor-fees.html">
+        <span class="card__icon">%</span>
+        <h3 class="card__title">Payment Processor Fees</h3>
+        <p class="card__desc">Net payout after Stripe, Paddle, or Lemon Squeezy fees.</p>
+        <span class="card__meta">Stripe · Paddle · LemonSqueezy</span>
+      </a>
+
+      <a class="card" href="/auth-provider-cost.html">
+        <span class="card__icon">⚿</span>
+        <h3 class="card__title">Auth Provider Cost</h3>
+        <p class="card__desc">Per-MAU pricing across managed auth platforms.</p>
+        <span class="card__meta">Clerk · Auth0 · Supabase</span>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- ===== METHODOLOGY ===== -->
-<section class="section" id="methodology">
+<section class="section">
   <div class="wrap">
-    <h2 class="sh">About Our Methodology</h2>
-    <p class="ssub">How we source, maintain, and calculate every number on this site.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px">
-      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
-        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">📌 Pricing Sources</div>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">All prices are sourced directly from each provider's official public pricing page. We never estimate, interpolate, or use affiliate-biased rates. When a provider quotes pricing in ranges or tiers, we use the standard on-demand, pay-as-you-go rate available to any developer without a sales call.</p>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">For LLM APIs: OpenAI, Anthropic, and Google pricing pages. For cloud infrastructure: Hetzner, Vultr, DigitalOcean pricing pages. For payment processors: Stripe, Paddle, Lemon Squeezy official rates. For auth providers: Clerk, Supabase, Auth0, WorkOS pricing pages.</p>
-      </div>
-      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
-        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">🔄 Update Schedule</div>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">We review all pricing data monthly and update within 48 hours of any provider announcement. LLM API pricing changes most frequently — OpenAI, Anthropic, and Google have each made multiple pricing adjustments in 2025–2026 as competition intensified. Infrastructure and SaaS tool pricing changes less frequently (quarterly to annually).</p>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">All calculators read from a single <code style="background:#0a0c10;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code> file so every update propagates to all 12 calculators simultaneously. The "Last updated" chip on each calculator page shows the most recent data refresh date.</p>
-      </div>
-      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
-        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">🧮 Calculation Models</div>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">All math runs in your browser. No data is sent to a server. For simple per-unit pricing (LLM tokens, image generation, embeddings), we apply the published rate directly to your volume inputs. For complex pricing models (vector database storage + query units, serverless compute GB-seconds, auth MAU tiers), we use transparent simplified models documented in each calculator's Pricing Methodology section.</p>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">Where providers use complex or opaque pricing (e.g., Pinecone read units, Auth0 enterprise tiers), we clearly label estimates as approximations and link to the provider's official calculator for verification.</p>
-      </div>
-      <div style="background:#12161d;border:1px solid #1d2530;border-radius:14px;padding:22px 24px">
-        <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#b8ff2e;margin-bottom:10px">⚠️ What We Exclude</div>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7">We deliberately exclude enterprise negotiated rates, committed-use discounts, academic or startup credits, and promotional rates — because these are not consistently available to all developers. We also exclude free trials. Our goal is to show the sustainable, reproducible cost you can plan a business around, not a promotional introductory price.</p>
-        <p style="color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-top:10px">Provider-specific bonuses (e.g., Anthropic's prompt caching discount, OpenAI's Batch API 50% discount) are excluded from default calculations but documented in the tips and FAQ sections of each relevant calculator — they require implementation effort to unlock.</p>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Head to head</span>
+      <h2>Compare providers directly</h2>
+      <p>When two providers are close enough that the calculator alone won't decide it, these break down the real tradeoffs.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="/compare/stripe-vs-paddle.html">
+        <span class="card__icon">%</span>
+        <h3 class="card__title">Stripe vs Paddle</h3>
+        <p class="card__desc">Lower fee vs merchant-of-record tax handling — which actually costs less.</p>
+      </a>
+      <a class="card" href="/compare/pinecone-vs-qdrant.html">
+        <span class="card__icon">▤</span>
+        <h3 class="card__title">Pinecone vs Qdrant</h3>
+        <p class="card__desc">Serverless simplicity vs node-based pricing and self-host optionality.</p>
+      </a>
+      <a class="card" href="/compare/hetzner-vs-digitalocean.html">
+        <span class="card__icon">▣</span>
+        <h3 class="card__title">Hetzner vs DigitalOcean</h3>
+        <p class="card__desc">3-5x cheaper compute vs broader managed services and regions.</p>
+      </a>
+      <a class="card" href="/compare/lambda-vs-cloudflare-workers.html">
+        <span class="card__icon">λ</span>
+        <h3 class="card__title">Lambda vs Cloudflare Workers</h3>
+        <p class="card__desc">Wall-clock billing vs CPU-only billing — a real-world cost example.</p>
+      </a>
+      <a class="card" href="/compare/clerk-vs-auth0.html">
+        <span class="card__icon">⚿</span>
+        <h3 class="card__title">Clerk vs Auth0</h3>
+        <p class="card__desc">3.5x cost gap at scale vs deeper enterprise SSO/compliance features.</p>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section" id="accuracy">
+<section class="section">
   <div class="wrap">
-    <h2 class="sh">How We Keep Prices Accurate</h2>
-    <p class="ssub">The process behind staying current in a market where pricing changes weekly.</p>
-    <p style="color:#cdd6dd;font-size:15px;line-height:1.75;max-width:760px;margin:0 auto 20px">Keeping 12 calculators across 4 languages accurate is a significant editorial commitment. Here is our exact process:</p>
-    <div style="display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto">
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">1</div>
-        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Monthly provider review</strong>On the first Monday of each month, we visit the pricing page of every provider represented in our calculators. We note any changes and compare against current values in <code style="background:#12161d;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code>. This covers 40+ pricing data points across LLM, vector DB, image generation, payments, auth, and infrastructure providers.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">2</div>
-        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Alert monitoring for major providers</strong>For providers that change pricing frequently (OpenAI, Anthropic, Google), we monitor their official announcements via email newsletters and RSS feeds. LLM pricing has changed multiple times in 2025–2026 as competition pushed prices down significantly. We target updating the site within 48 hours of any price change announcement.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">3</div>
-        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Community correction</strong>Developer communities on Reddit, Hacker News, and X (Twitter) often surface pricing changes faster than official announcements. We monitor these communities and treat community-reported price changes as verification triggers — we verify directly with the provider's pricing page before updating. Found an error? Email <a href="mailto:hello@apicalculators.com" style="color:#b8ff2e">hello@apicalculators.com</a>.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">4</div>
-        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Single source of truth</strong>All 12 calculators read their pricing from <code style="background:#12161d;padding:2px 6px;border-radius:4px;font-size:13px">/pricing-data.json</code> — a single JSON file that is the canonical source for all pricing data. When we update one price, all calculators that use that provider automatically reflect the change. Static pricing tables in HTML are updated simultaneously, so there's no drift between the interactive calculator and the comparison tables.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div style="flex-shrink:0;width:28px;height:28px;border-radius:50%;background:#b8ff2e;color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px">5</div>
-        <div style="font-size:14.5px;color:#cdd6dd;line-height:1.65"><strong style="color:#e8edf1;display:block;margin-bottom:3px">Accuracy disclaimer</strong>Despite our best efforts, infrastructure pricing is complex and changes rapidly. Never use our calculators as the sole basis for financial decisions, investor projections, or customer contracts. Always verify current rates directly with the provider's official pricing page before committing to a budget. We provide estimates for planning and comparison — treat them as a starting point, not a final number.</div>
-      </div>
+    <div class="section-head">
+      <span class="eyebrow">Method</span>
+      <h2>Where the numbers come from</h2>
+      <p>Every rate is pulled directly from provider pricing pages and reviewed monthly. When a provider changes pricing, we update within 48 hours. No affiliate-inflated numbers, no stale 2024 tiers.</p>
     </div>
   </div>
 </section>
 
-<!-- ===== NEWSLETTER ===== -->
-<section class="section wrap" style="padding-top:0">
-  <div class="newsletter">
-    <h3>One cost-saving tip every week</h3>
-    <p>Join developers optimizing their AI &amp; infra spend. New calculators, pricing changes, and real teardowns. No spam.</p>
-    <form class="nl-form" action="https://formsubmit.co/hello@apicalculators.com" method="POST">
-      <input type="hidden" name="_subject" value="New APICalculators Newsletter Subscriber">
-      <input type="hidden" name="_next" value="https://apicalculators.com/?subscribed=true">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-      <input type="email" name="email" placeholder="you@company.dev" required aria-label="Your email address">
-      <button type="submit">Subscribe</button>
-    </form>
-    <p class="nl-note">No spam. Unsubscribe anytime. ~500 developers already subscribed.</p>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-about">
-        <a href="/" class="logo"><span class="glyph">🧮</span>API<b>Calculators</b></a>
-        <p>Developer infrastructure cost optimization tools. Free, fast, and private — built for engineers who hate surprise invoices.</p>
-      </div>
-                  <div class="foot-calcs-col">
-        <h4>Calculators</h4>
-        <div class="foot-calcs-grid">
-          <a href="#llm">LLM Token Cost</a>
-          <a href="#vector">Vector DB Cost</a>
-          <a href="#image">AI Image Generation</a>
-          <a href="#pay">Payment Fees</a>
-          <a href="#vps">Cloud VPS Comparison</a>
-          <a href="#stt">STT / TTS API Cost</a>
-          <a href="#serverless">Serverless Cost</a>
-          <a href="#gateway">API Gateway Cost</a>
-          <a href="#embeddings">Embedding API Cost</a>
-          <a href="#agent">AI Agent Cost</a>
-          <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-          <a href="/auth-provider-cost">Auth Provider Cost</a>
-        </div>
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+        <p style="margin-top:var(--sp-3);max-width:32ch;">Free infrastructure cost calculators for developers. Pricing reviewed monthly.</p>
       </div>
       <div>
-        <h4>Resources</h4>
-        <a href="/blog/">Blog</a>
-        <a href="/about">About</a>
-        <a href="https://github.com/apicalculators" rel="nofollow noopener noreferrer" target="_blank">GitHub</a>
-        <a href="https://twitter.com/apicalculators" rel="nofollow noopener noreferrer" target="_blank">Twitter / X</a>
+        <h4>AI & LLM</h4>
+        <ul>
+          <li><a href="/llm-api-cost.html">LLM API Cost</a></li>
+          <li><a href="/embedding-api-cost.html">Embedding Cost</a></li>
+          <li><a href="/image-generation-cost.html">Image Generation</a></li>
+          <li><a href="/speech-api-cost.html">Speech STT/TTS</a></li>
+          <li><a href="/ai-agent-cost.html">AI Agent Cost</a></li>
+        </ul>
       </div>
       <div>
-        <h4>Legal</h4>
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
-        <a href="/sitemap.xml">Sitemap</a>
+        <h4>Infrastructure</h4>
+        <ul>
+          <li><a href="/cloud-vps-cost.html">Cloud VPS</a></li>
+          <li><a href="/serverless-function-cost.html">Serverless</a></li>
+          <li><a href="/api-gateway-cost.html">API Gateway</a></li>
+          <li><a href="/vector-database-cost.html">Vector Database</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/privacy.html">Privacy</a></li>
+          <li><a href="/terms.html">Terms</a></li>
+        </ul>
       </div>
     </div>
-    <div class="foot-bot">
-      <span>© 2026 APICalculators.com — built on the edge.</span>
-      <span>Prices are estimates · verify before you ship</span>
+    <div class="footer-bottom">
+      <span>© 2026 APICalculators</span>
+      <span>Pricing reviewed monthly</span>
     </div>
   </div>
 </footer>
 
-<script>
-/* ============ NAV: lang dropdown + mobile menu ============ */
-(function(){
-  var dd=document.getElementById('langDD'),btn=document.getElementById('langBtn');
-  var hamb=document.getElementById('hamb'),mm=document.getElementById('mobileMenu');
-  btn.addEventListener('click',function(e){e.stopPropagation();dd.classList.toggle('open');btn.setAttribute('aria-expanded',dd.classList.contains('open'));});
-  document.addEventListener('click',function(){dd.classList.remove('open');btn.setAttribute('aria-expanded','false');});
-  hamb.addEventListener('click',function(){var o=mm.classList.toggle('open');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});
-  mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');hamb.classList.remove('open');});});
-})();
-
-/* ============ PRICING DATA (2026, USD) ============ */
-// LLM: price per 1,000,000 tokens
-const LLM = [
-  {id:"gpt-55",           name:"GPT-5.5",                     in:5.00,  out:30.00},
-  {id:"gpt-54",           name:"GPT-5.4",                     in:2.50,  out:15.00},
-  {id:"gpt-54-mini",      name:"GPT-5.4 mini",                in:0.75,  out:4.50},
-  {id:"gpt-54-nano",      name:"GPT-5.4 nano",                in:0.20,  out:1.25},
-  {id:"o4-mini",          name:"o4-mini",                     in:0.55,  out:2.20},
-  {id:"claude-fable5",    name:"Claude Fable 5",              in:10.00, out:50.00},
-  {id:"claude-opus48",    name:"Claude Opus 4.8",             in:5.00,  out:25.00},
-  {id:"claude-sonnet46",  name:"Claude Sonnet 4.6",           in:3.00,  out:15.00},
-  {id:"claude-haiku45",   name:"Claude Haiku 4.5",            in:1.00,  out:5.00},
-  {id:"gemini-35-flash",  name:"Gemini 3.5 Flash",            in:1.50,  out:9.00},
-  {id:"gemini-31-pro",    name:"Gemini 3.1 Pro",              in:2.00,  out:12.00},
-  {id:"gemini-31-lite",   name:"Gemini 3.1 Flash-Lite",       in:0.25,  out:1.50},
-  {id:"mistral-large",    name:"Mistral Large",               in:2.00,  out:6.00},
-  {id:"llama-70b",        name:"Llama 3.1 70B (Together)",    in:0.88,  out:0.88},
-  {id:"groq-llama3",      name:"Groq Llama3",                 in:0.59,  out:0.79},
-];
-// Vector DB simplified model: {base, storagePerGB, queryPerMillion}
-const VEC = [
-  {id:"pinecone", name:"Pinecone (Serverless)", base:0,  storagePerGB:0.33,  queryPerMillion:16.00},
-  {id:"supabase", name:"Supabase (pgvector)",   base:25, storagePerGB:0.125, queryPerMillion:0},
-  {id:"qdrant",   name:"Qdrant Cloud",          base:0,  storagePerGB:9.00,  queryPerMillion:0},
-  {id:"weaviate", name:"Weaviate Cloud",        base:25, storagePerGB:0.50,  queryPerMillion:10.00},
-  {id:"chroma",   name:"Chroma Cloud",          base:0,  storagePerGB:0,     queryPerMillion:15.00},
-  {id:"mongodb",  name:"MongoDB Atlas Vector",  base:0,  storagePerGB:0.25,  queryPerMillion:100.00},
-  {id:"redis",    name:"Redis Vector",          base:0,  storagePerGB:36.00, queryPerMillion:0},
-];
-// Image gen: price per image (USD)
-const IMG = [
-  {id:"dalle3-std",  name:"DALL·E 3 · 1024 standard", unit:0.040},
-  {id:"dalle3-hd",   name:"DALL·E 3 · 1024 HD",       unit:0.080},
-  {id:"dalle3-wide", name:"DALL·E 3 · 1792 HD",       unit:0.120},
-  {id:"sdxl",        name:"Stable Diffusion XL (API)",unit:0.009},
-  {id:"sd3",         name:"Stable Diffusion 3",       unit:0.035},
-  {id:"flux",        name:"Flux.1 Pro (API)",         unit:0.050},
-];
-// Payment gateways: {rate, fixed, mor}
-const PAY = [
-  {id:"stripe",  name:"Stripe",        rate:0.029, fixed:0.30, mor:false, note:"2.9% + $0.30"},
-  {id:"paddle",  name:"Paddle",        rate:0.050, fixed:0.50, mor:true,  note:"5% + $0.50 · MoR"},
-  {id:"lemon",   name:"Lemon Squeezy", rate:0.050, fixed:0.50, mor:true,  note:"5% + $0.50 · MoR"},
-  {id:"paypal",  name:"PayPal",        rate:0.0349,fixed:0.49, mor:false, note:"3.49% + $0.49"},
-];
-
-/* ============ HELPERS ============ */
-const $=id=>document.getElementById(id);
-const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
-const fmt$=v=>{
-  if(v===0)return"$0";
-  if(v<0.01)return"$"+v.toFixed(5);
-  if(v<1)return"$"+v.toFixed(3);
-  if(v<1000)return"$"+v.toFixed(2);
-  return"$"+Math.round(v).toLocaleString("en-US");
-};
-const big$=v=>{
-  if(v>=1000)return"$"+Math.round(v).toLocaleString("en-US");
-  if(v>=1)return"$"+v.toFixed(2);
-  if(v>0)return"$"+v.toFixed(4);
-  return"$0";
-};
-const intf=v=>Math.round(v).toLocaleString("en-US");
-
-/* ============ TABS ============ */
-document.querySelectorAll('.tab').forEach(t=>{
-  t.addEventListener('click',()=>{
-    document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.setAttribute('aria-selected','false');});
-    document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
-    t.classList.add('on');
-    t.setAttribute('aria-selected','true');
-    $(t.dataset.tab).classList.add('on');
-    if(window.gtag)gtag('event','calculator_view',{calculator:t.dataset.tab});
-  });
-});
-
-/* ============ LLM CALC ============ */
-LLM.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.in}/$${m.out} per 1M`;$('llmModel').appendChild(o);});
-let llmDays=30;
-$('llmPeriod').addEventListener('click',e=>{
-  if(!e.target.dataset.v)return;
-  [...$('llmPeriod').children].forEach(b=>b.classList.remove('on'));
-  e.target.classList.add('on');llmDays=+e.target.dataset.v;calcLLM();
-});
-function calcLLM(){
-  const m=LLM.find(x=>x.id===$('llmModel').value);
-  const inTok=num($('llmIn').value),outTok=num($('llmOut').value),req=num($('llmReq').value);
-  const inCostReq=inTok/1e6*m.in, outCostReq=outTok/1e6*m.out;
-  const perReq=inCostReq+outCostReq;
-  const reqTotal=req*llmDays;
-  const total=perReq*reqTotal;
-  const totalTok=(inTok+outTok)*reqTotal;
-  $('llmTotal').textContent=big$(total);
-  $('llmPer').textContent=llmDays===1?"— per day":llmDays===30?"— per month":"— per year";
-  $('llmPrice').textContent=`$${m.in} / $${m.out}`;
-  $('llmPerReq').textContent=fmt$(perReq);
-  $('llmInCost').textContent=fmt$(inCostReq*reqTotal);
-  $('llmOutCost').textContent=fmt$(outCostReq*reqTotal);
-  $('llmTok').textContent=intf(totalTok)+" tok";
-  if(window.gtag)gtag('event','calculator_used',{calculator:'llm'});
-}
-['llmModel','llmIn','llmOut','llmReq'].forEach(id=>$(id).addEventListener('input',calcLLM));
-
-/* ============ VECTOR CALC ============ */
-VEC.forEach(p=>{const o=document.createElement('option');o.value=p.id;o.textContent=p.name;$('vecProvider').appendChild(o);});
-function calcVec(){
-  const p=VEC.find(x=>x.id===$('vecProvider').value);
-  const n=num($('vecCount').value),d=num($('vecDim').value),q=num($('vecQ').value);
-  const bytes=n*d*4*1.5; // float32 + ~1.5x index overhead
-  const gb=bytes/(1024**3);
-  const storeCost=gb*p.storagePerGB;
-  const qCost=q/1e6*p.queryPerMillion;
-  const total=p.base+storeCost+qCost;
-  $('vecTotal').textContent=big$(total);
-  $('vecName').textContent="— "+p.name;
-  $('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+" MB":gb.toFixed(2)+" GB";
-  $('vecStoreCost').textContent=fmt$(storeCost);
-  $('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):"included";
-  $('vecBase').textContent=p.base?fmt$(p.base)+" /mo":"no base fee";
-  if(window.gtag)gtag('event','calculator_used',{calculator:'vector'});
-}
-['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>$(id).addEventListener('input',calcVec));
-
-/* ============ IMAGE CALC ============ */
-IMG.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=`${m.name} — $${m.unit}/img`;$('imgModel').appendChild(o);});
-function calcImg(){
-  const m=IMG.find(x=>x.id===$('imgModel').value);
-  const c=num($('imgCount').value),v=Math.max(1,num($('imgVar').value));
-  const totalImg=c*v;
-  const total=totalImg*m.unit;
-  $('imgTotal').textContent=big$(total);
-  $('imgName').textContent="— "+m.name;
-  $('imgUnit').textContent=fmt$(m.unit);
-  $('imgGen').textContent=intf(totalImg)+" imgs";
-  $('imgK').textContent=fmt$(m.unit*1000);
-  if(window.gtag)gtag('event','calculator_used',{calculator:'image'});
-}
-['imgModel','imgCount','imgVar'].forEach(id=>$(id).addEventListener('input',calcImg));
-
-/* ============ PAYMENT CALC ============ */
-function calcPay(){
-  const rev=num($('payRev').value),tx=num($('payTx').value);
-  $('payAvg').value=tx>0?"$"+(rev/tx).toFixed(2):"$0.00";
-  const rows=PAY.map(p=>{
-    const fee=rev*p.rate+tx*p.fixed;
-    return {...p,fee,net:rev-fee,pct:rev>0?fee/rev*100:0};
-  }).sort((a,b)=>a.fee-b.fee);
-  const max=Math.max(...rows.map(r=>r.fee),1);
-  $('payCmp').innerHTML=rows.map((r,i)=>`
-    <div class="cmpitem${i===0?' best':''}">
-      <div class="cmptop">
-        <span class="name">${r.name}${i===0?'<span class="badge">CHEAPEST</span>':''}</span>
-        <span class="amt">${fmt$(r.fee)}</span>
-      </div>
-      <div class="bar"><i style="width:${(r.fee/max*100).toFixed(1)}%"></i></div>
-      <div class="cmpmeta">${r.note} · effective ${r.pct.toFixed(2)}% · net ${fmt$(r.net)}</div>
-    </div>`).join('');
-  if(window.gtag)gtag('event','calculator_used',{calculator:'payment'});
-}
-['payRev','payTx'].forEach(id=>$(id).addEventListener('input',calcPay));
-
-/* ============ FAQ ACCORDION ============ */
-document.querySelectorAll('.qa').forEach(qa=>{
-  qa.querySelector('.q').addEventListener('click',()=>{
-    const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
-    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
-  });
-});
-
-/* ============ TRACKING ============ */
-function trackAffiliateClick(program){
-  const data={program,ts:new Date().toISOString(),ref:document.referrer};
-  try{localStorage.setItem('aff_'+Date.now(),JSON.stringify(data));}catch(e){}
-  if(window.gtag)gtag('event','affiliate_click',{program});
-}
-function trackNewsletterSignup(){if(window.gtag)gtag('event','newsletter_signup',{source:document.referrer||'direct'});}
-
-/* ============ INIT ============ */
-calcLLM();calcVec();calcImg();calcPay();
-
-/* ===== CLOUD VPS ===== */
-const CLOUD_PRICES = {
-  vultr:        {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
-  digitalocean: {1:{1:6},2:{4:24},4:{8:48},8:{16:96}},
-  hetzner:      {2:{4:4.5},4:{8:8.5},8:{16:17}},
-  linode:       {1:{1:5},2:{4:18}},
-};
-const CLOUD_PROVIDERS = [
-  {id:'vultr',    name:'Vultr'},
-  {id:'digitalocean', name:'DigitalOcean'},
-  {id:'hetzner',  name:'Hetzner'},
-  {id:'linode',   name:'Linode'},
-];
-function calcCloud(){
-  var cpu=parseInt(document.getElementById('cloudCpu').value);
-  var ram=parseInt(document.getElementById('cloudRam').value);
-  var cnt=parseInt(document.getElementById('cloudCount').value)||1;
-  var results=[];
-  CLOUD_PROVIDERS.forEach(function(p){
-    var tier=CLOUD_PRICES[p.id]||{};
-    // find cheapest plan meeting requirements
-    var best=null;
-    Object.keys(tier).forEach(function(c){
-      if(parseInt(c)>=cpu){
-        Object.keys(tier[c]).forEach(function(r){
-          if(parseInt(r)>=ram){
-            var price=tier[c][r];
-            if(!best||price<best.price) best={price:price,cpu:c,ram:r};
-          }
-        });
-      }
-    });
-    if(best) results.push({name:p.name,price:best.price*cnt,cpu:best.cpu,ram:best.ram});
-  });
-  if(!results.length){document.getElementById('cloudTotal').textContent='N/A';return;}
-  results.sort(function(a,b){return a.price-b.price;});
-  var cheapest=results[0];
-    var cheapestName = cheapest.name;
-  document.getElementById('cloudTotal').textContent = '$' + cheapest.price.toFixed(2);
-  document.getElementById('cloudPer').textContent   = 'per month — cheapest: ' + cheapestName;
-
-  // Contextual Vultr CTA
-  var ctaBox = document.getElementById('cloudVultrCta');
-  if (ctaBox) {
-    var isVultr = cheapestName === 'Vultr';
-    ctaBox.style.display = 'block';
-    ctaBox.innerHTML = isVultr
-      ? '<div class="vcta vcta-win"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Deploy on Vultr — cheapest for your spec</div>'
-        + '<div class="vcta-sub">Vultr matches your spec at the lowest price. Start with free credits.</div>'
-        + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow noopener" target="_blank" '
-        + 'class="vcta-btn" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
-        + '<span class="vcta-note">Affiliate link · You get $300 free credits</span></div></div>'
-      : '<div class="vcta vcta-near"><div class="vcta-icon">V</div><div class="vcta-body">'
-        + '<div class="vcta-title">Compare on Vultr</div>'
-        + '<div class="vcta-sub">Vultr is close — compare plans before deciding.</div>'
-        + '<a href="https://www.vultr.com/?ref=9904709" rel="sponsored nofollow noopener" target="_blank" '
-        + 'class="vcta-btn vcta-btn-sm" onclick="trackAffiliateClick(\'vultr_calc\')">Deploy on Vultr →</a>'
-        + '</div></div>';
-  }
-  var cmp=document.getElementById('cloudCmp');
-  cmp.innerHTML='';
-  results.forEach(function(r){
-    var row=document.createElement('div');row.className='brow'+(r===cheapest?' hl':'');
-    row.innerHTML='<span>'+r.name+' ('+r.cpu+'vCPU/'+r.ram+'GB)</span><b>$'+r.price.toFixed(2)+'/mo</b>';
-    cmp.appendChild(row);
-  });
-}
-['cloudCpu','cloudRam','cloudCount'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcCloud),el.addEventListener('input',calcCloud);
-});
-
-/* ===== STT / TTS ===== */
-const STT_RATES = {
-  'whisper':      {type:'stt',rate:0.006},
-  'google-stt':   {type:'stt',rate:0.024},
-  'deepgram':     {type:'stt',rate:0.0043},
-  'azure-stt':    {type:'stt',rate:0.01667},
-  'assemblyai':   {type:'stt',rate:0.00617},
-  'openai-tts':   {type:'tts',rate:0.015},
-  'openai-tts-hd':{type:'tts',rate:0.030},
-  'elevenlabs':   {type:'tts',rate:0.330},
-  'google-tts':   {type:'tts',rate:0.016},
-  'playht':       {type:'tts',rate:0.030},
-};
-function calcStt(){
-  var model=document.getElementById('sttModel').value;
-  var vol=parseFloat(document.getElementById('sttVol').value)||0;
-  var p=STT_RATES[model];if(!p)return;
-  var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;
-  document.getElementById('sttTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('sttPer').textContent='per month';
-  document.getElementById('sttRate').textContent=p.type==='stt'?'$'+p.rate+'/min':'$'+p.rate+'/1K chars';
-  document.getElementById('sttAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['sttModel','sttVol'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcStt),el.addEventListener('input',calcStt);
-});
-
-/* ===== SERVERLESS ===== */
-const SL_PRICES = {
-  lambda: {inv:0.0000002,  gb_sec:0.0000166725, free_inv:1000000, free_gb:400000},
-  vercel: {inv:0.0000004,  gb_sec:0.000018,     free_inv:0,       free_gb:0},
-  cf:     {inv:0.0000003,  gb_sec:0.000012,     free_inv:1000000, free_gb:0},
-  gcp:    {inv:0.0000004,  gb_sec:0.0000250,    free_inv:2000000, free_gb:400000},
-  netlify:{inv:0.000025,   gb_sec:0,            free_inv:125000,  free_gb:0},
-  railway:{inv:0.000000463,gb_sec:0.000463,     free_inv:0,       free_gb:0},
-};
-function calcServerless(){
-  var prov=document.getElementById('slProvider').value;
-  var inv=parseFloat(document.getElementById('slInvoke').value)||0;
-  var dur=parseFloat(document.getElementById('slDuration').value)||0;
-  var mem=parseFloat(document.getElementById('slMemory').value)||0.25;
-  var p=SL_PRICES[prov];if(!p)return;
-  var billable_inv=Math.max(0,inv-p.free_inv);
-  var gb_sec=inv*(dur/1000)*mem;
-  var billable_gb=Math.max(0,gb_sec-p.free_gb);
-  var inv_cost=billable_inv*p.inv;
-  var comp_cost=billable_gb*p.gb_sec;
-  var total=inv_cost+comp_cost;
-  document.getElementById('slTotal').textContent='$'+total.toFixed(4);
-  document.getElementById('slPer').textContent='per month';
-  document.getElementById('slInvCost').textContent='$'+inv_cost.toFixed(4);
-  document.getElementById('slCompCost').textContent='$'+comp_cost.toFixed(4);
-  document.getElementById('slAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['slProvider','slInvoke','slDuration','slMemory'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcServerless),el.addEventListener('input',calcServerless);
-});
-
-/* ===== API GATEWAY ===== */
-const GW_PRICES = {
-  aws: {per_m:3.50,per_gb:0.09},
-  cf:  {per_m:0.50,per_gb:0.00},
-  kong:{per_m:2.00,per_gb:0.05},
-};
-function calcGateway(){
-  var prov=document.getElementById('gwProvider').value;
-  var reqs=parseFloat(document.getElementById('gwReqs').value)||0;
-  var xfer=parseFloat(document.getElementById('gwTransfer').value)||0;
-  var p=GW_PRICES[prov];if(!p)return;
-  var req_cost=reqs*p.per_m;
-  var xfer_cost=xfer*p.per_gb;
-  var total=req_cost+xfer_cost;
-  document.getElementById('gwTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('gwPer').textContent='per month';
-  document.getElementById('gwReqCost').textContent='$'+req_cost.toFixed(2);
-  document.getElementById('gwXferCost').textContent='$'+xfer_cost.toFixed(2);
-  document.getElementById('gwAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['gwProvider','gwReqs','gwTransfer'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcGateway),el.addEventListener('input',calcGateway);
-});
-
-/* ===== EMBEDDING ===== */
-const EMB_PRICES = {
-  text3small:0.020, text3large:0.130, ada002:0.100,
-  cohere:0.100, voyage:0.120, jina:0.018,
-};
-function calcEmbedding(){
-  var model=document.getElementById('embModel').value;
-  var tokM=parseFloat(document.getElementById('embTokens').value)||0;
-  var docs=parseFloat(document.getElementById('embDocs').value)||1;
-  var rate=EMB_PRICES[model];if(rate===undefined)return;
-  var total=tokM*rate;
-  var tok_per_doc=docs>0?(tokM*1e6/docs).toFixed(0):'—';
-  document.getElementById('embTotal').textContent='$'+total.toFixed(4);
-  document.getElementById('embPer').textContent='per month';
-  document.getElementById('embRate').textContent='$'+rate+'/1M';
-  document.getElementById('embPerDoc').textContent=tok_per_doc+' tokens';
-  document.getElementById('embAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['embModel','embTokens','embDocs'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcEmbedding),el.addEventListener('input',calcEmbedding);
-});
-
-/* ===== AI AGENT ===== */
-const AG_LLM = {
-  gpt54nano: {in:0.20, out:1.25},
-  gpt54mini: {in:0.75, out:4.50},
-  gpt54:     {in:2.50, out:15.00},
-  sonnet46:  {in:3.00, out:15.00},
-  haiku45:   {in:1.00, out:5.00},
-  gem31lite: {in:0.25, out:1.50},
-  gem35flash:{in:1.50, out:9.00},
-  // legacy
-  gpt4o:    {in:2.50,out:10.00},
-  gpt4omini:{in:0.15,out:0.60},
-};
-var AG_STEPS=[
-  {model:'agM1',in_tok:500,out_tok:100},
-  {model:'agM2',in_tok:3000,out_tok:800},
-  {model:'agM3',in_tok:1500,out_tok:300},
-];
-function calcAgent(){
-  var runs=parseFloat(document.getElementById('agRuns').value)||0;
-  var step_costs=AG_STEPS.map(function(s){
-    var m=document.getElementById(s.model).value;
-    var p=AG_LLM[m];if(!p)return 0;
-    return (s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out;
-  });
-  var per_run=step_costs.reduce(function(a,b){return a+b;},0);
-  var total=per_run*runs;
-  document.getElementById('agTotal').textContent='$'+total.toFixed(2);
-  document.getElementById('agPer').textContent='per month';
-  document.getElementById('agPerRun').textContent='$'+per_run.toFixed(6);
-  document.getElementById('agS1').textContent='$'+(step_costs[0]*runs).toFixed(2);
-  document.getElementById('agS2').textContent='$'+(step_costs[1]*runs).toFixed(2);
-  document.getElementById('agS3').textContent='$'+(step_costs[2]*runs).toFixed(2);
-  document.getElementById('agAnnual').textContent='$'+(total*12).toFixed(2);
-}
-['agM1','agM2','agM3','agRuns'].forEach(function(id){
-  var el=document.getElementById(id);if(el)el.addEventListener('change',calcAgent),el.addEventListener('input',calcAgent);
-});
-
-/* ===== INIT ALL NEW CALCULATORS ===== */
-calcCloud();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();
-
-/* ===== EN AI CODING CALC ===== */
-(function(){
-  var TOOLS_en = [
-    {name:'GitHub Copilot',           light:10, medium:10, heavy:19,  note:'Predictable'},
-    {name:'Windsurf',                 light:15, medium:15, heavy:45,  note:'Credit-based'},
-    {name:'Cursor',                   light:20, medium:20, heavy:80,  note:'$20-200/mo'},
-    {name:'Claude Code',              light:20, medium:20, heavy:120, note:'$20-200/mo'},
-    {name:'Tabnine',                  light:12, medium:12, heavy:12,  note:'No overages'},
-    {name:'Zed AI',                   light:0,  medium:0,  heavy:0,   note:'Free preview'},
-    {name:'Amazon CodeWhisperer',     light:19, medium:19, heavy:19,  note:'Pro plan'},
-    {name:'JetBrains AI',             light:10, medium:10, heavy:10,  note:'Flat rate'}
-  ];
-  function calcCoding_en(){
-    var usage=document.getElementById('enCodingUsage').value;
-    var type=document.getElementById('enCodingType').value;
-    var team=parseInt(document.getElementById('enCodingTeam').value)||1;
-    var mult=type==='agent'?2.5:type==='all'?3:type==='chat'?1.2:1;
-    var rows=TOOLS_en.map(function(t){
-      var base=usage==='light'?t.light:usage==='medium'?t.medium:t.heavy;
-      if(usage==='heavy'&&(t.name==='Cursor'||t.name==='Claude Code')) base=Math.min(base*mult,200);
-      return {name:t.name,note:t.note,per:base,total:base*team};
-    }).sort(function(a,b){return a.total-b.total;});
-    document.getElementById('enCodingBest').textContent='$'+rows[0].total.toLocaleString();
-    var bd=document.getElementById('enCodingBreakdown');
-    bd.innerHTML=rows.map(function(r,i){
-      return '<div class="brow'+(i===0?' hl':'')+'">'
-        +'<span>'+r.name+'</span>'
-        +'<b>$'+r.total.toLocaleString()+'/mo'+(team>1?' ($'+r.per+'/seat)':'')+'</b>'
-        +'</div>';
-    }).join('');
-  }
-  ['enCodingUsage','enCodingType','enCodingTeam'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el)el.addEventListener('change',calcCoding_en);
-  });
-  calcCoding_en();
-})();
-
-/* ===== EN AUTH CALC ===== */
-(function(){
-  var PROVIDERS_en=[
-    {name:'Supabase Auth', free:50000, rate:0.00325},
-    {name:'WorkOS',        free:1000000,rate:0.001},
-    {name:'Firebase Auth', free:50000, rate:0.0055},
-    {name:'Better Auth',   free:10000, rate:0.01},
-    {name:'Clerk',         free:10000, rate:0.02},
-    {name:'Auth0 (Okta)',  free:7500,  rate:0.07}
-  ];
-  function calcAuth_en(){
-    var mau=parseInt(document.getElementById('enAuthMau').value)||0;
-    var tier=document.getElementById('enAuthTier').value;
-    var sso=tier==='enterprise'?130:0;
-    var rows=PROVIDERS_en.map(function(p){
-      var cost=Math.max(0,mau-p.free)*p.rate+sso;
-      return {name:p.name,cost:Math.round(cost*100)/100};
-    }).sort(function(a,b){return a.cost-b.cost;});
-    document.getElementById('enAuthBest').textContent='$'+rows[0].cost.toLocaleString('en-US',{maximumFractionDigits:0});
-    var bd=document.getElementById('enAuthBreakdown');
-    bd.innerHTML=rows.map(function(r,i){
-      return '<div class="brow'+(i===0?' hl':'')+'">'
-        +'<span>'+r.name+'</span>'
-        +'<b>$'+r.cost.toLocaleString('en-US',{maximumFractionDigits:0})+'/mo</b>'
-        +'</div>';
-    }).join('');
-  }
-  ['enAuthMau','enAuthTier'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el){el.addEventListener('input',calcAuth_en);el.addEventListener('change',calcAuth_en);}
-  });
-  calcAuth_en();
-})();
-
-/* ============ SHARE + WARNING + RECOMMENDATION SYSTEM ============ */
-(function(){
-/* -- Cost Warning -- */
-function showWarning(id, monthlyCost){
-  var el=document.getElementById(id+'-warning');
-  if(!el)return;
-  if(monthlyCost>500){
-    el.className='cost-warning high';
-    el.textContent='⚠️ High cost detected. See cheaper alternatives below.';
-    el.style.display='block';
-  } else if(monthlyCost>=100){
-    el.className='cost-warning mid';
-    el.textContent='💡 You could reduce this cost. See optimization tips below.';
-    el.style.display='block';
-  } else if(monthlyCost>0&&monthlyCost<20){
-    el.className='cost-warning low';
-    el.textContent='✅ Great choice! This is well-optimized.';
-    el.style.display='block';
-  } else {
-    el.style.display='none';
-  }
-}
-
-/* -- Recommendation -- */
-function showRec(id, text){
-  var el=document.getElementById(id+'-rec');
-  if(!el)return;
-  if(text){
-    el.innerHTML='<span class="rec-icon">💡</span><span class="rec-text">'+text+'</span>';
-    el.style.display='block';
-  } else {
-    el.style.display='none';
-  }
-}
-
-/* -- Inject UI into each calculator result -- */
-var CALC_IDS=['llm','vector','image','cloud','stt','serverless','gateway','embedding','agent','coding','auth'];
-var PAY_PANEL=document.getElementById('pay');
-
-function injectIntoResult(panelId){
-  var panel=document.getElementById(panelId);
-  if(!panel)return;
-  var result=panel.querySelector('.result');
-  if(!result)return;
-  var html='<div class="share-row">'
-    +'<button class="share-btn" data-calc="'+panelId+'">🔗 Share this calculation</button>'
-    +'<span class="share-confirm" id="'+panelId+'-confirm" style="display:none">✓ Link copied!</span>'
-    +'</div>'
-    +'<div class="cost-warning" id="'+panelId+'-warning" style="display:none"></div>'
-    +'<div class="calc-recommendation" id="'+panelId+'-rec" style="display:none"></div>';
-  result.insertAdjacentHTML('beforeend',html);
-}
-CALC_IDS.forEach(injectIntoResult);
-// Payment panel — different structure
-if(PAY_PANEL){
-  var cmp=PAY_PANEL.querySelector('.cmp');
-  if(cmp){
-    cmp.insertAdjacentHTML('afterend',
-      '<div class="share-row" style="margin-top:16px">'
-      +'<button class="share-btn" data-calc="pay">🔗 Share this calculation</button>'
-      +'<span class="share-confirm" id="pay-confirm" style="display:none">✓ Link copied!</span>'
-      +'</div>');
-  }
-}
-
-/* -- Share button click handlers -- */
-var SHARE_GETTERS={
-  llm:  function(){return{calc:'llm',model:document.getElementById('llmModel').value,in:document.getElementById('llmIn').value,out:document.getElementById('llmOut').value,req:document.getElementById('llmReq').value,days:window._llmDays||30};},
-  vector:function(){return{calc:'vector',prov:document.getElementById('vecProvider').value,n:document.getElementById('vecCount').value,dim:document.getElementById('vecDim').value,q:document.getElementById('vecQ').value};},
-  image: function(){return{calc:'image',model:document.getElementById('imgModel').value,cnt:document.getElementById('imgCount').value,var:document.getElementById('imgVar').value};},
-  pay:   function(){return{calc:'pay',rev:document.getElementById('payRev').value,tx:document.getElementById('payTx').value};},
-  cloud: function(){return{calc:'cloud',cpu:document.getElementById('cloudCpu').value,ram:document.getElementById('cloudRam').value,cnt:document.getElementById('cloudCount').value};},
-  stt:   function(){return{calc:'stt',model:document.getElementById('sttModel').value,vol:document.getElementById('sttVol').value};},
-  serverless:function(){return{calc:'serverless',prov:document.getElementById('slProvider').value,inv:document.getElementById('slInvoke').value,dur:document.getElementById('slDuration').value,mem:document.getElementById('slMemory').value};},
-  gateway:function(){return{calc:'gateway',prov:document.getElementById('gwProvider').value,reqs:document.getElementById('gwReqs').value,xfer:document.getElementById('gwTransfer').value};},
-  embedding:function(){return{calc:'embedding',model:document.getElementById('embModel').value,tok:document.getElementById('embTokens').value,docs:document.getElementById('embDocs').value};},
-  agent: function(){return{calc:'agent',m1:document.getElementById('agM1').value,m2:document.getElementById('agM2').value,m3:document.getElementById('agM3').value,runs:document.getElementById('agRuns').value};},
-  coding:function(){return{calc:'coding',usage:document.getElementById('enCodingUsage').value,type:document.getElementById('enCodingType').value,team:document.getElementById('enCodingTeam').value};},
-  auth:  function(){return{calc:'auth',mau:document.getElementById('enAuthMau').value,tier:document.getElementById('enAuthTier').value};}
-};
-
-document.addEventListener('click',function(e){
-  var btn=e.target.closest('.share-btn');
-  if(!btn)return;
-  var calcId=btn.dataset.calc;
-  var getter=SHARE_GETTERS[calcId];
-  if(!getter)return;
-  var params=getter();
-  var url=location.protocol+'//'+location.host+location.pathname+'?'+Object.keys(params).map(function(k){return k+'='+encodeURIComponent(params[k]);}).join('&')+'#'+calcId;
-  navigator.clipboard.writeText(url).then(function(){
-    var confirm=document.getElementById(calcId+'-confirm');
-    if(confirm){confirm.style.display='inline';setTimeout(function(){confirm.style.display='none';},2000);}
-  }).catch(function(){
-    var tmp=document.createElement('textarea');tmp.value=url;document.body.appendChild(tmp);tmp.select();document.execCommand('copy');document.body.removeChild(tmp);
-    var confirm=document.getElementById(calcId+'-confirm');
-    if(confirm){confirm.style.display='inline';setTimeout(function(){confirm.style.display='none';},2000);}
-  });
-});
-
-/* -- URL param pre-fill on load -- */
-(function(){
-  var p=new URLSearchParams(location.search);
-  var c=p.get('calc');
-  if(!c)return;
-  // Switch to correct tab
-  var tabBtn=document.querySelector('[data-tab="'+c+'"]');
-  if(tabBtn)tabBtn.click();
-  function sv(id,val){var el=document.getElementById(id);if(el&&val)el.value=val;}
-  switch(c){
-    case 'llm':
-      sv('llmModel',p.get('model'));sv('llmIn',p.get('in'));sv('llmOut',p.get('out'));sv('llmReq',p.get('req'));
-      if(p.get('days')){window._llmDays=parseInt(p.get('days'));var btns=document.getElementById('llmPeriod').querySelectorAll('button');btns.forEach(function(b){b.classList.toggle('on',b.dataset.v==p.get('days'));});}
-      setTimeout(calcLLM,100);break;
-    case 'vector':
-      sv('vecProvider',p.get('prov'));sv('vecCount',p.get('n'));sv('vecDim',p.get('dim'));sv('vecQ',p.get('q'));
-      setTimeout(calcVec,100);break;
-    case 'image':
-      sv('imgModel',p.get('model'));sv('imgCount',p.get('cnt'));sv('imgVar',p.get('var'));
-      setTimeout(calcImg,100);break;
-    case 'pay':
-      sv('payRev',p.get('rev'));sv('payTx',p.get('tx'));
-      setTimeout(calcPay,100);break;
-    case 'cloud':
-      sv('cloudCpu',p.get('cpu'));sv('cloudRam',p.get('ram'));sv('cloudCount',p.get('cnt'));
-      setTimeout(calcCloud,100);break;
-    case 'stt':
-      sv('sttModel',p.get('model'));sv('sttVol',p.get('vol'));
-      setTimeout(calcStt,100);break;
-    case 'serverless':
-      sv('slProvider',p.get('prov'));sv('slInvoke',p.get('inv'));sv('slDuration',p.get('dur'));sv('slMemory',p.get('mem'));
-      setTimeout(calcServerless,100);break;
-    case 'gateway':
-      sv('gwProvider',p.get('prov'));sv('gwReqs',p.get('reqs'));sv('gwTransfer',p.get('xfer'));
-      setTimeout(calcGateway,100);break;
-    case 'embedding':
-      sv('embModel',p.get('model'));sv('embTokens',p.get('tok'));sv('embDocs',p.get('docs'));
-      setTimeout(calcEmbedding,100);break;
-    case 'agent':
-      sv('agM1',p.get('m1'));sv('agM2',p.get('m2'));sv('agM3',p.get('m3'));sv('agRuns',p.get('runs'));
-      setTimeout(calcAgent,100);break;
-    case 'coding':
-      sv('enCodingUsage',p.get('usage'));sv('enCodingType',p.get('type'));sv('enCodingTeam',p.get('team'));
-      break;
-    case 'auth':
-      sv('enAuthMau',p.get('mau'));sv('enAuthTier',p.get('tier'));
-      break;
-  }
-})();
-
-/* -- Hook warnings + recommendations into calc functions -- */
-var _origCalcLLM=calcLLM;
-calcLLM=function(){
-  _origCalcLLM();
-  var m=LLM.find(function(x){return x.id===document.getElementById('llmModel').value;});
-  var inTok=num(document.getElementById('llmIn').value),outTok=num(document.getElementById('llmOut').value),req=num(document.getElementById('llmReq').value);
-  var perReq=(inTok/1e6*m.in)+(outTok/1e6*m.out);
-  var monthly=perReq*req*(window._llmDays||30);
-  if(window._llmDays&&window._llmDays!==30)monthly=perReq*req*30;
-  showWarning('llm',monthly);
-  var rec='';
-  if(m.in>1&&monthly>100){
-    var nano=LLM.find(function(x){return x.id==='gpt-54-nano';});
-    if(nano){var nanoCost=(inTok/1e6*nano.in+outTok/1e6*nano.out)*req*30;var pct=Math.round((1-nanoCost/monthly)*100);rec='Switch to GPT-5.4 nano for simple tasks → estimated '+pct+'% cheaper';}
-  } else if(m.id==='claude-sonnet46'&&monthly>200){
-    var nano2=LLM.find(function(x){return x.id==='gpt-54-nano';});
-    if(nano2){var miniCost=(inTok/1e6*nano2.in+outTok/1e6*nano2.out)*req*30;var pct2=Math.round((1-miniCost/monthly)*100);rec='GPT-5.4 nano handles most tasks at '+pct2+'% lower cost';}
-  } else if(monthly>500){
-    rec='Consider batch API — up to 50% discount for non-realtime workloads';
-  }
-  showRec('llm',rec);
-};
-
-var _origCalcVec=calcVec;
-calcVec=function(){
-  _origCalcVec();
-  var p=VEC.find(function(x){return x.id===document.getElementById('vecProvider').value;});
-  var n=num(document.getElementById('vecCount').value),d=num(document.getElementById('vecDim').value),q=num(document.getElementById('vecQ').value);
-  var gb=n*d*4*1.5/(1024**3);
-  var total=p.base+gb*p.storagePerGB+q/1e6*p.queryPerMillion;
-  showWarning('vector',total);
-  var rec='';
-  if(p.id==='pinecone'&&total>50){rec='Supabase pgvector handles this workload at ~$25/mo';}
-  else if(n>10000000){rec='Self-hosted Qdrant on Hetzner VPS saves ~70% at this scale';}
-  showRec('vector',rec);
-};
-
-var _origCalcImg=calcImg;
-calcImg=function(){
-  _origCalcImg();
-  var m=IMG.find(function(x){return x.id===document.getElementById('imgModel').value;});
-  var c=num(document.getElementById('imgCount').value),v=Math.max(1,num(document.getElementById('imgVar').value));
-  var total=c*v*m.unit;
-  showWarning('image',total);
-};
-
-var _origCalcCloud=calcCloud;
-calcCloud=function(){
-  _origCalcCloud();
-  var cpu=parseInt(document.getElementById('cloudCpu').value);
-  var ram=parseInt(document.getElementById('cloudRam').value);
-  var prov=document.getElementById('cloudPer')&&document.getElementById('cloudPer').textContent;
-  var rec='';
-  if(prov&&prov.indexOf('DigitalOcean')>=0){
-    var htz=CLOUD_PRICES['hetzner'];var best=null;
-    Object.keys(htz).forEach(function(c){if(parseInt(c)>=cpu){Object.keys(htz[c]).forEach(function(r){if(parseInt(r)>=ram){var price=htz[c][r];if(!best||price<best)best=price;}});}});
-    var doPrice=CLOUD_PRICES['digitalocean'];var doBest=null;
-    Object.keys(doPrice).forEach(function(c){if(parseInt(c)>=cpu){Object.keys(doPrice[c]).forEach(function(r){if(parseInt(r)>=ram){var price=doPrice[c][r];if(!doBest||price<doBest)doBest=price;}});}});
-    if(best&&doBest){var pct=Math.round((1-best/doBest)*100);rec='Same specs on Hetzner cost '+pct+'% less with 20TB free egress';}
-  } else if(prov&&prov.indexOf('Vultr')>=0&&ram>=8){
-    rec='Hetzner CPX41 offers better value at this RAM tier';
-  }
-  // Warning based on cheapest price
-  var cheapestEl=document.getElementById('cloudTotal');
-  if(cheapestEl){
-    var cnt=parseInt(document.getElementById('cloudCount').value)||1;
-    var price=parseFloat(cheapestEl.textContent.replace('$',''))||0;
-    showWarning('cloud',price*cnt);
-  }
-  showRec('cloud',rec);
-};
-
-var _origCalcStt=calcStt;
-calcStt=function(){
-  _origCalcStt();
-  var model=document.getElementById('sttModel').value;
-  var vol=parseFloat(document.getElementById('sttVol').value)||0;
-  var p=STT_RATES[model];if(!p)return;
-  var total=p.type==='stt'?vol*p.rate:(vol/1000)*p.rate;
-  showWarning('stt',total);
-};
-
-var _origCalcServerless=calcServerless;
-calcServerless=function(){
-  _origCalcServerless();
-  var prov=document.getElementById('slProvider').value;
-  var inv=parseFloat(document.getElementById('slInvoke').value)||0;
-  var p=SL_PRICES[prov];if(!p)return;
-  var billable_inv=Math.max(0,inv-p.free_inv);
-  var dur=parseFloat(document.getElementById('slDuration').value)||0;
-  var mem=parseFloat(document.getElementById('slMemory').value)||0.25;
-  var gb_sec=inv*(dur/1000)*mem;
-  var billable_gb=Math.max(0,gb_sec-p.free_gb);
-  var total=billable_inv*p.inv+billable_gb*p.gb_sec;
-  showWarning('serverless',total);
-  var rec='';
-  if(prov==='lambda'&&inv>10000000){
-    var cfPrices=SL_PRICES['cf'];
-    var cfCost=Math.max(0,inv-cfPrices.free_inv)*cfPrices.inv;
-    rec='Cloudflare Workers handles '+Math.round(inv/1e6)+'M invocations at $'+cfCost.toFixed(2)+' vs Lambda\'s $'+total.toFixed(2);
-  }
-  showRec('serverless',rec);
-};
-
-var _origCalcGateway=calcGateway;
-calcGateway=function(){
-  _origCalcGateway();
-  var reqs=parseFloat(document.getElementById('gwReqs').value)||0;
-  var xfer=parseFloat(document.getElementById('gwTransfer').value)||0;
-  var prov=document.getElementById('gwProvider').value;
-  var p=GW_PRICES[prov];if(!p)return;
-  var total=reqs*p.per_m+xfer*p.per_gb;
-  showWarning('gateway',total);
-};
-
-var _origCalcEmbedding=calcEmbedding;
-calcEmbedding=function(){
-  _origCalcEmbedding();
-  var tokM=parseFloat(document.getElementById('embTokens').value)||0;
-  var model=document.getElementById('embModel').value;
-  var rate=EMB_PRICES[model];if(rate===undefined)return;
-  var total=tokM*rate;
-  showWarning('embedding',total);
-};
-
-var _origCalcAgent=calcAgent;
-calcAgent=function(){
-  _origCalcAgent();
-  var runs=parseFloat(document.getElementById('agRuns').value)||0;
-  var step_costs=AG_STEPS.map(function(s){var m=document.getElementById(s.model).value;var p=AG_LLM[m];if(!p)return 0;return(s.in_tok/1e6)*p.in+(s.out_tok/1e6)*p.out;});
-  var total=step_costs.reduce(function(a,b){return a+b;},0)*runs;
-  showWarning('agent',total);
-};
-
-/* Coding + Auth recommendations via patching at call time */
-window._codingWarning=function(bestCost,usage,team){
-  showWarning('coding',bestCost*team);
-  var rec='';
-  if(usage==='heavy'){rec='Claude Code Max 5x ($100/mo) may be more predictable for heavy agent use';}
-  else if(parseInt(team)>5){rec='GitHub Copilot Business ($19/seat) offers best per-seat value for teams';}
-  showRec('coding',rec);
-};
-window._authWarning=function(bestCost,mau,tier){
-  showWarning('auth',bestCost);
-  var rec='';
-  if(mau>10000&&tier!=='enterprise'){
-    var clerkCost=Math.max(0,mau-10000)*0.02;
-    var sbCost=25;
-    rec='Supabase Auth handles '+mau.toLocaleString()+' users for ~$'+sbCost+'/mo vs Clerk\'s $'+Math.round(clerkCost)+'/mo';
-  }
-  showRec('auth',rec);
-};
-
-/* Patch coding + auth calcs */
-var enCodingEl=document.getElementById('enCodingUsage');
-if(enCodingEl){
-  ['enCodingUsage','enCodingType','enCodingTeam'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el)el.addEventListener('change',function(){
-      setTimeout(function(){
-        var best=document.getElementById('enCodingBest');
-        if(best)window._codingWarning(parseFloat(best.textContent.replace('$',''))||0,document.getElementById('enCodingUsage').value,document.getElementById('enCodingTeam').value);
-      },50);
-    });
-  });
-  setTimeout(function(){
-    var best=document.getElementById('enCodingBest');
-    if(best)window._codingWarning(parseFloat(best.textContent.replace('$',''))||0,document.getElementById('enCodingUsage').value,document.getElementById('enCodingTeam').value);
-  },200);
-}
-var enAuthEl=document.getElementById('enAuthMau');
-if(enAuthEl){
-  ['enAuthMau','enAuthTier'].forEach(function(id){
-    var el=document.getElementById(id);
-    if(el)el.addEventListener('input',function(){
-      setTimeout(function(){
-        var best=document.getElementById('enAuthBest');
-        if(best)window._authWarning(parseFloat(best.textContent.replace('$','').replace(',',''))||0,parseInt(document.getElementById('enAuthMau').value)||0,document.getElementById('enAuthTier').value);
-      },50);
-    });
-  });
-  setTimeout(function(){
-    var best=document.getElementById('enAuthBest');
-    if(best)window._authWarning(parseFloat(best.textContent.replace('$','').replace(',',''))||0,parseInt(document.getElementById('enAuthMau').value)||0,document.getElementById('enAuthTier').value);
-  },300);
-}
-
-/* Re-run calcs to trigger warnings on load */
-setTimeout(function(){calcLLM();calcVec();calcImg();calcStt();calcServerless();calcGateway();calcEmbedding();calcAgent();calcCloud();},400);
-
-})(); // end SHARE+WARNING+REC
-</script>
+<script src="/theme.js"></script>
 </body>
 </html>

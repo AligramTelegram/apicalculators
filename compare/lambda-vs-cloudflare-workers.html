@@ -1,272 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>AWS Lambda vs Cloudflare Workers: Pricing Comparison 2026 | APICalculators</title>
-<meta name="description" content="AWS Lambda vs Cloudflare Workers pricing 2026. Lambda free tier: 1M requests/mo. Workers free tier: 100K req/day. Real cost at 3 request volumes with exact numbers.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS Lambda vs Cloudflare Workers 2026 — Cost Compared | APICalculators</title>
+<meta name="description" content="Lambda charges for wall-clock execution time; Workers charge only for active CPU time. At 100M requests/month, Workers costs ~$41 vs Lambda's ~$121. Full breakdown.">
+<link rel="canonical" href="https://apicalculators.com/compare/lambda-vs-cloudflare-workers.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/compare/lambda-vs-cloudflare-workers">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/compare/lambda-vs-cloudflare-workers">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/compare/lambda-vs-cloudflare-workers">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="AWS Lambda vs Cloudflare Workers: Pricing Comparison 2026 | APICalculators">
-<meta property="og:description" content="AWS Lambda vs Cloudflare Workers: serverless giants compared on price, cold starts, global edge, and real monthly costs.">
-<meta property="og:url" content="https://apicalculators.com/compare/lambda-vs-cloudflare-workers">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AWS Lambda vs Cloudflare Workers 2026 — Cost Compared">
+<meta property="og:description" content="Lambda charges for wall-clock execution time; Workers charge only for active CPU time. At 100M requests/month, Workers costs ~$41 vs Lambda's ~$121.">
+<meta property="og:url" content="https://apicalculators.com/compare/lambda-vs-cloudflare-workers.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AWS Lambda vs Cloudflare Workers Pricing 2026">
-<meta name="twitter:description" content="Lambda vs Workers: real cost at 10M, 100M, and 1B requests/month. Plus cold starts, edge execution, and ecosystem comparison.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Cloudflare Workers cheaper than AWS Lambda?","acceptedAnswer":{"@type":"Answer","text":"For most request volumes, yes. Cloudflare Workers Paid plan charges $5/month base + $0.30 per million requests above 10M included. AWS Lambda charges $0.20 per million requests + compute time (GB-seconds). At 100M requests/month: Cloudflare Workers costs ~$32/month (base + 90M extra); AWS Lambda costs ~$20 in request fees plus $16–80 in compute time depending on function duration. For short-lived API handlers (<100ms), Lambda and Workers are comparable. For compute-heavy functions, Lambda can be significantly more expensive."}},{"@type":"Question","name":"Does Cloudflare Workers have cold starts?","acceptedAnswer":{"@type":"Answer","text":"Cloudflare Workers has no cold starts in the traditional sense. Workers run on the V8 isolate model — instead of spinning up a container per invocation (Lambda's approach), Workers execute in pre-warmed JavaScript isolates that start in under 5ms globally. This is Cloudflare's primary architectural advantage over Lambda: median first-byte response times of 15–30ms globally vs Lambda's 100–500ms for cold starts (which can be reduced with provisioned concurrency, at additional cost)."}},{"@type":"Question","name":"What languages can I use with Cloudflare Workers vs AWS Lambda?","acceptedAnswer":{"@type":"Answer","text":"AWS Lambda supports any language via custom runtimes: Node.js, Python, Go, Java, .NET, Ruby, and more. This language breadth is Lambda's major advantage for teams with existing code in non-JavaScript languages. Cloudflare Workers supports JavaScript and TypeScript natively, and WebAssembly for other languages compiled to Wasm. Python, Rust, Go, and C can run as Wasm modules. The Workers developer experience is optimized for JavaScript; other language support is functional but less ergonomic than Lambda's native runtimes."}},{"@type":"Question","name":"Can Cloudflare Workers access a database?","acceptedAnswer":{"@type":"Answer","text":"Yes. Cloudflare Workers can connect to: Cloudflare D1 (serverless SQLite at the edge), Cloudflare KV (globally distributed key-value store), Cloudflare R2 (object storage), external databases via fetch() over TCP, and Hyperdrive (connection pooling proxy for Postgres). Connecting to a traditional Postgres or MySQL database from a Worker requires Hyperdrive or an HTTP-based database API (like Supabase, PlanetScale, or Neon). Lambda has more mature database connection patterns via VPC integration with RDS Proxy for connection pooling."}}]}</script>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"AWS Lambda vs Cloudflare Workers"}]}</script>
-
-<style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
-.hero{padding:58px 0 30px;text-align:center}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
-h1.ph .em{color:var(--lime)}
-p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
-section.sec{padding:0 0 48px}
-section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
-.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
-.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
-.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
-.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
-.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
-.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
-.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
-.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
-.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
-.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
-.sc-row b.win{color:var(--lime)}
-.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
-.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
-.prose p{margin-bottom:14px}
-.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
-.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
-.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
-.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
-.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
-.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
-.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
-.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
-.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
-.cta-btn:hover{opacity:.88}
-.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
-.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
-.qa .a p{padding:0 20px 16px}
-.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
-.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
-.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
-.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted)}
-.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
-</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "AWS Lambda vs Cloudflare Workers 2026 — Cost Compared",
+  "url": "https://apicalculators.com/compare/lambda-vs-cloudflare-workers.html",
+  "author": { "@type": "Organization", "name": "APICalculators" },
+  "publisher": { "@type": "Organization", "name": "APICalculators" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is AWS Lambda or Cloudflare Workers cheaper?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on workload shape. For 100M requests/month at 5ms CPU each, Cloudflare Workers costs around $41/month versus roughly $121/month for AWS Lambda + API Gateway, because Workers only bills active CPU time while Lambda bills total wall-clock execution time. For I/O-heavy workloads where wall-clock time far exceeds CPU time, Lambda's per-duration model can undercut Workers by 20-25% in some scenarios." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between CPU time billing and wall-clock billing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cloudflare Workers charges only for active CPU time — time the CPU is actually executing your code, not waiting on I/O. AWS Lambda charges for total wall-clock execution time, from invocation to return, including time spent waiting on network calls, database queries, or other I/O." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Cloudflare Workers charge for egress bandwidth?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, Cloudflare Workers doesn't charge for egress bandwidth, while AWS does charge for data transfer out of Lambda. Workers also has a larger free tier — roughly 3M requests/month, about 10x Lambda's free allowance." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap nav-in">
-    <a href="/" class="logo">API<b>Calculators</b></a>
-    <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap wrap--narrow">
+    <span class="eyebrow">Compare</span>
+    <h1>AWS Lambda vs Cloudflare Workers</h1>
+    <p class="lede">Lambda bills wall-clock time. Workers bills only active CPU time. That one difference decides which is cheaper for your workload.</p>
   </div>
 </header>
 
-<section class="hero wrap">
-  <span class="chip"><span class="dot"></span> Serverless · Updated <span id="luDate">June 2026</span></span>
-  <h1 class="ph"><span class="em">AWS Lambda vs Cloudflare Workers</span>: Pricing 2026</h1>
-  <p class="intro">No cold starts and global edge execution vs the most mature serverless ecosystem. We compare real monthly costs at three request volumes — and explain when each platform is architecturally the right choice.</p>
+<section class="wrap wrap--narrow">
+  <div class="card" style="cursor:default;">
+    <span class="badge">TL;DR</span>
+    <p style="margin:0;color:var(--text);">Pick <strong>Cloudflare Workers</strong> for CPU-light, high-request-volume APIs (webhooks, edge logic, redirects) — the CPU-only billing model wins big. Pick <strong>AWS Lambda</strong> for I/O-heavy or long-running compute jobs already inside the AWS ecosystem.</p>
+  </div>
 </section>
 
-<div class="wrap">
-
-<div class="verdict-box">
-  <div>
-    <h3>☁️ Choose AWS Lambda if you…</h3>
-    <ul>
-      <li>Need non-JavaScript runtime (Python, Go, Java, .NET)</li>
-      <li>Need VPC integration for private database access</li>
-      <li>Use AWS services (S3, DynamoDB, SQS, EventBridge)</li>
-      <li>Have long-running functions (up to 15 minutes)</li>
-      <li class="x">Need sub-10ms cold start globally</li>
-      <li class="x">Want the lowest per-request cost for JS workloads</li>
-    </ul>
-  </div>
-  <div>
-    <h3>🔶 Choose Cloudflare Workers if you…</h3>
-    <ul>
-      <li>Build JavaScript/TypeScript APIs requiring global low latency</li>
-      <li>Want no cold starts (V8 isolate model)</li>
-      <li>Need edge caching, KV, and D1 in one platform</li>
-      <li>Build high-traffic APIs where cost efficiency matters</li>
-      <li class="x">Need Python, Go, or Java (only JS/Wasm native)</li>
-      <li class="x">Need VPC integration with existing AWS databases</li>
-    </ul>
-  </div>
-</div>
-
-<section class="sec">
-  <h2>Pricing Breakdown</h2>
-  <p class="sh-sub">All prices June 2026. Lambda on-demand (128MB, 100ms avg duration). Workers Paid plan.</p>
-  <table class="ptable">
-    <thead>
-      <tr><th>Metric</th><th>AWS Lambda</th><th>Cloudflare Workers</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Free tier</td><td class="mono">1M requests/mo · 400K GB-sec/mo</td><td class="mono">100K requests/day (3M/mo)</td></tr>
-      <tr><td>Request cost</td><td class="mono">$0.20 / million requests</td><td class="mono">$0.30 / million (above 10M incl.)</td></tr>
-      <tr><td>Compute cost</td><td class="mono">$0.0000166667 / GB-second</td><td class="mono">$0 (included in flat rate)</td></tr>
-      <tr><td>Paid plan base</td><td class="mono">$0 (pay-per-use)</td><td class="mono">$5/mo (incl. 10M req/mo)</td></tr>
-      <tr><td>Cold starts</td><td class="mono">50–500ms (reducible with provisioned)</td><td class="mono">~0ms (V8 isolates)</td></tr>
-      <tr><td>Max execution time</td><td class="mono">15 minutes</td><td class="mono">30 seconds (CPU time)</td></tr>
-      <tr class="best"><td>Cost at 10M req/mo (100ms, 128MB)</td><td class="mono">$2 req + $21 compute = ~$23/mo</td><td class="mono"><strong>$5/mo (base includes 10M)</strong><span class="badge">CHEAPER</span></td></tr>
-      <tr><td>Cost at 100M req/mo</td><td class="mono">$20 req + $210 compute = ~$230/mo</td><td class="mono"><strong>$5 + $27 overage = ~$32/mo</strong></td></tr>
-      <tr><td>Cost at 1B req/mo</td><td class="mono">$200 req + ~$2,100 compute = ~$2,300/mo</td><td class="mono"><strong>$5 + $297 = ~$302/mo</strong></td></tr>
-      <tr><td>Languages</td><td class="mono">Node, Python, Go, Java, .NET, Ruby</td><td class="mono">JS/TS native, Wasm</td></tr>
-    </tbody>
-  </table>
-  <div class="ad-slot"><!-- AD SLOT 1 — below table --></div>
-</section>
-
-<section class="sec">
-  <h2>Cost at 3 Request Volumes</h2>
-  <p class="sh-sub">Lambda: 128MB memory, 100ms avg duration. Workers: standard JS API handler.</p>
-  <div class="scenario-grid">
-    <div class="scenario-card">
-      <h3>🌱 Startup API</h3>
-      <div class="sc-sub">10M requests/month</div>
-      <div class="sc-row"><span>AWS Lambda</span><b>~$23/mo</b></div>
-      <div class="sc-row"><span>Cloudflare Workers Paid</span><b class="win">$5/mo</b></div>
-      <div class="sc-row"><span>Winner</span><b class="win">Workers by 4.6×</b></div>
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>Pricing model at a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Provider</th><th>Billing model</th><th class="num">Requests</th></tr></thead>
+        <tbody>
+          <tr><td>AWS Lambda</td><td>$0.20/1M requests + $0.0000166667/GB-second (wall-clock)</td><td class="num">1M free/mo</td></tr>
+          <tr><td>Cloudflare Workers</td><td>$0.50/1M requests + ~$0.02/1M CPU-ms (active CPU only)</td><td class="num">~3M free/mo</td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="scenario-card">
-      <h3>📈 Growth API</h3>
-      <div class="sc-sub">100M requests/month</div>
-      <div class="sc-row"><span>AWS Lambda</span><b>~$230/mo</b></div>
-      <div class="sc-row"><span>Cloudflare Workers</span><b class="win">~$32/mo</b></div>
-      <div class="sc-row"><span>Winner</span><b class="win">Workers by 7×</b></div>
+    <p style="margin-top:var(--sp-4);">Use the <a href="/serverless-function-cost.html">serverless function cost calculator</a> to model your own request volume and execution time against both providers.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Active CPU time vs total wall-clock time</h2>
+    <p>The core difference is what gets billed. AWS Lambda charges for the entire time your function runs, from invocation to return — including time spent idle while waiting on a database call, an external API, or any other I/O. Cloudflare Workers only charges for time the CPU is actively executing code, so a function that spends most of its time waiting on I/O costs far less on Workers than the same function on Lambda.</p>
+    <p>At 100M requests/month with 5ms of CPU time each, that difference plays out as roughly $41/month on Cloudflare Workers versus about $121/month on AWS Lambda plus API Gateway — before egress, which Workers doesn't charge for and AWS does. Workers' free tier is also roughly 3M requests/month, about 10x Lambda's free allowance.</p>
+    <p>The math flips for I/O-heavy or long-running jobs: when wall-clock time greatly exceeds CPU time, Lambda's per-duration pricing can actually undercut Workers by 20-25% in some scenarios, since Workers' CPU-time billing doesn't apply the same way to compute-light, wait-heavy workloads. AWS Lambda SnapStart also cuts cold-start latency by up to 90% at no extra cost, narrowing one of Lambda's traditional weaknesses versus Workers' near-instant edge startup.</p>
+
+    <h2 style="margin-top:var(--sp-8);">When to pick each</h2>
+    <div class="stack">
+      <div class="card" style="cursor:default;">
+        <h3 class="card__title">Pick Cloudflare Workers if…</h3>
+        <p class="card__desc">You run CPU-light, high-request-volume workloads like webhooks, edge logic, or redirects, where the CPU-only billing model delivers a large cost advantage.</p>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3 class="card__title">Pick AWS Lambda if…</h3>
+        <p class="card__desc">Your jobs are I/O-heavy or long-running and already live inside the AWS ecosystem, where SnapStart cold-start improvements and deep AWS integration matter more than raw per-request cost.</p>
+      </div>
     </div>
-    <div class="scenario-card">
-      <h3>🏢 High-Traffic API</h3>
-      <div class="sc-sub">1B requests/month</div>
-      <div class="sc-row"><span>AWS Lambda</span><b>~$2,300/mo</b></div>
-      <div class="sc-row"><span>Cloudflare Workers</span><b class="win">~$302/mo</b></div>
-      <div class="sc-row"><span>Winner</span><b class="win">Workers by 7.6×</b></div>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>Is AWS Lambda or Cloudflare Workers cheaper?</summary>
+        <p>Depends on workload shape — Workers wins for CPU-light, high-volume APIs (~$41 vs ~$121/mo at 100M requests), while Lambda can undercut Workers by 20-25% for I/O-heavy, wall-clock-dominated jobs.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between CPU time billing and wall-clock billing?</summary>
+        <p>Workers bills only active CPU execution time. Lambda bills total wall-clock time including idle time spent waiting on I/O like network or database calls.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Cloudflare Workers charge for egress bandwidth?</summary>
+        <p>No, unlike AWS Lambda. Workers also offers a larger free tier — about 3M requests/month, roughly 10x Lambda's free allowance.</p>
+      </details>
     </div>
-  </div>
-  <div class="callout warn">
-    <div class="cl">⚠ Lambda compute costs compound quickly</div>
-    <p>Lambda charges separately for requests AND compute time (GB-seconds). A function averaging 200ms duration at 256MB memory generates 2× the compute cost of one at 100ms/128MB. Workers has no compute cost dimension — you pay per request regardless of execution time (within the 30-second limit). For predictable API workloads, Workers' flat model is much easier to budget.</p>
-  </div>
-</section>
 
-<div class="ad-slot"><!-- AD SLOT 2 — mid content --></div>
-
-<section class="sec">
-  <h2>Architecture Trade-Offs That Matter</h2>
-  <div class="prose">
-
-    <h3>Cold Starts: Cloudflare's Structural Advantage</h3>
-    <p>Lambda's container-based execution model means the first invocation of a function (or a function invoked after a period of inactivity) requires spinning up a container, initializing the runtime, and loading your code. This cold start adds 100–500ms to latency for Node.js functions and 1–5 seconds for Java or .NET functions with large dependency trees. Provisioned Concurrency eliminates cold starts by keeping containers pre-warmed — but at additional cost: $0.0000041 per GB-second of provisioned concurrency. Keeping 10 concurrent Lambda instances warm at 128MB costs an extra $32/month.</p>
-    <p>Cloudflare Workers uses V8 JavaScript isolates — the same technology that runs JavaScript in Chrome. Isolates start in under 5 milliseconds globally because there is no container or VM to spin up; the isolate is a lightweight in-process execution context. Every Worker invocation, globally, begins with sub-5ms initialization. For applications where consistent low latency is a user-facing requirement — APIs powering mobile apps, checkout flows, authentication endpoints — the zero-cold-start architecture delivers measurably better p99 latency without any configuration or additional cost.</p>
-
-    <h3>Lambda's Runtime Breadth vs Workers' JavaScript Focus</h3>
-    <p>Lambda's most important advantage is runtime support. If your team writes Python data processing functions, Go microservices, or Java Spring applications, Lambda supports them natively with optimized runtimes maintained by AWS. Your existing code, your existing dependencies, your existing Docker expertise all translate directly to Lambda. Workers is primarily a JavaScript and TypeScript platform. Rust, C, and Go can compile to WebAssembly and run in Workers, but the development experience is significantly more complex than writing native Lambda functions in those languages.</p>
-    <p>For teams with polyglot backends — some services in Python, some in Go, some in Node.js — Lambda's multi-runtime support means a single platform serves all serverless workloads without language-specific workarounds. Workers is the clear choice only when JavaScript or TypeScript is your primary language and global edge execution with no cold starts is a requirement.</p>
-
-    <h3>AWS Ecosystem Integration vs Cloudflare's Integrated Stack</h3>
-    <p>Lambda's integration with the AWS service ecosystem is unmatched. EventBridge triggers Lambda from any AWS event source. SQS invokes Lambda for queue-based processing. S3 events trigger Lambda for object processing pipelines. API Gateway, Application Load Balancer, and Function URLs provide HTTP interfaces. VPC integration allows Lambda to connect to private RDS, ElastiCache, and MSK clusters. If your application is built on AWS services, Lambda is the natural serverless compute choice — the integrations are pre-built, battle-tested, and require minimal configuration.</p>
-    <p>Cloudflare Workers integrates tightly with Cloudflare's own platform: KV (globally distributed key-value storage), D1 (serverless SQLite at the edge), R2 (S3-compatible object storage with no egress fees), Durable Objects (stateful coordination primitives), and the Cloudflare CDN itself. For applications built entirely on Cloudflare's stack — particularly read-heavy APIs, content delivery, and edge authentication — the integration density rivals AWS within Cloudflare's own ecosystem.</p>
-
+    <h2 style="margin-top:var(--sp-8);">Related</h2>
+    <p><a href="/serverless-function-cost.html">Serverless function cost calculator</a> · <a href="/api-gateway-cost.html">API gateway cost</a></p>
   </div>
 </section>
 
-<div class="cta-block">
-  <h3>Calculate Your Serverless Cost</h3>
-  <p>Enter your request volume and average function duration to compare Lambda, Workers, and Vercel Functions.</p>
-  <a href="/serverless-cost-calculator" class="cta-btn">Open Serverless Calculator →</a>
-</div>
-
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-    <div class="qa"><div class="q">Is Cloudflare Workers cheaper than AWS Lambda?<span class="plus">+</span></div><div class="a"><p>For most request volumes, yes. Cloudflare Workers Paid plan charges $5/month base + $0.30 per million requests above 10M included. AWS Lambda charges $0.20 per million requests + compute time (GB-seconds). At 100M requests/month: Cloudflare Workers costs ~$32/month (base + 90M extra); AWS Lambda costs ~$20 in request fees plus $16–80 in compute time depending on function duration. For short-lived API handlers (&lt;100ms), Lambda and Workers are comparable. For compute-heavy functions, Lambda can be significantly more expensive.</p></div></div>
-    <div class="qa"><div class="q">Does Cloudflare Workers have cold starts?<span class="plus">+</span></div><div class="a"><p>Cloudflare Workers has no cold starts in the traditional sense. Workers run on the V8 isolate model — instead of spinning up a container per invocation (Lambda's approach), Workers execute in pre-warmed JavaScript isolates that start in under 5ms globally. This is Cloudflare's primary architectural advantage over Lambda: median first-byte response times of 15–30ms globally vs Lambda's 100–500ms for cold starts (which can be reduced with provisioned concurrency, at additional cost).</p></div></div>
-    <div class="qa"><div class="q">What languages can I use with Cloudflare Workers vs AWS Lambda?<span class="plus">+</span></div><div class="a"><p>AWS Lambda supports any language via custom runtimes: Node.js, Python, Go, Java, .NET, Ruby, and more. This language breadth is Lambda's major advantage for teams with existing code in non-JavaScript languages. Cloudflare Workers supports JavaScript and TypeScript natively, and WebAssembly for other languages compiled to Wasm. Python, Rust, Go, and C can run as Wasm modules. The Workers developer experience is optimized for JavaScript; other language support is functional but less ergonomic than Lambda's native runtimes.</p></div></div>
-    <div class="qa"><div class="q">Can Cloudflare Workers access a database?<span class="plus">+</span></div><div class="a"><p>Yes. Cloudflare Workers can connect to: Cloudflare D1 (serverless SQLite at the edge), Cloudflare KV (globally distributed key-value store), Cloudflare R2 (object storage), external databases via fetch() over TCP, and Hyperdrive (connection pooling proxy for Postgres). Connecting to a traditional Postgres or MySQL database from a Worker requires Hyperdrive or an HTTP-based database API (like Supabase, PlanetScale, or Neon). Lambda has more mature database connection patterns via VPC integration with RDS Proxy for connection pooling.</p></div></div>
-  </div>
-</section>
-
-<section class="sec">
-  <h2>Related Comparisons</h2>
-  <div class="tool-links">
-    <a href="/compare/vercel-vs-cloudflare-workers" class="tool-link"><span class="ic">▲</span><div><div class="tl-name">Vercel vs Cloudflare Workers</div><div class="tl-desc">Frontend-focused vs edge-native</div></div></a>
-    <a href="/serverless-cost-calculator" class="tool-link"><span class="ic">⚡</span><div><div class="tl-name">Serverless Calculator</div><div class="tl-desc">All platforms at your request volume</div></div></a>
-  </div>
-</section>
-
-  <!-- Related Guides -->
-  <section class="sec">
-    <h2>Related Guides &amp; Calculators</h2>
-    <p class="sh-sub">Deep-dive articles and free calculators to model your exact costs.</p>
-    <div class="tool-links">
-      <a href="/blog/aws-lambda-cost-calculator-2026" class="tool-link">
-        <div class="ic">📊</div>
-        <div><div class="tl-name">AWS Lambda Cost Guide 2026</div><div class="tl-desc">Real pricing with cold starts and memory tiers</div></div>
-      </a>
-      <a href="/blog/api-gateway-pricing-2026" class="tool-link">
-        <div class="ic">⚡</div>
-        <div><div class="tl-name">API Gateway Pricing Guide</div><div class="tl-desc">REST vs HTTP vs WebSocket cost breakdown</div></div>
-      </a>
-      <a href="/serverless-cost-calculator" class="tool-link">
-        <div class="ic">🧮</div>
-        <div><div class="tl-name">Serverless Cost Calculator</div><div class="tl-desc">Compare Lambda, Workers, and Cloud Functions</div></div>
-      </a>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
     </div>
-  </section>
-
-</div>
-
-<footer>
-  <div class="wrap foot-in">
-    <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
-    <span>Prices are estimates · verify before you ship</span>
   </div>
 </footer>
-<script src="/compare/calc.js"></script>
-<script>window.onPricingData = function(data) {};</script>
+
+<script src="/theme.js"></script>
 </body>
 </html>

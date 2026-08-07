@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Gateway Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Estimate API gateway cost across AWS API Gateway, Kong Konnect, and Apigee. Enter request volume and data transfer for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/api-gateway-cost.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="API Gateway Cost Calculator 2026">
+<meta property="og:description" content="Estimate API gateway cost across AWS API Gateway, Kong Konnect, and Apigee.">
+<meta property="og:url" content="https://apicalculators.com/api-gateway-cost.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "API Gateway Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/api-gateway-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is API gateway cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Cost is a flat monthly base fee (if the plan has one) plus your monthly request count divided by one million times the provider&#39;s per-million-request rate, plus data transfer volume times an estimated per-GB egress rate." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Apigee have a flat monthly fee when others don&#39;t?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apigee targets enterprise API management with a subscription-style plan that bundles a request allowance, analytics, and governance tooling, whereas AWS API Gateway and Kong Konnect price primarily on a pay-as-you-go per-request basis." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use REST API or HTTP API on AWS?",
+      "acceptedAnswer": { "@type": "Answer", "text": "HTTP API is roughly a third of the cost of REST API on AWS and covers most modern use cases. REST API is worth the premium only if you need features like request validation, usage plans, or API keys that HTTP API doesn&#39;t support." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">Infrastructure</span>
+    <h1 style="max-width:20ch;">API Gateway Cost Calculator</h1>
+    <p class="lede">Estimate what it costs to route your API traffic through AWS API Gateway, Kong Konnect, or Apigee. Adjust request volume and data transfer — the estimate updates live.</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="provider">Provider / plan</label>
+        <select id="provider">
+          <option value="0|3.50" data-name="AWS API Gateway REST">AWS API Gateway REST — $3.50/1M calls</option>
+          <option value="0|1.00" data-name="AWS HTTP API">AWS HTTP API — $1.00/1M calls</option>
+          <option value="0|0.90" data-name="Kong Konnect">Kong Konnect — $0.90/1M calls</option>
+          <option value="500|0.60" data-name="Apigee">Apigee — $500/mo base + $0.60/1M calls</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="requests">Requests / month</label>
+        <input type="number" id="requests" value="5000000" min="0">
+      </div>
+      <div class="field">
+        <label for="dataGB">Data transfer (GB / month)</label>
+        <input type="number" id="dataGB" value="50" min="0">
+        <span class="hint">Estimated at $0.09/GB egress.</span>
+      </div>
+    </div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerName">AWS API Gateway REST</span>
+      <div class="result__break"><span>Base cost</span><span id="baseCost" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Request cost</span><span id="requestCost" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Data transfer cost</span><span id="dataCost" class="mono">$0.00</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Total cost is a flat monthly base fee (zero for most providers, $500 for Apigee), plus your monthly request count divided by one million and multiplied by the provider's per-million-request rate, plus your data transfer volume multiplied by an estimated $0.09 per gigabyte egress rate.</p>
+    <p>It doesn't account for caching charges, WAF or authorizer add-ons, free-tier allowances, or volume discounts that kick in at higher request tiers. Treat this as a directional estimate for provider comparison, not an exact invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is API gateway cost calculated?</summary>
+        <p>Cost is a flat monthly base fee (if the plan has one) plus your monthly request count divided by one million times the provider's per-million-request rate, plus data transfer volume times an estimated per-GB egress rate.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why does Apigee have a flat monthly fee when others don't?</summary>
+        <p>Apigee targets enterprise API management with a subscription-style plan that bundles a request allowance, analytics, and governance tooling, whereas AWS API Gateway and Kong Konnect price primarily on a pay-as-you-go per-request basis.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Should I use REST API or HTTP API on AWS?</summary>
+        <p>HTTP API is roughly a third of the cost of REST API on AWS and covers most modern use cases. REST API is worth the premium only if you need features like request validation, usage plans, or API keys that HTTP API doesn't support.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/serverless-function-cost.html">Serverless function cost</a> · <a href="/cloud-vps-cost.html">Cloud VPS cost</a> · <a href="/llm-api-cost.html">LLM API cost</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+(function () {
+  var providerEl = document.getElementById("provider");
+  var requestsEl = document.getElementById("requests");
+  var dataGBEl = document.getElementById("dataGB");
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var parts = providerEl.value.split("|");
+    var baseFlat = parseFloat(parts[0]);
+    var perMillionRate = parseFloat(parts[1]);
+
+    var requests = parseFloat(requestsEl.value) || 0;
+    var dataGB = parseFloat(dataGBEl.value) || 0;
+
+    var requestCost = (requests / 1000000) * perMillionRate;
+    var dataCost = dataGB * 0.09;
+    var total = baseFlat + requestCost + dataCost;
+
+    document.getElementById("totalCost").textContent = fmt(total);
+    document.getElementById("baseCost").textContent = fmt(baseFlat);
+    document.getElementById("requestCost").textContent = fmt(requestCost);
+    document.getElementById("dataCost").textContent = fmt(dataCost);
+    document.getElementById("providerName").textContent = providerEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [providerEl, requestsEl, dataGBEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

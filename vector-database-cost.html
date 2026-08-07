@@ -1,368 +1,191 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant</title>
-<meta name="description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vector Database Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Estimate vector database cost across Pinecone, Qdrant, and Weaviate. Enter vector count, dimensions, and query volume for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/vector-database-cost.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/vector-database-cost">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant">
-<meta property="og:description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
-<meta property="og:url" content="https://apicalculators.com/vector-database-cost">
+<meta property="og:title" content="Vector Database Cost Calculator 2026">
+<meta property="og:description" content="Estimate vector database cost across Pinecone, Qdrant, and Weaviate providers.">
+<meta property="og:url" content="https://apicalculators.com/vector-database-cost.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant">
-<meta name="twitter:description" content="Free vector database cost calculator. Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate pricing. Enter vector count → get exact monthly cost.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is a vector database?", "acceptedAnswer": {"@type": "Answer", "text": "Vector database costs range from $0 to $500+/month. At 1M vectors and 100K queries/month: Pinecone ~$20/mo, Supabase pgvector ~$27/mo, Weaviate Cloud ~$28/mo, Qdrant Cloud ~$54/mo. Free tiers: Pinecone (100K vectors), Supabase (500MB), Qdrant (1GB). Self-hosting Qdrant on a $6/mo VPS reduces costs to near zero."}}, {"@type": "Question", "name": "How much does vector storage cost?", "acceptedAnswer": {"@type": "Answer", "text": "1M vectors at 1536 dimensions = ~8.6 GB with HNSW index overhead. Storage cost: Supabase $0.125/GB (~$1.07/mo), Pinecone $0.33/GB (~$2.84/mo), Weaviate $0.50/GB (~$4.30/mo), Qdrant $9.00/GB (~$77/mo). Supabase is cheapest for pure storage; Pinecone and Weaviate add per-query fees."}}, {"@type": "Question", "name": "What is the cheapest vector database in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "For under 5M vectors: Supabase pgvector at $25/month (queries included). For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month. Pinecone Serverless is cheapest for very small (under 100K) with the free tier."}}, {"@type": "Question", "name": "How much does Pinecone cost for 1 million vectors?", "acceptedAnswer": {"@type": "Answer", "text": "Approximately $15–30/month depending on query volume. Storage ~$3 for 1536-dim vectors, plus $16 per million read units. At 100K queries/month expect ~$20."}}, {"@type": "Question", "name": "Is pgvector as good as Pinecone?", "acceptedAnswer": {"@type": "Answer", "text": "For most production workloads yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed scaling and dedicated infrastructure for very high query rates."}}, {"@type": "Question", "name": "How many vectors can Qdrant handle?", "acceptedAnswer": {"@type": "Answer", "text": "Qdrant Cloud handles hundreds of millions of vectors. Self-hosted Qdrant on a 16GB RAM server can store ~10M 1536-dim vectors in memory, or 50M+ with memory-mapped storage (slower queries)."}}, {"@type": "Question", "name": "What is a vector dimension?", "acceptedAnswer": {"@type": "Answer", "text": "Dimensions are the size of each embedding vector. OpenAI text-embedding-3-small produces 1536-dim vectors. Larger dimensions = more storage and cost. You can reduce OpenAI embeddings to 256 or 512 dimensions with minimal quality loss."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://apicalculators.com/vector-database-cost"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "APICalculators", "item": "https://apicalculators.com"}, {"@type": "ListItem", "position": 2, "name": "Vector Database Cost Comparison 2026 — Pinecone vs Supabase vs Qdrant"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Calculate Vector Database Cost","description":"Compare vector database pricing by entering your vector count and query volume.","step":[{"@type":"HowToStep","position":1,"name":"Enter Vector Count","text":"Input how many vectors you plan to store (e.g. 1,000,000 for 1M document chunks)."},{"@type":"HowToStep","position":2,"name":"Set Query Volume","text":"Enter your monthly query count — the number of similarity searches per month."},{"@type":"HowToStep","position":3,"name":"Compare Providers","text":"The calculator shows side-by-side costs for Pinecone, Supabase pgvector, Qdrant, and Weaviate."}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Vector Database Pricing Data 2026","description":"Current pricing for Pinecone, Supabase pgvector, Qdrant Cloud, and Weaviate Cloud. Updated June 2026.","creator":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"dateModified":"2026-06-01","license":"https://creativecommons.org/licenses/by/4.0/","variableMeasured":[{"@type":"PropertyValue","name":"Storage price","unitText":"USD per GB per month"},{"@type":"PropertyValue","name":"Query price","unitText":"USD per million read units"}]}</script>
-
-<style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
-.hero{padding:58px 0 30px;text-align:center}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
-h1.ph .em{color:var(--lime)}
-p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
-.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
-.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
-.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
-.calc-header p{color:var(--muted);font-size:14px}
-.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
-@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
-.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
-.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
-.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
-.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.seg{display:flex;gap:6px}.seg button{flex:1;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
-.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
-.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
-.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
-.per{color:var(--muted);font-size:13px;margin-bottom:14px}
-.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
-.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code','Consolas',monospace}
-.brow.hl b{color:var(--lime)}.brow.amber b{color:var(--amber)}
-section.sec{padding:0 0 48px}
-section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
-.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
-.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
-.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
-.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
-.qa .a p{padding:0 20px 16px}
-.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
-.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
-.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
-.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
-.aff-box{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px}
-.aff-box p{margin:0 0 .6rem;font-size:.85rem;color:var(--lime);font-weight:600}
-.aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
-.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
-.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
-.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
-.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
-.step-body strong{color:var(--text);display:block;margin-bottom:3px}
-.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
-.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
-.mbox p:last-child{margin-bottom:0}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
-.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
-.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
-.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
-.kt strong{color:var(--lime)}
-footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
-
-</style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3540510471635518" crossorigin="anonymous"></script>
-<style>
-.ad-wrap{margin:2rem 0;text-align:center;overflow:hidden}
-.ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
-</style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/vector-database-cost"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/vector-database-cost"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/vector-database-cost"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/vector-database-cost"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/vector-database-cost"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vector Database Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/vector-database-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is vector database cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Storage cost is based on vector count times dimensions times 4 bytes (float32), converted to GB and multiplied by the provider&#39;s per-GB monthly rate. Query cost is your monthly query volume multiplied by the provider&#39;s per-read-unit rate." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do dimensions matter so much for cost?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Each dimension adds 4 bytes per vector at float32 precision, so a 1536-dimension embedding model stores 6x more data per vector than a 256-dimension model, directly multiplying your storage bill." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reduce vector database costs without losing accuracy?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Techniques like quantization (int8 or binary), dimensionality reduction, and deleting stale vectors can cut storage cost significantly, often with a small and testable accuracy tradeoff." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav-in">
-    <a href="/" class="logo">API<b>Calculators</b></a>
-    <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">AI &amp; LLM</span>
+    <h1 style="max-width:20ch;">Vector Database Cost Calculator</h1>
+    <p class="lede">Estimate what it costs to store and query your embeddings across Pinecone, Qdrant, and Weaviate. Adjust vector count, dimensions, and query volume — the estimate updates live.</p>
   </div>
 </header>
-<section class="hero wrap">
-  <span class="chip"><span class="dot"></span> June 2026 · Vector DB pricing</span>
-  <h1 class="ph"><span class="em">Vector Database</span> Cost Comparison</h1>
-  <p class="intro">Compare Pinecone, Supabase pgvector, Qdrant, and Weaviate costs. Enter your vector count, dimensions, and query volume — see exact monthly prices.</p>
-<div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="TOP0000000"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-</section>
-<div class="wrap">
 
-<div class="kt">
-<div class="kt-hd">Key Takeaways</div>
-<ul>
-<li><strong>Supabase pgvector</strong> is the cheapest managed option at <strong>$25/month</strong> with queries included — best for under 5M vectors</li>
-<li>At 1M vectors + 100K queries/month: <strong>Pinecone ≈ $20</strong>, Supabase ≈ $27, Weaviate ≈ $28, Qdrant Cloud ≈ $54</li>
-<li><strong>Self-hosted Qdrant on a $6/month VPS</strong> reduces cost to near zero for storage-heavy workloads</li>
-<li>Pinecone Serverless is free for up to <strong>100K vectors</strong> — ideal for prototyping and small RAG apps</li>
-</ul>
-</div>
-
-<div class="calc-shell" id="calc">
-  <div class="calc-header">
-    <h2>🗄️ Vector Database Cost Calculator</h2>
-    <p>Select provider · Enter vector count and queries · Results update live</p>
-  </div>
-  <div class="calc-body">
-    <div>
-      <div class="field"><label for="vecProvider">Provider</label>
-        <select class="sel" id="vecProvider">
-          <option value="pinecone">Pinecone (Serverless)</option>
-          <option value="supabase">Supabase pgvector</option>
-          <option value="qdrant">Qdrant Cloud</option>
-          <option value="weaviate">Weaviate Cloud</option>
-        </select></div>
-      <div class="row2">
-        <div class="field"><label for="vecCount">Vectors (thousands)</label>
-          <input class="inp" id="vecCount" type="number" value="1000" min="1"></div>
-        <div class="field"><label for="vecDim">Dimensions</label>
-          <select class="sel" id="vecDim">
-            <option value="384">384 (MiniLM)</option>
-            <option value="768">768 (BERT)</option>
-            <option value="1536" selected>1536 (OpenAI)</option>
-            <option value="3072">3072 (text-3-large)</option>
-          </select></div>
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="provider">Provider</label>
+        <select id="provider">
+          <option value="0.33|8.25" data-name="Pinecone Serverless">Pinecone Serverless — $0.33/GB-mo, $8.25/1M read units</option>
+          <option value="0.28|5" data-name="Qdrant Cloud (GB-equivalent)">Qdrant Cloud — ~$0.28/GB-mo equiv., $5/1M read units</option>
+          <option value="0.095|6" data-name="Weaviate Cloud">Weaviate Cloud — $0.095/GB-mo, $6/1M read units</option>
+        </select>
       </div>
-      <div class="field"><label for="vecQ">Queries / month (thousands)</label>
-        <input class="inp" id="vecQ" type="number" value="100" min="0"></div>
-    </div>
-    <div class="result">
-      <div class="rlabel">Estimated monthly cost</div>
-      <div class="big" id="vecTotal">$0</div>
-      <div class="per" id="vecName">— select provider</div>
-      <div class="breakdown">
-        <div class="brow"><span>Storage size</span><b id="vecStore">—</b></div>
-        <div class="brow"><span>Storage cost</span><b id="vecStoreCost">—</b></div>
-        <div class="brow"><span>Query cost</span><b id="vecQCost">—</b></div>
-        <div class="brow hl"><span>Base fee</span><b id="vecBase">—</b></div>
+      <div class="field">
+        <label for="vectors">Number of vectors</label>
+        <input type="number" id="vectors" value="5000000" min="0">
+      </div>
+      <div class="field">
+        <label for="dims">Dimensions per vector</label>
+        <input type="number" id="dims" value="1536" min="0">
+        <span class="hint">Float32 storage assumes 4 bytes per dimension.</span>
+      </div>
+      <div class="field">
+        <label for="queries">Queries per month</label>
+        <input type="number" id="queries" value="100000" min="0">
       </div>
     </div>
-  </div>
-</div>
-
-<noscript>
-<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
-<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Vector Database Prices — June 2026 (JavaScript disabled)</h3>
-<table class="ptable">
-<thead><tr><th>Provider</th><th>Free tier</th><th>Storage</th><th>Queries</th><th>1M vec / 100K q/mo est.</th></tr></thead>
-<tbody>
-<tr><td>Supabase pgvector</td><td>500MB</td><td>$0.125/GB</td><td>Included</td><td>~$27/mo</td></tr>
-<tr><td>Pinecone Serverless</td><td>100K vectors</td><td>$0.33/GB</td><td>$16/M RU</td><td>~$20/mo</td></tr>
-<tr><td>Qdrant Cloud</td><td>1GB storage</td><td>$9.00/GB</td><td>Included</td><td>~$54/mo</td></tr>
-<tr><td>Weaviate Cloud</td><td>1 sandbox</td><td>$0.50/GB</td><td>$10/M queries</td><td>~$28/mo</td></tr>
-</tbody>
-</table>
-<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost estimates.</p>
-</div>
-</noscript>
-
-<section class="sec">
-  <h2>Vector Database Pricing 2026</h2>
-  <p class="sh-sub">Comparison for 1M vectors · 1536 dimensions · 100K queries/month.</p>
-  <table class="ptable">
-    <thead><tr><th>Provider</th><th>Free tier</th><th>Storage</th><th>Queries</th><th>1M vec / 100K q</th></tr></thead>
-    <tbody>
-      <tr class="best"><td><strong>Supabase pgvector</strong><span class="badge">BEST VALUE</span></td><td>500MB + 2 projects</td><td class="mono">$0.125/GB</td><td>Included</td><td class="mono">~$27</td></tr>
-      <tr><td><strong>Qdrant Cloud</strong></td><td>1GB storage</td><td class="mono">$9.00/GB</td><td>Included</td><td class="mono">~$54</td></tr>
-      <tr><td><strong>Weaviate Cloud</strong></td><td>1 sandbox cluster</td><td class="mono">$0.50/GB</td><td class="mono">$10/M</td><td class="mono">~$28</td></tr>
-      <tr><td><strong>Pinecone Serverless</strong></td><td>100K vectors</td><td class="mono">$0.33/GB</td><td class="mono">$16/M RU</td><td class="mono">~$20</td></tr>
-    </tbody>
-  </table>
-<div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="MID0000000"
-       data-ad-format="rectangle"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-  <div class="callout tip"><div class="cl">💡 Self-host Qdrant</div><p>Qdrant on a $6/mo Hetzner VPS handles 1–5M vectors easily. Total cost: ~$6–10/mo vs $50+ on managed cloud. Requires ops knowledge.</p></div>
-</section>
-
-<section class="sec">
-  <h2>How to Use This Calculator</h2>
-  <p class="sh-sub">Find the cheapest vector database for your RAG or semantic search workload in under a minute.</p>
-  <ol class="steps">
-    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Enter your vector count</strong>This is the total number of embeddings you plan to store. A document library of 10,000 PDFs, each split into 20 chunks, is 200,000 vectors. A product catalog with 500,000 SKUs is 500,000 vectors. An e-commerce site with semantic search across 5 million product descriptions would need 5 million vectors. Start with your current dataset size; you can always scale up.</div></li>
-    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Choose your embedding dimensions</strong>Dimensions are set by your embedding model, not by the vector database. OpenAI text-embedding-3-small produces 1536-dimensional vectors by default (configurable down to 256). OpenAI text-embedding-3-large produces 3072-dimensional vectors. Larger dimensions improve retrieval quality but increase storage cost proportionally — a 3072-dim vector occupies twice the storage of a 1536-dim vector.</div></li>
-    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Set your query volume</strong>Enter monthly queries in thousands. A customer-facing search feature with 10,000 daily active users making 3 searches each is about 900,000 queries/month (900K). An internal RAG assistant used by a 50-person team making 20 queries/day each is 30,000 queries/month (30K). Query costs vary significantly by provider — Pinecone charges per read unit while Supabase includes queries in storage pricing.</div></li>
-    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Compare providers side by side</strong>Switch between Pinecone Serverless, Supabase pgvector, Qdrant Cloud, and Weaviate Cloud. The cheapest provider varies depending on your query-to-storage ratio. For read-heavy workloads (many queries, small index), Supabase tends to win because queries are included. For write-heavy pipelines with large indexes, Pinecone's serverless pricing often comes out ahead at scale.</div></li>
-    <li class="step"><div class="step-num">5</div><div class="step-body"><strong>Add the self-hosting factor</strong>For any managed provider costing more than $30–50/month, consider self-hosting Qdrant or pgvector on a VPS. A 4GB RAM VPS ($12/month) handles 2–3M 1536-dim vectors comfortably. An 8GB instance ($24/month) handles 5–6M vectors. Self-hosting eliminates per-query fees entirely at the cost of your operations time.</div></li>
-  </ol>
-  <div class="callout info"><div class="cl">📌 Real example</div><p>A legal document search system with 500,000 contracts (avg 10 chunks each = 5M vectors, 1536 dims) and 50,000 queries/month: Pinecone Serverless ≈ $16.50 storage + $0.80 queries = <strong>~$17/month</strong>. Supabase pgvector ≈ $25 flat. Qdrant Cloud ≈ $45. Self-hosted Qdrant on a $12/month VPS with 8GB RAM: <strong>$12/month total</strong>.</p></div>
-</section>
-
-<section class="sec">
-  <h2>Pricing Methodology</h2>
-  <p class="sh-sub">How we calculate and maintain these cost estimates.</p>
-  <div class="mbox">
-    <p><strong>Sources:</strong> All prices are sourced directly from each provider's official pricing page — Pinecone's serverless pricing documentation, Supabase's billing page, Qdrant Cloud's pricing tier list, and Weaviate Cloud's pricing calculator. We do not use affiliate or negotiated rates.</p>
-    <p><strong>Storage calculations:</strong> Vector storage is calculated as: (vector count × dimensions × 4 bytes per float32) ÷ 1,073,741,824 = GB stored. For 1M vectors at 1536 dimensions, that's approximately 5.72 GB before index overhead. We add a 1.5× multiplier for HNSW index overhead, which is standard for all providers.</p>
-    <p><strong>Query cost methodology:</strong> For Pinecone, we use the Read Unit model: each query reads approximately 6 read units for 1M vectors (scales with dataset size). For Weaviate, we apply their published per-million-query rate. For Supabase and Qdrant Cloud, queries are included in the storage-based plan pricing.</p>
-    <p><strong>Update cadence:</strong> We review vector database pricing monthly. Serverless pricing models in particular change frequently as providers optimize their infrastructure costs. When a price changes, we update the <code>/pricing-data.json</code> file and this static table simultaneously.</p>
-    <p><strong>What is not included:</strong> Egress costs (typically $0.09/GB, negligible for most use cases), backup storage, enterprise support fees, and custom deployment costs for self-hosted options.</p>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerName">Pinecone Serverless</span>
+      <div class="result__break"><span>Storage size</span><span id="storageGB" class="mono">0 GB</span></div>
+      <div class="result__break"><span>Storage cost</span><span id="storageCost" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Query cost</span><span id="queryCost" class="mono">$0.00</span></div>
+    </div>
   </div>
 </section>
 
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-<div class="qa"><div class="q">How much is a vector database?<span class="plus">+</span></div><div class="a"><p>Vector database costs range from <strong>$0 to $500+/month</strong> depending on vector count and query volume. At 1M vectors with 100K queries/month: Pinecone Serverless ~$20/mo, Supabase pgvector ~$27/mo, Weaviate Cloud ~$28/mo, Qdrant Cloud ~$54/mo. Self-hosted Qdrant or pgvector on a $6–12/mo VPS cuts managed costs to near zero once your bill exceeds $30/month. Free tiers exist: Pinecone (100K vectors), Supabase (500MB / 2 projects), Qdrant (1GB cloud storage).</p></div></div>
-<div class="qa"><div class="q">How much does vector storage cost?<span class="plus">+</span></div><div class="a"><p>Vector storage cost depends on the provider's pricing model and your embedding dimensions. Raw storage: 1M vectors at 1536 dimensions (OpenAI) = 5.72 GB of float32 data, plus ~1.5× HNSW index overhead ≈ 8.6 GB total. Cost per GB: Supabase $0.125/GB (~$1.07/mo for 1M vectors), Pinecone $0.33/GB (~$2.84/mo), Weaviate $0.50/GB (~$4.30/mo), Qdrant $9.00/GB (~$77/mo). Supabase is cheapest for pure storage; Pinecone and Weaviate add per-query fees on top. Self-hosted pgvector or Qdrant on a $6/mo VPS has ~zero marginal storage cost.</p></div></div>
-<div class="qa"><div class="q">What is the cheapest vector database in 2026?<span class="plus">+</span></div><div class="a"><p>For under 5M vectors: Supabase pgvector at $25/month (queries included) is usually the best value. For 50M+ vectors: self-hosted Qdrant on spot VMs at $150–300/month total. Pinecone Serverless has a free tier for under 100K vectors, making it cheapest for tiny prototypes.</p></div></div>
-<div class="qa"><div class="q">How much does Pinecone cost for 1 million vectors?<span class="plus">+</span></div><div class="a"><p>Approximately $15–30/month depending on query volume. Storage costs about $3 for 1M 1536-dim vectors. At 100K queries/month using the read unit model, expect roughly $16–20 in query fees — totaling around $19–23/month.</p></div></div>
-<div class="qa"><div class="q">Is pgvector as good as Pinecone?<span class="plus">+</span></div><div class="a"><p>For most production workloads, yes. pgvector in Supabase or RDS supports HNSW indexing, IVFFlat, and handles millions of vectors well. Pinecone has better managed horizontal scaling and dedicated infrastructure for very high query rates (millions per day). For most applications under 50M vectors and 1M queries/month, pgvector is functionally equivalent at a lower cost.</p></div></div>
-<div class="qa"><div class="q">How many vectors can Qdrant handle?<span class="plus">+</span></div><div class="a"><p>Qdrant Cloud handles hundreds of millions of vectors across a distributed cluster. Self-hosted Qdrant on a 16GB RAM server stores ~10M 1536-dim vectors in memory (fast queries), or 50M+ with memory-mapped storage (slower but workable for batch retrieval). Add more nodes for linear scalability.</p></div></div>
-<div class="qa"><div class="q">What is a vector dimension and how does it affect cost?<span class="plus">+</span></div><div class="a"><p>Dimensions are the length of each embedding vector — 1536 floats for OpenAI's default, 3072 for text-3-large. Each float32 takes 4 bytes, so 1M vectors at 1536 dims = 5.72 GB of raw storage. Higher dimensions improve retrieval accuracy but increase storage cost proportionally. OpenAI's Matryoshka embeddings let you truncate to 256 or 512 dimensions with less than 5% quality loss — worth doing if cost is critical.</p></div></div>
-<div class="qa"><div class="q">When should I self-host a vector database instead of using a managed service?<span class="plus">+</span></div><div class="a"><p>Self-hosting becomes cost-effective when your managed bill exceeds $30–50/month. At that point, a $12–24/month VPS running Qdrant or pgvector covers the same workload. The trade-offs are operational: you manage upgrades, backups, and monitoring yourself. For teams without DevOps resources or for production systems that require SLA guarantees, managed services are worth the premium.</p></div></div>
-<div class="qa"><div class="q">Does query volume or storage matter more for vector DB costs?<span class="plus">+</span></div><div class="a"><p>It depends on the provider. For Pinecone Serverless, high query volumes dominate cost — a dataset of 1M vectors with 10M queries/month costs more in query fees than storage fees. For Supabase pgvector, storage is the cost driver because queries are included. For Qdrant Cloud, both are covered in the plan tier. The calculator shows the full breakdown so you can identify your primary cost driver.</p></div></div>
-</div>
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Storage size is computed as vector count times dimensions times 4 bytes (float32 precision), converted to gigabytes and multiplied by the provider's per-GB monthly storage rate. Query cost is your monthly query volume divided by one million and multiplied by the provider's per-million read-unit rate.</p>
+    <p>It doesn't account for metadata storage overhead, index type (HNSW vs IVF), replication factor, write-unit costs (Pinecone charges ~$2/1M write units separately), or free-tier allowances. Qdrant Cloud actually bills by node-hour rather than per-GB — the rate shown here is a GB-equivalent approximation for comparison, not Qdrant's real invoice line item. Real-world vector database bills commonly run 2.5-4x higher than the sticker estimate once reranking, backups, and data transfer are added — treat this as a floor, not a ceiling.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is vector database cost calculated?</summary>
+        <p>Storage cost is based on vector count times dimensions times 4 bytes (float32), converted to GB and multiplied by the provider's per-GB monthly rate. Query cost is your monthly query volume multiplied by the provider's per-read-unit rate.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why do dimensions matter so much for cost?</summary>
+        <p>Each dimension adds 4 bytes per vector at float32 precision, so a 1536-dimension embedding model stores 6x more data per vector than a 256-dimension model, directly multiplying your storage bill.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I reduce vector database costs without losing accuracy?</summary>
+        <p>Yes. Techniques like quantization (int8 or binary), dimensionality reduction, and deleting stale vectors can cut storage cost significantly, often with a small and testable accuracy tradeoff.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/embedding-api-cost.html">Embedding API cost</a> · <a href="/llm-api-cost.html">LLM API cost</a> · <a href="/ai-agent-cost.html">AI agent cost</a> · <a href="/compare/pinecone-vs-qdrant.html">Compare: Pinecone vs Qdrant</a></p>
+  </div>
 </section>
-<section class="sec">
-  <div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="BTM0000000"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<h2>Related Calculators</h2>
-  <div class="tool-links"><a href="/embedding-api-cost" class="tool-link"><span class="ic">🔢</span><div><div class="tl-name">Embedding API Cost</div><div class="tl-desc">Cost to generate your vectors</div></div></a>
-<a href="/llm-cost-calculator" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Cost</div><div class="tl-desc">Full AI stack cost</div></div></a>
-<a href="/cloud-vps-comparison" class="tool-link"><span class="ic">🖥️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Self-host your vector DB</div></div></a>
-<a href="/ai-agent-cost" class="tool-link"><span class="ic">⛓️</span><div><div class="tl-name">AI Agent Cost</div><div class="tl-desc">RAG pipeline total cost</div></div></a>
-</div>
-</section>
-</div>
-</div>
-<footer><div class="wrap foot-in">
-  <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
-  <span>Prices are estimates · verify before you ship</span>
-</div>  <div class="wrap"><div class="foot-calcs">
-        <strong>Calculators</strong>
-        <nav>
-          <a href="/llm-cost-calculator">LLM Token Cost</a>
-          <a href="/vector-database-cost">Vector DB Cost</a>
-          <a href="/image-generation-cost">AI Image Generation</a>
-          <a href="/payment-processor-fees">Payment Fees</a>
-          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
-          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
-          <a href="/serverless-cost-calculator">Serverless Cost</a>
-          <a href="/api-gateway-pricing">API Gateway Cost</a>
-          <a href="/embedding-api-cost">Embedding API Cost</a>
-          <a href="/ai-agent-cost">AI Agent Cost</a>
-          <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-          <a href="/auth-provider-cost">Auth Provider Cost</a>
-        </nav>
-      </div></div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
 </footer>
+
+<script src="/theme.js"></script>
 <script>
+(function () {
+  var providerEl = document.getElementById("provider");
+  var vectorsEl = document.getElementById("vectors");
+  var dimsEl = document.getElementById("dims");
+  var queriesEl = document.getElementById("queries");
 
-document.querySelectorAll('.qa').forEach(qa=>{
-  qa.querySelector('.q').addEventListener('click',()=>{
-    const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
-    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var parts = providerEl.value.split("|");
+    var storageRate = parseFloat(parts[0]);
+    var queryRatePer1M = parseFloat(parts[1]);
+    var vectors = parseFloat(vectorsEl.value) || 0;
+    var dims = parseFloat(dimsEl.value) || 0;
+    var queries = parseFloat(queriesEl.value) || 0;
+
+    var storageGB = (vectors * dims * 4) / 1e9;
+    var storageCost = storageGB * storageRate;
+    var queryCost = (queries / 1000000) * queryRatePer1M;
+    var total = storageCost + queryCost;
+
+    document.getElementById("totalCost").textContent = fmt(total);
+    document.getElementById("storageGB").textContent = storageGB.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " GB";
+    document.getElementById("storageCost").textContent = fmt(storageCost);
+    document.getElementById("queryCost").textContent = fmt(queryCost);
+    document.getElementById("providerName").textContent = providerEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [providerEl, vectorsEl, dimsEl, queriesEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
   });
-});
-
-const VEC_PROVIDERS = {
-  pinecone:{name:'Pinecone',      base:0,  storagePerGB:0.33, queryPerMillion:16.00},
-  supabase:{name:'Supabase',      base:25, storagePerGB:0.125,queryPerMillion:0},
-  qdrant:  {name:'Qdrant Cloud',  base:0,  storagePerGB:9.00, queryPerMillion:0},
-  weaviate:{name:'Weaviate Cloud',base:25, storagePerGB:0.50, queryPerMillion:10.00},
-};
-const $=id=>document.getElementById(id);
-const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
-const fmt$=v=>{if(v===0)return'$0';if(v<0.01)return'$'+v.toFixed(4);if(v<1)return'$'+v.toFixed(3);if(v<1000)return'$'+v.toFixed(2);return'$'+Math.round(v).toLocaleString('en-US');};
-const big$=v=>{if(v>=1000)return'$'+Math.round(v).toLocaleString('en-US');if(v>=1)return'$'+v.toFixed(2);if(v>0)return'$'+v.toFixed(4);return'$0';};
-function calcVec(){
-  const prov=$('vecProvider').value;
-  const p=VEC_PROVIDERS[prov];
-  const n=num($('vecCount').value)*1000;
-  const d=num($('vecDim').value);
-  const q=num($('vecQ').value)*1000;
-  const bytes=n*d*4*1.5;
-  const gb=bytes/(1024**3);
-  const storeCost=gb*p.storagePerGB;
-  const qCost=q/1e6*p.queryPerMillion;
-  const total=p.base+storeCost+qCost;
-  $('vecTotal').textContent=big$(total);
-  $('vecName').textContent='— '+p.name;
-  $('vecStore').textContent=gb<1?(gb*1024).toFixed(1)+' MB':gb.toFixed(2)+' GB';
-  $('vecStoreCost').textContent=fmt$(storeCost);
-  $('vecQCost').textContent=p.queryPerMillion?fmt$(qCost):'included';
-  $('vecBase').textContent=p.base?fmt$(p.base)+' /mo':'no base fee';
-}
-['vecProvider','vecCount','vecDim','vecQ'].forEach(id=>{
-  const el=$(id);if(el)el.addEventListener('change',calcVec),el.addEventListener('input',calcVec);
-});
-calcVec();
-
+  calc();
+})();
 </script>
 </body>
 </html>

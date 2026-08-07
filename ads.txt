@@ -1,1 +1,1 @@
-google.com, pub-3540510471635518, DIRECT, f08c47fec0942fa0
+# ads.txt placeholder — add authorized seller lines here when an ad network is configured.

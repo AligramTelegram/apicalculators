@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serverless Function Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Estimate serverless function cost for AWS Lambda and Cloudflare Workers. Enter invocations, duration, and memory for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/serverless-function-cost.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Serverless Function Cost Calculator 2026">
+<meta property="og:description" content="Estimate serverless function cost for AWS Lambda and Cloudflare Workers.">
+<meta property="og:url" content="https://apicalculators.com/serverless-function-cost.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Serverless Function Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/serverless-function-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is serverless function cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "AWS Lambda bills a per-request fee plus compute measured in GB-seconds (memory allocated times execution duration). Cloudflare Workers bills a per-request fee plus compute measured in CPU-milliseconds actually used, which excludes time waiting on network I/O." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can Cloudflare Workers be cheaper for I/O-heavy functions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Workers bills CPU time, not wall-clock time, so a function that spends most of its duration waiting on a database or API call is only charged for the milliseconds it actually uses the CPU. Lambda bills the full wall-clock duration regardless of waiting." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does memory allocation affect Lambda cost even if I don&#39;t need it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Lambda compute cost is proportional to allocated memory, not memory actually used, so over-provisioning memory directly increases your bill even if the function never touches most of it." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">Infrastructure</span>
+    <h1 style="max-width:20ch;">Serverless Function Cost Calculator</h1>
+    <p class="lede">Estimate what your functions cost on AWS Lambda or Cloudflare Workers. Adjust invocations, duration, and memory — the estimate updates live.</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="provider">Provider</label>
+        <select id="provider">
+          <option value="aws|0.20|0.0000166667" data-name="AWS Lambda">AWS Lambda — $0.20/1M requests + $0.0000166667/GB-s</option>
+          <option value="cf|0.50|0.02" data-name="Cloudflare Workers">Cloudflare Workers — $0.50/1M requests + $0.02/1M CPU-ms</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="invocations">Invocations / month</label>
+        <input type="number" id="invocations" value="1000000" min="0">
+      </div>
+      <div class="field">
+        <label for="duration">Avg duration (ms)</label>
+        <input type="number" id="duration" value="200" min="0">
+      </div>
+      <div class="field">
+        <label for="memory">Memory (MB)</label>
+        <input type="number" id="memory" value="512" min="0">
+        <span class="hint">Used for AWS Lambda GB-seconds calculation. Ignored for Cloudflare Workers.</span>
+      </div>
+    </div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerName">AWS Lambda</span>
+      <div class="result__break"><span>Request cost</span><span id="requestCost" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Compute cost</span><span id="computeCost" class="mono">$0.00</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>For AWS Lambda, compute cost is GB-seconds (invocations times duration in seconds times memory in GB) multiplied by the per-GB-second rate, plus a per-request fee based on invocation count. For Cloudflare Workers, compute cost is total CPU-milliseconds (invocations times duration) multiplied by the per-million-CPU-ms rate, plus its own per-request fee.</p>
+    <p>It doesn't account for free-tier allowances, provisioned concurrency charges, data transfer fees, or cold-start overhead that can add extra billed duration in practice. Treat this as a directional estimate for architecture decisions, not an exact invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is serverless function cost calculated?</summary>
+        <p>AWS Lambda bills a per-request fee plus compute measured in GB-seconds (memory allocated times execution duration). Cloudflare Workers bills a per-request fee plus compute measured in CPU-milliseconds actually used, which excludes time waiting on network I/O.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why can Cloudflare Workers be cheaper for I/O-heavy functions?</summary>
+        <p>Workers bills CPU time, not wall-clock time, so a function that spends most of its duration waiting on a database or API call is only charged for the milliseconds it actually uses the CPU. Lambda bills the full wall-clock duration regardless of waiting.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does memory allocation affect Lambda cost even if I don't need it?</summary>
+        <p>Yes. Lambda compute cost is proportional to allocated memory, not memory actually used, so over-provisioning memory directly increases your bill even if the function never touches most of it.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/api-gateway-cost.html">API gateway cost</a> · <a href="/cloud-vps-cost.html">Cloud VPS cost</a> · <a href="/llm-api-cost.html">LLM API cost</a> · <a href="/compare/lambda-vs-cloudflare-workers.html">Compare: Lambda vs Cloudflare Workers</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+(function () {
+  var providerEl = document.getElementById("provider");
+  var invocationsEl = document.getElementById("invocations");
+  var durationEl = document.getElementById("duration");
+  var memoryEl = document.getElementById("memory");
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var parts = providerEl.value.split("|");
+    var kind = parts[0];
+    var requestRate = parseFloat(parts[1]);
+    var computeRate = parseFloat(parts[2]);
+
+    var invocations = parseFloat(invocationsEl.value) || 0;
+    var duration = parseFloat(durationEl.value) || 0;
+    var memory = parseFloat(memoryEl.value) || 0;
+
+    var requestCost, computeCost;
+
+    if (kind === "aws") {
+      var gbSeconds = invocations * (duration / 1000) * (memory / 1024);
+      computeCost = gbSeconds * computeRate;
+      requestCost = (invocations / 1000000) * requestRate;
+    } else {
+      var cpuMsTotal = invocations * duration;
+      computeCost = (cpuMsTotal / 1000000) * computeRate;
+      requestCost = (invocations / 1000000) * requestRate;
+    }
+
+    var total = requestCost + computeCost;
+
+    document.getElementById("totalCost").textContent = fmt(total);
+    document.getElementById("requestCost").textContent = fmt(requestCost);
+    document.getElementById("computeCost").textContent = fmt(computeCost);
+    document.getElementById("providerName").textContent = providerEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [providerEl, invocationsEl, durationEl, memoryEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

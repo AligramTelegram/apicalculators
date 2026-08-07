@@ -1,323 +1,186 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Stripe vs Paddle vs Lemon Squeezy Fee Calculator 2026</title>
-<meta name="description" content="Free payment processor fee calculator. Compare Stripe, Paddle, Lemon Squeezy, and PayPal fees. Enter monthly revenue → see exact costs and net revenue.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Processor Fees Calculator 2026 | APICalculators</title>
+<meta name="description" content="Compare payment processor fees across Stripe, Paddle, Lemon Squeezy, and PayPal. Enter transaction size and volume for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/payment-processor-fees.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/payment-processor-fees">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="Stripe vs Paddle vs Lemon Squeezy Fee Calculator 2026">
-<meta property="og:description" content="Free payment processor fee calculator. Compare Stripe, Paddle, Lemon Squeezy, and PayPal fees. Enter monthly revenue → see exact costs and net revenue.">
-<meta property="og:url" content="https://apicalculators.com/payment-processor-fees">
+<meta property="og:title" content="Payment Processor Fees Calculator 2026">
+<meta property="og:description" content="Compare payment processor fees across Stripe, Paddle, Lemon Squeezy, and PayPal.">
+<meta property="og:url" content="https://apicalculators.com/payment-processor-fees.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stripe vs Paddle vs Lemon Squeezy Fee Calculator 2026">
-<meta name="twitter:description" content="Free payment processor fee calculator. Compare Stripe, Paddle, Lemon Squeezy, and PayPal fees. Enter monthly revenue → see exact costs and net revenue.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Stripe cheaper than Paddle for SaaS?", "acceptedAnswer": {"@type": "Answer", "text": "At raw fee level yes (2.9% vs 5%). But adding Stripe Tax ($0.50/tx for VAT), international card fees (1.5%), and chargeback costs puts the break-even at $12–18K MRR. Below that Stripe is cheaper; above that Paddle is often cheaper total."}}, {"@type": "Question", "name": "What is a Merchant of Record?", "acceptedAnswer": {"@type": "Answer", "text": "A Merchant of Record (MoR) is the legal entity that processes payment and handles all tax obligations. Paddle and Lemon Squeezy are MoRs — they collect VAT/sales tax globally. Stripe is not a MoR; you are responsible for tax compliance."}}, {"@type": "Question", "name": "Does Stripe work in Turkey?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, Stripe supports Turkey. You can accept TRY payments and international cards. Note: Stripe Tax applies for VAT in EU countries. Turkish customers paying in TRY may incur FX conversion fees."}}, {"@type": "Question", "name": "What is Lemon Squeezy vs Paddle?", "acceptedAnswer": {"@type": "Answer", "text": "Both are Merchant of Record platforms at 5% + $0.50. Lemon Squeezy is newer with a simpler UI and stronger developer experience. Paddle has been around longer with more enterprise features. Both handle global VAT automatically."}}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Stripe vs Paddle vs Lemon Squeezy Fee Calculator 2026", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "url": "https://apicalculators.com/payment-processor-fees"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "APICalculators", "item": "https://apicalculators.com"}, {"@type": "ListItem", "position": 2, "name": "Stripe vs Paddle vs Lemon Squeezy Fee Calculator 2026"}]}</script>
-
-<style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
-.hero{padding:58px 0 30px;text-align:center}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
-h1.ph .em{color:var(--lime)}
-p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
-.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
-.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
-.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
-.calc-header p{color:var(--muted);font-size:14px}
-.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
-@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
-.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
-.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
-.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
-.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.seg{display:flex;gap:6px}.seg button{flex:1;background:var(--bg);border:1px solid var(--border2);color:var(--muted);border-radius:9px;padding:9px;font-size:13px;font-weight:600;cursor:pointer;font-family:-apple-system,system-ui,sans-serif;transition:all .15s}
-.seg button.on{background:var(--lime);color:#06210a;border-color:var(--lime)}
-.result{background:radial-gradient(120% 120% at 100% 0%,rgba(184,255,46,.07),transparent 55%),var(--surface2);border:1px solid var(--border2);border-radius:16px;padding:22px;position:relative;overflow:hidden}
-.result::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--lime),var(--cyan))}
-.rlabel{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.big{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(34px,7vw,50px);line-height:1;margin:8px 0 4px;color:var(--lime)}
-.per{color:var(--muted);font-size:13px;margin-bottom:14px}
-.breakdown{border-top:1px solid var(--border);padding-top:13px;display:flex;flex-direction:column;gap:9px}
-.brow{display:flex;justify-content:space-between;font-size:13px}.brow span{color:var(--muted)}.brow b{font-family:'Cascadia Code','Consolas',monospace}
-.brow.hl b{color:var(--lime)}.brow.amber b{color:var(--amber)}
-section.sec{padding:0 0 48px}
-section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
-.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
-.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
-.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
-.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
-.qa .a p{padding:0 20px 16px}
-.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
-.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
-.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
-.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
-.aff-box{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px}
-.aff-box p{margin:0 0 .6rem;font-size:.85rem;color:var(--lime);font-weight:600}
-.aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
-.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
-.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
-.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
-.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
-.step-body strong{color:var(--text);display:block;margin-bottom:3px}
-.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
-.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
-.mbox p:last-child{margin-bottom:0}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted)}.footer a:hover{color:var(--lime)}
-
-</style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3540510471635518" crossorigin="anonymous"></script>
-<style>
-.ad-wrap{margin:2rem 0;text-align:center;overflow:hidden}
-.ad-wrap .ad-label{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;color:#3a4550;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
-.ad-unit{display:block;min-height:90px;background:rgba(255,255,255,.01)}
-</style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/payment-processor-fees"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/payment-processor-fees"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/payment-processor-fees"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/payment-processor-fees"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/payment-processor-fees"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Payment Processor Fees Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/payment-processor-fees.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How are payment processor fees calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fee per transaction is the transaction amount times the processor&#39;s percentage rate, plus a fixed flat fee. Monthly fees are that per-transaction fee multiplied by transaction count, and net revenue is gross revenue minus total fees." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do Paddle and Lemon Squeezy charge higher percentage rates than Stripe?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Paddle and Lemon Squeezy act as merchant of record, meaning they handle global sales tax and VAT compliance on your behalf. That extra service is priced into their higher percentage rate compared to Stripe, which leaves tax compliance to you." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does transaction size affect the effective fee percentage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Because every processor charges a flat fee per transaction on top of the percentage, smaller transactions have a higher effective fee rate than larger ones, since the flat fee makes up a bigger share of a small charge." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
-<header class="nav">
-  <div class="wrap nav-in">
-    <a href="/" class="logo">API<b>Calculators</b></a>
-    <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">Payments</span>
+    <h1 style="max-width:20ch;">Payment Processor Fees Calculator</h1>
+    <p class="lede">Compare what Stripe, Paddle, Lemon Squeezy, and PayPal actually take out of your revenue. Adjust transaction size and volume — the estimate updates live.</p>
   </div>
 </header>
-<section class="hero wrap">
-  <span class="chip"><span class="dot"></span> June 2026 · Payment processor pricing</span>
-  <h1 class="ph">Stripe vs <span class="em">Paddle</span> Fee Calculator</h1>
-  <p class="intro">Compare Stripe, Paddle, Lemon Squeezy, and PayPal fees side by side. Enter your monthly revenue → see exact fees, effective rate, and net revenue.</p>
-<div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="TOP0000000"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-</section>
-<div class="wrap">
 
-<div class="calc-shell" id="calc">
-  <div class="calc-header">
-    <h2>💳 Payment Fee Calculator</h2>
-    <p>Enter revenue and transaction count · Compare processors instantly</p>
-  </div>
-  <div class="calc-body">
-    <div>
-      <div class="field"><label for="payRev">Monthly revenue ($)</label>
-        <input class="inp" id="payRev" type="number" value="10000" min="0"></div>
-      <div class="field"><label for="payTx">Transactions / month</label>
-        <input class="inp" id="payTx" type="number" value="200" min="0"></div>
-      <div class="field"><label>Avg transaction value</label>
-        <input class="inp" id="payAvg" type="text" value="$50.00" readonly style="opacity:.6"></div>
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="processor">Processor</label>
+        <select id="processor">
+          <option value="0.029|0.30" data-name="Stripe">Stripe — 2.9% + $0.30</option>
+          <option value="0.05|0.50" data-name="Paddle">Paddle — 5% + $0.50 (merchant of record)</option>
+          <option value="0.05|0.50" data-name="Lemon Squeezy">Lemon Squeezy — 5% + $0.50 (merchant of record)</option>
+          <option value="0.0349|0.49" data-name="PayPal">PayPal — 3.49% + $0.49</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="amount">Average transaction amount ($)</label>
+        <input type="number" id="amount" value="50" min="0">
+      </div>
+      <div class="field">
+        <label for="transactions">Transactions / month</label>
+        <input type="number" id="transactions" value="800" min="0">
+      </div>
     </div>
-    <div class="result" style="overflow:visible">
-      <div class="rlabel">Fee comparison</div>
-      <div id="payCmp" style="display:flex;flex-direction:column;gap:8px;margin-top:10px"></div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly fees</span>
+      <span class="result__value" id="totalFees">$0.00</span>
+      <span class="result__sub" id="processorName">Stripe</span>
+      <div class="result__break"><span>Fee per transaction</span><span id="feePerTxn" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Net per transaction</span><span id="netPerTxn" class="mono">$0.00</span></div>
+      <div class="result__break"><span>Monthly net revenue</span><span id="monthlyNet" class="mono">$0.00</span></div>
     </div>
   </div>
-</div>
-
-<noscript>
-<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
-<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Payment Processor Fees — June 2026 (JavaScript disabled)</h3>
-<table class="ptable">
-<thead><tr><th>Processor</th><th>Rate</th><th>Fixed fee</th><th>Tax handling</th><th>MoR</th></tr></thead>
-<tbody>
-<tr><td>Stripe</td><td>2.9%</td><td>$0.30/tx</td><td>You handle (Stripe Tax extra)</td><td>No</td></tr>
-<tr><td>PayPal</td><td>3.49%</td><td>$0.49/tx</td><td>You handle</td><td>No</td></tr>
-<tr><td>Paddle</td><td>5%</td><td>$0.50/tx</td><td>Handled (global VAT)</td><td>Yes</td></tr>
-<tr><td>Lemon Squeezy</td><td>5%</td><td>$0.50/tx</td><td>Handled (global VAT)</td><td>Yes</td></tr>
-</tbody>
-</table>
-<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live fee comparisons.</p>
-</div>
-</noscript>
-
-<section class="sec">
-  <h2>Stripe vs Paddle vs Lemon Squeezy Fees</h2>
-  <p class="sh-sub">True cost comparison — raw fees only, excluding tax handling.</p>
-  <table class="ptable">
-    <thead><tr><th>Processor</th><th>Rate</th><th>Fixed fee</th><th>Tax handling</th><th>MoR</th><th>$10K MRR fee</th></tr></thead>
-    <tbody>
-      <tr class="best"><td><strong>Stripe</strong><span class="badge">LOWEST RATE</span></td><td class="mono">2.9%</td><td class="mono">$0.30</td><td>You handle (Stripe Tax extra)</td><td>No</td><td class="mono">~$350</td></tr>
-      <tr><td><strong>PayPal</strong></td><td class="mono">3.49%</td><td class="mono">$0.49</td><td>You handle</td><td>No</td><td class="mono">~$447</td></tr>
-      <tr><td><strong>Paddle</strong></td><td class="mono">5%</td><td class="mono">$0.50</td><td>Handled (global VAT)</td><td>Yes</td><td class="mono">~$600</td></tr>
-      <tr><td><strong>Lemon Squeezy</strong></td><td class="mono">5%</td><td class="mono">$0.50</td><td>Handled (global VAT)</td><td>Yes</td><td class="mono">~$600</td></tr>
-    </tbody>
-  </table>
-<div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="MID0000000"
-       data-ad-format="rectangle"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-  <div class="callout info"><div class="cl">ℹ What is a Merchant of Record?</div><p>A Merchant of Record (MoR) is the legal entity that processes payment and handles all tax obligations globally. Paddle and Lemon Squeezy collect VAT/sales tax in 100+ countries automatically. Stripe requires you to use Stripe Tax ($0.50 per transaction) or handle tax yourself.</p></div>
-  <div class="callout tip"><div class="cl">💡 Break-even point</div><p>Paddle's 5% beats Stripe at MRR above ~$15K when adding Stripe Tax ($0.50/tx) and accounting for international card fees (1.5% extra). Below $15K MRR: Stripe is cheaper. Above $15K MRR with global customers: Paddle or Lemon Squeezy saves tax headaches.</p></div>
-</section>
-<section class="sec">
-  <h2>How to Use This Calculator</h2>
-  <p class="sh-sub">Find your true payment processing cost including hidden fees and tax handling.</p>
-  <ol class="steps">
-    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Enter your monthly revenue</strong>Use your gross revenue before payment fees. If you're pre-launch, use a realistic target — $5K/month is early stage, $50K/month is a healthy indie SaaS, $200K+/month is scaling. The fee comparison will show the absolute dollar cost difference between processors at your revenue level.</div></li>
-    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Enter your transaction count</strong>This matters because fixed fees ($0.30–0.50 per transaction) become significant at low average order values. If your average transaction is $5 and you charge $0.30 fixed fee, that's 6% on top of the percentage rate. High-volume, low-value transactions favor processors with no or low fixed fees. Enter the total number of successful charges per month.</div></li>
-    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Read the fee comparison</strong>The result panel shows total fees for each processor side by side. Look at the absolute dollar difference, not just percentage points. At $5K MRR, the 2.1% difference between Stripe (2.9%) and Paddle (5%) is $105/month — meaningful but not decisive. At $100K MRR, that same 2.1% difference is $2,100/month. As revenue grows, the processor choice matters more.</div></li>
-    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Factor in tax handling off-calculator</strong>Stripe's 2.9% rate does not include VAT/sales tax compliance. If you sell to EU customers, you must collect and remit VAT in each country, or use Stripe Tax ($0.50 per transaction) or a tax service. Paddle and Lemon Squeezy are Merchants of Record — they handle all global tax collection and remittance automatically. For global SaaS, the true Stripe cost is often 2.9% + 0.5% (Stripe Tax) + 0.5–1% (FX fees on international cards) = 3.9–4.4% effective rate.</div></li>
-  </ol>
-  <div class="callout info"><div class="cl">📌 Real example</div><p>A SaaS at $30K MRR with 300 monthly subscriptions and 40% EU customers: Stripe raw fees = $870 + Stripe Tax for EU ($60) + international card fees ($90) = <strong>$1,020/month effective</strong>. Paddle at 5% + $0.50 = $1,500 + $150 = $1,650/month — but Paddle handles all tax, no surprise compliance issues. At $100K MRR the math shifts: Stripe total ≈ $3,400 vs Paddle ≈ $5,150. Tax peace-of-mind has a price.</p></div>
 </section>
 
-<section class="sec">
-  <h2>Pricing Methodology</h2>
-  <p class="sh-sub">How we calculate payment processing fees.</p>
-  <div class="mbox">
-    <p><strong>Sources:</strong> All processing rates are sourced from each provider's official pricing pages — Stripe's pricing page, PayPal's merchant fees page, Paddle's pricing page, and Lemon Squeezy's pricing page. These are standard, public rates available to any developer without volume negotiation.</p>
-    <p><strong>What the calculator includes:</strong> The base percentage rate and fixed per-transaction fee for standard card transactions. For Stripe, we show the base domestic rate (2.9% + $0.30). International card fees (+1.5%), currency conversion fees (+1%), Stripe Tax ($0.50/tx), and dispute/chargeback fees are not included in the automated calculation but are explained in the tips section.</p>
-    <p><strong>What the calculator excludes:</strong> Stripe Radar fraud protection fees, ACH/bank transfer rates (typically 0.8%), Buy Now Pay Later surcharges (Klarna, Afterpay integrations), and subscription management platform fees (Stripe Billing adds a 0.5–0.8% fee on revenue managed through their platform).</p>
-    <p><strong>Update cadence:</strong> Payment processor fees change infrequently — typically once every 1–2 years. We verify rates quarterly and update immediately when a provider announces a fee change.</p>
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Fee per transaction is your average transaction amount times the processor's percentage rate, plus its fixed flat fee. Monthly fees multiply that per-transaction fee by your monthly transaction count. Net revenue is gross revenue (amount times transactions) minus total monthly fees.</p>
+    <p>It doesn't account for currency conversion fees, chargeback and dispute costs, subscription-specific pricing tiers, or negotiated volume discounts available to high-revenue merchants. Treat this as a directional estimate for comparing processors, not an exact invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How are payment processor fees calculated?</summary>
+        <p>Fee per transaction is the transaction amount times the processor's percentage rate, plus a fixed flat fee. Monthly fees are that per-transaction fee multiplied by transaction count, and net revenue is gross revenue minus total fees.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why do Paddle and Lemon Squeezy charge higher percentage rates than Stripe?</summary>
+        <p>Paddle and Lemon Squeezy act as merchant of record, meaning they handle global sales tax and VAT compliance on your behalf. That extra service is priced into their higher percentage rate compared to Stripe, which leaves tax compliance to you.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does transaction size affect the effective fee percentage?</summary>
+        <p>Yes. Because every processor charges a flat fee per transaction on top of the percentage, smaller transactions have a higher effective fee rate than larger ones, since the flat fee makes up a bigger share of a small charge.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/auth-provider-cost.html">Auth provider cost</a> · <a href="/api-gateway-cost.html">API gateway cost</a> · <a href="/llm-api-cost.html">LLM API cost</a> · <a href="/compare/stripe-vs-paddle.html">Compare: Stripe vs Paddle</a></p>
   </div>
 </section>
 
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq"><div class="qa"><div class="q">Is Stripe cheaper than Paddle for SaaS?<span class="plus">+</span></div><div class="a"><p>At the raw rate level, yes — 2.9% vs 5%. But adding Stripe Tax ($0.50/tx for EU VAT), international card fees (1.5% extra), and chargeback processing costs, the effective break-even is around $12–18K MRR depending on your customer geography. Below that Stripe is cheaper; above that Paddle's all-inclusive pricing is often comparable or better when you value tax compliance and no surprises.</p></div></div>
-<div class="qa"><div class="q">What is a Merchant of Record?<span class="plus">+</span></div><div class="a"><p>A Merchant of Record (MoR) is the legal entity that processes payment and assumes all tax obligations globally. Paddle and Lemon Squeezy are MoRs — they collect VAT/sales tax in 100+ countries, remit it to local tax authorities, and handle disputes. Stripe is not a MoR: you are the merchant of record, making you responsible for global tax compliance, which is complex and potentially costly for international businesses.</p></div></div>
-<div class="qa"><div class="q">What is the difference between Lemon Squeezy and Paddle?<span class="plus">+</span></div><div class="a"><p>Both are Merchant of Record platforms charging 5% + $0.50. Lemon Squeezy launched in 2021 with a developer-first UX, strong product page builder, and simple API. Paddle has been operating since 2012 with more enterprise features, a larger customer base, and more complex integration options. For indie developers and small SaaS, Lemon Squeezy is often easier to set up. For established companies with volume, Paddle offers more customization.</p></div></div>
-<div class="qa"><div class="q">Does Stripe work globally?<span class="plus">+</span></div><div class="a"><p>Stripe is available in 47+ countries for businesses to register in, and accepts payments from customers in 195+ countries. International card payments (non-domestic) incur a 1.5% surcharge. If your business is registered in a country Stripe supports but you sell to customers globally, you'll also need Stripe Tax or a separate VAT registration strategy for EU/UK compliance. Paddle and Lemon Squeezy handle this automatically.</p></div></div>
-<div class="qa"><div class="q">What is PayPal's actual fee for SaaS?<span class="plus">+</span></div><div class="a"><p>PayPal's standard rate for digital goods is 3.49% + $0.49 per transaction. There's also a 1.50% fee for international transactions. For subscription SaaS, PayPal's recurring billing options are more limited than Stripe. Most SaaS companies use PayPal as a supplementary checkout option (some customers strongly prefer it) rather than their primary processor, because Stripe's developer experience and subscription tooling is significantly better.</p></div></div>
-<div class="qa"><div class="q">How do chargebacks affect payment processing costs?<span class="plus">+</span></div><div class="a"><p>Chargebacks (disputed transactions) cost $15–25 per dispute with Stripe and PayPal, regardless of outcome. If your dispute rate exceeds 1% of transactions, Stripe may place your account under review. Paddle and Lemon Squeezy absorb chargeback risk as the Merchant of Record, so disputes don't directly affect your account standing. For products with higher refund rates (digital goods with unclear value propositions), MoR platforms provide meaningful risk protection.</p></div></div>
-</div>
-</section>
-<section class="sec">
-  <div class="ad-wrap">
-  <div class="ad-label">Advertisement</div>
-  <ins class="adsbygoogle ad-unit"
-       style="display:block"
-       data-ad-client="ca-pub-3540510471635518"
-       data-ad-slot="BTM0000000"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-</div>
-<h2>Related Calculators</h2>
-  <div class="tool-links"><a href="/llm-cost-calculator" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Cost</div><div class="tl-desc">Full SaaS stack cost</div></div></a>
-<a href="/cloud-vps-comparison" class="tool-link"><span class="ic">🖥️</span><div><div class="tl-name">Cloud VPS</div><div class="tl-desc">Infrastructure cost for your SaaS</div></div></a>
-<a href="/serverless-cost-calculator" class="tool-link"><span class="ic">⚡</span><div><div class="tl-name">Serverless Cost</div><div class="tl-desc">Backend cost for your SaaS</div></div></a>
-<a href="/embedding-api-cost" class="tool-link"><span class="ic">🔢</span><div><div class="tl-name">Embedding Cost</div><div class="tl-desc">AI feature cost for your SaaS</div></div></a>
-</div>
-</section>
-</div>
-</div>
-<footer><div class="wrap foot-in">
-  <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
-  <span>Prices are estimates · verify before you ship</span>
-</div>  <div class="wrap"><div class="foot-calcs">
-        <strong>Calculators</strong>
-        <nav>
-          <a href="/llm-cost-calculator">LLM Token Cost</a>
-          <a href="/vector-database-cost">Vector DB Cost</a>
-          <a href="/image-generation-cost">AI Image Generation</a>
-          <a href="/payment-processor-fees">Payment Fees</a>
-          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
-          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
-          <a href="/serverless-cost-calculator">Serverless Cost</a>
-          <a href="/api-gateway-pricing">API Gateway Cost</a>
-          <a href="/embedding-api-cost">Embedding API Cost</a>
-          <a href="/ai-agent-cost">AI Agent Cost</a>
-          <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-          <a href="/auth-provider-cost">Auth Provider Cost</a>
-        </nav>
-      </div></div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
 </footer>
+
+<script src="/theme.js"></script>
 <script>
+(function () {
+  var processorEl = document.getElementById("processor");
+  var amountEl = document.getElementById("amount");
+  var transactionsEl = document.getElementById("transactions");
 
-document.querySelectorAll('.qa').forEach(qa=>{
-  qa.querySelector('.q').addEventListener('click',()=>{
-    const open=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
-    if(!open){qa.classList.add('open');qa.querySelector('.a').style.maxHeight=qa.querySelector('.a').scrollHeight+'px';}
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var parts = processorEl.value.split("|");
+    var pct = parseFloat(parts[0]);
+    var flat = parseFloat(parts[1]);
+
+    var amount = parseFloat(amountEl.value) || 0;
+    var transactions = parseFloat(transactionsEl.value) || 0;
+
+    var feePerTxn = amount * pct + flat;
+    var netPerTxn = amount - feePerTxn;
+    var monthlyFees = feePerTxn * transactions;
+    var monthlyNet = netPerTxn * transactions;
+
+    document.getElementById("totalFees").textContent = fmt(monthlyFees);
+    document.getElementById("feePerTxn").textContent = fmt(feePerTxn);
+    document.getElementById("netPerTxn").textContent = fmt(netPerTxn);
+    document.getElementById("monthlyNet").textContent = fmt(monthlyNet);
+    document.getElementById("processorName").textContent = processorEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [processorEl, amountEl, transactionsEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
   });
-});
-
-const PAY = [
-  {id:'stripe', name:'Stripe',        rate:0.029, fixed:0.30, note:'2.9% + $0.30'},
-  {id:'paddle', name:'Paddle',        rate:0.050, fixed:0.50, note:'5% + $0.50 · MoR'},
-  {id:'lemon',  name:'Lemon Squeezy', rate:0.050, fixed:0.50, note:'5% + $0.50 · MoR'},
-  {id:'paypal', name:'PayPal',        rate:0.0349,fixed:0.49, note:'3.49% + $0.49'},
-];
-const $=id=>document.getElementById(id);
-const num=v=>{const n=parseFloat(String(v).replace(/,/g,''));return isNaN(n)?0:n;};
-const fmt$=v=>{if(v===0)return'$0';if(v<1)return'$'+v.toFixed(3);if(v<1000)return'$'+v.toFixed(2);return'$'+Math.round(v).toLocaleString('en-US');};
-function calcPay(){
-  const rev=num($('payRev').value),tx=num($('payTx').value);
-  $('payAvg').value=tx>0?'$'+(rev/tx).toFixed(2):'$0.00';
-  const rows=PAY.map(p=>{
-    const fee=rev*p.rate+tx*p.fixed;
-    return {...p,fee,net:rev-fee,pct:rev>0?fee/rev*100:0};
-  }).sort((a,b)=>a.fee-b.fee);
-  const max=Math.max(...rows.map(r=>r.fee),1);
-  $('payCmp').innerHTML=rows.map((r,i)=>`
-    <div style="background:var(--surface);border:1px solid var(--border${i===0?'2':''});border-radius:10px;padding:12px 14px;${i===0?'border-color:rgba(184,255,46,.3)':''}">
-      <div style="display:flex;justify-content:space-between;margin-bottom:6px">
-        <span style="font-weight:700">${r.name}${i===0?'<span class="badge" style="margin-left:8px">CHEAPEST</span>':''}</span>
-        <span style="font-family:monospace;color:var(--lime)">${fmt$(r.fee)}</span>
-      </div>
-      <div style="background:var(--bg);border-radius:4px;height:6px;margin-bottom:6px">
-        <div style="background:${i===0?'var(--lime)':'var(--border2)'};height:6px;border-radius:4px;width:${(r.fee/max*100).toFixed(1)}%"></div>
-      </div>
-      <div style="font-size:12px;color:var(--muted)">${r.note} · ${r.pct.toFixed(2)}% effective · net ${fmt$(r.net)}</div>
-    </div>`).join('');
-}
-['payRev','payTx'].forEach(id=>$(id).addEventListener('input',calcPay));
-calcPay();
-
+  calc();
+})();
 </script>
 </body>
 </html>

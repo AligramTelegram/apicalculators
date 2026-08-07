@@ -1,18 +1,12 @@
 {
-  "name": "APICalculators — Developer Cost Tools",
-  "short_name": "APICalc",
-  "description": "Free calculators for LLM token costs, vector databases, AI image generation, and payment processor fees.",
+  "name": "APICalculators",
+  "short_name": "APICalculators",
+  "description": "Free infrastructure cost calculators for developers.",
   "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0a0c10",
-  "theme_color": "#b8ff2e",
-  "lang": "en",
+  "display": "browser",
+  "background_color": "#fbf9f4",
+  "theme_color": "#b5760a",
   "icons": [
-    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
-  ],
-  "categories": ["utilities", "developer", "productivity"],
-  "screenshots": [
-    { "src": "/og-image.jpg", "sizes": "1200x630", "type": "image/jpeg" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
   ]
 }

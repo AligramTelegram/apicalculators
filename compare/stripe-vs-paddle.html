@@ -1,363 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Stripe vs Paddle: Payment Processor Pricing Comparison 2026 | APICalculators</title>
-<meta name="description" content="Stripe takes 2.9%+$0.30 vs Paddle's 5%+$0.50. But Paddle handles global VAT/sales-tax. The real cost difference at $10K, $50K, $200K monthly GMV.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stripe vs Paddle 2026 — Fees, Tax &amp; MoR Compared | APICalculators</title>
+<meta name="description" content="Stripe charges 2.9%+$0.30 and leaves tax to you. Paddle charges 5%+$0.50 but handles sales tax as merchant of record. Full 2026 cost breakdown.">
+<link rel="canonical" href="https://apicalculators.com/compare/stripe-vs-paddle.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/compare/stripe-vs-paddle">
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/compare/stripe-vs-paddle">
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/compare/stripe-vs-paddle">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="Stripe vs Paddle: Payment Processor Pricing Comparison 2026 | APICalculators">
-<meta property="og:description" content="Stripe takes 2.9%+$0.30 vs Paddle's 5%+$0.50. But Paddle handles global VAT/sales-tax. The real cost difference at $10K, $50K, $200K monthly GMV.">
-<meta property="og:url" content="https://apicalculators.com/compare/stripe-vs-paddle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stripe vs Paddle 2026 — Fees, Tax & MoR Compared">
+<meta property="og:description" content="Stripe charges 2.9%+$0.30 and leaves tax to you. Paddle charges 5%+$0.50 but handles sales tax as merchant of record.">
+<meta property="og:url" content="https://apicalculators.com/compare/stripe-vs-paddle.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stripe vs Paddle: Payment Processor Pricing Comparison 2026 | APICalculators">
-<meta name="twitter:description" content="Stripe takes 2.9%+$0.30 vs Paddle's 5%+$0.50. Real cost at $10K, $50K, $200K GMV including VAT compliance.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Stripe vs Paddle: True Cost Comparison for SaaS 2026","image":"https://apicalculators.com/og-image.png","datePublished":"2026-06-01","dateModified":"2026-06-26","author":{"@type":"Person","name":"Alex Morgan","url":"https://apicalculators.com/about"},"publisher":{"@type":"Organization","name":"APICalculators","url":"https://apicalculators.com"},"mainEntityOfPage":"https://apicalculators.com/compare/stripe-vs-paddle"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a Merchant of Record?","acceptedAnswer":{"@type":"Answer","text":"A Merchant of Record (MoR) is the legal entity responsible for a sale — they collect payment, issue invoices, and remit taxes to governments. When you use Paddle as your MoR, Paddle is the legal seller of your product. Customers see Paddle on their credit card statement and tax invoices. You receive net revenue from Paddle after fees and taxes. This means Paddle — not you — is liable for VAT in the EU, UK, GST in Australia, and sales tax across US states. It eliminates the need for you to register for tax in dozens of jurisdictions."}},{"@type":"Question","name":"Is Paddle cheaper than Stripe?","acceptedAnswer":{"@type":"Answer","text":"On base transaction fees alone, Stripe (2.9%+$0.30) is significantly cheaper than Paddle (5%+$0.50). However, Paddle's total cost of ownership is often lower for global SaaS businesses once you factor in the cost of tax compliance tools, accountants, or Stripe Tax fees. For a $50K/mo GMV SaaS with 30% EU customers, the cost gap narrows considerably — Paddle might cost $1,000 more in raw fees, but that buys you full tax compliance in 50+ jurisdictions."}},{"@type":"Question","name":"Does Paddle work for subscriptions?","acceptedAnswer":{"@type":"Answer","text":"Yes. Paddle has a robust subscription billing engine that supports free trials, pause/resume, mid-cycle upgrades and downgrades with proration, seat-based pricing, and dunning management for failed payments. It also generates proper tax-compliant VAT invoices automatically for each billing cycle, which is critical if you sell to EU businesses who need to reclaim VAT. The subscription API is well-documented and comparable to Stripe Billing for most standard use cases."}},{"@type":"Question","name":"Can I switch from Stripe to Paddle?","acceptedAnswer":{"@type":"Answer","text":"Yes, but it requires customers to re-authorize their payment method. Because Paddle is the Merchant of Record, they maintain their own customer payment vault — you cannot transfer Stripe payment tokens to Paddle. The typical migration approach is to let existing subscribers stay on Stripe while routing all new signups through Paddle, then sunset the Stripe side over time. For one-time purchases, migration is simpler since there are no stored payment methods to transfer."}}]}</script>
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Compare","item":"https://apicalculators.com/compare/"},{"@type":"ListItem","position":3,"name":"Stripe vs Paddle"}]}</script>
-
-<style>
-:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
-.hero{padding:58px 0 30px;text-align:center}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,44px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
-h1.ph .em{color:var(--lime)}
-p.intro{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto 26px}
-section.sec{padding:0 0 48px}
-section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px);letter-spacing:-.02em;margin-bottom:6px}
-.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
-.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd;vertical-align:top}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.info{background:rgba(77,214,255,.08);border-color:var(--cyan)}.callout.info .cl{color:var(--cyan)}
-.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
-.scenario-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:20px 0 32px}
-.scenario-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px 22px}
-.scenario-card h3{font-family:'Arial Black',system-ui,sans-serif;font-size:15px;font-weight:900;margin-bottom:4px}
-.scenario-card .sc-sub{color:var(--muted);font-size:12px;margin-bottom:14px}
-.sc-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--border)}
-.sc-row:last-child{border-bottom:none;font-weight:700;padding-top:9px}
-.sc-row span{color:var(--muted)}.sc-row b{font-family:'Cascadia Code','Consolas',monospace}
-.sc-row b.win{color:var(--lime)}
-.prose{font-size:15px;color:#cdd6dd;line-height:1.75}
-.prose h3{font-family:'Arial Black',system-ui,sans-serif;font-size:17px;font-weight:900;margin:28px 0 8px;color:var(--text)}
-.prose p{margin-bottom:14px}
-.prose ul{margin:0 0 14px 20px}.prose li{margin-bottom:6px}
-.verdict-box{background:linear-gradient(135deg,rgba(184,255,46,.08),rgba(77,214,255,.05));border:1px solid var(--border2);border-radius:16px;padding:24px 28px;margin:0 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:600px){.verdict-box{grid-template-columns:1fr}.scenario-grid{grid-template-columns:1fr}}
-.verdict-box h3{font-family:'Arial Black',system-ui,sans-serif;font-size:14px;margin-bottom:10px}
-.verdict-box ul{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13px;color:#cdd6dd}
-.verdict-box li::before{content:"✓ ";color:var(--lime);font-weight:700}
-.verdict-box li.x::before{content:"✗ ";color:#e05e5e}
-.cta-block{background:linear-gradient(135deg,rgba(184,255,46,.09),rgba(184,255,46,.03));border:1px solid rgba(184,255,46,.25);border-radius:16px;padding:28px 32px;text-align:center;margin:0 0 40px}
-.cta-block h3{font-family:'Arial Black',system-ui,sans-serif;font-size:20px;margin-bottom:8px}
-.cta-block p{color:var(--muted);font-size:14px;margin-bottom:20px}
-.cta-btn{display:inline-block;background:var(--lime);color:#06210a;font-weight:900;font-family:'Arial Black',system-ui,sans-serif;font-size:14px;padding:13px 28px;border-radius:10px;transition:opacity .15s}
-.cta-btn:hover{opacity:.88}
-.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
-.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
-.qa .a p{padding:0 20px 16px}
-.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
-.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
-.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
-.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-footer a{color:var(--muted)}
-.ad-slot{margin:32px 0;padding:40px 20px;border:1px dashed var(--border2);border-radius:12px;text-align:center;color:var(--border2);font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em}
-</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stripe vs Paddle 2026 — Fees, Tax & MoR Compared",
+  "url": "https://apicalculators.com/compare/stripe-vs-paddle.html",
+  "author": { "@type": "Organization", "name": "APICalculators" },
+  "publisher": { "@type": "Organization", "name": "APICalculators" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Stripe or Paddle cheaper?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Stripe's headline rate (2.9% + $0.30) is lower than Paddle's (5% + $0.50), but Stripe leaves you responsible for calculating, collecting, and remitting sales tax and VAT in every jurisdiction you sell into. Once you add accountant or tax-software cost, the gap narrows or reverses for global SaaS sellers." }
+    },
+    {
+      "@type": "Question",
+      "name": "What does merchant of record mean?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A merchant of record (MoR) is legally the seller on every transaction. Paddle, as MoR, collects and remits sales tax/VAT in 200+ jurisdictions on your behalf, and takes on chargeback and compliance liability. With Stripe, you are the merchant of record and carry that liability yourself." }
+    },
+    {
+      "@type": "Question",
+      "name": "When does Paddle's higher fee pay for itself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Roughly once you're selling to customers in multiple tax jurisdictions and would otherwise need a tax compliance tool or accountant to handle VAT/sales tax filings — commonly cited around $30k-$50k in annual revenue for solo founders and small teams." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<header class="nav"><div class="wrap nav-in"><a href="/" class="logo">API<b>Calculators</b></a><nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav></div></header>
-
-<div class="wrap">
-  <div class="hero">
-    <div class="chip"><span class="dot"></span>Payment Processors · Updated <span id="luDate">2026-06-11</span></div>
-    <h1 class="ph"><span class="em">Stripe vs Paddle</span>: Pricing Comparison 2026</h1>
-    <p class="intro">Stripe costs less per transaction. Paddle costs more but becomes your legal tax agent worldwide. Here is the true cost difference across three GMV tiers.</p>
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
   </div>
+</nav>
 
-  <!-- Pricing Table -->
-  <section class="sec">
-    <h2>Fee Structure at a Glance</h2>
-    <p class="sh-sub">Base rates before international cards, currency conversion, or tax tools.</p>
-    <table class="ptable">
-      <thead>
-        <tr>
-          <th>Processor</th>
-          <th>Domestic %</th>
-          <th>Fixed Fee</th>
-          <th>International</th>
-          <th>Currency Conv.</th>
-          <th>Dispute Fee</th>
-          <th>Monthly Fee</th>
-          <th>Tax Handling</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="best">
-          <td><strong>Stripe</strong><span class="badge">LOWER RATE</span></td>
-          <td class="mono">2.9%</td>
-          <td class="mono">$0.30</td>
-          <td class="mono">+1.5%</td>
-          <td class="mono">+1.0%</td>
-          <td class="mono">$15.00</td>
-          <td class="mono">$0</td>
-          <td>You manage (or add Stripe Tax)</td>
-        </tr>
-        <tr>
-          <td><strong>Paddle</strong><span class="badge" style="background:var(--cyan);color:#001a22">MOR</span></td>
-          <td class="mono">5.0%</td>
-          <td class="mono">$0.50</td>
-          <td class="mono">Included</td>
-          <td class="mono">Included</td>
-          <td class="mono">Included</td>
-          <td class="mono">$0</td>
-          <td>Paddle handles all global tax</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <div class="ad-slot">Advertisement</div>
-
-  <!-- Scenarios -->
-  <section class="sec">
-    <h2>Real Cost Scenarios</h2>
-    <p class="sh-sub">$49 avg ticket · 30% international customers with EU VAT exposure · VAT compliance cost estimated at $0.50/EU txn or ~2.5% of EU GMV via Stripe Tax.</p>
-
-    <div class="scenario-grid">
-      <div class="scenario-card">
-        <h3>Small Business</h3>
-        <div class="sc-sub">$10K/mo GMV · ~204 transactions · ~61 EU txns</div>
-        <div class="sc-row"><span>Stripe base fees</span><b>$351.20</b></div>
-        <div class="sc-row"><span>Stripe Tax (EU, ~61 txns)</span><b>$30.50</b></div>
-        <div class="sc-row"><span>Stripe total cost</span><b>~$382</b></div>
-        <div class="sc-row"><span>Paddle base fees</span><b>$602.00</b></div>
-        <div class="sc-row"><span>Paddle tax handling</span><b>$0</b></div>
-        <div class="sc-row"><span>Paddle total cost</span><b>~$602</b></div>
-        <div class="sc-row"><span>Verdict</span><b class="win">Stripe saves ~$220</b></div>
-      </div>
-      <div class="scenario-card">
-        <h3>Growth Stage</h3>
-        <div class="sc-sub">$50K/mo GMV · ~1,020 transactions · ~306 EU txns</div>
-        <div class="sc-row"><span>Stripe base fees</span><b>$1,756</b></div>
-        <div class="sc-row"><span>Tax tools + accountant</span><b>~$250</b></div>
-        <div class="sc-row"><span>Stripe total cost</span><b>~$2,006</b></div>
-        <div class="sc-row"><span>Paddle base fees</span><b>$3,010</b></div>
-        <div class="sc-row"><span>Paddle tax handling</span><b>$0</b></div>
-        <div class="sc-row"><span>Paddle total cost</span><b>~$3,010</b></div>
-        <div class="sc-row"><span>Verdict</span><b class="win">Stripe saves ~$1,004</b></div>
-      </div>
-      <div class="scenario-card">
-        <h3>Scale</h3>
-        <div class="sc-sub">$200K/mo GMV · ~4,082 transactions · ~1,225 EU txns</div>
-        <div class="sc-row"><span>Stripe base fees</span><b>$7,024</b></div>
-        <div class="sc-row"><span>Tax infra + staff</span><b>~$1,000+</b></div>
-        <div class="sc-row"><span>Stripe total cost</span><b>~$8,000+</b></div>
-        <div class="sc-row"><span>Paddle base fees</span><b>$12,041</b></div>
-        <div class="sc-row"><span>Paddle tax handling</span><b>$0</b></div>
-        <div class="sc-row"><span>Paddle total cost</span><b>~$12,041</b></div>
-        <div class="sc-row"><span>Verdict</span><b class="win">Stripe saves ~$4,000+</b></div>
-      </div>
-    </div>
-
-    <div class="callout warn">
-      <div class="cl">Important</div>
-      <p>At $200K+ GMV, Stripe's gap widens further if you can negotiate custom rates (available above ~$80K/mo). Paddle does offer enterprise pricing at scale — contact their sales team for a quote.</p>
-    </div>
-  </section>
-
-  <!-- Deep Dive Prose -->
-  <section class="sec">
-    <h2>The Full Picture</h2>
-    <p class="sh-sub">Why the fee difference exists and when each processor wins.</p>
-    <div class="prose">
-
-      <h3>Understanding the Merchant of Record Model</h3>
-      <p>When you sell software or digital products online, someone has to be the legal seller of record — the entity that governments around the world hold responsible for collecting and remitting taxes. With Stripe, that entity is you. With Paddle, that entity is Paddle itself.</p>
-      <p>This distinction has sweeping consequences. Because Paddle is the Merchant of Record, your customers see "Paddle" or "Paddle.net" on their credit card statements and on their tax invoices. You never handle the customer's payment directly. Paddle collects the full transaction amount, deducts their 5%+$0.50 fee (plus any applicable taxes that are remitted to governments), and sends you the net revenue. The tax liability — EU VAT at 20–27%, UK VAT at 20%, Australian GST at 10%, US sales tax in 45 states — is Paddle's legal problem, not yours.</p>
-      <p>For a solo founder or a small team without a finance department, this is enormously valuable. EU VAT compliance alone requires registering with the OSS (One Stop Shop) scheme in the EU, filing quarterly returns, and maintaining proper records of customer locations. Getting it wrong exposes you to back-taxes, penalties, and potential deregistration from operating in EU markets. Paddle absorbs all of that risk for their 5%+$0.50 cut.</p>
-
-      <h3>Where Stripe Wins Decisively</h3>
-      <p>Stripe's 2.9%+$0.30 base rate is a full 2.1 percentage points cheaper than Paddle's, which at $200K GMV translates to roughly $4,000 per month in additional gross profit. That money can hire an accountant or pay for tax compliance software many times over. At scale, the economics heavily favor Stripe if you have any engineering and finance resources at all.</p>
-      <p>Beyond price, Stripe's developer experience is in a class of its own. The API documentation, client libraries (available in ten languages), webhook infrastructure, and Stripe Dashboard are the industry gold standard. Stripe Radar provides machine-learning-based fraud detection included in every account. Stripe Connect lets you build marketplace and platform products that split payments between multiple recipients — something Paddle simply does not offer.</p>
-      <p>Payment method coverage is another Stripe strength. Stripe supports SEPA Direct Debit (critical for European B2B), iDEAL (Netherlands), Bancontact (Belgium), SOFORT, Alipay, WeChat Pay, Link (Stripe's own accelerated checkout), and more than 30 other local payment methods. Paddle's payment method coverage is good but narrower, focused on card networks and PayPal.</p>
-      <p>Stripe Billing handles complex subscription scenarios that Stripe built over years of serving enterprise clients: usage-based metered billing, tiered pricing, seat quantity updates mid-cycle with accurate proration, multiple products on a single subscription, and configurable dunning sequences for failed payments. If your pricing model is anything more complex than a flat monthly fee, Stripe Billing gives you the tools to implement it cleanly.</p>
-
-      <h3>Where Paddle Earns Its Premium</h3>
-      <p>The word "premium" is deliberate — Paddle genuinely does cost more in raw transaction fees at every GMV level in our scenarios. The question is what you get for that premium. The answer is: complete indemnification from global indirect tax liability, simplified accounting, and reduced operational complexity.</p>
-      <p>Because all revenue flows through Paddle, your monthly accounting reconciliation is dramatically simpler. You have one revenue source (Paddle payouts), one set of invoices to reconcile, and zero tax filings to manage across multiple jurisdictions. For bootstrapped founders and small teams, this simplification has real economic value that the fee table above does not capture.</p>
-      <p>Paddle also handles refund tax processing automatically. When a customer in Germany requests a refund on a €99 subscription, Paddle calculates the correct VAT amount to reverse, updates their records, and ensures the refund tax treatment is compliant. With Stripe, you or your tax software must handle this correctly or risk errors in your VAT filings.</p>
-      <p>Paddle Retain, their churn recovery product, includes automated failed payment retry sequences, customer-facing payment update flows, and pause offers — features that can meaningfully improve net revenue retention for subscription businesses.</p>
-
-      <h3>The Crossover Threshold</h3>
-      <p>Based on the scenarios above, the practical decision framework is this: if your monthly GMV is below roughly $20,000 and your customer base is predominantly US and EU (with a technical co-founder who can handle tax tooling), Stripe's lower rate leaves more money in your business. Once you cross $20K GMV with meaningful international exposure and no dedicated finance staff, the total cost of ownership conversation becomes more nuanced — Paddle's "all-in" pricing is easier to forecast and budget for even if the headline number is higher.</p>
-      <p>Above $100K GMV with a proper team, Stripe's lower rates combined with a tax compliance tool like Stripe Tax or Avalara almost always produce a lower total cost. The math simply works out in Stripe's favor at scale, provided you invest in the compliance infrastructure.</p>
-
-      <div class="callout tip">
-        <div class="cl">Quick Rule</div>
-        <p>Solo dev or small team, selling SaaS globally, no appetite for tax administration → choose Paddle. Engineering team, complex billing logic, or US-only customers → choose Stripe.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Verdict Box -->
-  <section class="sec">
-    <h2>Verdict</h2>
-    <p class="sh-sub">Choosing the right processor for your situation.</p>
-    <div class="verdict-box">
-      <div>
-        <h3>Choose Stripe if you…</h3>
-        <ul>
-          <li>Have engineering bandwidth for payment integration</li>
-          <li>Need marketplace or Connect functionality</li>
-          <li>Want more local payment methods (iDEAL, SEPA, Alipay)</li>
-          <li>Have complex subscription or metered billing</li>
-          <li>Can handle or outsource tax compliance</li>
-          <li>Process above $80K/mo and can negotiate rates</li>
-          <li class="x">Selling to many international jurisdictions solo</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Choose Paddle if you…</h3>
-        <ul>
-          <li>Want zero tax compliance headaches worldwide</li>
-          <li>Are a solo founder or tiny team</li>
-          <li>Need automatic VAT invoice generation for B2B buyers</li>
-          <li>Want simpler accounting with one revenue source</li>
-          <li>Sell SaaS subscriptions to a global audience</li>
-          <li>Value speed-to-market over per-transaction cost</li>
-          <li class="x">Need Stripe Connect for marketplace splits</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <div class="ad-slot">Advertisement</div>
-
-  <!-- FAQ -->
-  <section class="sec">
-    <h2>Frequently Asked Questions</h2>
-    <p class="sh-sub">Common questions about Stripe vs Paddle.</p>
-    <div class="faq">
-      <div class="qa">
-        <div class="q">What is a Merchant of Record?<span class="plus">+</span></div>
-        <div class="a"><p>A Merchant of Record (MoR) is the legal entity responsible for a sale — they collect payment, issue invoices, and remit taxes to governments. When you use Paddle as your MoR, Paddle is the legal seller of your product. Customers see Paddle on their credit card statement and tax invoices. You receive net revenue from Paddle after fees and taxes. This means Paddle — not you — is liable for VAT in the EU, UK, GST in Australia, and sales tax across US states. It eliminates the need for you to register for tax in dozens of jurisdictions.</p></div>
-      </div>
-      <div class="qa">
-        <div class="q">Is Paddle cheaper than Stripe?<span class="plus">+</span></div>
-        <div class="a"><p>On base transaction fees alone, Stripe (2.9%+$0.30) is significantly cheaper than Paddle (5%+$0.50). However, Paddle's total cost of ownership is often lower for global SaaS businesses once you factor in the cost of tax compliance tools, accountants, or Stripe Tax fees. For a $50K/mo GMV SaaS with 30% EU customers, the cost gap narrows considerably — Paddle might cost $1,000 more in raw fees, but that buys you full tax compliance in 50+ jurisdictions.</p></div>
-      </div>
-      <div class="qa">
-        <div class="q">Does Paddle work for subscriptions?<span class="plus">+</span></div>
-        <div class="a"><p>Yes. Paddle has a robust subscription billing engine that supports free trials, pause/resume, mid-cycle upgrades and downgrades with proration, seat-based pricing, and dunning management for failed payments. It also generates proper tax-compliant VAT invoices automatically for each billing cycle, which is critical if you sell to EU businesses who need to reclaim VAT. The subscription API is well-documented and comparable to Stripe Billing for most standard use cases.</p></div>
-      </div>
-      <div class="qa">
-        <div class="q">Can I switch from Stripe to Paddle?<span class="plus">+</span></div>
-        <div class="a"><p>Yes, but it requires customers to re-authorize their payment method. Because Paddle is the Merchant of Record, they maintain their own customer payment vault — you cannot transfer Stripe payment tokens to Paddle. The typical migration approach is to let existing subscribers stay on Stripe while routing all new signups through Paddle, then sunset the Stripe side over time. For one-time purchases, migration is simpler since there are no stored payment methods to transfer.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <div class="cta-block">
-    <h3>Calculate Your Exact Payment Processing Cost</h3>
-    <p>Enter your GMV, average ticket size, and international mix to get a precise Stripe vs Paddle comparison for your numbers.</p>
-    <a href="/payment-processor-fees" class="cta-btn">Open Payment Fee Calculator →</a>
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap wrap--narrow">
+    <span class="eyebrow">Compare</span>
+    <h1>Stripe vs Paddle</h1>
+    <p class="lede">Stripe is cheaper on paper. Paddle is cheaper on paperwork. Here's the real 2026 cost once tax compliance is priced in.</p>
   </div>
+</header>
 
-  <!-- Related -->
-  <section class="sec">
-    <h2>Related Comparisons</h2>
-    <p class="sh-sub">Explore other payment processor comparisons.</p>
-    <div class="tool-links">
-      <a href="/compare/stripe-vs-lemonsqueezy" class="tool-link">
-        <div class="ic">💳</div>
-        <div><div class="tl-name">Stripe vs Lemon Squeezy</div><div class="tl-desc">Indie SaaS payment options compared</div></div>
-      </a>
-      <a href="/compare/paddle-vs-lemonsqueezy" class="tool-link">
-        <div class="ic">⚖️</div>
-        <div><div class="tl-name">Paddle vs Lemon Squeezy</div><div class="tl-desc">Two MoR processors, same rate — what differs?</div></div>
-      </a>
-      <a href="/payment-processor-fees" class="tool-link">
-        <div class="ic">🧮</div>
-        <div><div class="tl-name">Payment Fee Calculator</div><div class="tl-desc">Model your exact processing cost</div></div>
-      </a>
+<section class="wrap wrap--narrow">
+  <div class="card" style="cursor:default;">
+    <span class="badge">TL;DR</span>
+    <p style="margin:0;color:var(--text);">Pick <strong>Stripe</strong> if you sell mostly in one country and can handle your own tax filing. Pick <strong>Paddle</strong> if you sell SaaS globally and want to never think about VAT again.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>Fee structure at a glance</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Provider</th><th>Fee</th><th class="num">Role</th></tr></thead>
+        <tbody>
+          <tr><td>Stripe</td><td>2.9% + $0.30</td><td class="num">Payment processor — you're the merchant of record</td></tr>
+          <tr><td>Paddle</td><td>5% + $0.50</td><td class="num">Merchant of record — handles global tax</td></tr>
+        </tbody>
+      </table>
     </div>
-  </section>
-  <!-- Related Guides -->
-  <section class="sec">
-    <h2>Related Guides &amp; Calculators</h2>
-    <p class="sh-sub">Deep-dive articles and free calculators to model your exact costs.</p>
-    <div class="tool-links">
-      <a href="/blog/stripe-vs-paddle-fees-2026" class="tool-link">
-        <div class="ic">📊</div>
-        <div><div class="tl-name">Stripe vs Paddle: Full Cost Breakdown</div><div class="tl-desc">Detailed fee analysis for SaaS founders</div></div>
-      </a>
-      <a href="/blog/lemon-squeezy-vs-stripe-2026" class="tool-link">
-        <div class="ic">💳</div>
-        <div><div class="tl-name">Lemon Squeezy vs Stripe Cost Guide</div><div class="tl-desc">MoR vs PSP: which is cheaper for your MRR?</div></div>
-      </a>
-      <a href="/blog/ai-saas-infrastructure-cost-2026" class="tool-link">
-        <div class="ic">🏗️</div>
-        <div><div class="tl-name">AI SaaS Infrastructure Cost Guide</div><div class="tl-desc">Total stack cost for SaaS products</div></div>
-      </a>
+    <p style="margin-top:var(--sp-4);">Use the <a href="/payment-processor-fees.html">payment processor fees calculator</a> to model your own transaction volume against both rates.</p>
+
+    <h2 style="margin-top:var(--sp-8);">The real cost isn't the fee — it's tax</h2>
+    <p>Stripe's 2.9%+$0.30 looks like the obvious winner until you sell to customers outside your home country. As the merchant of record, you're on the hook for calculating, collecting, and remitting sales tax and VAT in every jurisdiction where you have "nexus" — which for a SaaS product can mean dozens of US states plus the EU, UK, and beyond.</p>
+    <p>At roughly $50,000 in annual revenue, Stripe's processing fees run about $1,480 — but tax compliance tooling or an accountant to handle multi-jurisdiction filing commonly adds several thousand dollars more. Paddle's all-in cost at the same revenue is closer to $2,530, with zero additional tax overhead because Paddle is legally the seller.</p>
+
+    <h2 style="margin-top:var(--sp-8);">When to pick each</h2>
+    <div class="stack">
+      <div class="card" style="cursor:default;">
+        <h3 class="card__title">Pick Stripe if…</h3>
+        <p class="card__desc">You sell primarily to one country, already have tax handled (or a simple product not subject to VAT digital-goods rules), or need the most customizable checkout and billing infrastructure.</p>
+      </div>
+      <div class="card" style="cursor:default;">
+        <h3 class="card__title">Pick Paddle if…</h3>
+        <p class="card__desc">You're a solo founder or small team selling SaaS globally and want to launch without hiring a tax accountant or integrating a VAT compliance tool.</p>
+      </div>
     </div>
-  </section>
 
-</div>
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>Is Stripe or Paddle cheaper?</summary>
+        <p>Stripe's headline rate is lower, but as merchant of record you carry tax compliance cost Stripe doesn't include. Once you add that, the gap narrows or reverses for global sellers.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does merchant of record mean?</summary>
+        <p>The MoR is legally the seller on every transaction. Paddle collects and remits sales tax/VAT in 200+ jurisdictions and carries chargeback/compliance liability; with Stripe, you carry it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When does Paddle's higher fee pay for itself?</summary>
+        <p>Once you sell into multiple tax jurisdictions and would otherwise need a compliance tool or accountant — commonly around $30k-$50k in annual revenue for small teams.</p>
+      </details>
+    </div>
 
-<footer><div class="wrap foot-in"><span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span><span>Prices are estimates · verify before you ship</span></div></footer>
-<script src="/compare/calc.js"></script>
-<script>
-window.onPricingData = function(data, fmt$) {
-  var lu = document.getElementById('luDate');
-  if (lu && data.lastUpdated) lu.textContent = data.lastUpdated;
-};
-</script>
-<script>
-document.querySelectorAll('.qa .q').forEach(function(q){
-  q.addEventListener('click',function(){
-    var qa=this.closest('.qa');
-    var a=qa.querySelector('.a');
-    var isOpen=qa.classList.contains('open');
-    document.querySelectorAll('.qa').forEach(function(el){el.classList.remove('open');el.querySelector('.a').style.maxHeight='0';});
-    if(!isOpen){qa.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
-  });
-});
-</script>
+    <h2 style="margin-top:var(--sp-8);">Related</h2>
+    <p><a href="/payment-processor-fees.html">Payment processor fees calculator</a> · <a href="/auth-provider-cost.html">Auth provider cost</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
 </body>
 </html>

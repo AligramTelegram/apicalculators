@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speech API Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Estimate STT and TTS API cost across Whisper, Deepgram, ElevenLabs, and OpenAI TTS. Enter minutes and characters for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/speech-api-cost.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Speech API Cost Calculator 2026">
+<meta property="og:description" content="Estimate STT and TTS API cost across Whisper, Deepgram, ElevenLabs, and OpenAI TTS.">
+<meta property="og:url" content="https://apicalculators.com/speech-api-cost.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Speech API Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/speech-api-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is speech API cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Speech-to-text cost is minutes of audio transcribed per month times the provider&#39;s per-minute rate. Text-to-speech cost is characters synthesized per month times the provider&#39;s per-character rate. The two are billed independently and summed for a total." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is ElevenLabs more expensive per character than OpenAI TTS?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ElevenLabs specializes in highly realistic, expressive voice cloning and emotional range, which commands a premium over OpenAI&#39;s more general-purpose TTS voices that are cheaper but less customizable." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do STT and TTS costs scale the same way?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. STT scales with audio duration (minutes), while TTS scales with output text length (characters), so a short voice reply and a long transcription job are priced on entirely different units." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">AI &amp; LLM</span>
+    <h1 style="max-width:20ch;">Speech API Cost Calculator</h1>
+    <p class="lede">Estimate combined speech-to-text and text-to-speech cost across Whisper, Deepgram, ElevenLabs, and OpenAI TTS. Adjust volume — the estimate updates live.</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="sttProvider">STT provider</label>
+        <select id="sttProvider">
+          <option value="0.006" data-name="OpenAI Whisper API">OpenAI Whisper API — $0.006/min</option>
+          <option value="0.0043" data-name="Deepgram Nova">Deepgram Nova — $0.0043/min</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sttMinutes">STT minutes / month</label>
+        <input type="number" id="sttMinutes" value="1000" min="0">
+      </div>
+      <div class="field">
+        <label for="ttsProvider">TTS provider</label>
+        <select id="ttsProvider">
+          <option value="0.00018" data-name="ElevenLabs">ElevenLabs — $0.00018/char</option>
+          <option value="0.000015" data-name="OpenAI TTS">OpenAI TTS — $0.000015/char ($0.015/1K chars)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ttsChars">TTS characters / month</label>
+        <input type="number" id="ttsChars" value="500000" min="0">
+      </div>
+    </div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerNames">OpenAI Whisper API + ElevenLabs</span>
+      <div class="result__break"><span>STT cost</span><span id="sttCost" class="mono">$0.00</span></div>
+      <div class="result__break"><span>TTS cost</span><span id="ttsCost" class="mono">$0.00</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Speech-to-text cost is your monthly transcription minutes multiplied by the selected provider's per-minute rate. Text-to-speech cost is your monthly synthesized character count multiplied by the selected provider's per-character rate. The two totals are billed on separate APIs and simply summed.</p>
+    <p>It doesn't account for real-time streaming surcharges, speaker diarization add-ons, custom voice cloning setup fees, or volume discounts above high usage tiers. Treat this as a directional estimate for budgeting, not an exact invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is speech API cost calculated?</summary>
+        <p>Speech-to-text cost is minutes of audio transcribed per month times the provider's per-minute rate. Text-to-speech cost is characters synthesized per month times the provider's per-character rate. The two are billed independently and summed for a total.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why is ElevenLabs more expensive per character than OpenAI TTS?</summary>
+        <p>ElevenLabs specializes in highly realistic, expressive voice cloning and emotional range, which commands a premium over OpenAI's more general-purpose TTS voices that are cheaper but less customizable.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do STT and TTS costs scale the same way?</summary>
+        <p>No. STT scales with audio duration (minutes), while TTS scales with output text length (characters), so a short voice reply and a long transcription job are priced on entirely different units.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/image-generation-cost.html">Image generation cost</a> · <a href="/llm-api-cost.html">LLM API cost</a> · <a href="/ai-agent-cost.html">AI agent cost</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+(function () {
+  var sttProviderEl = document.getElementById("sttProvider");
+  var sttMinutesEl = document.getElementById("sttMinutes");
+  var ttsProviderEl = document.getElementById("ttsProvider");
+  var ttsCharsEl = document.getElementById("ttsChars");
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var sttRate = parseFloat(sttProviderEl.value);
+    var sttMinutes = parseFloat(sttMinutesEl.value) || 0;
+    var ttsRate = parseFloat(ttsProviderEl.value);
+    var ttsChars = parseFloat(ttsCharsEl.value) || 0;
+
+    var sttCost = sttMinutes * sttRate;
+    var ttsCost = ttsChars * ttsRate;
+    var total = sttCost + ttsCost;
+
+    document.getElementById("totalCost").textContent = fmt(total);
+    document.getElementById("sttCost").textContent = fmt(sttCost);
+    document.getElementById("ttsCost").textContent = fmt(ttsCost);
+    document.getElementById("providerNames").textContent =
+      sttProviderEl.selectedOptions[0].getAttribute("data-name") + " + " +
+      ttsProviderEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [sttProviderEl, sttMinutesEl, ttsProviderEl, ttsCharsEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

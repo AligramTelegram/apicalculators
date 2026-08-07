@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud VPS Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Compare cloud VPS cost across Hetzner, DigitalOcean, Vultr, and AWS Lightsail. Enter vCPUs, RAM, and storage for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/cloud-vps-cost.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cloud VPS Cost Calculator 2026">
+<meta property="og:description" content="Compare cloud VPS cost across Hetzner, DigitalOcean, Vultr, and AWS Lightsail.">
+<meta property="og:url" content="https://apicalculators.com/cloud-vps-cost.html">
+<meta property="og:image" content="https://apicalculators.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cloud VPS Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/cloud-vps-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is cloud VPS cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Monthly cost is the sum of vCPU count times the provider&#39;s per-vCPU rate, RAM in GB times the per-GB RAM rate, and storage in GB times the per-GB storage rate. Each provider prices these components differently." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Hetzner usually the cheapest option?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hetzner operates its own European data centers with lower overhead than hyperscalers, and it doesn&#39;t charge the brand premium that AWS and other US-based clouds apply to compute and bandwidth." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does this estimate include bandwidth or backup costs?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. This calculator covers only vCPU, RAM, and storage pricing. Bandwidth overages, snapshot backups, load balancers, and managed database add-ons are billed separately by every provider." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
+  </div>
+</nav>
+
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">Infrastructure</span>
+    <h1 style="max-width:20ch;">Cloud VPS Cost Calculator</h1>
+    <p class="lede">Compare monthly VPS pricing across Hetzner, DigitalOcean, Vultr, and AWS Lightsail. Adjust vCPUs, RAM, and storage — the estimate and comparison table update live.</p>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="vcpus">vCPUs</label>
+        <input type="number" id="vcpus" value="4" min="0">
+      </div>
+      <div class="field">
+        <label for="ram">RAM (GB)</label>
+        <input type="number" id="ram" value="8" min="0">
+      </div>
+      <div class="field">
+        <label for="storage">Storage (GB)</label>
+        <input type="number" id="storage" value="100" min="0">
+      </div>
+      <div class="field">
+        <label for="provider">Provider</label>
+        <select id="provider">
+          <option value="1.5|0.6|0.02" data-name="Hetzner CX">Hetzner CX</option>
+          <option value="5|2.5|0.1" data-name="DigitalOcean Droplet">DigitalOcean Droplet</option>
+          <option value="4.5|2|0.08" data-name="Vultr Cloud Compute">Vultr Cloud Compute</option>
+          <option value="7|3.5|0.12" data-name="AWS Lightsail">AWS Lightsail</option>
+        </select>
+      </div>
+    </div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerName">Hetzner CX</span>
+    </div>
+  </div>
+
+  <div class="table-wrap" style="margin-top:var(--sp-8);">
+    <table id="compareTable">
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th class="num">vCPU rate</th>
+          <th class="num">RAM rate</th>
+          <th class="num">Storage rate</th>
+          <th class="num">Monthly cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-rates="1.5|0.6|0.02">
+          <td>Hetzner CX</td>
+          <td class="num mono">$1.50/vCPU</td>
+          <td class="num mono">$0.60/GB</td>
+          <td class="num mono">$0.02/GB</td>
+          <td class="num mono" data-cell="cost">$0.00</td>
+        </tr>
+        <tr data-rates="5|2.5|0.1">
+          <td>DigitalOcean Droplet</td>
+          <td class="num mono">$5.00/vCPU</td>
+          <td class="num mono">$2.50/GB</td>
+          <td class="num mono">$0.10/GB</td>
+          <td class="num mono" data-cell="cost">$0.00</td>
+        </tr>
+        <tr data-rates="4.5|2|0.08">
+          <td>Vultr Cloud Compute</td>
+          <td class="num mono">$4.50/vCPU</td>
+          <td class="num mono">$2.00/GB</td>
+          <td class="num mono">$0.08/GB</td>
+          <td class="num mono" data-cell="cost">$0.00</td>
+        </tr>
+        <tr data-rates="7|3.5|0.12">
+          <td>AWS Lightsail</td>
+          <td class="num mono">$7.00/vCPU</td>
+          <td class="num mono">$3.50/GB</td>
+          <td class="num mono">$0.12/GB</td>
+          <td class="num mono" data-cell="cost">$0.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Monthly cost is the sum of three components: vCPU count times the provider's per-vCPU rate, RAM in gigabytes times the per-GB RAM rate, and storage in gigabytes times the per-GB storage rate. The comparison table recomputes all four providers live as you change any input, so you can see relative pricing at a glance.</p>
+    <p>It doesn't account for bandwidth overages, backup snapshots, load balancers, or reserved-instance discounts, all of which vary by provider and usage pattern. Treat this as a directional comparison for sizing decisions, not a final invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is cloud VPS cost calculated?</summary>
+        <p>Monthly cost is the sum of vCPU count times the provider's per-vCPU rate, RAM in GB times the per-GB RAM rate, and storage in GB times the per-GB storage rate. Each provider prices these components differently.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why is Hetzner usually the cheapest option?</summary>
+        <p>Hetzner operates its own European data centers with lower overhead than hyperscalers, and it doesn't charge the brand premium that AWS and other US-based clouds apply to compute and bandwidth.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does this estimate include bandwidth or backup costs?</summary>
+        <p>No. This calculator covers only vCPU, RAM, and storage pricing. Bandwidth overages, snapshot backups, load balancers, and managed database add-ons are billed separately by every provider.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/serverless-function-cost.html">Serverless function cost</a> · <a href="/api-gateway-cost.html">API gateway cost</a> · <a href="/llm-api-cost.html">LLM API cost</a> · <a href="/compare/hetzner-vs-digitalocean.html">Compare: Hetzner vs DigitalOcean</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+(function () {
+  var vcpusEl = document.getElementById("vcpus");
+  var ramEl = document.getElementById("ram");
+  var storageEl = document.getElementById("storage");
+  var providerEl = document.getElementById("provider");
+  var tableRows = document.querySelectorAll("#compareTable tbody tr");
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function costFor(rates, vcpus, ram, storage) {
+    var parts = rates.split("|");
+    var cpuRate = parseFloat(parts[0]);
+    var ramRate = parseFloat(parts[1]);
+    var storageRate = parseFloat(parts[2]);
+    return vcpus * cpuRate + ram * ramRate + storage * storageRate;
+  }
+
+  function calc() {
+    var vcpus = parseFloat(vcpusEl.value) || 0;
+    var ram = parseFloat(ramEl.value) || 0;
+    var storage = parseFloat(storageEl.value) || 0;
+
+    var total = costFor(providerEl.value, vcpus, ram, storage);
+    document.getElementById("totalCost").textContent = fmt(total);
+    document.getElementById("providerName").textContent = providerEl.selectedOptions[0].getAttribute("data-name");
+
+    tableRows.forEach(function (row) {
+      var rates = row.getAttribute("data-rates");
+      var cost = costFor(rates, vcpus, ram, storage);
+      row.querySelector('[data-cell="cost"]').textContent = fmt(cost);
+    });
+  }
+
+  [vcpusEl, ramEl, storageEl, providerEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>

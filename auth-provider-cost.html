@@ -1,303 +1,175 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<title>Auth Provider Cost Calculator 2026 — Clerk vs Auth0 vs Supabase Auth</title>
-<meta name="description" content="Calculate your true auth costs by MAU. Clerk vs Auth0 vs Supabase Auth vs Firebase. At 100K users the difference is $1,800 vs $25/month. Free, no signup.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auth Provider Cost Calculator 2026 | APICalculators</title>
+<meta name="description" content="Compare auth provider cost across Clerk, Auth0, Supabase Auth, and Firebase Auth. Enter monthly active users for a live monthly estimate.">
+<link rel="canonical" href="https://apicalculators.com/auth-provider-cost.html">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://apicalculators.com/auth-provider-cost">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="en_US"/>
-<meta property="og:title" content="Auth Provider Cost Calculator 2026 — Clerk vs Auth0 vs Supabase Auth">
-<meta property="og:description" content="At 100K users: Clerk $1,825/mo vs Supabase $25/mo. Calculate yours free.">
-<meta property="og:url" content="https://apicalculators.com/auth-provider-cost">
+<meta property="og:title" content="Auth Provider Cost Calculator 2026">
+<meta property="og:description" content="Compare auth provider cost across Clerk, Auth0, Supabase Auth, and Firebase Auth.">
+<meta property="og:url" content="https://apicalculators.com/auth-provider-cost.html">
 <meta property="og:image" content="https://apicalculators.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@apicalculators">
-<meta name="twitter:creator" content="@apicalculators">
-<meta name="twitter:title" content="Auth Provider Cost Calculator 2026 — Clerk vs Auth0 vs Supabase">
-<meta name="twitter:description" content="At 100K MAU: Clerk $1,825/mo vs Supabase $25/mo. Find your number.">
-<meta name="twitter:image" content="https://apicalculators.com/twitter-image.png">
-<script type="application/ld+json">{
-  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Is Clerk free?","acceptedAnswer":{"@type":"Answer","text":"Clerk is free up to 10,000 MAU. After that, it costs $0.02 per MAU. At 100,000 users that is $1,825/month - significantly more than Supabase Auth ($25/month)."}},
-    {"@type":"Question","name":"What is the cheapest auth provider in 2026?","acceptedAnswer":{"@type":"Answer","text":"Supabase Auth is the cheapest at scale: 50,000 free MAUs then $0.00325/MAU. At 100K users it costs ~$25/month."}},
-    {"@type":"Question","name":"Clerk vs Auth0 - which is better?","acceptedAnswer":{"@type":"Answer","text":"Clerk wins for developer experience and Next.js/React apps. Auth0 wins for enterprise compliance, SAML SSO, and complex B2B requirements."}},
-    {"@type":"Question","name":"Does this auth cost calculator include SSO pricing?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select Enterprise feature tier to include SSO/SAML pricing. Auth0 and WorkOS are optimized for enterprise SSO; Clerk charges extra for SSO connections."}}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Auth Provider Cost Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "url": "https://apicalculators.com/auth-provider-cost.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is auth provider cost calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Billable MAU is your monthly active users minus the provider&#39;s free tier, floored at zero. Monthly cost is that billable MAU multiplied by the provider&#39;s per-MAU rate. If your MAU is under the free tier, cost is $0." }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Supabase Auth&#39;s free tier support so many more users than Auth0&#39;s?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Supabase bundles auth with its broader database and backend platform and prices it to attract users into the ecosystem, while Auth0 is a standalone enterprise identity product with deeper compliance and customization features baked into its cost." }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a monthly active user for billing purposes?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most providers count a MAU as any user who authenticates or has an active session at least once within a rolling 30-day window, regardless of how many times they log in during that period." }
+    }
   ]
-}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Auth Provider Cost Calculator 2026","applicationCategory":"DeveloperApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"url":"https://apicalculators.com/auth-provider-cost"}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"APICalculators","item":"https://apicalculators.com"},{"@type":"ListItem","position":2,"name":"Auth Provider Cost Calculator 2026"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Compare Auth Provider Costs","description":"Compare authentication provider pricing by entering your monthly active user count.","step":[{"@type":"HowToStep","position":1,"name":"Enter Monthly Active Users","text":"Input your current or projected monthly active user (MAU) count."},{"@type":"HowToStep","position":2,"name":"Select Required Features","text":"Choose features you need — social login, MFA, SSO, enterprise connections."},{"@type":"HowToStep","position":3,"name":"Compare Auth Providers","text":"View monthly cost for Clerk, Auth0, Supabase Auth, Better Auth, and WorkOS at your scale."}]}</script>
-<style>:root{--bg:#0a0c10;--bg2:#0c0f15;--surface:#12161d;--surface2:#161b24;--border:#1d2530;--border2:#27313e;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e;--cyan:#4dd6ff;--amber:#ffb24d;--shadow:0 24px 60px -20px rgba(0,0,0,.7)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(800px 400px at 75% -5%,rgba(184,255,46,.07),transparent 60%)}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
-header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(10,12,16,.72);border-bottom:1px solid var(--border)}
-.nav-in{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:18px;color:var(--text)}.logo b{color:var(--lime)}
-.nav-r{display:flex;gap:22px}.nav-r a{color:var(--muted);font-size:14px;font-weight:500;transition:color .18s}.nav-r a:hover{color:var(--text)}
-.hero{padding:58px 0 30px;text-align:center}
-.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;color:var(--muted);border:1px solid var(--border2);background:var(--surface);padding:6px 14px;border-radius:100px;margin-bottom:18px}
-.chip .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px var(--lime);animation:pulse 2s infinite}
-@keyframes pulse{50%{opacity:.4}}
-h1.ph{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(26px,5vw,48px);letter-spacing:-.03em;line-height:1.05;margin-bottom:14px}
-h1.ph .em{color:var(--lime)}
-p.intro{color:var(--muted);font-size:17px;max-width:580px;margin:0 auto 26px}
-.calc-shell{background:linear-gradient(180deg,var(--surface),var(--bg2));border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:48px}
-.calc-header{padding:22px 28px 16px;border-bottom:1px solid var(--border)}
-.calc-header h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:19px;margin-bottom:3px}
-.calc-header p{color:var(--muted);font-size:14px}
-.calc-body{padding:24px 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
-@media(max-width:720px){.calc-body{grid-template-columns:1fr;padding:18px}}
-.field{margin-bottom:15px}.field label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
-.inp,.sel{width:100%;background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:11px 14px;color:var(--text);font-size:15px;font-family:'Cascadia Code','Consolas',monospace;transition:border-color .18s}
-.inp:focus,.sel:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(184,255,46,.12)}
-.sel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%238b97a4' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.result-grid{display:flex;flex-direction:column;gap:10px}
-.tool-result{background:var(--surface2);border:1px solid var(--border2);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
-.tool-result.best{border-color:rgba(184,255,46,.4);background:rgba(184,255,46,.05)}
-.tool-result .tname{font-weight:700;font-size:14px}
-.tool-result .tprice{font-family:'Cascadia Code','Consolas',monospace;font-size:18px;font-weight:700;color:var(--lime)}
-.tool-result .tnote{font-size:11px;color:var(--muted);margin-top:2px}
-section.sec{padding:0 0 48px}
-section.sec h2{font-family:'Arial Black',system-ui,sans-serif;font-weight:900;font-size:clamp(20px,3vw,30px);letter-spacing:-.02em;margin-bottom:6px}
-.sh-sub{color:var(--muted);margin-bottom:20px;font-size:15px}
-.ptable{width:100%;border-collapse:collapse;font-size:14px;overflow-x:auto;display:block}
-.ptable th{text-align:left;font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:10px 14px;border-bottom:2px solid var(--border);white-space:nowrap}
-.ptable td{padding:11px 14px;border-bottom:1px solid var(--border);color:#cdd6dd}
-.ptable tr:hover td{background:rgba(255,255,255,.02)}
-.ptable .best td{background:rgba(184,255,46,.04)}.ptable .best td:first-child{border-left:2px solid var(--lime)}
-.badge{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;background:var(--lime);color:#06210a;padding:2px 6px;border-radius:4px;margin-left:6px;font-weight:700}
-.mono{font-family:'Cascadia Code','Consolas',monospace}
-.callout{border-radius:12px;padding:16px 20px;margin:20px 0;border-left:3px solid}.callout p{margin:0;color:#cdd6dd;font-size:14px}
-.callout .cl{font-family:'Cascadia Code','Consolas',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;font-weight:700}
-.callout.tip{background:rgba(184,255,46,.07);border-color:var(--lime)}.callout.tip .cl{color:var(--lime)}
-.callout.warn{background:rgba(255,178,77,.07);border-color:var(--amber)}.callout.warn .cl{color:var(--amber)}
-.faq{display:flex;flex-direction:column;gap:10px;margin:18px 0 40px}
-.qa{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.qa .q{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;cursor:pointer;font-weight:600;font-size:14.5px}
-.qa .q .plus{color:var(--lime);font-size:20px;transition:transform .25s;flex-shrink:0}
-.qa.open .q .plus{transform:rotate(45deg)}
-.qa .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--muted);font-size:14px}
-.qa .a p{padding:0 20px 16px}
-.tool-links{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin:16px 0 40px}
-.tool-link{display:flex;align-items:center;gap:13px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:15px 17px;transition:border-color .2s,transform .2s;color:var(--text)}
-.tool-link:hover{border-color:var(--border2);transform:translateY(-2px)}
-.tool-link .ic{font-size:22px}.tool-link .tl-name{font-weight:700;font-size:14px;margin-bottom:2px}.tool-link .tl-desc{color:var(--muted);font-size:12px}
-.aff-box{margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.25);border-radius:8px}
-.aff-box p{margin:0 0 .6rem;font-size:.85rem;color:var(--lime);font-weight:600}
-.aff-box .btns{display:flex;flex-wrap:wrap;gap:.5rem}
-.aff-btn{display:inline-block;padding:.35rem .75rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:#e8eaed;text-decoration:none;font-size:.82rem;transition:background .15s}
-.aff-btn:hover{background:rgba(184,255,46,.15);border-color:rgba(184,255,46,.5);color:var(--lime)}
-.steps{list-style:none;display:flex;flex-direction:column;gap:14px;margin:18px 0}
-.step{display:flex;gap:14px;align-items:flex-start}
-.step-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--lime);color:#06210a;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:3px}
-.step-body{font-size:14.5px;color:#cdd6dd;line-height:1.65}
-.step-body strong{color:var(--text);display:block;margin-bottom:3px}
-.mbox{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 24px;margin:18px 0}
-.mbox p{color:#cdd6dd;font-size:14.5px;line-height:1.7;margin-bottom:12px}
-.mbox p:last-child{margin-bottom:0}
-footer{border-top:1px solid var(--border);padding:26px 0;font-family:'Cascadia Code','Consolas',monospace;font-size:12px;color:var(--muted)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.kt{background:rgba(184,255,46,.06);border:1px solid rgba(184,255,46,.18);border-left:3px solid var(--lime);border-radius:0 12px 12px 0;padding:18px 22px;margin-bottom:28px}
-.kt-hd{font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:10px}
-.kt ul{padding-left:18px;display:flex;flex-direction:column;gap:7px;margin:0}
-.kt li{font-size:14px;color:#cdd6dd;line-height:1.55}
-.kt strong{color:var(--lime)}
-footer a{color:var(--muted)}
-</style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/auth-provider-cost"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/auth-provider-cost"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/auth-provider-cost"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/auth-provider-cost"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/auth-provider-cost"/>
+}
+</script>
 </head>
 <body>
-<header class="nav"><div class="wrap nav-in">
-  <a href="/" class="logo">API<b>Calculators</b></a>
-  <nav class="nav-r"><a href="/">Calculators</a><a href="/blog/">Blog</a><a href="/about">About</a></nav>
-</div></header>
-<section class="hero wrap">
-  <span class="chip"><span class="dot"></span> June 2026 · Updated Pricing</span>
-  <h1 class="ph"><span class="em">Auth Provider</span> Cost Calculator</h1>
-  <p class="intro">At 100K monthly active users, Clerk costs $1,825/month and Supabase Auth costs $25/month. Same authentication. 73x price difference. Find your number before you scale.</p>
-</section>
-<div class="wrap">
-<div class="kt">
-<div class="kt-hd">Key Takeaways</div>
-<ul>
-<li><strong>Supabase Auth is free</strong> up to 50,000 MAU when bundled with your Supabase database plan</li>
-<li><strong>Clerk</strong> costs <strong>$25/month for 10,000 MAU</strong> and includes social login, MFA, and a polished pre-built UI</li>
-<li><strong>Auth0 Essentials</strong> is ≈ $23/month for 10,000 MAU — similar price to Clerk but older developer experience</li>
-<li><strong>Better Auth</strong> is open source and self-hosted — pay only infrastructure cost, no per-MAU fees</li>
-</ul>
-</div>
-<div class="calc-shell" id="calc">
-  <div class="calc-header"><h2>🔑 Authentication Cost Calculator</h2><p>Enter your MAU · Select feature tier · Compare all providers instantly</p></div>
-  <div class="calc-body">
-    <div>
-      <div class="field"><label for="mau">Monthly Active Users (MAU)</label>
-        <input class="inp" id="mau" type="number" value="10000" min="0" step="1000"></div>
-      <div class="field"><label for="tier">Feature requirements</label>
-        <select class="sel" id="tier">
-          <option value="basic">Basic (email + social login)</option>
-          <option value="mid" selected>Standard (MFA + organizations)</option>
-          <option value="enterprise">Enterprise (SSO + SAML + compliance)</option>
-        </select></div>
-    </div>
-    <div>
-      <div style="font-family:'Cascadia Code','Consolas',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Monthly cost — sorted cheapest first</div>
-      <div class="result-grid" id="results"></div>
-    </div>
+
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
   </div>
-</div>
+</nav>
 
-<noscript>
-<div style="margin:20px 0;padding:20px;background:#12161d;border:1px solid #1d2530;border-radius:14px">
-<h3 style="font-family:'Arial Black',system-ui,sans-serif;font-size:16px;margin-bottom:12px;color:#e8edf1">Auth Provider Prices at 100K MAU — June 2026 (JavaScript disabled)</h3>
-<table class="ptable">
-<thead><tr><th>Provider</th><th>Free MAU</th><th>Rate after free</th><th>100K MAU cost</th></tr></thead>
-<tbody>
-<tr><td>Supabase Auth</td><td>50,000</td><td>$0.00325/MAU</td><td>~$25/mo</td></tr>
-<tr><td>WorkOS</td><td>1,000,000</td><td>$0.001/MAU</td><td>$0/mo</td></tr>
-<tr><td>Firebase Auth</td><td>50,000</td><td>$0.0055/MAU</td><td>~$275/mo</td></tr>
-<tr><td>Clerk</td><td>10,000</td><td>$0.02/MAU</td><td>~$1,825/mo</td></tr>
-<tr><td>Auth0 (Okta)</td><td>7,500</td><td>$0.07/MAU</td><td>$5,000+/mo</td></tr>
-</tbody>
-</table>
-<p style="margin-top:12px;font-size:13px;color:#8b97a4">Enable JavaScript for the interactive calculator with live cost comparisons.</p>
-</div>
-</noscript>
-
-<section class="sec">
-  <h2>The $1,800 vs $25 Problem</h2>
-  <p class="sh-sub">Same authentication. Wildly different pricing at scale.</p>
-  <p style="color:var(--muted);font-size:15px;margin-bottom:16px">Clerk and Supabase Auth both let users sign in with email, Google, and GitHub. Both handle sessions, JWTs, and user management. At 1,000 users they cost the same: $0. At 100,000 users, Clerk charges $1,825/month ($0.02/MAU after 10K free). Supabase charges $25/month ($0.00325/MAU after 50K free).</p>
-  <table class="ptable">
-    <thead><tr><th>Provider</th><th>Free MAU</th><th>Rate after free</th><th>10K MAU</th><th>50K MAU</th><th>100K MAU</th></tr></thead>
-    <tbody>
-      <tr class="best"><td><strong>Supabase Auth</strong><span class="badge">CHEAPEST</span></td><td class="mono">50,000</td><td class="mono">$0.00325</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$25</td></tr>
-      <tr><td><strong>WorkOS</strong></td><td class="mono">1,000,000</td><td class="mono">$0.001</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$0</td></tr>
-      <tr><td><strong>Firebase Auth</strong></td><td class="mono">50,000</td><td class="mono">$0.0055</td><td class="mono">$0</td><td class="mono">$0</td><td class="mono">$275</td></tr>
-      <tr><td><strong>Clerk</strong></td><td class="mono">10,000</td><td class="mono">$0.02</td><td class="mono">$0</td><td class="mono">$800</td><td class="mono">$1,825</td></tr>
-      <tr><td><strong>Auth0 (Okta)</strong></td><td class="mono">7,500</td><td class="mono">$0.07</td><td class="mono">$175</td><td class="mono">$2,975</td><td class="mono">$5,000+</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<section class="sec">
-  <h2>When to Choose Each Provider</h2>
-  <p class="sh-sub">The cheapest option is not always the right option.</p>
-  <div class="callout tip"><div class="cl">Supabase Auth</div><p>Best if you are already using Supabase for your database. Auth is essentially included. No pre-built UI — you build login forms yourself with their SDK.</p></div>
-  <div class="callout tip"><div class="cl">Clerk</div><p>Best developer experience. Pre-built React/Next.js components, organizations, multi-session. Worth the cost below 10K MAU (free). Gets expensive fast after that.</p></div>
-  <div class="callout tip"><div class="cl">WorkOS</div><p>Best for enterprise B2B. 1M MAU free, then $0.001/MAU. Built for SSO-first products. Overkill for B2C apps.</p></div>
-  <div class="callout warn"><div class="cl">Auth0 warning</div><p>Auth0's per-MAU pricing becomes extremely expensive at scale. The 7,500 free MAU limit is the lowest of all providers compared here.</p></div>
-</section>
-
-
-<section class="sec">
-  <h2>How to Use This Calculator</h2>
-  <p class="sh-sub">Find your auth provider cost at current and projected user scale.</p>
-  <ol class="steps">
-    <li class="step"><div class="step-num">1</div><div class="step-body"><strong>Enter your Monthly Active Users (MAU)</strong>MAU is the number of unique users who authenticate at least once per month. This is different from total registered users (many users may be inactive). Check your current auth provider's dashboard or analytics tool for your actual MAU count. If you're pre-launch, estimate your target MAU for 6–12 months from now — auth costs scale nonlinearly and choosing the wrong provider early is expensive to migrate away from.</div></li>
-    <li class="step"><div class="step-num">2</div><div class="step-body"><strong>Select your feature requirements</strong>Basic: email + password + social login (Google, GitHub, Apple). Suitable for most consumer apps and developer tools. Standard: adds MFA/2FA, user management dashboard, organization support, custom domain. Enterprise: adds SAML/SSO, SCIM provisioning, SOC2 compliance, audit logs. Enterprise features change the pricing dramatically — Auth0 and Clerk are much more expensive at the enterprise tier, while WorkOS is specifically designed and priced for enterprise SSO from the ground up.</div></li>
-    <li class="step"><div class="step-num">3</div><div class="step-body"><strong>Read the sorted comparison</strong>The result shows all providers sorted cheapest-first for your configuration. Pay careful attention to which provider's free tier you fit within — if you're under 50K MAU, both Supabase Auth and Firebase Auth are completely free. At 100K MAU, the difference between providers is $25/month (Supabase) to $5,000+/month (Auth0 Enterprise). These differences are real and compound monthly.</div></li>
-    <li class="step"><div class="step-num">4</div><div class="step-body"><strong>Plan for growth</strong>Consider where you'll be at 3× and 10× current MAU. Choosing Clerk because it's developer-friendly at 2,000 MAU is a mistake if you'll hit 100K MAU in 12 months — that's $1,825/month vs $25/month on Supabase. The migration cost from one auth provider to another is significant (session invalidation, user re-verification, integration rebuild). Choose your provider with your 2-year MAU target in mind, not just today's scale.</div></li>
-  </ol>
-  <div class="callout info"><div class="cl">📌 Real example</div><p>A B2C SaaS growing from 5K → 50K → 200K MAU over 18 months. On Clerk: Month 1 ($0, within 10K free) → Month 6 ($800/month at 50K) → Month 18 ($3,825/month at 200K). On Supabase Auth: Month 1 ($0) → Month 6 ($0, within 50K free) → Month 18 ($487/month). Total 18-month auth cost: Clerk ≈ <strong>$22,000</strong> vs Supabase ≈ <strong>$1,500</strong>.</p></div>
-</section>
-
-<section class="sec">
-  <h2>Pricing Methodology</h2>
-  <p class="sh-sub">How we calculate auth provider costs.</p>
-  <div class="mbox">
-    <p><strong>Sources:</strong> All pricing sourced from official provider pricing pages — Clerk's pricing page, Supabase's auth pricing documentation, Auth0/Okta's pricing page, WorkOS pricing, Firebase's Blaze plan pricing. All are current as of June 2026.</p>
-    <p><strong>MAU definition:</strong> Monthly Active Users (MAU) is a unique user who authenticates at least once in a calendar month. Providers define this slightly differently — Clerk counts by authentication events, Supabase by unique auth.users rows with a session in the billing period. The practical difference is minimal for most apps.</p>
-    <p><strong>Enterprise tier complexity:</strong> Enterprise auth pricing (SSO/SAML) is frequently custom-quoted. The rates shown for Auth0/Okta at enterprise scale are based on published Enterprise plan rates; actual enterprise contracts may differ. WorkOS enterprise pricing is primarily per SSO connection ($125/connection/month) rather than per-MAU.</p>
-    <p><strong>What is excluded:</strong> Email provider costs (Clerk uses their own email sending; Supabase requires an external SMTP provider like Resend or Postmark at $0–20/month), SMS/MFA costs (typically $0.05–0.10 per SMS verification), and custom domain SSL certificate management costs. For most apps these are minor but worth adding for complete budgeting.</p>
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap">
+    <span class="eyebrow">Infrastructure</span>
+    <h1 style="max-width:20ch;">Auth Provider Cost Calculator</h1>
+    <p class="lede">Compare monthly cost across Clerk, Auth0, Supabase Auth, and Firebase Auth as your user base grows. Adjust monthly active users — the estimate updates live.</p>
   </div>
-</section>
+</header>
 
-<section class="sec">
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq">
-  <div class="qa"><div class="q">What is the cheapest auth provider in 2026?<span class="plus">+</span></div><div class="a"><p>Supabase Auth is the cheapest at scale: 50,000 free MAUs, then $0.00325/MAU. At 100K MAU it costs ~$25/month. If you already use Supabase for your database, auth is essentially free. WorkOS has the largest free tier at 1M MAU (the best choice for B2C apps that scale quickly) but lacks Clerk's polished developer experience. For developer tools and B2C consumer apps, WorkOS or Supabase Auth are almost always the right cost choice.</p></div></div>
-  <div class="qa"><div class="q">Clerk vs Auth0 — which is better?<span class="plus">+</span></div><div class="a"><p>Clerk wins for developer experience: pre-built React/Next.js components, excellent documentation, organizations support, multi-session, and beautiful sign-in/up flows with minimal code. Auth0 wins for enterprise requirements: SAML SSO, SCIM provisioning, extensive compliance certifications (SOC2, ISO 27001, HIPAA BAA), and complex multi-tenant B2B scenarios. For most indie developers and startups, Clerk (at under 10K MAU) or Supabase Auth (at any MAU) is the better choice. Auth0's per-MAU pricing at scale is prohibitively expensive for B2C products.</p></div></div>
-  <div class="qa"><div class="q">Does this calculator include SSO pricing?<span class="plus">+</span></div><div class="a"><p>Yes — select the "Enterprise (SSO + SAML + compliance)" tier in the calculator to see pricing that includes SSO. Auth0 and WorkOS are purpose-built for enterprise SSO; Clerk charges extra per SSO connection; Supabase Auth supports SSO but requires more implementation work. WorkOS is the specialized choice for products that are exclusively enterprise-focused (connecting to customers' Okta/Azure AD/Google Workspace).</p></div></div>
-  <div class="qa"><div class="q">When should I migrate from Clerk to Supabase Auth?<span class="plus">+</span></div><div class="a"><p>The financial trigger: when Clerk's monthly bill exceeds $200/month (roughly 20,000 MAU above the free 10K tier). At that point, Supabase Auth would cost ~$33/month — a 6× cost reduction. The migration cost is real: you'll need to export all user data, handle session invalidation, rebuild any Clerk-specific UI components, and test the entire auth flow. Budget 2–4 weeks for a thorough migration. For most teams, it's worth doing when you can clearly see the bill doubling every 6 months.</p></div></div>
-  <div class="qa"><div class="q">What is WorkOS and why does it have 1M free MAU?<span class="plus">+</span></div><div class="a"><p>WorkOS is an auth platform focused on enterprise features — SSO, SCIM, admin portal, directory sync. Their 1M free MAU tier is a strategic choice: they make money on SSO connections ($125/connection/month), not consumer users. B2C apps with millions of regular users can use WorkOS completely free (standard auth features). Enterprise apps selling to companies pay per SSO connection, which is where WorkOS revenue comes from. This makes WorkOS a legitimate choice for any B2C app focused on consumer users who won't need SSO.</p></div></div>
-  <div class="qa"><div class="q">What is an MAU and how is it different from total users?<span class="plus">+</span></div><div class="a"><p>Monthly Active Users (MAU) counts unique users who authenticate at least once in a calendar month. Total registered users is everyone who ever signed up. For most SaaS products, MAU is 20–40% of total registered users (many users sign up once and never return). For high-engagement products (daily-use tools, consumer apps), MAU can be 60–80% of total users. Auth providers bill on MAU, not total users — a database with 1M registered accounts but only 50K monthly active users costs based on the 50K, not 1M.</p></div></div>
-  </div>
-</section>
-
-<section class="sec"><h2>Related Calculators</h2><div class="tool-links">
-  <a href="/ai-coding-tool-cost" class="tool-link"><span class="ic">💻</span><div><div class="tl-name">AI Coding Tool Cost</div><div class="tl-desc">Cursor vs Copilot vs Claude Code</div></div></a>
-  <a href="/vector-database-cost" class="tool-link"><span class="ic">🗄️</span><div><div class="tl-name">Vector DB Cost</div><div class="tl-desc">Pinecone vs Supabase vs Qdrant</div></div></a>
-  <a href="/llm-cost-calculator" class="tool-link"><span class="ic">🤖</span><div><div class="tl-name">LLM API Cost</div><div class="tl-desc">GPT-4o, Claude, Gemini pricing</div></div></a>
-  <a href="/" class="tool-link"><span class="ic">🧮</span><div><div class="tl-name">All Calculators</div><div class="tl-desc">12 free infra cost tools</div></div></a>
-</div></section>
-</div>
-</div>
-<footer><div class="wrap foot-in">
-  <span>© 2026 <a href="/">APICalculators</a> · Free infra cost tools</span>
-  <span>Prices are estimates · verify before you ship</span>
-</div>  <div class="wrap"><div class="foot-calcs">
-        <strong>Calculators</strong>
-        <nav>
-          <a href="/llm-cost-calculator">LLM Token Cost</a>
-          <a href="/vector-database-cost">Vector DB Cost</a>
-          <a href="/image-generation-cost">AI Image Generation</a>
-          <a href="/payment-processor-fees">Payment Fees</a>
-          <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
-          <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
-          <a href="/serverless-cost-calculator">Serverless Cost</a>
-          <a href="/api-gateway-pricing">API Gateway Cost</a>
-          <a href="/embedding-api-cost">Embedding API Cost</a>
-          <a href="/ai-agent-cost">AI Agent Cost</a>
-          <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-          <a href="/auth-provider-cost">Auth Provider Cost</a>
-        </nav>
-      </div></div>
-</footer>
-<script>
-const PROVIDERS = {
-  clerk:    { name:'Clerk',        free:10000, rate:0.02,    min_paid:0,    note:'Best DX, pricey at scale' },
-  auth0:    { name:'Auth0 (Okta)', free:7500,  rate:0.07,    min_paid:23,   note:'Enterprise grade, complex' },
-  supabase: { name:'Supabase Auth',free:50000, rate:0.00325, min_paid:0,    note:'Cheapest at scale' },
-  firebase: { name:'Firebase Auth',free:50000, rate:0.0055,  min_paid:0,    note:'Google ecosystem' },
-  better:   { name:'Better Auth',  free:10000, rate:0.01,    min_paid:0,    note:'Open source option' },
-  workos:   { name:'WorkOS',       free:1000000,rate:0.001,  min_paid:0,    note:'Enterprise SSO focus' }
-};
-function calc() {
-  const mau  = parseInt(document.getElementById('mau').value) || 10000;
-  const tier = document.getElementById('tier').value;
-  let sso_add = tier==='enterprise' ? 130 : 0;
-  const rows = Object.entries(PROVIDERS).map(([k,p])=>{
-    const billable = Math.max(0, mau - p.free);
-    let cost = billable * p.rate + sso_add;
-    if(p.min_paid>0 && billable>0) cost = Math.max(cost, p.min_paid);
-    return {name:p.name, cost:Math.round(cost*100)/100, note:p.note};
-  }).sort((a,b)=>a.cost-b.cost);
-  document.getElementById('results').innerHTML = rows.map((r,i)=>`
-    <div class="tool-result${i===0?' best':''}">
-      <div><div class="tname">${r.name}</div><div class="tnote">${r.note}</div></div>
-      <div style="text-align:right">
-        <div class="tprice">$${r.cost.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0})}/mo</div>
+<section class="wrap">
+  <div class="calc">
+    <div class="calc__inputs">
+      <div class="field">
+        <label for="provider">Provider</label>
+        <select id="provider">
+          <option value="10000|0.02" data-name="Clerk">Clerk — 10,000 free MAU, $0.02/MAU after</option>
+          <option value="7500|0.05" data-name="Auth0">Auth0 — 7,500 free MAU, $0.05/MAU after</option>
+          <option value="100000|0.00325" data-name="Supabase Auth">Supabase Auth — 100,000 free MAU, $0.00325/MAU after</option>
+          <option value="50000|0.0055" data-name="Firebase Auth">Firebase Auth — 50,000 free MAU, $0.0055/MAU after</option>
+        </select>
       </div>
-    </div>`).join('');
-}
-document.querySelectorAll('.sel,.inp').forEach(el=>el.addEventListener('input',calc));
-calc();
-document.querySelectorAll('.qa .q').forEach(q=>{
-  q.addEventListener('click',()=>{
-    const qa=q.parentElement, open=qa.classList.toggle('open');
-    const a=qa.querySelector('.a');
-    if(a) a.style.maxHeight=open?'300px':'0';
+      <div class="field">
+        <label for="mau">Monthly active users (MAU)</label>
+        <input type="number" id="mau" value="45000" min="0">
+      </div>
+    </div>
+    <div class="calc__result">
+      <span class="result__label">Estimated monthly cost</span>
+      <span class="result__value" id="totalCost">$0.00</span>
+      <span class="result__sub" id="providerName">Clerk</span>
+      <div class="result__break"><span>Free tier</span><span id="freeTier" class="mono">0</span></div>
+      <div class="result__break"><span>Billable MAU</span><span id="billableMAU" class="mono">0</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--narrow">
+    <h2>How this estimate is built</h2>
+    <p>Billable MAU is your monthly active users minus the selected provider's free-tier allowance, floored at zero so you're never charged below the free threshold. Monthly cost multiplies that billable MAU by the provider's per-MAU rate above the free tier.</p>
+    <p>It doesn't account for enterprise plan minimums, SSO or MFA add-on fees, or organization-based pricing that some providers apply for B2B multi-tenant apps. Treat this as a directional estimate for provider comparison, not an exact invoice.</p>
+
+    <h2 style="margin-top:var(--sp-8);">Frequently asked questions</h2>
+    <div class="stack">
+      <details class="faq-item" open>
+        <summary>How is auth provider cost calculated?</summary>
+        <p>Billable MAU is your monthly active users minus the provider's free tier, floored at zero. Monthly cost is that billable MAU multiplied by the provider's per-MAU rate. If your MAU is under the free tier, cost is $0.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why does Supabase Auth's free tier support so many more users than Auth0's?</summary>
+        <p>Supabase bundles auth with its broader database and backend platform and prices it to attract users into the ecosystem, while Auth0 is a standalone enterprise identity product with deeper compliance and customization features baked into its cost.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What counts as a monthly active user for billing purposes?</summary>
+        <p>Most providers count a MAU as any user who authenticates or has an active session at least once within a rolling 30-day window, regardless of how many times they log in during that period.</p>
+      </details>
+    </div>
+
+    <h2 style="margin-top:var(--sp-8);">Related calculators</h2>
+    <p><a href="/payment-processor-fees.html">Payment processor fees</a> · <a href="/api-gateway-cost.html">API gateway cost</a> · <a href="/ai-coding-tool-cost.html">AI coding tool cost</a> · <a href="/compare/clerk-vs-auth0.html">Compare: Clerk vs Auth0</a></p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/theme.js"></script>
+<script>
+(function () {
+  var providerEl = document.getElementById("provider");
+  var mauEl = document.getElementById("mau");
+
+  function fmt(n) {
+    return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function calc() {
+    var parts = providerEl.value.split("|");
+    var freeTier = parseFloat(parts[0]);
+    var rate = parseFloat(parts[1]);
+
+    var mau = parseFloat(mauEl.value) || 0;
+    var billableMAU = Math.max(0, mau - freeTier);
+    var cost = billableMAU * rate;
+
+    document.getElementById("totalCost").textContent = fmt(cost);
+    document.getElementById("freeTier").textContent = freeTier.toLocaleString("en-US");
+    document.getElementById("billableMAU").textContent = billableMAU.toLocaleString("en-US");
+    document.getElementById("providerName").textContent = providerEl.selectedOptions[0].getAttribute("data-name");
+  }
+
+  [providerEl, mauEl].forEach(function (el) {
+    el.addEventListener("input", calc);
+    el.addEventListener("change", calc);
   });
-});
+  calc();
+})();
 </script>
-</body></html>
+</body>
+</html>

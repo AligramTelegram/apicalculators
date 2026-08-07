@@ -1,118 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About APICalculators | Developer Infrastructure Cost Tools</title>
-<meta name="description" content="APICalculators builds free, privacy-first cost calculators for developers — LLM tokens, vector databases, AI image generation, and SaaS payment fees. Learn our mission and methodology.">
-<link rel="canonical" href="https://apicalculators.com/about">
-<meta name="robots" content="index, follow">
+<title>About APICalculators — How We Verify Pricing</title>
+<meta name="description" content="APICalculators is a free set of infrastructure cost tools for developers. Learn how we source and verify pricing data every month.">
+<link rel="canonical" href="https://apicalculators.com/about.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Hanken+Grotesk:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0c10;--surface:#12161d;--border:#1d2530;--text:#e8edf1;--muted:#8b97a4;--lime:#b8ff2e}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'Hanken Grotesk',sans-serif;line-height:1.7}
-.wrap{max-width:760px;margin:0 auto;padding:0 22px}
-header{border-bottom:1px solid var(--border);padding:18px 0}
-.logo{font-family:'Archivo';font-weight:800;font-size:18px}.logo b{color:var(--lime)}
-main{padding:48px 0 70px}
-h1{font-family:'Archivo';font-weight:900;font-size:40px;letter-spacing:-.03em;margin-bottom:14px}
-h1 .em{color:var(--lime)}
-.lead{font-size:18px;color:#cdd6dd;margin-bottom:30px}
-h2{font-family:'Archivo';font-weight:700;font-size:22px;margin:34px 0 10px}
-p,li{color:#cdd6dd;margin-bottom:12px}ul{padding-left:22px}
-a{color:var(--lime)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px}
-.card b{font-family:'Archivo';display:block;margin-bottom:4px}
-.card span{font-size:14px;color:var(--muted)}
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
-.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
-.stat .num{font-family:'Archivo';font-weight:900;font-size:32px;color:var(--lime);display:block}
-.stat .label{font-size:13px;color:var(--muted);margin-top:4px}
-.highlight{background:var(--surface);border-left:3px solid var(--lime);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0}
-.highlight p{margin:0;color:#cdd6dd}
-.back{display:inline-block;margin-top:30px;color:var(--muted);font-family:'JetBrains Mono';font-size:13px}
-footer{border-top:1px solid var(--border);padding:24px 0;font-family:'JetBrains Mono';font-size:12px;color:var(--muted)}
-.foot-calcs strong{display:block;margin-bottom:8px;color:var(--muted)}
-.foot-calcs nav{display:flex;flex-wrap:wrap;gap:8px 16px}
-.foot-calcs nav a{color:var(--muted);text-decoration:none;font-size:11px}
-.foot-calcs nav a:hover{color:var(--lime)}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.stat-row{grid-template-columns:1fr 1fr}}
-</style>
-<link rel="alternate" hreflang="en" href="https://apicalculators.com/about"/>
-<link rel="alternate" hreflang="de" href="https://apicalculators.com/de/about"/>
-<link rel="alternate" hreflang="fr" href="https://apicalculators.com/fr/about"/>
-<link rel="alternate" hreflang="tr" href="https://apicalculators.com/tr/about"/>
-<link rel="alternate" hreflang="x-default" href="https://apicalculators.com/about"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<script>(function(){var t=localStorage.getItem("apic-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
 </head>
 <body>
-<header><div class="wrap"><a href="/" class="logo">API<b>Calculators</b></a></div></header>
-<main class="wrap">
-  <h1>Built for engineers who hate <span class="em">surprise invoices</span>.</h1>
-  <p class="lead">APICalculators is a free, privacy-first hub of interactive cost calculators for modern developer infrastructure — from LLM API tokens to cloud VPS pricing, payment processor fees, and vector database costs.</p>
-
-  <div class="stat-row">
-    <div class="stat"><span class="num">16</span><span class="label">Free Calculators</span></div>
-    <div class="stat"><span class="num">4</span><span class="label">Languages</span></div>
-    <div class="stat"><span class="num">0</span><span class="label">Signups Required</span></div>
+<nav class="site-nav">
+  <div class="wrap site-nav__inner">
+    <a href="/" class="brand"><span class="brand__mark">$/</span> APICalculators</a>
+    <ul class="nav-links">
+      <li><a href="/#calculators">Calculators</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">◐</button>
   </div>
+</nav>
 
-  <h2>Why we built this</h2>
-  <p>Cloud and AI pricing pages are a maze of per-million-token rates, read units, pod-hours, and percentage fees. A model that costs $0.002 per 1K tokens sounds cheap until you realize your chatbot is sending 4,000 tokens per turn at 10,000 requests a day — suddenly you're looking at an $800 monthly bill you didn't budget for.</p>
-  <p>We built APICalculators because we kept running into this problem ourselves. Before choosing between Pinecone and Qdrant, before picking an auth provider, before deciding whether to self-host an LLM or use an API — we needed to know the real cost. Not the marketing page headline. The actual number at our actual scale.</p>
-  <p>The goal is one fast place to sanity-check infrastructure costs <em>before</em> shipping to production — without spreadsheets, signups, or sending any usage data to third parties.</p>
-
-  <div class="highlight">
-    <p>Every calculator runs entirely in your browser. We never see the numbers you enter. No accounts, no tracking of your inputs, no cookies beyond basic analytics.</p>
+<header class="hero" style="padding-block:var(--sp-16) var(--sp-8);">
+  <div class="wrap wrap--narrow">
+    <span class="eyebrow">About</span>
+    <h1>Built by developers who got tired of guessing bills.</h1>
+    <p class="lede">APICalculators started as an internal spreadsheet for estimating LLM spend before a launch. It kept getting reused, so we turned it into a set of free, no-signup calculators.</p>
   </div>
+</header>
 
-  <h2>What we cover</h2>
-  <div class="grid">
-    <div class="card"><b>🤖 LLM APIs</b><span>GPT-4o, Claude Sonnet, Gemini Flash, Llama — cost per request, per day, per month, by model and context length.</span></div>
-    <div class="card"><b>🧊 Vector Databases</b><span>Pinecone, Supabase, Qdrant, Weaviate, Chroma — from index size and query volume to monthly bill.</span></div>
-    <div class="card"><b>🎨 AI Image Generation</b><span>DALL·E 3, Stable Diffusion, Midjourney, Flux — per-image and per-month budgeting.</span></div>
-    <div class="card"><b>💳 Payment Processors</b><span>Stripe vs Paddle vs Lemon Squeezy vs PayPal — real fee comparison on your actual transaction volume.</span></div>
-    <div class="card"><b>☁️ Cloud VPS & Serverless</b><span>Hetzner, DigitalOcean, AWS Lambda, Cloudflare Workers — compute costs at your traffic level.</span></div>
-    <div class="card"><b>🔐 Auth Providers</b><span>Clerk, Auth0, Supabase Auth, Cognito — monthly cost by MAU tier.</span></div>
+<section class="section" style="border-top:none;">
+  <div class="wrap wrap--narrow stack">
+    <div>
+      <h2>How pricing is verified</h2>
+      <p>Every rate shown in a calculator is sourced directly from the provider's official pricing page or API documentation — never from third-party aggregators or affiliate feeds. We re-check every listed price monthly, and when a provider changes pricing publicly, we aim to update within 48 hours.</p>
+    </div>
+    <div>
+      <h2>Privacy by construction</h2>
+      <p>Every calculator runs entirely client-side in your browser. Nothing you type — token counts, user numbers, revenue figures — is sent to a server or stored. There's nothing to log because there's nothing to send.</p>
+    </div>
+    <div>
+      <h2>What this isn't</h2>
+      <p>These calculators produce estimates, not quotes. Real invoices depend on volume discounts, committed-use pricing, regional rates, and tax that a static calculator can't fully model. Treat the numbers as a planning ceiling, not a guarantee.</p>
+    </div>
   </div>
+</section>
 
-  <h2>Our methodology</h2>
-  <p>Every calculator uses published, public pay-as-you-go pricing sourced directly from each provider's official pricing page. We review and update prices monthly — and when a provider changes their pricing mid-cycle, we update within days.</p>
-  <p>Where providers use complex multi-dimensional pricing (storage + queries + egress, for example), we build transparent simplified models and clearly label outputs as estimates. We'd rather give you an honest order-of-magnitude number than a falsely precise figure that hides its assumptions.</p>
-  <p>For LLM calculators, we use the providers' published input/output token prices. We do not include fine-tuning, batch discounts, or enterprise contract pricing unless explicitly noted — those vary too much by customer to be useful as defaults.</p>
-
-  <h2>How we stay free</h2>
-  <p>APICalculators is and always will be free to use. The site is supported by display advertising and, in some cases, affiliate partnerships with infrastructure providers we'd recommend regardless. Affiliate links are always disclosed, and they never influence the math in the calculators or how we present comparisons.</p>
-  <p>We do not sell user data. We do not run paywalls. We do not require email addresses. The calculators are a public resource — that's the whole point.</p>
-
-  <h2>Get in touch</h2>
-  <p>Found a pricing error? Want a calculator we don't have yet? Spotted a bug? We want to hear from you.</p>
-  <p>Email us at <a href="mailto:hello@apicalculators.com">hello@apicalculators.com</a> or use the <a href="/contact">contact form</a>. We typically respond within 1–2 business days.</p>
-  <p>For bug reports and feature requests, you can also open an issue on <a href="https://github.com/apicalculators" rel="nofollow noopener noreferrer" target="_blank">GitHub</a>.</p>
-
-  <a class="back" href="/">← Back to calculators</a>
-</main>
-<footer><div class="wrap">© 2026 APICalculators.com · <a href="/privacy" style="color:var(--muted)">Privacy</a> · <a href="/terms" style="color:var(--muted)">Terms</a> · <a href="/contact" style="color:var(--muted)">Contact</a></div>
-  <div class="wrap" style="margin-top:16px"><div class="foot-calcs">
-    <strong>Calculators</strong>
-    <nav>
-      <a href="/llm-cost-calculator">LLM Token Cost</a>
-      <a href="/vector-database-cost">Vector DB Cost</a>
-      <a href="/image-generation-cost">AI Image Generation</a>
-      <a href="/payment-processor-fees">Payment Fees</a>
-      <a href="/cloud-vps-comparison">Cloud VPS Comparison</a>
-      <a href="/stt-tts-api-cost">STT / TTS API Cost</a>
-      <a href="/serverless-cost-calculator">Serverless Cost</a>
-      <a href="/api-gateway-pricing">API Gateway Cost</a>
-      <a href="/embedding-api-cost">Embedding API Cost</a>
-      <a href="/ai-agent-cost">AI Agent Cost</a>
-      <a href="/ai-coding-tool-cost">AI Coding Tool Cost</a>
-      <a href="/auth-provider-cost">Auth Provider Cost</a>
-    </nav>
-  </div></div>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span><a href="/">← All calculators</a></span>
+      <span>Pricing reviewed monthly</span>
+    </div>
+  </div>
 </footer>
+<script src="/theme.js"></script>
 </body>
 </html>
